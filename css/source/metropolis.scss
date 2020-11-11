@@ -15,6 +15,7 @@
 
 // Include theme-specific fonts
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
 
 /**
@@ -66,6 +67,9 @@ $linkColorHover: $mLightGreen;
 
 $selectionColor: $mBackground;
 $selectionBackgroundColor: $mLightBrown;
+
+$codeFont: 'Fira Mono regular', monospace;
+
 
 // // Override theme settings (see ../template/settings.scss)
 // $headingColor: $base01;

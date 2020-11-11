@@ -50,3 +50,7 @@ u_t-\Delta_\Gamma u &=f && \mbox{ on }\Gamma \times [0,T] \\
 u(0) & = u_0 && \mbox{ on } \Gamma.
 \end{align}
 $$
+
+## Third slide with inline code
+
+Special code word `git`

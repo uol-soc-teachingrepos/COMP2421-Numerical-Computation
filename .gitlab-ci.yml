@@ -1,3 +1,5 @@
+image: continuumio/miniconda3:latest
+
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 

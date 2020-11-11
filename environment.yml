@@ -1,5 +1,8 @@
 name: revealjs
 
+channels:
+  -conda-forge
+
 dependencies:
   - nodejs = 14.14
   - pandoc = 2.11

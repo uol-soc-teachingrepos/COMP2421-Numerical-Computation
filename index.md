@@ -6,7 +6,6 @@ author:
   with: others
 title: Talk title
 # pandoc options
-revealjs-url: ./js/revealjs
 transition: none
 backgroundTransition: none
 autoPlayMedia: true

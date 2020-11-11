@@ -39,15 +39,7 @@ $endfor$
   <script src="$revealjs-url$/lib/js/html5shiv.js"></script>
   <![endif]-->
 $if(mathjax)$
-<script src="./js/revealjs/plugin/math/math.js">
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      "HTML-CSS": {
-	  preferredFont: "STIX-Web",
-	  scale: 80
-      }
-  });
-</script>
+<script src="./js/revealjs/plugin/math/math.js"></script>
 $endif$
 $for(header-includes)$
   $header-includes$
@@ -272,23 +264,29 @@ $if(autoPlayMedia)$
 autoPlayMedia: $autoPlayMedia$,
 $endif$
 $if(mathjax)$
-        math: {
-          mathjax: '$mathjaxurl$',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
+	  math: {
+	      mathjax: '$mathjaxurl$',
+	      config: 'TeX-AMS_HTML-full',
+	      tex2jax: {
+		  inlineMath: [['\\(','\\)']],
+		  displayMath: [['\\[','\\]']],
+		  balanceBraces: true,
+		  processEscapes: false,
+		  processRefs: true,
+		  processEnvironments: true,
+		  preview: 'TeX',
+		  skipTags: ['script','noscript','style','textarea','pre','code'],
+		  ignoreClass: 'tex2jax_ignore',
+		  processClass: 'tex2jax_process'
+	      },
+	      "HTML-CSS": {
+		  preferredFont: "STIX-Web",
+		  scale: 80
+	      }
+	  },
 $endif$
+
+	  plugins: [ $if(mathjax)$RevealMath$endif$ ]
       });
     </script>
   $for(include-after)$

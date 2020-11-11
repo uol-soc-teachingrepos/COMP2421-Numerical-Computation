@@ -4,6 +4,7 @@ channels:
   - conda-forge
 
 dependencies:
+  - make = 4.21
   - nodejs = 14.14
   - pandoc = 2.11
   - pandocfilters = 1.4

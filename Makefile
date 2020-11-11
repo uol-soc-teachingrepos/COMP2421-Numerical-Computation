@@ -7,7 +7,7 @@ BUILDDIR=public
 all: ${TARGETS}
 
 %.html: %.md pandoc/video-filter.py pandoc/revealjs-template.html bib/library.bibtex
-	pandoc --filter pandoc-citeproc \
+	pandoc --citeproc \
 	--filter ./pandoc/video-filter.py \
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \

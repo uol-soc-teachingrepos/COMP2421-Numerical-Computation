@@ -1,7 +1,7 @@
 name: revealjs
 
 channels:
-  -conda-forge
+  - conda-forge
 
 dependencies:
   - nodejs = 14.14

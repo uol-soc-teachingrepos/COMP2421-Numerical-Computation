@@ -62,9 +62,10 @@ $heading4Size: 1.5em;
 }
 
 $linkColor: $mLightBrown;
+$linkColorHover: $mLightGreen;
 
-$selectionColor: $mLightGreen;
-$selectionBackgroundColor: $mDarkTeal;
+$selectionColor: $mBackground;
+$selectionBackgroundColor: $mLightBrown;
 
 // // Override theme settings (see ../template/settings.scss)
 // $headingColor: $base01;
@@ -84,3 +85,18 @@ $selectionBackgroundColor: $mDarkTeal;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+
+/***
+* LOGOS:
+***/
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 20%;
+    height: auto;
+}

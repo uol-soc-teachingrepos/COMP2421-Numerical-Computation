@@ -48,9 +48,9 @@ html * {
   --heading4-size: 1.5em;
   --code-font: monospace;
   --link-color: #EB811B;
-  --link-color-hover: #71e9f4;
-  --selection-background-color: #23373b;
-  --selection-color: #14B03D; }
+  --link-color-hover: #14B03D;
+  --selection-background-color: #EB811B;
+  --selection-color: #fafafa; }
 
 .reveal-viewport {
   background: #fafafa;
@@ -63,13 +63,13 @@ html * {
   color: #23373b; }
 
 .reveal ::selection {
-  color: #14B03D;
-  background: #23373b;
+  color: #fafafa;
+  background: #EB811B;
   text-shadow: none; }
 
 .reveal ::-moz-selection {
-  color: #14B03D;
-  background: #23373b;
+  color: #fafafa;
+  background: #EB811B;
   text-shadow: none; }
 
 .reveal .slides section,
@@ -268,7 +268,7 @@ html * {
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #71e9f4;
+  color: #14B03D;
   text-shadow: none;
   border: none; }
 
@@ -313,13 +313,10 @@ html * {
 /***
 * LOGOS:
 ***/
-
 .logo {
-    display: flex;
-    justify-content: space-between;
-}
+  display: flex;
+  justify-content: space-between; }
 
 .logo img {
-    width: 20%;
-    height: auto;
-}
+  width: 20%;
+  height: auto; }

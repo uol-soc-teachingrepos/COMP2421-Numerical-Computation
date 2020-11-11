@@ -30,4 +30,16 @@ link-citations: true
 ## Slide title
 
 slide text
-# 
+
+## Second slide with maths
+
+$$
+a = b + c
+$$
+
+$$
+\begin{align}
+u_t-\Delta_\Gamma u &=f && \mbox{ on }\Gamma \times [0,T] \\
+u(0) & = u_0 && \mbox{ on } \Gamma.
+\end{align}
+$$

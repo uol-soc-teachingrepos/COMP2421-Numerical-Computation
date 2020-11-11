@@ -1,0 +1,19 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+before_script:
+  - conda env create -f environment.yml
+  - source activate revealjs
+  - pandoc --version
+
+test:
+  script:
+    - make $HTML_TARGETS
+
+pages:
+  stage: deploy
+  script:
+    - make build
+  artifacts:
+    paths:
+      - public

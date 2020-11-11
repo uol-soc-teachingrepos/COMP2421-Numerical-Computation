@@ -38,9 +38,6 @@ $endfor$
   <!--[if lt IE 9]>
   <script src="$revealjs-url$/lib/js/html5shiv.js"></script>
   <![endif]-->
-$if(mathjax)$
-<script src="./js/revealjs/plugin/math/math.js"></script>
-$endif$
 $for(header-includes)$
   $header-includes$
 $endfor$
@@ -101,6 +98,9 @@ $body$
   </div>
 
   <script src="./js/revealjs/dist/reveal.js"></script>
+  $if(mathjax)$
+  <script src="./js/revealjs/plugin/math/math.js"></script>
+  $endif$
 
   <script>
 

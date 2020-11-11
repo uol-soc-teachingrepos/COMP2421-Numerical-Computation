@@ -5,6 +5,13 @@ author:
   email: T.Ranner@leeds.ac.uk
   with: others
 title: Talk title
+logos:
+- source: ./img/Leeds_Logo.svg
+  alt: University of Leeds
+- source: ./img/EPSRC.png
+  alt: EPSRC
+- source: ./img/leverhulme-black.svg
+  alt: Leverhulme Trust
 # pandoc options
 transition: none
 backgroundTransition: none

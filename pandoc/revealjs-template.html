@@ -89,12 +89,13 @@ $endif$
   </small></p>
   $endif$
 
-  <div style="float: right; clear: right; margin: 10px; width: 20%" >
-    <img class="plain" data-src="./img/EPSRC.png">
+  $if(logos)$
+  <div class="logo">
+    $for(logos)$
+    <img data-src="$logos.source$" alt="$logos.alt$">
+    $endfor$
   </div>
-  <div style="float: left; clear: left; margin: 10px; width:20%">
-    <img class="plain" data-src="./img/leverhulme-black.svg">
-  </div>
+  $endif$
 </section>
 $endif$
 $if(toc)$

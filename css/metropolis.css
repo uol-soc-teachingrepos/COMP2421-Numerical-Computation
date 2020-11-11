@@ -309,3 +309,17 @@ html * {
 @media print {
   .backgrounds {
     background-color: #fafafa; } }
+
+/***
+* LOGOS:
+***/
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 20%;
+    height: auto;
+}

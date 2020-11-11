@@ -1,0 +1,86 @@
+/**
+ * Metropolis theme for reveal.js.
+ * Author: Tom Ranner (T.Ranner at leeds.ac.uk)
+ * Base on ideas from mtheme by Matthias Vogelgesang
+ * https://github.com/matze/mtheme
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+
+/**
+ * Metropolis colors by Ethan Schoonover
+ */
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+// colours
+$mDarkBrown: #604c38;
+$mDarkTeal:  #23373b;
+$mLightBrown: #EB811B;
+$mLightGreen: #14B03D;
+$mBackground: #fafafa;
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Fira Sans Light', sans-serif;
+$mainFontSize: 30px;
+$mainColor: $mDarkTeal;
+$backgroundColor: $mBackground;
+
+$headingColor: $mDarkTeal;
+$headingFont: 'Fira Sans Light', sans-serif;
+$headingTextTransform: none;
+$headingTextShadow: none;
+
+$heading1Size: 1.5em;
+$heading2Size: 1.5em;
+$heading3Size: 1.5em;
+$heading4Size: 1.5em;
+
+.reveal h1:after,
+.reveal h2:after,
+.reveal h3:after {
+  left:0px;
+  display:block;
+  position:absolute;
+  width:100%;
+  height:1px;
+  margin-top:2px;
+  content: " ";
+  background: $mLightBrown;
+}
+
+$linkColor: $mLightBrown;
+
+$selectionColor: $mLightGreen;
+$selectionBackgroundColor: $mDarkTeal;
+
+// // Override theme settings (see ../template/settings.scss)
+// $headingColor: $base01;
+// $headingTextShadow: none;
+// $backgroundColor: $base3;
+// $linkColor: $blue;
+// $linkColorHover: lighten( $linkColor, 20% );
+// $selectionBackgroundColor: $magenta;
+
+// Background generator
+// @mixin bodyBackground() {
+// 	@include radial-gradient( rgba($base3,1), rgba(lighten($base3, 20%),1) );
+// }
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

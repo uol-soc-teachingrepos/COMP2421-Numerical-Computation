@@ -1,4 +1,5 @@
 HTML_TARGETS=index.html
+ALL_HTML_TARGETS=index.html index.full.html index.embed.html
 
 TARGETS=${HTML_TARGETS}
 
@@ -19,7 +20,7 @@ all: ${TARGETS}
 	-s $< -o $@
 
 %.embed.html: %.md
-	pandoc --filter pandoc-citeproc \
+	pandoc --citeproc \
 	--filter ./pandoc/video-filter.py \
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \
@@ -29,10 +30,11 @@ all: ${TARGETS}
 	-V slideNumber=false \
 	--slide-level 2 \
 	-V embedded="true" \
+	-V print-pdf=false \
 	-s $< -o $@
 
 %.full.html: %.md
-	pandoc --filter pandoc-citeproc \
+	pandoc --citeproc \
 	--filter ./pandoc/video-filter.py \
 	--self-contained \
 	--mathjax \
@@ -43,13 +45,15 @@ all: ${TARGETS}
 	-V slideNumber="'c'" \
 	-s $< -o $@
 
-build: ${HTML_TARGETS}
+build: ${ALL_HTML_TARGETS}
 	mkdir -p ${BUILDDIR}
-	cp ${HTML_TARGETS} ${BUILDDIR}/.
+	cp ${ALL_HTML_TARGETS} ${BUILDDIR}/.
 	cp -r css ${BUILDDIR}/css
 	cp -r img ${BUILDDIR}/img
 	cp -r js ${BUILDDIR}/js
 	cp -r video ${BUILDDIR}/video
+
+.PHONY: build
 
 clean:
 	rm -f ${TARGETS}

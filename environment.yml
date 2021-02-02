@@ -10,3 +10,6 @@ dependencies:
   - nodejs = 14.14
   - pandoc = 2.11
   - pandocfilters = 1.4
+  - pip
+  - pip:
+      - httpwatcher

@@ -11,3 +11,4 @@ dependencies:
   - pandoc = 2.11
   - pandocfilters = 1.4
   - livereload = 2.6
+  - conda-forge::ffmpeg = 4.3

@@ -104,3 +104,27 @@ $codeFont: 'Fira Mono regular', monospace;
     width: 20%;
     height: auto;
 }
+
+/***
+* Multiple columns format:
+***/
+
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+
+/***
+* References section
+***/
+
+.references {
+    overflow-y: scroll;
+    height: 50vh;
+    font-size: 60%;
+    text-align: left !important;
+    margin: 12px 0;
+    display: block;
+}

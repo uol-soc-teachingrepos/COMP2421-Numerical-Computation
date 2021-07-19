@@ -4,8 +4,7 @@ import pypandoc
 
 
 output = sys.argv[1]
-buildir = os.path.dirname(output)
-input = sys.argv[2:]
+input = sorted(sys.argv[2:])
 
 in_text = """
 # Lectures
@@ -13,8 +12,9 @@ in_text = """
 """
 
 for fn in input:
-    html = os.path.join(fn, "index.html")
-    in_text += f"\n- [{fn}]({html})"
+    lec = os.path.splitext(fn)[0]
+    html = os.path.join(lec, "index.html")
+    in_text += f"\n- [{lec}]({html})"
 
 out_text = pypandoc.convert_text(in_text, "html", format="md", extra_args=["-s"])
 

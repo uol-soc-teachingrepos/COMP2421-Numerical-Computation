@@ -19,7 +19,7 @@ full: $(ALL_TARGETS) ${BUILDDIR}/index.html
 	cp -r img ${BUILDDIR}/img
 
 ${BUILDDIR}/index.html: ./pandoc/make-index.py
-	python ./pandoc/make-index.py $@ $(LECTURES:%.md:%)
+	python ./pandoc/make-index.py $@ $(LECTURES)
 
 ${BUILDDIR}/lec%/index.html: lec/lec%.md pandoc/revealjs-template.html
 	mkdir -p $(shell dirname $@)

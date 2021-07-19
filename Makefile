@@ -8,11 +8,11 @@ BUILDDIR=public
 all: ${TARGETS}
 
 %.html: %.md pandoc/video-filter.py pandoc/revealjs-template.html bib/library.bibtex
-	pandoc --citeproc \
-	--filter ./pandoc/video-filter.py \
+	pandoc  \
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \
 	-t revealjs \
+	--no-highlight \
 	--slide-level 2 \
 	-V controls=true \
 	-V controlsTutorial=true \
@@ -25,6 +25,7 @@ all: ${TARGETS}
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \
 	-t revealjs \
+	--no-highlight \
 	-V controls=true \
 	-V controlsTutorial=true \
 	-V slideNumber=false \
@@ -40,6 +41,7 @@ all: ${TARGETS}
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \
 	-t revealjs \
+	--no-highlight \
 	--slide-level 2 \
 	-V controls=false \
 	-V slideNumber="'c'" \

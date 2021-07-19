@@ -10,12 +10,12 @@ before_script:
 
 test:
   script:
-    - make $HTML_TARGETS
+    - make
 
 pages:
   stage: deploy
   script:
-    - make build
+    - make full
   artifacts:
     paths:
       - public

@@ -1,14 +1,12 @@
 BUILDDIR=public
 
-LECTURES=\
-  lec01 \
-  lec14
+LECTURES=$(shell find lec -name "*.md" -exec basename {} \;)
 
-TARGETS=$(LECTURES:%=$(BUILDDIR)/%/index.html)
+TARGETS=$(LECTURES:%.md=$(BUILDDIR)/%/index.html)
 ALL_TARGETS= \
-	$(LECTURES:%=$(BUILDDIR)/%/index.html) \
-	$(LECTURES:%=$(BUILDDIR)/%/embed.html) \
-	$(LECTURES:%=$(BUILDDIR)/%/presenter.html) \
+	$(LECTURES:%.md=$(BUILDDIR)/%/index.html) \
+	$(LECTURES:%.md=$(BUILDDIR)/%/embed.html)
+# $(LECTURES:%.md=$(BUILDDIR)/%/presenter.html) \
 
 all: $(TARGETS) ${BUILDDIR}/index.html
 	cp -r css ${BUILDDIR}/css

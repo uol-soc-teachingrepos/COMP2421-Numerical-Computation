@@ -4,3 +4,6 @@
 [submodule "js/mathjax"]
 	path = js/mathjax
 	url = https://github.com/mathjax/MathJax.git
+[submodule "js/menu"]
+	path = js/menu
+	url = https://github.com/denehyg/reveal.js-menu.git

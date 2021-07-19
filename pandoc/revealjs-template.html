@@ -32,6 +32,7 @@ $if(highlighting-css)$
 $highlighting-css$
   </style>
 $endif$
+  <link rel="stylesheet" href="../css/fira-fonts.css" id="font"/>
   <link rel="stylesheet" href="../css/metropolis.css" id="theme"/>
   <link rel="stylesheet" href="../css/github.css" id="highlight-theme"/>
   <!--[if lt IE 9]>
@@ -160,6 +161,7 @@ $body$
   $endif$
   $if(menu)$
   <script src="../js/menu/menu.js"></script>
+  <script src="../common/theme.js"></script>
   $endif$
   <script src="../js/revealjs/plugin/highlight/highlight.js"></script> 
 
@@ -374,6 +376,13 @@ $if(menu)$
 		  },
 	      ],
 	      transitions: true,
+	      custom: [
+		  {
+		      title: 'About',
+		      icon: '<i class="fa fa-info">',
+		      src: '../common/custom.html'
+		  }
+	      ]
 	  },
 $endif$
 	  plugins: [

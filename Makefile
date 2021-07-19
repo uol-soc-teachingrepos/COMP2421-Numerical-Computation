@@ -12,11 +12,13 @@ all: $(TARGETS) ${BUILDDIR}/index.html
 	cp -r css ${BUILDDIR}/css
 	cp -r js ${BUILDDIR}/js
 	cp -r img ${BUILDDIR}/img
+	cp -r static/* ${BUILDDIR}
 
 full: $(ALL_TARGETS) ${BUILDDIR}/index.html
 	cp -r css ${BUILDDIR}/css
 	cp -r js ${BUILDDIR}/js
 	cp -r img ${BUILDDIR}/img
+	cp -r static/* ${BUILDDIR}
 
 ${BUILDDIR}/index.html: ./pandoc/make-index.py
 	python ./pandoc/make-index.py $@ $(LECTURES)

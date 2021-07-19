@@ -4,14 +4,10 @@
  * Base on ideas from TODO
  * TODO
  */
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
-@import url("https://fonts.googleapis.com/css?family=Fira+Mono");
 /**
  * Metropolis colors by Ethan Schoonover
  */
 :root {
-    --main-font: "Fira Sans Light", sans-serif;
-    --code-font: "Fira Mono regular", monospace;
     --main-bg-color: black;
     --main-fg-color: white;
     --hl-fg-color1:  orange;

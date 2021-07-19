@@ -84,12 +84,17 @@ Examples:
 1. In the case $(\beta, t, L, U) = (2, 6, -7, 8)$ (binary),
    $$
    1 0000 = .1000 00 \times 2^5, \quad
-   1011.11 = .1011 11 \times 2^4, \quad
+   1011.11 = .1011 11 \times 2^4,$$
+   $$
    0.0000 11 = .1100 00 \times 2^{-4}.
    $$
-1. The [IEEE single precision standard](https://doi.org/10.1109/IEEESTD.2019.8766229) is $(\beta, t, L, U) = (2, 23, -127, 128)$).
-1. The [IEEE double precision standard](https://doi.org/10.1109/IEEESTD.2019.8766229) is $(\beta, t, L, U) = (2, 52, -1023, 1024)$.
 1. Zero is always taken to be a special case e.g., $0 = \pm .00\ldots 0 \times \beta^0$.
+
+## Standards
+
+1. The [IEEE single precision standard](https://doi.org/10.1109/IEEESTD.2019.8766229) is $(\beta, t, L, U) = (2, 23, -127, 128)$. This is available via `numpy.single`.
+
+1. The [IEEE double precision standard](https://doi.org/10.1109/IEEESTD.2019.8766229) is $(\beta, t, L, U) = (2, 52, -1023, 1024)$. This is available via `numpy.double`.
 
 ## Example 1
 

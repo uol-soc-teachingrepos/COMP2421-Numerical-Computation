@@ -32,6 +32,7 @@ ${BUILDDIR}/lec%/index.html: lec/lec%.md pandoc/revealjs-template.html
 	-V controls=true \
 	-V controlsTutorial=true \
 	-V slideNumber="'c'" \
+	-V history=true \
 	-s $< -o $@
 
 ${BUILDDIR}/lec%/embed.html: lec/lec%.md pandoc/revealjs-template.html
@@ -47,6 +48,7 @@ ${BUILDDIR}/lec%/embed.html: lec/lec%.md pandoc/revealjs-template.html
 	--slide-level 2 \
 	-V embedded="true" \
 	-V print-pdf=false \
+	-V history=true \
 	-s $< -o $@
 
 ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
@@ -59,6 +61,7 @@ ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
 	--slide-level 2 \
 	-V controls=false \
 	-V slideNumber="'c'" \
+	-V history=true \
 	-s $< -o $@
 
 clean:

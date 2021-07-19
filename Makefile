@@ -1,13 +1,30 @@
-HTML_TARGETS=index.html
-ALL_HTML_TARGETS=index.html index.full.html index.embed.html
-
-TARGETS=${HTML_TARGETS}
-
 BUILDDIR=public
 
-all: ${TARGETS}
+LECTURES=\
+  lec01 \
+  lec14
 
-%.html: %.md pandoc/video-filter.py pandoc/revealjs-template.html bib/library.bibtex
+TARGETS=$(LECTURES:%=$(BUILDDIR)/%/index.html)
+ALL_TARGETS= \
+	$(LECTURES:%=$(BUILDDIR)/%/index.html) \
+	$(LECTURES:%=$(BUILDDIR)/%/embed.html) \
+	$(LECTURES:%=$(BUILDDIR)/%/presenter.html) \
+
+all: $(TARGETS) ${BUILDDIR}/index.html
+	cp -r css ${BUILDDIR}/css
+	cp -r js ${BUILDDIR}/js
+	cp -r img ${BUILDDIR}/img
+
+full: $(ALL_TARGETS) ${BUILDDIR}/index.html
+	cp -r css ${BUILDDIR}/css
+	cp -r js ${BUILDDIR}/js
+	cp -r img ${BUILDDIR}/img
+
+${BUILDDIR}/index.html: ./pandoc/make-index.py
+	python ./pandoc/make-index.py $@ $(LECTURES)
+
+${BUILDDIR}/lec%/index.html: lec/lec%.md pandoc/revealjs-template.html
+	mkdir -p $(shell dirname $@)
 	pandoc  \
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \
@@ -19,9 +36,9 @@ all: ${TARGETS}
 	-V slideNumber="'c'" \
 	-s $< -o $@
 
-%.embed.html: %.md
-	pandoc --citeproc \
-	--filter ./pandoc/video-filter.py \
+${BUILDDIR}/lec%/embed.html: lec/lec%.md pandoc/revealjs-template.html
+	mkdir -p $(shell dirname $@)
+	pandoc \
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \
 	-t revealjs \
@@ -34,9 +51,8 @@ all: ${TARGETS}
 	-V print-pdf=false \
 	-s $< -o $@
 
-%.full.html: %.md
-	pandoc --citeproc \
-	--filter ./pandoc/video-filter.py \
+${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
+	pandoc \
 	--self-contained \
 	--mathjax \
 	--template=./pandoc/revealjs-template.html \
@@ -47,16 +63,5 @@ all: ${TARGETS}
 	-V slideNumber="'c'" \
 	-s $< -o $@
 
-build: ${ALL_HTML_TARGETS}
-	mkdir -p ${BUILDDIR}
-	cp ${ALL_HTML_TARGETS} ${BUILDDIR}/.
-	cp -r css ${BUILDDIR}/css
-	cp -r img ${BUILDDIR}/img
-	cp -r js ${BUILDDIR}/js
-	cp -r video ${BUILDDIR}/video
-
-.PHONY: build
-
 clean:
-	rm -f ${TARGETS}
 	rm -rf ${BUILDDIR}

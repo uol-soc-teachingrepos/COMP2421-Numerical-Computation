@@ -7,10 +7,10 @@ title: COMP2421 Lecture 1
 transition: none
 backgroundTransition: none
 autoPlayMedia: true
-css: ./css/metropolis.css
+css: ../css/metropolis.css
 center: false
 # mathjax
-mathjaxurl: ./js/mathjax/es5/tex-chtml-full.js
+mathjaxurl: ../js/mathjax/es5/tex-chtml-full.js
 include-before: |
   <div style="display:none">
   $$

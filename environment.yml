@@ -4,11 +4,9 @@ channels:
   - conda-forge
 
 dependencies:
-  - git = 2.27
-  - git-lfs = 2.11
+  - git = 2.32
   - make
   - nodejs = 14.14
-  - pandoc = 2.11
-  - pandocfilters = 1.4
+  - pandoc = 2.14
+  - pypandoc = 1.6
   - livereload = 2.6
-  - conda-forge::ffmpeg = 4.3

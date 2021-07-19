@@ -32,9 +32,8 @@ $if(highlighting-css)$
 $highlighting-css$
   </style>
 $endif$
-$for(css)$
-  <link rel="stylesheet" href="$css$"/>
-$endfor$
+  <link rel="stylesheet" href="./css/metropolis.css" id="theme"/>
+  <link rel="stylesheet" href="./css/github.css" id="highlight-theme"/>
   <!--[if lt IE 9]>
   <script src="$revealjs-url$/lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -159,6 +158,10 @@ $body$
   $if(mathjax)$
   <script src="./js/revealjs/plugin/math/math.js"></script>
   $endif$
+  $if(menu)$
+  <script src="./js/menu/menu.js"></script>
+  $endif$
+  <script src="./js/revealjs/plugin/highlight/highlight.js"></script> 
 
   <script>
 
@@ -342,9 +345,42 @@ $if(mathjax)$
 		  scale: 80
 	      }
 	  },
-$endif$
 
-	  plugins: [ $if(mathjax)$RevealMath$endif$ ]
+$endif$
+$if(menu)$
+	  menu: {
+	      numbers: 'c',
+	      openSlideNumber: true,
+	      themes: [
+		  {
+		      name: "Light",
+		      theme: "./css/metropolis.css",
+		      highlightTheme: "./css/github.css",
+		  },
+		  {
+		      name: "Beige",
+		      theme: "./css/solarized-light.css",
+		      highlightTheme: "./css/solarized-light-code.css",
+		  },
+		  {
+		      name: "Blue",
+		      theme: "./css/solarized-dark.css",
+		      highlightTheme: "./css/solarized-dark-code.css",
+		  },
+		  {
+		      name: "Dark",
+		      theme: "./css/owl.css",
+		      highlightTheme: "./css/github-dark.css",
+		  },
+	      ],
+	      transitions: true,
+	  },
+$endif$
+	  plugins: [
+	      $if(mathjax)$RevealMath,$endif$
+	      $if(menu)$RevealMenu,$endif$
+	      RevealHighlight,
+	  ]
       });
     </script>
   $for(include-after)$

@@ -12,12 +12,10 @@
 :root {
     --main-font: "Fira Sans Light", sans-serif;
     --code-font: "Fira Mono regular", monospace;
-    /* --main-bg-color: #fafafa; */
-    /* --main-fg-color: #23373b; */
-    --main-bg-color: white;
-    --main-fg-color: black;
-    --hl-fg-color1:  blue;
-    --hl-fg-color2:  red;
+    --main-bg-color: #fdf6e3;
+    --main-fg-color: #586e75;
+    --hl-fg-color1:  #268bd2;
+    --hl-fg-color2:  #dc322f;
 }
 
 

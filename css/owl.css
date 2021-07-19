@@ -1,22 +1,20 @@
 /**
- * Metropolis theme for reveal.js.
+ * Owl theme for reveal.js.
  * Author: Tom Ranner (T.Ranner at leeds.ac.uk)
- * Base on ideas from mtheme by Matthias Vogelgesang
- * https://github.com/matze/mtheme
+ * Base on ideas from TODO
+ * TODO
  */
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import url("https://fonts.googleapis.com/css?family=Fira+Mono");
 /**
- * Metropolis colors
+ * Metropolis colors by Ethan Schoonover
  */
 :root {
     --main-font: "Fira Sans Light", sans-serif;
     --code-font: "Fira Mono regular", monospace;
-    /* --main-bg-color: #fafafa; */
-    /* --main-fg-color: #23373b; */
-    --main-bg-color: white;
-    --main-fg-color: black;
-    --hl-fg-color1:  blue;
+    --main-bg-color: black;
+    --main-fg-color: white;
+    --hl-fg-color1:  orange;
     --hl-fg-color2:  red;
 }
 

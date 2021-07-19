@@ -64,5 +64,8 @@ ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
 	-V history=true \
 	-s $< -o $@
 
+dist: $(ALL_TARGETS) ${BUILDDIR}/index.html
+	tar -cvzf slides.tar.gz ${BUILDDIR}
+
 clean:
 	rm -rf ${BUILDDIR}

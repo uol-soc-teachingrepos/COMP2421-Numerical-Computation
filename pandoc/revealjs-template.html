@@ -16,8 +16,8 @@ $endif$
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../js/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../js/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="$basename$/js/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="$basename$/js/revealjs/dist/reveal.css">
   <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -27,14 +27,9 @@ $if(quotes)$
       q { quotes: "“" "”" "‘" "’"; }
 $endif$
   </style>
-$if(highlighting-css)$
-  <style>
-$highlighting-css$
-  </style>
-$endif$
-  <link rel="stylesheet" href="../css/fira-fonts.css" id="font"/>
-  <link rel="stylesheet" href="../css/metropolis.css" id="theme"/>
-  <link rel="stylesheet" href="../css/github.css" id="highlight-theme"/>
+  <link rel="stylesheet" href="$basename$/css/fira-fonts.css" id="font"/>
+  <link rel="stylesheet" href="$basename$/css/metropolis.css" id="theme"/>
+  <link rel="stylesheet" href="$basename$/css/github.css" id="highlight-theme"/>
   <!--[if lt IE 9]>
   <script src="$revealjs-url$/lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -47,64 +42,6 @@ $for(include-before)$
 $include-before$
 $endfor$
   <div class="reveal">
-$if(print-pdf)$
-<style>
-  #ribbon a {
-      /* background:#000; */
-      /* color:#fff; */
-      text-decoration:none;
-      /* font-family:arial,sans-serif; */
-      text-align:center;
-      font-weight:bold;
-      padding:5px 40px;
-      font-size:1rem;
-      line-height:2rem;
-      position:relative;
-      transition:0.5s;
-  }
-  #ribbon a::before, #ribbon a::after {
-      content:"";
-      width:100%;
-      display:block;
-      position:absolute;
-      top:1px;
-      left:0;
-      height:1px;
-      /* background:#fff; */
-  }
-  #ribbon a::after {
-      bottom:1px;
-      top:auto;
-  }
-  @media screen and (min-width:800px) {
-      #ribbon {
-	  position:fixed;
-	  display:block;
-	  top:0;
-	  right:0;
-	  width:200px;
-	  overflow:hidden;
-	  height:200px;
-	  z-index:9999;
-      }
-      #ribbon a {
-	  width:200px;
-	  position:absolute;
-	  top:60px;
-	  right:-60px;
-	  transform:rotate(45deg);
-	  -webkit-transform:rotate(45deg);
-	  -ms-transform:rotate(45deg);
-	  -moz-transform:rotate(45deg);
-	  -o-transform:rotate(45deg);
-	  box-shadow:4px 4px 10px rgba(0,0,0,0.8);
-      }
-  }
-</style>
-<span id="ribbon">
-  <a href="?print-pdf">Printable version</a>
-</span>
-$endif$
     <div class="slides">
 
 $if(title)$
@@ -155,15 +92,15 @@ $body$
     </div>
   </div>
 
-  <script src="../js/revealjs/dist/reveal.js"></script>
+  <script src="$basename$/js/revealjs/dist/reveal.js"></script>
   $if(mathjax)$
-  <script src="../js/revealjs/plugin/math/math.js"></script>
+  <script src="$basename$/js/revealjs/plugin/math/math.js"></script>
   $endif$
   $if(menu)$
-  <script src="../js/menu/menu.js"></script>
-  <script src="../common/theme.js"></script>
+  <script src="$basename$/js/menu/menu.js"></script>
+  <script src="$basename$/common/theme.js"></script>
   $endif$
-  <script src="../js/revealjs/plugin/highlight/highlight.js"></script> 
+  <script src="$basename$/js/revealjs/plugin/highlight/highlight.js"></script> 
 
   <script>
 

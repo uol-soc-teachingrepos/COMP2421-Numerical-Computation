@@ -8,7 +8,6 @@ subtitle: Floating point arithmetic
 transition: none
 backgroundTransition: none
 autoPlayMedia: true
-css: ../css/metropolis.css
 center: false
 # mathjax
 mathjaxurl: ../js/mathjax/es5/tex-chtml-full.js
@@ -20,8 +19,6 @@ include-before: |
   </div>
 # citeproc
 link-citations: true
-# menu
-menu: true
 ---
 <!-- TODO: table of contents -->
 
@@ -271,7 +268,7 @@ Divide by zero
 Divide by `inf`
  ~ gives $0.0$ with no warning
 
-## (In code)
+## Evidence in Python
 
 Overflow
 ```python

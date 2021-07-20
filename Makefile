@@ -5,8 +5,8 @@ LECTURES=$(shell find lec -name "*.md" -exec basename {} \;)
 TARGETS=$(LECTURES:%.md=$(BUILDDIR)/%/index.html)
 ALL_TARGETS= \
 	$(LECTURES:%.md=$(BUILDDIR)/%/index.html) \
-	$(LECTURES:%.md=$(BUILDDIR)/%/embed.html)
-# $(LECTURES:%.md=$(BUILDDIR)/%/presenter.html) \
+	$(LECTURES:%.md=$(BUILDDIR)/%/embed.html) \
+	$(LECTURES:%.md=$(BUILDDIR)/%/presenter.html) \
 
 all: $(TARGETS) ${BUILDDIR}/index.html
 	cp -r css ${BUILDDIR}/css
@@ -35,6 +35,8 @@ ${BUILDDIR}/lec%/index.html: lec/lec%.md pandoc/revealjs-template.html
 	-V controlsTutorial=true \
 	-V slideNumber="'c'" \
 	-V history=true \
+	-V menu=true \
+	-V basename=".." \
 	-s $< -o $@
 
 ${BUILDDIR}/lec%/embed.html: lec/lec%.md pandoc/revealjs-template.html
@@ -49,8 +51,8 @@ ${BUILDDIR}/lec%/embed.html: lec/lec%.md pandoc/revealjs-template.html
 	-V slideNumber=false \
 	--slide-level 2 \
 	-V embedded="true" \
-	-V print-pdf=false \
 	-V history=true \
+	-V basename=".." \
 	-s $< -o $@
 
 ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
@@ -64,7 +66,8 @@ ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
 	-V controls=false \
 	-V slideNumber="'c'" \
 	-V history=true \
-	-s $< -o $@
+	-V basename="public" \
+	$< -so $@
 
 dist: $(ALL_TARGETS) ${BUILDDIR}/index.html
 	tar -cvzf slides.tar.gz ${BUILDDIR}

@@ -7,6 +7,7 @@ ALL_TARGETS= \
 	$(LECTURES:%.md=$(BUILDDIR)/%/index.html) \
 	$(LECTURES:%.md=$(BUILDDIR)/%/embed.html) \
 	$(LECTURES:%.md=$(BUILDDIR)/%/presenter.html) \
+	$(LECTURES:%.md=$(BUILDDIR)/%/lec.md) \
 
 all: $(TARGETS) ${BUILDDIR}/index.html
 	cp -r css ${BUILDDIR}/css
@@ -68,6 +69,10 @@ ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
 	-V history=true \
 	-V basename="public" \
 	$< -so $@
+
+${BUILDDIR}/lec%/lec.md: lec/lec%.md
+	mkdir -p $(shell dirname $@)
+	cp $< $@
 
 dist: $(ALL_TARGETS) ${BUILDDIR}/index.html
 	tar -cvzf slides.tar.gz ${BUILDDIR}

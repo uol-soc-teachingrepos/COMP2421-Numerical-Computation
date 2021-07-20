@@ -15,6 +15,7 @@ test:
 pages:
   stage: deploy
   script:
+    - make all
     - make full
   artifacts:
     paths:

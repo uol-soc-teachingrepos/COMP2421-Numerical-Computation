@@ -16,7 +16,7 @@ pages:
   stage: deploy
   script:
     - make all
-    - make full
+    - make build
   artifacts:
     paths:
       - public

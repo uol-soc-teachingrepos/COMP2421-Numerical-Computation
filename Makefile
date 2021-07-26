@@ -23,13 +23,23 @@ PANDOC_REVEALJS_INDEX= \
   -V controlsTutorial=true \
   -V slideNumber="'c'" \
   -V menu=true \
-  -V basename=".." \
+  -V basename=".."
+
+PANDOC_REVEALJS_SELF_CONTAINED= \
+  $(PANDOC_REVEALJS) \
+    --self-contained \
+    -V controls=false \
+    -V slideNumer="'c'" \
+    -V basename="$(BUILDDIR)"
 
 # targets
 REVEALJS_INDEX_TARGETS=$(LECTURES:%.md=%.html)
+REVEALJS_SELF_CONTAINED_TARGETS=$(LECTURES:%.md=%.full.html)
 CODE_INDEX_TARGETS=$(CODE:%.py=%.html)
 
-TARGETS=$(REVEALJS_INDEX_TARGETS) $(CODE_INDEX_TARGETS)
+TARGETS= \
+  $(REVEALJS_INDEX_TARGETS) \
+  $(CODE_INDEX_TARGETS)
 RAW=$(LECTURES) $(CODE)
 BUILD_TARGETS= \
   $(BUILDDIR)/index.html \
@@ -44,6 +54,9 @@ build: $(BUILD_TARGETS)
 # implicit rules
 %.html: %.md ./pandoc/revealjs-template.html
 	$(PANDOC_REVEALJS_INDEX) $< -o $@
+
+%.full.html: %.md ./pandoc/revealjs-template.html $(STATIC:%=$(BUILDDIR)/%) $(BUILDDIR)/$<
+	$(PANDOC_REVEALJS_SELF_CONTAINED) $(BUILDDIR)/$< -o $@
 
 %.html: %.py
 	python ./pandoc/make-code-index.py $@ $<
@@ -73,21 +86,6 @@ $(BUILDDIR)/index.html: ./pandoc/make-index.py
 # 	-V history=true \
 # 	-V basename=".." \
 # 	-s $< -o $@
-
-# ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
-# 	pandoc \
-# 	--self-contained \
-# 	--mathjax \
-# 	--template=./pandoc/revealjs-template.html \
-# 	-t revealjs \
-# 	--no-highlight \
-# 	--slide-level 2 \
-# 	--table-of-contents \
-# 	-V controls=false \
-# 	-V slideNumber="'c'" \
-# 	-V history=true \
-# 	-V basename="public" \
-# 	$< -so $@
 
 dist: $(BUILD_TARGETS)
 	tar -cvzf slides.tar.gz ${BUILDDIR}

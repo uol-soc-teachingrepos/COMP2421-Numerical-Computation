@@ -3,10 +3,15 @@ import os.path
 import pypandoc
 
 
-def dirname2content(dirname):
+def dirname2content(filename: str) -> str:
+    fn, _ = os.path.splitext(filename)
+    dirname = os.path.basename(fn)
     lecnumber = int(dirname[3:])
-    index = os.path.join(dirname, "index.html")
-    embed = os.path.join(dirname, "embed.html")
+    index = fn + ".html"
+    embed = index
+    # dirname = os.path.basename(filename)
+    # index = os.path.join(dirname, "index.html")
+    # embed = os.path.join(dirname, "embed.html")
 
     ret = f"## Lecture {lecnumber}\n\n"
 
@@ -26,13 +31,15 @@ output = sys.argv[1]
 input = sorted(sys.argv[2:])
 
 in_text = """
+---
+title: COMP2421 Numerical Computation
+---
 # Lectures
 
 """
 
 for fn in input:
-    lec = os.path.splitext(fn)[0]
-    in_text += dirname2content(lec)
+    in_text += dirname2content(fn)
     in_text += "\n\n"
 
 out_text = pypandoc.convert_text(in_text, "html", format="md", extra_args=["-s"])

@@ -226,12 +226,12 @@ x_i = \frac{1}{a_{ii}} \left(b_i - \sum_{j-1}^{i-1} a_{ij} x_j \right)
 $$
 for each row $i = 1, 2, \ldots, n$ in turn.
 
-- Each calculation requires only previously computed values $x_j$ (and the sum gives a loop for $j < i$ - see `lower_triangular_solve` in the file `matrixSolve.py`).
+- Each calculation requires only previously computed values $x_j$ (and the sum gives a loop for $j < i$ - see `lower_triangular_solve` in the file [`matrixSolve.py`](../code/matrixSolve.html)).
 - The matrix $A$ *must* have nonzero diagonal entries\
   i.e. $a_{ii} \neq 0$ for $i = 1, 2, \ldots, n$.
 - *Upper triangular* systems of equations can be solved in a similar manner (see `upper_triangular_solve` in the same file).
-- Worked examples in `triangularSolve.py`
-  
+- Worked examples in [`triangularSolve.py`](../code/lec05/triangularSolve.html).
+
 ## Examples 1
 
 Solve the lower triangular system of equations given by

@@ -58,7 +58,7 @@ build: $(BUILD_TARGETS)
 %.full.html: %.md ./pandoc/revealjs-template.html $(STATIC:%=$(BUILDDIR)/%) $(BUILDDIR)/$<
 	$(PANDOC_REVEALJS_SELF_CONTAINED) $(BUILDDIR)/$< -o $@
 
-%.html: %.py
+%.html: %.py ./pandoc/make-code-index.py ./pandoc/html-template.html
 	python ./pandoc/make-code-index.py $@ $<
 
 # build rules

@@ -19,6 +19,7 @@ input = sys.argv[2]
 in_text = f"""
 ---
 title: {input}
+rawfile: {os.path.basename(input)}
 ---
 
 """
@@ -33,7 +34,6 @@ out_text = pypandoc.convert_text(
         "-s",
         "--template=./pandoc/html-template.html",
         "--no-highlight",
-        '-V basename="public"',
     ],
 )
 

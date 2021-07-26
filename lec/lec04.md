@@ -3,22 +3,7 @@ author:
 - name: Tom Ranner
   email: T.Ranner@leeds.ac.uk
 title: COMP2421 Lecture 4
-subtitle: Matrices and vectors I
-# pandoc options
-transition: none
-backgroundTransition: none
-autoPlayMedia: true
-center: false
-# mathjax
-mathjaxurl: ../js/mathjax/es5/tex-chtml-full.js
-include-before: |
-  <div style="display:none">
-  $$
-    \renewcommand{\vec}[1]{\boldsymbol{#1}}
-  $$
-  </div>
-# citeproc
-link-citations: true
+subtitle: Matrices and vectors
 ---
 <!-- TODO: table of contents -->
 

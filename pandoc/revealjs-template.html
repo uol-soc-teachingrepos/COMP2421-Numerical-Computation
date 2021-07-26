@@ -38,6 +38,11 @@ $for(header-includes)$
 $endfor$
 </head>
 <body>
+<div style="display:none">
+$$
+ \renewcommand{\vec}[1]{\boldsymbol{#1}}
+$$
+</div>
 $for(include-before)$
 $include-before$
 $endfor$
@@ -138,10 +143,8 @@ $if(overview)$
         // Enable the slide overview mode
         overview: $overview$,
 $endif$
-$if(center)$
         // Vertical centering of slides
-        center: $center$,
-$endif$
+        center: 'false',
 $if(touch)$
         // Enables touch navigation on devices with touch input
         touch: $touch$,
@@ -198,18 +201,14 @@ $if(previewLinks)$
         // Opens links in an iframe preview overlay
         previewLinks: $previewLinks$,
 $endif$
-$if(transition)$
         // Transition style
-        transition: '$transition$', // none/fade/slide/convex/concave/zoom
-$endif$
+        transition: 'none', // none/fade/slide/convex/concave/zoom
 $if(transitionSpeed)$
         // Transition speed
         transitionSpeed: '$transitionSpeed$', // default/fast/slow
 $endif$
-$if(backgroundTransition)$
         // Transition style for full page slide backgrounds
-        backgroundTransition: '$backgroundTransition$', // none/fade/slide/convex/concave/zoom
-$endif$
+        backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
 $if(viewDistance)$
         // Number of slides away from the current that are visible
         viewDistance: $viewDistance$,
@@ -256,16 +255,15 @@ $if(maxScale)$
         maxScale: $maxScale$,
 $endif$
 $if(zoomKey)$
-// Modifier key used to click-zoom to part of the slide
-zoomKey: '$zoomKey$',
+        // Modifier key used to click-zoom to part of the slide
+	zoomKey: '$zoomKey$',
 $endif$
-$if(autoPlayMedia)$
-// Auto star videos and audio when arriving at slide
-autoPlayMedia: $autoPlayMedia$,
-$endif$
-$if(mathjax)$
-	  math: {
-	      mathjax: '$mathjaxurl$',
+	// Auto star videos and audio when arriving at slide
+        autoPlayMedia: true,
+
+	// Mathjax
+	math: {
+	      mathjax: '../js/mathjax/es5/tex-chtml-full.js',
 	      config: 'TeX-AMS_HTML-full',
 	      tex2jax: {
 		  inlineMath: [['\\(','\\)']],
@@ -284,8 +282,6 @@ $if(mathjax)$
 		  scale: 80
 	      }
 	  },
-
-$endif$
 $if(menu)$
 	  menu: {
 	      numbers: 'c',

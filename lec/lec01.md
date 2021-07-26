@@ -3,24 +3,6 @@ author:
 - name: Tom Ranner
   email: T.Ranner@leeds.ac.uk
 title: COMP2421 Lecture 1
-# pandoc options
-transition: none
-backgroundTransition: none
-autoPlayMedia: true
-css: ../css/metropolis.css
-center: false
-# mathjax
-mathjaxurl: ../js/mathjax/es5/tex-chtml-full.js
-include-before: |
-  <div style="display:none">
-  $$
-    \renewcommand{\vec}[1]{\boldsymbol{#1}}
-  $$
-  </div>
-# citeproc
-link-citations: true
-# menu
-menu: true
 ---
 
 # Comp2421

@@ -1,12 +1,7 @@
 ---
-author:
-- name: Tom Ranner
-  email: T.Ranner@leeds.ac.uk
 title: COMP2421 Lecture 2
 subtitle: Floating point arithmetic
 ---
-<!-- TODO: table of contents -->
-
 # Finite precision number systems
 
 - Computers store numbers with *finite precision*, i.e. using a finite set of bits (binary digits), typically 32 or 64 of them.

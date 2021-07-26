@@ -1,20 +1,6 @@
 ---
-author:
-- name: Tom Ranner
-  email: T.Ranner@leeds.ac.uk
 title: COMP2421 Lecture 1
 ---
-
-# Comp2421
-
-Numerical computation
-
-Dr Thomas Ranner (Tom)
-
-3.40d Bragg Building
-
-Please contact me via Teams
-
 # Lecture one
 
 **Module overview**

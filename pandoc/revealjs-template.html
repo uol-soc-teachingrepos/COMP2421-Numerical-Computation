@@ -56,42 +56,20 @@ $if(title)$
 	 $endif$>
   <h1 class="title">$title$</h1>
 $if(subtitle)$
-  <p class="subtitle">$subtitle$</p>
-$endif$
-$for(author)$
-  <p class="author"><b>$author.name$</b></p>
-  $if(author.with)$
-  <p>
-    <small>
-    joint work with
-    $author.with$
-    </small>
-  </p>
+  <h4 class="subtitle">$subtitle$</h4>
   $endif$
-$endfor$
-$if(date)$
-  <p class="date">$date$</p>
+  
+  <p class="author"><b>Dr. Thomas Ranner (Tom)</b></p>
+  <p>3.40d Bragg Building</p>
+  <p>Please contact me via <a href="https://teams.microsoft.com/l/chat/0/0?users=T.Ranner@leeds.ac.uk">Teams</a></p>
+</section>
 $endif$
-  $if(slides)$
-  <p><small>
-    Slides available at $slides$
-  </small></p>
-  $endif$
 
-  $if(logos)$
-  <div class="logo">
-    $for(logos)$
-    <img data-src="$logos.source$" alt="$logos.alt$">
-    $endfor$
-  </div>
-  $endif$
-</section>
-$endif$
-$if(toc)$
-<section id="$idprefix$TOC">
-$table-of-contents$
-</section>
-$endif$
+  <section id="$idprefix$TOC">
+    <h1>Contents</h1>
+    $table-of-contents$
+  </section>
+  
 
 $body$
     </div>

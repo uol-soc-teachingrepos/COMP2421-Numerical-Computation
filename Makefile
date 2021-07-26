@@ -32,6 +32,8 @@ ${BUILDDIR}/lec%/index.html: lec/lec%.md pandoc/revealjs-template.html
 	-t revealjs \
 	--no-highlight \
 	--slide-level 2 \
+	--table-of-contents \
+	--toc-depth=1 \
 	-V controls=true \
 	-V controlsTutorial=true \
 	-V slideNumber="'c'" \
@@ -51,6 +53,7 @@ ${BUILDDIR}/lec%/embed.html: lec/lec%.md pandoc/revealjs-template.html
 	-V controlsTutorial=true \
 	-V slideNumber=false \
 	--slide-level 2 \
+	--table-of-contents \
 	-V embedded="true" \
 	-V history=true \
 	-V basename=".." \
@@ -64,6 +67,7 @@ ${BUILDDIR}/lec%/presenter.html: lec/lec%.md pandoc/revealjs-template.html
 	-t revealjs \
 	--no-highlight \
 	--slide-level 2 \
+	--table-of-contents \
 	-V controls=false \
 	-V slideNumber="'c'" \
 	-V history=true \

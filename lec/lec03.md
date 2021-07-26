@@ -1,11 +1,7 @@
 ---
-author:
-- name: Tom Ranner
-  email: T.Ranner@leeds.ac.uk
 title: COMP2421 Lecture 3
 subtitle: Matices and vectors - a geometric perspective
 ---
-<!-- TODO: table of contents -->
 
 Vector
 Row and column vectors

@@ -1,12 +1,7 @@
 ---
-author:
-- name: Tom Ranner
-  email: T.Ranner@leeds.ac.uk
 title: COMP2421 Lecture 4
 subtitle: Matrices and vectors
 ---
-<!-- TODO: table of contents -->
-
 # Introduction to matrices
 
 **What is a matrix?**

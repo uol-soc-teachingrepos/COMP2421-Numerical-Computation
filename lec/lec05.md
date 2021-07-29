@@ -44,11 +44,11 @@ Computing $x_1, x_2, x_3, \ldots, x_n$ solve the problem.
 Solve the system of equations given by
 $$
  \begin{pmatrix}
- A_{11} & A_{12} & A_{13} & \cdots & A_{1n} \\
- A_{21} & A_{22} & A_{23} & \cdots & A_{2n} \\
- A_{31} & A_{32} & A_{33} & \cdots & A_{3n} \\
+ a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+ a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
  \vdots & \vdots & \vdots & & \vdots \\
- A_{m1} & A_{m2} & A_{m3} & \cdots & A_{mn}
+ a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn}
  \end{pmatrix}
  \begin{pmatrix}
  x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_n

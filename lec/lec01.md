@@ -1,7 +1,7 @@
 ---
 title: COMP2421 Lecture 1
 ---
-# Lecture one
+# Module contents
 
 **Module overview**
 
@@ -104,44 +104,60 @@ Other modules that will benefit from material covered here:
 - For general Python, refer to your first-year teaching materials.
 
 - For a refresher course in Python: \
-  http://interactivepython.org/runestone/static/thinkcspy/index.html
+  <http://interactivepython.org/runestone/static/thinkcspy/index.html>
 
 - For `numpy`, `scipy` etc: \
-  http://scipy-lectures.github.io \
-  https://github.com/jrjohansson/scientific-python-lectures
+  <http://scipy-lectures.github.io> \
+  <https://github.com/jrjohansson/scientific-python-lectures>
 
 ## Books
 
 Additional useful texts
 
-TODO update
+- Introduction to Linear Algebra (Third Edition), Gilbert Strang, Wellesley-Cambridge Press, 2003. \
+  (All MIT course material are available on web.mit.edu/18.06/www)
+
+- Scientific Computing: An Introductory Survey, T.M. Heath, McGraw-Hill, 2002. \
+  (http://heath.cs.illinois.edu/scicomp/notes/index.html)
+
+- Numerical Recipes in C++/C/FORTRAN: The Art of Scientific Computing, W.H. Press, S.A. Teukolsky, W.T. Vetterling and B.P. Flannery, Cambridge University Press, 2002/1993/1993.
+
+- Engineering Mathematics, K.A. Stroud, Macmillan, 2001.
+
+<!-- TODO find and check if these are ok -->
 
 ## Module components
 
 **Lectures**
 
-TODO
+2 hours per week via Zoom
 
 **Tutorials**
 
-TODO
+1 hour per week (see timetable)
 
 **Homework and coursework exercise**
 
 These will be provided *weekly* throughout the semester.
 
-Courseworks are designed to give practice and reinforce the lectures. Coursework material is examinable.
+Coursework assignments are designed to give practice and reinforce the lectures. Coursework material is examinable.
 
 ## Assessment
 
-TODO TBC
-
 **Examination**
+
+On-line assessment in January.
+Worth ??%.
+More details to follow.
 
 **Summative coursework**
 
+Two pieces of coursework each worth ???% submitted via Gradescope.
+Deadlines: ???
+
 **Formative homework**
 
+There will be weekly homework assignment sheets. These are not for credit. You can check your understanding by submitting answers via Gradescope.
 
 ## Virtual learning environment
 
@@ -153,9 +169,9 @@ This will include all:
 - lecture notes and announcements;
 - coursework/homework and (later) model solutions;
 - links to external resources and web pages;
-- module-related discussions (teams?)
+- module-related discussions
 
-TODO teams link?
+<!-- TODO teams link? -->
 
 # Numerical algorithms
 
@@ -169,7 +185,7 @@ TODO teams link?
 
 ## Applications I
 
-TODO update with videos/pictures/also EDI
+<!-- TODO update with videos/pictures/also EDI -->
 
 **Entertainment - computer gaming**
 

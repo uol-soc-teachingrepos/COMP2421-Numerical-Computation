@@ -1,3 +1,5 @@
+MAKEFLAGS += --no-builtin-rules
+
 # custom variables
 BUILDDIR=public
 LECTURES=$(shell find lec -name "*.md")
@@ -50,6 +52,8 @@ BUILD_TARGETS= \
   $(TARGETS:%=$(BUILDDIR)/%) \
   $(RAW:%=$(BUILDDIR)/%) \
   $(STATIC:%=$(BUILDDIR)/%) \
+  $(REVEALJS_SELF_CONTAINED_TARGETS) \
+  $(REVEALJS_SELF_CONTAINED_TARGETS:%=$(BUILDDIR)/%) 
 
 # global rules
 all: $(TARGETS)
@@ -59,8 +63,8 @@ build: $(BUILD_TARGETS)
 %.html: %.md ./pandoc/revealjs-template.html
 	$(PANDOC_REVEALJS_INDEX) $< -o $@
 
-%.full.html: %.md ./pandoc/revealjs-template.html $(STATIC:%=$(BUILDDIR)/%) $(BUILDDIR)/$<
-	$(PANDOC_REVEALJS_SELF_CONTAINED) $(BUILDDIR)/$< -o $@
+%.full.html: %.md ./pandoc/revealjs-template.html
+	$(PANDOC_REVEALJS_SELF_CONTAINED) $< -o $@
 
 %.html: %.py ./pandoc/make-code-index.py ./pandoc/html-template.html
 	python ./pandoc/make-code-index.py $@ $<
@@ -100,4 +104,5 @@ dist: $(BUILD_TARGETS)
 
 clean:
 	rm -f $(TARGETS)
-	rm -rf ${BUILDDIR}
+	rm -f $(BUILD_TARGETS)
+	rm -rf $(BUILDDIR)

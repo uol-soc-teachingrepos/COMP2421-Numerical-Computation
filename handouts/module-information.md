@@ -1,6 +1,14 @@
 ---
-title: Module information
+title: COMP2421 Numerical computation
 ---
+# Module information
+
+Module leader
+~ Dr Thomas Ranner (Tom)
+
+Email
+~ T.Ranner@leeds.ac.uk
+
 # Syllabus
 
 - **Vectors and matrices**: introduction and justification; vector and matrix operations; identity matrix; inverse of a matrix.
@@ -53,11 +61,11 @@ The programming for this module will be carried out using `python3`.
 - For general Python, refer to your first-year teaching materials.
 
 - For a refresher course in Python: \
-  http://interactivepython.org/runestone/static/thinkcspy/index.html
+  <http://interactivepython.org/runestone/static/thinkcspy/index.html>
 
 - For `numpy`, `scipy` etc: \
-  http://scipy-lectures.github.io \
-  https://github.com/jrjohansson/scientific-python-lectures
+  <http://scipy-lectures.github.io> \
+  <https://github.com/jrjohansson/scientific-python-lectures>
 
 
 # Links

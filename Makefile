@@ -1,6 +1,7 @@
 # custom variables
 BUILDDIR=public
 LECTURES=$(shell find lec -name "*.md")
+HANDOUTS=$(shell find handouts -name "*.md")
 CODE=$(shell find code -name "*.py")
 STATIC=$(shell find {css,img,js,static} -type f)
 
@@ -36,10 +37,13 @@ PANDOC_REVEALJS_SELF_CONTAINED= \
 REVEALJS_INDEX_TARGETS=$(LECTURES:%.md=%.html)
 REVEALJS_SELF_CONTAINED_TARGETS=$(LECTURES:%.md=%.full.html)
 CODE_INDEX_TARGETS=$(CODE:%.py=%.html)
+HANDOUTS_DOCX_TARGETS=$(HANDOUTS:%.md=%.docx)
 
 TARGETS= \
   $(REVEALJS_INDEX_TARGETS) \
-  $(CODE_INDEX_TARGETS)
+  $(CODE_INDEX_TARGETS) \
+  $(HANDOUTS_DOCX_TARGETS)
+
 RAW=$(LECTURES) $(CODE)
 BUILD_TARGETS= \
   $(BUILDDIR)/index.html \
@@ -60,6 +64,9 @@ build: $(BUILD_TARGETS)
 
 %.html: %.py ./pandoc/make-code-index.py ./pandoc/html-template.html
 	python ./pandoc/make-code-index.py $@ $<
+
+%.docx: %.md
+	pandoc $< -o $@
 
 # build rules
 ${BUILDDIR}/%: %
@@ -86,6 +93,7 @@ $(BUILDDIR)/index.html: ./pandoc/make-index.py
 # 	-V history=true \
 # 	-V basename=".." \
 # 	-s $< -o $@
+
 
 dist: $(BUILD_TARGETS)
 	tar -cvzf slides.tar.gz ${BUILDDIR}

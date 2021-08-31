@@ -124,7 +124,7 @@ $$
 
 ## Bounding the errors
 
-In the number system given by $(\beta, t, L, U)$, the nearest (larger) representable number to $x = .b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e$ is
+In the number system given by $(\beta, t, L, U)$, the nearest (larger) representable number to $x = 0.b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e$ is
 $$
  \tilde{x} = x + \underbrace{000\ldots01}_{t \mbox{ digits}} \times \beta^e = x + \beta^{e-t}
 $$
@@ -203,18 +203,17 @@ x+(z+z), \quad
 $$
 (Also note the benefits of adding the *smallest* terms first!)
 
-## Example 2 & 3
+## More examples
 
-Verify that a similar problem arises for the numbers
-$$
- x = .85 \times 10^0, \quad
+2. Verify that a similar problem arises for the numbers
+   $$
+	x = .85 \times 10^0, \quad
  y = .3 \times 10^{-2}, \quad
  z = .6 \times 10^{-2},
 $$
 in the system $(\beta, t, L, U) = (10, 2, -3, 3)$.
 
-
-Given the number system $(\beta, t, L, U) = (10, 3, -3, 3)$ and $x = .1 \times 10^3$, find nonzero numbers $y$ and $z$ from this system for which $fl(x+y) = x$ and $fl(x+z) > x$.
+3. Given the number system $(\beta, t, L, U) = (10, 3, -3, 3)$ and $x = .1 \times 10^3$, find nonzero numbers $y$ and $z$ from this system for which $fl(x+y) = x$ and $fl(x+z) > x$.
 
 ## An alternative definition of $eps$
 
@@ -248,49 +247,49 @@ Divide by zero
 Divide by `inf`
  ~ gives $0.0$ with no warning
 
-## Evidence in Python
+<!-- ## Evidence in Python -->
 
-Overflow
-```python
->>> x = numpy.double(1.0)
->>> while numpy.isfinite(x):
-...    x *= 10.0
->>>	print(x)
-inf
-```
-
-Underflow
-```python
->>> x = numpy.double(1.0)
->>> while x > 0.0:
-...    x /= 10.0
->>> print(x)
-0.0
-```
-
-Divide by zero
-```python
->>> numpy.double(1.0)/numpy.double(0.0)
-inf
->>> numpy.double(0.0)/numpy.double(0.0)
-nan
-```
-
-Divide by `inf`
-```python
->>> numpy.double(1.0)/nump.inf
-0.0
-```
+<!-- Overflow -->
+<!-- ```python -->
+<!-- >>> x = numpy.double(1.0) -->
+<!-- >>> while numpy.isfinite(x): -->
+<!-- ...    x *= 10.0 -->
+<!-- >>>	print(x) -->
+<!-- inf -->
+<!-- ``` -->
+<!--  -->
+<!-- Underflow -->
+<!-- ```python -->
+<!-- >>> x = numpy.double(1.0) -->
+<!-- >>> while x > 0.0: -->
+<!-- ...    x /= 10.0 -->
+<!-- >>> print(x) -->
+<!-- 0.0 -->
+<!-- ``` -->
+<!--  -->
+<!-- Divide by zero -->
+<!-- ```python -->
+<!-- >>> numpy.double(1.0)/numpy.double(0.0) -->
+<!-- inf -->
+<!-- >>> numpy.double(0.0)/numpy.double(0.0) -->
+<!-- nan -->
+<!-- ``` -->
+<!--  -->
+<!-- Divide by `inf` -->
+<!-- ```python -->
+<!-- >>> numpy.double(1.0)/nump.inf -->
+<!-- 0.0 -->
+<!-- `<\!--  -\->`` -->
 
 ## Is this all academic?
 
-No! There are many examples of major software errors that have occurred due to programmers not understanding the issues associated with computer arithmetic...
+**No!** There are many examples of major software errors that have occurred due to programmers not understanding the issues associated with computer arithmetic...
 
-- In June 1996, the European Space Agency's Ariane Rocket exploded shortly after take-off: the error was due to failing to handle overflow correctly.
+- In February 1991, a [basic rounding error](https://www-users.cse.umn.edu/~arnold/disasters/patriot.html) within software for the US Patriot missile system caused it to fail, contributing to the loss of 28 lives.
 
-- In February 1991, a basic rounding error within software for the US Patriot missile system caused it to fail, contributing to the loss of 28 lives.
+- In June 1996, the European Space Agency's Ariane Rocket exploded shortly after take-off: the error was due to failing to [handle overflow correctly](https://www.bbc.com/future/article/20150505-the-numbers-that-lead-to-disaster).
 
-- In 1983, software at the Vancouver Stock Exchange that used truncation, rather than rounding, caused the value of their equivalent of our FTSE to be about 50% lower than it should have been!
+- In October 2020, a driverless car drove straight into a wall due to [faulty handling of a floating point error](https://sinews.siam.org/Details-Page/a-new-ieee-754-standard-for-floating-point-arithmetic-in-an-ever-changing-world).
 
 # Summary
 

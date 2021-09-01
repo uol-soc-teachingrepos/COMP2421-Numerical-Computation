@@ -11,3 +11,6 @@ For each lecture provides:
 - `lec/lecXX.html` - version of the slides aimed at students.
 - `lec/lecXX.full.html` - version of the slides for presenting. They *should* work offline.
 - `lec/lecXX.md` - the markdown source file.
+
+An online compiled version of the `public` directory is available at:
+https://comp2421_numerical-computation.gitlab.io/slides

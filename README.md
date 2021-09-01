@@ -1,7 +1,13 @@
-This is a blank `revealjs` presentation with my best current configuration options. Fork/clone this repository to make a new talk.
 
+To build the slides call
 ```
-git clone --recurse-submodules {path to this repo}
+make build
 ```
 
-To make an auto-reloading web server simply call `httpwatcher`.
+This generates all content in the public directory using the source in `lec/` with the template in `pandoc/revealjs-template.html` using the rules in `Makefile`
+
+For each lecture provides:
+
+- `lec/lecXX.html` - version of the slides aimed at students.
+- `lec/lecXX.full.html` - version of the slides for presenting. They *should* work offline.
+- `lec/lecXX.md` - the markdown source file.

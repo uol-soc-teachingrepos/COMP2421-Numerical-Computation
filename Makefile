@@ -5,7 +5,7 @@ BUILDDIR=public
 LECTURES=$(shell find lec -name "*.md")
 HANDOUTS=$(shell find handouts -name "*.md")
 CODE=$(shell find code -name "*.py")
-STATIC=$(shell find {css,img,js,static} -type f)
+STATIC=$(shell find css img js static -type f)
 
 # conversion rules
 PANDOC_REVEALJS= \

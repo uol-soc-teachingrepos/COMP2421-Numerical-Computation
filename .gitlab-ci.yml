@@ -10,6 +10,8 @@ before_script:
 
 test:
   script:
+    - pwd
+    - find . -type d
     - make
 
 pages:

@@ -47,7 +47,14 @@ $for(include-before)$
 $include-before$
 $endfor$
   <div class="reveal">
-    <div class="slides">
+$if(title)$
+  <div class='footer'>
+    <h4 class="title">
+      $title$
+    </h4>
+  </div>
+$endif$
+  <div class="slides">
 
 $if(title)$
 <section id="$idprefix$title-slide"

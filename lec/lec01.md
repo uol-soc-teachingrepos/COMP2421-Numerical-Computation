@@ -71,6 +71,17 @@ Coursework using Python will begin in week 3 - after the introduction to vectors
 
 > Try this yourself! Make sure you can access a working version of python (version >= 3.6) and can import `numpy` and `scipy`.
 
+## Reference materials - Python
+
+- For general Python, refer to your first-year teaching materials.
+
+- For a refresher course in Python: \
+  <http://interactivepython.org/runestone/static/thinkcspy/index.html>
+
+- For `numpy`, `scipy` etc: \
+  <http://scipy-lectures.github.io> \
+  <https://github.com/jrjohansson/scientific-python-lectures>
+
 ## Relevance to Level 1 modules
 
 This module builds upon material that you have already met in your first year. Prerequisites include:
@@ -99,17 +110,6 @@ Other modules that will benefit from material covered here:
 - **COMP3631** Intelligent systems and robotics
 - **COMP3611** Machine learning
 - **COMP3940** Graph algorithms and approximation
-
-## Reference materials - Python
-
-- For general Python, refer to your first-year teaching materials.
-
-- For a refresher course in Python: \
-  <http://interactivepython.org/runestone/static/thinkcspy/index.html>
-
-- For `numpy`, `scipy` etc: \
-  <http://scipy-lectures.github.io> \
-  <https://github.com/jrjohansson/scientific-python-lectures>
 
 ## Books
 

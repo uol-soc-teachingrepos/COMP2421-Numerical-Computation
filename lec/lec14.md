@@ -48,18 +48,18 @@ Using the following notation
 
 The above model leads to the following two differential equations:
 $$
-\begin{align}
+\begin{aligned}
 U'(t) & = -k U(t) \\
 V'(t) & = -k V(t) - g.
-\end{align}
+\end{aligned}
 $$
 
 We also know, from the definition of speed, that
 $$
-\begin{align}
+\begin{aligned}
 X'(t) & = U(t) \\
 Y'(t) & = V(t).
-\end{align}
+\end{aligned}
 $$
 
 ## Projectile example - equations

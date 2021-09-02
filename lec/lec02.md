@@ -110,10 +110,10 @@ e. What is the smallest possible difference in this system, $x$ and $y$, for whi
 From now on $fl(x)$ will be used to represent the (approximate) stored value of $x$.
 The error in this representation can be expressed in two ways.
 $$
-\begin{align*}
+\begin{aligned}
  \mbox{Absolute error} &= | fl(x) - x | \\
  \mbox{Relative error} &= \frac{| fl(x) - x |}{x}.
-\end{align*}
+\end{aligned}
 $$
 The number $fl(x)$ is said to approximate $x$ to $t$ **significant digits** (or figures) if $t$ is the largest non-negative integer for which
 $$

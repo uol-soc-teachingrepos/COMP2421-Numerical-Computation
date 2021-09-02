@@ -35,14 +35,24 @@ PANDOC_REVEALJS_SELF_CONTAINED= \
     -V slideNumber="'c'" \
     -V basename="$(BUILDDIR)"
 
+PANDOC_BEAMER = \
+  pandoc \
+    --template ./pandoc/beamer-template.tex \
+    -t beamer \
+    --table-of-contents \
+    --toc-depth=1 \
+    --slide-level 2
+
 # targets
 REVEALJS_INDEX_TARGETS=$(LECTURES:%.md=%.html)
 REVEALJS_SELF_CONTAINED_TARGETS=$(LECTURES:%.md=%.full.html)
+BEAMER_TARGETS=$(LECTURES:%.md=%.pdf)
 CODE_INDEX_TARGETS=$(CODE:%.py=%.html)
 HANDOUTS_DOCX_TARGETS=$(HANDOUTS:%.md=%.docx)
 
 TARGETS= \
   $(REVEALJS_INDEX_TARGETS) \
+  $(BEAMER_TARGETS) \
   $(CODE_INDEX_TARGETS) \
   $(HANDOUTS_DOCX_TARGETS)
 
@@ -65,6 +75,9 @@ build: $(BUILD_TARGETS)
 
 %.full.html: %.md ./pandoc/revealjs-template.html
 	$(PANDOC_REVEALJS_SELF_CONTAINED) $< -o $@
+
+%.pdf: %.md ./pandoc/beamer-template.tex
+	$(PANDOC_BEAMER) $< -o $@
 
 %.html: %.py ./pandoc/make-code-index.py ./pandoc/html-template.html
 	python ./pandoc/make-code-index.py $@ $<

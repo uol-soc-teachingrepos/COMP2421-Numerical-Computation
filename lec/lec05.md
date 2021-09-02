@@ -236,11 +236,11 @@ for each row $i = 1, 2, \ldots, n$ in turn.
 
 Solve the lower triangular system of equations given by
 $$
-\begin{align}
+\begin{aligned}
  2 x_1 && && &= 2 \\
  x_1 &+& 2 x_2 && &= 7 \\
  2 x_1 &+& 4 x_2 &+& 6 x_3 &= 26
-\end{align}
+\end{aligned}
 $$
 or, equivalently,
 $$
@@ -261,14 +261,14 @@ $$
 
 The solution can be calculated systematically from
 $$
-\begin{align}
+\begin{aligned}
 x_1 &= \frac{b_1}{a_{11}} = \frac{2}{2} = 1 \\
 x_2 &= \frac{b_2 - a_{21} x_1}{a_{22}} 
 = \frac{7 - 1 \times 1}{2} = \frac{6}{2} = 3 \\
 x_3 &= \frac{b_3 - a_{31} x_1 - a_{32} x_2}{a_33} 
 = \frac{26 - 2 \times 1 - 4 \times 3}{6}  = \frac{12}{6}
 = 2
-\end{align}
+\end{aligned}
 $$
 which gives the solution $\vec{x} = (1, 3, 2)^T$.
 
@@ -276,11 +276,11 @@ which gives the solution $\vec{x} = (1, 3, 2)^T$.
 
 Solve the upper triangular linear system given by
 $$
-\begin{align}
+\begin{aligned}
 2 x_1 &+& x_2 &+& 4 x_3 &=& 12 \\
 && 1.5 x_2 && &=& 3 \\
 && && 2 x_3 &=& 4
-\end{align}.
+\end{aligned}.
 $$
 
 ## Notes

@@ -53,14 +53,12 @@ Note three things...
 ## Example 1
 
 Consider the system
-$$
 \begin{align}
  \label{eq:1} \tag{1}
  2 x_1 + 3 x_2 & = 4 \\
  \label{eq:2} \tag{2}
  -3 x_1 + 2 x_2 & = 7.
 \end{align}
-$$
 
 - $4 \times \eqref{eq:1}$ $\rightarrow$ $8 x_1 + 12 x_2 = 16$.
 - $-1.5 \times \eqref{eq:2}$ $\rightarrow$ $4.5 x_1 - 3 x_2 = -10.5$.
@@ -70,14 +68,12 @@ $$
 ## Example 2
 
 Consider the system
-$$
 \begin{align}
  \label{eq:3} \tag{3}
  x_1 + 2 x_2 & = 1 \\
  \label{eq:4} \tag{4}
  4 x_1 + x_2 & = -3.
 \end{align}
-$$
 
 - $2 \times \eqref{eq:3}$ $\rightarrow$
 - $0.25 \times \eqref{eq:4}$ $\rightarrow$

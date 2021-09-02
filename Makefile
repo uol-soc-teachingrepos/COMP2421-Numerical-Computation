@@ -32,7 +32,7 @@ PANDOC_REVEALJS_SELF_CONTAINED= \
   $(PANDOC_REVEALJS) \
     --self-contained \
     -V controls=false \
-    -V slideNumer="'c'" \
+    -V slideNumber="'c'" \
     -V basename="$(BUILDDIR)"
 
 # targets

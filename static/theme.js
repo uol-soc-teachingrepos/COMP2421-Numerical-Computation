@@ -13,3 +13,12 @@ function setFont(fontCss) {
     fontElement = document.getElementById("font");
     fontElement.href = fontCss;
 }
+
+function getPrintable() {
+    window.open('?print-pdf');
+}
+
+function getRawmd() {
+    var rawmd = window.location.href.replace('html', 'md');
+    window.open(rawmd);
+}

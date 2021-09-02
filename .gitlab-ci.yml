@@ -8,7 +8,7 @@ before_script:
   - source activate revealjs
   - pandoc --version
   - apt-get update -qq
-  - apt-get install -y texlive texlive-plain-generic
+  - apt-get install -y texlive texlive-plain-generic texlive-recommended
   - pdflatex --version
 
 test:

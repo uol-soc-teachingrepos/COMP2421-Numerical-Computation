@@ -208,7 +208,7 @@ Airflow simulations
 :::::::: {.fragment .fade-in-then-out}
 Economics
 
-<a title="總統府, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Market_data_on_display_at_Taiwan_Stock_Exchange_20210208.jpg"><img width="100%" alt="Market data on display at Taiwan Stock Exchange 20210208" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Market_data_on_display_at_Taiwan_Stock_Exchange_20210208.jpg/512px-Market_data_on_display_at_Taiwan_Stock_Exchange_20210208.jpg"></a>
+<a title="Negative Space - Pexels account, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blur-chart-data-69760.jpg"><img width="100%" alt="Blur-chart-data-69760" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blur-chart-data-69760.jpg/512px-Blur-chart-data-69760.jpg"></a>
 ::::::::
 :::::::: {.fragment .fade-in-then-out}
 Weather forecasting

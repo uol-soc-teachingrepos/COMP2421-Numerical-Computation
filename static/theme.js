@@ -14,8 +14,9 @@ function setFont(fontCss) {
     fontElement.href = fontCss;
 }
 
-function getPrintable() {
-    window.open('?print-pdf');
+function getPDF() {
+    var pdf = window.location.href.replace('html', 'pdf');
+    window.open(pdf);
 }
 
 function getRawmd() {

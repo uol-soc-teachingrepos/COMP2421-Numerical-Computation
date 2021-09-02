@@ -7,11 +7,12 @@ before_script:
   - conda env create -f environment.yml
   - source activate revealjs
   - pandoc --version
+  - apt-get update -qq
+  - apt-get install -y texlive texlive-plain-generic
+  - pdflatex --version
 
 test:
   script:
-    - pwd
-    - find . -type d
     - make
 
 pages:

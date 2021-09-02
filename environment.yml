@@ -10,4 +10,3 @@ dependencies:
   - pandoc = 2.14
   - pypandoc = 1.6
   - livereload = 2.6
-  - texlive-core

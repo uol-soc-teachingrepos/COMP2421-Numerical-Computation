@@ -58,7 +58,8 @@ Vectors have the *functional* property that you can multiply by a number to form
 
 **Example**
 
-Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \\ 2 \end{pmatrix}$. Then
+Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \\ 2 \end{pmatrix}$.
+Then
 $$
  2.5 \vec{a} = \begin{pmatrix} 2.5 \times 4 \\ 2.5 \times 5 \\ 2.5 \times 2 \end{pmatrix} = \begin{pmatrix} 10 \\ 12.5 \\ 5 \end{pmatrix}.
 $$
@@ -69,24 +70,130 @@ TODO: add picture
 
 ## Definition
 
+Linear transformation a functions that take one vector and give back another such that addition and scalar multiplication is preserved.
+
+These are functions that take straight lines to straight lines.
+
+Call the function $T$ then:
+$$
+\begin{aligned}
+  T ( \vec{a} + \vec{b} ) & = T (\vec{a}) + T(\vec{b}) && \mbox{ for all vectors } \vec{a}, \vec{b} \\
+  T ( s \vec{a} ) & = s T (\vec{a}) && \mbox{ for all vectors } \vec{a}, \mbox{ and numbers } s.
+\end{aligned}
+$$
+
 ## Example 1: Scaling
+
+For any number $s$, scaling by $s$ means changing the length of the vector by $s$.
+
+**Example**
+
+Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \\ 2 \end{pmatrix}$ and $s = 2.5$.
+Then
+$$
+ 2.5 \vec{a} = \begin{pmatrix} 2.5 \times 4 \\ 2.5 \times 5 \\ 2.5 \times 2 \end{pmatrix} = \begin{pmatrix} 10 \\ 12.5 \\ 5 \end{pmatrix}.
+$$
+
+<!-- TODO: picture -->
 
 ## Example 2: Rotation
 
+In 2D, for any angle $\theta$, rotating by $\theta$ means moving vectors about a centre point.
+
+**Example**
+
+Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \end{pmatrix}$ and $\theta = \pi/2 = 90^\circ$.
+Then
+$$
+ \vec{a} \mapsto \begin{pmatrix} -5 \\ 4 \end{pmatrix}
+$$
+
+<!-- TODO: picture -->
+
 ## Example 3: Reflection
+
+Reflection creates a mirror image of a vector.
 
 ## Example 4: Shear
 
 ## Example 5: Projection
 
-## Associativity
-
-## Commutativity
-
 # Other vector operations
 
 ## Transpose
 
-## Inner product
+We use the notation $\vec{a}^T$ to represent the **transpose** of a vector.
+
+For a row vector, its transpose is a column vector (with the same entries) and for a column vector, its transpose is a row vector (with the same entries).
+
+**Example**
+
+Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \\ 2 \end{pmatrix}$.
+Then
+$$
+ \vec{a}^T = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}.
+$$
+
+*We will see this concept again in the next lecture*.
 
 ## Norm
+
+The **norm** of a vector represents its **length**. We denote it by $\| \vec{a} \|$
+
+For a general vector $\vec{a} = \begin{pmatrix} a_1 & a_2 & \cdots a_n \end{pmatrix}$, the norm of $\vec{a}$ is:
+$$
+ \| \vec{a} \|
+ = \sqrt{a_1^2 + a_2^2 + \cdots + a_n^2}
+ = \sqrt{\sum_{i=1}^n a_i^2}.
+$$
+
+**Example**
+
+Let $\vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}$.
+Then
+$$
+ \| \vec{a} \| = \sqrt{4^2 + 5^2 + 2^2} = \sqrt{16 + 25 + 4} = \sqrt{45}.
+$$
+
+<!-- TODO: make image -->
+
+## Inner product
+
+The *inner product* of vectors $\vec{a}$ and $\vec{b}$ tells us how much of $\vec{a}$ is in the direction $\vec{b}$. We denote the inner product as $\vec{a} \cdot \vec{b}$.
+
+For generate vectors $\vec{a} = \begin{pmatrix} a_1 & a_2 & \cdots a_n \end{pmatrix}$ and $\vec{b} = \begin{pmatrix} b_1 & b_2 & \cdots & b_n \end{pmatrix}$, we have
+$$
+ \vec{a} \cdot \vec{b} = a_1 b_1 + a_2 b_2 + \cdots a_n b_n = \sum_{i=1}^n a_i b_i.
+$$
+
+**Example**
+
+Let $\vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}$.
+Then
+$$
+ \| \vec{a} \| = \sqrt{4^2 + 5^2 + 2^2} = \sqrt{16 + 25 + 4} = \sqrt{45}.
+$$
+
+## Special case
+
+*What is the inner product of a vector $\vec{a}$ with itself?*
+
+$$
+\begin{aligned}
+ \vec{a} \cdot \vec{a}
+ & = a_1 a_1 + a_2 a_2 + \cdots + a_n a_n \\
+ & = a_1^2 + \cdots a_n^2 \\
+ & = \sum_{i=1}^n a_i^2 \\
+ & = \| \vec{a} \|^2.
+\end{aligned}
+$$
+
+# Summary
+
+- We can use vectors to represent objects in geometry and physics.
+
+- We can write vectors as column or row vectors.
+
+- Linear transforms provide a way to *transform* vectors.
+
+- Many linear transformations correspond to a geometric transformation.

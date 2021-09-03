@@ -11,6 +11,11 @@ To get started you need the dependencies listed in the `environment.yml` file:
 
 This can be easily done with `conda env create -f environment.yml`.
 
+After cloning to get the video content call:
+```
+git lfs fetch origin master
+```
+
 # Getting the content
 
 To build the slides call

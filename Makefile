@@ -5,43 +5,7 @@ BUILDDIR=public
 LECTURES=$(shell find lec -name "*.md")
 HANDOUTS=$(shell find handouts -name "*.md")
 CODE=$(shell find code -name "*.py")
-STATIC=$(shell find css img js static -type f)
-
-# conversion rules
-PANDOC_REVEALJS= \
-  pandoc \
-    --template=./pandoc/revealjs-template.html \
-    -t revealjs \
-    --mathjax \
-    --no-highlight \
-    --slide-level 2 \
-    --standalone \
-    --table-of-contents \
-    --toc-depth=1 \
-    -V history=true \
-
-PANDOC_REVEALJS_INDEX= \
-  $(PANDOC_REVEALJS) \
-  -V controls=true \
-  -V controlsTutorial=true \
-  -V slideNumber="'c'" \
-  -V menu=true \
-  -V basename=".."
-
-PANDOC_REVEALJS_SELF_CONTAINED= \
-  $(PANDOC_REVEALJS) \
-    --self-contained \
-    -V controls=false \
-    -V slideNumber="'c'" \
-    -V basename="$(BUILDDIR)"
-
-PANDOC_BEAMER = \
-  pandoc \
-    --template ./pandoc/beamer-template.tex \
-    -t beamer \
-    --table-of-contents \
-    --toc-depth=1 \
-    --slide-level 2
+STATIC=$(shell find css img js static video -type f)
 
 # targets
 REVEALJS_INDEX_TARGETS=$(LECTURES:%.md=%.html)
@@ -52,32 +16,31 @@ HANDOUTS_DOCX_TARGETS=$(HANDOUTS:%.md=%.docx)
 
 TARGETS= \
   $(REVEALJS_INDEX_TARGETS) \
+  $(REVEALJS_SELF_CONTAINED_TARGETS) \
   $(BEAMER_TARGETS) \
   $(CODE_INDEX_TARGETS) \
-  $(HANDOUTS_DOCX_TARGETS)
+  $(HANDOUTS_DOCX_TARGETS) \
 
 RAW=$(LECTURES) $(CODE)
-BUILD_TARGETS= \
-  $(BUILDDIR)/index.html \
-  $(TARGETS:%=$(BUILDDIR)/%) \
-  $(RAW:%=$(BUILDDIR)/%) \
-  $(STATIC:%=$(BUILDDIR)/%) \
-  $(REVEALJS_SELF_CONTAINED_TARGETS) \
-  $(REVEALJS_SELF_CONTAINED_TARGETS:%=$(BUILDDIR)/%) 
 
 # global rules
 all: $(TARGETS)
-build: $(BUILD_TARGETS)
+
+.PHONY: build
+build: $(TARGETS) $(RAW) $(STATIC)
+	mkdir -p $(BUILDDIR)
+	$(MAKE) $(BUILDDIR)/index.html
+	cp --parents $^ $(BUILDDIR)
 
 # implicit rules
 %.html: %.md ./pandoc/revealjs-template.html
-	$(PANDOC_REVEALJS_INDEX) $< -o $@
+	$(MAKE) -C $(shell dirname $@) $(shell basename $@)
 
 %.full.html: %.md ./pandoc/revealjs-template.html
-	$(PANDOC_REVEALJS_SELF_CONTAINED) $< -o $@
+	$(MAKE) -C $(shell dirname $@) $(shell basename $@)
 
 %.pdf: %.md ./pandoc/beamer-template.tex
-	$(PANDOC_BEAMER) $< -o $@
+	$(MAKE) -C $(shell dirname $@) $(shell basename $@)
 
 %.html: %.py ./pandoc/make-code-index.py ./pandoc/html-template.html
 	python ./pandoc/make-code-index.py $@ $<
@@ -86,10 +49,6 @@ build: $(BUILD_TARGETS)
 	pandoc $< -o $@
 
 # build rules
-${BUILDDIR}/%: %
-	mkdir -p $(@D)
-	cp -r $< $@
-
 $(BUILDDIR)/index.html: ./pandoc/make-index.py
 	mkdir -p $(@D)
 	python ./pandoc/make-index.py $@ $(LECTURES)
@@ -117,5 +76,4 @@ dist: $(BUILD_TARGETS)
 
 clean:
 	rm -f $(TARGETS)
-	rm -f $(BUILD_TARGETS)
 	rm -rf $(BUILDDIR)

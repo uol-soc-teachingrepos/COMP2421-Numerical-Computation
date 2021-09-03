@@ -1,1 +1,6 @@
 video/* filter=lfs diff=lfs merge=lfs -text
+video/lec01/HPG.webm filter=lfs diff=lfs merge=lfs -text
+video/lec01/in-silico.mp4 filter=lfs diff=lfs merge=lfs -text
+video/lec01/LES.webm filter=lfs diff=lfs merge=lfs -text
+video/lec01/pipebots.webm filter=lfs diff=lfs merge=lfs -text
+video/lec01/weather.webm filter=lfs diff=lfs merge=lfs -text

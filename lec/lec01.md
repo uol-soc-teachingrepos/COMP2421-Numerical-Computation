@@ -202,9 +202,15 @@ This will include all:
 :::::: {.r-stack}
 :::::::: {.fragment .fade-in-then-out}
 Airflow simulations
+<video width="100%">
+	<source src="../video/lec01/LES.webm" type="video/mp4">
+	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
+</video>
 
-<!-- TODO -->
-<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="???" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
+<small>
+Video source: <https://youtu.be/-4gSS-UHWcc>
+</small>
+
 ::::::::
 :::::::: {.fragment .fade-in-then-out}
 Economics
@@ -213,13 +219,28 @@ Economics
 ::::::::
 :::::::: {.fragment .fade-in-then-out}
 Weather forecasting
+<video width="100%" muted>
+	<source src="../video/lec01/weather.webm" type="video/mp4">
+	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
+</video>
 
-<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"><img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
+<small>
+	Video source: <https://youtu.be/5kpw5WeR5V4>
+</small>
 ::::::::
 :::::::: {.fragment .fade-in-then-out}
 Health care
 
-<a title="From: In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials" href="https://www.nature.com/articles/s41467-021-23998-w"><img width="100%" alt="Workflow of the FD-PASS in-silico trial" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-23998-w/MediaObjects/41467_2021_23998_Fig1_HTML.png"></a>
+<a title="From: In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials" href="https://www.nature.com/articles/s41467-021-23998-w">
+<video width="100%">
+	<source src="../video/lec01/in-silico.mp4" type="video/mp4">
+	<img width="100%" alt="Workflow of the FD-PASS in-silico trial" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-23998-w/MediaObjects/41467_2021_23998_Fig1_HTML.png">
+</video>
+</a>
+
+<small>
+	Video source: <https://vimeo.com/578167974>
+</small>
 ::::::::
 ::::::
 ::::
@@ -236,8 +257,8 @@ Health care
 - These are examples of dynamic models which must be solved and then rendered in "real time".
 ::::
 :::: {.col}
- <video width="100%" controls>
-  <source src="../video/HPG.webm" type="video/mp4" >
+ <video width="100%" muted>
+  <source src="../video/lec01/HPG.webm" type="video/mp4" >
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
 </video>
 
@@ -258,8 +279,16 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 - Much of AI boils down to *optimisation* which requires special numerical methods
 ::::
 :::: {.col}
-![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)
+Robotics at Leeds
+![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG){width=75%}
 
-![](https://eps.leeds.ac.uk/eps/images/800x400_Leeds_Drone.jpg)
+Pipebots
+<video width="75%" muted>
+	<source src="../video/lec01/pipebots.webm" type="video/mp4">
+</video>
+
+<small>
+Video source: <https://youtu.be/pppxa9MpoeY>
+</small>
 ::::
 :::

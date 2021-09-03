@@ -13,6 +13,8 @@ REVEALJS_SELF_CONTAINED_TARGETS=$(LECTURES:%.md=%.full.html)
 BEAMER_TARGETS=$(LECTURES:%.md=%.pdf)
 CODE_INDEX_TARGETS=$(CODE:%.py=%.html)
 HANDOUTS_DOCX_TARGETS=$(HANDOUTS:%.md=%.docx)
+HANDOUTS_HTML_TARGETS=$(HANDOUTS:%.md=%.html)
+HANDOUTS_PDF_TARGETS=$(HANDOUTS:%.md=%.pdf)
 
 TARGETS= \
   $(REVEALJS_INDEX_TARGETS) \
@@ -20,8 +22,10 @@ TARGETS= \
   $(BEAMER_TARGETS) \
   $(CODE_INDEX_TARGETS) \
   $(HANDOUTS_DOCX_TARGETS) \
+  $(HANDOUTS_HTML_TARGETS) \
+  $(HANDOUTS_PDF_TARGETS) \
 
-RAW=$(LECTURES) $(CODE)
+RAW=$(LECTURES) $(CODE) $(HANDOUTS)
 
 # global rules
 all: $(TARGETS)
@@ -43,7 +47,7 @@ build: $(TARGETS) $(RAW) $(STATIC)
 	$(MAKE) -C $(shell dirname $@) $(shell basename $@)
 
 %.html: %.py ./pandoc/make-code-index.py ./pandoc/html-template.html
-	python ./pandoc/make-code-index.py $@ $<
+	$(MAKE) -C $(shell dirname $@) $(shell basename $@)
 
 %.docx: %.md
 	pandoc $< -o $@

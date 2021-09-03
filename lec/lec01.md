@@ -203,6 +203,7 @@ This will include all:
 :::::::: {.fragment .fade-in-then-out}
 Airflow simulations
 
+<!-- TODO -->
 <a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="???" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
 ::::::::
 :::::::: {.fragment .fade-in-then-out}
@@ -235,7 +236,10 @@ Health care
 - These are examples of dynamic models which must be solved and then rendered in "real time".
 ::::
 :::: {.col}
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
+ <video width="100%" controls>
+  <source src="../video/HPG.webm" type="video/mp4" >
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
+</video>
 
 <small>
 Student Showcase, High Performance Graphics and Game Engineering 2021, University of Leeds

@@ -47,7 +47,7 @@ build: $(TARGETS) $(RAW) $(STATIC)
 	$(MAKE) -C $(shell dirname $@) $(shell basename $@)
 
 %.html: %.py ./pandoc/make-code-index.py ./pandoc/html-template.html
-	$(MAKE) -C $(shell dirname $@) $(shell basename $@)
+	python ./pandoc/make-code-index.py $@ $<
 
 %.docx: %.md
 	pandoc $< -o $@

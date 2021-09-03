@@ -1,3 +1,17 @@
+# Prerequisites
+
+To get started you need the dependencies listed in the `environment.yml` file:
+
+- make
+- pandoc
+- python
+- pypandoc
+- git lfs
+- livereload (optional - for test serving content)
+
+This can be easily done with `conda env create -f environment.yml`.
+
+# Getting the content
 
 To build the slides call
 ```

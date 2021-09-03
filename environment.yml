@@ -5,6 +5,7 @@ channels:
 
 dependencies:
   - git = 2.32
+  - git-lfs = 2.13
   - make
   - nodejs = 14.14
   - pandoc = 2.14

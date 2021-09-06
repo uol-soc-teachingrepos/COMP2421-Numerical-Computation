@@ -12,14 +12,36 @@ They describe how to get from one point of space to another.
 
 We will denote vectors as with an arrow, for example $\vec{a}$:
 
-<a title="The original uploader was Nguyenthephuc at English Wikipedia.
-Later versions were uploaded by Oleg Alexandrov at en.wikipedia., CC BY-SA 3.0 &lt;http://creativecommons.org/licenses/by-sa/3.0/&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Vector_from_A_to_B.svg"><img width="66%" alt="Vector from A to B" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vector_from_A_to_B.svg/512px-Vector_from_A_to_B.svg.png"></a>
+![](../img/lec03/vector.svg)
 
 Sometimes people use other notations such as bold face $\mathbf{a}$ or just plain italics $a$.
 
-Vectors play in important role in geometry and physics.
+## Where are they used?
 
-## Row and column vectors
+- Vectors play in important role in geometry and physics.
+
+- Vectors can represent **points** in two or three  (or more!) dimensions.
+
+- Vectors can represent many **physical quantities** such as velocity, acceleration, forces, momentum, torques, ....
+
+- Vectors can represent different aspects of a **dataset** together: for example, height and weight, or in analysis such as [text vectorisation](https://towardsdatascience.com/why-data-is-represented-as-a-vector-in-data-science-problems-a195e0b17e99).
+
+- Vectors can represent **features** in machine learning: so called [feature vectors](https://brilliant.org/wiki/feature-vector/).
+
+## Column vectors
+
+A **column vector** is an ordered column of numbers
+$$
+ \vec{a} = \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix}.
+$$
+For example,
+$$
+ \vec{a} = \begin{pmatrix} 1 \\ 9 \\ 7 \end{pmatrix},
+ \vec{b} = \begin{pmatrix} 2 \\ 11 \end{pmatrix},
+ \vec{c} = \begin{pmatrix} -3 \end{pmatrix}.
+$$
+
+## Row vectors
 
 A **row vector** is an ordered row of numbers:
 $$
@@ -27,35 +49,35 @@ $$
 $$
 For example,
 $$
- \vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}.
-$$
-
-A **column vector** is an ordered column of numbers
-$$
- \vec{b} = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix}.
-$$
-For example,
-$$
- \vec{b} = \begin{pmatrix} 1 \\ 9 \\ 7 \end{pmatrix}.
+ \vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix},
+ \vec{b} = \begin{pmatrix} 7 & 6 & 8 & 1 \end{pmatrix},
+ \vec{c} = \begin{pmatrix} 9 \end{pmatrix}.
 $$
 
 ## Vector addition
 
 Vectors have the *functional* property that you can add them together to form a new vector.
 
+::: {.container}
+::::: {.col}
 **Example**
 
 Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \\ 2 \end{pmatrix}$ and $\vec{b} = \begin{pmatrix} 1 \\ 9 \\ 7 \end{pmatrix}$. Then
 $$
  \vec{a} + \vec{b} = \begin{pmatrix} 4 + 1 \\ 5 + 9 \\ 2 + 7 \end{pmatrix} = \begin{pmatrix} 5 \\ 14 \\ 9 \end{pmatrix}.
 $$
-
-TODO: add picture
+:::::
+::::: {.col}
+![](../img/lec03/addition.svg)
+:::::
+:::
 
 ## Scalar multiplication
 
 Vectors have the *functional* property that you can multiply by a number to form a new vector.
 
+::: {.container}
+:::: {.col}
 **Example**
 
 Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \\ 2 \end{pmatrix}$.
@@ -63,8 +85,11 @@ Then
 $$
  2.5 \vec{a} = \begin{pmatrix} 2.5 \times 4 \\ 2.5 \times 5 \\ 2.5 \times 2 \end{pmatrix} = \begin{pmatrix} 10 \\ 12.5 \\ 5 \end{pmatrix}.
 $$
-
-TODO: add picture
+:::::
+::::: {.col}
+![](../img/lec03/multiplication.svg)
+:::::
+:::
 
 # Linear transformation
 
@@ -84,39 +109,42 @@ $$
 
 ## Example 1: Scaling
 
-For any number $s$, scaling by $s$ means changing the length of the vector by $s$.
+For any number $s$, scaling by $s$ means changing the length of the vector by $s$ to make it bigger or smaller.
 
-**Example**
-
-Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \\ 2 \end{pmatrix}$ and $s = 2.5$.
-Then
-$$
- 2.5 \vec{a} = \begin{pmatrix} 2.5 \times 4 \\ 2.5 \times 5 \\ 2.5 \times 2 \end{pmatrix} = \begin{pmatrix} 10 \\ 12.5 \\ 5 \end{pmatrix}.
-$$
-
-<!-- TODO: picture -->
+::: {.container}
+::::: {.col}
+![](../img/lec03/multiplication.svg)
+:::::
+::::: {.col}
+![](../img/lec03/hen-scaling.svg)
+:::::
+:::
 
 ## Example 2: Rotation
 
 In 2D, for any angle $\theta$, rotating by $\theta$ means moving vectors about a centre point.
 
-**Example**
-
-Let $\vec{a} = \begin{pmatrix} 4 \\ 5 \end{pmatrix}$ and $\theta = \pi/2 = 90^\circ$.
-Then
-$$
- \vec{a} \mapsto \begin{pmatrix} -5 \\ 4 \end{pmatrix}
-$$
-
-<!-- TODO: picture -->
+::: {.container}
+::::: {.col}
+![](../img/lec03/rotation.svg)
+:::::
+::::: {.col}
+![](../img/lec03/hen-rotation.svg)
+:::::
+:::
 
 ## Example 3: Reflection
 
 Reflection creates a mirror image of a vector.
 
-## Example 4: Shear
-
-## Example 5: Projection
+::: {.container}
+::::: {.col}
+![](../img/lec03/reflection.svg)
+:::::
+::::: {.col}
+![](../img/lec03/hen-reflection.svg)
+:::::
+:::
 
 # Other vector operations
 

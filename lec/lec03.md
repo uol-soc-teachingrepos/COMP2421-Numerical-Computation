@@ -10,11 +10,11 @@ subtitle: Matrices and vectors - a geometric perspective
 A vector is often described as a quantity that has magnitude and direction.
 They describe how to get from one point of space to another.
 
-We will denote vectors as with an arrow, for example $\vec{a}$:
+We will denote vectors as with an arrow, for example $\vec{a}$.
+Sometimes people use other notations such as bold face $\mathbf{a}$ or just plain italics $a$.
 
 ![](../img/lec03/vector.svg)
 
-Sometimes people use other notations such as bold face $\mathbf{a}$ or just plain italics $a$.
 
 ## Where are they used?
 
@@ -175,6 +175,8 @@ $$
  = \sqrt{\sum_{i=1}^n a_i^2}.
 $$
 
+::: {.container}
+::::: {.col}
 **Example**
 
 Let $\vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}$.
@@ -182,8 +184,11 @@ Then
 $$
  \| \vec{a} \| = \sqrt{4^2 + 5^2 + 2^2} = \sqrt{16 + 25 + 4} = \sqrt{45}.
 $$
-
-<!-- TODO: make image -->
+:::::
+::::: {.col}
+![](../img/lec03/norm.svg)
+:::::
+:::
 
 ## Inner product
 
@@ -218,7 +223,7 @@ $$
 
 # Summary
 
-- We can use vectors to represent objects in geometry and physics.
+- We can use vectors to represent objects in geometry, physics and data science.
 
 - We can write vectors as column or row vectors.
 

@@ -3,12 +3,11 @@ title: COMP2421 Lecture 2
 subtitle: Floating point arithmetic
 ---
 # Finite precision number systems
-
-- Computers store numbers with *finite precision*, i.e. using a finite set of bits (binary digits), typically 32 or 64 of them.
+- Computers store numbers with **finite precision**, i.e. using a finite set of bits (binary digits), typically 32 or 64 of them.
 
 - Many numbers cannot be stored exactly
 
-  - Some numbers cannot be represnted precisely using **any** finite set of digits: \
+  - Some numbers cannot be represented precisely using **any** finite set of digits: \
 	e.g. $\sqrt{2} = 1.141 42\ldots$, $\pi = 3.141 59\ldots$, etc.
   - Some cannot be represented precisely in a given number base: \
 	e.g. $\frac{1}{9} = 0.111\ldots$ (decimal), $\frac{1}{5} = 0.0011 0011 \ldots$ (binary).
@@ -25,7 +24,7 @@ The inaccuracies inherent in finite precision arithmetic must be modelled in ord
 
 - the errors which occur when arithmetic operations are applied to them.
 
-The examples shown here will be in decimal by the issues apply to any base, *e.g.* binary.
+The examples shown here will be in **decimal** by the issues apply to any base, *e.g.* **binary**.
 
 # Normalised systems
 
@@ -41,31 +40,34 @@ $$
 - $\beta$ is the **base** (always a positive integer).
 - $e$ is the integer **exponent** and is bounded ($L \le e \le U$).
 
-$(\beta, \eta, L, U)$ fully defines a finite precision number system.
+$(\beta, t, L, U)$ fully defines a finite precision number system.
 
 ## Normalisation
 
 **Normalised** finite precision systems will be considered here for which
 $$
-b_1 \neq 0 \quad (0 < b_1 < \beta -1).
+b_1 \neq 0 \quad (0 < b_1 \le \beta -1).
 $$
 
 Examples:
 
 1. In the case $(\beta, t, L, U) = (10, 4, -49, 50)$ (base 10),
+   <font size="5">
    $$
    10 000 = .1000 \times 10^5, \quad
-   22.64 = .2264 \times 10%2, \quad
+   22.64 = .2264 \times 10^2, \quad
    0.000 056 7 = .5670 \times 10^{-4}
    $$
-1. In the case $(\beta, t, L, U) = (2, 6, -7, 8)$ (binary),
+   </font>
+2. In the case $(\beta, t, L, U) = (2, 6, -7, 8)$ (binary),
    $$
    1 0000 = .1000 00 \times 2^5, \quad
    1011.11 = .1011 11 \times 2^4,$$
    $$
    0.0000 11 = .1100 00 \times 2^{-4}.
    $$
-1. Zero is always taken to be a special case e.g., $0 = \pm .00\ldots 0 \times \beta^0$.
+3. **Zero** is always taken to be a special case e.g., $0 = \pm .00\ldots 0 \times \beta^0$.
+
 
 ## Standards
 
@@ -112,7 +114,7 @@ The error in this representation can be expressed in two ways.
 $$
 \begin{aligned}
  \mbox{Absolute error} &= | fl(x) - x | \\
- \mbox{Relative error} &= \frac{| fl(x) - x |}{x}.
+ \mbox{Relative error} &= \frac{| fl(x) - x |}{|x|}.
 \end{aligned}
 $$
 The number $fl(x)$ is said to approximate $x$ to $t$ **significant digits** (or figures) if $t$ is the largest non-negative integer for which
@@ -126,7 +128,7 @@ $$
 
 In the number system given by $(\beta, t, L, U)$, the nearest (larger) representable number to $x = 0.b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e$ is
 $$
- \tilde{x} = x + \underbrace{000\ldots01}_{t \mbox{ digits}} \times \beta^e = x + \beta^{e-t}
+ \tilde{x} = x + .\underbrace{000\ldots01}_{t \mbox{ digits}} \times \beta^e = x + \beta^{e-t}
 $$
 
 Any number $y \in (x, \tilde{x})$ is stored as either $x$ or $\tilde{x}$ by **rounding** to the nearest representable number, so
@@ -138,13 +140,13 @@ Any number $y \in (x, \tilde{x})$ is stored as either $x$ or $\tilde{x}$ by **ro
 
 It follow from $y > x \ge .100 \ldots 00 \times \beta^e = \beta^{e-1}$ that
 $$
- \frac{|y - fl(y)}{|y|} < \frac{1}{2} \frac{\beta^{e-t}}{\beta^{e-1}} = \frac{1}{2} \beta^{1-t},
+ \frac{|y - fl(y)|}{|y|} < \frac{1}{2} \frac{\beta^{e-t}}{\beta^{e-1}} = \frac{1}{2} \beta^{1-t},
 $$
 and this provides a bound on the **relative error**: for any $y$
 $$
- \frac{|y - fl(y)}{|y|} < \frac{1}{2} \beta^{1-t}.
+ \frac{|y - fl(y)|}{|y|} < \frac{1}{2} \beta^{1-t}.
 $$
-The last term is known as **machine precision** or **unit roundoff** and is often calld $\epsilon$. This is obtained in Python with
+The last term is known as **machine precision** or **unit roundoff** and is often called $\epsilon$. This is obtained in Python with
 ```python
 >>> numpy.finfo(np.double).eps
 2.220446049250313e-16
@@ -180,7 +182,7 @@ e.g. $x + (y+z) = (x+y) + z$?
 
 Consider the number system $(\beta, t, L, U) = (10, 2, -1, 2)$ and take
 $$
- x = .1 \times 10^2, \quad
+ x = .10 \times 10^2, \quad
  y = .49 \times 10^0, \quad
  z = .51 \times 10^0.
 $$
@@ -213,7 +215,7 @@ $$
 $$
 in the system $(\beta, t, L, U) = (10, 2, -3, 3)$.
 
-3. Given the number system $(\beta, t, L, U) = (10, 3, -3, 3)$ and $x = .1 \times 10^3$, find nonzero numbers $y$ and $z$ from this system for which $fl(x+y) = x$ and $fl(x+z) > x$.
+3. Given the number system $(\beta, t, L, U) = (10, 3, -3, 3)$ and $x = .100\times 10^3$, find nonzero numbers $y$ and $z$ from this system for which $fl(x+y) = x$ and $fl(x+z) > x$.
 
 ## An alternative definition of $eps$
 

@@ -6,7 +6,7 @@ subtitle: Matrices and vectors
 
 **What is a matrix?**
 
-A matrix is a two-dimensional array of objects (usually number)...
+A matrix is a two-dimensional array of objects (usually numbers)...
 
 - e.g. 4 rows and 5 columns
   $$
@@ -46,7 +46,7 @@ This example has $m$ rows and $n$ columns. We call $A$ an $m \times n$ matrix.
 
 - The entry $A_{ij}$ appears in row $i$ and column $j$.
 - The values $A_{ij}$ are known as **coefficients** of $A$.
-- We will only consider cases where the coefficients, $A_{ij}$, real numbers.
+- We will only consider cases where the coefficients, $A_{ij}$, are real numbers.
 - We say that two matrices, $A$ and $B$, are equal (i.e. $A=B$) if:
   1. $A$ and $B$ have the same number of rows;
   2. $A$ and $B$ have the same number of columns;
@@ -113,7 +113,7 @@ $$
 
 - This new matrix, $B$, is such that
   1. $B$ has the same dimensions as $A$;
-  2. $B_{ij} = \alpha_{ij}$ for every entry of each row and column.
+  2. $B_{ij} = \alpha A_{ij}$ for every entry of each row and column.
 
 - Similarly, provided matrices $X$ and $Y$ have the same size, we may define $C = \alpha X + \beta Y$ (for real numbers $\alpha$ and $\beta$) such that:
   - $C$ has the same dimensions as $X$ and $Y$;

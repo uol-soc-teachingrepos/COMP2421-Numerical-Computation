@@ -43,16 +43,25 @@ More details on the assessment will follow in the two week.
 
 On-line assessment in January.
 The length of the exam and precise format is still to be confirm.
-<!-- The exam is worth ???% of the credit for the module. -->
+The exam is worth 60% of the credit for the module.
 
 ## Summative coursework
 
-Two pieces of coursework spread throughout the term.<!-- each worth ???% of the credit for the module -->
+There are two pieces of coursework for this module. Each is worth 20% of your module grade.
 Coursework will be submitted via Gradescope.
+The dates are tentative at this stage and are subject to change.
+
+| Coursework | Date set    | Submission deadline | Feedback date   |
+|------------|-------------|---------------------|-----------------|
+| 1          | 11 October  | 4 November          | 18 November     |
+| 2          | 22 November | 9 December          | after Christmas |
+
+Late submission will only be allowed up to 1 week after the submission deadline to allow feedback to be returned in a reasonable time frame.
 
 ## Formative homework
 
 There will be weekly homework assignment sheets. These are not for credit. You can check your understanding by submitting answers via Gradescope.
+Additional feedback will be given through the release of worked solutions and in tutorial sessions.
 
 # Reference materials
 

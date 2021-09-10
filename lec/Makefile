@@ -17,7 +17,8 @@ PANDOC_REVEALJS_INDEX= \
   -V controlsTutorial=true \
   -V slideNumber="'c'" \
   -V menu=true \
-  -V basename=".."
+  -V basename=".." \
+  -V starttime="no"
 
 PANDOC_REVEALJS_SELF_CONTAINED= \
   $(PANDOC_REVEALJS) \

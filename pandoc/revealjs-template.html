@@ -70,6 +70,9 @@ $if(subtitle)$
   <p class="author"><b>Dr. Thomas Ranner (Tom)</b></p>
   <p>3.40d Bragg Building</p>
   <p>Please contact me via <a href="https://teams.microsoft.com/l/chat/0/0?users=T.Ranner@leeds.ac.uk">Teams</a></p>
+$if(starttime)$
+  <p id="countdown"></p>
+$endif$
 </section>
 $endif$
 
@@ -91,7 +94,11 @@ $body$
   <script src="$basename$/js/menu/menu.js"></script>
   <script src="$basename$/static/theme.js"></script>
   $endif$
-  <script src="$basename$/js/revealjs/plugin/highlight/highlight.js"></script> 
+  <script src="$basename$/js/revealjs/plugin/highlight/highlight.js"></script>
+  $if(starttime)$
+  <script src="$basename$/static/timer.js"></script>
+  <script>countdowntimer("$starttime$")</script>
+  $endif$
 
   <script>
 

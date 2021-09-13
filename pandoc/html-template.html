@@ -21,6 +21,8 @@ $endif$
     $styles.html()$
   </style>
   <link rel="stylesheet" href="$basename$/css/github.css" id="highlight-theme"/>
+  <link rel="stylesheet" href="../css/pandoc.css" />
+  <link rel="stylesheet" href="../css/common-code.css" />
 $if(math)$
   $math$
 $endif$
@@ -58,7 +60,7 @@ $table-of-contents$
 </nav>
 $endif$
 $if(rawfile)$
-<a href="$rawfile$">Raw</a>
+<a href="$rawfile$">Download $rawfile$</a>
 $else$
 Raw file missing
 $endif$

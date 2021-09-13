@@ -22,7 +22,7 @@ A matrix is a two-dimensional array of objects (usually numbers)...
   $$
   \begin{pmatrix}
   1.1 & -1.2 & 0.0 & 21.3 & -2.9 & 1.1 \\
-  4.1 & 4.1 & 4.1 & 2.2 & -8.8 1.1
+  4.1 & 4.1 & 4.1 & 2.2 & -8.8 & 1.1
   \end{pmatrix}
   $$
 
@@ -40,7 +40,7 @@ $$
  \end{pmatrix}
 $$
 
-This example has $m$ rows and $n$ columns. We call $A$ an $m \times n$ matrix (``$m$ by $n$'' matrix).
+This example has $m$ rows and $n$ columns. We call $A$ an $m \times n$ matrix ("$m$ by $n$" matrix).
 
 ## Notes
 
@@ -201,7 +201,7 @@ $$
 - If $A$ is an $m \times n$ matrix (i.e., has $m$ rows and $n$ columns) then there is a unique matrix $O$ such that $A + O = A$:
   - $O$ is the $m \times n$ matrix for which every entry is zero.
 
-# Properties of matrix addition
+## Properties of matrix addition
 
 Let $A, B$ and $C$ be matrices of the same dimensions, then
 
@@ -213,7 +213,7 @@ Let $A, B$ and $C$ be matrices of the same dimensions, then
 
 - Defining $-A$ to be $-1A$ then: $-A + A = O$.
 
-# Properties of scalar multiplication
+## Properties of scalar multiplication
 
 Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be scalars, then
 
@@ -230,8 +230,7 @@ Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be s
  - Note that when a matrix has $m$ rows and $n$ columns we say that it
  is an $m \times n$ matrix (these are its dimensions).
 
- - It was also shown that one can multiple a matrix by a real number (i.e.\
- a *scalar*).
+ - It was also shown that one can multiple a matrix by a real number (i.e. a *scalar*).
 
  - Under certain circumstances it is also possible to define a way in which
  two matrices may be multiplied together, to form a new matrix as their
@@ -334,7 +333,7 @@ $$
  - Matrix multiplication is associative: $(AB)C = A(BC)$ provided the
  matrices are of appropriate dimensions for these products to be well-defined.
 
-# Matrix Transposition
+## Matrix Transposition
 
 - An important matrix operation is called the **transpose**.
 
@@ -368,7 +367,7 @@ $(A^{\rm T})_{ij} = A_{ji}$.
 - Note that any matrix $A$ such that $A^{\rm T} = A$ is called a **symmetric**
  matrix (and must be a square matrix).
 
-# Identity Matrices
+## Identity Matrices
 
 - These are square matrices that have the structure:
 \begin{eqnarray*}
@@ -387,7 +386,7 @@ $(A^{\rm T})_{ij} = A_{ji}$.
 
 # Invertible Matrices
 
-- An $n \times n$ matrix $A$ is invertible (non-degenerate, non-singular) if $\exists B$ which is an $n \times n$ matrix such that $AB = BA = I_n$.
+- An $n \times n$ matrix $A$ is invertible (non-degenerate, non-singular) if there exists $B$ which is an $n \times n$ matrix such that $AB = BA = I_n$.
 
 - When $A$ is invertible, then its inverse is unique and we denote it by $A^{-1}$.
 

@@ -159,18 +159,18 @@ $$
 
 ## Examples 2
 
-**Sparse matrices** are extremely common in any application which relies on some form of graph structure (see both temperature and traffic network examples).
+**Sparse matrices** are extremely common in any application which relies on some form of graph structure. <!-- (see both temperature and traffic network examples) -->
 
 - The $a_{ij}$ typically represents some form of "communication" between vertices $i$ and $j$ of the graph, so the element is only nonzero if the vertices are connected.
 
 - There is no generic pattern for these entries, though there is usually one that is specific to the problem solved.
 
-- Usually $a_ii \neq 0$ - the diagonal is nonzero.
+<!-- - Usually $a_{ii} \neq 0$ - the diagonal is nonzero. -->
 
 - A "large" portion of the matrix is zero.
   - A full $n \times n$ matrix has $n^2$ nonzero entries.
   - A sparse $n \times n$ has $\alpha n$ nonzero entries, where $\alpha \ll n$.
-  
+
 - Many special techniques exist for handling sparse matrices, some of which can be used automatically within Python ([scipy documentation](https://docs.scipy.org/doc/scipy/reference/sparse.html))
 
 ## Significance

@@ -266,7 +266,7 @@ The following algorithm systematically introduces zeros into the system of equat
 
 After row $n-1$ all entities below the diagonal have been eliminated, so $A$ is now upper triangular and the resulting system can be solved by backward substitution.
 
-## Example 1
+## Example 1 i
 
 Use Gaussian eliminate to solve the linear system of equations given by
 $$
@@ -295,6 +295,8 @@ x_1 \\ x_2 \\ x_3
 12 \\ 3 \\ 22
 \end{pmatrix}
 $$
+
+## Example 1 ii
 
 - (row 3) $-$ (row 1) then gives
 $$

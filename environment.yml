@@ -1,4 +1,4 @@
-name: revealjs
+name: comp2421
 
 channels:
   - conda-forge
@@ -11,3 +11,4 @@ dependencies:
   - pandoc = 2.14
   - pypandoc = 1.6
   - livereload = 2.6
+  - numpy

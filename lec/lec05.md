@@ -149,7 +149,8 @@ $$
  b_1 \\ b_2 \\ b_3 \\ \vdots \\ b_n
  \end{pmatrix}.
 $$
-- A is a **lower triangular** matrix\
+
+- A is a **lower triangular** matrix.
   Every entry above the leading diagonal is zero:
   $$
   a_{ij} = 0 \quad \mbox{ for } \quad j > i.

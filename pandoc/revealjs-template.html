@@ -12,7 +12,12 @@ $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <title>
+$for(course)$
+    $course.code$ $course.title$
+$endfor$
+    $title$
+  </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -51,6 +56,9 @@ $endfor$
 $if(title)$
   <div class='footer'>
     <h4 class="title">
+$for(course)$
+      $course.code$
+$endfor$
       $title$
     </h4>
   </div>
@@ -62,14 +70,28 @@ $if(title)$
 	 $if(title-attr)$
 	 $title-attr$
 	 $endif$>
-  <h1 class="title">$title$</h1>
+  <h1 class="title">
+$for(course)$
+    $course.code$
+    $course.title$
+$endfor$
+    - $title$
+  </h1>
 $if(subtitle)$
   <h4 class="subtitle">$subtitle$</h4>
-  $endif$
-  
-  <p class="author"><b>Dr. Thomas Ranner (Tom)</b></p>
-  <p>3.40d Bragg Building</p>
-  <p>Please contact me via <a href="https://teams.microsoft.com/l/chat/0/0?users=T.Ranner@leeds.ac.uk">Teams</a></p>
+$endif$
+
+$for(author)$
+$if(author.name)$
+  <p class="author"><b>$author.name$</b></p>
+$endif$
+$if(author.room)$  
+  <p>$author.room$</p>
+$endif$
+$if(author.contact)$
+  <p>$author.contact$</p>
+$endif$
+$endfor$
 $if(starttime)$
   <p id="countdown"></p>
 $endif$

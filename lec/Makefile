@@ -3,6 +3,7 @@ PANDOC_REVEALJS= \
   pandoc \
     --template=../pandoc/revealjs-template.html \
     -t revealjs \
+    --metadata-file=../metafile.yaml \
     --mathjax \
     --no-highlight \
     --slide-level 2 \

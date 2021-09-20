@@ -51,8 +51,10 @@ $else$
 $endif$
 \subtitle{$subtitle$}
 $endif$
-\author{Dr. Thomas Ranner (Tom)}
-\date{3.40d Bragg Building\\Please contact me via Teams}
+$for(author)$
+\author{$author.name$}
+\date{$author.room$\\$author.contact$}
+$endfor$
 $if(beamer)$
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}

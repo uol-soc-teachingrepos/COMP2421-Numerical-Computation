@@ -11,19 +11,19 @@ Solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, $j = 1, \l
 Equation 1: $a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n = b_1$\
 Equation 2: $a_{21} x_2 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n = b_2$\
 $\vdots$\
-Equation $i$: $a_{i1} x_1 + x_{i2} x_2 + a_{i3} x_3 + \cdots a_{in} x_n = b$\
+Equation $i$: $a_{i1} x_1 + x_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n = b_i$\
 $\vdots$\
 Equation $n$: $a_{n1} x_1 + a_{n2} x_2 + a_{n3} x_3 + \cdots + a_{nn} x_n = b_n$.
 
 ## Notes
 
-- The values $a_{ij}$ are known as **coefficients**
+- The values $a_{ij}$ are known as **coefficients**.
 
 - The **right hand side** values $b_i$ are known.
 
-- $x_1, x_2, x_3, \ldots, x_n$ are not known.
+- $x_1, x_2, x_3, \ldots, x_n$ are **not** known.
 
-Computing $x_1, x_2, x_3, \ldots, x_n$ solve the problem.
+Computing $x_1, x_2, x_3, \ldots, x_n$ solves the problem.
 
 ## Notes
 
@@ -31,6 +31,7 @@ Computing $x_1, x_2, x_3, \ldots, x_n$ solve the problem.
   - Scientific computation;
   - Network design and optimisation;
   - Graphics and visualisation.
+  - See [here](http://aix1.uottawa.ca/~jkhoury/system.html) for examples.
   
 - Typically these systems are *very* large ($n \approx 10^9$).
 
@@ -78,7 +79,7 @@ $$
  -1/4 & -1/4 &  1   &  0   & -1/4 & -1/4 & 0 \\
   0   & -1/5 &  0   &  1   &  0   & -1/5 & 0 \\
  -1/6 &  0   & -1/6 &  0   &  1   & -1/6 & -1/6 \\
-  0   & -1/8 & -1/8 & -1/8 & -1/8 & -1/8 & -1/8 \\
+  0   & -1/8 & -1/8 & -1/8 & -1/8 & 1 & -1/8 \\
   0   &  0   &  0   &  0   & -1/5 & -1/5 &   1
 \end{pmatrix}
 \begin{pmatrix}
@@ -139,7 +140,7 @@ $$
  a_{21} & a_{22} & 0 & \cdots & 0 \\
  a_{31} & a_{32} & a_{33} & \cdots & 0 \\
  \vdots & \vdots & \vdots & \ddots & \vdots \\
- a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
+ a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn}
  \end{pmatrix}
  \begin{pmatrix}
  x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_n
@@ -148,18 +149,17 @@ $$
  b_1 \\ b_2 \\ b_3 \\ \vdots \\ b_n
  \end{pmatrix}.
 $$
-
 - A is a **lower triangular** matrix\
   Every entry above the leading diagonal is zero:
   $$
-  a_{ij} = 0 \quad \mbox{ for } \quad j > 1.
+  a_{ij} = 0 \quad \mbox{ for } \quad j > i.
   $$
 
 - The *transpose* of this matrix is an **upper triangular** matrix and can be treated in a very similar manner.
 
 ## Examples 2
 
-**Sparse matrices** are extremely common in any application which relies on some form of graph structure. <!-- (see both temperature and traffic network examples) -->
+**Sparse matrices** are extremely common in any application which relies on some form of *graph* structure. <!-- (see both temperature and traffic network examples) -->
 
 - The $a_{ij}$ typically represents some form of "communication" between vertices $i$ and $j$ of the graph, so the element is only nonzero if the vertices are connected.
 
@@ -179,7 +179,7 @@ What is the significance of these special examples?
 
 - In the next lecture we will discuss a general numerical algorithm for the solution of linear systems of equations.
 
-- This will involve reducing the problem to one involving a *triangular matrix* which, as we show below, is relatively easy to solve.
+- This will involve **reducing** the problem to one involving a **triangular matrix** which, as we show below, is relatively easy to solve.
 
 - In subsequent lectures, we will see that, for *sparse* matrix systems, alternative solution techniques are available.
 
@@ -188,22 +188,22 @@ What is the significance of these special examples?
 For the time-being we will only consider *square* systems of equations:\
 for which the number of equations is equal to the number of unknowns ($n$, say).
 
-In this case the following statements are equivalent:
+In this case the following statements are *equivalent*:
 
-- The linear system $A \vec{x} = \vec{b}$ has a unique solution.
-- There exists a matrix (let's call is $A^{-1}$) such that $A^{-1} A = I$, and we say that the matrix $A$ is invertible.
-- The linear system $A \vec{x} = \vec{b}$ is non-singular. <!-- TODO what does this mean? -->
+- The linear system $A \vec{x} = \vec{b}$ has a **unique solution**.
+- There exists a matrix (let's call it $A^{-1}$) such that $A^{-1} A = I$, and we say that the matrix $A$ is **invertible**.
+- The linear system $A \vec{x} = \vec{b}$ is **non-singular**. <!-- TODO what does this mean? -->
 
 # Solving triangular systems
 
-A general *lower triangular* system of euqations has $a_{ij} = 0$ for $j > 1$ and takes the form:
+A general *lower triangular* system of equations has $a_{ij} = 0$ for $j > 1$ and takes the form:
 $$
  \begin{pmatrix}
  a_{11} & 0 & 0 & \cdots & 0 \\
  a_{21} & a_{22} & 0 & \cdots & 0 \\
  a_{31} & a_{32} & a_{33} & \cdots & 0 \\
  \vdots & \vdots & \vdots & \ddots & \vdots \\
- a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
+a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn}
  \end{pmatrix}
  \begin{pmatrix}
  x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_n
@@ -222,15 +222,15 @@ $$
 
 The $x_i$ can be found by calculating
 $$
-x_i = \frac{1}{a_{ii}} \left(b_i - \sum_{j-1}^{i-1} a_{ij} x_j \right)
+x_i = \frac{1}{a_{ii}} \left(b_i - \sum_{j=1}^{i-1} a_{ij} x_j \right)
 $$
 for each row $i = 1, 2, \ldots, n$ in turn.
 
-- Each calculation requires only previously computed values $x_j$ (and the sum gives a loop for $j < i$ - see `lower_triangular_solve` in the file [`matrixSolve.py`](../code/matrixSolve.html)).
-- The matrix $A$ *must* have nonzero diagonal entries\
+- Each calculation requires only previously computed values $x_j$ (and the sum gives a loop for $j < i$ - see `lower_triangular_solve` in the file [`matrixSolve_lec5_lec6.py`](../code_swjtu/lec05/matrixSolve_lec5_lec6.html)).
+- The matrix $A$ **must** have nonzero diagonal entries\
   i.e. $a_{ii} \neq 0$ for $i = 1, 2, \ldots, n$.
-- *Upper triangular* systems of equations can be solved in a similar manner (see `upper_triangular_solve` in the same file).
-- Worked examples in [`triangularSolve.py`](../code/lec05/triangularSolve.html).
+- **Upper triangular** systems of equations can be solved in a similar manner (see `upper_triangular_solve` in the same file).
+- Worked examples in [`lec5_triangularSolve.py`](../code_swjtu/lec05/lec5_triangularSolve.html).
 
 ## Examples 1
 

@@ -4,7 +4,7 @@ subtitle: Solving systems of linear equations II
 ---
 # Elementary row operations
 
-Recall the problem is to solve a set of $n$ **linear** equations for $n$ unknown values $x_i$, for $i=1, 2, \ldots, n$.
+Recall the problem is to solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, for $j=1, 2, \ldots, n$.
 
 **Notation**
 
@@ -47,7 +47,7 @@ Note three things...
   $$
   yields
   $$
-  (k a_{p1} + a_{q1}) x_1 + (k a_{p2} + a_{q2}) x_2 + (k a_{p2} + a_{q3}) x_3 + \cdots + (k a_{pn} + a_{qn}) x_n = k b_p + b_q.
+  (k a_{p1} + a_{q1}) x_1 + (k a_{p2} + a_{q2}) x_2 + \cdots + (k a_{pn} + a_{qn}) x_n = k b_p + b_q.
   $$
 
 ## Example 1
@@ -266,6 +266,29 @@ The following algorithm systematically introduces zeros into the system of equat
 
 After row $n-1$ all entities below the diagonal have been eliminated, so $A$ is now upper triangular and the resulting system can be solved by backward substitution.
 
+## History: First appearing in China
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination):
+The method of Gaussian elimination appears in the Chinese mathematical text
+[Chapter Eight: Rectangular Arrays of The Nine Chapters on the Mathematical Art.](http://www.guoxuemi.com/guji/5445s/)
+Its use is illustrated in eighteen problems, with two to five equations. The
+first reference to the book by this title is dated to 179 CE, but parts of it
+were written as early as approximately 150 BCE. It was commented on by
+Liu Hui in the 3rd century.
+<center>
+<img width="25%" src="../img/lec06/NineChapters.jpg">
+</center>
+ 
+## History: Why called after Gauss
+  From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination):
+The method in Europe stems from the notes of Isaac Newton. In 1670, he
+wrote that all the algebra books known to him lacked a lesson for solving
+simultaneous equations, which Newton then supplied. Carl Friedrich Gauss in 1810 devised a notation
+for symmetric elimination that was adopted in the 19th century by professional
+hand computers to solve the normal equations of least-squares problems. The
+algorithm that is taught in high school was named for Gauss only in the 1950s
+as a result of confusion over the history of the subject.
+
 ## Example 1 i
 
 Use Gaussian eliminate to solve the linear system of equations given by
@@ -338,7 +361,7 @@ $$
 4 & -1 & -1 \\ 2 & 4 & 2 \\ 1 & 2 & 4
 \end{pmatrix}
 \begin{pmatrix}
-x_1 \\ x_2 \\ x_2
+x_1 \\ x_2 \\ x_3
 \end{pmatrix} =
 \begin{pmatrix}
 9 \\ -6 \\ 3
@@ -381,3 +404,23 @@ This can be done using the script file [`gaussElimTest.py`](../code/lec06/gaussE
 - `upper_triangular_solve` in [`matrixSolve.py`](../code/matrixSolve.html) to solve the resulting system for $\vec{x}$.
 
 The solution is $\vec{x} = (1, 1, 1, 1)^T$.
+
+# Final Notes
+ GE can be used to solve linear systems of equations...
+ 
+ - The computational cost is $\mathcal{O}(n^3)$ -- which can be quite
+ high for large values of $n$.
+
+ - Problems can occur if $\,a_{ii} = 0\,$ for any $i$ in a row that is
+  being used to do the elimination;
+
+ - Can overcome by swapping row $i$ with any row beneath.
+
+ - If  $\,a_{ii} = 0\,$ for a row that is being used to do the
+ elimination, and all rows beneath have a zero in column $i$, then
+ the GE algorithm breaks down.
+
+ <!-- - The GE algorithm will only break down if the system is **singular**
+ (so no solution exists or no unique solution).
+ - If the unique solution does exist the GE algorithm (with row swapping if needed)
+ will find it! -->

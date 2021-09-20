@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 3
+title: Lecture 3
 subtitle: Matrices and vectors - a geometric perspective
 ---
 

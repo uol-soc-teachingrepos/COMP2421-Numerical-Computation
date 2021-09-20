@@ -1,27 +1,6 @@
 ---
-author:
-- name: Tom Ranner
-  email: T.Ranner@leeds.ac.uk
-title: COMP2421 Lecture 14
+title: Lecture 14
 subtitle: A modelling example
-# pandoc options
-transition: none
-backgroundTransition: none
-autoPlayMedia: true
-css: ./css/metropolis.css
-center: false
-# mathjax
-mathjaxurl: ./js/mathjax/es5/tex-chtml-full.js
-include-before: |
-  <div style="display:none">
-  $$
-    \renewcommand{\vec}[1]{\boldsymbol{#1}}
-  $$
-  </div>
-# citeproc
-link-citations: true
-# menu
-menu: true
 ---
 # A model for the trajectory of an object
 

@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 5
+title: Lecture 5
 subtitle: Solving systems of linear equations
 ---
 # Introduction

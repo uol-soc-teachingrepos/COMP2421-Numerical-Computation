@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 8
+title: Lecture 8
 subtitle: Iterative solution of linear equations
 ---
 # Direct methods

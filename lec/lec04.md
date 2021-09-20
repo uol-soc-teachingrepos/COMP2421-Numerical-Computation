@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 4
+title: Lecture 4
 subtitle: Matrices and vectors
 ---
 # Introduction to matrices

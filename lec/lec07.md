@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 7
+title: Lecture 7
 subtitle: Solving systems of linear equations III
 ---
 

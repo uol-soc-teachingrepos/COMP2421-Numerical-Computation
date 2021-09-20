@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 2
+title: Lecture 2
 subtitle: Floating point arithmetic
 ---
 # Finite precision number systems

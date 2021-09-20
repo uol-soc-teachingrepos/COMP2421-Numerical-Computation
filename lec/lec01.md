@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 1
+title: Lecture 1
 ---
 # Module contents
 

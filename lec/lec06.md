@@ -1,5 +1,5 @@
 ---
-title: COMP2421 Lecture 6
+title: Lecture 6
 subtitle: Solving systems of linear equations II
 ---
 # Elementary row operations

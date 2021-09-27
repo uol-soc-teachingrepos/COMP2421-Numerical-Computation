@@ -76,7 +76,7 @@ $(BUILDDIR)/index.html: ./pandoc/make-index.py
 
 
 dist: $(BUILD_TARGETS)
-	tar -cvzf slides.tar.gz ${BUILDDIR}
+	zip -r slides.zip ${BUILDDIR}
 
 clean:
 	rm -f $(TARGETS)

@@ -1,6 +1,13 @@
 ---
 title: COMP2421 Numerical computation
 ---
+
+*Alternative formats*:
+[docx](./module-information.docx) |
+[pdf](./module-information.pdf)
+
+**All dates below are subject to change.**
+
 # Module information
 
 Module leader
@@ -9,7 +16,10 @@ Module leader
 Email
 ~ T.Ranner@leeds.ac.uk
 
-# Syllabus
+Teams group
+~ <https://teams.microsoft.com/l/channel/19%3aSF6JCThw2h0hfRTPmJ4u9eHraovCLyg7I_CCsc7rjT81%40thread.tacv2/General?groupId=43cc2fb7-d867-4498-99c7-385f3eb82e09&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb>
+
+# Course contents
 
 - **Vectors and matrices**: introduction and justification; vector and matrix operations; identity matrix; inverse of a matrix.
 
@@ -37,8 +47,6 @@ Courseworks are designed to give practice and reinforce the lectures. Coursework
 
 # Assessment
 
-More details on the assessment will follow in the two week.
-
 ## Examination
 
 On-line assessment in January.
@@ -62,6 +70,55 @@ Late submission will only be allowed up to 1 week after the submission deadline 
 
 There will be weekly homework assignment sheets. These are not for credit. You can check your understanding by submitting answers via Gradescope.
 Additional feedback will be given through the release of worked solutions and in tutorial sessions.
+
+# Syllabus
+
+This is a rough breakdown of topics to be covered this semester.
+Please note that this is not entirely fixed and I cannot guarantee to follow this precise structure.
+
+| Lecture      | Topic                                          |
+|--------------|------------------------------------------------|
+| 1 (week 1)   | Introduction                                   |
+| 2            | Floating point number systems                  |
+| 3 (week 2)   | Vectors and matrices                           |
+| 4            | Linear transformations                         |
+| 5 (week 3)   | Solving triangular systems of linear equations |
+| 6            | Gaussian elimination                           |
+| 7 (week 4)   | LU factorisation                               |
+| 8            | Indirect methods (Jacobi, Gauss-Seidel)        |
+|--------------|------------------------------------------------|
+|              | Reading week                                   |
+|--------------|------------------------------------------------|
+| 9 (week 6)   | Sparse systems of linear equations, norms      |
+| 10           | Pivoting                                       |
+| 11 (week 7)  | Derivatives and rates of change                |
+| 12           | Euler's method                                 |
+| 13 (week 8)  | Euler & midpoint methods                       |
+| 14           | Runge-Kutte integration                        |
+| 15 (week 9)  | Bisection, Newton's method                     |
+| 16           | Newton's method                                |
+| 17 (week 10) | The secant method                              |
+| 18           | Hybrid methods                                 |
+| 19 (week 11) | Special topics                                 |
+| 20           | Review                                               |
+# 
+## Tutorials plan
+
+Weekly tutorials should will support you in your learning. See your timetable for when and where you should attend.
+
+| Week | Topic                                        |
+|------|----------------------------------------------|
+| 1    | Maths preliminary                            |
+| 2    | Floating point numbers                       |
+| 3    | Vectors, matrices and linear transformations |
+| 4    | Gaussian elimination and triangular systems  |
+| -    | *reading week*                               |
+| 6    | LU Factorisation and iterative methods       |
+| 7    | Sparse systems/pivoting                      |
+| 8    | Derivatives and Euler's method               |
+| 9    | Other time stepping                          |
+| 10   | Bisection and Newton's method                |
+| 11   | Other root finding                           |
 
 # Reference materials
 

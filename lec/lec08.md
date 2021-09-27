@@ -208,6 +208,7 @@ Note that the exact solution to this system is $x_1 = 2, x_2 = 2, x_3 = 2$.
 
 # Summary
 
+::: {.r-fit-text}
 - Many complex computational problems simply cannot be solved with today's computers using direct methods.
 
 - Iterative methods are used instead since they can massively reduce the computational cost and storage required to get a "good enough" solution.
@@ -217,3 +218,4 @@ Note that the exact solution to this system is $x_1 = 2, x_2 = 2, x_3 = 2$.
 - Their usefulness for general matrix systems is very limited therefore - next lecture we will show their value in the solution of sparse systems however.
 
 - More advanced iterative methods do exist but are beyond the scope of this module - see Final year projects, MSc projects, PhD, and beyond!
+:::

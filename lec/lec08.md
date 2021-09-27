@@ -46,8 +46,8 @@ Manipulations give
 $$
 \begin{aligned}
 A \vec{x} = (D + (A-D)) \vec{x} & = \vec{b} \\
-D \vec{x} & = b - (A-D) \vec{x} \\
-D \vec{x} & = D \vec{x} + (b - A \vec{x}) \\
+D \vec{x} & = \vec{b} - (A-D) \vec{x} \\
+D \vec{x} & = D \vec{x} + (\vec{b} - A \vec{x}) \\
 \vec{x} = \vec{x} + D^{-1} (\vec{b} - A \vec{x}).
 \end{aligned}
 $$
@@ -61,7 +61,7 @@ $$
 
 - $D$ is a *diagonal matrix*, so $D^{-1}$ is trivial to form (as long as the diagonal entries are all nonzero).
 
-- $b - A \vec{x}^{(k)} = \vec{r}$ is call the **residual**.
+- $\vec{b} - A \vec{x}^{(k)} = \vec{r}$ is call the **residual**.
 
 ## Notes
 
@@ -109,7 +109,7 @@ b_1 - \sum_{j=1}^n A_{1j} x_j^{(k)}
 \right) \\
 x_2^{(k+1)}
 & = x_2^{(k)} + \frac{1}{A_{22}} \left(
-b_1 - A_{21} x_1^{(k+1)} - \sum_{j=2}^n A_{2j} x_j^{(k)}
+b_2 - A_{21} x_1^{(k+1)} - \sum_{j=2}^n A_{2j} x_j^{(k)}
 \right) \\
 % x_3^{(k+1)}
 % & = x_3^{(k)} + \frac{1}{A_{33}} \left(
@@ -118,12 +118,12 @@ b_1 - A_{21} x_1^{(k+1)} - \sum_{j=2}^n A_{2j} x_j^{(k)}
 \vdots \quad & \hphantom{=} \quad \vdots \\
 x_i^{(k+1)}
 & = x_i^{(k)} + \frac{1}{A_{ii}} \left(
-b_1 - \sum_{j=1}^{i-1} A_{ij} x_j^{(k+1)} - \sum_{j=i}^n A_{ij} x_j^{(k)}
+b_i - \sum_{j=1}^{i-1} A_{ij} x_j^{(k+1)} - \sum_{j=i}^n A_{ij} x_j^{(k)}
 \right) \\
 \vdots \quad & \hphantom{=} \quad \vdots \\
 x_n^{(k+1)}
 & = x_n^{(k)} + \frac{1}{A_{nn}} \left(
-b_1 - \sum_{j=1}^{n-1} A_{nj} x_j^{(k+1)} - A_{nn} x_n^{(k)}
+b_n - \sum_{j=1}^{n-1} A_{nj} x_j^{(k+1)} - A_{nn} x_n^{(k)}
 \right).
 \end{aligned}
 $$

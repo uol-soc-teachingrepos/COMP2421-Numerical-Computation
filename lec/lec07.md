@@ -14,6 +14,7 @@ subtitle: Solving systems of linear equations III
 
 ## Elementary row operations (EROs)
 
+::: {.r-fit-text}
 Note that the EROs discussed in the last lecture can be produced by left multiplication with a suitable matrix:
 
 - Row swap:
@@ -43,6 +44,7 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
   a & b & c & d \\ i & j & k & l \\ e & f & g & h \\ m & n & o & p
   \end{pmatrix}
   $$
+:::
 
 ## Elementary row operations (cont.)
 
@@ -91,6 +93,7 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
 
 ## LU factorisation (cont.)
 
+::: {.r-fit-text}
 - Now the original system $A \vec{x} = \vec{b}$ is equivalent to
   $$
   \tag{2}
@@ -105,6 +108,7 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
   - Solve $U \vec{x} = \vec{z}$ in $O(n^2)$ operations.
 
 - $L$ and $U$ may be found in $O(n^3)$ operations by performing GE and saving the $E_i$ matrices, however it is more convenient to find them directly (also $O(n^3)$ operations).
+:::
 
 ## Computing $L$ and $U$
 
@@ -136,7 +140,7 @@ For the first column,
 
 $$
 \begin{aligned}
-a_{11} & = (1, 0, 0, 0) (u_11, 0, 0, 0)^T && = u_{11}
+a_{11} & = (1, 0, 0, 0) (u_{11}, 0, 0, 0)^T && = u_{11}
  & \rightarrow u_{11} & = a_{11} \\
 a_{21} & = (l_{21}, 1, 0, 0)(u_{11}, 0, 0, 0)^T && = l_{21} u_{11}
  & \rightarrow l_{21} & = a_{21} / u_{11} \\
@@ -210,7 +214,8 @@ $$
 
 ## Example 1
 
-::: {.r-fit-text}
+:::::: {.r-stack}
+:::::::: {.fragment .fade-in-then-out}
 Column 1 of $A$ gives
 $$
 \begin{aligned}
@@ -219,16 +224,18 @@ $$
 2 & = l_{31} u_{11} && \rightarrow & l_{31} & = 1.
 \end{aligned}
 $$
-
+::::::::
+:::::::: {.fragment .fade-in-then-out}
 Column 2 of $A$ gives
 $$
 \begin{aligned}
 1 & = u_{12} && \rightarrow & u_{12} & = 1 \\
-2 & = l_{21} + u_{22} && \rightarrow & u_{22} & = 1.5 \\
+2 & = l_{21} u_{12} + u_{22} && \rightarrow & u_{22} & = 1.5 \\
 4 & = l_{31} u_{12} + l_{32} u_{22} && \rightarrow & l_{32} & = 2.
 \end{aligned}
 $$
-
+::::::::
+:::::::: {.fragment .fade-in-then-out}
 Column 3 of $A$ gives
 $$
 \begin{aligned}
@@ -237,7 +244,8 @@ $$
 6 & = l_{31} u_{13} + l_{32} u_{23} && \rightarrow & u_{33} & = 2.
 \end{aligned}
 $$
-:::
+::::::::
+::::::
 
 ## Example 1
 

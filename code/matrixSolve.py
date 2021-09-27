@@ -110,8 +110,12 @@ def gauss_elimination(A, b, *args):
             # Calculate the multiplier for that row for elimination
             d = r * A[j, i]
 
-            # Loop through the elements of row j which have yet to be set to zero
-            for k in range(i, n):
+            # Here the elements below A[i,i] in the i-th column would
+            # be set as 0 directly
+            A[j, i] = 0.0
+
+            # Loop through the elements of row j which have yet to be updated
+            for k in range(i + 1, n):
                 # For column k, subtract the scaled element in row i from row j.
                 A[j, k] = A[j, k] - d * A[i, k]
 
@@ -177,8 +181,12 @@ def gauss_elimination_pivot(A, b):
             # Calculate the multiplier for that row for elimination
             d = r * A[j, i]
 
-            # Loop through the elements of row j which have yet to be set to zero
-            for k in range(i, n):
+            # Here the elements below A[i,i] in the i-th column would
+            # be set as 0 directly
+            A[j, i] = 0.0
+
+            # Loop through the elements of row j which have yet to be updated
+            for k in range(i + 1, n):
                 # For column k, subtract the scaled element in row i from row j.
                 A[j, k] = A[j, k] - d * A[i, k]
 

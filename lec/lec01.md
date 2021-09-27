@@ -43,6 +43,8 @@ Examples and applications
 
 # Numerical computation
 
+[Module information sheet](../handouts/mdule-information.html)
+
 Books and websites \
 Administration \
 
@@ -148,13 +150,18 @@ Coursework assignments are designed to give practice and reinforce the lectures.
 **Examination**
 
 On-line assessment in January.
-<!-- TODO Worth ??%. -->
+Worth 60%.
 More details to follow.
 
 **Summative coursework**
 
-Two pieces of coursework <!-- TODO each worth ???% --> submitted via Gradescope.
-Deadlines: <!-- TODO ??? -->
+Two pieces of coursework each worth 20% submitted via Gradescope.
+The dates are tentative at this stage and are subject to change.
+
+| Coursework | Date set    | Submission deadline | Feedback date   |
+|------------|-------------|---------------------|-----------------|
+| 1          | 11 October  | 4 November          | 18 November     |
+| 2          | 22 November | 9 December          | after Christmas |
 
 **Formative homework**
 
@@ -172,7 +179,25 @@ This will include all:
 - links to external resources and web pages;
 - module-related discussions
 
-<!-- TODO teams link? -->
+Further support via [MS Team](https://teams.microsoft.com/l/channel/19%3aSF6JCThw2h0hfRTPmJ4u9eHraovCLyg7I_CCsc7rjT81%40thread.tacv2/General?groupId=43cc2fb7-d867-4498-99c7-385f3eb82e09&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
+
+## Tutorials plan
+
+Weekly tutorials will support you in your learning. See your timetable for when and where you should attend. Please bring the worksheet with you.
+
+| Week | Topic                                        |
+|------|----------------------------------------------|
+| 1    | Maths preliminary                            |
+| 2    | Floating point numbers                       |
+| 3    | Vectors, matrices and linear transformations |
+| 4    | Gaussian elimination and triangular systems  |
+| -    | *reading week*                               |
+| 6    | LU Factorisation and iterative methods       |
+| 7    | Sparse systems/pivoting                      |
+| 8    | Derivatives and Euler's method               |
+| 9    | Other time stepping                          |
+| 10   | Bisection and Newton's method                |
+| 11   | Other root finding                           |
 
 # Numerical algorithms
 

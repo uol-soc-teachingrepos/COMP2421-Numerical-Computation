@@ -172,7 +172,7 @@ for j in range(n):
 		...
   ```
 
-- See the function `lu_factorise` in [`matrixSolve.py`](../code/matrixSolve.html)
+- See the function [`lu_factorise`](../code/matrixSolve.py#lu_factorise) in [`matrixSolve.py`](../code/matrixSolve.html)
 
 ## Example 1
 

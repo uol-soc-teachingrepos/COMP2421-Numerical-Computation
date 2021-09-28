@@ -227,11 +227,11 @@ x_i = \frac{1}{a_{ii}} \left(b_i - \sum_{j=1}^{i-1} a_{ij} x_j \right)
 $$
 for each row $i = 1, 2, \ldots, n$ in turn.
 
-- Each calculation requires only previously computed values $x_j$ (and the sum gives a loop for $j < i$ - see `lower_triangular_solve` in the file [`matrixSolve_lec5_lec6.py`](../code_swjtu/lec05/matrixSolve_lec5_lec6.html)).
+- Each calculation requires only previously computed values $x_j$ (and the sum gives a loop for $j < i$ - see [`lower_triangular_solve`](../code/matrixSolve.html#lower_triangular_solve) in the file [`matrixSolve.py`](../code/matrixSolve.html)).
 - The matrix $A$ **must** have nonzero diagonal entries\
   i.e. $a_{ii} \neq 0$ for $i = 1, 2, \ldots, n$.
-- **Upper triangular** systems of equations can be solved in a similar manner (see `upper_triangular_solve` in the same file).
-- Worked examples in [`lec5_triangularSolve.py`](../code_swjtu/lec05/lec5_triangularSolve.html).
+- **Upper triangular** systems of equations can be solved in a similar manner (see [`upper_triangular_solve`](../code/matrixSolve.html#upper_triangular_solve) in the same file).
+- Worked examples in [`triangularSolve.py`](../code/lec05/triangularSolve.html).
 
 ## Examples 1
 

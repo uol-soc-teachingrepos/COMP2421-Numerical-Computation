@@ -400,8 +400,8 @@ $$
 
 This can be done using the script file [`gaussElimTest.py`](../code/lec06/gaussElimTest.html), which uses
 
-- `gauss_elimination` in [`matrixSolve.py`](../code/matrixSolve.html) to reduce the system to triangular form.
-- `upper_triangular_solve` in [`matrixSolve.py`](../code/matrixSolve.html) to solve the resulting system for $\vec{x}$.
+- [`gauss_elimination`](../code/matrixSolve.html#gaussian_elimination) in [`matrixSolve.py`](../code/matrixSolve.html) to reduce the system to triangular form.
+- [`upper_triangular_solve`](../code/matrixSolve.html#upper_triangular_solve) in [`matrixSolve.py`](../code/matrixSolve.html) to solve the resulting system for $\vec{x}$.
 
 The solution is $\vec{x} = (1, 1, 1, 1)^T$.
 

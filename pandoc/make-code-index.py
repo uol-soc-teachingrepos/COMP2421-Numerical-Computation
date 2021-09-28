@@ -23,11 +23,12 @@ def filename2content(filename):
 
 output = sys.argv[1]
 input = sys.argv[2]
+basename = os.path.relpath(".", os.path.dirname(input))
 
 in_text = f"""
 ---
 title: {input}
-rawfile: {os.path.basename(input)}
+basename: {basename}
 ---
 
 """

@@ -12,8 +12,8 @@ import sys
 
 import numpy as np
 
-# Comp2941 modules
-sys.path.append('..')
+# comp2421 modules
+sys.path.append("..")
 from matrixSolve import *
 
 # Example 4x4 matrix to invert

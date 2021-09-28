@@ -11,12 +11,12 @@ import sys
 
 import numpy as np
 
-# Comp2941 modules
-sys.path.append('..')
+# comp2421 modules
+sys.path.append("..")
 from matrixSolve import *
 
 # Print headers for the table output
-print('epsilon \tx[0] \tx[1]')
+print("epsilon \tx[0] \tx[1]")
 
 # Loop through values of epsilon to give different matrices
 for epsilon in [1e-5, 1e-10, 1e-14, 1e-16, 1e-18]:
@@ -34,4 +34,4 @@ for epsilon in [1e-5, 1e-10, 1e-14, 1e-16, 1e-18]:
     x = upper_triangular_solve(A, b)
 
     # Print solution to the screen
-    print('%6.2e \t%10.6f \t%10.6f' % (epsilon, x[0], x[1]))
+    print("%6.2e \t%10.6f \t%10.6f" % (epsilon, x[0], x[1]))

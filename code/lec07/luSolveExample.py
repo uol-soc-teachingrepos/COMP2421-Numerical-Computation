@@ -17,7 +17,7 @@ import sys
 
 import numpy as np
 
-# Comp2941 modules
+# comp2421 modules
 sys.path.append("..")
 from matrixSolve import *
 

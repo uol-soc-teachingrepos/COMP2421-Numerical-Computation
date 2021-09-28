@@ -6,11 +6,11 @@ def lower_triangular_solve(A, b0):
     Solve the system  A x = b  where A is assumed to be lower triangular,
     i.e. A(i,j) = 0 for j > i, and the diagonal is assumed to be nonzero,
     i.e. A(i,i) \= 0.
-    
+
     ARGUMENTS:  A   lower triangular n x n array
                 b0   right hand side column n-vector
-                
-    RETURNS:    x   column n-vector solution    
+
+    RETURNS:    x   column n-vector solution
     """
 
     # Check that A is lower triangular
@@ -43,11 +43,11 @@ def upper_triangular_solve(A, b0):
     Solve the system  A x = b  where A is assumed to be upper triangular,
     i.e. A(i,j) = 0 for j < i, and the diagonal is assumed to be nonzero,
     i.e. A(i,i) \= 0.
-    
+
     ARGUMENTS:  A   upper triangular n x n array
                 b0   right hand side column n-vector
-                
-    RETURNS:    x   column n-vector solution    
+
+    RETURNS:    x   column n-vector solution
     """
 
     # Check that A is upper triangular
@@ -79,14 +79,14 @@ def gauss_elimination(A, b, *args):
     """
     Reduce the system  A x = b  to upper triangular form, assuming that
     the diagonal is nonzero, i.e. A(i,i) \= 0.
-    
+
     ARGUMENTS:  A   n x n matrix
                 b   right hand side column n-vector
-                
+
                 print  (optional) prints elimination steps
-    
+
     RETURNS:    A   upper triangular n x n matrix
-                b   modified column n-vector    
+                b   modified column n-vector
     """
     # Get dimensions
     n = len(b)
@@ -98,12 +98,12 @@ def gauss_elimination(A, b, *args):
     # Loop through the rows (i) of the system
     for i in range(n - 1):
         # Print solution information
-        if 'print' in args:
-            print('Eliminate column %d\n' % i)
-            input('Press key to continue')
+        if "print" in args:
+            print("Eliminate column %d\n" % i)
+            input("Press key to continue")
 
         # Pick out the diagonal entry (and assume that it isn't zero
-        r = 1. / A[i, i]
+        r = 1.0 / A[i, i]
 
         # Loop through the rows (j) of the system below row i
         for j in range(i + 1, n):
@@ -122,7 +122,7 @@ def gauss_elimination(A, b, *args):
             # Subtract scalded right hand side of row i from row j
             b[j] = b[j] - d * b[i]
 
-        if 'print' in args:
+        if "print" in args:
             print(A)
             print(b)
 
@@ -133,12 +133,12 @@ def gauss_elimination_pivot(A, b):
     """
     Reduce the system  A x = b  to upper triangular form, making use of
     row pivoting.
-    
+
     ARGUMENTS:  A   n x n matrix
                 b   right hand side column n-vector
-    
+
     RETURNS:    A   upper triangular n x n matrix
-                b   modified column n-vector    
+                b   modified column n-vector
     """
     # Get dimensions
     n = len(b)
@@ -174,7 +174,7 @@ def gauss_elimination_pivot(A, b):
         # Note - this is just the inner loop from gauss_elimination
 
         # Pick out the diagonal entry (and assume that it isn't zero
-        r = 1. / A[i, i]
+        r = 1.0 / A[i, i]
 
         # Loop through the rows (j) of the system below row i
         for j in range(i + 1, n):
@@ -228,7 +228,7 @@ def lu_factorise(A):
 
         # Compute the elements of L below the diagonal in column j using
         # previously computed elements of L and U
-        r = 1. / U[j, j]
+        r = 1.0 / U[j, j]
 
         for i in range(j + 1, n):
             L[i, j] = r * (A[i, j] - np.dot(L[i, :j], U[:j, j]))
@@ -252,8 +252,8 @@ def gauss_seidel(A, u, b, n_iterations):
                 b   k-vector storing right-hand side
                 n_iterations
                     integer number of iterations to carry out
-   
-    RESULTS:    u   k-vector storing solution    
+
+    RESULTS:    u   k-vector storing solution
     """
 
     # Get dimension
@@ -273,13 +273,13 @@ def gauss_seidel(A, u, b, n_iterations):
 def jacobi(A, u, b, n_iterations):
     """
     Solve the system A u = b using a Jacobi iteration
-    
+
     ARGUMENTS:  A   k x k matrix
                 u   k-vector storing initial estimate
                 b   k-vector storing right-hand side
                 n_iterations
                     integer number of iterations to carry out
-    
+
     RESULTS:    u   k-vector storing solution
     """
 
@@ -290,7 +290,7 @@ def jacobi(A, u, b, n_iterations):
     A = A.astype(float)
 
     for i in range(n_iterations):
-        r = (b - np.dot(A, u))
+        r = b - np.dot(A, u)
         for j in range(k):
             r[j] = r[j] / A[j, j]
 
@@ -302,13 +302,13 @@ def jacobi(A, u, b, n_iterations):
 def jacobi2(A, u, b, n_iterations):
     """
     Solve the system A u = b using a Jacobi iteration
-    
+
     ARGUMENTS:  A   k x k matrix
                 u   k-vector storing initial estimate
                 b   k-vector storing right-hand side
                 n_iterations
                     integer number of iterations to carry out
-    
+
     RESULTS:    u   k-vector storing solution
     """
 
@@ -331,12 +331,12 @@ def jacobi2(A, u, b, n_iterations):
 def gauss_seidel_new(A, u, b, tol):
     """
     Solve the system A u = b using a Gauss-Seidel iteration
-    
+
     ARGUMENTS:  A   k x k matrix
                 u   k-vector storing initial estimate
                 b   k-vector storing right-hand side
                 tol real number providing the required convergence tolerance
-    
+
     RESULTS:    u   k-vector storing solution
     """
 
@@ -362,13 +362,13 @@ def gauss_seidel_new(A, u, b, tol):
 
         diffRMS = 0
         for j in range(k):
-            diffRMS = diffRMS + (u[j] - uold[j])**2
+            diffRMS = diffRMS + (u[j] - uold[j]) ** 2
 
         it += 1
         diffRMS = np.sqrt(diffRMS)
 
     if diffRMS > tol:
-        print('Warning! Iteration has not converged')
+        print("Warning! Iteration has not converged")
 
     return u
 
@@ -376,12 +376,12 @@ def gauss_seidel_new(A, u, b, tol):
 def jacobi_new(A, u, b, tol):
     """
     Solve the system A u = b using a Jacobi iteration
-    
+
     ARGUMENTS:  A   k x k matrix
                 u   k-vector storing initial estimate
                 b   k-vector storing right-hand side
                 tol real number providing the required convergence tolerance
-    
+
     RESULTS:    u   k-vector storing solution
     """
     # Get dimension
@@ -406,7 +406,7 @@ def jacobi_new(A, u, b, tol):
 
         diffRMS = 0
         for j in range(k):
-            diffRMS = diffRMS + (unew[j] - u[j])**2
+            diffRMS = diffRMS + (unew[j] - u[j]) ** 2
 
         it += 1
         diffRMS = np.sqrt(diffRMS)
@@ -414,6 +414,6 @@ def jacobi_new(A, u, b, tol):
         u = np.copy(unew)
 
     if diffRMS > tol:
-        print('Warning! Iteration has not converged')
+        print("Warning! Iteration has not converged")
 
     return u

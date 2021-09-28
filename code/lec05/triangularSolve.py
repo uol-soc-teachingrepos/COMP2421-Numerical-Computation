@@ -11,8 +11,8 @@ import sys
 
 import numpy as np
 
-# Comp2941 modules
-sys.path.append('..')
+# comp2421 modules
+sys.path.append("..")
 from matrixSolve import *
 
 # Lower triangular solve
@@ -23,11 +23,11 @@ b = np.transpose(b)
 # Function from our matrixSolve module
 x = lower_triangular_solve(L, b)
 
-print('Lower triangular matrix: ')
+print("Lower triangular matrix: ")
 print(L)
-print('b vector: ')
+print("b vector: ")
 print(b)
-print('Solution: ')
+print("Solution: ")
 print(x)
 
 # Upper triangular solve
@@ -36,9 +36,9 @@ U = np.transpose(L)
 # Function from our matrixSolve module
 x = upper_triangular_solve(U, b)
 
-print('Upper triangular matrix: ')
+print("Upper triangular matrix: ")
 print(U)
-print('b vector: ')
+print("b vector: ")
 print(b)
-print('Solution: ')
+print("Solution: ")
 print(x)

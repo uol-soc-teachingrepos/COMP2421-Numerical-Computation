@@ -23,10 +23,6 @@ function setFont(fontCss) {
     fontElement.href = fontCss;
 }
 
-//     <button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; border: 1px solid;" onclick="getPDF()">PDF</button>
-
-// <button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; border: 1px solid;" onclick="getRawmd()">Raw markdown</button>
-
 function exists_p(ext) {
     var fn = window.location.href.replace('html', ext);
     var xhr = new XMLHttpRequest();
@@ -41,7 +37,7 @@ function get_ext(ext) {
 }
 
 function add_button(ext) {
-    document.getElementById("versions").innerHTML += '\n' + '<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; border: 1px solid;" onclick="get_ext(' + ext + ')">' + ext + '</button>';
+    document.getElementById("versions").innerHTML += '\n' + '<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: var(--main-bg-color); color: var(--main-fg-color); border: 1px solid var(--hl-fg-color1);" onclick="get_ext(' + ext + ')">' + ext + '</button>';
 }
 
 function add_if_exists(ext) {

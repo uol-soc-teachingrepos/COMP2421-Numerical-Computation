@@ -2,10 +2,6 @@
 title: COMP2421 Numerical computation
 ---
 
-*Alternative formats*:
-[docx](./module-information.docx) |
-[pdf](./module-information.pdf)
-
 **All dates below are subject to change.**
 
 # Module information

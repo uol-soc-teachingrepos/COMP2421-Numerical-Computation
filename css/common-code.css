@@ -7,11 +7,12 @@ html {
   overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  background: var(--main-bg-color2);
 }
 
 body {
   color: var(--main-fg-color);
-  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  font-family: var(--main-font);
   font-size: 12px;
   line-height: 1.7;
   padding: 1em;
@@ -249,7 +250,7 @@ table td {
   hr {
     height: 1px;
     border: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--main-bg-color2);
   }
 
   a[href]:after {

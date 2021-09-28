@@ -39,9 +39,10 @@ out_text = pypandoc.convert_text(
     "html",
     format="md",
     extra_args=[
-        "-s",
         "--template=./pandoc/html-template.html",
+        "--mathjax",
         "--no-highlight",
+        "--standalone",
     ],
 )
 

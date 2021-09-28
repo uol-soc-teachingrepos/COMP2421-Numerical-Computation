@@ -17,12 +17,20 @@ $if(description-meta)$
   <meta name="description" content="$description-meta$" />
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-  <style>
-    $styles.html()$
-  </style>
+
+  <!-- css files -->
+  <link rel="stylesheet" href="$basename$/css/metropolis.css" id="theme"/>
   <link rel="stylesheet" href="$basename$/css/github.css" id="highlight-theme"/>
-  <link rel="stylesheet" href="../css/pandoc.css" />
-  <link rel="stylesheet" href="../css/common-code.css" />
+  <link rel="stylesheet" href="$basename$/css/sans-fonts.css" id="font"/>
+  <link rel="stylesheet" href="$basename$/css/common-code.css" />
+
+ <!-- highlight code using highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 $if(math)$
   $math$
 $endif$
@@ -34,6 +42,36 @@ $for(header-includes)$
 $endfor$
 </head>
 <body>
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <!-- Navigation links (hidden by default) -->
+  <p>
+  <div id="myLinks" style="display:none;">
+<b>Colour theme.</b>
+<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: white; color: black; border: 1px solid blue;" onclick="setTheme('$basename$/css/metropolis.css', '$basename$/css/github.css')"> White</button>
+<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: #fdf6e3; color: #586e75; border: 1px solid #268bd2;" onclick="setTheme('$basename$/css/solarized-light.css', '$basename$/css/solarized-light-code.css')">Beige</button>
+<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: #002b36; color: #93a1a1; border: 1px solid #268bd2;" onclick="setTheme('$basename$/css/solarized-dark.css', '$basename$/css/solarized-dark-code.css')">Blue</button>
+<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: black; color: white; border: 1px solid orange;" onclick="setTheme('$basename$/css/owl.css', '$basename$/css/github-dark.css')">Black</button>
+  </p>
+
+  <p>
+<b>Font.</b>
+<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: var(--main-bg-color); color: var(--main-fg-color); border: 1px solid var(--hl-fg-color1); font-family: Fira Sans Light;" onclick="setFont('$basename$/css/fira-fonts.css')">Fira</button>
+<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: var(--main-bg-color); color: var(--main-fg-color); border: 1px solid var(--hl-fg-color1); font-family: sans-serif;" onclick="setFont('$basename$/css/sans-fonts.css')">Sans-serif</button>
+<button style="padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; background-color: var(--main-bg-color); color: var(--main-fg-color); border: 1px solid var(--hl-fg-color1); font-family: serif;" onclick="setFont('$basename$/css/serif-fonts.css')">Serif</button>
+  </p>
+
+  <p>
+    <b>Versions.</b>
+    <span id="versions"></span>
+    </p>
+  </div>
+</div>
+  <hr>
 $for(include-before)$
 $include-before$
 $endfor$
@@ -41,7 +79,7 @@ $if(title)$
 <header id="title-block-header">
 <h1 class="title">$title$</h1>
 $if(subtitle)$
-<p class="subtitle">$subtitle$</p>
+<h2 class="subtitle">$subtitle$</p>
 $endif$
 $for(author)$
 <p class="author">$author$</p>
@@ -50,6 +88,8 @@ $if(date)$
 <p class="date">$date$</p>
 $endif$
 </header>
+
+<hr>
 $endif$
 $if(toc)$
 <nav id="$idprefix$TOC" role="doc-toc">
@@ -59,15 +99,18 @@ $endif$
 $table-of-contents$
 </nav>
 $endif$
-$if(rawfile)$
-<a href="$rawfile$">Download $rawfile$</a>
-$endif$
+
+<p>
+  These exercises are indented to give you practice at using the material on numerical approximation and are intended to reinforce the material that was covered in lectures.
+  Please ask post any questions in the Class Team or in your weekly tutorial.
+</p>
+
 $body$
 $for(include-after)$
 $include-after$
 $endfor$
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/languages/go.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+
+<hr>
+<script src="$basename$/js/custom.js"></script>
 </body>
 </html>

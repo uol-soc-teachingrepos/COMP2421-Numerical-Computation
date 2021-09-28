@@ -46,3 +46,6 @@ PANDOC_BEAMER = \
 %.pdf: %.md ../pandoc/beamer-template.tex
 	$(PANDOC_BEAMER) $< -o $@
 
+%.tex: %.md ../pandoc/beamer-template.tex
+	$(PANDOC_BEAMER) $< -o $@
+

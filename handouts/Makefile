@@ -6,6 +6,7 @@
 	  --template ../pandoc/html-template.html \
 	  --standalone \
 	  -V basename=".." \
+          -V lang="en"\
 	  $< -o $@
 
 %.pdf: %.md

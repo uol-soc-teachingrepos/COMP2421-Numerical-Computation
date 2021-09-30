@@ -11,6 +11,7 @@ PANDOC_REVEALJS= \
     --table-of-contents \
     --toc-depth=1 \
     -V history=true \
+    -V lang="en"
 
 PANDOC_REVEALJS_INDEX= \
   $(PANDOC_REVEALJS) \
@@ -34,7 +35,8 @@ PANDOC_BEAMER = \
     -t beamer \
     --table-of-contents \
     --toc-depth=1 \
-    --slide-level 2
+    --slide-level 2 \
+    -V lang="en"
 
 # implicit rules
 %.html: %.md ../pandoc/revealjs-template.html

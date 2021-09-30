@@ -147,12 +147,11 @@ and this provides a bound on the **relative error**: for any $y$
 $$
  \frac{|y - fl(y)|}{|y|} < \frac{1}{2} \beta^{1-t}.
 $$
-The last term is known as **machine precision** or **unit roundoff** and is often called $\epsilon$. This is obtained in Python with
+The last term is known as **machine precision** or **unit roundoff** and is often called $eps$. This is obtained in Python with
 ```python
->>> numpy.finfo(np.double).eps
+>>> np.finfo(np.double).eps
 2.220446049250313e-16
 ```
-<!-- TODO: check eps with soc numpy version -->
 
 ## Examples
 

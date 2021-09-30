@@ -1,6 +1,7 @@
 ---
 title: Lecture 4
 subtitle: Matrices and vectors
+starttime: "Oct 04, 2021 10:05"
 ---
 # Introduction to matrices
 

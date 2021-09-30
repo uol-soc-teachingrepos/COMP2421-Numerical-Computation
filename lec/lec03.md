@@ -1,6 +1,7 @@
 ---
 title: Lecture 3
 subtitle: Matrices and vectors - a geometric perspective
+starttime: "Oct 04, 2021 10:05"
 ---
 
 # Vectors

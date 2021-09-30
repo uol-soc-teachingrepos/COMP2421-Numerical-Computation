@@ -1,6 +1,7 @@
 ---
 title: Lecture 2
 subtitle: Floating point arithmetic
+starttime: "Sep 30, 2021 10:05"
 ---
 # Finite precision number systems
 - Computers store numbers with **finite precision**, i.e. using a finite set of bits (binary digits), typically 32 or 64 of them.
@@ -90,7 +91,7 @@ c. What are the two smallest positive numbers?
 
 d. What is the smallest possible difference between two numbers in this system?
 
-## Example 2
+## Example 2 (homework)
 
 Consider the number system given by $(\beta, t, L, U) = (10, 3, -3, 3)$ which gives
 $$
@@ -205,7 +206,7 @@ x+(z+z), \quad
 $$
 (Also note the benefits of adding the *smallest* terms first!)
 
-## More examples
+## More examples (homework)
 
 2. Verify that a similar problem arises for the numbers
    $$

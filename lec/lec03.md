@@ -4,6 +4,20 @@ subtitle: Matrices and vectors - a geometric perspective
 starttime: "Oct 04, 2021 10:05"
 ---
 
+# What to do this week?
+
+**Lectures**
+
+We will be learning about matrices and vectors this week in the two lectures. This will include some definitions, thinking geometrically and some calculations.
+
+**Tutorials**
+
+In your tutorial this week you will be talking about worksheet 2 - floating point numbers and how to use them in numerical computation. You should attempt the worksheet before the session.
+
+**Worksheet**
+
+The next worksheet, worksheet 3, on matrices and vectors has also been released. You should be able to attempt the questions after the lectures this week.
+
 # Vectors
 
 ## Vector
@@ -195,17 +209,17 @@ $$
 
 The *inner product* of vectors $\vec{a}$ and $\vec{b}$ tells us how much of $\vec{a}$ is in the direction $\vec{b}$. We denote the inner product as $\vec{a} \cdot \vec{b}$.
 
-For generate vectors $\vec{a} = \begin{pmatrix} a_1 & a_2 & \cdots a_n \end{pmatrix}$ and $\vec{b} = \begin{pmatrix} b_1 & b_2 & \cdots & b_n \end{pmatrix}$, we have
+For generate vectors $\vec{a} = \begin{pmatrix} a_1 & a_2 & \cdots & a_n \end{pmatrix}$ and $\vec{b} = \begin{pmatrix} b_1 & b_2 & \cdots & b_n \end{pmatrix}$, we have
 $$
  \vec{a} \cdot \vec{b} = a_1 b_1 + a_2 b_2 + \cdots a_n b_n = \sum_{i=1}^n a_i b_i.
 $$
 
 **Example**
 
-Let $\vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}$.
+Let $\vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}$ and $\vec{b} = \begin{pmatrix} 1 & 3 & -1 \end{pmatrix}
 Then
 $$
- \| \vec{a} \| = \sqrt{4^2 + 5^2 + 2^2} = \sqrt{16 + 25 + 4} = \sqrt{45}.
+ \vec{a} \cdot \vec{b} = 4 \times 1 + 5 \times 3 + 2 \times -1 = 4 + 15 -2 = 17.
 $$
 
 ## Special case

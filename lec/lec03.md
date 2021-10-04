@@ -216,7 +216,7 @@ $$
 
 **Example**
 
-Let $\vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}$ and $\vec{b} = \begin{pmatrix} 1 & 3 & -1 \end{pmatrix}
+Let $\vec{a} = \begin{pmatrix} 4 & 5 & 2 \end{pmatrix}$ and $\vec{b} = \begin{pmatrix} 1 & 3 & -1 \end{pmatrix}$
 Then
 $$
  \vec{a} \cdot \vec{b} = 4 \times 1 + 5 \times 3 + 2 \times -1 = 4 + 15 -2 = 17.

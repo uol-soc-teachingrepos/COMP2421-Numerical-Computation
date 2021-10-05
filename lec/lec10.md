@@ -296,11 +296,8 @@ where $0 \le \varepsilon \ll 1$, and solve it using
 
 The exact solution is $\vec{x} = (0, -1, 2)^T$ for any $\varepsilon$ in the given range.
 
-<!-- TODO: consider making these worked solutions as a handout -->
-
 ## Example (cont.)
 
-::: {.r-fit-text}
 1. Solve the system using Gaussian elimination with no pivoting.
 
 Eliminating the first column gives
@@ -333,6 +330,9 @@ x_1 \\ x_2 \\ x_3
 7 \\ 12 + \varepsilon \\ 7.5 + 2.5(12 + \varepsilon)/\varepsilon
 \end{pmatrix}
 $$
+
+## Example (cont.)
+
 which leads to
 $$
 x_3 = \frac{3 + \frac{12 + \varepsilon}{\varepsilon}}{2 + \frac{6}{\varepsilon}} \qquad
@@ -340,11 +340,9 @@ x_2 = \frac{(12 + \varepsilon) - 6x_3}{-\varepsilon} \qquad
 x_1 = \frac{7+ 7x_2}{10}.
 $$
 There are many divisions by $\varepsilon$, so we will have problems if $\varepsilon$ is small.
-:::
 
 ## Example (cont.)
 
-::: {.r-fit-text}
 2. Solve the system using Gaussian elimination with pivoting.
 
 The first stage is identical (because $a_{11} = 10$ is largest).
@@ -377,6 +375,9 @@ x_1 \\ x_2 \\ x_3
 7 \\ 7.5 \\ 12 + \varepsilon
 \end{pmatrix}
 $$
+
+## Example (cont.)
+
 Now we may eliminate column 2:
 $$
 \begin{pmatrix}
@@ -398,38 +399,3 @@ x_3 = \frac{12 + 4\varepsilon}{6 + 2 \varepsilon} = 2 \qquad
 x_2 = \frac{7.5 - 5x_3}{2.5} = -1 \qquad
 x_1 = \frac{7 + 7 x_2}{10} = 0.
 $$
-:::
-
-## Final examples
-
-Solve the following systems by Gaussian Elimination with pivoting:
-
-1. $$
-   \begin{pmatrix}
-   1 & 1 & 2 \\
-   4 & 0 & 1 \\
-   2 & 2 & 1
-   \end{pmatrix}
-   \begin{pmatrix}
-   x_1 \\ x_2 \\ x_3
-   \end{pmatrix}
-    =
-   \begin{pmatrix}
-   3 \\ 5 \\ 3
-   \end{pmatrix}
-   $$
-
-2. $$
-   \begin{pmatrix}
-   1 & 2 & 1 \\
-   3 & 6 & 1 \\
-   2 & 4 & 0
-   \end{pmatrix}
-   \begin{pmatrix}
-   x_1 \\ x_2 \\ x_3
-   \end{pmatrix}
-    =
-   \begin{pmatrix}
-   0 \\ -2 \\ -2
-   \end{pmatrix}
-   $$

@@ -18,6 +18,9 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+plt.rcParams["font.size"] = "16"
+
 # Comp2941 modules
 sys.path.append("..")
 from matrixSolve import *
@@ -100,7 +103,7 @@ def distance2():
     plt.xlabel("t: time in seconds")
     plt.legend()
     plt.title("Distance and speed as functions of time")
-    plt.show()
+    plt.savefig("graphics.svg")
 
 
 def s(t):

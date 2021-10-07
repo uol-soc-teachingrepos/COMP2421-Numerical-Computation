@@ -1,7 +1,9 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-t = np.linspace(0, 1)
+plt.rcParams["font.size"] = "16"
+
+t = np.linspace(0, 1, 1000)
 y = -(t - 1) * (t + 0.2)
 
 plt.plot(t, y)

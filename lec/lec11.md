@@ -27,8 +27,6 @@ title: Lecture 11
 
     -   atmospheric chemistry models for the dispersion of emissions, pollutants, ozone, etc.
 
-TODO links
-
 # Rates of change
 
 ## Example: Tracking an object
@@ -183,7 +181,7 @@ This provides for an alternative interpretation of the derivative of a function.
 
 - It is the steepness...
 
-TODO img
+  ![](../img/lec11/lines.svg)
 
 - The equation of a straight line with slope $m$ is given by
   $$
@@ -194,9 +192,7 @@ TODO img
 
 - What is the slope/gradient of a curve?
 
-- This can be approximated at any given point...
-
-  ![](../img/lec11/curve-0.svg)
+  ![](../img/lec11/curve-0.svg){width=75%}
 
 - The slope of the straight-line approximation ("chord") is
   $$
@@ -207,7 +203,7 @@ TODO img
 
 - We can get a better approximation by taking a smaller value for $\mathrm{d}t$...
 
-  ![](../img/lec11/curve-1.svg)
+  ![](../img/lec11/curve-1.svg){width=75%}
 
 - The slope of the straight-line approximation ("chord") is
   $$
@@ -218,8 +214,7 @@ TODO img
 
 - We can get an **even** better approximation by taking an **even** smaller value for $\mathrm{d}t$...
 
-  ![](../img/lec11/curve-2.svg)
-
+  ![](../img/lec11/curve-2.svg){width=75%}
 
 - The slope of the straight-line approximation ("chord") is
   $$

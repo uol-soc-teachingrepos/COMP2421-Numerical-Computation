@@ -1,7 +1,17 @@
 ---
 title: Lecture 4
 subtitle: Matrices and vectors
-starttime: "Oct 04, 2021 10:05"
+starttime: "Oct 07, 2021 10:05"
+titleextra: |
+ [**Celebrating Black history month**](https://ima.org.uk/16445/black-heroes-of-mathematics-conference-2020/)
+
+ <div class="logos">
+ ![](https://upload.wikimedia.org/wikipedia/commons/7/73/David_Blackwell_1999.jpeg){width=15%}
+ ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Katherine_Johnson_at_NASA%2C_in_1966.jpg/256px-Katherine_Johnson_at_NASA%2C_in_1966.jpg){width=15%}
+ ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/J._Ernest_Wilkins%2C_Jr._9.jpg/256px-J._Ernest_Wilkins%2C_Jr._9.jpg){width=15%}
+ ![](https://www.mathscareers.org.uk/wp-content/uploads/2017/09/Kathleen-Adebola-Okikiolu-300x400.jpg){width=15%}
+ ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Kgethi.jpg/256px-Kgethi.jpg){width=15%}
+ </div>
 ---
 # Introduction to matrices
 
@@ -41,7 +51,8 @@ $$
  \end{pmatrix}
 $$
 
-This example has $m$ rows and $n$ columns. We call $A$ an $m \times n$ matrix ("$m$ by $n$" matrix).
+This example has $m$ rows and $n$ columns.\
+We call $A$ an $m \times n$ matrix ("$m$ by $n$" matrix).
 
 ## Notes
 
@@ -116,8 +127,8 @@ $$
   2. $B_{ij} = \alpha A_{ij}$ for every entry of each row and column.
 
 - Similarly, provided matrices $X$ and $Y$ have the same size, we may define $C = \alpha X + \beta Y$ (for real numbers $\alpha$ and $\beta$) such that:
-  - $C$ has the same dimensions as $X$ and $Y$;
-  - $C_{ij} = \alpha X_{ij} + \beta Y_{ij}$ for every entry of each row and column.
+  1. $C$ has the same dimensions as $X$ and $Y$;
+  2. $C_{ij} = \alpha X_{ij} + \beta Y_{ij}$ for every entry of each row and column.
 
 ## Examples
 
@@ -220,12 +231,12 @@ Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be s
 
 - $1A = A$ and $0A = O$.
 - Scalar multiplication is distributive: $\alpha(A+B) = \alpha A + \beta B$.
-- Similarly: $(\alpha + \beta) = \alpha A +\beta B$.
+- Similarly: $(\alpha + \beta) A = \alpha A +\beta A$.
 - Also: $(\alpha \beta) A = \alpha (\beta A)$.
 
 # Matrix Multiplication
 
-- Recall from last lecture that it is possible to add matrices together
+- Recall that it is possible to add matrices together
  provided each matrix has *the same dimensions*.
 
  - Note that when a matrix has $m$ rows and $n$ columns we say that it

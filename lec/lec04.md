@@ -230,7 +230,7 @@ Let $A, B$ and $C$ be matrices of the same dimensions, then
 Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be scalars, then
 
 - $1A = A$ and $0A = O$.
-- Scalar multiplication is distributive: $\alpha(A+B) = \alpha A + \beta B$.
+- Scalar multiplication is distributive: $\alpha(A+B) = \alpha A + \alpha B$.
 - Similarly: $(\alpha + \beta) A = \alpha A +\beta A$.
 - Also: $(\alpha \beta) A = \alpha (\beta A)$.
 

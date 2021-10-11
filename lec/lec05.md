@@ -1,6 +1,11 @@
 ---
 title: Lecture 5
 subtitle: Solving systems of linear equations
+starttime: "Oct 11, 2021 10:05"
+titleextra: |
+  **Coursework 1 now available on minerva**
+  
+  Deadline 12noon GMT on 4th November
 ---
 # Introduction
 

@@ -19,7 +19,15 @@ title: Lecture 13
 
 -   We can plot an estimate of the graph of $y'(t)$ quite easily in this case:
 
-G`{=html} <!-- ![]() TODO -->` ## Example 1 (cont.)
+::: r-stack
+::: fragment
+![](../img/lec13/f1-a.svg)
+:::
+
+::: fragment
+![](../img/lec13/f1-b.svg)
+:::
+:::
 
 ## Example 1 (cont.)
 
@@ -113,7 +121,7 @@ G`{=html} <!-- ![]() TODO -->` ## Example 1 (cont.)
 -   We can make use of the "big O" notation in either case.
 
 -   For example, suppose $$
-      f(x) = 2 x^2 + 4 x^3 + x^5 + 2 x^6$,
+      f(x) = 2 x^2 + 4 x^3 + x^5 + 2 x^6,
       $$
 
     -   then $f(x) = O(x^6)$ as $x \to \infty$
@@ -123,4 +131,118 @@ G`{=html} <!-- ![]() TODO -->` ## Example 1 (cont.)
 
 # Improving upon Euler's method
 
+-   Let's assume that the error in Euler's method is proportional to $\mathrm{d}t$.
+
+-   Then halving $\mathrm{d}t$ will have the error.
+
+-   Suppose the error in taking one step of size $\mathrm{d}t$ is $E$, then taking two steps of size $\frac{1}{2} \mathrm{d}t$ should yield and error of $E/2$: $$
+    \begin{aligned}
+    y1 - y_{\text{exact}} = E
+    y2 - y_{\text{exact}} = E/2.
+    \end{aligned}
+    $$
+
+-   Subtracting twice the second equation from the first gives: $$
+    y_{\text{exact}} = 2 y2 - y1,
+    $$ which should be an improved approximation.
+
+-   On the next slides we use this to derive an improved computational algorithm....
+
+## Improving upon Euler's method (cont.)
+
+-   To get $y1$ take a single step of size $\mathrm{d}t$:
+
+    ``` python
+    y1 = y[i] + dt * f(t[i], y[i])
+    ```
+
+-   To get $y2$ take two steps of size $\mathrm{d}t/2$:
+
+    ``` python
+    y_mid = y[i] + 0.5 * dt * f(t[i], y[i])
+    t_mid = 0.5 * dt
+    y2 = y_mid + 0.5 * dt * f(t_mid, y_mid)
+    ```
+
+## Improving upon Euler's method (cont.)
+
+-   Combining $y1$ and $y2$ as suggested the slide before last gives $$
+    \begin{aligned}
+    y[i+1]
+    & = 2 \times y2 - y1 \\
+    & = 2 k + \mathrm{d}t \times f(t_{\text{mid}}, y_{\text{mid}})
+        - y[i] - \mathrm{d}t \times f(t[i], y[i]) \\
+    & = 2 y[i] + \mathrm{d}t \times f(t[i], y[i]) +
+        \mathrm{d}t \times f(t_{\text{mid}}, y_{\text{mid}})
+        - y[i] - \mathrm{d}t \times f(t[i], y[i]) \\
+    & = y[i] + \mathrm{d}t f(t_{\text{mid}}, y_{\text{mid}}).
+    \end{aligned}
+    $$
+
+-   As a computational algorithm this gives
+
+    ``` python
+    for i in range(n):
+        y_mid = y[i] + 0.5 * dt * f(t[i], y[i])
+        t_mid = t[i] + 0.5 * dt
+        y[i+1] = y[i] + dt * f(t_mid, y_mid)
+        t[i+1] = t[i] + dt
+    ```
+
 # The midpoint scheme
+
+-   The above algorithm is known as the **midpoint scheme** and it has been implemented in the python function [`midpoint`](../code/numericalSolve.html#midpoint) in [`numericalSolve.py`](../code/numericalSolve.html).
+
+-   The following tables shows computed results for the final solution, at $t = 2.0$, collected using the python function [`runMidpoint`](../code/lec13/runNumerical.html#runMidpoint) in [`runNumerical.py`](../code/lec13/runNumerical.html).
+
+## The midpoint scheme - results
+
+  $n$   $\mathrm{d}t$   solution   abs error   ratio
+  ----- --------------- ---------- ----------- --------
+  10    0.1000          7.9351     0.0649      0.0000
+  20    0.0500          7.9825     0.0175      0.2689
+  40    0.0250          7.9955     0.0045      0.2591
+  80    0.0125          7.9988     0.0012      0.2545
+  160   0.0063          7.9997     0.0003      0.2522
+  320   0.0031          7.9999     0.0001      0.2511
+  640   0.0016          8.0000     0.0000      0.2505
+
+## The midpoint scheme - notes
+
+-   For this new scheme we see that the error *quarters* each time that the interval $\mathrm{d}t$ is *halved*.
+
+-   That is the error is approximately proportional to $(\mathrm{d}t)^2$.
+
+-   Equivalently, the error is $O(\mathrm{d}t^2)$ as $\mathrm{d}t \to 0$.
+
+-   This is a significant improvement on Euler's method:
+
+    -   we say that the midpoint scheme is "second order";
+    -   whilst Euler's method is just "first order".
+
+## Example
+
+-   Take two steps of the midpoint rule to approximate the solution of $$
+    y'(t) = y(1-y) \mbox{ subject to the initial condition } y(0) = 2,
+    $$ for $0 \le t \le 1$.
+
+-   For this example we have:
+
+    -   $n = 2$
+    -   $t_0 = 0$
+    -   $y_0 = 2$
+    -   $t_{\text{final}} = 1$
+    -   $\mathrm{d}t = (1-0)/2 = 0.5$
+    -   $f(t, y) = y(1-y)$.
+
+# Summary
+
+-   In some special cases exact solutions of differential equations can be found - this is not true in general however.
+
+-   Computational modelling is required for most problems of practical interest (and will of course work just as well even if an exact solution could be found).
+
+-   Comparison with a known solution shows that Euler's method leads to an error that is proportional to $\mathrm{d}t$.
+
+-   The midpoint scheme's error is proportional to $(\mathrm{d}t)^2$ but requires about twice the computational work per step.
+
+-   Only 2 computational schemes are introduced here - there are many more that we don't consider...

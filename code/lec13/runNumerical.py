@@ -96,7 +96,7 @@ def runMidpoint():
     errorold = 0.0
     ratio = 0.0
     for n in [10, 20, 40, 80, 160, 320, 640]:
-        t, y = midpoint(rhs, 1.0, 1.0, 2.0, n)
+        t, y, thalf, yhalf = midpoint(rhs, 1.0, 1.0, 2.0, n)
         plt.plot(t, y, label=f"n = {n}")
 
         dt = (2.0 - 1.0) / float(n)

@@ -14,9 +14,9 @@ Solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, $j = 1, \l
 
 **Notation**:\
 Equation 1: $a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n = b_1$\
-Equation 2: $a_{21} x_2 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n = b_2$\
+Equation 2: $a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n = b_2$\
 $\vdots$\
-Equation $i$: $a_{i1} x_1 + x_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n = b_i$\
+Equation $i$: $a_{i1} x_1 + a_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n = b_i$\
 $\vdots$\
 Equation $n$: $a_{n1} x_1 + a_{n2} x_2 + a_{n3} x_3 + \cdots + a_{nn} x_n = b_n$.
 

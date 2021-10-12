@@ -20,7 +20,7 @@ title: Lecture 14
 
 -   We know its initial position and speed in each direction and wish to predict its trajectory.
 
-TODO add picture at end
+![](../img/lec14/projectile.svg){width="50%"}
 
 ## Projectile example - model
 
@@ -129,7 +129,7 @@ for i in range(n):
 -   Consider the following system of differential equations: $$
     \vec{y}'(t) = A \vec{y}(t),
     \mbox{ subject to } \vec{y}(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix},
-    $$ where $y = \begin{pmatrix} y_1(t) \\ y_2 \end{pmatrix}$ and $A = \begin{pmatrix} -1 & 1 \\ 1 & -2 \end{pmatrix}$.
+    $$ where $\vec{y}(t) = \begin{pmatrix} y_1(t) \\ y_2(t) \end{pmatrix}$ and $A = \begin{pmatrix} -1 & 1 \\ 1 & -2 \end{pmatrix}$.
 
 -   Approximate the solution using 2 steps of Euler's method with $\mathrm{d}t = 0.5$.
 

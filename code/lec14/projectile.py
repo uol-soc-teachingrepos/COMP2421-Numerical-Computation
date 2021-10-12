@@ -17,31 +17,6 @@ sys.path.append("..")
 from numericalSolve import *
 
 
-def rhs(t, y):
-    """
-    Define the right-hand side of a system of 4 differential equations.
-
-    ARGUMENTS:  t   value of t
-                y   4-dimensional array
-
-    RESULTS:    f 1x4-dimensional array of the right-hand of differential equation
-    """
-
-    f = np.zeros([4, 1])
-
-    g = 9.81
-    k = 0.2
-
-    f[0] = -k * y[0]
-    f[1] = -g - k * y[1]
-    f[2] = y[0]
-    f[3] = y[1]
-
-    return f.T
-
-
-# Set the initial speed of the projectile in the x direction:
-
 # Select initial and final time
 t0 = 0.0
 tfinal = 6.0
@@ -56,13 +31,6 @@ plt.figure()
 g = 9.81
 k = 0.2
 
-# Initialise the arrays t and s - to be used for plotting the solution
-t = np.zeros([n + 1, 1])
-U = np.zeros([n + 1, 1])
-V = np.zeros([n + 1, 1])
-X = np.zeros([n + 1, 1])
-Y = np.zeros([n + 1, 1])
-
 for speed in [5, 10, 15, 20, 25, 30]:
     # Initialise the arrays t and s - to be used for plotting the solution
     t = np.zeros([n + 1, 1])
@@ -70,6 +38,8 @@ for speed in [5, 10, 15, 20, 25, 30]:
     V = np.zeros([n + 1, 1])
     X = np.zeros([n + 1, 1])
     Y = np.zeros([n + 1, 1])
+
+    # Set the initial speed of the projectile in the x direction:
     t[0] = 0.0
     U[0] = speed
     V[0] = 0.0
@@ -89,7 +59,7 @@ for speed in [5, 10, 15, 20, 25, 30]:
         t[i + 1] = t[i] + dt
 
     # Plot calculated trajectory
-    plt.plot(X, Y, label="Initial speed = %d m/s" % speed)
+    plt.plot(X, Y, label=f"Initial speed = {speed} m/s")
 
 plt.legend()
 plt.xlim([0, 100])

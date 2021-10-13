@@ -196,13 +196,11 @@ The code does indeed give an initial bracket, and then converges to a solution o
 
 Note that if we do not try a sufficiently large value for $n$ for the upper range of the bracketing interval the method will fail. For example,
 
-``` plain
-$ python runBisection.py compound 1.0 100.0 0.1
-Running bisection on nonlinear function: compound
-With parameters:  ['1.0', '100.0', '0.1']
-Warning! The input values do not provide a bracket
-solution: x = None, f = None
-```
+    $ python runBisection.py compound 1.0 100.0 0.1
+    Running bisection on nonlinear function: compound
+    With parameters:  ['1.0', '100.0', '0.1']
+    Warning! The input values do not provide a bracket
+    solution: x = None, f = None
 
 A warning that the initial values for $n$ do not bracket a solution.
 
@@ -220,7 +218,7 @@ This gives the root as $x^* \approx 0.7652$ after 12 iterations.
 
 Note that:
 
--   taking \$\[x_L, x_R\] = \[0, 0.5\] gives the other root $x^* \approx 0.0339$;
+-   taking $[x_L, x_R] = [0, 0.5]$ gives the other root $x^* \approx 0.0339$;
 -   taking $[x_L, x_R] = [0, 1]$ or $[x_L, x_R] = [0.1, 0.6]$ would fail to give an initial bracket.
 
 ## Weaknesses of the bisection algorithm

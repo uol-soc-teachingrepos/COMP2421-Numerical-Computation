@@ -216,14 +216,15 @@ def newton(fnon, dfnon, x0, tol):
                 f     the function value at that root
     """
     # Print column headings for output
-    print("      x            f(x)\n")
+    print(" it       x            f(x)\n")
 
     # Set the initial estimate for the root and evaluate the function there.
     x = x0
     f = fnon(x)
+    it = 0
 
     # Print the estimate and function value
-    print(" %12.6f %12.6f" % (x, f))
+    print(f"{it:4d} {x:12.6f} {f:12.6f}")
 
     # Repeat the Newton iteration until the magnitude of the function value is
     # less than tol.
@@ -232,9 +233,10 @@ def newton(fnon, dfnon, x0, tol):
         # new estimate.
         x = x - f / dfnon(x)
         f = fnon(x)
+        it = it + 1
 
         # Print the new estimate and function value.
-        print(" %12.6f %12.6f" % (x, f))
+        print(f"{it:4d} {x:12.6f} {f:12.6f}")
 
 
 def modified_newton(fnon, x0, tol):

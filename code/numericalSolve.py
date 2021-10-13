@@ -168,12 +168,15 @@ def bisection(fnon, xL, xR, tol):
 
     else:
         # Print column heading for output
-        print(" (    xL,          f(xL)    ) (    xR,          f(xR)    )\n")
+        print(" it  (    xL,          f(xL)    ) (    xR,          f(xR)    )\n")
+
+        # iteration counter for output
+        it = 0
 
         # Repeat the bisection iteration until the bracket width is less than tol
         while abs(xR - xL) > tol:
             # Print the current bracket and the function values at each end.
-            print("(%12.8f, %12.8f) (%12.8f, %12.8f)\n" % (xL, fnon(xL), xR, fnon(xR)))
+            print(f"{it:3d}  ({xL:12.8f}, {fL:12.8f}) ({xR:12.8f}, {fR:12.8f})")
 
             # Find the midpoint of the bracket and evaluate the function there.
             xC = 0.5 * (xL + xR)
@@ -188,6 +191,9 @@ def bisection(fnon, xL, xR, tol):
                 # The root is to the right of C, so set L=C
                 xL = xC
                 fL = fC
+
+            # update counter
+            it = it + 1
 
     # Set final estimate to be the midpoint value
     x = 0.5 * (xL + xR)

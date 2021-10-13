@@ -19,7 +19,10 @@ title: Lecture 15
 
 3.  A general nonlinear equation $f(x) = 0$ rarely has a formula like those above which can be used to calculate its roots.
 
-Some numerical methods are also *better* than some exact formula due to floating point rounding errors.
+It is also sometimes better to use a numerical method to solve an equation even if an exact formula exists:
+
+-   the exact formula may have difficulties due to rounding errors;
+-   the exact formula may be more expensive to compute.
 
 ## Example problems
 
@@ -45,7 +48,36 @@ The following three example problems will be used throughout this section to ill
 
 ## Example problems (cont.)
 
-TODO something with relevance
+3.  Consider the NACA0012 prototype wing section, which os often used for testing computational methods for simulating flows in aerodynamics:
+
+```{=html}
+<video width=50%>
+```
+```{=html}
+<source src="../video/lec15/naca0012.webm" type="video/mp4">
+```
+```{=html}
+</video>
+```
+`<small>`{=html}Video source: <https://youtu.be/wcahAqSFZ8k>`</small>`{=html}
+
+## Example problem(cont.)
+
+The profile is given by $$
+y^{\pm}(x) = \pm(0.2969 \sqrt{x} - 0.126 x - 0.3516 x^2 + 0.2843 x^3 - 0.1015 x^4),
+$$ in which $+$ gives the upper surface and $-$ gives the lower surface.
+
+::: container
+::: col
+Find the point $x$ at which the thickness $t$ of the aerofoil is $0.1$, i.e. solve $f(x) = 0$ where $f(x) = y^+(x) - y^-(x) - 0.1$.
+
+-   There will be two solutions for $x$ for this value of $t$.
+:::
+
+::: col
+![](../img/lec15/wing.svg)
+:::
+:::
 
 # Iterative methods
 
@@ -55,7 +87,7 @@ Use the concept of **iterative** (or **iterative improvement**) again.
 
 -   Once $x^{(1)}$ has been computed, it can be used to compute another estimate $x^{(2)}$ in the same way (and so on...).
 
--   Generally, $x^{(i)}$, is used to compute $x^{(i+1)}$ (though other previous estimates may be used as well).
+-   Generally, $x^{(i)}$ is used to compute $x^{(i+1)}$ (though other previous estimates may be used as well).
 
 -   There are **many** methods for doing this.
 
@@ -75,13 +107,19 @@ Use the concept of **iterative** (or **iterative improvement**) again.
 
 The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$, is known as the **bisection method**.
 
+::: container
+::: col
 -   Assume for now that two points $x_L$ and $x_R$ are known for which $$
     f(x_L) f(x_R) < 0
     $$ i.e., the function evaluations at these points are of opposite sign.
 
-TODO let's have a picture here
-
 -   If $f$ is continuous then this implies that there must be at least one root $x^*$ in the interval $(x_L, x_R)$. There may be more than one root.
+:::
+
+::: col
+![](../img/lec15/root-example.svg)
+:::
+:::
 
 ## The algorithm
 
@@ -113,16 +151,18 @@ TODO let's have a picture here
 
 Use the bisection method to calculate $\sqrt{2}$ with an error of less than $10^{-4}$.
 
-    -   Use $R = 2$, so $f(x) = x^2 - 2$, which gives $x^* = \sqrt{2}$.
-    -   Set the initial bracket to be $[a, b] = [0, 2]$ and the error tolerance to be $TOL = 10^{-4}$.
+-   Use $R = 2$, so $f(x) = x^2 - 2$, which gives $x^* = \sqrt{2}$.
+-   Set the initial bracket to be $[a, b] = [0, 2]$ and the error tolerance to be $TOL = 10^{-4}$.
+
+This is implemented in [`runBisection.py`](../code/lec15/runBisection.html) using [`bisection`](../code/numericalSolve.html#bisection) from [`numericalSolve.py`](../code/numericalSolve.html).
 
 The function call
 
-``` python
-bisection(sqrtR, 0, 2, 1e-4)
+``` bash
+$ python runBisection.py sqrt2 0 2 1.0e-4
 ```
 
-gives the root as $x^* = 1.4142$ after 14 iterations. TODO check
+gives the root as $x^* = 1.4142$ after 14 iterations.
 
 ## Example 1 (cont.)
 
@@ -146,39 +186,62 @@ It is clear that 1 monthly repayment ($n=1$) will not be sufficient, whilst we s
 
 The function call
 
-``` python
-bisection(compound, 1.0, 1000.0, 0.1)
+``` bash
+$ python runBisection.py compound 1.0 1000.0 0.1
 ```
 
-does indeed give an initial bracket, and then converges to a solution of $x^* = 235.9$ after 13 iterations.
+The code does indeed give an initial bracket, and then converges to a solution of $x^* = 235.9$ after 13 iterations.
 
 ## Example 2 (cont.)
 
 Note that if we do not try a sufficiently large value for $n$ for the upper range of the bracketing interval the method will fail. For example,
 
-``` python
-bisection(compound, 1.0, 100.0, 0.1)
+``` plain
+$ python runBisection.py compound 1.0 100.0 0.1
+Running bisection on nonlinear function: compound
+With parameters:  ['1.0', '100.0', '0.1']
+Warning! The input values do not provide a bracket
+solution: x = None, f = None
 ```
 
-gives a warning that the initial values for $n$ do not bracket a solution.
+A warning that the initial values for $n$ do not bracket a solution.
 
 ## Example 3
 
-TODO
+3.  Use the bisection method to find the points at which the thickness of the NACA0012 aerofoil is 0.1 with an error of less than $10^{-4}$.
+
+It can be seen that $0 \le x^* \le 1$ but there are two solutions in this interval, so try $[x_L, x_R] = [0.5, 1]$ as the initial bracket.
+
+``` bash
+$ python runBisection.py naca0012 0.5 1.0 1.0e-4
+```
+
+This gives the root as $x^* \approx 0.7652$ after 12 iterations.
+
+Note that:
+
+-   taking \$\[x_L, x_R\] = \[0, 0.5\] gives the other root $x^* \approx 0.0339$;
+-   taking $[x_L, x_R] = [0, 1]$ or $[x_L, x_R] = [0.1, 0.6]$ would fail to give an initial bracket.
 
 ## Weaknesses of the bisection algorithm
 
 -   Bisection is a reliable method for finding solutions of $f(x) = 0$ provided an initial bracket can be found.
 
+::: container
+::: col
 -   It is far from perfect however:
 
     -   finding an initial bracket is not always easy;
     -   it can take a very large number of iterations to obtain an accurate answer;
     -   it can never find solutions of $f(x) = 0$ for which $f$ does not change sign.
+:::
 
--   For example:
+::: col
+For example:
 
-TODO add picture
+![](../img/lec15/root-example2.svg)
+:::
+:::
 
 # Newton's method
 
@@ -196,13 +259,21 @@ TODO add picture
 
 ## Graphical derivation of Newton's method
 
+::: container
+::: col
 $x^{(i+1)}$ is computed by projecting the *slope* at $x^{(i)}$, $f'(x^{(i)})$, on to the $x$-axis, giving $$
-f'(x^{(i)}) = \frac{f(x^{(i)}) - 0}{x^{(i)} - x^{(i+1)}}.
+\begin{aligned}
+f'(x^{(i)}) & = \frac{f(x^{(i)}) - 0}{x^{(i)} - x^{(i+1)}} \\
 \Rightarrow
-x^{(i+1)} = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}.
+x^{(i+1)} & = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}.
+\end{aligned}
 $$
+:::
 
-TODO picture
+::: col
+![](../img/lec15/newton-graph.svg)
+:::
+:::
 
 ## Notes
 
@@ -213,7 +284,7 @@ TODO picture
     -   this may not always be possible or easy;
     -   in the examples that follow we will make use of the formula: $$
         f(x) = x^n \Rightarrow f'(x) = n x^{n-1},
-          $$ which is true for any $n$.
+          $$ which is true for any $n \neq 0$.
 
 -   There are variants of Newton's method that allow the derivative to be approximated: we will return to these later.
 
@@ -227,8 +298,12 @@ This gives $f'(x) = 2x$ so the iterative formula is $$
 x^{(i+1)}
 = x^{(i)} - \frac{(x^{(i)})^2 - 5}{2 x^{(i)}}
 = \frac{(x^{(i)})^2 + 5}{2 x^{(i)}}.
-$$ This gives $$
-\begin{align}
+$$
+
+## Examples (cont.)
+
+This gives $$
+\begin{aligned}
 x^{(1)}
 & = \frac{2^2 + 5}{2 \times 2}
 = \frac{9}{4} = 2.25 \\

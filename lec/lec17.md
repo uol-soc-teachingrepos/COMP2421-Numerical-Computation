@@ -1,6 +1,6 @@
 ---
-title: Lecture 17
 subtitle: Quasi-Newton methods
+title: Lecture 17
 ---
 
 # Approximation

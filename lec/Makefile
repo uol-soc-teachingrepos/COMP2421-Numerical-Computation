@@ -36,7 +36,9 @@ PANDOC_BEAMER = \
     --table-of-contents \
     --toc-depth=1 \
     --slide-level 2 \
-    -V lang="en"
+    -V lang="en" \
+    --filter ../pandoc/env-filters.py \
+    --filter ../pandoc/env-filters.py
 
 # implicit rules
 %.html: %.md ../pandoc/revealjs-template.html

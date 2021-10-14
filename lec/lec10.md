@@ -163,7 +163,7 @@ x_1 \\ x_2
 $$
 where $\varepsilon \neq 1$ (as illustrated in the file [`gaussElimTest1.py`](../code/lec10/gaussElimTest1.py))
 ::::
-:::: {.col .fragment}
+:::: {.col}
 - The true, unique solution is $(x_1, x_2)^T = (1, 2)^T$.
 
 - If $\varepsilon \neq 0$, Gaussian elimination gives
@@ -265,11 +265,11 @@ The pivoting algorithm ([`gauss_elimination_pivot`](../code/matrixSolve.html#gau
 
 - The constraint imposed on the row multipliers means that for LU factorisation every entry in $L$ satisfies $| l_{ij} | \le 1$.
 
-- In python, the function call
-  ```python
-  P, L, U = scipy.linalg.lu(A, permute_l=0)
-  ```
-  factorises $A$ and returns $L$, $U$ and the **pivot matrix** $P$.
+In python, the function call
+```python
+P, L, U = scipy.linalg.lu(A, permute_l=0)
+```
+factorises $A$ and returns $L$, $U$ and the **pivot matrix** $P$.
 
 ## Example
 

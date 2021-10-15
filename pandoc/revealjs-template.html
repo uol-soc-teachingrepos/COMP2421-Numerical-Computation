@@ -13,9 +13,7 @@ $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
 $endif$
   <title>
-$for(course)$
     $course.code$ $course.title$
-$endfor$
     $title$
   </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -56,9 +54,7 @@ $endfor$
 $if(title)$
   <div class='footer'>
     <h4 class="title">
-$for(course)$
       $course.code$
-$endfor$
       $title$
     </h4>
   </div>
@@ -71,27 +67,30 @@ $if(title)$
 	 $title-attr$
 	 $endif$>
   <h1 class="title">
-$for(course)$
     $course.code$
     $course.title$
-$endfor$
     - $title$
   </h1>
 $if(subtitle)$
   <h4 class="subtitle">$subtitle$</h4>
 $endif$
 
+
+  <p class="author">
 $for(author)$
-$if(author.name)$
-  <p class="author"><b>$author.name$</b></p>
-$endif$
-$if(author.room)$  
-  <p>$author.room$</p>
-$endif$
-$if(author.contact)$
-  <p>$author.contact$</p>
-$endif$
+    <b>$author.name$</b> $sep$ |
 $endfor$
+  </p>
+  <p>
+$for(author)$
+    $author.room$ $sep$ |
+$endfor$
+  </p>
+
+$if(course.contact)$
+  <p>$course.contact$</p>
+$endif$
+
 $if(starttime)$
   <p id="countdown"></p>
 $endif$

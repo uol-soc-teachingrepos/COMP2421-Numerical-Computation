@@ -37,7 +37,10 @@ $for(classoption)$
 $endfor$
 ]{$documentclass$}
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+\title[$course.code$ $title$]{%
+  $course.code$ $course.title$
+  $title$
+  $if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
 $if(beamer)$
@@ -51,10 +54,9 @@ $else$
 $endif$
 \subtitle{$subtitle$}
 $endif$
-$for(author)$
-\author{$author.name$}
-\date{$author.room$\\$author.contact$}
-$endfor$
+\author{$for(author)$ $author.name$ $sep$ | $endfor$}
+\date{$for(author)$ $author.room$ $sep$ | $endfor$\\
+  $if(course.contact)$ $course.contact$ $endif$}
 $if(beamer)$
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}

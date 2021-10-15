@@ -32,6 +32,7 @@ PANDOC_REVEALJS_SELF_CONTAINED= \
 PANDOC_BEAMER = \
   pandoc \
     --template ../pandoc/beamer-template.tex \
+    --metadata-file=../metafile.yaml \
     -t beamer \
     --table-of-contents \
     --toc-depth=1 \

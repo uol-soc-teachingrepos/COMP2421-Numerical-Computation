@@ -1,8 +1,9 @@
 course:
-  - code: 'COMP2421'
-  - title: 'Numerical Computation'
+  code: 'COMP2421'
+  title: 'Numerical Computation'
+  contact: 'Please contact me via [Teams](https://teams.microsoft.com/l/channel/19%3aSF6JCThw2h0hfRTPmJ4u9eHraovCLyg7I_CCsc7rjT81%40thread.tacv2/General?groupId=43cc2fb7-d867-4498-99c7-385f3eb82e09&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)'
+
 author:
   - name: 'Dr. Thomas Ranner'
-  - email: 'T.Ranner@leeds.ac.uk'
-  - room: '3.40d Bragg Building'
-  - contact: 'Please contact me via [Teams](https://teams.microsoft.com/l/channel/19%3aSF6JCThw2h0hfRTPmJ4u9eHraovCLyg7I_CCsc7rjT81%40thread.tacv2/General?groupId=43cc2fb7-d867-4498-99c7-385f3eb82e09&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)'
+    email: 'T.Ranner@leeds.ac.uk'
+    room: '3.40d Bragg Building'

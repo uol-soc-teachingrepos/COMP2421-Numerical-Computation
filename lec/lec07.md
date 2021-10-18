@@ -183,7 +183,7 @@ The second, third and fourth columns follow in a similar manner, giving all the 
           ...
     ```
 
--   See the function [`lu_factorise`](../code/matrixSolve.py#lu_factorise) in [`matrixSolve.py`](../code/matrixSolve.html)
+-   See the function [`lu_factorise`](../code/matrixSolve.html#lu_factorise) in [`matrixSolve.py`](../code/matrixSolve.html)
 
 ## Example 1
 

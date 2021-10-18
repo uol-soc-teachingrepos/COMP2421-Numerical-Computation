@@ -1,4 +1,5 @@
 ---
+starttime: "Nov 1, 2021 10:05"
 title: Lecture 9
 subtitle: Iterative stopping criteria
 ---

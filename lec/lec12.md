@@ -1,4 +1,5 @@
 ---
+starttime: "Nov 10, 2021 16:05"
 subtitle: Derivatives and differential equations
 title: Lecture 12
 ---

@@ -1,4 +1,5 @@
 ---
+starttime: "Dec 6, 2021 10:05"
 subtitle: Least squares fitting
 title: Lecture 19
 ---

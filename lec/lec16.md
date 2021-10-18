@@ -1,4 +1,5 @@
 ---
+starttime: "Nov 24, 2021 16:05"
 subtitle: Solution of nonlinear equations ii
 title: Lecture 16
 ---

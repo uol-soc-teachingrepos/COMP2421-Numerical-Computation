@@ -1,4 +1,5 @@
 ---
+starttime: "Nov 29, 2021 10:05"
 subtitle: Quasi-Newton methods
 title: Lecture 17
 ---

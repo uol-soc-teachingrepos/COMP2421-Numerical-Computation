@@ -1,6 +1,7 @@
 ---
 subtitle: A modelling example
 title: Lecture 14
+starttime: "Nov 17, 2021 16:05"
 ---
 
 # A model for the trajectory of an object

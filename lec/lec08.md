@@ -1,4 +1,5 @@
 ---
+starttime: "Oct 20, 2021 16:05"
 subtitle: Iterative solution of linear equations
 title: Lecture 8
 ---
@@ -35,7 +36,7 @@ It is possible to construct an **iteration** which will improve an approximation
 
 Consider the system $A \vec{x} = \vec{b}$ but rewrite the matrix $A$ as $$
 A = D + (A - D),
-$$ where $D$ is the diagonal of $A$, i.e. $$
+$$ where $D$ is the diagonal of $A$, i.e. $$
 D_{ii} = A_{ii} \quad \mbox{ and } \quad D_{ij} = 0 \mbox{ for } i \neq j.
 $$ Manipulations give $$
 \begin{aligned}

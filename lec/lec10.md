@@ -1,4 +1,5 @@
 ---
+starttime: "Nov 3, 2021 16:05"
 title: Lecture 10
 subtitle: Effects of finite precision arithmetic
 ---

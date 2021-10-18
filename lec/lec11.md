@@ -1,6 +1,7 @@
 ---
 subtitle: Dynamic models and rates of change
 title: Lecture 11
+starttime: "Nov 8, 2021 10:05"
 ---
 
 # Static versus dynamic problems

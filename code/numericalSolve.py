@@ -256,15 +256,20 @@ def modified_newton(fnon, x0, tol):
     eps = np.finfo(float).eps
     dx = np.sqrt(eps)
 
+    # format for printing
+    prec = int(-np.log10(tol)) + 1
+    format = f" {{x:{prec+4}.{prec}f}} {{f:{prec+4}.{prec}f}}"
+
     # Print column headings for output.
-    print("      x            f(x)")
+    print(" x" + " " * (prec + 4) + " f" + " " * (prec + 4))
+    print(" " + "-" * (prec + 5) + " " + "-" * (prec + 5))
 
     # Set the initial estimate for the root and evaluate the function there.
     x = x0
     f = fnon(x)
 
     # Print the estimate and function value.
-    print(" %12.6f %12.6f" % (x, f))
+    print(format.format(x=x, f=f))
 
     # Repeat the Newton iteration until the magnitude of the function value is
     # less than tol.
@@ -275,7 +280,7 @@ def modified_newton(fnon, x0, tol):
         f = fnon(x)
 
         # Print the new estimate and function value.
-        print(" %12.6f %12.6f" % (x, f))
+        print(format.format(x=x, f=f))
 
     return x, f
 
@@ -296,6 +301,52 @@ def difference(fnon, dfnon, x0, dx):
     d = (fnon(x0 + dx) - fnon(x0)) / dx
     error = abs(d - dfnon(x0))
     return d, error
+
+
+def secant(fnon, x0, x1, tol):
+    """
+    Use the secant method to find the root of the nonlinear equation fnon(x)=0
+    starting from the estimates x0 and x1.
+
+    ARGUMENTS:  fnon  handle for the nonlinear function
+                x0    the initial estimate
+                x1    the second estimate
+                tol   convergence tolerance
+
+    RETURNS:    x     the computed root
+                f     the function value at that root
+    """
+    # Print column headings for output
+    print("      x            f(x)\n")
+
+    # Set the initial estimate for the root and evaluate the function there.
+    f0 = fnon(x0)
+    f1 = fnon(x1)
+
+    # Print the estimate and function value.
+    print(" %20.14f %20.14f" % (x0, f0))
+    print(" %20.14f %20.14f" % (x1, f1))
+
+    # Repeat the secant iteration until the magnitude of the function value is
+    # less than tol.
+
+    while abs(f1) > tol:
+        # Apply one iteration of the secant method and evaluate the function at the
+        # new estimate.
+        x2 = x1 - f1 * (x1 - x0) / (f1 - f0)
+        f2 = fnon(x2)
+        # Print the new estimate and function value.
+        print(" %20.14f %20.14f" % (x2, f2))
+
+        x0 = x1
+        f0 = f1
+        x1 = x2
+        f1 = f2
+
+    x = x1
+    f = f1
+
+    return x, f
 
 
 def rk4(rhs, t0, y0, tfinal, n):

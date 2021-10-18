@@ -16,7 +16,7 @@ title: Lecture 17
 
 ## Approximation of $f'(x)$
 
--   Recall that $$f'(x) = \lim_{\mathrm{d}x \to 0} \frac{f(x + \mathrm{d}x) - f(x)}{\mathrm{d}x}$$.
+-   Recall that $f'(x) = \lim_{\mathrm{d}x \to 0} \frac{f(x + \mathrm{d}x) - f(x)}{\mathrm{d}x}$.
 
 -   Hence we can choose a small value for $\mathrm{d}x$ (how small?) and approximate: $$
     f'(x) \approx \frac{f(x + \mathrm{d}x) - f(x)}{\mathrm{d}x}.
@@ -46,6 +46,8 @@ title: Lecture 17
 
 -   Consider what happens when we approximate this with python, using finite values for $\mathrm{d}x$.
 
+## Problems with floating point arithmetic (cont.)
+
   dx        approx         abs error    rel error
   --------- -------------- ------------ ------------
   1.0e-04   3.0003000100   3.0001e-04   3.0001e-04
@@ -58,7 +60,24 @@ title: Lecture 17
 
 ## python example
 
-TODO how to generate this table
+-   A python demonstration of the above difference is provided by the function [`difference`](../code/numericalSolve.html#difference) in [`numericalSolve.py`](../code/numericalSolve.html).
+
+-   This has four parameters
+
+    ``` python
+    difference(fnon, dfnon, x0, dx)
+    ```
+
+    -   the first two are "function handles" for $f(x)$ and $f'(x)$ (`Callable[[float], float]`);
+    -   the third and fourth are the value at which the derivative is estimated and the size of $\mathrm{d}x$ to be used.
+
+-   The main code is
+
+    ``` python
+    d = (fnon(x0 + dx) - fnon(x0)) / dx
+    ```
+
+-   See how the code maybe called from [`derivative-approximation.py`](../code/lec17/derivative-approximation.py).
 
 # Modified Newton's method
 
@@ -74,15 +93,23 @@ dx = np.sqrt(eps)
 x = x0
 f = fnon(x)
 while abs(f) > tol:
-    x = x - (dx * f)/(fnon(x + dx) - f)
+    x = x - (dx * f) / (fnon(x + dx) - f)
     f = fnon(x)
 ```
 
+See also [`runNewtonModified.py`](../code/lec17/runModifiedNewton.html).
+
 ## Examples
 
-1.  Use the modified Newton method to approximate the value of $\sqrt{2}$ by solving $x^2 - R = 0$.
+-   The function call `modified_newton(sqrt2, 1, 1.0e-12)` gives $x^* \approx 1.4142135623731$ after 5 iterations.
 
-    The function call ... gives TODO
+-   The function call `modified_newton(naca0012, 1, 1.0e-4)` gives $x^* \approx 0.76579$ after 2 iterations.
+
+-   The function call `modified_newton(naca0012, 1, 1.0e-5)` gives $x^* \approx 0.765239$ after 3 iterations.
+
+-   The function call `modified_newton(naca0012, 0.1, 1.0e-4)` gives $x^* \approx 0.03386$ after 5 iterations.
+
+In each case the performance is almost identical to the Newton method.
 
 # The secant method
 
@@ -114,4 +141,12 @@ Disadvantages:
 
 ## Examples
 
-TODO
+-   The function call `secant(sqrt2, 1.0, 1.5, 1.0e-4)` gives the solution as $x^* \approx 1.4142$ after 3 iterations.
+
+-   The function call `secant(compound, 100, 120, 0.1)` gives the solution as $x^* \approx 235.9$ after 6 iterations.
+
+-   The function call `secant(naca0012, 1, 0.9, 1.0e-4)` gives the solution as $x^* \approx 0.7653$ after 3 iterations.
+
+-   The function call `secant(naca0012, 0, 0.1, 1.0e-4)` gives the solution as $x^* \approx 0.0339$ after 5 iterations.
+
+-   The function call `secant(lin, 2, 3, 1.0e-4)` gives the solution as $x^* \approx 1.0062$ after 11 iterations when $f(x) = (x-1)^2$.

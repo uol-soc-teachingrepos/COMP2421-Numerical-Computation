@@ -16,10 +16,6 @@ title: Lecture 18
 
 -   The resulting iteration is known as the **secant method**.
 
-## Results
-
-TODO one plot/table summarising methods so far
-
 # Reliability
 
 -   The Newton, modified Newton and secant methods may not always converge for a particular choice of $x^{(0)}$.

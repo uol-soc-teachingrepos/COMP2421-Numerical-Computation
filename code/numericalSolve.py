@@ -349,38 +349,64 @@ def secant(fnon, x0, x1, tol):
     return x, f
 
 
-def rk4(rhs, t0, y0, tfinal, n):
+def fzero(fnon, x0, tolx=1e-4, tolfun=1e-4, maxiter=100):
     """
-    Use the fourth order Runge-Kutta method to solve the differential
-    equation y'(t)=f(t,y), subject to the initial condition y(t0) = y0.
-
-    ARGUMENTS:  t0  initial value of t
-                y0  initial value of y(t) when t=t0
-                tfinal final value of t for which the solution is required
-                n   the number of sub-intervals to use for the approximation
-                rhs function of right-hand side of differential equation
-
-    RESULTS:    t   (n+1)-vector storing the values of t at which the solution
-                    is estimated
-                y   (n+1)-vector storing the estimated solution.
+    TODO doc me
     """
+    print("running fzero with arguments")
+    print(
+        f"fnon = {fnon.__name__}, x0 = {x0}, tolx = {tolx}, tolfunc = {tolfun}, maxiter = {maxiter}"
+    )
 
-    # Initialise the arrays t and y
-    t = np.zeros([n + 1, 1])
-    y = np.zeros([n + 1, 1])
-    t[0] = t0
-    y[0] = y0
+    # find initial function value
+    f0 = fnon(x0)
 
-    # Calculate the size of each interval
-    dt = (tfinal - t0) / float(n)
+    # find x1 > x0 st f0 * f1 < 0
+    it = 0
+    d = tolx
+    x1 = x0 + d
+    f1 = fnon(x1)
+    while f0 * f1 > 0:
+        it += 1
+        d *= 2
+        x1 += d
+        f1 = fnon(x1)
+    print(f"found opposite sign at {x1} -> f({x1}) = {f1} after {it} iterations")
 
-    # Take n steps of the RK4 method...
-    for i in range(n):
-        k1 = dt * rhs(t[i], y[i])
-        k2 = dt * rhs(t[i] + 0.5 * dt, y[i] + 0.5 * k1)
-        k3 = dt * rhs(t[i] + 0.5 * dt, y[i] + 0.5 * k2)
-        k4 = dt * rhs(t[i] + dt, y[i] + k3)
-        y[i + 1] = y[i] + (k1 + 2 * k2 + 2 * k3 + k4) / 6.0
-        t[i + 1] = t[i] + dt
+    # go into iteration
+    it = 0
+    x2, f2 = x1, f1
+    print(" it   solution    f value      ")
+    print(" ---- ----------- -------------")
 
-    return t, y
+    # while not converged
+    while abs(x1 - x0) > tolx and abs(f2) > tolfun and it < maxiter:
+        # update it
+        it += 1
+
+        # take one step of secant method
+        x2 = x1 - f1 * (x1 - x0) / (f1 - f0)
+
+        # if x2 outside interval
+        if x2 < min(x0, x1) and x2 > max(x0, x1):
+            # replace x2 with one step of bisection
+            x2 = (x0 + x1) / 2.0
+
+        # evaluate f at x2
+        f2 = fnon(x2)
+
+        # choose updated interval
+        if f0 * f2 <= 0:
+            # root is between [x0, x2]
+            x1, f1 = x2, f2
+        else:
+            # root is between [x2, x1]
+            x0, f0 = x2, f2
+
+        # print guess
+        print(f"{it:4d} {x2:12.6f} {f2:12.6e}")
+
+    if it == maxiter:
+        print("WARNING: method has not converged")
+        print(f"|x1 - x0| = {abs(x1 - x0)}")
+        print(f"|f(x2)| = {abs(f2)}")

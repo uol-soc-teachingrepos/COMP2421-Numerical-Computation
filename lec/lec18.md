@@ -4,6 +4,8 @@ subtitle: More on nonlinear equations
 title: Lecture 18
 ---
 
+TODO double check formatting and numerical results
+
 ## Recap
 
 -   In the previous lecture we consider a modified version of Newton's method in which $f'(x^{(i)})$ is approximated: $$
@@ -70,7 +72,53 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 ## Using `fzero`
 
-TODO
+Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.html).
+
+1.  Consider the example with $f(x) = x^2 - R$ and $R=2$. Take $x^{(0)} = 1$ and use the function call
+
+    ``` python
+    fzero(sqrt2, 1.0, tolx=1.0e-12, tolfun=1.0e-12)
+    ```
+
+    -   The algorithm gives $x^* = 1.414214$ after 10 iterations.
+    -   `fzero` does not know where to position the initial bracket $[x^{(0)}, x^{(1)}]$.
+    -   If $x^{(0)}$ is a poor estimate it takes some time, or fails altogether.
+
+2.  Consider the example with $f(x) = x^2 - R$ with $R=2$, take $x^{(0)} = 1.0$ and use the function call
+
+    ``` python
+    eps = np.finfo(float).eps
+    fzero(sqrt2, 1.0, tolx=eps, tolfun=eps)
+    ```
+
+    -   The algorithm gives $x^* = 1.414214$ after 12 iterations.
+    -   Convergence is to *machine precision* - so it takes more iterations than previously - but not too many!
+
+## Example (cont.)
+
+3.  Consider the compound interest example with $[x^{(0)}, x^{(1)}] = [200, 300]$, using the function call
+
+    ``` python
+    fzero(compound, 200, 300, tolx=1.0e-3, tolfun=1.0e-12)
+    ```
+
+    -   This converges to the root $x^* = 235.889095$ after 18 iterations (using quite a large stopping tolerance in this case).
+
+4.  Consider the NACA0012 aerofoil example with $[x^{(0)}, x\^{(1)}] = [0.5, 1]$ using the function call
+
+    ``` python
+    fzero(naca0012, 0.5, 1.0, tolx=1.0e-12, tolfun=1.0e-12)
+    ```
+
+    This converges to the root $x^* = 0.765249$ in 13 iterations.
+
+5.  Consider the NACA0012 aerofoil example with $[x^{(0)}, x^{(1)}] = [0, 0.5]$ using the function call
+
+    ``` python
+    fzero(naca0012, 0.0, 0.5, tolx=1.0e-12, tolfun=1.0e-12)
+    ```
+
+    -   This converges to the other root $x^* = 0.33899$ after 44 iterations.
 
 # Stopping criteria
 

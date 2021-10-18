@@ -349,29 +349,35 @@ def secant(fnon, x0, x1, tol):
     return x, f
 
 
-def fzero(fnon, x0, tolx=1e-4, tolfun=1e-4, maxiter=100):
+def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100):
     """
     TODO doc me
     """
     print("running fzero with arguments")
     print(
-        f"fnon = {fnon.__name__}, x0 = {x0}, tolx = {tolx}, tolfunc = {tolfun}, maxiter = {maxiter}"
+        f"fnon = {fnon.__name__}, x0 = {x0}, x1 = {x1}, tolx = {tolx}, tolfunc = {tolfun}, maxiter = {maxiter}"
     )
 
     # find initial function value
     f0 = fnon(x0)
 
-    # find x1 > x0 st f0 * f1 < 0
-    it = 0
-    d = tolx
-    x1 = x0 + d
-    f1 = fnon(x1)
-    while f0 * f1 > 0:
-        it += 1
-        d *= 2
-        x1 += d
+    if x1 is None:
+        # find x1 > x0 st f0 * f1 < 0
+        it = 0
+        d = tolx
+        x1 = x0 + d
         f1 = fnon(x1)
-    print(f"found opposite sign at {x1} -> f({x1}) = {f1} after {it} iterations")
+        while f0 * f1 > 0:
+            it += 1
+            d *= 2
+            x1 += d
+            f1 = fnon(x1)
+        print(f"found opposite sign at {x1} -> f({x1}) = {f1} after {it} iterations")
+    else:
+        f1 = fnon(x1)
+        if f0 * f1 > 0:
+            print("WARNING initial bracket does not bracket solution")
+            exit(1)
 
     # go into iteration
     it = 0
@@ -391,6 +397,7 @@ def fzero(fnon, x0, tolx=1e-4, tolfun=1e-4, maxiter=100):
         if x2 < min(x0, x1) and x2 > max(x0, x1):
             # replace x2 with one step of bisection
             x2 = (x0 + x1) / 2.0
+            print("bisection")
 
         # evaluate f at x2
         f2 = fnon(x2)

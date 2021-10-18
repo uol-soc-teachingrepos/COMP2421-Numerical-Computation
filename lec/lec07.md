@@ -111,7 +111,7 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
 -   Now the original system $A \vec{x} = \vec{b}$ is equivalent to $$
     \tag{2}
     \label{eq:2}
-    L U \vec{x} = b
+    L U \vec{x} = \vec{b}
     $$ where $U$ is *upper triangular* (by construction) and $L$ may be shown to be lower triangular (provided the EROs do not include any row swaps).
 
 -   Once $L$ and $U$ are known it is easy to solve $\eqref{eq:2}$:

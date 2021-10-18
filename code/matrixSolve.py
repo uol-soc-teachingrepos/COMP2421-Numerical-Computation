@@ -259,8 +259,10 @@ def gauss_seidel(A, u, b, n_iterations):
     # Get dimension
     k = len(A)
 
-    # Make sure matrix A is float
+    # Make sure we are working with floats
     A = A.astype(float)
+    u = u.astype(float)
+    b = b.astype(float)
 
     for i in range(n_iterations):
         for j in range(k):
@@ -286,8 +288,10 @@ def jacobi(A, u, b, n_iterations):
     # Get dimension
     k = len(A)
 
-    # Make sure matrix A is float
+    # Make sure we are working with floats
     A = A.astype(float)
+    u = u.astype(float)
+    b = b.astype(float)
 
     for i in range(n_iterations):
         r = b - np.dot(A, u)
@@ -315,8 +319,10 @@ def jacobi2(A, u, b, n_iterations):
     # Get dimension
     k = len(A)
 
-    # Make sure matrix A is float
+    # Make sure we are working with floats
     A = A.astype(float)
+    u = u.astype(float)
+    b = b.astype(float)
 
     unew = np.zeros([k, 1])
     for i in range(n_iterations):
@@ -343,8 +349,10 @@ def gauss_seidel_new(A, u, b, tol):
     # Get dimension
     k = len(A)
 
-    # Make sure matrix A is float
+    # Make sure we are working with floats
     A = A.astype(float)
+    u = u.astype(float)
+    b = b.astype(float)
 
     # Set the maximum number of iterations
     maxit = 1000
@@ -387,8 +395,10 @@ def jacobi_new(A, u, b, tol):
     # Get dimension
     k = len(A)
 
-    # Make sure matrix A is float
+    # Make sure we are working with floats
     A = A.astype(float)
+    u = u.astype(float)
+    b = b.astype(float)
 
     # Set the maximum number of iterations
     maxit = 1000

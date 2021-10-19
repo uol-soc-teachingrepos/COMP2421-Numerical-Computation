@@ -349,14 +349,16 @@ def secant(fnon, x0, x1, tol):
     return x, f
 
 
-def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100):
+def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100, verbose=True):
     """
     TODO doc me
     """
-    print("running fzero with arguments")
-    print(
-        f"fnon = {fnon.__name__}, x0 = {x0}, x1 = {x1}, tolx = {tolx}, tolfunc = {tolfun}, maxiter = {maxiter}"
-    )
+
+    if verbose:
+        print("running fzero with arguments")
+        print(
+            f"fnon = {fnon.__name__}, x0 = {x0}, x1 = {x1}, tolx = {tolx}, tolfunc = {tolfun}, maxiter = {maxiter}"
+        )
 
     # find initial function value
     f0 = fnon(x0)
@@ -372,7 +374,10 @@ def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100):
             d *= 2
             x1 += d
             f1 = fnon(x1)
-        print(f"found opposite sign at {x1} -> f({x1}) = {f1} after {it} iterations")
+        if verbose:
+            print(
+                f"found opposite sign at {x1} -> f({x1}) = {f1} after {it} iterations"
+            )
     else:
         f1 = fnon(x1)
         if f0 * f1 > 0:
@@ -382,8 +387,9 @@ def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100):
     # go into iteration
     it = 0
     x2, f2 = x1, f1
-    print(" it   solution    f value      ")
-    print(" ---- ----------- -------------")
+    if verbose:
+        print(" it   solution    f value      ")
+        print(" ---- ----------- -------------")
 
     # while not converged
     while abs(x1 - x0) > tolx and abs(f2) > tolfun and it < maxiter:
@@ -397,7 +403,8 @@ def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100):
         if x2 < min(x0, x1) and x2 > max(x0, x1):
             # replace x2 with one step of bisection
             x2 = (x0 + x1) / 2.0
-            print("bisection")
+            if verbose:
+                print("*bisection*")
 
         # evaluate f at x2
         f2 = fnon(x2)
@@ -410,8 +417,9 @@ def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100):
             # root is between [x2, x1]
             x0, f0 = x2, f2
 
-        # print guess
-        print(f"{it:4d} {x2:12.6f} {f2:12.6e}")
+        if verbose:
+            # print guess
+            print(f"{it:4d} {x2:12.6f} {f2:12.6e}")
 
     if it == maxiter:
         print("WARNING: method has not converged")

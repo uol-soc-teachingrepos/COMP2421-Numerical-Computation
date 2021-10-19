@@ -70,9 +70,34 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 -   Variations and other hybrid methods are implemented in `scipy` as [`scipy.optimize.root_scalar`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html?highlight=root_scalar#scipy.optimize.root_scalar).
 
+## Stopping criteria
+
+The algorithm stops if any of the following holds:
+
+-   ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \mbox{\texttt{tolx}}$;
+-   $|f(x^{(i)})| < \mbox{\texttt{tolfun}}$;
+-   the number of iterations exceeds a specified number `maxiter`.
+
+Criticisms:
+
+-   convergence criteria should ideally satisfy *both* ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \mbox{\texttt{tolx}}$ and $|f(x^{(i)})| < \mbox{\texttt{tolfun}}$;
+-   cannot find solutions which do not cross the $x$-axis.
+
 ## Using `fzero`
 
+``` python
+fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100, verbose=True)
+```
+
+-   `fnon` is the function handle for $f(x)$ (`Callable[[float], float]`);
+-   `x0` is the initial guess;
+-   `x1` is an optional parameter giving the other end of the bracket. If `x1` is not passed to the function, `x1` is found automatically;
+-   `tolx`, `tolfun`, `maxiter` related to the stopping criteria. Each are optional with default values set;
+-   `verbose` says whether to print out convergence information.
+
 Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.html).
+
+## Examples
 
 1.  Consider the example with $f(x) = x^2 - R$ and $R=2$. Take $x^{(0)} = 1$ and use the function call
 
@@ -84,6 +109,8 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
     -   `fzero` does not know where to position the initial bracket $[x^{(0)}, x^{(1)}]$.
     -   If $x^{(0)}$ is a poor estimate it takes some time, or fails altogether.
 
+## Examples (cont.)
+
 2.  Consider the example with $f(x) = x^2 - R$ with $R=2$, take $x^{(0)} = 1.0$ and use the function call
 
     ``` python
@@ -94,7 +121,7 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
     -   The algorithm gives $x^* = 1.414214$ after 12 iterations.
     -   Convergence is to *machine precision* - so it takes more iterations than previously - but not too many!
 
-## Example (cont.)
+## Examples (cont.)
 
 3.  Consider the compound interest example with $[x^{(0)}, x^{(1)}] = [200, 300]$, using the function call
 
@@ -104,7 +131,9 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
 
     -   This converges to the root $x^* = 235.889095$ after 18 iterations (using quite a large stopping tolerance in this case).
 
-4.  Consider the NACA0012 aerofoil example with $[x^{(0)}, x\^{(1)}] = [0.5, 1]$ using the function call
+## Examples (cont.)
+
+4.  Consider the NACA0012 aerofoil example with $[x^{(0)}, x^{(1)}] = [0.5, 1]$ using the function call
 
     ``` python
     fzero(naca0012, 0.5, 1.0, tolx=1.0e-12, tolfun=1.0e-12)
@@ -119,23 +148,6 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
     ```
 
     -   This converges to the other root $x^* = 0.33899$ after 44 iterations.
-
-# Stopping criteria
-
-The algorithm stops if any of the following holds:
-
--   ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \mbox{\texttt{tolx}}$;
--   $|f(x^{(i)})| < \mbox{\texttt{tolfun}}$;
--   the number of iterations exceeds a specified number `maxiter`.
-
-Criticisms:
-
--   convergence criteria should ideally satisfy *both* ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \mbox{\texttt{tolx}}$ and $|f(x^{(i)})| < \mbox{\texttt{tolfun}}$;
--   cannot find solutions which do not cross the $x$-axis.
-
-# Examples
-
-TODO
 
 # Summary
 

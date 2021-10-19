@@ -50,48 +50,32 @@ title: Lecture 12
 ## Example 1
 
 ::: r-stack
-::: fragment
-![](../img/lec12/f1-a.svg)
-:::
+![](../img/lec12/f1-a.svg){.fragment .fade-out data-fragment-index="0"}
 
-::: fragment
-![](../img/lec12/f1-b.svg)
-:::
+![](../img/lec12/f1-b.svg){.fragment .current-visible data-fragment-index="0"}
 :::
 
 ## Example 2
 
 ::: r-stack
-::: fragment
-![](../img/lec12/f2-a.svg)
+![](../img/lec12/f3-a.svg){.fragment .fade-out data-fragment-index="0"}
+
+![](../img/lec12/f3-b.svg){.fragment .current-visible data-fragment-index="0"}
 :::
 
-::: fragment
-![](../img/lec12/f2-b.svg)
-:::
-:::
 
 ## Example 3
 
 ::: r-stack
-::: fragment
-![](../img/lec12/f3-a.svg)
-:::
+![](../img/lec12/covid-cases-a.svg){.fragment .fade-out data-fragment-index="0"}
+
+![](../img/lec12/covid-cases-b.svg){.fragment .current-visible data-fragment-index="0"}
 
 ::: fragment
-![](../img/lec12/f3-b.svg)
-:::
-:::
+![](../img/lec12/covid-cases-c.svg)
 
-## Example 4
-
-::: r-stack
-::: fragment
-![](../img/lec12/f4-a.svg)
-:::
-
-::: fragment
-![](../img/lec12/f4-b.svg)
+log cases by specimen date\
+[Data source, cornavirus.data.gov.uk](https://coronavirus.data.gov.uk/details/cases)
 :::
 :::
 

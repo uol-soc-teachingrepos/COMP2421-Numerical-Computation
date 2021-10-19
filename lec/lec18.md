@@ -29,7 +29,7 @@ TODO double check formatting and numerical results
     -   $f'(x^{(i)}) = 0$ for $x^{(i)} \neq x^*$;
     -   $f'(x^{(i)})$ is small but nonzero, in which case $x^{(i+1)}$ may be further away from $x^*$ than $x^{(i)}$.
 
--   These methods are guarenteed to converge when $x^{(0)}$ is "sufficiently close" to $x^*$.
+-   These methods are guaranteed to converge when $x^{(0)}$ is "sufficiently close" to $x^*$.
 
 -   In practice a good initial estimate $x^{(0)}$ may not be known in advance.
 

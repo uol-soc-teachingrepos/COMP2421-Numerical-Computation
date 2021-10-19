@@ -24,14 +24,17 @@ b = np.array([[10, 7, 5, 8]])
 b = np.transpose(b)
 
 # Print arrays
+print("starting arrays")
 print(A)
 print(b)
 
 # Reduce A x = b to upper triangular form and print result
 A, b = gauss_elimination(A, b)
+print("after elimination")
 print(A)
 print(b)
 
 # Solve the resulting upper triangular system A x = b and print result
 x = upper_triangular_solve(A, b)
+print("solution")
 print(x)

@@ -1,7 +1,6 @@
-"""
-Projectile.py
+""" Projectile.py
 
-Script that approximates the solution to a system of differential 
+Script that approximates the solution to a system of differential
 equations that gives a simple model for the motion of a projectile
 
 """
@@ -14,8 +13,7 @@ import numpy as np
 
 # Comp2941 modules
 sys.path.append("..")
-from numericalSolve import *
-
+from timestepSolve import *
 
 # Select initial and final time
 t0 = 0.0
@@ -66,4 +64,4 @@ plt.xlim([0, 100])
 plt.ylim([0, 100])
 plt.xlabel("x : in metres")
 plt.ylabel("y : in metres")
-plt.show()
+plt.savefig("projectile.svg")

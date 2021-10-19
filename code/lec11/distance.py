@@ -18,9 +18,6 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-plt.rcParams["font.size"] = "16"
-
 # Comp2941 modules
 sys.path.append("..")
 from matrixSolve import *
@@ -28,11 +25,10 @@ from matrixSolve import *
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv[1:], "m:", ["mode="])
+        opts, _ = getopt.getopt(argv[1:], "m:", ["mode="])
     except getopt.GetoptError:
         print("Warning: Unknown flag!")
         sys.exit(2)
-        return 0
 
     mode = None
 
@@ -44,6 +40,10 @@ def main(argv):
         distance()
     elif mode == "2":
         distance2()
+    else:
+        # no option passed - do both!
+        distance()
+        distance2()
 
 
 def distance():
@@ -52,7 +52,8 @@ def distance():
     """
 
     # print output
-    print("# intervals \tincrement size \ttotal distance")
+    print("# intervals  increment size  total distance")
+    print("-----------  --------------  --------------")
 
     # Consider breaking the problem into different numbers of intervals
     for n in [1e1, 1e2, 1e3, 1e4, 1e5]:
@@ -61,12 +62,12 @@ def distance():
         # The initial distance covered and initial time and are both zero
         d = 0.0
         t = 0.0
-        for i in range(int(n)):
+        for _ in range(int(n)):
             # Increment the distance covered and the time
             d = d + dt * s(t)
             t = t + dt
 
-        print("%d \t%6.3e \t%7.5f" % (n, dt, d))
+        print(f"{n:.1e}      {dt:6.3e}       {d:7.6f}")
 
 
 def distance2():
@@ -96,13 +97,19 @@ def distance2():
     # Output a plot of both d and s as functions of t
     speed = s(t)
 
+    # Do the plotting
     plt.figure()
+    plt.rcParams["font.size"] = "16"
+
     plt.plot(t, d, "r", label="Distance")
     plt.plot(t, speed, "b", label="Speed")
+    plt.legend()
+
     plt.xlim([0, t.max()])
     plt.xlabel("t: time in seconds")
-    plt.legend()
     plt.title("Distance and speed as functions of time")
+
+    plt.tight_layout()
     plt.savefig("graphics.svg")
 
 

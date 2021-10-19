@@ -5,7 +5,7 @@ def lower_triangular_solve(A, b0):
     """
     Solve the system  A x = b  where A is assumed to be lower triangular,
     i.e. A(i,j) = 0 for j > i, and the diagonal is assumed to be nonzero,
-    i.e. A(i,i) \= 0.
+    i.e. A(i,i) != 0.
 
     ARGUMENTS:  A   lower triangular n x n array
                 b0   right hand side column n-vector
@@ -42,7 +42,7 @@ def upper_triangular_solve(A, b0):
     """
     Solve the system  A x = b  where A is assumed to be upper triangular,
     i.e. A(i,j) = 0 for j < i, and the diagonal is assumed to be nonzero,
-    i.e. A(i,i) \= 0.
+    i.e. A(i,i) != 0.
 
     ARGUMENTS:  A   upper triangular n x n array
                 b0   right hand side column n-vector
@@ -78,7 +78,7 @@ def upper_triangular_solve(A, b0):
 def gauss_elimination(A, b, *args):
     """
     Reduce the system  A x = b  to upper triangular form, assuming that
-    the diagonal is nonzero, i.e. A(i,i) \= 0.
+    the diagonal is nonzero, i.e. A(i,i) != 0.
 
     ARGUMENTS:  A   n x n matrix
                 b   right hand side column n-vector
@@ -264,7 +264,7 @@ def gauss_seidel(A, u, b, n_iterations):
     u = u.astype(float)
     b = b.astype(float)
 
-    for i in range(n_iterations):
+    for _ in range(n_iterations):
         for j in range(k):
             u[j] = u[j] + (b[j] - np.dot(A[j, :], u)) / A[j, j]
         print(u)
@@ -293,7 +293,7 @@ def jacobi(A, u, b, n_iterations):
     u = u.astype(float)
     b = b.astype(float)
 
-    for i in range(n_iterations):
+    for _ in range(n_iterations):
         r = b - np.dot(A, u)
         for j in range(k):
             r[j] = r[j] / A[j, j]
@@ -325,7 +325,7 @@ def jacobi2(A, u, b, n_iterations):
     b = b.astype(float)
 
     unew = np.zeros([k, 1])
-    for i in range(n_iterations):
+    for _ in range(n_iterations):
         for j in range(k):
             unew[j] = u[j] + (b[j] - np.dot(A[j, :], u)) / A[j, j]
 

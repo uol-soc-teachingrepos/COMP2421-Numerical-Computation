@@ -1,7 +1,6 @@
-"""
-Projectile.py
+""" Projectile.py
 
-Script that approximates the solution to a system of differential 
+Script that approximates the solution to a system of differential
 equations that gives a simple model for the motion of a projectile
 
 """
@@ -14,14 +13,14 @@ import numpy as np
 
 # Comp2941 modules
 sys.path.append("..")
-from numericalSolve import *
+from timestepSolve import *
 
 
-def rhs(t, y):
+def rhs(_, y):
     """
     Define the right-hand side of a system of 4 differential equations.
 
-    ARGUMENTS:  t   value of t
+    ARGUMENTS:  _   value of t (unused)
                 y   4-dimensional array
 
     RESULTS:    f 1x4-dimensional array of the right-hand of differential equation
@@ -69,4 +68,4 @@ plt.xlim([0, 100])
 plt.ylim([0, 100])
 plt.xlabel("x : in metres")
 plt.ylabel("y : in metres")
-plt.show()
+plt.savefig("projectile0.svg")

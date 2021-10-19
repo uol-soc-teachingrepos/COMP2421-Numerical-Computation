@@ -1,8 +1,7 @@
-"""
- LeastSquaresTest.py
+""" LeastSquaresTest.py
 
- Solve the problem of fitting a quadratic polynomial to a given set of
- data using least squares approximation.
+Solve the problem of fitting a quadratic polynomial to a given set of
+data using least squares approximation.
 """
 
 # Python modules
@@ -35,10 +34,12 @@ b = np.array([[1.0], [0.5], [0.0], [0.5], [2.0]])
 ATA = np.dot(A.T, A)
 ATb = np.dot(A.T, b)
 
-# Reduce  A' A x = A' b  to upper triangular form and print result.
-[ATA, ATb] = gauss_elimination(ATA, ATb, "print")
-# Solve the resulting upper triangular system and print result.
+# Reduce  A' A x = A' b  to upper triangular form
+[ATA, ATb] = gauss_elimination(ATA, ATb)
+# Solve the resulting upper triangular system
 x = upper_triangular_solve(ATA, ATb)
+
+print(f"x = {x}")
 
 # Calculate the residual.
 r = b - np.dot(A, x)
@@ -46,4 +47,4 @@ r = b - np.dot(A, x)
 # Calculate the norm of the residual.
 norm = np.sqrt(np.dot(r.T, r))
 
-print("\n||r||= ", norm)
+print(f"\n||r||= {norm}")

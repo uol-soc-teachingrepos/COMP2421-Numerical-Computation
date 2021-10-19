@@ -1,7 +1,6 @@
-"""
-runBisection.py
+""" runBisection.py
 
-runs bisection function on nonlinear functions found in file 
+runs bisection function on nonlinear functions found in file
 nonlinear_functions.py
 
 To use:
@@ -24,8 +23,8 @@ import sys
 
 # Comp2941 modules
 sys.path.append("..")
-from numericalSolve import *
 from nonlinear_functions import *
+from nonlinearSolve import *
 
 
 def main(argv):
@@ -36,14 +35,19 @@ def main(argv):
     num_params = list(map(float, argv[2:]))
 
     if mode == "naca0012":
-        x, f = bisection(naca0012, num_params[0], num_params[1], num_params[2])
+        bisection(naca0012, num_params[0], num_params[1], num_params[2])
     elif mode == "compound":
-        x, f = bisection(compound, num_params[0], num_params[1], num_params[2])
+        bisection(compound, num_params[0], num_params[1], num_params[2])
     elif mode == "sqrt2":
-        x, f = bisection(sqrt2, num_params[0], num_params[1], num_params[2])
-
-    print(f"solution: x = {x}, f = {f}")
+        bisection(sqrt2, num_params[0], num_params[1], num_params[2])
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    if len(sys.argv) != 5:
+        print("WARNING: not enough arguments passed")
+        print(__doc__)
+
+        print("continuing with default parameters instead...")
+        main([sys.argv[0], "naca0012", "0.5", "1.0", "0.0001"])
+    else:
+        main(sys.argv)

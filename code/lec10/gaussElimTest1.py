@@ -1,7 +1,7 @@
 """
 gaussElimTest
 
-Solve example 2x2 system of the form A x = b to illustrate 
+Solve example 2x2 system of the form A x = b to illustrate
 the effects of rounding error.
 
 """
@@ -16,7 +16,8 @@ sys.path.append("..")
 from matrixSolve import *
 
 # Print headers for the table output
-print("epsilon \tx[0] \tx[1]")
+print("epsilon    x[0]       x[1]")
+print("--------   --------   --------")
 
 # Loop through values of epsilon to give different matrices
 for epsilon in [1e-5, 1e-10, 1e-14, 1e-16, 1e-18]:
@@ -34,4 +35,4 @@ for epsilon in [1e-5, 1e-10, 1e-14, 1e-16, 1e-18]:
     x = upper_triangular_solve(A, b)
 
     # Print solution to the screen
-    print("%6.2e \t%10.6f \t%10.6f" % (epsilon, x[0], x[1]))
+    print(f"{epsilon:6.2e} {x[0][0]:10.6f} {x[1][0]:10.6f}")

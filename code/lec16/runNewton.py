@@ -1,8 +1,7 @@
-"""
-runNewton.py
+""" runNewton.py
 
-runs newton function defined in numericalSolve.py on nonlinear functions and derivatives found in file 
-nonlinear_functions.py
+runs newton function defined in nonlinearSolve.py on nonlinear
+functions and derivatives found in file nonlinear_functions.py
 
 To use:
 
@@ -25,8 +24,8 @@ import sys
 
 # Comp2941 modules
 sys.path.append("..")
-from numericalSolve import *
 import nonlinear_functions
+from nonlinearSolve import *
 
 
 def main(argv):
@@ -50,4 +49,11 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    if len(sys.argv) != 5:
+        print("WARNING: not enough arguments passed")
+        print(__doc__)
+
+        print("continuing with default parameters instead...")
+        main([sys.argv[0], "sqrt2", "dsqrt2", "1.0"])
+    else:
+        main(sys.argv)

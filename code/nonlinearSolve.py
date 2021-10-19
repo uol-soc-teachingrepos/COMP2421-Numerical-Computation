@@ -1,150 +1,6 @@
 import numpy as np
 
 
-def euler(rhs, t0, y0, tfinal, n):
-    """
-    Use Euler's method to solve the differential equation y'(t)=f(t,y) subject
-    to the initial condition y(t0) = y0.
-
-    ARGUMENTS:  t0  initial value of t
-                y0  initial value of y(t) when t=t0
-                tfinal final value of t for which the solution is required
-                n   the number of sub-intervals to use for the approximation
-                rhs function of right-hand side of differential equation
-
-
-    RESULTS:    t   (n+1)-vector storing the values of t at which the solution
-                    is estimated
-                y   (n+1)-vector storing the estimated solution.
-    """
-
-    # Initialise the arrays ta and y
-    t = np.zeros([n + 1, 1])
-    y = np.zeros([n + 1, 1])
-    t[0] = t0
-    y[0] = y0
-
-    # Calculate the size of each interval
-    dt = (tfinal - t0) / float(n)
-    # Take n steps of Euler's method
-    for i in range(n):
-        y[i + 1] = y[i] + dt * rhs(t[i], y[i])
-        t[i + 1] = t[i] + dt
-
-    return t, y
-
-
-def midpoint(rhs, t0, y0, tfinal, n):
-    """
-    Use midpoint method to solve the differential equation y'(t)=f(t,y) subject
-    to the initial condition y(t0) = y0.
-
-    ARGUMENTS:  t0  initial value of t
-                y0  initial value of y(t) when t=t0
-                tfinal final value of t for which the solution is required
-                n   the number of sub-intervals to use for the approximation
-                rhs function of right-hand side of differential equation
-
-
-    RESULTS:    t   (n+1)-vector storing the values of t at which the solution
-                    is estimated
-                y   (n+1)-vector storing the estimated solution.
-    """
-
-    # Initialise arrays t and y
-    t = np.zeros([n + 1, 1])
-    y = np.zeros([n + 1, 1])
-    t[0] = t0
-    y[0] = y0
-
-    # Calculate the size of each interval
-    dt = (tfinal - t0) / float(n)
-
-    # Take n steps of the midpoint method...
-    for i in range(n):
-        yhalf = y[i] + 0.5 * dt * rhs(t[i], y[i])
-        thalf = t[i] + 0.5 * dt
-        y[i + 1] = y[i] + dt * rhs(thalf, yhalf)
-        t[i + 1] = t[i] + dt
-
-    return t, y, thalf, yhalf
-
-
-def eulerN(rhs, t0, y0, tfinal, n):
-    """
-    Use Euler's method to solve N number of differential equation y'(t)=f(t,y) subject
-    to the initial condition y(t0) = y0.
-
-    ARGUMENTS:  t0  initial value of t
-                y0  N-dimensional array of initial value of y(t) when t=t0
-                tfinal final value of t for which the solution is required
-                n   the number of sub-intervals to use for the approximation
-                rhs function of right-hand side of differential equation
-
-
-    RESULTS:    t   (n+1)-vector storing the values of t at which the solution
-                    is estimated
-                y   N x (n+1)-matrix array storing the estimated solution.
-    """
-
-    # Get dimensions
-    N = len(y0)
-
-    # Initialise the arrays ta and y
-    t = np.zeros([n + 1, 1])
-    y = np.zeros([n + 1, N])  # N x (n+1) matrix
-    t[0] = t0
-    y[0, :] = y0
-
-    # Calculate the size of each interval
-    dt = (tfinal - t0) / float(n)
-    # Take n steps of Euler's method
-    for i in range(n):
-        y[i + 1, :] = y[i, :] + dt * rhs(t[i], y[i, :])
-        t[i + 1] = t[i] + dt
-
-    return t, y
-
-
-def midpointN(rhs, t0, y0, tfinal, n):
-    """
-    Use midpoint method to solve N number of differential equation y'(t)=f(t,y) subject
-    to the initial condition y(t0) = y0.
-
-    ARGUMENTS:  t0  initial value of t
-                y0  N-dimensional initial value of y(t) when t=t0
-                tfinal final value of t for which the solution is required
-                n   the number of sub-intervals to use for the approximation
-                rhs function of right-hand side of differential equation
-
-
-    RESULTS:    t   (n+1)-vector storing the values of t at which the solution
-                    is estimated
-                y   N x (n+1)-vector storing the estimated solution.
-    """
-
-    # Get dimensions
-    N = len(y0)
-
-    # Initialise arrays t and y
-    t = np.zeros([n + 1, 1])
-    y = np.zeros([n + 1, N])
-    t[0] = t0
-    y[0, :] = y0
-
-    # Calculate the size of each interval
-    dt = (tfinal - t0) / float(n)
-
-    # Take n steps of the midpoint method...
-    for i in range(n):
-        yhalf = y[i, :] + 0.5 * dt * rhs(t[i], y[i, :])
-        thalf = t[i] + 0.5 * dt
-        y[i + 1, :] = y[i, :] + dt * rhs(thalf, yhalf)
-        t[i + 1] = t[i] + dt
-
-    return t, y
-
-
 def bisection(fnon, xL, xR, tol):
     """
     Use the basic bisection method to find the root of the nonlinear equation
@@ -168,7 +24,8 @@ def bisection(fnon, xL, xR, tol):
 
     else:
         # Print column heading for output
-        print(" it  (    xL,          f(xL)    ) (    xR,          f(xR)    )\n")
+        print(" it  (    xL,          f(xL)    ) (    xR,          f(xR)    )")
+        print(" --  ---------------------------- ----------------------------")
 
         # iteration counter for output
         it = 0
@@ -216,8 +73,8 @@ def newton(fnon, dfnon, x0, tol):
                 f     the function value at that root
     """
     # Print column headings for output
-    print(" it       x            f(x)\n")
-
+    print(" it     x           f(x)")
+    print(" ----   ---------   ----------")
     # Set the initial estimate for the root and evaluate the function there.
     x = x0
     f = fnon(x)
@@ -256,20 +113,17 @@ def modified_newton(fnon, x0, tol):
     eps = np.finfo(float).eps
     dx = np.sqrt(eps)
 
-    # format for printing
-    prec = int(-np.log10(tol)) + 1
-    format = f" {{x:{prec+4}.{prec}f}} {{f:{prec+4}.{prec}f}}"
-
     # Print column headings for output.
-    print(" x" + " " * (prec + 4) + " f" + " " * (prec + 4))
-    print(" " + "-" * (prec + 5) + " " + "-" * (prec + 5))
+    print("it    solution     function")
+    print("----  -----------  -----------")
 
     # Set the initial estimate for the root and evaluate the function there.
     x = x0
     f = fnon(x)
+    it = 0
 
     # Print the estimate and function value.
-    print(format.format(x=x, f=f))
+    print(f"{it:4d} {x:12.6f} {f:12.6f}")
 
     # Repeat the Newton iteration until the magnitude of the function value is
     # less than tol.
@@ -278,9 +132,10 @@ def modified_newton(fnon, x0, tol):
         # new estimate.
         x = x - (dx * f) / (fnon(x + dx) - f)
         f = fnon(x)
+        it += 1
 
         # Print the new estimate and function value.
-        print(format.format(x=x, f=f))
+        print(f"{it:4d} {x:12.6f} {f:12.6f}")
 
     return x, f
 
@@ -316,16 +171,18 @@ def secant(fnon, x0, x1, tol):
     RETURNS:    x     the computed root
                 f     the function value at that root
     """
-    # Print column headings for output
-    print("      x            f(x)\n")
-
     # Set the initial estimate for the root and evaluate the function there.
     f0 = fnon(x0)
     f1 = fnon(x1)
+    it = 0
+
+    # Print header infromation
+    print("it    solution             function")
+    print("----  -------------------  -------------------")
 
     # Print the estimate and function value.
-    print(" %20.14f %20.14f" % (x0, f0))
-    print(" %20.14f %20.14f" % (x1, f1))
+    print(f"{it:4d} {x0:20.14f} {f0:20.14f}")
+    print(f"{it:4d} {x1:20.14f} {f1:20.14f}")
 
     # Repeat the secant iteration until the magnitude of the function value is
     # less than tol.
@@ -335,8 +192,10 @@ def secant(fnon, x0, x1, tol):
         # new estimate.
         x2 = x1 - f1 * (x1 - x0) / (f1 - f0)
         f2 = fnon(x2)
+        it += 1
+
         # Print the new estimate and function value.
-        print(" %20.14f %20.14f" % (x2, f2))
+        print(f"{it:4d} {x2:20.14f} {f2:20.14f}")
 
         x0 = x1
         f0 = f1
@@ -351,7 +210,19 @@ def secant(fnon, x0, x1, tol):
 
 def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100, verbose=True):
     """
-    TODO doc me
+    Use the fzero method to find the root of the nonlinear equation fnon(x)=0
+    starting from the estimates x0 and x1. If x1 is not given a routine is used to find x1.
+
+    ARGUMENTS:  fnon    handle for the nonlinear function
+                x0      the initial estimate
+                x1      the second estimate (optional)
+                tolx    convergence tolerance in x
+                tolfun  convergence tolerance in functional value
+                maxiter maximum number of iterations
+                verbose print lots of information
+
+    RETURNS:    x     the computed root
+                f     the function value at that root
     """
 
     if verbose:
@@ -425,3 +296,5 @@ def fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100, verbose=True):
         print("WARNING: method has not converged")
         print(f"|x1 - x0| = {abs(x1 - x0)}")
         print(f"|f(x2)| = {abs(f2)}")
+
+    return x2, f2

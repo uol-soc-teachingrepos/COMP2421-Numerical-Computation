@@ -24,7 +24,7 @@ from matrixSolve import *
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv[1:], "m:", ["mode="])
+        opts, _ = getopt.getopt(argv[1:], "m:", ["mode="])
     except getopt.GetoptError:
         print("Warning: Unknown flag!")
         sys.exit(2)
@@ -42,6 +42,12 @@ def main(argv):
     elif mode == "4":
         lu_solve_4()
     elif mode == "5":
+        lu_solve_5()
+    else:
+        # no option passed - do them all
+        lu_solve_3()
+        lu_solve_3b()
+        lu_solve_4()
         lu_solve_5()
 
 

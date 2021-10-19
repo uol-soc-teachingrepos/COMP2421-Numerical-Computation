@@ -1,12 +1,10 @@
-"""
-runNumerical.py
+""" runNumerical.py
 
 Script that compares euler and midpoint numerical methods
 
 To run via commandline use one of the folllowing:
 
-python runNumerical.py -m euler
-python runNumerical.py -m midpoint
+python runNumerical.py -m euler python runNumerical.py -m midpoint
 
 """
 
@@ -18,16 +16,15 @@ import matplotlib.pyplot as plt
 
 # Comp2941 modules
 sys.path.append("..")
-from numericalSolve import *
+from timestepSolve import *
 
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv[1:], "m:", ["mode="])
+        opts, _ = getopt.getopt(argv[1:], "m:", ["mode="])
     except getopt.GetoptError:
         print("Warning: Unknown flag!")
         sys.exit(2)
-        return 0
 
     mode = None
 
@@ -38,6 +35,10 @@ def main(argv):
     if mode == "euler":
         runEuler()
     elif mode == "midpoint":
+        runMidpoint()
+    else:
+        # no option passed do both
+        runEuler()
         runMidpoint()
 
 
@@ -60,29 +61,34 @@ def runEuler():
     Function that calls the Euler function with smaller and smaller values of
     dt and plots the results.
     """
-    # Set the number of time steps to be taken
-    print("n \tdt \tsoln \terror \tratio")
+
+    # set up figure
     plt.figure()
-    errorold = 0.0
-    ratio = 0.0
+    # print table header
+    print("n    dt      soln    error")
+    print("---  ------  ------  ------")
+    # ensure t is defined
+    t = np.array([1.0, 2.0])
+
+    # Set the number of time steps to be taken
     for n in [10, 20, 40, 80, 160, 320, 640]:
+        # run euler scheme
         t, y = euler(rhs, 1.0, 1.0, 2.0, n)
         plt.plot(t, y, label=f"n = {n}")
 
+        # compute error and time step
         dt = (2.0 - 1.0) / float(n)
         soln = y[n][0]
         error = abs(soln - 8.0)
 
-        if errorold > 0.0:
-            ratio = error / errorold
+        # print output
+        print(f"{n:3d} {dt:7.4f} {soln:7.4f} {error:7.4f}")
 
-        errorold = error
-        print(f"{n} \t{dt:2.4f} \t{soln:2.4f} \t{error:2.4f} \t{ratio:2.4f}")
-
+    # plot results
     plt.legend(loc="upper left")
     plt.xlim([t.min(), t.max()])
     plt.ylim([0, 8])
-    # plt.show()
+    plt.savefig("euler.svg")
 
 
 def runMidpoint():
@@ -90,29 +96,32 @@ def runMidpoint():
     Function that calls the midpoint function with smaller and smaller values of
     dt and plots the results.
     """
-    # Set the number of time steps to be taken
-    print("n \tdt \tsoln \terror \tratio")
+    # set up figure
     plt.figure()
-    errorold = 0.0
-    ratio = 0.0
+    # print table header
+    print("n    dt      soln    error")
+    print("---  ------  ------  ------")
+    # ensure t is defined
+    t = np.array([1.0, 2.0])
+
     for n in [10, 20, 40, 80, 160, 320, 640]:
-        t, y, thalf, yhalf = midpoint(rhs, 1.0, 1.0, 2.0, n)
+        # run midpoint scheme
+        t, y = midpoint(rhs, 1.0, 1.0, 2.0, n)
         plt.plot(t, y, label=f"n = {n}")
 
+        # compute error and timestep
         dt = (2.0 - 1.0) / float(n)
         soln = y[n][0]
         error = abs(soln - 8.0)
 
-        if errorold > 0.0:
-            ratio = error / errorold
+        # print output
+        print(f"{n:3d} {dt:7.4f} {soln:7.4f} {error:7.4f}")
 
-        errorold = error
-        print(f"{n} \t{dt:2.4f} \t{soln:2.4f} \t{error:2.4f} \t{ratio:2.4f}")
-
+    # plot results
     plt.legend(loc="upper left")
     plt.xlim([t.min(), t.max()])
     plt.ylim([0, 8])
-    # plt.show()
+    plt.savefig("midpoint.svg")
 
 
 if __name__ == "__main__":

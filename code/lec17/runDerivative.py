@@ -1,5 +1,15 @@
-"""
-TODO doc me
+""" runDerivative.py
+
+runs derivative defined in nonlinearSolve.py on nonlinear functions
+and derivatives found in the file nonlinear_functions.py
+
+To use:
+
+python runDerivative fnon dfnon x0
+
+Example calls:
+
+python runDerivative.py cube dcube 1.0
 """
 
 # Python modules
@@ -8,8 +18,8 @@ import sys
 
 # Comp2941 modules
 sys.path.append("..")
-from numericalSolve import *
 import nonlinear_functions
+from nonlinearSolve import *
 
 
 def main(argv):
@@ -48,4 +58,11 @@ def make_table(f, df, x0):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    if len(sys.argv) != 4:
+        print("WARNING: not enough arguments passed")
+        print(__doc__)
+
+        print("continuing with default parameters instead...")
+        main([sys.argv[0], "sqrt2", "dsqrt2", "1.0"])
+    else:
+        main(sys.argv)

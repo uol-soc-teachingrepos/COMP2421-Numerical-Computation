@@ -2,7 +2,7 @@
 triangularSolve.py
 
 Script that illustrates use of lower_triangular_solve and
-upper_triangular_solve.  
+upper_triangular_solve.
 
 """
 

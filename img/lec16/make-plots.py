@@ -1,6 +1,5 @@
 import numpy as np
 from matplotlib import pyplot as plt
-from scipy.stats import lognorm
 
 
 def f2(t):
@@ -40,7 +39,7 @@ def newton_construction(f, df, iter, filename, trange):
         ticklabels.append(r"$x^{(" + str(i) + ")}$")
 
         t1 = t0 - f(t0) / df(t0)
-        p1 = ax.plot([t0, t1], [f(t0), 0], "--", color=p0[0].get_color())
+        ax.plot([t0, t1], [f(t0), 0], "--", color=p0[0].get_color())
         t0 = t1
 
     plt.xticks(ticks, ticklabels)

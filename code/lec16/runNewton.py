@@ -54,6 +54,6 @@ if __name__ == "__main__":
         print(__doc__)
 
         print("continuing with default parameters instead...")
-        main([sys.argv[0], "sqrt2", "dsqrt2", "1.0"])
+        main([sys.argv[0], "sqrt2", "dsqrt2", "1.0", "0.001"])
     else:
         main(sys.argv)

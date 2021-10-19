@@ -6,7 +6,7 @@ title: Lecture 19
 
 # Motivation
 
--   Suppose we are given data point representing xxx over time.
+-   Suppose we are given data point representing a quantity over time.
 
 -   We want to represent the graph of this data as a simple curve.
 
@@ -15,19 +15,49 @@ title: Lecture 19
     -   a straight line;
     -   a quadratic curve.
 
+## Weekly earnings
+
+::: r-stack
+![](../img/lec19/data.svg){.fragment .fade-out data-fragment-index="0"}
+
+![](../img/lec19/data-line.svg){.fragment .current-visible data-fragment-index="0"}
+
+![](../img/lec19/data-quad.svg){.fragment}
+:::
+
+[Data source, ons](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01)
+
 ## An example of best linear fit
 
+::: container
+::: col
 Suppose that the following measured data, $y$, is observed at different times $t$: $$
 \begin{array}{c|cccc}
 t & 1 & 2 & 3 & 4 \\
 \hline
-y = 1 & 1.5 & 2.5 & 3.5
+y & 1 & 1.5 & 2.5 & 3.5
 \end{array}
 $$
+:::
+
+::: col
+![](../img/lec19/line-points.svg)
+:::
+:::
 
 -   Consider representing this data as a straight line: $$
     y = mt + c
     $$
+
+## An example of best linear fit (cont.)
+
+$$
+\begin{array}{c|cccc}
+t & 1.0 & 2.0 & 3.0 & 4.0 \\
+\hline
+y & 1.0 & 1.5 & 2.5 & 3.5
+\end{array}
+$$
 
 -   An *exact fit* would require the following equations to be satisfied: $$
     \begin{aligned}
@@ -40,17 +70,35 @@ $$
 
 ## An example of best quadratic fit {#quadratic-fit}
 
+::: container
+::: col
 Suppose that the following measured data, $y$, is observed at different times $t$: $$
+\begin{array}{c|ccccc}
+t & -1.0 & -0.5 & 0  & 0.5 & 1.0 \\
+\hline
+y & 1.0 & 0.5 & 0.0 & 0.5 & 2.0
+\end{array}
+$$
+:::
+
+::: col
+![](../img/lec19/quad-points.svg)
+:::
+:::
+
+-   Consider representing this data as a quadratic line: $$
+    y = a + b t + c t^2
+    $$
+
+## An example of best quadratic fit (cont.)
+
+$$
 \begin{array}{c|ccccc}
 t & -1 & -0.5 & 0  & 0.5 & 1 \\
 \hline
 y & 1.0 & 0.5 & 0.0 & 0.5 & 2
 \end{array}
 $$
-
--   Consider representing this data as a quadratic line: $$
-    y = a + b t + c t^2
-    $$
 
 -   An *exact fit* would require the following equations to be satisfied: $$
     \begin{aligned}
@@ -86,11 +134,11 @@ $$
 
 -   You can find this solution using Gaussian elimination (for example).
 
--   The normal equations, when solve, give the **best solution** to the original problem in the sense of minimising the Euclidean norm of the residual.
+-   The normal equations, when solved, give the **best solution** to the original problem in the sense of minimising the Euclidean norm of the residual.
 
 ## Example I
 
-1.  Find the least squares approximation to the [best quadratic fit example](#quadratic-fit).
+1.  Find the least squares approximation to the [quadratic fit example](#quadratic-fit).
 
     The residual is given by $$
     \begin{aligned}
@@ -137,7 +185,11 @@ A^T A & =
 2.5 & 0 & 2.125
 \end{pmatrix}
 \end{aligned}
-$$ and $$
+$$
+
+## Example 1 (cont.)
+
+and $$
 A^T \vec{b} =
 \begin{pmatrix}
 1 & 1 & 1 & 1 & 1 \\
@@ -153,6 +205,8 @@ $$
 
 ## Example 1 (cont.)
 
+::: container
+::: col
 Gaussian elimination gives $$
 \begin{pmatrix}
 5 & 0 & 2.5 \\
@@ -169,10 +223,14 @@ x_1 \\ x_2 \\ x_3
 $$ and backward substitution gives (to 4 significant figures) $$
 \vec{x} = (0.08571, 0.4000, 1.429).
 $$
+:::
 
-See the file [`leastSquaresTest.py`](../lec19/leastSquaresTest.html) for more.
+::: col
+![](../img/lec19/quad-lines.svg)
+:::
+:::
 
-TODO
+See the file [`leastSquaresTest.py`](../code/lec19/leastSquaresTest.html) for more.
 
 ## Example 2
 

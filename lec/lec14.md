@@ -121,7 +121,7 @@ for i in range(n):
 -   It is possible to apply Euler's method or the midpoint method to apply Euler's method or the midpoint method to a general system such as this:
 
     -   see [`projectile0.py`](../code/lec14/projectile.html)
-    -   see [`eulerN`](../code/numericalSolve.py#eulerN) and [`midpointN`](../code/numericalSolve.py#midpointN) in [`numericalSolve.py`](../code/numericalSolve.html).
+    -   see [`eulerN`](../code/timestepSolve.py#eulerN) and [`midpointN`](../code/timestepSolve.py#midpointN) in [`timestepSolve.py`](../code/timestepSolve.html).
 
 -   These examples may look quite complex at first but they are simply applying the same techniques to systems of differential equations rather than a single differential equation.
 

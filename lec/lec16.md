@@ -6,7 +6,7 @@ title: Lecture 16
 
 # Newton's method: Python implementation
 
--   A python implementation is provided in the function [`newton`](../code/numericalSolve.html#newton) in [`numericalSolve.py`](../code/numericalSolve.html).
+-   A python implementation is provided in the function [`newton`](../code/nonlinearSolve.html#newton) in [`nonlinearSolve.py`](../code/nonlinearSolve.html).
 
 -   This has four parameters:
 

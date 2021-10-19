@@ -44,7 +44,7 @@ Examples and applications
 
 # Numerical computation
 
-[Module information sheet](../handouts/mdule-information.html)
+[Module information sheet](../handouts/module-information.html)
 
 Books and websites \
 Administration \

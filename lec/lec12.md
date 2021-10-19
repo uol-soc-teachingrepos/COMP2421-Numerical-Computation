@@ -212,7 +212,7 @@ def euler(rhs, t0, y0, tfinal, n):
     return t, y
 ```
 
-See the function [`euler`](../code/numericalSolve.html#euler) in [`numericalSolve.py`](../code/numericalSolve.py) and the script [`runEuler.py`](../code/lec12/runEuler.py).
+See the function [`euler`](../code/timestepSolve.html#euler) in [`timestepSolve.py`](../code/timestepSolve.py) and the script [`runEuler.py`](../code/lec12/runEuler.py).
 
 ## Example
 

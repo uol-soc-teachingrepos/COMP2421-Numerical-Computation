@@ -155,7 +155,7 @@ Use the bisection method to calculate $\sqrt{2}$ with an error of less than $10^
 -   Use $R = 2$, so $f(x) = x^2 - 2$, which gives $x^* = \sqrt{2}$.
 -   Set the initial bracket to be $[a, b] = [0, 2]$ and the error tolerance to be $TOL = 10^{-4}$.
 
-This is implemented in [`runBisection.py`](../code/lec15/runBisection.html) using [`bisection`](../code/numericalSolve.html#bisection) from [`numericalSolve.py`](../code/numericalSolve.html).
+This is implemented in [`runBisection.py`](../code/lec15/runBisection.html) using [`bisection`](../code/nonlinearSolve.html#bisection) from [`nonlinearSolve.py`](../code/nonlinearSolve.html).
 
 The function call
 

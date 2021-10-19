@@ -4,8 +4,6 @@ subtitle: More on nonlinear equations
 title: Lecture 18
 ---
 
-TODO double check formatting and numerical results
-
 ## Recap
 
 -   In the previous lecture we consider a modified version of Newton's method in which $f'(x^{(i)})$ is approximated: $$
@@ -64,7 +62,7 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 -   When the approximation is close to the root the secant method will usually be used and should converge (almost) as rapidly as Newton.
 
--   This is implemented in [`fzero`](../numericalSolve.html#fzero) in [`numericalSolve.py`](../numericalSolve.py).
+-   This is implemented in [`fzero`](../code/nonlinearSolve.html#fzero) in [`nonlinearSolve.py`](../code/nonlinearSolve.py).
 
 -   The approach can easily be adapted to find all of the roots in a given interval.
 

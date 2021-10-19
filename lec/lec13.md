@@ -192,7 +192,7 @@ title: Lecture 13
 
 # The midpoint scheme
 
--   The above algorithm is known as the **midpoint scheme** and it has been implemented in the python function [`midpoint`](../code/numericalSolve.html#midpoint) in [`numericalSolve.py`](../code/numericalSolve.html).
+-   The above algorithm is known as the **midpoint scheme** and it has been implemented in the python function [`midpoint`](../code/timestepSolve.html#midpoint) in [`timestepSolve.py`](../code/timestepSolve.html).
 
 -   The following tables shows computed results for the final solution, at $t = 2.0$, collected using the python function [`runMidpoint`](../code/lec13/runNumerical.html#runMidpoint) in [`runNumerical.py`](../code/lec13/runNumerical.html).
 

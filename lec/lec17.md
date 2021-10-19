@@ -61,7 +61,7 @@ title: Lecture 17
 
 ## python example
 
--   A python demonstration of the above difference is provided by the function [`difference`](../code/numericalSolve.html#difference) in [`numericalSolve.py`](../code/numericalSolve.html).
+-   A python demonstration of the above difference is provided by the function [`difference`](../code/timestepSolve.html#difference) in [`timestepSolve.py`](../code/timestepSolve.html).
 
 -   This has four parameters
 
@@ -78,13 +78,13 @@ title: Lecture 17
     d = (fnon(x0 + dx) - fnon(x0)) / dx
     ```
 
--   See how the code maybe called from [`derivative-approximation.py`](../code/lec17/derivative-approximation.py).
+-   See how the code maybe called from [`runDerivative.py`](../code/lec17/runDerivative.html).
 
 # Modified Newton's method
 
 -   Recall the definition of machine precision/unit roundoff from Lecture 3.
 
--   The function [`modified_newton`](../code/numericalSolve.html#modified_newton) in [`numericalSolve.py`](../code/numericalSolve..html) implements the modified Newton algorithm without the need to know $f'(x)$.
+-   The function [`modified_newton`](../code/timestepSolve.html#modified_newton) in [`timestepSolve.py`](../code/timestepSolve.html) implements the modified Newton algorithm without the need to know $f'(x)$.
 
 -   The main loop is as follows:
 

@@ -138,7 +138,7 @@ $$
 
 ## Example I
 
-1.  Find the least squares approximation to the [quadratic fit example](#quadratic-fit).
+1.  Find the least squares approximation to the [quadratic fit example](lec19.html#quadratic-fit).
 
     The residual is given by $$
     \begin{aligned}

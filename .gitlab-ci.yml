@@ -13,7 +13,8 @@ before_script:
 
 test:
   script:
-    - make
+    - make all
+    - make test
 
 pages:
   stage: deploy

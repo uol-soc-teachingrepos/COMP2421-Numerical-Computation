@@ -81,3 +81,10 @@ dist: $(BUILD_TARGETS)
 clean:
 	rm -f $(TARGETS)
 	rm -rf $(BUILDDIR)
+
+test:
+	find . -type f -name "*.py" -not -path $(BUILDDIR) -exec black --check {} +
+	find . -type f -name "*.py" -not -path $(BUILDDIR) -exec isort --profile black --check {} +
+	find . -type f -name "*.py" -not -path $(BUILDDIR) -execdir python {} +
+
+	find . -typef -name "*.md" -not -path $(BUILDDIR) -exec bash ./pandoc/md-format.sh {} +

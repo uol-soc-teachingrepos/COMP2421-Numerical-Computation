@@ -22,6 +22,10 @@ def filename2content(filename):
     return ret
 
 
+if len(sys.argv) == 1:
+    print("no arguments passed")
+    exit(0)
+
 output = sys.argv[1]
 input = sys.argv[2]
 basename = os.path.relpath(".", os.path.dirname(input))

@@ -28,6 +28,10 @@ style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
     return ret
 
 
+if len(sys.argv) == 1:
+    print("WARNING: no filenames passed")
+    sys.exit(0)
+
 output = sys.argv[1]
 input = sorted(sys.argv[2:])
 

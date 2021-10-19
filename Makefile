@@ -76,6 +76,25 @@ $(BUILDDIR)/index.html: ./pandoc/make-index.py
 
 
 dist: $(BUILD_TARGETS)
+	zip -r code/linear-systems.zip \
+		code/matrixSolve.py \
+		code/lec05 code/lec06 code/lec07 \
+		code/lec10 code/lec19
+	@cp code/linear-systems.zip $(BUILDDIR)/code
+
+	zip -r code/timestepSolve.zip \
+		code/timestepSolve.py \
+		code/lec11 code/lec12 code/lec13 \
+		code/lec14
+	@cp code/timestepSolve.zip $(BUILDDIR)/code
+
+	zip -r code/nonlinearSolve.zip \
+		code/nonlinearSolve.py \
+		code/nonlinear_functions.py \
+		code/lec15 code/lec16 code/lec17 \
+		code/lec18
+	@cp code/nonlinearSolve.zip $(BUILDDIR)/code
+
 	zip -r slides.zip ${BUILDDIR}
 
 clean:

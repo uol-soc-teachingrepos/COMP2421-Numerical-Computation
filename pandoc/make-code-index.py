@@ -1,14 +1,15 @@
-import sys
 import os.path
-import pypandoc
 import re
+import sys
+
+import pypandoc
 
 
 def filename2content(filename):
     ret = "```python\n"
     with open(filename) as f:
         for line in f.readlines():
-            func_match = re.match("^def ([^\(]+)", line)
+            func_match = re.match(r"^def ([^\(]+)", line)
             if func_match is not None:
                 id = func_match.group(1)
                 ret += f"```\n<a id='{id}'></a>\n```python\n"

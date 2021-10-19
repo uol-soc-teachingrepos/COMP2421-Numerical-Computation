@@ -10,8 +10,7 @@ will becomes
 \begin{note}...\end{note}
 """
 
-from pandocfilters import toJSONFilter, RawBlock
-import sys
+from pandocfilters import RawBlock, toJSONFilter
 
 
 def latex(x):
@@ -40,9 +39,9 @@ def wrapInEnvs(classes, contents):
     return wrapInEnvs(classes[1:], wrapped)
 
 
-def latexdivs(key, value, format, meta):
+def latexdivs(key, value, format, _):
     if key == "Div":
-        [[ident, classes, properties], contents] = value
+        [[_, classes, _], contents] = value
         if format == "latex" or format == "beamer":
             return wrapInEnvs(classes, contents)
 

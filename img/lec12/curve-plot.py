@@ -87,6 +87,7 @@ def plot_covid_cases():
     plt.clf()
 
     from datetime import datetime
+
     from scipy.signal import savgol_filter
 
     N = 31

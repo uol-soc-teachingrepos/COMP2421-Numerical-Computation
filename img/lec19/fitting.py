@@ -1,7 +1,7 @@
+from datetime import datetime
+
 import numpy as np
 from matplotlib import pyplot as plt
-import numpy as np
-from datetime import datetime
 
 
 def week_number(x):

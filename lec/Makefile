@@ -1,45 +1,45 @@
 # conversion rules
 PANDOC_REVEALJS= \
   pandoc \
-    --template=../pandoc/revealjs-template.html \
-    -t revealjs \
-    --metadata-file=../metafile.yaml \
-    --mathjax \
-    --no-highlight \
-    --slide-level 2 \
-    --standalone \
-    --table-of-contents \
-    --toc-depth=1 \
-    -V history=true \
-    -V lang="en"
+	--template=../pandoc/revealjs-template.html \
+	-t revealjs \
+	--metadata-file=../metafile.yaml \
+	--mathjax \
+	--no-highlight \
+	--slide-level 2 \
+	--standalone \
+	--table-of-contents \
+	--toc-depth=1 \
+	-V history=true \
+	-V lang="en"
 
 PANDOC_REVEALJS_INDEX= \
   $(PANDOC_REVEALJS) \
-  -V controls=true \
-  -V controlsTutorial=true \
-  -V slideNumber="'c'" \
-  -V menu=true \
-  -V basename=".." \
-  -V starttime="no"
+	-V controls=true \
+	-V controlsTutorial=true \
+	-V slideNumber="'c'" \
+	-V menu=true \
+	-V basename=".." \
+	-V starttime="no"
 
 PANDOC_REVEALJS_SELF_CONTAINED= \
   $(PANDOC_REVEALJS) \
-    --self-contained \
-    -V controls=false \
-    -V slideNumber="'c'" \
-    -V basename=".."
+	--self-contained \
+	-V controls=false \
+	-V slideNumber="'c'" \
+	-V basename=".."
 
 PANDOC_BEAMER = \
   pandoc \
-    --template ../pandoc/beamer-template.tex \
-    --metadata-file=../metafile.yaml \
-    -t beamer \
-    --table-of-contents \
-    --toc-depth=1 \
-    --slide-level 2 \
-    -V lang="en" \
-    --filter ../pandoc/env-filters.py \
-    --filter ../pandoc/env-filters.py
+	--template ../pandoc/beamer-template.tex \
+	--metadata-file=../metafile.yaml \
+	-t beamer \
+	--table-of-contents \
+	--toc-depth=1 \
+	--slide-level 2 \
+	-V lang="en" \
+	--filter ../pandoc/env-filters.py \
+	--filter ../pandoc/env-filters.py
 
 # implicit rules
 %.html: %.md ../pandoc/revealjs-template.html

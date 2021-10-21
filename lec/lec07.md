@@ -18,7 +18,7 @@ titleextra: |
 
 -   **New worksheet** on "Solving linear systems i"
 
--   **Coursework 1** available: due 8 November
+-   **Coursework 1** available: due 4 November
 
 -   **Extra python support drop in session**:\
     Wednesday 10:00-12:00, Computing study zone, Bragg 2.24

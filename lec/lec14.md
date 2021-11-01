@@ -1,7 +1,7 @@
 ---
+starttime: "Nov 17, 2021 16:05"
 subtitle: A modelling example
 title: Lecture 14
-starttime: "Nov 17, 2021 16:05"
 ---
 
 # A model for the trajectory of an object
@@ -167,4 +167,4 @@ for i in range(n):
 
 -   In the latter case we may generalise the standard techniques, such as Euler's method or the midpoint method, to get effective computational models.
 
--   Only 2 computational schemes have been introduced here - there are many more that we haven't considered...
+-   Only 2 computational schemes have been introduced here (Euler and midpoint) - there are many more that we haven't considered...

@@ -8,3 +8,4 @@ suggestions and other ideas for next year
 6.  when introducing jacobi/gauss-seidel iterative methods explain what best choice is $A$ and that $D$ and $D+L$ approximate $A$.
 7.  redo all code to match algorithms
 8.  stopping criteria - resiual based too?
+9.  host all materials on gitlab using ci to avoid having to reupload to minerva after each change

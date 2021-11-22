@@ -91,7 +91,7 @@ This is a much harder problem.
     D, t = 0.0, 0.0
     for i in range(100):
         D = D + 0.01 * S(t)
-        t = t + 0.01 * S(t)
+        t = t + 0.01
     ```
 
 3.  We could consider each thousandth of a second separately and estimate the distance covered at each thousandth:
@@ -100,7 +100,7 @@ This is a much harder problem.
     D, t = 0.0, 0.0
     for i in range(1000):
         D = D + 0.001 * S(t)
-        t = t + 0.001 * S(t)
+        t = t + 0.001
     ```
 
 We expect each of these approximations to get more and more accurate...

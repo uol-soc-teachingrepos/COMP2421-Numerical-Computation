@@ -28,7 +28,7 @@ Friday 3pm, Roger Stevens, LT9
 
 In the coursework you were asked to find the best linear solver amongst those we have learnt in the course. In this challenge you will have to research alternative solutions and expand your horizons: **What is the best linear solver for this problem?** You can either try to design your own solver or research alternative methods.
 
-One submission will win a prize of £100 Amazon voucher (or equivalent) - more details on the judging below. Group submissions welcome.
+One submission will win a prize of £100 Amazon voucher (or equivalent) - more details on the judging in the challenge document. Group submissions welcome.
 
 Deadline 12noon 6 January 2022. More details via Minerva.
 

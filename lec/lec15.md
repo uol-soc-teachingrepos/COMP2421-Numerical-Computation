@@ -1,5 +1,5 @@
 ---
-starttime: "Nov 22, 10:05"
+starttime: "Nov 22, 2021 10:05"
 subtitle: Solution of nonlinear equations i
 title: Lecture 15
 titleextra: Coursework 2 is now available. Deadline 9 December.
@@ -71,13 +71,13 @@ The following three example problems will be used throughout this section to ill
     M = P \frac{\frac{r}{1200} \left(1 + \frac{r}{1200}\right)^n}{\left(1 + \frac{r}{12000}\right)^n - 1}.
     $$
 
-    -   Suppose that we wish to work out how many monthly repayments of £1,000 would be required to repay a mortgage of $150,000$ at an annual rate of 5%.
+    -   Suppose that we wish to work out how many monthly repayments of £1,000 would be required to repay a mortgage of £150,000 at an annual rate of 5%.
 
     -   This would require us to solve $f(n) = 0$ where $f(n) = 1000 - 150000 \frac{\frac{5}{1200}(1+\frac{5}{1200})^n}{(1+\frac{5}{1200})^n - 1}$.
 
 ## Example problems (cont.)
 
-3.  Consider the NACA0012 prototype wing section, which os often used for testing computational methods for simulating flows in aerodynamics:
+3.  Consider the NACA0012 prototype wing section, which is often used for testing computational methods for simulating flows in aerodynamics:
 
 ```{=html}
 <video width=50%>

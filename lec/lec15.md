@@ -2,7 +2,35 @@
 starttime: "Nov 22, 10:05"
 subtitle: Solution of nonlinear equations i
 title: Lecture 15
+titleextra: Coursework 2 is now available. Deadline 9 December.
 ---
+
+# What to do this week
+
+-   *Coursework 2* - Deadline 12noon on 9 December
+
+-   *Coursework 1* - marks available this week. Feedback in tutorials this week
+
+-   *Lectures* - today and Wednesday 4pm
+
+-   *Worksheet 9* - on nonlinear equations. Now available.
+
+## Tutorials
+
+Monday, 3pm, Clothworkers South Building LT 3 (3.12)\
+Wednesday, 12pm Roger Stevens LT2\
+Wednesday, 12pm, Roger Stevens LT14\
+Wednesday, 1pm, Clothworkers South Building LT 3 (3.12)\
+Friday 3pm, Roger Stevens LT6\
+Friday 3pm, Roger Stevens, LT9
+
+## Numerical computation challenge
+
+In the coursework you were asked to find the best linear solver amongst those we have learnt in the course. In this challenge you will have to research alternative solutions and expand your horizons: **What is the best linear solver for this problem?** You can either try to design your own solver or research alternative methods.
+
+One submission will win a prize of £100 Amazon voucher (or equivalent) - more details on the judging below. Group submissions welcome.
+
+Deadline 12noon 6 January 2022. More details via Minerva.
 
 # The problem
 

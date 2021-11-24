@@ -9,3 +9,8 @@ suggestions and other ideas for next year
 7.  redo all code to match algorithms
 8.  stopping criteria - resiual based too?
 9.  host all materials on gitlab using ci to avoid having to reupload to minerva after each change
+10. consider continual assessment options
+    -   students to implement all algorithms
+    -   weekly worksheet questions
+11. tutorial learning objectives
+12. split bisection and newton method into separate lectures

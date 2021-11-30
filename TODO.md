@@ -14,3 +14,4 @@ suggestions and other ideas for next year
     -   weekly worksheet questions
 11. tutorial learning objectives
 12. split bisection and newton method into separate lectures
+13. use $k$ notation for midpoint method

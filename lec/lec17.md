@@ -51,17 +51,17 @@ title: Lecture 17
 
   dx        approx         abs error    rel error
   --------- -------------- ------------ ------------
-  1.0e-04   3.0003000100   3.0001e-04   3.0001e-04
-  1.0e-06   3.0000029998   2.9998e-06   2.9998e-06
-  1.0e-08   3.0000000040   3.9720e-09   3.9720e-09
-  1.0e-10   3.0000002482   2.4822e-07   2.4822e-07
-  1.0e-12   3.0002667017   2.6670e-04   2.6670e-04
-  1.0e-14   2.9976021665   2.3978e-03   2.3978e-03
-  1.0e-16   0.0000000000   3.0000e+00   3.0000e+00
+  1.0e-04   3.0003000100   3.0001e-04   1.0000e-04
+  1.0e-06   3.0000029998   2.9998e-06   9.9993e-07
+  1.0e-08   3.0000000040   3.9720e-09   1.3240e-09
+  1.0e-10   3.0000002482   2.4822e-07   8.2740e-08
+  1.0e-12   3.0002667017   2.6670e-04   8.8900e-05
+  1.0e-14   2.9976021665   2.3978e-03   7.9927e-04
+  1.0e-16   0.0000000000   3.0000e+00   1.0000e+00
 
 ## python example
 
--   A python demonstration of the above difference is provided by the function [`difference`](../code/timestepSolve.html#difference) in [`timestepSolve.py`](../code/timestepSolve.html).
+-   A python demonstration of the above difference is provided by the function [`difference`](../code/nonlinearSolve.html#difference) in [`nonlinearSolve.py`](../code/nonlinearSolve.html).
 
 -   This has four parameters
 
@@ -84,7 +84,7 @@ title: Lecture 17
 
 -   Recall the definition of machine precision/unit roundoff from Lecture 3.
 
--   The function [`modified_newton`](../code/timestepSolve.html#modified_newton) in [`timestepSolve.py`](../code/timestepSolve.html) implements the modified Newton algorithm without the need to know $f'(x)$.
+-   The function [`modified_newton`](../code/nonlinearSolve.html#modified_newton) in [`nonlinearSolve.py`](../code/nonlinearSolve.html) implements the modified Newton algorithm without the need to know $f'(x)$.
 
 -   The main loop is as follows:
 

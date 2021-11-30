@@ -2,6 +2,7 @@
 starttime: "Nov 24, 2021 16:05"
 subtitle: Solution of nonlinear equations ii
 title: Lecture 16
+titleextra: Coursework 2 is now available (now updated with clarifications). Deadline 9 December.
 ---
 
 # Newton's method: Python implementation

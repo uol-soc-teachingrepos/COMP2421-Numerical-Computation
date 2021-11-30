@@ -14,9 +14,7 @@ title: Lecture 20
 
 -   Each question has multiple parts
 
--   Submission is via Gradescope either through short numerical answers, multiple choice or free reponse text boxes.
-
--   Open book exam tips: <https://library.leeds.ac.uk/info/1401/academic_skills/191/online_open_exams>
+-   Submission is via Gradescope either through short numerical answers, multiple choice or free response text boxes.
 
 ## Past papers
 
@@ -93,6 +91,18 @@ I will expect you to be **able to apply** and **understand** all of the algorith
 ## Python
 
 For this module, you are expected to be able to read, understand and construct simple scripts and functions, to implement simple algorithms, or to modify algorithms for your needs, and to be able to present and interpret the outputs from these. To this end, you should be familiar with elementary python notation and syntax (in particular, vectors, matrices, indicies, loops and branches).
+
+# Tips for online exams
+
+-   Open book exam tips from library: <https://library.leeds.ac.uk/info/1401/academic_skills/191/online_open_exams>
+
+-   Questions will test both **application** and **understanding**.
+
+-   You will need to be able to know information or to recall it quickly.
+
+-   Save your work regularly
+
+-   Bookable computer labs TODO instructions...
 
 # What next....?
 

@@ -6,15 +6,26 @@ title: Lecture 20
 
 # Exam in January
 
--   TODO how long?
+-   Friday 14 Jan 2022, 9:00
 
--   TODO how many questions?
+-   3 hours long
+
+-   6 questions totalling 60 marks.
 
 -   Each question has multiple parts
 
--   Submission is via Gradescope similar to previous coursework.
+-   Submission is via Gradescope either through short numerical answers, multiple choice or free reponse text boxes.
 
--   TODO A selection of exams from recent years are on minerva (although these were set by someone else).
+-   Open book exam tips: <https://library.leeds.ac.uk/info/1401/academic_skills/191/online_open_exams>
+
+## Past papers
+
+A selection of exams from recent years are on minerva
+
+-   These were set by someone else
+-   They were closed book
+-   They are too long
+-   Ignore questions on Newton interpolation.
 
 ## Examinable material
 
@@ -93,3 +104,9 @@ For this module, you are expected to be able to read, understand and construct s
 -   There are plenty of opportunities for Final Year Projects on topics in numerical computation. If you are interested talk to me (or your tutorial leader).
 
 -   There are also funded places for further study in numerical computation....
+
+## 
+
+**Thank you for your attention!**
+
+Good luck with your exam and future studies

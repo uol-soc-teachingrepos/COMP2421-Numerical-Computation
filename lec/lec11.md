@@ -169,7 +169,7 @@ Inspection of the plots shows that the **steepness** of the red curve $D(t)$ is 
 
 -   By the time the blue curve has a value of zero the red curve is flat.
 
-In fact the **gradient** of the blue curve is precisely equal to the **value** of the red curve.
+In fact the **gradient** of the red curve is precisely equal to the **value** of the blue curve.
 
 ## A graphical interpretation (cont.)
 

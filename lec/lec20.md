@@ -14,11 +14,11 @@ title: Lecture 20
 
 -   Each question has multiple parts
 
--   Submission is via Gradescope either through short numerical answers, multiple choice or free response text boxes.
+-   Submission is via Gradescope either through short numerical answers, multiple choice or free response text boxes (no uploads)
 
 ## Past papers
 
-A selection of exams from recent years are on minerva
+Some exams from recent years are on minerva
 
 -   These were set by someone else
 -   They were closed book
@@ -41,7 +41,7 @@ I will expect you to be **able to apply** and **understand** all of the algorith
 
 -   I will expect you to understand when to use an algorithm.
 
--   I will expect you to understand how to analyse an algorithm.
+-   I will expect you to understand how to analyse an algorithm either based on the algorithm itself or numerical results from the algorithm.
 
 -   I will expect you to be able to understand variations and generalisations of algorithms, and to implement them.
 
@@ -85,8 +85,16 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   Roots of an equation
     -   Bisection algorithm
     -   Newton's method
-    -   Quasi Newton method
+    -   Quasi Newton methods
     -   Hybrid methods
+
+## Review (cont.)
+
+-   Data fitting
+    -   How to form a system of linear equations to find a simple curve of best fit
+    -   How to find a best fit solution
+    -   When to choose which curve (from a simple choice)
+    -   Problems with our approach
 
 ## Python
 
@@ -94,7 +102,7 @@ For this module, you are expected to be able to read, understand and construct s
 
 # Tips for online exams
 
--   Open book exam tips from library: <https://library.leeds.ac.uk/info/1401/academic_skills/191/online_open_exams>
+-   Open book exam tips from library: [Online open book exams](https://library.leeds.ac.uk/info/1401/academic_skills/191/online_open_exams)
 
 -   Questions will test both **application** and **understanding**.
 
@@ -102,7 +110,7 @@ For this module, you are expected to be able to read, understand and construct s
 
 -   Save your work regularly
 
--   Bookable computer labs TODO instructions...
+-   Computer lab open
 
 # What next....?
 
@@ -120,3 +128,5 @@ For this module, you are expected to be able to read, understand and construct s
 **Thank you for your attention!**
 
 Good luck with your exam and future studies
+
+I hope you have a good Christmas break!

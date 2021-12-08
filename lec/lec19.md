@@ -2,6 +2,7 @@
 starttime: "Dec 6, 2021 10:05"
 subtitle: Least squares fitting
 title: Lecture 19
+titleextra: Coursework 2 deadline 12noon on 9 December.
 ---
 
 # Motivation

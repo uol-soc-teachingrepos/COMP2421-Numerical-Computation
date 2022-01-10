@@ -1,0 +1,5 @@
+{
+    "plugins" : [
+        "mathjax@https://github.com/algorithm-archivists/plugin-mathjax"
+    ]
+}

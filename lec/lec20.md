@@ -8,7 +8,7 @@ title: Lecture 20
 
 -   Friday 14 Jan 2022, 9:00
 
--   3 hours long
+-   ~~3 hours long~~ 2 hours long
 
 -   6 questions totalling 60 marks.
 

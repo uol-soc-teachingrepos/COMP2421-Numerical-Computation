@@ -18,3 +18,4 @@ suggestions and other ideas for next year
 14. Look up Lorna's course for differential equations https://openedx.seas.gwu.edu/courses/course-v1:GW+EngComp3+2018/about
 15. https://twitter.com/Dr_Paul_Penn/status/1476591990800359431?s=20
 16. zero indexing throughout
+17. detailed coursework answers

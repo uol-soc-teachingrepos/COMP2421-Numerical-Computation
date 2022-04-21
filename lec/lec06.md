@@ -194,7 +194,7 @@ Recall that we can easily solve a lower triangular system: $$
 $$
 
 -   $A$ is a lower triangular matrix if every entry above the leading diagonal is zero $$
-    a_{ij} = 0 \mbox{ for } j > i.
+    a_{ij} = 0 \text{ for } j > i.
     $$
 
 ## Triangular systems
@@ -216,7 +216,7 @@ Similarly, we can easily solve an upper triangular system: $$
 $$
 
 -   $A$ is an upper triangular matrix if every entry below the leading diagonal is zero $$
-    a_{ij} = 0 \mbox{ for } i > j.
+    a_{ij} = 0 \text{ for } i > j.
     $$
 
 ## Strategy
@@ -231,21 +231,15 @@ $$
 
 **First appeared in China...**
 
-::: container
-::: col
-`<small>`{=html} From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination): `</small>`{=html}
+`<small> From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination): `</small>
 
 | The method of Gaussian elimination appears in the Chinese mathematical text [Chapter Eight: Rectangular Arrays of The Nine Chapters on the Mathematical Art.](http://www.guoxuemi.com/guji/5445s/) Its use is illustrated in eighteen problems, with two to five equations. The first reference to the book by this title is dated to 179 CE, but parts of it were written as early as approximately 150 BCE. It was commented on by Liu Hui in the 3rd century.
-:::
 
-::: col
 ![](../img/lec06/NineChapters.jpg){width="66%"}
-:::
-:::
 
 ## History: Why called after Gauss
 
-`<small>`{=html} From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination): `</small>`{=html}
+`<small>` From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination): `</small>`
 
 | The method in Europe stems from the notes of Isaac Newton. In 1670, he wrote that all the algebra books known to him lacked a lesson for solving simultaneous equations, which Newton then supplied. Carl Friedrich Gauss in 1810 devised a notation for symmetric elimination that was adopted in the 19th century by professional hand computers to solve the normal equations of least-squares problems. The algorithm that is taught in high school was named for Gauss only in the 1950s as a result of confusion over the history of the subject.
 
@@ -338,7 +332,7 @@ $$
 -   Each row $i$ is used to eliminate the entries in column $i$ below $a_{ii}$, i.e. it forces $a_{ji} = 0$ for $j > i$.
 
 -   This is done by subtracting a multiple of row $i$ from row $j$: $$
-    (\mbox{row } j) \leftarrow (\mbox{row } j) - \frac{a_{ji}}{a_{ii}} (\mbox{row } i).
+    (\text{row } j) \leftarrow (\text{row } j) - \frac{a_{ji}}{a_{ii}} (\text{row } i).
     $$
 
 -   This guarantees that $a_{ji}$ becomes zero because $$
@@ -379,4 +373,6 @@ GE can be used to solve linear systems of equations...
 
 -   If $\,a_{ii} = 0\,$ for a row that is being used to do the elimination, and all rows beneath have a zero in column $i$, then the GE algorithm breaks down.
 
-`<!-- - The GE algorithm will only break down if the system is **singular**  (so no solution exists or no unique solution).  - If the unique solution does exist the GE algorithm (with row swapping if needed)  will find it! -->`{=html}
+- The GE algorithm will only break down if the system is **singular**  (so no solution exists or no unique solution).
+
+- If the unique solution does exist the GE algorithm (with row swapping if needed)  will find it!

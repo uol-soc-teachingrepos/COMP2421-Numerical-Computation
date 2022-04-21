@@ -49,8 +49,8 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 4.  Update the bracket to $$
     \begin{cases}
-    [x^{(0)}, x^{(2)}] & \mbox{ if } f(x^{(0)}) f(x^{(2)}) \le 0; \\
-    [x^{(2)}, x^{(1)}] & \mbox{ if } f(x^{(2)}) f(x^{(1)}) \le 0.
+    [x^{(0)}, x^{(2)}] & \text{ if } f(x^{(0)}) f(x^{(2)}) \le 0; \\
+    [x^{(2)}, x^{(1)}] & \text{ if } f(x^{(2)}) f(x^{(1)}) \le 0.
     \end{cases}
     $$
 
@@ -72,13 +72,13 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 The algorithm stops if any of the following holds:
 
--   ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \mbox{\texttt{tolx}}$;
--   $|f(x^{(i)})| < \mbox{\texttt{tolfun}}$;
+-   ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \text{\texttt{tolx}}$;
+-   $|f(x^{(i)})| < \text{\texttt{tolfun}}$;
 -   the number of iterations exceeds a specified number `maxiter`.
 
 Criticisms:
 
--   convergence criteria should ideally satisfy *both* ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \mbox{\texttt{tolx}}$ and $|f(x^{(i)})| < \mbox{\texttt{tolfun}}$;
+-   convergence criteria should ideally satisfy *both* ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \text{\texttt{tolx}}$ and $|f(x^{(i)})| < \text{\texttt{tolfun}}$;
 -   cannot find solutions which do not cross the $x$-axis.
 
 ## Using `fzero`

@@ -154,7 +154,7 @@ One common (and important) structure takes the form $$
 $$
 
 -   A is a **lower triangular** matrix. Every entry above the leading diagonal is zero: $$
-    a_{ij} = 0 \quad \mbox{ for } \quad j > i.
+    a_{ij} = 0 \quad \text{ for } \quad j > i.
     $$
 
 -   The *transpose* of this matrix is an **upper triangular** matrix and can be treated in a very similar manner.

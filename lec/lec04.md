@@ -382,8 +382,8 @@ $(A^{\rm T})_{ij} = A_{ji}$.
 ## Identity Matrices
 
 - These are square matrices that have the structure:
-\begin{eqnarray*}
- I_n & = &
+$$
+ I_n =
  \begin{pmatrix}
 		 1 & 0 & 0 & \ldots & 0 \\
 		 0 & 1 & 0 & \ldots & 0 \\
@@ -391,7 +391,7 @@ $(A^{\rm T})_{ij} = A_{ji}$.
 		 \vdots & \vdots & \vdots & & \vdots \\
 		 0 & 0 & 0 & \ldots & 1
 		\end{pmatrix}
-\end{eqnarray*}
+$$
 - For example:
   - $I_2 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ and
  $I_3 = \begin{pmatrix} 1&0&0 \\ 0&1&0 \\ 0&0&1 \end{pmatrix}$.
@@ -469,3 +469,19 @@ $$
  then show that:
   - $\vec{x} \cdot \vec{b} = 11 \;;$
   - $A \vec{x} = \vec{b} \;.$
+
+# Further reading
+
+- Maths is fun:
+
+  - [Vectors](https://www.mathsisfun.com/algebra/vectors.html)
+  - [Matrices](https://www.mathsisfun.com/algebra/matrix-introduction.html)
+  - [Scalars, vectors, matrices](https://www.mathsisfun.com/algebra/scalar-vector-matrix.html)
+  - [Geometry using matrices and vectors](https://www.mathsisfun.com/algebra/matrix-transform.html)
+
+- Basic Linear Algebra Subprograms (BLAS) - super efficient implementation of these operations:
+
+   - Wikipedia [Basic linear algebra subprograms](https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms)
+   - Stackoverflow: [How does BLAS get such extreme performance?](https://stackoverflow.com/questions/1303182/how-does-blas-get-such-extreme-performance)
+
+> Algebra is the offer made by the devil to the mathematician. The devil says: "I will give you this powerful machine, it will answer any question you like. All you need to do is give me your soul: give up geometry and you will have this marvelous machine. -- Michael Atiyah

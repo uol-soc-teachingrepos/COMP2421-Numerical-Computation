@@ -99,7 +99,7 @@ With $x^{(0)} = 0$ this gives $$
  = 0 - \frac{1}{1} = -1 \\
  x^{(2)}
  & = -1 - \frac{(-1)^3 + 2 \times (-1)^2 + -1 + 1}{3 \times (-1)^2 + 4 \times -1 + 1}
- = -1 - \frac{1}{0} = \mbox{``\texttt{inf}''}.
+ = -1 - \frac{1}{0} = \text{``\texttt{inf}''}.
  \end{aligned}
 $$
 

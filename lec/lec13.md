@@ -71,7 +71,7 @@ title: Lecture 13
     $$
 
 -   Hence we know the solution to the following equation: $$
-    y'(t) = 3 y(t) / t \mbox{ subject to } y(1) = 1.
+    y'(t) = 3 y(t) / t \text{ subject to } y(1) = 1.
     $$
 
 -   If we solve this for values of $t$ between $1.0$ and $2.0$, say, then we know that exact answer when $t = 2.0$ is $y(2) = 8$.
@@ -224,7 +224,7 @@ title: Lecture 13
 ## Example
 
 -   Take two steps of the midpoint rule to approximate the solution of $$
-    y'(t) = y(1-y) \mbox{ subject to the initial condition } y(0) = 2,
+    y'(t) = y(1-y) \text{ subject to the initial condition } y(0) = 2,
     $$ for $0 \le t \le 1$.
 
 -   For this example we have:

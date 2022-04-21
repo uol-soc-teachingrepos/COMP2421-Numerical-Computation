@@ -51,11 +51,11 @@ $$
 
 Examples:
 
-1.  In the case $(\beta, t, L, U) = (10, 4, -49, 50)$ (base 10), `<font size="5">`{=html} $$
+1.  In the case $(\beta, t, L, U) = (10, 4, -49, 50)$ (base 10), $$
     10 000 = .1000 \times 10^5, \quad
     22.64 = .2264 \times 10^2, \quad
     0.000 056 7 = .5670 \times 10^{-4}
-    $$ `</font>`{=html}
+    $$
 2.  In the case $(\beta, t, L, U) = (2, 6, -7, 8)$ (binary), $$
     1 0000 = .1000 00 \times 2^5, \quad
     1011.11 = .1011 11 \times 2^4,$$ $$
@@ -72,7 +72,7 @@ Examples:
 ## Example 1
 
 Consider the number system given by $(\beta, t, L, U) = (10, 2, -1, 2)$ which gives $$
- x = \pm .b_1 b_2 \times 10^e \mbox{ where } -1 \le e \le 2.
+ x = \pm .b_1 b_2 \times 10^e \text{ where } -1 \le e \le 2.
 $$
 
 a.  How many numbers can be represented by this normalised system?
@@ -86,7 +86,7 @@ d.  What is the smallest possible difference between two numbers in this system?
 ## Example 2 (homework)
 
 Consider the number system given by $(\beta, t, L, U) = (10, 3, -3, 3)$ which gives $$
- x = \pm .b_1 b_2 b_3 \times 10^e \mbox{ where } -3 \le e \le 3.
+ x = \pm .b_1 b_2 b_3 \times 10^e \text{ where } -3 \le e \le 3.
 $$
 
 a.  How many numbers can be represented by this normalised system?
@@ -103,20 +103,19 @@ e.  What is the smallest possible difference in this system, $x$ and $y$, for wh
 
 From now on $fl(x)$ will be used to represent the (approximate) stored value of $x$. The error in this representation can be expressed in two ways. $$
 \begin{aligned}
- \mbox{Absolute error} &= | fl(x) - x | \\
- \mbox{Relative error} &= \frac{| fl(x) - x |}{|x|}.
+ \text{Absolute error} &= | fl(x) - x | \\
+ \text{Relative error} &= \frac{| fl(x) - x |}{|x|}.
 \end{aligned}
 $$ The number $fl(x)$ is said to approximate $x$ to $t$ **significant digits** (or figures) if $t$ is the largest non-negative integer for which $$
- \mbox{Relative error} < 0.5 \times \beta^{1-t}.
+ \text{Relative error} < 0.5 \times \beta^{1-t}.
 $$
 
-```{=html}
-<!-- It can be proved that if the relative error is equal to $\beta^{-d}$ then $fl(x)$ has $d$ correct significant digits. -->
-```
+It can be proved that if the relative error is equal to $\beta^{-d}$ then $fl(x)$ has $d$ correct significant digits. -->
+
 ## Bounding the errors
 
 In the number system given by $(\beta, t, L, U)$, the nearest (larger) representable number to $x = 0.b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e$ is $$
- \tilde{x} = x + .\underbrace{000\ldots01}_{t \mbox{ digits}} \times \beta^e = x + \beta^{e-t}
+ \tilde{x} = x + .\underbrace{000\ldots01}_{t \text{ digits}} \times \beta^e = x + \beta^{e-t}
 $$
 
 Any number $y \in (x, \tilde{x})$ is stored as either $x$ or $\tilde{x}$ by **rounding** to the nearest representable number, so
@@ -201,7 +200,7 @@ Examples:
 
 1.  For the number system $(\beta, t, L, U) = (10, 2, -1, 2)$, $$
      \begin{array}{ccl}
-        & .11 \times 10^1 & \qquad \leftarrow {\mbox{next number}} \\
+        & .11 \times 10^1 & \qquad \leftarrow {\text{next number}} \\
       - & .10 \times 10^1 & \qquad \leftarrow 1   \\ \hline
         & .01 \times 10^1 & \qquad \leftarrow 0.1
     \end{array}
@@ -223,102 +222,6 @@ Divide by zero
 Divide by `inf`
 :   gives $0.0$ with no warning
 
-```{=html}
-<!-- ## Evidence in Python -->
-```
-```{=html}
-<!-- Overflow -->
-```
-```{=html}
-<!-- ```python -->
-```
-```{=html}
-<!-- >>> x = numpy.double(1.0) -->
-```
-```{=html}
-<!-- >>> while numpy.isfinite(x): -->
-```
-```{=html}
-<!-- ...    x *= 10.0 -->
-```
-```{=html}
-<!-- >>>    print(x) -->
-```
-```{=html}
-<!-- inf -->
-```
-```{=html}
-<!-- ``` -->
-```
-```{=html}
-<!--  -->
-```
-```{=html}
-<!-- Underflow -->
-```
-```{=html}
-<!-- ```python -->
-```
-```{=html}
-<!-- >>> x = numpy.double(1.0) -->
-```
-```{=html}
-<!-- >>> while x > 0.0: -->
-```
-```{=html}
-<!-- ...    x /= 10.0 -->
-```
-```{=html}
-<!-- >>> print(x) -->
-```
-```{=html}
-<!-- 0.0 -->
-```
-```{=html}
-<!-- ``` -->
-```
-```{=html}
-<!--  -->
-```
-```{=html}
-<!-- Divide by zero -->
-```
-```{=html}
-<!-- ```python -->
-```
-```{=html}
-<!-- >>> numpy.double(1.0)/numpy.double(0.0) -->
-```
-```{=html}
-<!-- inf -->
-```
-```{=html}
-<!-- >>> numpy.double(0.0)/numpy.double(0.0) -->
-```
-```{=html}
-<!-- nan -->
-```
-```{=html}
-<!-- ``` -->
-```
-```{=html}
-<!--  -->
-```
-```{=html}
-<!-- Divide by `inf` -->
-```
-```{=html}
-<!-- ```python -->
-```
-```{=html}
-<!-- >>> numpy.double(1.0)/nump.inf -->
-```
-```{=html}
-<!-- 0.0 -->
-```
-```{=html}
-<!-- `<\!--  -\->`` -->
-```
 ## Is this all academic?
 
 **No!** There are many examples of major software errors that have occurred due to programmers not understanding the issues associated with computer arithmetic...
@@ -342,3 +245,9 @@ Divide by `inf`
 -   The usual mathematical rules no longer apply.
 
 -   There is no point in trying to compute a solution to a problem to a greater accuracy than can be stored by the computer.
+
+## Further reading
+
+- Wikipedia: [Floating-point arithmetic](https://en.wikipedia.org/wiki/Floating-point_arithmetic)
+- David Goldberg, [What every computer scientist should know about floating-point arithmetic](https://doi.org/10.1145/103162.103163), ACM Computing Surverys, Volume 23, Issue 1, March 1991.
+- John D Cook, [Floating point error is the least of my worries](https://www.johndcook.com/blog/2011/11/01/floating-point-worries/), *online*, November 2011.

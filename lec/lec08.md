@@ -37,7 +37,7 @@ It is possible to construct an **iteration** which will improve an approximation
 Consider the system $A \vec{x} = \vec{b}$ but rewrite the matrix $A$ as $$
 A = D + (A - D),
 $$ where $D$ is the diagonal of $A$, i.e. $$
-D_{ii} = A_{ii} \quad \mbox{ and } \quad D_{ij} = 0 \mbox{ for } i \neq j.
+D_{ii} = A_{ii} \quad \text{ and } \quad D_{ij} = 0 \text{ for } i \neq j.
 $$ Manipulations give $$
 \begin{aligned}
 A \vec{x} = (D + (A-D)) \vec{x} & = \vec{b} \\

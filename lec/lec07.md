@@ -79,7 +79,7 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
     \end{pmatrix}
     $$
 
--   $\alpha \times \mbox{row } p + \mbox{row } q$: $$
+-   $\alpha \times \text{row } p + \text{row } q$: $$
     \begin{pmatrix}
     1 & 0 & 0 \\ 0 & 1 & 0 \\ \alpha & 0 & 1
     \end{pmatrix}

@@ -1,5 +1,7 @@
 {
-    "plugins" : [
-        "mathjax@https://github.com/algorithm-archivists/plugin-mathjax"
-    ]
+    "plugins": ["katex"],
+    "title" : "COMP2421 Numerical Computation",
+    "description" : "Written notes to accompany lectures.",
+    "author" : "Dr Thomas Ranner",
+    "language" : "en-GB"
 }

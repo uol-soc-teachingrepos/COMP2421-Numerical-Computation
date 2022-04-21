@@ -11,11 +11,11 @@ title: Lecture 12
     -   speed is the rate of change of distance;
 
     -   instantaneous speed is the limit of average speeds over shorter and shorted time periods, $$
-        \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t} \mbox{ as } \mathrm{d}t \to 0;
+        \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t} \text{ as } \mathrm{d}t \to 0;
         $$
 
     -   instantaneous rate of change as the limit of $$
-        \frac{(\text{value at time } t + \mathrm{d}t) - (\text{value at time } t)}{\mathrm{d}t} \mbox{ as } \mathrm{d}t \to 0.
+        \frac{(\text{value at time } t + \mathrm{d}t) - (\text{value at time } t)}{\mathrm{d}t} \text{ as } \mathrm{d}t \to 0.
         $$
 
 ## Recap (cont.)
@@ -181,7 +181,7 @@ def freefall(n):
 -   It is called **Euler's method**.
 
 -   We can always arrange such an equation in the form: $$
-    y'(t) = f(t, y) \quad \mbox{ subject to the initial condition } y(t_0) = y_0.
+    y'(t) = f(t, y) \quad \text{ subject to the initial condition } y(t_0) = y_0.
     $$
 
 -   Examples:
@@ -217,7 +217,7 @@ See the function [`euler`](../code/timestepSolve.html#euler) in [`timestepSolve.
 ## Example
 
 -   Take three steps of Euler's method to approximate the solution of $$
-    y'(t) = -y^2 + \frac{1}{t} \mbox{ subject to the initial condition } y(1) = 2
+    y'(t) = -y^2 + \frac{1}{t} \text{ subject to the initial condition } y(1) = 2
     $$ for $1 \le t \le 2$.
 
 -   For this example we have:

@@ -24,9 +24,6 @@ Examples and applications
 - Appreciate the role numerical computation plays in CS.
 - Choose a computational model appropriately, accounting for issues of accuracy, reliability and efficiency.
 - Understand how to assess or measure the error in a numerical algorithm and be familiar with how such errors are controlled.
-
-## Module objectives (cont.)
-
 - Understand the fundamental techniques for the design of efficiency numerical algorithms.
 - Demonstrate how these algorithms are analysed.
 - Understand several advanced data structures, their efficient implementation and applications.
@@ -44,14 +41,11 @@ Examples and applications
 
 # Numerical computation
 
-[Module information sheet](../handouts/module-information.html)
-
-Books and websites \
-Administration \
-
-The programming for this module will be carried out using `python3`.
+All administration details in the [module handbook](../).
 
 ## Python
+
+The programming for this module will be carried out using `python3`.
 
 The latest available version of python is available via [Anaconda](https://www.anaconda.com/products/individual#Downloads).
 
@@ -70,20 +64,12 @@ and you can test your python version with
 $ python --version
 Python 3.8.5
 ```
-Coursework using Python will begin in week 3 - after the introduction to vectors and matrices.
+
+Alternatively, you can install anaconda python on your own machine.
 
 > Try this yourself! Make sure you can access a working version of python (version >= 3.6) and can import `numpy` and `scipy`.
 
-## Reference materials - Python
-
-- For general Python, refer to your first-year teaching materials.
-
-- For a refresher course in Python: \
-  <http://interactivepython.org/runestone/static/thinkcspy/index.html>
-
-- For `numpy`, `scipy` etc: \
-  <http://scipy-lectures.github.io> \
-  <https://github.com/jrjohansson/scientific-python-lectures>
+More help will be given with python programming throughout the course.
 
 ## Relevance to Level 1 modules
 
@@ -128,17 +114,17 @@ Additional useful texts
 
 - [Engineering Mathematics](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991019677711205181), K.A. Stroud, Macmillan, 2001. *available online*
 
-<!-- TODO find and check if these are ok -->
+Further more specific references will be given in each section of the notes.
 
 ## Module components
 
 **Lectures**
 
-2 hours per week *online*
+2 hours per week
 
 **Tutorials**
 
-1 hour per week *face-to-face* (see timetable)
+1 hour per week (see timetable)
 
 **Homework and coursework exercise**
 
@@ -182,9 +168,13 @@ This will include all:
 
 Further support via [MS Team](https://teams.microsoft.com/l/channel/19%3aSF6JCThw2h0hfRTPmJ4u9eHraovCLyg7I_CCsc7rjT81%40thread.tacv2/General?groupId=43cc2fb7-d867-4498-99c7-385f3eb82e09&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
 
+TODO add updated team details
+
 ## Tutorials plan
 
 Weekly tutorials will support you in your learning. See your timetable for when and where you should attend. Please bring the worksheet with you.
+
+TODO make new tutorials plan
 
 | Week | Topic                                        |
 |------|----------------------------------------------|
@@ -212,23 +202,15 @@ Weekly tutorials will support you in your learning. See your timetable for when 
 
 ## Applications I: Scientific and engineering computing
 
-::: {.container}
-:::: {.col}
 - Physical simulations are used for prediction in many different scientific and engineering areas.
 
 - These models are hugely complex but also hugely important!
 
 - Typically large physical domains are split up into small physical pieces which can be modelled more simply using techniques such as conservation laws.
 
-<!-- - These are also dynamic models and must be solved in faster than "real time" (thus requiring enormous computing resources). -->
+### Airflow simulations
 
-::::
-:::: {.col}
-
-:::::: {.r-stack}
-:::::::: {.fragment .fade-in-then-out}
-Airflow simulations
-<video width="100%">
+<video width="100%" controls>
 	<source src="../video/lec01/LES.webm" type="video/mp4">
 	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
 </video>
@@ -237,15 +219,13 @@ Airflow simulations
 Video source: <https://youtu.be/-4gSS-UHWcc>
 </small>
 
-::::::::
-:::::::: {.fragment .fade-in-then-out}
-Economics
+### Economics
 
 <a title="Negative Space - Pexels account, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blur-chart-data-69760.jpg"><img width="100%" alt="Blur-chart-data-69760" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blur-chart-data-69760.jpg/512px-Blur-chart-data-69760.jpg"></a>
-::::::::
-:::::::: {.fragment .fade-in-then-out}
-Weather forecasting
-<video width="100%" muted>
+
+### Weather forecasting
+
+<video width="100%" muted controls>
 	<source src="../video/lec01/weather.webm" type="video/mp4">
 	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
 </video>
@@ -253,12 +233,11 @@ Weather forecasting
 <small>
 	Video source: <https://youtu.be/5kpw5WeR5V4>
 </small>
-::::::::
-:::::::: {.fragment .fade-in-then-out}
-Health care
+
+### Health care
 
 <a title="From: In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials" href="https://www.nature.com/articles/s41467-021-23998-w">
-<video width="100%">
+<video width="100%" controls>
 	<source src="../video/lec01/in-silico.mp4" type="video/mp4">
 	<img width="100%" alt="Workflow of the FD-PASS in-silico trial" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-23998-w/MediaObjects/41467_2021_23998_Fig1_HTML.png">
 </video>
@@ -267,22 +246,15 @@ Health care
 <small>
 	Video source: <https://vimeo.com/578167974>
 </small>
-::::::::
-::::::
-::::
-:::
 
 ## Applications II: High performance graphics
 
-::: {.container}
-:::: {.col}
 - Realistic behaviour within games requires an accurate and efficient *physics engine*.
 
 - Uses *Newton's laws of motion* to predict motion (e.g. projectiles, vehicles, etc) and impacts (e.g. crashes, collisions, etc).
 
 - These are examples of dynamic models which must be solved and then rendered in "real time".
-::::
-:::: {.col}
+
  <video width="100%" muted>
   <source src="../video/lec01/HPG.webm" type="video/mp4" >
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
@@ -291,30 +263,33 @@ Health care
 <small>
 Student Showcase, High Performance Graphics and Game Engineering 2021, University of Leeds
 </small>
-::::
-:::
 
 ## Applications III: Artificial intelligence
 
-::: {.container}
-:::: {.col}
 - Data mining requires complex models of very large data sets in order to extract useful information from them (e.g. Google PageRank)
 
 - Self-driving cars, robotics and more rely on quick, accurate image processing and vision
 
 - Much of AI boils down to *optimisation* which requires special numerical methods
-::::
-:::: {.col}
-Robotics at Leeds
-![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG){width=75%}
 
-Pipebots
-<video width="75%" muted>
+### Robotics at Leeds
+
+![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)
+
+### Pipebots
+<video width="100%" muted>
 	<source src="../video/lec01/pipebots.webm" type="video/mp4">
 </video>
 
 <small>
 Video source: <https://youtu.be/pppxa9MpoeY>
 </small>
-::::
-:::
+
+# Further reading
+
+- Met office, [How weather forecasts are created](https://www.metoffice.gov.uk/weather/learn-about/how-forecasts-are-made)
+- Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)
+- Saul H. Hymans, [Forcasting and econometric models](https://www.econlib.org/library/Enc/ForecastingandEconometricModels.html)
+- Wikipedia: [Physics engine](https://en.wikipedia.org/wiki/Physics_engine)
+- David M Bourg, [How physics is used in video games](https://doi.org/10.1088/0031-9120/39/5/002), Physics Education, issue 39, 2004.
+- [Why studying Linear Algebra is important for Machine Learning and where to start](https://www.univ.ai/post/linear-algebra-machine-learning-prerequisites)

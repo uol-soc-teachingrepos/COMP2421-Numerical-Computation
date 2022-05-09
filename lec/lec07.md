@@ -2,28 +2,9 @@
 starttime: "Oct 18, 2021 10:05"
 subtitle: Solving systems of linear equations III
 title: Lecture 7
-titleextra: |
-  **Extra python support drop in session**
-
-  Wednesday 20th October 10-12
-
-  Computing study zone, Bragg 2.24
 ---
 
-# Things to do this week
-
--   **Lectures** now and Wednesday 16:00
-
--   **Tutorial** sessions on "Introduction to python"
-
--   **New worksheet** on "Solving linear systems i"
-
--   **Coursework 1** available: due 4 November
-
--   **Extra python support drop in session**:\
-    Wednesday 10:00-12:00, Computing study zone, Bragg 2.24
-
-# The cost of Gaussian Elimination
+#  The cost of Gaussian Elimination
 
 -   Gaussian elimination (GE) is unnecessarily expensive when it is applied to many systems of equations with the same matrix $A$ but different right-hand sides $\vec{b}$.
 
@@ -34,7 +15,6 @@ titleextra: |
 
 ## Elementary row operations (EROs)
 
-::: r-fit-text
 Note that the EROs discussed in the last lecture can be produced by left multiplication with a suitable matrix:
 
 -   Row swap: $$
@@ -62,9 +42,6 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
     a & b & c & d \\ i & j & k & l \\ e & f & g & h \\ m & n & o & p
     \end{pmatrix}
     $$
-:::
-
-## Elementary row operations (cont.)
 
 -   Multiply row by $\alpha$: $$
     \begin{pmatrix}
@@ -99,32 +76,26 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
 -   Each of these EROs is equivalent to (left) multiplication by a suitable matrix, $E$ say.
 
 -   Hence, forward elimination applied to the system $A \vec{x} = \vec{b}$ can be expressed as $$
-    \tag{1}
+    (1) \qquad
     (E_m \cdots E_1) A \vec{x} = (E_m \cdots E_1) \vec{b},
     $$ where $m$ is the number of EROs required to reduce the upper triangular form.
 
 -   Let $U = (E_m \cdots E_1) A$ and $L = (E_m \cdots E_1)^{-1}$.
 
-## LU factorisation (cont.)
-
-::: r-fit-text
 -   Now the original system $A \vec{x} = \vec{b}$ is equivalent to $$
-    \tag{2}
-    \label{eq:2}
+    (2) \qquad
     L U \vec{x} = \vec{b}
     $$ where $U$ is *upper triangular* (by construction) and $L$ may be shown to be lower triangular (provided the EROs do not include any row swaps).
 
--   Once $L$ and $U$ are known it is easy to solve $\eqref{eq:2}$:
+-   Once $L$ and $U$ are known it is easy to solve $(2)$:
 
     -   Solve $L \vec{z} = \vec{b}$ in $O(n^2)$ operations.
     -   Solve $U \vec{x} = \vec{z}$ in $O(n^2)$ operations.
 
 -   $L$ and $U$ may be found in $O(n^3)$ operations by performing GE and saving the $E_i$ matrices, however it is more convenient to find them directly (also $O(n^3)$ operations).
-:::
 
 ## Computing $L$ and $U$
 
-::: r-fit-text
 Consider a general $4 \times 4$ matrix $A$ and its factorisation $LU$: $$
 \begin{pmatrix}
 a_{11} & a_{12} & a_{13} & a_{14} \\
@@ -163,7 +134,6 @@ a_{41} & = (l_{41}, l_{42}, l_{43}, 1)(u_{11}, 0, 0, 0)^T && = l_{41} u_{11}
 $$
 
 The second, third and fourth columns follow in a similar manner, giving all the entries in $L$ and $U$.
-:::
 
 ## Notes
 
@@ -182,8 +152,6 @@ The second, third and fourth columns follow in a similar manner, giving all the 
           # Compute factors l_{ij}
           ...
     ```
-
--   See the function [`lu_factorise`](../code/matrixSolve.html#lu_factorise) in [`matrixSolve.py`](../code/matrixSolve.html)
 
 ## Example 1
 
@@ -221,10 +189,6 @@ u_{11} & u_{12} & u_{13} \\
 \end{pmatrix}.
 $$
 
-## Example 1
-
-::: r-stack
-::: {.fragment .fade-in-then-out}
 Column 1 of $A$ gives $$
 \begin{aligned}
 2 & = u_{11} && \rightarrow & u_{11} & = 2 \\
@@ -232,9 +196,7 @@ Column 1 of $A$ gives $$
 2 & = l_{31} u_{11} && \rightarrow & l_{31} & = 1.
 \end{aligned}
 $$
-:::
 
-::: {.fragment .fade-in-then-out}
 Column 2 of $A$ gives $$
 \begin{aligned}
 1 & = u_{12} && \rightarrow & u_{12} & = 1 \\
@@ -242,9 +204,7 @@ Column 2 of $A$ gives $$
 4 & = l_{31} u_{12} + l_{32} u_{22} && \rightarrow & l_{32} & = 2.
 \end{aligned}
 $$
-:::
 
-::: {.fragment .fade-in-then-out}
 Column 3 of $A$ gives $$
 \begin{aligned}
 4 & = u_{13} && \rightarrow & u_{13} & = 4 \\
@@ -252,10 +212,6 @@ Column 3 of $A$ gives $$
 6 & = l_{31} u_{13} + l_{32} u_{23} && \rightarrow & u_{33} & = 2.
 \end{aligned}
 $$
-:::
-:::
-
-## Example 1
 
 Solve the lower triangular system $L \vec{z} = \vec{b}$:
 
@@ -304,9 +260,7 @@ x_1 \\ x_2 \\ x_3
 \end{pmatrix}.
 $$
 
-This is confirmed by the script file [`luSolveExample.py`](../code/lec07/luSolveExample.html) for $3 \times 3$, $4 \times 4$ and $5 \times 5$ examples.
-
-## Example 2
+## Example 2 (homework)
 
 Rewrite the matrix $A$ as the product of lower and upper triangular matrices where $$
 A =
@@ -343,3 +297,14 @@ Note that
 -   the matrix $U$ is the same as the fully eliminated upper triangular form produced by Gaussian elimination;
 
 -   $L$ contains the multipliers that were used at each stage to eliminate the rows.
+
+# Further reading
+
+- Wikipedia: [LU decomposition](https://en.wikipedia.org/wiki/LU_decomposition)
+- Wikipedia: [Matrix decomposition](https://en.wikipedia.org/wiki/Matrix_decomposition) (Other examples of decompositions).
+- Nick Higham: [What is an LU factorization?](https://nhigham.com/2021/04/20/what-is-an-lu-factorization/) (a very mathematical treatment with additional references)
+
+Note that these implementation use additional pivoting to achieve better results. We tackle this in the next section.
+
+- LAPACK: [`dgetrf()`](http://www.netlib.org/lapack/explore-html/dd/d9a/group__double_g_ecomputational_ga0019443faea08275ca60a734d0593e60.html). (Implementation of LU factorisation from LAPACK).
+- Scipy [`scipy.linalg.lu`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)

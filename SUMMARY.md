@@ -14,6 +14,7 @@
 
 -   [Introduction and triangular matrices](lec/lec05.md)
 -   [Gaussian elimination](lec/lec06.md)
+-   [LU factorisation](lec/lec07.md)
 -   [Iterative solution of linear eqns](lec/lec08.md)
 -   [Iterative stopping criteria](lec/lec09.md)
 -   [Effects of finite precision arithmetic](lec/lec10.md)

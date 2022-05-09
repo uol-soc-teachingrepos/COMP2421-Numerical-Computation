@@ -278,3 +278,9 @@ $$
 -   A general system of equations (i.e. a full matrix $A$) can be solved rapidly once it has been reduced to upper triangular form.
 
 -   This will be the topic of the next section...
+
+# Further reading
+
+- Wikipedia: [Systems of linear equations](https://en.wikipedia.org/wiki/System_of_linear_equations) (includes a nice geometric picture of what a system of linear equations means).
+- Maths is fun: [Systems of linear equations](https://www.mathsisfun.com/algebra/systems-linear-equations.html) (very basic!)
+- Wikipedia: [Triangular matrix](https://en.wikipedia.org/wiki/Triangular_matrix)

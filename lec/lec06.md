@@ -8,14 +8,17 @@ title: Lecture 6
 
 Recall the problem is to solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, for $j=1, 2, \ldots, n$.
 
-**Notation**
-
-Equation $1$: $a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n = b_1$\
-Equation $2$: $a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n = b_2$\
-$\vdots$\
-Equation $i$: $a_{i1} x_1 + a_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n = b_i$\
-$\vdots$\
-Equation $n$: $a_{n1} x_1 + a_{n2} x_2 + a_{n3} x_3 + \cdots + a_{nn} x_n = b_n$
+**Notation**:
+$$
+\begin{aligned}
+\text{Equation 1:} && a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n & = b_1 \\
+\text{Equation 2:} && a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n & = b_2 \\
+\vdots \\
+\text{Equation i:} && a_{i1} x_1 + a_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n & = b_i \\
+\vdots \\
+\text{Equation n:} && a_{n1} x_1 + a_{n2} x_2 + a_{n3} x_3 + \cdots + a_{nn} x_n & = b_n.
+\end{aligned}
+$$
 
 ## Elementary row operations
 
@@ -28,8 +31,6 @@ $$
 Note three things...
 
 -   The order in which we choose to write the $n$ equations is irrelevant
-
-## Elementary row operations (cont.)
 
 -   We can multiply any equation by an arbitrary real number ($k \neq 0$ say): $$
     k a_{p1} x_1 + k a_{p2} x_2 + k a_{p3} x_3 + \cdots + k a_{pn} x_n = k b_p.
@@ -45,21 +46,33 @@ Note three things...
 
 ## Example 1
 
-Consider the system `\begin{align}  \label{eq:1} \tag{1}  2 x_1 + 3 x_2 & = 4 \\  \label{eq:2} \tag{2}  -3 x_1 + 2 x_2 & = 7. \end{align}`{=tex}
+Consider the system
+$$
+\begin{aligned}
+2 x_1 + 3 x_2 & = 4 && (1) \\
+-3 x_1 + 2 x_2 & = 7 && (2).
+\end{aligned}
+$$
 
--   $4 \times \eqref{eq:1}$ $\rightarrow$ $8 x_1 + 12 x_2 = 16$.
--   $-1.5 \times \eqref{eq:2}$ $\rightarrow$ $4.5 x_1 - 3 x_2 = -10.5$.
--   $\eqref{eq:2} + \eqref{eq:1}$ $\rightarrow$ $-x_1 + 5 x_2 = 11$.
--   $\eqref{eq:2} + 1.5 \times \eqref{eq:1}$ $\rightarrow$ $0 + 6.5 x_2 = 13$.
+-   $4 \times (1)$ $\rightarrow$ $8 x_1 + 12 x_2 = 16$.
+-   $-1.5 \times (2)$ $\rightarrow$ $4.5 x_1 - 3 x_2 = -10.5$.
+-   $(2) + (1)$ $\rightarrow$ $-x_1 + 5 x_2 = 11$.
+-   $(2) + 1.5 \times (1)$ $\rightarrow$ $0 + 6.5 x_2 = 13$.
 
-## Example 2
+## Example 2 (homework)
 
-Consider the system `\begin{align}  \label{eq:3} \tag{3}  x_1 + 2 x_2 & = 1 \\  \label{eq:4} \tag{4}  4 x_1 + x_2 & = -3. \end{align}`{=tex}
+Consider the system
+$$
+\begin{aligned}
+x_1 + 2 x_2 & = 1 && (3) \\
+4 x_1 + x_2 & = -3 && (4).
+\end{aligned}
+$$
 
--   $2 \times \eqref{eq:3}$ $\rightarrow$
--   $0.25 \times \eqref{eq:4}$ $\rightarrow$
--   $\eqref{eq:4} + (-1) \times \eqref{eq:3}$ $\rightarrow$
--   $\eqref{eq:4} + (-4) \times \eqref{eq:3}$ $\rightarrow$
+-   $2 \times (3)$ $\rightarrow$
+-   $0.25 \times (4)$ $\rightarrow$
+-   $(4) + (-1) \times (3)$ $\rightarrow$
+-   $(4) + (-4) \times (3)$ $\rightarrow$
 
 ## General matrix-vector form
 
@@ -129,8 +142,6 @@ For a system written in matrix form our three observations mean the following:
     \end{pmatrix}
     $$
 
-## Application to matrix equations (cont.)
-
 -   We can replace row $q$ by row $q + k \times$ row $p$. For example: $$
     \begin{pmatrix}
     2 & 3 \\ -3 & 2
@@ -197,8 +208,6 @@ $$
     a_{ij} = 0 \text{ for } j > i.
     $$
 
-## Triangular systems
-
 Similarly, we can easily solve an upper triangular system: $$
  \begin{pmatrix}
  a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
@@ -231,17 +240,13 @@ $$
 
 **First appeared in China...**
 
-`<small> From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination): `</small>
+From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination):
 
-| The method of Gaussian elimination appears in the Chinese mathematical text [Chapter Eight: Rectangular Arrays of The Nine Chapters on the Mathematical Art.](http://www.guoxuemi.com/guji/5445s/) Its use is illustrated in eighteen problems, with two to five equations. The first reference to the book by this title is dated to 179 CE, but parts of it were written as early as approximately 150 BCE. It was commented on by Liu Hui in the 3rd century.
+> The method of Gaussian elimination appears in the Chinese mathematical text [Chapter Eight: Rectangular Arrays of The Nine Chapters on the Mathematical Art.](http://www.guoxuemi.com/guji/5445s/) Its use is illustrated in eighteen problems, with two to five equations. The first reference to the book by this title is dated to 179 CE, but parts of it were written as early as approximately 150 BCE. It was commented on by Liu Hui in the 3rd century.
 
-![](../img/lec06/NineChapters.jpg){width="66%"}
+![](../img/lec06/NineChapters.jpg)
 
-## History: Why called after Gauss
-
-`<small>` From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination): `</small>`
-
-| The method in Europe stems from the notes of Isaac Newton. In 1670, he wrote that all the algebra books known to him lacked a lesson for solving simultaneous equations, which Newton then supplied. Carl Friedrich Gauss in 1810 devised a notation for symmetric elimination that was adopted in the 19th century by professional hand computers to solve the normal equations of least-squares problems. The algorithm that is taught in high school was named for Gauss only in the 1950s as a result of confusion over the history of the subject.
+> The method in Europe stems from the notes of Isaac Newton. In 1670, he wrote that all the algebra books known to him lacked a lesson for solving simultaneous equations, which Newton then supplied. Carl Friedrich Gauss in 1810 devised a notation for symmetric elimination that was adopted in the 19th century by professional hand computers to solve the normal equations of least-squares problems. The algorithm that is taught in high school was named for Gauss only in the 1950s as a result of confusion over the history of the subject.
 
 ## The algorithm
 
@@ -253,7 +258,7 @@ The following algorithm systematically introduces zeros into the system of equat
 
 After row $n-1$ all entities below the diagonal have been eliminated, so $A$ is now upper triangular and the resulting system can be solved by backward substitution.
 
-## Example 1 i
+## Example 1
 
 Use Gaussian eliminate to solve the linear system of equations given by $$
 \begin{pmatrix}
@@ -281,8 +286,6 @@ First, use the first row to eliminate the first column below the diagonal:
     \end{pmatrix}
     $$
 
-## Example 1 ii
-
 -   (row 3) $-$ (row 1) then gives $$
     \begin{pmatrix}
      2 & 1 & 4 \\ \mathbf{0} & 1.5 & 0 \\ \mathbf{0} & 3 & 2
@@ -294,8 +297,6 @@ First, use the first row to eliminate the first column below the diagonal:
     12 \\ 3 \\ 10
     \end{pmatrix}
     $$
-
-## Examples
 
 Now use the second row to eliminate the second column below the diagonal.
 
@@ -354,11 +355,6 @@ x_1 \\ x_2 \\ x_3 \\ x_4
 \end{pmatrix}.
 $$
 
-This can be done using the script file [`gaussElimTest.py`](../code/lec06/gaussElimTest.html), which uses
-
--   [`gauss_elimination`](../code/matrixSolve.html#gaussian_elimination) in [`matrixSolve.py`](../code/matrixSolve.html) to reduce the system to triangular form.
--   [`upper_triangular_solve`](../code/matrixSolve.html#upper_triangular_solve) in [`matrixSolve.py`](../code/matrixSolve.html) to solve the resulting system for $\vec{x}$.
-
 The solution is $\vec{x} = (1, 1, 1, 1)^T$.
 
 # Final Notes
@@ -376,3 +372,9 @@ GE can be used to solve linear systems of equations...
 - The GE algorithm will only break down if the system is **singular**  (so no solution exists or no unique solution).
 
 - If the unique solution does exist the GE algorithm (with row swapping if needed)  will find it!
+
+# Further reading
+
+- Wikipedia: [Gaussian elimination](https://en.wikipedia.org/wiki/Gaussian_elimination)
+- Joseph F. Grcar. [How ordinary elimination became Gaussian elimination](https://doi.org/10.1016/j.hm.2010.06.003). Historia Mathematica. Volume 38, Issue 2, May 2011. (More history)
+- The method is usually implemented via the LU factorisation method we learn next!

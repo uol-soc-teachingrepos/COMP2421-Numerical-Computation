@@ -57,11 +57,11 @@ This scientific Python distribution is available on all School of Computing mach
 
 On a SoC Linux computer, you can run
 ```sh
-$ module add anaconda3/2020.11
+> module add anaconda3/2020.11
 ```
 and you can test your python version with
 ```sh
-$ python --version
+> python --version
 Python 3.8.5
 ```
 
@@ -219,9 +219,13 @@ TODO make new tutorials plan
 Video source: <https://youtu.be/-4gSS-UHWcc>
 </small>
 
+- Gianmarco Mengaldo, [Industry-relvant implicit LES via spetal/hp element methods](https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/)
+
 ### Economics
 
 <a title="Negative Space - Pexels account, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blur-chart-data-69760.jpg"><img width="100%" alt="Blur-chart-data-69760" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blur-chart-data-69760.jpg/512px-Blur-chart-data-69760.jpg"></a>
+
+- Saul H. Hymans, [Forcasting and econometric models](https://www.econlib.org/library/Enc/ForecastingandEconometricModels.html)
 
 ### Weather forecasting
 
@@ -234,18 +238,20 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 	Video source: <https://youtu.be/5kpw5WeR5V4>
 </small>
 
+- Met office, [How weather forecasts are created](https://www.metoffice.gov.uk/weather/learn-about/how-forecasts-are-made)
+- Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)
+
 ### Health care
 
-<a title="From: In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials" href="https://www.nature.com/articles/s41467-021-23998-w">
 <video width="100%" controls>
 	<source src="../video/lec01/in-silico.mp4" type="video/mp4">
 	<img width="100%" alt="Workflow of the FD-PASS in-silico trial" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-23998-w/MediaObjects/41467_2021_23998_Fig1_HTML.png">
 </video>
-</a>
 
-<small>
-	Video source: <https://vimeo.com/578167974>
-</small>
+Video source: <https://vimeo.com/578167974>
+
+- Wikipedia: [*In silico* clinical trials](https://en.wikipedia.org/wiki/In_silico_clinical_trials)
+- Sarrami-Foroushani *et al.*, [In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials](https://doi.org/10.1038/s41467-021-23998-w). Nat Commun 12, 3861 (2021).
 
 ## Applications II: High performance graphics
 
@@ -264,6 +270,9 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 Student Showcase, High Performance Graphics and Game Engineering 2021, University of Leeds
 </small>
 
+- Wikipedia: [Physics engine](https://en.wikipedia.org/wiki/Physics_engine)
+- David M Bourg, [How physics is used in video games](https://doi.org/10.1088/0031-9120/39/5/002), Physics Education, issue 39, 2004.
+
 ## Applications III: Artificial intelligence
 
 - Data mining requires complex models of very large data sets in order to extract useful information from them (e.g. Google PageRank)
@@ -272,9 +281,11 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 
 - Much of AI boils down to *optimisation* which requires special numerical methods
 
+- [Why studying Linear Algebra is important for Machine Learning and where to start](https://www.univ.ai/post/linear-algebra-machine-learning-prerequisites)
+
 ### Robotics at Leeds
 
-![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)
+[![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)](https://robotics.leeds.ac.uk/)
 
 ### Pipebots
 <video width="100%" muted>

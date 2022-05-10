@@ -19,3 +19,6 @@ suggestions and other ideas for next year
 15. https://twitter.com/Dr_Paul_Penn/status/1476591990800359431?s=20
 16. zero indexing throughout
 17. detailed coursework answers
+
+https://tbetcke.github.io/math0058_lecture_notes/intro.html
+https://github.com/Imperial-MATH50003/MATH50003NumericalAnalysis

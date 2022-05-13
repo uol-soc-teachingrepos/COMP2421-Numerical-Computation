@@ -1,5 +1,9 @@
 build:
-	npx honkit build
+	jupyter-book build .
+
+clean:
+	jupyter-book clean
+
 
 # MAKEFLAGS += --no-builtin-rules
 

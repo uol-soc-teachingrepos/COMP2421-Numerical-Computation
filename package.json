@@ -1,9 +1,0 @@
-{
-  "devDependencies": {
-    "gitbook-plugin-mathjax": "https://github.com/algorithm-archivists/plugin-mathjax",
-    "honkit": "^3.6.23"
-  },
-  "dependencies": {
-    "honkit-plugin-katex": "^1.1.7"
-  }
-}

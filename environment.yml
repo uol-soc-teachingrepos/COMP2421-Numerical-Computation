@@ -6,4 +6,4 @@ channels:
 dependencies:
   - git
   - make
-  - nodejs
+  - jupyter-book

@@ -50,7 +50,9 @@ Computing $x_1, x_2, x_3, \ldots, x_n$ solves the problem.
 
 ## General matrix-vector form
 
-Solve the system of equations given by $$
+Solve the system of equations given by
+
+$$
  \begin{pmatrix}
  a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
  a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
@@ -76,7 +78,9 @@ Suppose we wish to estimate the temperature distribution inside an object:
 
 We can place a network of points inside the object and use the following model: the temperature at each interior point is the average of its neighbours.
 
-This example leads to the system: $$
+This example leads to the system:
+
+$$
 \begin{pmatrix}
   1   & -1/6 & -1/6 &  0   & -1/6 &  0   & 0 \\
  -1/6 &  1   & -1/6 & -1/6 &  0   & -1/6 & 0 \\
@@ -102,7 +106,9 @@ Suppose we wish to monitor the flow of traffic in a city centre:
 
 As the above example shows, it is not necessary to monitor at every single road. If we know all of the $y$ values we can calculate the $x$ values!
 
-This example leads to the system: $$
+This example leads to the system:
+
+$$
 \begin{pmatrix}
 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
 1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -131,9 +137,11 @@ Often the problem being solved leads to a matrix with a particular structure.
 -   Some entries may be known to be zero.
 -   If this is the case then it is often possible to use this knowledge to improve the efficiency of the algorithm (in terms of both speed and/or storage).
 
-## Examples 1
+## Example 1: Triangular matrix
 
-One common (and important) structure takes the form $$
+One common (and important) structure takes the form
+
+$$
  \begin{pmatrix}
  a_{11} & 0 & 0 & \cdots & 0 \\
  a_{21} & a_{22} & 0 & \cdots & 0 \\
@@ -155,9 +163,9 @@ $$
 
 -   The *transpose* of this matrix is an **upper triangular** matrix and can be treated in a very similar manner.
 
-## Examples 2
+## Example 2: Sparse matrices
 
-**Sparse matrices** are extremely common in any application which relies on some form of *graph* structure. (see both temperature and traffic network examples)
+**Sparse matrices** are extremely common in any application which relies on some form of *graph* structure (see both [temperature](#application-i-temperature-in-a-sealed-room) and [traffic network examples](#application-ii-traffic-network)).
 
 -   The $a_{ij}$ typically represents some form of "communication" between vertices $i$ and $j$ of the graph, so the element is only nonzero if the vertices are connected.
 
@@ -193,7 +201,9 @@ In this case the following statements are *equivalent*:
 
 # Solving triangular systems
 
-A general *lower triangular* system of equations has $a_{ij} = 0$ for $j > i$ and takes the form: $$
+A general *lower triangular* system of equations has $a_{ij} = 0$ for $j > i$ and takes the form: 
+
+$$
  \begin{pmatrix}
  a_{11} & 0 & 0 & \cdots & 0 \\
  a_{21} & a_{22} & 0 & \cdots & 0 \\
@@ -213,8 +223,6 @@ Note the first equation is $$
 a_{11} x_1 = b_1.
 $$
 
-## Solving triangular systems (cont).
-
 The $x_i$ can be found by calculating $$
 x_i = \frac{1}{a_{ii}} \left(b_i - \sum_{j=1}^{i-1} a_{ij} x_j \right)
 $$ for each row $i = 1, 2, \ldots, n$ in turn.
@@ -224,15 +232,21 @@ $$ for each row $i = 1, 2, \ldots, n$ in turn.
     i.e. $a_{ii} \neq 0$ for $i = 1, 2, \ldots, n$.
 -   **Upper triangular** systems of equations can be solved in a similar manner.
 
-## Examples 1
+## Example 1
 
-Solve the lower triangular system of equations given by $$
+Solve the lower triangular system of equations given by
+
+$$
 \begin{aligned}
  2 x_1 && && &= 2 \\
  x_1 &+& 2 x_2 && &= 7 \\
  2 x_1 &+& 4 x_2 &+& 6 x_3 &= 26
 \end{aligned}
-$$ or, equivalently, $$
+$$
+
+or, equivalently,
+
+$$
 \begin{pmatrix}
 2 & 0 & 0 \\
 1 & 2 & 0 \\
@@ -246,9 +260,11 @@ x_1 \\ x_2 \\ x_3
 \end{pmatrix}.
 $$
 
-## Examples 1: solution
+## Example 1: solution
 
-The solution can be calculated systematically from $$
+The solution can be calculated systematically from
+
+$$
 \begin{aligned}
 x_1 &= \frac{b_1}{a_{11}} = \frac{2}{2} = 1 \\
 x_2 &= \frac{b_2 - a_{21} x_1}{a_{22}} 
@@ -257,11 +273,15 @@ x_3 &= \frac{b_3 - a_{31} x_1 - a_{32} x_2}{a_33}
 = \frac{26 - 2 \times 1 - 4 \times 3}{6}  = \frac{12}{6}
 = 2
 \end{aligned}
-$$ which gives the solution $\vec{x} = (1, 3, 2)^T$.
+$$
 
-## Examples 2
+which gives the solution $\vec{x} = (1, 3, 2)^T$.
 
-Solve the upper triangular linear system given by $$
+## Example 2 (homework)
+
+Solve the upper triangular linear system given by
+
+$$
 \begin{aligned}
 2 x_1 &+& x_2 &+& 4 x_3 &=& 12 \\
 && 1.5 x_2 && &=& 3 \\

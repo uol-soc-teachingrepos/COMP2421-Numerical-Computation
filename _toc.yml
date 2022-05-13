@@ -1,0 +1,39 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: README
+parts:
+  - caption: Course introduction and recap
+    chapters:
+    - file: lec/lec01
+    - file: lec/lec02
+    - file: lec/lec04
+  - caption: Systems of linear equations
+    chapters:
+    - file: lec/lec05
+    - file: lec/lec06
+    - file: lec/lec07
+    - file: lec/lec08
+    - file: lec/lec09
+    - file: lec/lec10
+  - caption: Dynamic problems
+    chapters:
+    - file: lec/lec11
+    - file: lec/lec12
+    - file: lec/lec13
+    - file: lec/lec14
+  - caption: Nonlinear equations
+    chapters:
+    - file: lec/lec15
+    - file: lec/lec16
+    - file: lec/lec17
+    - file: lec/lec18
+  - caption: Special topics
+    chapters:
+    - file: lec/lec19
+    - file: lec/lec19a
+  - caption: Summary
+    chapters:
+    - file: lec/lec20
+

@@ -1,8 +1,0 @@
-{
-    "plugins": ["katex"],
-    "title" : "COMP2421 Numerical Computation",
-    "description" : "Written notes to accompany lectures.",
-    "author" : "Dr Thomas Ranner",
-    "language" : "en-GB",
-    "giturl" : "https://gitlab.com/comp2421_numerical-computation/slides"
-}

@@ -9,22 +9,29 @@ title: Lecture 6
 Recall the problem is to solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, for $j=1, 2, \ldots, n$.
 
 **Notation**:
+
 $$
 \begin{aligned}
-\text{Equation 1:} && a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n & = b_1 \\
-\text{Equation 2:} && a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n & = b_2 \\
+\text{Equation } 1: && a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n & = b_1 \\
+\text{Equation } 2: && a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n & = b_2 \\
 \vdots \\
-\text{Equation i:} && a_{i1} x_1 + a_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n & = b_i \\
+\text{Equation } i: && a_{i1} x_1 + a_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n & = b_i \\
 \vdots \\
-\text{Equation n:} && a_{n1} x_1 + a_{n2} x_2 + a_{n3} x_3 + \cdots + a_{nn} x_n & = b_n.
+\text{Equation } n: && a_{n1} x_1 + a_{n2} x_2 + a_{n3} x_3 + \cdots + a_{nn} x_n & = b_n.
 \end{aligned}
 $$
 
 ## Elementary row operations
 
-Consider equation $p$ of the above system: $$
+Consider equation $p$ of the above system:
+
+$$
 a_{p1} x_1 + a_{p2} x_2 + a_{p3} x_3 + \cdots + a_{pn} x_n = b_p,
-$$ and equation $q$: $$
+$$
+
+and equation $q$:
+
+$$
 a_{q1} x_1 + a_{q2} x_2 + a_{q3} x_3 + \cdots + a_{qn} x_n = b_q.
 $$
 
@@ -32,21 +39,34 @@ Note three things...
 
 -   The order in which we choose to write the $n$ equations is irrelevant
 
--   We can multiply any equation by an arbitrary real number ($k \neq 0$ say): $$
+-   We can multiply any equation by an arbitrary real number ($k \neq 0$ say):
+
+    $$
     k a_{p1} x_1 + k a_{p2} x_2 + k a_{p3} x_3 + \cdots + k a_{pn} x_n = k b_p.
     $$
 
--   We can add any two equations: $$
+-   We can add any two equations:
+
+    $$
     k a_{p1} x_1 + k a_{p2} x_2 + k a_{p3} x_3 + \cdots + k a_{pn} x_n = k b_p
-    $$ added to $$
+    $$
+
+	added to
+
+	$$
     a_{q1} x_1 + a_{q2} x_2 + a_{q3} x_3 + \cdots + a_{qn} x_n = b_q
-    $$ yields $$
+    $$
+
+	yields
+
+	$$
     (k a_{p1} + a_{q1}) x_1 + (k a_{p2} + a_{q2}) x_2 + \cdots + (k a_{pn} + a_{qn}) x_n = k b_p + b_q.
     $$
 
 ## Example 1
 
 Consider the system
+
 $$
 \begin{aligned}
 2 x_1 + 3 x_2 & = 4 && (1) \\
@@ -62,6 +82,7 @@ $$
 ## Example 2 (homework)
 
 Consider the system
+
 $$
 \begin{aligned}
 x_1 + 2 x_2 & = 1 && (3) \\
@@ -76,7 +97,9 @@ $$
 
 ## General matrix-vector form
 
-What does this mean when we write the equations as a single matrix equation? $$
+What does this mean when we write the equations as a single matrix equation?
+
+$$
  \begin{pmatrix}
  a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
  a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
@@ -98,7 +121,9 @@ Recall the $n \times n$ matrix $A$ represents the coefficients that multiply the
 
 For a system written in matrix form our three observations mean the following:
 
--   We can swap any two rows of the matrix (and corresponding right-hand side entries). For example: $$
+-   We can swap any two rows of the matrix (and corresponding right-hand side entries). For example:
+
+    $$
     \begin{pmatrix}
     2 & 3 \\ -3 & 2
     \end{pmatrix}
@@ -120,7 +145,9 @@ For a system written in matrix form our three observations mean the following:
     \end{pmatrix}
     $$
 
--   We can multiply any row of the matrix (and corresponding right-hand side entry) by a scalar. For example: $$
+-   We can multiply any row of the matrix (and corresponding right-hand side entry) by a scalar. For example:
+
+    $$
     \begin{pmatrix}
     2 & 3 \\ -3 & 2
     \end{pmatrix}
@@ -142,7 +169,9 @@ For a system written in matrix form our three observations mean the following:
     \end{pmatrix}
     $$
 
--   We can replace row $q$ by row $q + k \times$ row $p$. For example: $$
+-   We can replace row $q$ by row $q + k \times$ row $p$. For example:
+
+	$$
     \begin{pmatrix}
     2 & 3 \\ -3 & 2
     \end{pmatrix}
@@ -162,7 +191,9 @@ For a system written in matrix form our three observations mean the following:
     \begin{pmatrix}
     4 \\ 13
     \end{pmatrix}
-    $$ (here we replaced row $w$ by row $2 + 1.5 \times$ row $1$)
+    $$
+
+	(here we replaced row $w$ by row $2 + 1.5 \times$ row $1$)
 
     $$
     \begin{pmatrix}
@@ -184,11 +215,15 @@ For a system written in matrix form our three observations mean the following:
     \begin{pmatrix}
     1 \\ -7
     \end{pmatrix}
-    $$ (here we replaced row $2$ by row $2 + (-4) \times$ row $1$)
+    $$
+
+	(here we replaced row $2$ by row $2 + (-4) \times$ row $1$)
 
 ## Triangular systems
 
-Recall that we can easily solve a lower triangular system: $$
+Recall that we can easily solve a lower triangular system:
+
+$$
  \begin{pmatrix}
  a_{11} & 0 & 0 & \cdots & 0 \\
  a_{21} & a_{22} & 0 & \cdots & 0 \\
@@ -208,7 +243,9 @@ $$
     a_{ij} = 0 \text{ for } j > i.
     $$
 
-Similarly, we can easily solve an upper triangular system: $$
+Similarly, we can easily solve an upper triangular system:
+
+$$
  \begin{pmatrix}
  a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
  0 & a_{22} & a_{23} & \cdots & a_{2n} \\
@@ -244,9 +281,9 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination):
 
 > The method of Gaussian elimination appears in the Chinese mathematical text [Chapter Eight: Rectangular Arrays of The Nine Chapters on the Mathematical Art.](http://www.guoxuemi.com/guji/5445s/) Its use is illustrated in eighteen problems, with two to five equations. The first reference to the book by this title is dated to 179 CE, but parts of it were written as early as approximately 150 BCE. It was commented on by Liu Hui in the 3rd century.
 
-![](../img/lec06/NineChapters.jpg)
-
 > The method in Europe stems from the notes of Isaac Newton. In 1670, he wrote that all the algebra books known to him lacked a lesson for solving simultaneous equations, which Newton then supplied. Carl Friedrich Gauss in 1810 devised a notation for symmetric elimination that was adopted in the 19th century by professional hand computers to solve the normal equations of least-squares problems. The algorithm that is taught in high school was named for Gauss only in the 1950s as a result of confusion over the history of the subject.
+
+![](../img/lec06/NineChapters.jpg)
 
 ## The algorithm
 
@@ -260,7 +297,9 @@ After row $n-1$ all entities below the diagonal have been eliminated, so $A$ is 
 
 ## Example 1
 
-Use Gaussian eliminate to solve the linear system of equations given by $$
+Use Gaussian eliminate to solve the linear system of equations given by
+
+$$
 \begin{pmatrix}
  2 & 1 & 4 \\ 1 & 2 & 2 \\ 2 & 4 & 6
 \end{pmatrix}
@@ -274,7 +313,9 @@ $$
 
 First, use the first row to eliminate the first column below the diagonal:
 
--   (row 2) $- 0.5 \times$ (row 1) gives $$
+-   (row 2) $- 0.5 \times$ (row 1) gives
+
+    $$
     \begin{pmatrix}
      2 & 1 & 4 \\ \mathbf{0} & 1.5 & 0 \\ 2 & 4 & 6
     \end{pmatrix}
@@ -286,7 +327,9 @@ First, use the first row to eliminate the first column below the diagonal:
     \end{pmatrix}
     $$
 
--   (row 3) $-$ (row 1) then gives $$
+-   (row 3) $-$ (row 1) then gives
+
+    $$
     \begin{pmatrix}
      2 & 1 & 4 \\ \mathbf{0} & 1.5 & 0 \\ \mathbf{0} & 3 & 2
     \end{pmatrix}
@@ -300,7 +343,9 @@ First, use the first row to eliminate the first column below the diagonal:
 
 Now use the second row to eliminate the second column below the diagonal.
 
--   (row 3) $- 2 \times$ (row 2) gives $$
+-   (row 3) $- 2 \times$ (row 2) gives
+
+    $$
     \begin{pmatrix}
      2 & 1 & 4 \\ \mathbf{0} & 1.5 & 0 \\ \mathbf{0} & \mathbf{0} & 2
     \end{pmatrix}
@@ -314,9 +359,11 @@ Now use the second row to eliminate the second column below the diagonal.
 
 The system is now in upper triangular form and can be solved using backward substitution to give $\vec{x} = (1, 2, 2)^T$ (see the [final example from previous lecture](lec05.html#/examples-2-1)).
 
-## Examples
+## Example 2 (homework)
 
-Use Gaussian elimination to solve the linear system of equations given by $$
+Use Gaussian elimination to solve the linear system of equations given by
+
+$$
 \begin{pmatrix}
 4 & -1 & -1 \\ 2 & 4 & 2 \\ 1 & 2 & 4
 \end{pmatrix}
@@ -332,17 +379,23 @@ $$
 
 -   Each row $i$ is used to eliminate the entries in column $i$ below $a_{ii}$, i.e. it forces $a_{ji} = 0$ for $j > i$.
 
--   This is done by subtracting a multiple of row $i$ from row $j$: $$
+-   This is done by subtracting a multiple of row $i$ from row $j$:
+
+    $$
     (\text{row } j) \leftarrow (\text{row } j) - \frac{a_{ji}}{a_{ii}} (\text{row } i).
     $$
 
--   This guarantees that $a_{ji}$ becomes zero because $$
+-   This guarantees that $a_{ji}$ becomes zero because
+
+    $$
     a_{ji} \leftarrow a_{ji} - \frac{a_{ji}}{a_{ii}} a_{ii} = a_{ji} - a_{ji} = 0.
     $$
 
-## Examples
+## Example 3 (homework)
 
-Solve the system $$
+Solve the system
+
+$$
 \begin{pmatrix}
 4 & 3 & 2 & 1 \\ 1 & 2 & 2 & 2 \\
 1 & 1 & 3 & 0 \\ 2 & 1 & 2 & 3

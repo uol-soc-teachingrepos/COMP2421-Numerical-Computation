@@ -20,6 +20,7 @@ titleextra: |
 A matrix is a two-dimensional array of objects (usually numbers)...
 
 - e.g. 4 rows and 5 columns
+
   $$
   \begin{pmatrix}
   1.1 & -1.2 & 0.0 & 21.3 & -2.9 \\
@@ -30,6 +31,7 @@ A matrix is a two-dimensional array of objects (usually numbers)...
   $$
 
 - e.g. 2 rows and 6 columns
+
   $$
   \begin{pmatrix}
   1.1 & -1.2 & 0.0 & 21.3 & -2.9 & 1.1 \\
@@ -40,6 +42,7 @@ A matrix is a two-dimensional array of objects (usually numbers)...
 ## General matrix form
 
 A *matrix* can have any number of rows and any number of columns...
+
 $$
  A =
  \begin{pmatrix}
@@ -175,10 +178,10 @@ $$
 \end{pmatrix}.
 $$
 
-## Examples (cont)
+## Examples (homework)
 
 Let
-$$
+$
 A =
 \begin{pmatrix}
 2.0 & 1.0 \\
@@ -196,7 +199,7 @@ C =
 1.0 & 2.0 \\
 2.0 & 4.0
 \end{pmatrix}.
-$$
+$
 
 - What is $B+C$?
 - What is $3B - 2C$?
@@ -257,6 +260,7 @@ Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be s
 
 - If it is the case that $n=p$ then each entry of the product is defined
  as follows:
+
  $$
  C_{ij} \; = \;(AB)_{ij} \; = \;
  A_{i1}B_{1j} + A_{i2}B_{2j} + A_{i3}B_{3j} + \ldots + A_{in}B_{nj} \;.
@@ -307,7 +311,7 @@ $$
 		\end{pmatrix}
 $$
 
-## Examples (cont.)
+## Examples (homework)
 
 Let
 $$
@@ -362,9 +366,6 @@ $(A^{\rm T})_{ij} = A_{ji}$.
 		\end{pmatrix}^{\rm T} = \begin{pmatrix}
 		 1.0 & 0.0 \\ 2.0 & 1.0 \\ 3.0 & 2.0 \end{pmatrix}$.
 
-## Matrix transposition (cont.)
-
-- Other examples:
   - $\begin{pmatrix} 2.0 & 0.0 \\ 1.0 & 3.0
 		\end{pmatrix}^{\rm T} = \begin{pmatrix}
 		 2.0 & 1.0 \\ 0.0 & 3.0 \end{pmatrix}$
@@ -382,7 +383,8 @@ $(A^{\rm T})_{ij} = A_{ji}$.
 ## Identity Matrices
 
 - These are square matrices that have the structure:
-$$
+
+ $$
  I_n =
  \begin{pmatrix}
 		 1 & 0 & 0 & \ldots & 0 \\

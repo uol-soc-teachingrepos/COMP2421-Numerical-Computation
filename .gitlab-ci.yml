@@ -5,21 +5,21 @@ variables:
 
 before_script:
   - conda env create -f environment.yml
-  - source activate comp2421
-  - pandoc --version
-  - apt-get update -qq
-  - apt-get install -y texlive texlive-plain-generic texlive-pictures librsvg2-bin
-  - pdflatex --version
+  - source activate comp2421-book
+  # - pandoc --version
+  # - apt-get update -qq
+  # - apt-get install -y texlive texlive-plain-generic texlive-pictures librsvg2-bin
+  # - pdflatex --version
 
 test:
   script:
-    - make all
-
-pages:
-  stage: deploy
-  script:
-    - make all
     - make build
-  artifacts:
-    paths:
-      - public
+
+# pages:
+#   stage: deploy
+#   script:
+#     - make all
+#     - make build
+#   artifacts:
+#     paths:
+#       - _build

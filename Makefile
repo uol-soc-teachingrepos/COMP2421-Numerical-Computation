@@ -2,7 +2,7 @@ build:
 	jupyter-book build .
 
 clean:
-	jupyter-book clean
+	jupyter-book clean .
 
 
 # MAKEFLAGS += --no-builtin-rules

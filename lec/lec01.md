@@ -53,8 +53,6 @@ Anaconda provides a full scientific Python distribution, including as standard t
 
 This scientific Python distribution is available on all School of Computing machines, specifically all SoC Linux computers.
 
-## Python (cont.)
-
 On a SoC Linux computer, you can run
 ```sh
 > module add anaconda3/2020.11

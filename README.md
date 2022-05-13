@@ -100,12 +100,12 @@ Weekly tutorials should will support you in your learning. See your timetable fo
 
 TODO update sessions list
 
-| Week | Topic
-| ------ ----------------------------------------------
-| 1    | Maths preliminary
-| 2    | Floating point numbers
-| 3    | Vectors, matrices and linear transformations
-| 4    | Gaussian elimination and triangular systems
+| Week | Topic |
+| ------ ----------------------------------------------|
+| 1    | Maths preliminary                             |
+| 2    | Introduction to python                        |
+| 3    | Finite precision number systems               |
+| 4    | Gaussian elimination and triangular systems   |
 | \-   | *reading week*
 | 6    | LU Factorisation and iterative methods
 | 7    | Sparse systems/pivoting

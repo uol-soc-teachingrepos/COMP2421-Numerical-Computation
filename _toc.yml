@@ -7,16 +7,33 @@ parts:
   - caption: Course introduction and recap
     chapters:
     - file: lec/lec01
-    - file: lec/lec02
+      title: Module introduction
+    - file: ws/ws00.ipynb
+      title: "WS00: Maths revision"
     - file: lec/lec04
+      title: Matrices and vectors
+    - file: ws/ws01.ipynb
+      title: "WS01: Introduction to python and numpy"
+    - file: lec/lec02
+      title: Floating point number systems
+    - file: ws/ws02.ipynb
+      title: "WS02: Floating point numbers"
   - caption: Systems of linear equations
     chapters:
     - file: lec/lec05
+      title: Introduction to SLE
     - file: lec/lec06
+      title: Gaussian elimination
+    - file: ws/ws03.ipynb
+      title: "WS03: Triangular systems and Gaussian elimination"
     - file: lec/lec07
+      title: LU factorisation
     - file: lec/lec08
+      title: Iterative methods
     - file: lec/lec09
+      title: Sparse matrices and stopping criteria
     - file: lec/lec10
+      title: The effects of finite precision
   - caption: Dynamic problems
     chapters:
     - file: lec/lec11

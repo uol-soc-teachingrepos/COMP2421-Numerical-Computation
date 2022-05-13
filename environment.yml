@@ -7,3 +7,6 @@ dependencies:
   - git
   - make
   - jupyter-book
+  - numpy
+  - scipy
+  - matplotlib

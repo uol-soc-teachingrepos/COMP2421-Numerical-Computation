@@ -10,6 +10,7 @@ title: Lecture 5
 Solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, $j = 1, \ldots, n$.
 
 **Notation**:
+
 $$
 \begin{aligned}
 \text{Equation 1:} && a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n & = b_1 \\
@@ -157,7 +158,9 @@ $$
  \end{pmatrix}.
 $$
 
--   A is a **lower triangular** matrix. Every entry above the leading diagonal is zero: $$
+-   A is a **lower triangular** matrix. Every entry above the leading diagonal is zero:
+
+    $$
     a_{ij} = 0 \quad \text{ for } \quad j > i.
     $$
 
@@ -201,7 +204,7 @@ In this case the following statements are *equivalent*:
 
 # Solving triangular systems
 
-A general *lower triangular* system of equations has $a_{ij} = 0$ for $j > i$ and takes the form: 
+A general *lower triangular* system of equations has $a_{ij} = 0$ for $j > i$ and takes the form:
 
 $$
  \begin{pmatrix}
@@ -219,13 +222,19 @@ a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn}
  \end{pmatrix}.
 $$
 
-Note the first equation is $$
+Note the first equation is
+
+$$
 a_{11} x_1 = b_1.
 $$
 
-The $x_i$ can be found by calculating $$
+The $x_i$ can be found by calculating
+
+$$
 x_i = \frac{1}{a_{ii}} \left(b_i - \sum_{j=1}^{i-1} a_{ij} x_j \right)
-$$ for each row $i = 1, 2, \ldots, n$ in turn.
+$$
+
+for each row $i = 1, 2, \ldots, n$ in turn.
 
 -   Each calculation requires only previously computed values $x_j$ (and the sum gives a loop for $j < i$.
 -   The matrix $A$ **must** have nonzero diagonal entries\

@@ -4,6 +4,8 @@ build:
 clean:
 	jupyter-book clean .
 
+build-pdf:
+	jupyter-book build . --builder pdflatex --individualpages
 
 # MAKEFLAGS += --no-builtin-rules
 

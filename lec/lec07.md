@@ -17,7 +17,9 @@ title: Lecture 7
 
 Note that the EROs discussed in the last lecture can be produced by left multiplication with a suitable matrix:
 
--   Row swap: $$
+-   Row swap:
+
+    $$
     \begin{pmatrix}
     1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0
     \end{pmatrix}
@@ -30,7 +32,9 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
     \end{pmatrix}
     $$
 
--   Row swap: $$
+-   Row swap:
+
+    $$
     \begin{pmatrix}
     1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1
     \end{pmatrix}
@@ -43,7 +47,9 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
     \end{pmatrix}
     $$
 
--   Multiply row by $\alpha$: $$
+-   Multiply row by $\alpha$:
+
+    $$
     \begin{pmatrix}
     \alpha & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
     \end{pmatrix}
@@ -56,7 +62,9 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
     \end{pmatrix}
     $$
 
--   $\alpha \times \text{row } p + \text{row } q$: $$
+-   $\alpha \times \text{row } p + \text{row } q$:
+
+    $$
     \begin{pmatrix}
     1 & 0 & 0 \\ 0 & 1 & 0 \\ \alpha & 0 & 1
     \end{pmatrix}
@@ -75,17 +83,25 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
 
 -   Each of these EROs is equivalent to (left) multiplication by a suitable matrix, $E$ say.
 
--   Hence, forward elimination applied to the system $A \vec{x} = \vec{b}$ can be expressed as $$
+-   Hence, forward elimination applied to the system $A \vec{x} = \vec{b}$ can be expressed as
+
+    $$
     (1) \qquad
     (E_m \cdots E_1) A \vec{x} = (E_m \cdots E_1) \vec{b},
-    $$ where $m$ is the number of EROs required to reduce the upper triangular form.
+    $$
+
+	where $m$ is the number of EROs required to reduce the upper triangular form.
 
 -   Let $U = (E_m \cdots E_1) A$ and $L = (E_m \cdots E_1)^{-1}$.
 
--   Now the original system $A \vec{x} = \vec{b}$ is equivalent to $$
+-   Now the original system $A \vec{x} = \vec{b}$ is equivalent to
+
+    $$
     (2) \qquad
     L U \vec{x} = \vec{b}
-    $$ where $U$ is *upper triangular* (by construction) and $L$ may be shown to be lower triangular (provided the EROs do not include any row swaps).
+    $$
+
+	where $U$ is *upper triangular* (by construction) and $L$ may be shown to be lower triangular (provided the EROs do not include any row swaps).
 
 -   Once $L$ and $U$ are known it is easy to solve $(2)$:
 
@@ -96,7 +112,9 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
 
 ## Computing $L$ and $U$
 
-Consider a general $4 \times 4$ matrix $A$ and its factorisation $LU$: $$
+Consider a general $4 \times 4$ matrix $A$ and its factorisation $LU$:
+
+$$
 \begin{pmatrix}
 a_{11} & a_{12} & a_{13} & a_{14} \\
 a_{21} & a_{22} & a_{23} & a_{24} \\
@@ -155,7 +173,9 @@ The second, third and fourth columns follow in a similar manner, giving all the 
 
 ## Example 1
 
-Use $LU$ factorisation to solve the linear system of equations given by $$
+Use $LU$ factorisation to solve the linear system of equations given by
+
+$$
 \begin{pmatrix}
 2 & 1 & 4 \\
 1 & 2 & 2 \\
@@ -170,7 +190,9 @@ x_1 \\ x_2 \\ x_3
 \end{pmatrix}.
 $$
 
-This can be rewritten in the form $A = LU$ where $$
+This can be rewritten in the form $A = LU$ where
+
+$$
 \begin{pmatrix}
 2 & 1 & 4 \\
 1 & 2 & 2 \\
@@ -189,7 +211,9 @@ u_{11} & u_{12} & u_{13} \\
 \end{pmatrix}.
 $$
 
-Column 1 of $A$ gives $$
+Column 1 of $A$ gives
+
+$$
 \begin{aligned}
 2 & = u_{11} && \rightarrow & u_{11} & = 2 \\
 1 & = l_{21} u_{11} && \rightarrow & l_{21} & = 0.5 \\
@@ -197,7 +221,9 @@ Column 1 of $A$ gives $$
 \end{aligned}
 $$
 
-Column 2 of $A$ gives $$
+Column 2 of $A$ gives
+
+$$
 \begin{aligned}
 1 & = u_{12} && \rightarrow & u_{12} & = 1 \\
 2 & = l_{21} u_{12} + u_{22} && \rightarrow & u_{22} & = 1.5 \\
@@ -205,7 +231,9 @@ Column 2 of $A$ gives $$
 \end{aligned}
 $$
 
-Column 3 of $A$ gives $$
+Column 3 of $A$ gives
+
+$$
 \begin{aligned}
 4 & = u_{13} && \rightarrow & u_{13} & = 4 \\
 2 & = l_{21} u_{13} + u_{23} && \rightarrow & u_{23} & = 0 \\
@@ -238,7 +266,9 @@ z_1 \\ z_2 \\ z_3
 \end{pmatrix}
 $$
 
-Solve the upper triangular system $U \vec{x} = \vec{z}$: $$
+Solve the upper triangular system $U \vec{x} = \vec{z}$:
+
+$$
 \begin{pmatrix}
 2 & 1 & 4 \\
 0 & 1.5 & 0 \\
@@ -262,7 +292,9 @@ $$
 
 ## Example 2 (homework)
 
-Rewrite the matrix $A$ as the product of lower and upper triangular matrices where $$
+Rewrite the matrix $A$ as the product of lower and upper triangular matrices where 
+
+$$
 A =
 \begin{pmatrix}
 4 & 2 & 0 \\
@@ -273,7 +305,9 @@ $$
 
 ## The link
 
-The first example gives $$
+The first example gives
+
+$$
 \begin{pmatrix}
 2 & 1 & 4 \\
 1 & 2 & 2 \\

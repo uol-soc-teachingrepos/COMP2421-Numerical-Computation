@@ -4,17 +4,7 @@ subtitle: Iterative stopping criteria
 title: Lecture 9
 ---
 
-# Things to do this week
-
--   *Lectures*: now and Wednesday 4pm - more systems of linear equations
-
--   *Tutorials*: thinking about iterative solvers for systems of linear equations from Worksheet 5
-
--   *Worksheet 6*: more on systems of linear equations
-
--   *Coursework 1*: deadline **12 noon on 4th November**
-
-# Sparse Matrices
+#  Sparse Matrices
 
 There are two main ways in which sparse matrices can be exploited in order to obtain benefits within iterative methods.
 
@@ -56,9 +46,13 @@ for k in range(nonzero):
 
 We have discussed the construction of **iterations** which aim to find the solution of the equations $A \vec{x} = \vec{b}$ through a sequence of better and better approximations $\vec{x}^{(k)}$.
 
--   In general the iteration takes the form $$
+-   In general the iteration takes the form
+
+    $$
     \vec{x}^{(k+1)} = \vec{F}(\vec{x}^{(k)})
-    $$ where $\vec{x}^{(k)}$ is a vector of values and $\vec{F}$ is some vector-valued function which we have defined.
+    $$
+
+	where $\vec{x}^{(k)}$ is a vector of values and $\vec{F}$ is some vector-valued function which we have defined.
 
 -   How can we decide if this iteration has converged?
 
@@ -72,13 +66,19 @@ How do we decide that a vector/array is small?
 
 -   The most common measure is to use the "Euclidean norm" of an array.
 
--   This is defined to be the square root of the sum of squares of the entries of the array: $$
+-   This is defined to be the square root of the sum of squares of the entries of the array:
+
+    $$
     \| \vec{r} \| = \sqrt{ \sum_{i=1}^n r_i^2 }
-    $$ where $\vec{r}$ is a vector with $n$ entries.
+    $$
+
+	where $\vec{r}$ is a vector with $n$ entries.
 
 ## Examples
 
-Consider the following sequence $\vec{x}^{(k)}$: $$
+Consider the following sequence $\vec{x}^{(k)}$:
+
+$$
 \begin{pmatrix}
 1 \\ -1
 \end{pmatrix},
@@ -111,21 +111,38 @@ Let $\vec{x} = \begin{pmatrix} 2 \\ 0 \end{pmatrix}$.
 
 ## Convergence detection
 
-Rather than decide in advance how many iterations (of the Jacobi or Gauss-Seidel methods) to use:
+Rather than decide in advance how many iterations (of the Jacobi or Gauss-Seidel methods) to use stopping criteria:
 
--   It is better to implement as a while loop.
+-   This could be a maximum number of iterations.
 
--   This loop should be repeated as long as $$
-    \|x^{(k+1)} - \vec{x}^{(k)}\| > tol,
-    $$ where $tol$ is a **convergence tolerance**.
+-   This could be the *change* in values is small enough:
+
+    $$
+    \|x^{(k+1)} - \vec{x}^{(k)}\| < tol,
+    $$
+
+
+-   This could be the *norm of the residual* is small enough:
+
+	$$
+	\| \vec{r} \| = \| \vec{b} - A \vec{x}^{(k)} \| < tol
+	$$
+
+-   In both cases, we call $tol$ the **convergence tolerance**.
 
 -   The choice of $tol$ will control the accuracy of the solution.
+
+## Discussion
+
+> What is a good convergence tolerance?
 
 # Failure to converge
 
 In general there are two possible reasons that an iteration may fail to converge.
 
--   It may **diverge** - this means that $\|\vec{x}^{(k)}\| \to \infty$ as $k$ (the number of iterations) increases, e.g.: $$
+-   It may **diverge** - this means that $\|\vec{x}^{(k)}\| \to \infty$ as $k$ (the number of iterations) increases, e.g.:
+
+    $$
     \begin{pmatrix}
     1 \\ 1
     \end{pmatrix},
@@ -147,7 +164,9 @@ In general there are two possible reasons that an iteration may fail to converge
     \ldots
     $$
 
--   It may *neither* converge nor diverge, e.g.: $$
+-   It may *neither* converge nor diverge, e.g.:
+
+    $$
     \begin{pmatrix}
     1 \\ 1
     \end{pmatrix},
@@ -177,4 +196,3 @@ In addition to testing for convergence it is also necessary to include tests for
 
 -   Impose a maximum number of iterations to ensure that the loop is not repeated forever!
 
-The functions [`jacobi_new`](../code/matrixSolve.html#jacobi_new) and [`gauss_seidel_new`](../code/matrixSolve.html#gauss_seidel_new) illustrate typical implementations [`matrixSolve.py`](../code/matrixSolve.html).

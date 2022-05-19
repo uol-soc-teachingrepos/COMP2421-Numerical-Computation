@@ -15,11 +15,11 @@ test:
   script:
     - make build
 
-# pages:
-#   stage: deploy
-#   script:
-#     - make all
-#     - make build
-#   artifacts:
-#     paths:
-#       - _build
+pages:
+  stage: deploy
+  script:
+    - make build
+    - mv _build/html public
+  artifacts:
+    paths:
+      - public

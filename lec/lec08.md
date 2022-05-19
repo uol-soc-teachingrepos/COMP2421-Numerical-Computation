@@ -272,3 +272,17 @@ Note that the exact solution to this system is $x_1 = 2, x_2 = 2, x_3 = 2$.
 -   Their usefulness for general matrix systems is very limited therefore - next lecture we will show their value in the solution of sparse systems however.
 
 -   More advanced iterative methods do exist but are beyond the scope of this module - see Final year projects, MSc projects, PhD, and beyond!
+
+# Further reading
+
+- Wikipedia: [Jacobi method](https://en.wikipedia.org/wiki/Jacobi_method)
+- Wikipedia: [Gauss-Seidel method](https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method)
+- Wikipedia: [Iterative methods](https://en.wikipedia.org/wiki/Iterative_method)
+  - see also Richardson method, Damped Jacobi method, Successive over-relaxation method (SOR), Symmetric successive over-relaxation method (SSOR) and [Krylov subspace methods](https://en.wikipedia.org/wiki/Iterative_method#Krylov_subspace_methods)
+
+- Jack Dongarra [Templates for the solution of linear systems: Stationary iterative methods](http://www.netlib.org/linalg/html_templates/node11.html#SECTION00720000000000000000)
+- Golub, Gene H.; Van Loan, Charles F. (1996), Matrix Computations (3rd ed.), Baltimore: Johns Hopkins, ISBN 978-0-8018-5414-9.
+- Saad, Yousef (2003). Iterative Methods for Sparse Linear Systems (2nd ed.). SIAM. p. 414. ISBN 0898715342.
+
+- `scipy.sparse` iterative solvers: [Solving linear problems](https://docs.scipy.org/doc/scipy/reference/sparse.linalg.html#solving-linear-problems)
+- PETSc: [Linear system solvers](https://petsc.org/main/docs/manual/ksp/) - a high performance linear algebra toolkit

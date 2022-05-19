@@ -402,3 +402,13 @@ x_3 = \frac{12 + 4\varepsilon}{6 + 2 \varepsilon} = 2 \qquad
 x_2 = \frac{7.5 - 5x_3}{2.5} = -1 \qquad
 x_1 = \frac{7 + 7 x_2}{10} = 0.
 $$
+
+# Further reading
+
+- Mathematics stackexchange: [what are pivot numbers in LU decomposition? please explain me in an example](https://math.stackexchange.com/questions/485513/what-are-pivot-numbers-in-lu-decomposition-please-explain-me-in-an-example)
+
+- [Gaussian elimination with Partial Pivoting](http://www.math.iitb.ac.in/~neela/partialpivot.pdf) [pdf]
+- [Gaussian elimination with partial pivoting example](http://www.math.sjsu.edu/~foster/m143m/partial_pivoting_example1.pdf) [pdf]
+- [$A = LU$ and solving systems](http://staff.imsa.edu/~fogel/LinAlg/PDF/14%20Solving%20Factored%20Systems.pdf) [pdf]
+
+- Trefethen, Lloyd N.; Bau, David (1997), Numerical linear algebra, Philadelphia: Society for Industrial and Applied Mathematics, ISBN 978-0-89871-361-9.

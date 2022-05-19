@@ -196,3 +196,16 @@ In addition to testing for convergence it is also necessary to include tests for
 
 -   Impose a maximum number of iterations to ensure that the loop is not repeated forever!
 
+
+# Further reading
+
+- Wikipedia [Sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix) - including a long detailed list of software libaries support sparse matrices.
+
+- [`scipy.sparse`](https://docs.scipy.org/doc/scipy/reference/sparse.html) custom routines specialised to sparse matrices
+- [SuiteSparse](http://faculty.cse.tamu.edu/davis/suitesparse.html), a suite of sparse matrix algorithms, geared toward the direct solution of sparse linear systems
+
+- Stackoverflow: [Using a sparse matrix vs numpy array](https://stackoverflow.com/questions/36969886/using-a-sparse-matrix-versus-numpy-array)
+- Jason Brownlee: [A gentle introduction to sparse matrices for machine learning](https://machinelearningmastery.com/sparse-matrices-for-machine-learning/), Machine learning mastery
+
+
+- Jack Dongarra [Templates for the solution of linear systems: Stopping criteria](http://www.netlib.org/linalg/html_templates/node83.html)

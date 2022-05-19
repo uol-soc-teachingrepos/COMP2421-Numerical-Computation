@@ -3,20 +3,20 @@ image: continuumio/miniconda3:latest
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
-before_script:
-  - conda env create -f environment.yml
-  - source activate comp2421-book
-  # - pandoc --version
-  # - apt-get update -qq
-  # - apt-get install -y texlive texlive-plain-generic texlive-pictures librsvg2-bin
-  # - pdflatex --version
-
 stages:
   - build
   - deploy
 
 jupyter-build:
   stage: build
+  before_script:
+    - conda env create -f environment.yml
+    - source activate comp2421-book
+    # - pandoc --version
+    # - apt-get update -qq
+    # - apt-get install -y texlive texlive-plain-generic texlive-pictures librsvg2-bin
+    # - pdflatex --version
+
   script:
     - jupyter-book clean .
     - jupyter-book build .
@@ -32,6 +32,5 @@ pages:
   artifacts:
     paths:
       - public
- rules:
+  rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-

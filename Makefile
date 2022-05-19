@@ -1,5 +1,6 @@
 build:
 	jupyter-book build .
+	python _convert.py
 
 clean:
 	jupyter-book clean .

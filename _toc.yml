@@ -22,6 +22,8 @@ parts:
     chapters:
     - file: lec/lec05
       title: Introduction to SLE
+    - file: lec/lec05a
+      title: Solving triangular systems
     - file: lec/lec06
       title: Gaussian elimination
     - file: ws/ws03.ipynb

@@ -45,7 +45,7 @@ It is possible to construct an **iteration** which will improve an approximation
 Consider
 
 $$
-\hat{F}(\hat{x}^(k)) = \hat{x}^{(k)}.
+\vec{F}(\vec{x}^{(k)}) = \vec{x}^{(k)}.
 $$
 
 Each iteration is very cheap to compute but very inaccurate - it never converges!
@@ -55,10 +55,10 @@ Each iteration is very cheap to compute but very inaccurate - it never converges
 Consider 
 
 $$
-\hat{F}(\hat{x}^{(k)}) = \vec{x}^{(k)} + A^{-1} (\vec{b} - A \vec{x}^{(k)}).
+\vec{F}(\vec{x}^{(k)}) = \vec{x}^{(k)} + A^{-1} (\vec{b} - A \vec{x}^{(k)}).
 $$
 
-Each iteration is very easy to compute - you have to invert $A$! - but it converges in just one step since
+Each iteration is very expensive to compute - you have to invert $A$! - but it converges in just one step since
 
 $$
 \begin{aligned}
@@ -79,7 +79,7 @@ $$
 for some matrix $P$ such that
 
 -  $P$ is easy to compute, or the matrix vector product $P \vec{r}$ is easy to compute,
--  $P$ approximates $A$ well enough that the algorithm converges in few iterations.
+-  $P$ approximates $A^{-1}$ well enough that the algorithm converges in few iterations.
 
 # Jacobi iteration
 

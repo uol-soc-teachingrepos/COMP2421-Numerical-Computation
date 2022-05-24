@@ -239,7 +239,9 @@ $$
  \end{pmatrix}.
 $$
 
--   $A$ is a lower triangular matrix if every entry above the leading diagonal is zero $$
+-   $A$ is a lower triangular matrix if every entry above the leading diagonal is zero
+
+    $$
     a_{ij} = 0 \text{ for } j > i.
     $$
 
@@ -261,7 +263,9 @@ $$
  \end{pmatrix}.
 $$
 
--   $A$ is an upper triangular matrix if every entry below the leading diagonal is zero $$
+-   $A$ is an upper triangular matrix if every entry below the leading diagonal is zero
+
+    $$
     a_{ij} = 0 \text{ for } i > j.
     $$
 

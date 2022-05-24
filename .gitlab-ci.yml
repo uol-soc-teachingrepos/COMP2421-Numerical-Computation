@@ -18,6 +18,7 @@ jupyter-build:
     # - pdflatex --version
 
   script:
+    - jupyter-book build . --builder linkcheck
     - jupyter-book clean .
     - jupyter-book build .
   artifacts:

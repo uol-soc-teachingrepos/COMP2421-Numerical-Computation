@@ -32,7 +32,9 @@ The examples shown here will be in **decimal** by the issues apply to any base, 
 
 ## A general representation
 
-Any finite precision number can be written using the floating point representation $$
+Any finite precision number can be written using the floating point representation
+
+$$
  x = \pm 0.b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e.
 $$
 
@@ -45,7 +47,9 @@ $(\beta, t, L, U)$ fully defines a finite precision number system.
 
 ## Normalisation
 
-**Normalised** finite precision systems will be considered here for which $$
+**Normalised** finite precision systems will be considered here for which
+
+$$
 b_1 \neq 0 \quad (0 < b_1 \le \beta -1).
 $$
 
@@ -71,7 +75,9 @@ Examples:
 
 ## Example 1
 
-Consider the number system given by $(\beta, t, L, U) = (10, 2, -1, 2)$ which gives $$
+Consider the number system given by $(\beta, t, L, U) = (10, 2, -1, 2)$ which gives
+
+$$
  x = \pm .b_1 b_2 \times 10^e \text{ where } -1 \le e \le 2.
 $$
 
@@ -101,12 +107,18 @@ e.  What is the smallest possible difference in this system, $x$ and $y$, for wh
 
 # Errors and their representations
 
-From now on $fl(x)$ will be used to represent the (approximate) stored value of $x$. The error in this representation can be expressed in two ways. $$
+From now on $fl(x)$ will be used to represent the (approximate) stored value of $x$. The error in this representation can be expressed in two ways.
+
+$$
 \begin{aligned}
  \text{Absolute error} &= | fl(x) - x | \\
  \text{Relative error} &= \frac{| fl(x) - x |}{|x|}.
 \end{aligned}
-$$ The number $fl(x)$ is said to approximate $x$ to $t$ **significant digits** (or figures) if $t$ is the largest non-negative integer for which $$
+$$
+
+The number $fl(x)$ is said to approximate $x$ to $t$ **significant digits** (or figures) if $t$ is the largest non-negative integer for which
+
+$$
  \text{Relative error} < 0.5 \times \beta^{1-t}.
 $$
 
@@ -125,11 +137,19 @@ Any number $y \in (x, \tilde{x})$ is stored as either $x$ or $\tilde{x}$ by **ro
 
 # Machine precision
 
-It follow from $y > x \ge .100 \ldots 00 \times \beta^e = \beta^{e-1}$ that $$
+It follow from $y > x \ge .100 \ldots 00 \times \beta^e = \beta^{e-1}$ that
+
+$$
  \frac{|y - fl(y)|}{|y|} < \frac{1}{2} \frac{\beta^{e-t}}{\beta^{e-1}} = \frac{1}{2} \beta^{1-t},
-$$ and this provides a bound on the **relative error**: for any $y$ $$
+$$
+
+and this provides a bound on the **relative error**: for any $y$
+
+$$
  \frac{|y - fl(y)|}{|y|} < \frac{1}{2} \beta^{1-t}.
-$$ The last term is known as **machine precision** or **unit roundoff** and is often called $eps$. This is obtained in Python with
+$$
+
+The last term is known as **machine precision** or **unit roundoff** and is often called $eps$. This is obtained in Python with
 
 ``` python
 >>> np.finfo(np.double).eps
@@ -138,13 +158,19 @@ $$ The last term is known as **machine precision** or **unit roundoff** and is o
 
 ## Examples
 
-1.  The number system $(\beta, t, L, U) = (10, 2, -1, 2)$ gives $$
-      eps = \frac{1}{2} \beta^{1-t} = \frac{1}{2} 10^{1-2} = 0.05.
-      $$
-2.  The number system $(\beta, t, L, U) = (10, 3, -3, 3)$ gives $$
+1.  The number system $(\beta, t, L, U) = (10, 2, -1, 2)$ gives
+
+    $$
+    eps = \frac{1}{2} \beta^{1-t} = \frac{1}{2} 10^{1-2} = 0.05.
+    $$
+2.  The number system $(\beta, t, L, U) = (10, 3, -3, 3)$ gives
+
+    $$
     eps = \frac{1}{2} \beta^{1-t} =
     $$
-3.  The number system $(\beta, t, L, U) = (10, 7, 2, 10)$ gives $$
+3.  The number system $(\beta, t, L, U) = (10, 7, 2, 10)$ gives
+
+    $$
     eps = \frac{1}{2} \beta^{1-t} =
     $$
 
@@ -160,37 +186,49 @@ e.g. $x + (y+z) = (x+y) + z$?
 
 ## Example 1
 
-Consider the number system $(\beta, t, L, U) = (10, 2, -1, 2)$ and take $$
+Consider the number system $(\beta, t, L, U) = (10, 2, -1, 2)$ and take
+
+$$
  x = .10 \times 10^2, \quad
  y = .49 \times 10^0, \quad
  z = .51 \times 10^0.
 $$
 
-1.  In exact arithmetic $x + y = 10 + 0.49 = 10.49$ and $x + z = 10 + 0.51 = 10.51$.
-2.  In this number system rounding gives $$
-      fl(x+y) = .10 \times 10^2 = x, \qquad
-      fl(x+z) = .11 \times 10^2 \neq x.
-      $$
+-  In exact arithmetic $x + y = 10 + 0.49 = 10.49$ and $x + z = 10 + 0.51 = 10.51$.
+
+-  In this number system rounding gives
+
+    $$
+    fl(x+y) = .10 \times 10^2 = x, \qquad
+    fl(x+z) = .11 \times 10^2 \neq x.
+    $$
 
 (Note that $\frac{y}{x} < eps$ but $\frac{z}{x} > eps$.)
 
-Evaluate the following expression in this number system.\
+Evaluate the following expression in this number system.
+
 $$
 x+(y+y), \quad
 (x+y)+y, \quad
 x+(z+z), \quad
 (x+z) +z.
-$$ (Also note the benefits of adding the *smallest* terms first!)
+$$
+
+(Also note the benefits of adding the *smallest* terms first!)
 
 ## More examples (homework)
 
-2.  Verify that a similar problem arises for the numbers $$
+1.  Verify that a similar problem arises for the numbers
+
+    $$
      x = .85 \times 10^0, \quad
      y = .3 \times 10^{-2}, \quad
      z = .6 \times 10^{-2},
-    $$ in the system $(\beta, t, L, U) = (10, 2, -3, 3)$.
+    $$
 
-3.  Given the number system $(\beta, t, L, U) = (10, 3, -3, 3)$ and $x = .100\times 10^3$, find nonzero numbers $y$ and $z$ from this system for which $fl(x+y) = x$ and $fl(x+z) > x$.
+	in the system $(\beta, t, L, U) = (10, 2, -3, 3)$.
+
+2.  Given the number system $(\beta, t, L, U) = (10, 3, -3, 3)$ and $x = .100\times 10^3$, find nonzero numbers $y$ and $z$ from this system for which $fl(x+y) = x$ and $fl(x+z) > x$.
 
 ## An alternative definition of $eps$
 
@@ -198,13 +236,17 @@ $$ (Also note the benefits of adding the *smallest* terms first!)
 
 Examples:
 
-1.  For the number system $(\beta, t, L, U) = (10, 2, -1, 2)$, $$
+1.  For the number system $(\beta, t, L, U) = (10, 2, -1, 2)$,
+
+    $$
      \begin{array}{ccl}
         & .11 \times 10^1 & \qquad \leftarrow {\text{next number}} \\
       - & .10 \times 10^1 & \qquad \leftarrow 1   \\ \hline
         & .01 \times 10^1 & \qquad \leftarrow 0.1
     \end{array}
-    $$ so $eps = \frac{1}{2}(0.1) = 0.05$.
+    $$
+
+	so $eps = \frac{1}{2}(0.1) = 0.05$.
 
 2.  Verify that this approaches gives the previously calculated value for $eps$ in the number system given by $(\beta, t, L, U) = (10, 3, -3, 3)$.
 

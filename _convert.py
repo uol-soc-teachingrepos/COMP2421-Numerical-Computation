@@ -16,7 +16,7 @@ def change_string_in_file(filename: str, old_string: str, new_string: str):
 
 
 def replace_regex_in_file(filename: str, regex: str, replacement):
-    _regex = re.compile(regex)
+    # _regex = re.compile(regex)
 
     with open(filename) as f:
         content = f.read()
@@ -25,7 +25,7 @@ def replace_regex_in_file(filename: str, regex: str, replacement):
     #     return
 
     with open(filename, "w") as f:
-        new_content = _regex.sub(replacement, content)
+        new_content = re.sub(regex, replacement, content)
         f.write(new_content)
 
 

@@ -16,8 +16,6 @@ title: Lecture 11
 
 -   Linear systems of equations model problems for which there are constant parameters and a fixed answer.
 
-## Static versus dynamic problems (cont.)
-
 -   Many other problems that require computational models are dynamic - they change with time - for example:
 
     -   tracking the position and speed of an object in a video game;
@@ -43,8 +41,6 @@ title: Lecture 11
     -   $0.001$ seconds?
     -   $10^{-6}$ seconds?
 
-## Tracking an object (cont.)
-
 -   What does this tell us about speed?
 
     -   $\text{Distance travelled} = \text{speed} \times \text{time}$
@@ -64,7 +60,7 @@ title: Lecture 11
 
 -   For example, the speed $S(t)$ could be given at each time $t$ by
 
-    ![](../img/lec11/speed.svg){width="50%"}
+    ![](../img/lec11/speed.svg)
 
 -   How far would the object travel in one second now?
 
@@ -82,8 +78,6 @@ This is a much harder problem.
         D = D + 0.1 * S(t)
         t = t + 0.1
     ```
-
-## Tracking at non-constant speed (cont.)
 
 2.  We could consider each hundredth of a second separately and estimate the distance covered at each hundredth:
 
@@ -105,19 +99,28 @@ This is a much harder problem.
 
 We expect each of these approximations to get more and more accurate...
 
-## Tracking at non-constant speed (cont.)
+### Example
 
--   The function [`distance`](../code/lec11/distance.html#distance) in the file [`distance.py`](../code/lec11/distance.html) verifies this by using the above approach to estimate the distance covered when $S(t) = 1 + 5t - 6t^2$.
+Consider $S(t)$ given by:
+```python
+def s(t):
+    """
+    Return a value for the speed, s, as a function of time, t.
+    ARGUMENTS:  t   the time
+    RETURNS:    s   the speed
+    """
+    return 1 + 5 * t - 6 * t ** 2
+```
 
 -   The following table of results is obtained:
 
-      \# intervals   increment size ($\mathrm{d}t$)   total distance
-      -------------- -------------------------------- ----------------
-      10             1.000e-01                        1.54000
-      100            1.000e-02                        1.50490
-      1000           1.000e-03                        1.50050
-      10000          1.000e-04                        1.50005
-      100000         1.000e-05                        1.50000
+    | \# intervals   | increment size ($\mathrm{d}t$)   | total distance   |
+    | -------------- | -------------------------------- | ---------------- |
+    | 10             | 1.000e-01                        | 1.54000          |
+    | 100            | 1.000e-02                        | 1.50490          |
+    | 1000           | 1.000e-03                        | 1.50050          |
+    | 10000          | 1.000e-04                        | 1.50005          |
+    | 100000         | 1.000e-05                        | 1.50000          |
 
 -   We appear to be converging to an answer in the limit as $\mathrm{d}t \to 0$...
 
@@ -129,21 +132,24 @@ We expect each of these approximations to get more and more accurate...
 
     -   so, $\text{change in distance} = \text{time} \times \text{speed}$;
 
-    -   in the same function [`distance`](../code/lec11/distance.html#distance) in [`distance.py`](../code/lec11/distance.html) this is expressed as
+    -   in code this can be expressed as:
 
-        ``` python
+	    ``` python
         d = d + dt * s(t)
         ```
 
--   We can re-arrange the last expression to get the average speed over the interval for $t$ to $t + \mathrm{d}t$: $$
+-   We can re-arrange the last expression to get the average speed over the interval for $t$ to $t + \mathrm{d}t$:
+
+    $$
     S(t) = \frac{D(t+\mathrm{d}t) - D(t)}{\mathrm{d}t}.
     $$
 
-## Why does this work? (cont.)
 
 -   In fact, to obtain a converged answer it is necessary to take smaller and smaller choices for $\mathrm{d}t$.
 
--   In mathematical notation this is written as $$
+-   In mathematical notation this is written as
+
+    $$
     S(t) = \lim_{\mathrm{d}t \to 0} \frac{D(t+\mathrm{d}t) - D(t)}{\mathrm{d}t}.
     $$
 
@@ -157,9 +163,7 @@ We expect each of these approximations to get more and more accurate...
 
 -   We can give a graphical interpretation of the relationship between $D(t)$ and its derivative $D'(t)$.
 
--   To begin to see this consider the function [`distance2`](../code/lec11/distance.html#distance2) in [`distance.py`](../code/lec11/distance.html) which also plots the graph of $D(t)$ as well as $S(t)$ ![](../img/lec11/graphical.svg){width="50%"}
-
-## A graphical interpretation (cont.)
+![](../img/lec11/graphical.svg)
 
 Inspection of the plots shows that the **steepness** of the red curve $D(t)$ is related to the **value** of the blue curve $S(t)$:
 
@@ -171,11 +175,9 @@ Inspection of the plots shows that the **steepness** of the red curve $D(t)$ is 
 
 In fact the **gradient** of the red curve is precisely equal to the **value** of the blue curve.
 
-## A graphical interpretation (cont.)
-
 This provides for an alternative interpretation of the derivative of a function...
 
-| The function $D'(t)$ is the function whose value is equal to the slope (or gradient) of $D(t)$ at every value of $t$.
+> The function $D'(t)$ is the function whose value is equal to the slope (or gradient) of $D(t)$ at every value of $t$.
 
 # The derivative as a gradient
 
@@ -185,7 +187,9 @@ This provides for an alternative interpretation of the derivative of a function.
 
     ![](../img/lec11/lines.svg)
 
--   The equation of a straight line with slope $m$ is given by $$
+-   The equation of a straight line with slope $m$ is given by
+
+    $$
     y(t) = m t + c.
     $$
 
@@ -193,36 +197,34 @@ This provides for an alternative interpretation of the derivative of a function.
 
 -   What is the slope/gradient of a curve?
 
-    ![](../img/lec11/curve-0.svg){width="75%"}
+    ![](../img/lec11/curve-0.svg)
 
--   The slope of the straight-line approximation ("chord") is $$
+-   The slope of the straight-line approximation ("chord") is
+
+    $$
     \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
     $$
-
-## Slope of a curve (cont.)
 
 -   We can get a better approximation by taking a smaller value for $\mathrm{d}t$...
 
-    ![](../img/lec11/curve-1.svg){width="75%"}
-
--   The slope of the straight-line approximation ("chord") is $$
-    \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
-    $$
-
-## Slope of a curve (cont.)
+    ![](../img/lec11/curve-1.svg)
 
 -   We can get an **even** better approximation by taking an **even** smaller value for $\mathrm{d}t$...
 
-    ![](../img/lec11/curve-2.svg){width="75%"}
+    ![](../img/lec11/curve-2.svg)
 
--   The slope of the straight-line approximation ("chord") is $$
-    \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
-    $$
 
-## Slope of a curve (cont.)
+By taking smaller and smaller values of $\mathrm{d}t$, it becomes clear that we can assign an instantaneous value to the slope at any point $t$:
 
-By taking smaller and smaller values of $\mathrm{d}t$, it becomes clear that we can assign an instantaneous value to the slope at any point $t$: $$
+$$
 \lim_{\mathrm{d}t \to 0} \frac{y(t+\mathrm{d}t) - y(t)}{\mathrm{d}t}.
 $$
 
-*But this is precisely the definition of derivative $y'(t)$*
+*But this is precisely the definition of derivative $y'(t)$!*
+
+# Further reading
+
+- Wikipedia: [Rate of change](https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change)
+- Wikipedia: [Speed](https://en.wikipedia.org/wiki/Speed)
+- Wikipedia: [Derivative](https://en.wikipedia.org/wiki/Derivative)
+- Maths is fun: [Derivatives introduction](https://www.mathsisfun.com/calculus/derivatives-introduction.html)

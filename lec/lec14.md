@@ -10,9 +10,12 @@ title: Lecture 14
 
 -   A large component of many computer games is the *physics engine*.
 -   Typically this spends large numbers of cpu cycles simulating the motion of bodies, using Newton's laws, based upon the forces that are exerted upon them.
--   In particular, Newton's 2nd law of motion says that the acceleration of an object in each direction is equal to the applied force in that direction divided by the mass of the object: $$
-     \text{Force} = \text{Mass} \times \text{Acceleration}.
+-   In particular, Newton's 2nd law of motion says that the acceleration of an object in each direction is equal to the applied force in that direction divided by the mass of the object:
+
     $$
+    \text{Force} = \text{Mass} \times \text{Acceleration}.
+    $$
+
 -   One we know the acceleration of the object we can solve differential equations to calculate its subsequent velocity and position...
 
 ## Example - a projectile
@@ -21,7 +24,7 @@ title: Lecture 14
 
 -   We know its initial position and speed in each direction and wish to predict its trajectory.
 
-![](../img/lec14/projectile.svg){width="50%"}
+![](../img/lec14/projectile.svg)
 
 ## Projectile example - model
 
@@ -43,14 +46,18 @@ Using the following notation
 -   $U(t)$ is the horizontal speed of the object at time $t$
 -   $V(t)$ is the vertical speed of the object at time $t$
 
-The above model leads to the following two differential equations: $$
+The above model leads to the following two differential equations:
+
+$$
 \begin{aligned}
 U'(t) & = -k U(t) \\
 V'(t) & = -k V(t) - g.
 \end{aligned}
 $$
 
-We also know, from the definition of speed, that $$
+We also know, from the definition of speed, that
+
+$$
 \begin{aligned}
 X'(t) & = U(t) \\
 Y'(t) & = V(t).
@@ -70,9 +77,7 @@ $$
 
 -   Note that we have dropped the units here for convenience, but those are implicit.
 
-## Projectile example - equations
-
-The script [`projectile.py`](../code/lec14/projectile.html) solves this system of equations using Euler's method:
+## Projectile example - implementation
 
 ``` python
 t = np.zeros([n+1,1]) # Initialise the array t
@@ -116,27 +121,26 @@ for i in range(n):
 
 -   How does this relate to the projectile example above?
 
-## Systems of equations (cont.)
-
 -   It is possible to apply Euler's method or the midpoint method to apply Euler's method or the midpoint method to a general system such as this:
-
-    -   see [`projectile0.py`](../code/lec14/projectile.html)
-    -   see [`eulerN`](../code/timestepSolve.py#eulerN) and [`midpointN`](../code/timestepSolve.py#midpointN) in [`timestepSolve.py`](../code/timestepSolve.html).
 
 -   These examples may look quite complex at first but they are simply applying the same techniques to systems of differential equations rather than a single differential equation.
 
 # Solution using Euler's method
 
--   Consider the following system of differential equations: $$
+-   Consider the following system of differential equations:
+
+    $$
     \vec{y}'(t) = A \vec{y}(t),
     \text{ subject to } \vec{y}(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix},
-    $$ where $\vec{y}(t) = \begin{pmatrix} y_1(t) \\ y_2(t) \end{pmatrix}$ and $A = \begin{pmatrix} -1 & 1 \\ 1 & -2 \end{pmatrix}$.
+    $$
+
+	where $\vec{y}(t) = \begin{pmatrix} y_1(t) \\ y_2(t) \end{pmatrix}$ and $A = \begin{pmatrix} -1 & 1 \\ 1 & -2 \end{pmatrix}$.
 
 -   Approximate the solution using 2 steps of Euler's method with $\mathrm{d}t = 0.5$.
 
-## Solution using Euler's method (cont.)
+-   This gives
 
--   This gives $$
+    $$
     \begin{aligned}
     \vec{y}^{(i+1)}
     & = \vec{y}^{(i)} + \mathrm{d}t \begin{pmatrix} -1 & 1 \\ 1 & -2 \end{pmatrix} \vec{y}^{(i)} \\
@@ -168,3 +172,7 @@ for i in range(n):
 -   In the latter case we may generalise the standard techniques, such as Euler's method or the midpoint method, to get effective computational models.
 
 -   Only 2 computational schemes have been introduced here (Euler and midpoint) - there are many more that we haven't considered...
+
+# Further reading
+
+todo

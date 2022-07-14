@@ -193,10 +193,10 @@ For the general equation we have the following algorithm:
 2. Loop over all time steps, until the final time, updating using the formulae:
 
    $$
-   \begin{align}
+   \begin{aligned}
    y^{(i+1)} & = y^{(i)} + \mathrm{d}t f(t^{(i)}, y^{(i)}) \\
    t^{(i+1)} & = t^{(i)} + \mathrm{d}t.
-   \end{align}
+   \end{aligned}
    $$
 
 ## Example

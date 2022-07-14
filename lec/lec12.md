@@ -10,32 +10,38 @@ title: Lecture 12
 
     -   speed is the rate of change of distance;
 
-    -   instantaneous speed is the limit of average speeds over shorter and shorted time periods, $$
+    -   instantaneous speed is the limit of average speeds over shorter and shorted time periods,
+
+	    $$
         \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t} \text{ as } \mathrm{d}t \to 0;
         $$
 
-    -   instantaneous rate of change as the limit of $$
+    -   instantaneous rate of change as the limit of
+
+	    $$
         \frac{(\text{value at time } t + \mathrm{d}t) - (\text{value at time } t)}{\mathrm{d}t} \text{ as } \mathrm{d}t \to 0.
         $$
 
-## Recap (cont.)
+-   We defined the derivative of a function $y(t)$ by
 
--   We defined the derivative of a function $y(t)$ by $$
+    $$
     y'(t) = \lim_{\mathrm{d}t \to 0} \frac{y(t+\mathrm{d}t) - y(t)}{\mathrm{d}t}.
     $$
 
--   We saw that speed, $S(t)$, is the derivative of distance covered, $D(t)$: $$
+-   We saw that speed, $S(t)$, is the derivative of distance covered, $D(t)$:
+
+    $$
     S(t) = D'(t) = \lim_{\mathrm{d}t \to 0}
     \frac{D(t+\mathrm{d}t) - D(t)}{\mathrm{d}t}.
     $$
 
-## Recap (cont.)
-
 -   We saw a geometric interpretation of the derivative of $y(t)$ by considering the slope of its graph:
 
-    ![](../img/lec11/curve-1.svg){width="75%"}
+    ![](../img/lec11/curve-1.svg)
 
--   The slope of the straight line approximation (chord) is $$
+-   The slope of the straight line approximation (chord) is
+
+    $$
     \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
     $$
 
@@ -49,35 +55,18 @@ title: Lecture 12
 
 ## Example 1
 
-::: r-stack
-![](../img/lec12/f1-a.svg){.fragment .fade-out data-fragment-index="0"}
-
-![](../img/lec12/f1-b.svg){.fragment .current-visible data-fragment-index="0"}
-:::
+![](../img/lec12/f1-b.svg)
 
 ## Example 2
 
-::: r-stack
-![](../img/lec12/f3-a.svg){.fragment .fade-out data-fragment-index="0"}
-
-![](../img/lec12/f3-b.svg){.fragment .current-visible data-fragment-index="0"}
-:::
-
+![](../img/lec12/f3-b.svg)
 
 ## Example 3
 
-::: r-stack
-![](../img/lec12/covid-cases-a.svg){.fragment .fade-out data-fragment-index="0"}
-
-![](../img/lec12/covid-cases-b.svg){.fragment .current-visible data-fragment-index="0"}
-
-::: fragment
 ![](../img/lec12/covid-cases-c.svg)
 
 log cases by specimen date\
 [Data source, cornavirus.data.gov.uk](https://coronavirus.data.gov.uk/details/cases)
-:::
-:::
 
 # Differential equations
 
@@ -91,11 +80,13 @@ log cases by specimen date\
 
 -   When a model takes the form of an equation which involves one or more derivatives then it is called a **differential equation**.
 
-## Differential equations (cont.)
+-   We have already seen (and computationally solved) a simple example of a differential equation:
 
--   We have already seen (and computationally solved) a simple example of a differential equation: $$
+    $$
     D'(t) = 1 + 5t - 6t^2
-    $$ where $D(0) = 0$.
+    $$
+
+	where $D(0) = 0$.
 
 -   Most models of dynamic processes take the form of differential equations.
 
@@ -115,29 +106,34 @@ log cases by specimen date\
 
     -   If it is falling with speed $S(t)$ the net acceleration *downwards* is $g - kS(t)$ for some constant $k$.
 
--   This results in the following differential equation: $$
+-   This results in the following differential equation:
+
+    $$
     S'(t) = g - k S(t).
     $$
-
-## An object in free fall (cont.)
 
 -   How could we solve this equation?
 
     -   Recall how we solved $D'(t) = 1 + 5t - 6t^2$?
     -   We can do a similar thing again: divide the time period into lots of small intervals and assume everything is approximately constant on each time interval.
 
--   We know that $$
+-   We know that
+
+    $$
     S'(t) = \lim_{\mathrm{d}t \to 0} \frac{S(t + \mathrm{d}t) - S(t)}{\mathrm{d}t}
     \approx \frac{S(t+ \mathrm{d}t) - S(t)}{\mathrm{d}t}
-    $$ for a small value of $\mathrm{d}t$.
+    $$
 
--   Hence we can say that: $$
+	for a small value of $\mathrm{d}t$.
+
+-   Hence we can say that:
+
+    $$
     S(t + \mathrm{d}t) = S(t) + \mathrm{d}t (g - k S(t)).
     $$
 
-## Python algorithm: [`freefall.py`](../code/lec12/freefall.html)
+## Python algorithm:
 
-::: r-fit-text
 ``` python
 def freefall(n):
     """
@@ -168,11 +164,10 @@ def freefall(n):
     # plot output
     plt.plot(t, s, label=f"n = {n}")
 ```
-:::
 
 ## Python algorithm: Results
 
-![](../img/lec12/freefall.svg){.r-strech}
+![](../img/lec12/freefall.svg)
 
 # Euler's method
 
@@ -180,8 +175,10 @@ def freefall(n):
 
 -   It is called **Euler's method**.
 
--   We can always arrange such an equation in the form: $$
-    y'(t) = f(t, y) \quad \text{ subject to the initial condition } y(t_0) = y_0.
+-   We can always arrange such an equation in the form:
+
+    $$
+    y'(t) = f(t, y) \quad \text{ subject to the initial condition } \quad y(t_0) = y_0.
     $$
 
 -   Examples:
@@ -190,35 +187,27 @@ def freefall(n):
     2.  $y'(t) = g- ky$ and $y(0) =0$.
     3.  $y'(t) = -y^2 + \frac{1}{t}$ and $y(1) = 2$.
 
-## Euler's method (cont.)
-
 For the general equation we have the following algorithm:
 
-``` python
-def euler(rhs, t0, y0, tfinal, n):
-    # Initialise the arrays ta and y
-    t = np.zeros([n + 1, 1])
-    y = np.zeros([n + 1, 1])
-    t[0] = t0
-    y[0] = y0
+1. Set initial values $t^{(0)}$ and $y^{(0)}$.
+2. Loop over all time steps, until the final time, updating using the formulae:
 
-    # Calculate the size of each interval
-    dt = (tfinal - t0) / float(n)
-    # Take n steps of Euler's method
-    for i in range(n):
-        y[i + 1] = y[i] + dt * rhs(t[i], y[i])
-        t[i + 1] = t[i] + dt
-
-    return t, y
-```
-
-See the function [`euler`](../code/timestepSolve.html#euler) in [`timestepSolve.py`](../code/timestepSolve.py) and the script [`runEuler.py`](../code/lec12/runEuler.py).
+   $$
+   \begin{align}
+   y^{(i+1)} & = y^{(i)} + \mathrm{d}t f(t^{(i)}, y^{(i)}) \\
+   t^{(i+1)} & = t^{(i)} + \mathrm{d}t.
+   \end{align}
+   $$
 
 ## Example
 
--   Take three steps of Euler's method to approximate the solution of $$
+-   Take three steps of Euler's method to approximate the solution of
+
+    $$
     y'(t) = -y^2 + \frac{1}{t} \text{ subject to the initial condition } y(1) = 2
-    $$ for $1 \le t \le 2$.
+    $$
+
+	for $1 \le t \le 2$.
 
 -   For this example we have:
 
@@ -240,3 +229,7 @@ See the function [`euler`](../code/timestepSolve.html#euler) in [`timestepSolve.
 -   To solve a differential equation it is necessary to know some information about the solution at some starting point (e.g. initial distance travelled, initial speed, population at a given point in time, etc.).
 
 -   One computational approach to solve such equations is **Euler's method** - which gets more accurate with more sub-intervals used.
+
+# Further reading
+
+todo

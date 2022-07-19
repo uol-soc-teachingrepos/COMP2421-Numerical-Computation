@@ -131,7 +131,7 @@ for i in range(n):
 
     $$
     \vec{y}'(t) = A \vec{y}(t),
-    \text{ subject to } \vec{y}(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix},
+    \quad \text{ subject to } \quad \vec{y}(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix},
     $$
 
 	where $\vec{y}(t) = \begin{pmatrix} y_1(t) \\ y_2(t) \end{pmatrix}$ and $A = \begin{pmatrix} -1 & 1 \\ 1 & -2 \end{pmatrix}$.

@@ -2,49 +2,23 @@
 starttime: "Nov 22, 2021 10:05"
 subtitle: Solution of nonlinear equations i
 title: Lecture 15
-titleextra: Coursework 2 is now available. Deadline 9 December.
 ---
+TODO: I don't like the examples used in this section
+TODO: remove code references
 
-# What to do this week
+#  The problem
 
--   *Coursework 2* - Deadline 12noon on 9 December
-
--   *Coursework 1* - marks available this week. Feedback in tutorials this week
-
--   *Lectures* - today and Wednesday 4pm
-
--   *Worksheet 9* - on nonlinear equations. Now available.
-
-## Tutorials
-
-Monday, 3pm, Clothworkers South Building LT 3 (3.12)\
-Wednesday, 12pm Roger Stevens LT2\
-Wednesday, 12pm, Roger Stevens LT14\
-Wednesday, 1pm, Clothworkers South Building LT 3 (3.12)\
-Friday 3pm, Roger Stevens LT6\
-Friday 3pm, Roger Stevens, LT9
-
-## Numerical computation challenge
-
-In the coursework you were asked to find the best linear solver amongst those we have learnt in the course. In this challenge you will have to research alternative solutions and expand your horizons: **What is the best linear solver for this problem?** You can either try to design your own solver or research alternative methods.
-
-One submission will win a prize of £100 Amazon voucher (or equivalent) - more details on the judging in the challenge document. Group submissions welcome.
-
-Deadline 12noon 6 January 2022. More details via Minerva.
-
-# The problem
-
-| Given a continuous function $f(x)$, the problem is to find a point $x^*$ such that $f(x^*) = 0$. That is, $x^*$ is a solution of the equation $f(x) = 0$ and is called a **root of $f(x)$**.
+> Given a continuous function $f(x)$, the problem is to find a point $x^*$ such that $f(x^*) = 0$. That is, $x^*$ is a solution of the equation $f(x) = 0$ and is called a **root of $f(x)$**.
 
 **Examples**
 
 1.  The linear equation $f(x) = a x + b = 0$ has a single solution at $x^* = -\frac{b}{a}$.
 
-2.  The quadratic equation $f(x) = a x^2 + b x + c = 0$ is nonlinear , but simple enough to have a known formula for the solutions $$
+2.  The quadratic equation $f(x) = a x^2 + b x + c = 0$ is nonlinear , but simple enough to have a known formula for the solutions
+
+    $$
     x^* = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
     $$
-
-## The problem (cont.)
 
 3.  A general nonlinear equation $f(x) = 0$ rarely has a formula like those above which can be used to calculate its roots.
 
@@ -63,8 +37,6 @@ The following three example problems will be used throughout this section to ill
     -   The equations $f(x) = 0$ implies that $x^2 = R$, i.e. $x = \pm \sqrt{R}$.
     -   There are two solutions and the method should be able to distinguish between them.
 
-## Example problems (cont.)
-
 2.  The following formula allows the monthly repayments ($M$) on a compound interest mortgage (for a borrowing of $P$) to be calculated based upon an annual interest rate of $r$% and $n$ monthly payments ([more details](http://www.fonerbooks.com/interest.htm)).
 
     $$
@@ -75,38 +47,27 @@ The following three example problems will be used throughout this section to ill
 
     -   This would require us to solve $f(n) = 0$ where $f(n) = 1000 - 150000 \frac{\frac{5}{1200}(1+\frac{5}{1200})^n}{(1+\frac{5}{1200})^n - 1}$.
 
-## Example problems (cont.)
-
 3.  Consider the NACA0012 prototype wing section, which is often used for testing computational methods for simulating flows in aerodynamics:
 
-```{=html}
 <video width=50%>
-```
-```{=html}
 <source src="../video/lec15/naca0012.webm" type="video/mp4">
-```
-```{=html}
 </video>
-```
-`<small>`{=html}Video source: <https://youtu.be/wcahAqSFZ8k>`</small>`{=html}
 
-## Example problem(cont.)
+Video source: <https://youtu.be/wcahAqSFZ8k>
 
-The profile is given by $$
+The profile is given by
+
+$$
 y^{\pm}(x) = \pm(0.2969 \sqrt{x} - 0.126 x - 0.3516 x^2 + 0.2843 x^3 - 0.1015 x^4),
-$$ in which $+$ gives the upper surface and $-$ gives the lower surface.
+$$
 
-::: container
-::: col
+in which $+$ gives the upper surface and $-$ gives the lower surface.
+
 Find the point $x$ at which the thickness $t$ of the aerofoil is $0.1$, i.e. solve $f(x) = 0$ where $f(x) = y^+(x) - y^-(x) - 0.1$.
 
 -   There will be two solutions for $x$ for this value of $t$.
-:::
 
-::: col
 ![](../img/lec15/wing.svg)
-:::
-:::
 
 # Iterative methods
 
@@ -136,19 +97,17 @@ Use the concept of **iterative** (or **iterative improvement**) again.
 
 The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$, is known as the **bisection method**.
 
-::: container
-::: col
--   Assume for now that two points $x_L$ and $x_R$ are known for which $$
+-   Assume for now that two points $x_L$ and $x_R$ are known for which
+
+    $$
     f(x_L) f(x_R) < 0
-    $$ i.e., the function evaluations at these points are of opposite sign.
+    $$
+
+	i.e., the function evaluations at these points are of opposite sign.
 
 -   If $f$ is continuous then this implies that there must be at least one root $x^*$ in the interval $(x_L, x_R)$. There may be more than one root.
-:::
 
-::: col
 ![](../img/lec15/root-example.svg)
-:::
-:::
 
 ## The algorithm
 
@@ -164,7 +123,7 @@ The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$
 
 -   Repeat this process until $x_R - x_L < TOL$, where $TOL$ is a user-supplied value, i.e. repeat until the bracket is sufficiently small.
 
-# Convergence analysis
+## Convergence analysis
 
 -   Assume that $k$ steps are taken from an initial bracket $(a, b)$.
 
@@ -193,14 +152,14 @@ $ python runBisection.py sqrt2 0 2 1.0e-4
 
 gives the root as $x^* = 1.4142$ after 14 iterations.
 
-## Example 1 (cont.)
-
 Note that
 
 -   choosing $[a, b] = [-2, 0]$ results in $x^* = -1.4142$;
 -   if $[a, b]$ brackets *both* roots, $\pm \sqrt{R}$, then $f(x_L) f(x_R) > 0$ and the bisection method cannot start.
 
-Which roots, if any will the following initial intervals converge to? $$
+Which roots, if any will the following initial intervals converge to?
+
+$$
 [0,1] \qquad
 [2, 10] \qquad
 [-10, 10] \qquad
@@ -220,8 +179,6 @@ $ python runBisection.py compound 1.0 1000.0 0.1
 ```
 
 The code does indeed give an initial bracket, and then converges to a solution of $x^* = 235.9$ after 13 iterations.
-
-## Example 2 (cont.)
 
 Note that if we do not try a sufficiently large value for $n$ for the upper range of the bracketing interval the method will fail. For example,
 
@@ -254,21 +211,15 @@ Note that:
 
 -   Bisection is a reliable method for finding solutions of $f(x) = 0$ provided an initial bracket can be found.
 
-::: container
-::: col
 -   It is far from perfect however:
 
     -   finding an initial bracket is not always easy;
     -   it can take a very large number of iterations to obtain an accurate answer;
     -   it can never find solutions of $f(x) = 0$ for which $f$ does not change sign.
-:::
 
-::: col
 For example:
 
 ![](../img/lec15/root-example2.svg)
-:::
-:::
 
 # Newton's method
 
@@ -286,21 +237,17 @@ For example:
 
 ## Graphical derivation of Newton's method
 
-::: container
-::: col
-$x^{(i+1)}$ is computed by projecting the *slope* at $x^{(i)}$, $f'(x^{(i)})$, on to the $x$-axis, giving $$
+$x^{(i+1)}$ is computed by projecting the *slope* at $x^{(i)}$, $f'(x^{(i)})$, on to the $x$-axis, giving
+
+$$
 \begin{aligned}
 f'(x^{(i)}) & = \frac{f(x^{(i)}) - 0}{x^{(i)} - x^{(i+1)}} \\
 \Rightarrow
 x^{(i+1)} & = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}.
 \end{aligned}
 $$
-:::
 
-::: col
 ![](../img/lec15/newton-graph.svg)
-:::
-:::
 
 ## Notes
 
@@ -309,9 +256,13 @@ $$
 -   In order to apply Newton's method we need to be able to compute an expression for the derivative of $f(x)$:
 
     -   this may not always be possible or easy;
-    -   in the examples that follow we will make use of the formula: $$
+    -   in the examples that follow we will make use of the formula:
+
+	    $$
         f(x) = x^n \Rightarrow f'(x) = n x^{n-1},
-          $$ which is true for any $n \neq 0$.
+        $$
+
+		which is true for any $n \neq 0$.
 
 -   There are variants of Newton's method that allow the derivative to be approximated: we will return to these later.
 
@@ -321,32 +272,33 @@ Write out an expression for the Newton iteration for each of the following funct
 
 1.  $f(x) = x^2 - 5$ with $x^{(0)} = 2$.
 
-This gives $f'(x) = 2x$ so the iterative formula is $$
-x^{(i+1)}
-= x^{(i)} - \frac{(x^{(i)})^2 - 5}{2 x^{(i)}}
-= \frac{(x^{(i)})^2 + 5}{2 x^{(i)}}.
-$$
+	This gives $f'(x) = 2x$ so the iterative formula is
 
-## Examples (cont.)
+	$$
+	x^{(i+1)}
+	= x^{(i)} - \frac{(x^{(i)})^2 - 5}{2 x^{(i)}}
+	= \frac{(x^{(i)})^2 + 5}{2 x^{(i)}}.
+	$$
 
-This gives $$
-\begin{aligned}
-x^{(1)}
-& = \frac{2^2 + 5}{2 \times 2}
-= \frac{9}{4} = 2.25 \\
-x^{(2)}
-& = \frac{(\frac{9}{4})^2 + 5}{2 \times \frac{9}{4}}
-= \frac{161}{72} \approx 2.23611
-\end{aligned}
-$$
+	This gives
 
-(Note $\sqrt{5} = 2.23607$)
+	$$
+	\begin{aligned}
+	x^{(1)}
+	& = \frac{2^2 + 5}{2 \times 2}
+	= \frac{9}{4} = 2.25 \\
+	x^{(2)}
+	& = \frac{(\frac{9}{4})^2 + 5}{2 \times \frac{9}{4}}
+	= \frac{161}{72} \approx 2.23611
+	\end{aligned}
+	$$
 
-## Examples (homework)
+	(Note $\sqrt{5} = 2.23607$)
 
-2.  $f(x) = x^3 - 2x - 5$ with $x^{(0)} = 2$.
 
-3.  $f(x) = x^3 - 2$ with $x^{(0)} = 1$.
+2.  $f(x) = x^3 - 2x - 5$ with $x^{(0)} = 2$. (homework)
+
+3.  $f(x) = x^3 - 2$ with $x^{(0)} = 1$. (homework)
 
 # Summary
 
@@ -363,3 +315,7 @@ $$
     -   it can solve problems where the solution is also a turning point;
 
 -   We will discuss some drawbacks of Newton's method next time...
+
+# Further reading
+
+TODO

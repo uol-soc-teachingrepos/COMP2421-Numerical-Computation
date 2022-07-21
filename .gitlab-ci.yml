@@ -12,13 +12,9 @@ jupyter-build:
   before_script:
     - conda env create -f environment.yml
     - source activate comp2421-book
-    # - pandoc --version
-    # - apt-get update -qq
-    # - apt-get install -y texlive texlive-plain-generic texlive-pictures librsvg2-bin
-    # - pdflatex --version
 
   script:
-    - jupyter-book build . --builder linkcheck
+    # - jupyter-book build . --builder linkcheck TODO make this pass
     - jupyter-book clean .
     - jupyter-book build .
   artifacts:

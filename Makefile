@@ -10,3 +10,7 @@ clean:
 
 build-pdf:
 	jupyter-book build . --builder pdflatex
+
+zip:
+	$(MAKE) build
+	zip -r comp2421.zip _build/html

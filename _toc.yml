@@ -23,7 +23,7 @@ parts:
     - file: lec/lec05
       title: "Lec04: Introduction to SLE"
     - file: lec/lec05a
-      title: "Lec05: Solving triangular systems [missing!]"
+      title: "Lec05: Solving triangular systems"
     - file: lec/lec06
       title: "Lec06: Gaussian elimination"
     - file: ws/ws03.ipynb

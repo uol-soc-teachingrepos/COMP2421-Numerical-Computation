@@ -1,10 +1,6 @@
----
-starttime: "Nov 15, 2021 10:05"
-subtitle: Exact solutions and errors
-title: Lecture 13
----
+# Lecture 13: Exact solutions and errors
 
-# Exact derivatives and exact solutions
+## Exact derivatives and exact solutions
 
 -   In some special cases it is possible to evaluate the derivative of a function exactly.
 
@@ -14,7 +10,7 @@ title: Lecture 13
 
 -   The special, exact, cases are not what this module is about, however it is helpful to consider one or two examples.
 
-## Example 1
+### Example 1
 
 -   Consider the function $y(t) = t^2$.
 
@@ -41,7 +37,7 @@ title: Lecture 13
 
 -   Taking the limit $\mathrm{d}t \to 0$, we see that $y'(t) = 2t$.
 
-## Example 2
+### Example 2
 
 -   Similarly, when $y(t) = t^3$ we have
 
@@ -58,7 +54,7 @@ title: Lecture 13
 
 -   In general, we may show that when $y(t) = t^m$, then $y'(t) = m t^{m-1}$.
 
-## Example 3
+### Example 3
 
 -   By working backwards from a known expression for $y(t)$ and $y'(t)$ we can make up our own differential equation that has $y(t)$ as a known solution.
 
@@ -76,7 +72,7 @@ title: Lecture 13
 
 -   If we solve this for values of $t$ between $1.0$ and $2.0$, say, then we know that exact answer when $t = 2.0$ is $y(2) = 8$.
 
-# Errors in Euler's method
+## Errors in Euler's method
 
 -   We can solve this problem using Euler's method and then look at the errors when $t = 2.0$.
 
@@ -98,7 +94,7 @@ title: Lecture 13
 
 -   What might we expect the computed solution to be if we halved $\mathrm{d}t$ one more time?
 
-## Big O Notation
+### Big O Notation
 
 -   In considering algorithm complexity you have already seen this notation. For example:
 
@@ -122,7 +118,7 @@ title: Lecture 13
 
 -   In this notation, we can say that **the error in Euler's method is $O(\mathrm{d}t)$**.
 
-# Improving upon Euler's method
+## Improving upon Euler's method
 
 -   Let's assume that the error in Euler's method is proportional to $\mathrm{d}t$.
 
@@ -147,7 +143,7 @@ title: Lecture 13
 
 We use this idea to derive a improve numerical scheme.
 
-## The midpoint scheme
+### The midpoint scheme
 
 -   To get $\alpha$ take a single step of size $\mathrm{d}t$:
 
@@ -203,7 +199,7 @@ We use this idea to derive a improve numerical scheme.
         t[i+1] = t[i] + dt
     ```
 
-## Results
+### Results
 
 -   The following tables shows computed results for the final solution, at $t = 2.0$.
 
@@ -217,7 +213,7 @@ We use this idea to derive a improve numerical scheme.
 | 320   | 0.0031          | 7.9999     | 0.0001      | 0.2511   |
 | 640   | 0.0016          | 8.0000     | 0.0000      | 0.2505   |
 
-## Notes
+### Notes
 
 -   For this new scheme we see that the error *quarters* each time that the interval $\mathrm{d}t$ is *halved*.
 
@@ -230,7 +226,7 @@ We use this idea to derive a improve numerical scheme.
     -   we say that the midpoint scheme is "second order";
     -   whilst Euler's method is just "first order".
 
-## Example
+### Example
 
 -   Take two steps of the midpoint rule to approximate the solution of
 
@@ -249,7 +245,7 @@ We use this idea to derive a improve numerical scheme.
     -   $\mathrm{d}t = (1-0)/2 = 0.5$
     -   $f(t, y) = y(1-y)$.
 
-# Summary
+## Summary
 
 -   In some special cases exact solutions of differential equations can be found - this is not true in general however.
 
@@ -261,6 +257,6 @@ We use this idea to derive a improve numerical scheme.
 
 -   Only 2 computational schemes are introduced here - there are many more that we don't consider...
 
-# Further reading
+## Further reading
 
-todo
+TODO: add reading list

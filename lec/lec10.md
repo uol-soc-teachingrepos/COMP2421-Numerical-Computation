@@ -1,10 +1,6 @@
----
-starttime: "Nov 3, 2021 16:05"
-title: Lecture 10
-subtitle: Effects of finite precision arithmetic
----
+# Lecture 10: Effects of finite precision arithmetic
 
-# The need for row swapping in GE
+## The need for row swapping in GE
 
 Consider the following linear system of equations
 
@@ -25,7 +21,7 @@ $$
 
 *Problem*. We cannot eliminate the first column by the diagonal by adding multiples of row 1 to rows 2 and 3 respectively.
 
-## Row swapping
+### Row swapping
 
 *Solution*. Swap the order of the equations!
 
@@ -76,7 +72,7 @@ $$
   \end{pmatrix}.
   $$
 
-## Another example
+### Another example
 
 Consider another system of equations
 
@@ -148,7 +144,7 @@ $$
 
 *In general*. Gaussian elimination requires row swaps to avoid breaking down when there is a zero in the "pivot" position.
 
-# Problems with finite precision
+## Problems with finite precision
 
 Consider using Gaussian elimination to solve the linear system of equations given by
 
@@ -188,7 +184,7 @@ where $\varepsilon \neq 1$.
 
 - Problems occur not only when $\varepsilon = 0$ but also when it is very small, i.e. when $\frac{1}{\varepsilon}$ is very large, this will introduce very significant rounding errors into the computation.
 
-## Removing the problem
+### Removing the problem
 
 Use Gaussian elimination to solve the linear system of equations given by
 
@@ -228,7 +224,7 @@ where $\varepsilon \neq 1$.
 
 - The problems due to small values of $\varepsilon$ have disappeared.
 
-## Notes
+### Notes
 
 - Writing the equations in a different order has removed the previous problem.
 
@@ -236,7 +232,7 @@ where $\varepsilon \neq 1$.
 
 - The interchange of the order of equations is a simple example of **row pivoting**. This strategy avoids excessive rounding errors in the computations.
 
-# Gaussian elimination with pivoting
+## Gaussian elimination with pivoting
 
 - Before eliminating entries in column $j$:
 
@@ -245,7 +241,7 @@ where $\varepsilon \neq 1$.
 
 - Then eliminate column $j$ as before.
 
-## Notes
+### Notes
 
 - This algorithm will always work when the matrix $A$ is invertible/non-singular.
 
@@ -269,7 +265,7 @@ P, L, U = scipy.linalg.lu(A, permute_l=0)
 ```
 factorises $A$ and returns $L$, $U$ and the **pivot matrix** $P$.
 
-## Example
+### Example
 
 Consider the linear system of equations given by
 
@@ -296,7 +292,7 @@ where $0 \le \varepsilon \ll 1$, and solve it using
 
 The exact solution is $\vec{x} = (0, -1, 2)^T$ for any $\varepsilon$ in the given range.
 
-### 1. Solve the system using Gaussian elimination with no pivoting.
+#### 1. Solve the system using Gaussian elimination with no pivoting.
 
 Eliminating the first column gives
 
@@ -342,7 +338,7 @@ $$
 
 There are many divisions by $\varepsilon$, so we will have problems if $\varepsilon$ is small.
 
-### 2. Solve the system using Gaussian elimination with pivoting.
+#### 2. Solve the system using Gaussian elimination with pivoting.
 
 The first stage is identical (because $a_{11} = 10$ is largest).
 
@@ -403,7 +399,7 @@ x_2 = \frac{7.5 - 5x_3}{2.5} = -1 \qquad
 x_1 = \frac{7 + 7 x_2}{10} = 0.
 $$
 
-# Further reading
+## Further reading
 
 - Mathematics stackexchange: [what are pivot numbers in LU decomposition? please explain me in an example](https://math.stackexchange.com/questions/485513/what-are-pivot-numbers-in-lu-decomposition-please-explain-me-in-an-example)
 

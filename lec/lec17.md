@@ -1,10 +1,6 @@
----
-starttime: "Nov 29, 2021 10:05"
-subtitle: Quasi-Newton methods
-title: Lecture 17
----
+# Quasi-Newton methods
 
-# Approximation of the derivative
+## Approximation of the derivative
 
 -   The formula $x^{(i+1)} = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}$ requires that we are able to compute an expression for the derivative of $f(x)$.
 
@@ -15,7 +11,7 @@ title: Lecture 17
 
 -   We can modify Newton's method by simply approximating $f'(x^{(i)})$, rather like we approximated $y'(t)$ when solving a differential equation.
 
-## Approximation of $f'(x)$
+### Approximation of $f'(x)$
 
 -   Recall that $f'(x) = \lim_{\mathrm{d}x \to 0} \frac{f(x + \mathrm{d}x) - f(x)}{\mathrm{d}x}$.
 
@@ -27,7 +23,7 @@ title: Lecture 17
     x^{(i+1)} = x^{(i)} - \frac{\mathrm{d}x \times f(x^{(i)})}{f(x^{(i)} + \mathrm{d}x) - f(x^{(i)})}.
     $$
 
-## The choice of $\mathrm{d}x$
+### The choice of $\mathrm{d}x$
 
 -   Note that the computational cost of calculating each iterate is about the same as for Newton's method.
 
@@ -39,7 +35,7 @@ title: Lecture 17
 
 -   Consider the following example...
 
-# Problems with floating point arithmetic
+## Problems with floating point arithmetic
 
 -   When $f(x) = x^3$ then $f'(x) = 3 x^2$.
 
@@ -47,7 +43,7 @@ title: Lecture 17
 
 -   Consider what happens when we approximate this with python, using finite values for $\mathrm{d}x$.
 
-## Problems with floating point arithmetic (cont.)
+### Problems with floating point arithmetic (cont.)
 
   dx        approx         abs error    rel error
   --------- -------------- ------------ ------------
@@ -59,7 +55,7 @@ title: Lecture 17
   1.0e-14   2.9976021665   2.3978e-03   7.9927e-04
   1.0e-16   0.0000000000   3.0000e+00   1.0000e+00
 
-## python example
+### python example
 
 -   A python demonstration of the above difference is provided by the function [`difference`](../code/nonlinearSolve.html#difference) in [`nonlinearSolve.py`](../code/nonlinearSolve.html).
 
@@ -80,7 +76,7 @@ title: Lecture 17
 
 -   See how the code maybe called from [`runDerivative.py`](../code/lec17/runDerivative.html).
 
-# Modified Newton's method
+## Modified Newton's method
 
 -   Recall the definition of machine precision/unit roundoff from Lecture 3.
 
@@ -100,7 +96,7 @@ while abs(f) > tol:
 
 See also [`runNewtonModified.py`](../code/lec17/runModifiedNewton.html).
 
-## Examples
+### Examples
 
 -   The function call `modified_newton(sqrt2, 1, 1.0e-12)` gives $x^* \approx 1.4142135623731$ after 5 iterations.
 
@@ -112,7 +108,7 @@ See also [`runNewtonModified.py`](../code/lec17/runModifiedNewton.html).
 
 In each case the performance is almost identical to the Newton method.
 
-# The secant method
+## The secant method
 
 -   Suppose we choose $\mathrm{d}x = x^{(i-1)} - x^{(i)}$, then we get $$
     f'(x^{(i)}) \approx \frac{f(x^{(i)} + \mathrm{d}x) - f(x^{(i)})}{\mathrm{d}x}
@@ -126,7 +122,7 @@ In each case the performance is almost identical to the Newton method.
 
 -   Note that the main advantage of this approach over the previous modified Newton approximation is that only one new evaluation of $f(x)$ is required per iteration (apart from the very first iteration).
 
-## Pros and cons
+### Pros and cons
 
 Advantages:
 
@@ -140,7 +136,7 @@ Disadvantages:
 -   may require one more iteration than exact Newton (but iterations are cheaper);
 -   like Newton's method the iteration can fail to converge for some starting iterates.
 
-## Examples
+### Examples
 
 -   The function call `secant(sqrt2, 1.0, 1.5, 1.0e-4)` gives the solution as $x^* \approx 1.4142$ after 3 iterations.
 
@@ -151,3 +147,7 @@ Disadvantages:
 -   The function call `secant(naca0012, 0, 0.1, 1.0e-4)` gives the solution as $x^* \approx 0.0339$ after 5 iterations.
 
 -   The function call `secant(lin, 2, 3, 1.0e-4)` gives the solution as $x^* \approx 1.0062$ after 11 iterations when $f(x) = (x-1)^2$.
+
+## Further reading
+
+TODO add me

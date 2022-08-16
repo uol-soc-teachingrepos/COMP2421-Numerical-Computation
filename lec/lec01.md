@@ -1,8 +1,6 @@
----
-title: Lecture 1
-starttime: "Sep 27, 2021 10:05"
----
-# Module contents
+# Lecture 01: Module introduction
+
+## Module contents
 
 **Module overview**
 
@@ -18,7 +16,7 @@ What is numerical computation?
 
 Examples and applications
 
-## Module objectives
+### Module objectives
 
 - Understand how to compute with vectors and matrices.
 - Appreciate the role numerical computation plays in CS.
@@ -29,7 +27,7 @@ Examples and applications
 - Understand several advanced data structures, their efficient implementation and applications.
 - Understand how these algorithms and data structures relate to the central practical problems of modern computer science.
 
-## Syllabus
+### Syllabus
 
 - **Vectors and matrices**: introduction and justification; vector and matrix operations; identity matrix; inverse of a matrix.
 
@@ -39,11 +37,11 @@ Examples and applications
 
 - **Evolving systems**: derivatives and rates of change; initial value problems; stability and convergence of computer models.
 
-# Numerical computation
+## Numerical computation
 
 All administration details in the [module handbook](../).
 
-## Python
+### Python
 
 The programming for this module will be carried out using `python3`.
 
@@ -69,7 +67,7 @@ Alternatively, you can install anaconda python on your own machine.
 
 More help will be given with python programming throughout the course.
 
-## Relevance to Level 1 modules
+### Relevance to Level 1 modules
 
 This module builds upon material that you have already met in your first year. Prerequisites include:
 
@@ -80,7 +78,7 @@ We also add to some of the material from:
 
 - **COMP1212** Computer processors
 
-## Relevance to Level 2 and 3 modules
+### Relevance to Level 2 and 3 modules
 
 The material covered here is important for a large number of subject areas including Scientific Computation, Computational Modelling, Machine Learning/AI, Computer Graphics, Quantum Computing.
 
@@ -98,7 +96,7 @@ Other modules that will benefit from material covered here:
 - **COMP3611** Machine learning
 - **COMP3940** Graph algorithms and approximation
 
-## Books
+### Books
 
 Additional useful texts
 
@@ -114,7 +112,7 @@ Additional useful texts
 
 Further more specific references will be given in each section of the notes.
 
-## Module components
+### Module components
 
 **Lectures**
 
@@ -130,7 +128,7 @@ These will be provided *weekly* throughout the semester.
 
 Coursework assignments are designed to give practice and reinforce the lectures. Coursework material is examinable.
 
-## Assessment
+### Assessment
 
 **Examination**
 
@@ -152,7 +150,7 @@ The dates are tentative at this stage and are subject to change.
 
 There will be weekly homework assignment sheets. These are not for credit. You can check your understanding by submitting answers via Gradescope.
 
-## Virtual learning environment
+### Virtual learning environment
 
 As with all SoC  modules COMP2421 will make substantial use of the VLE:
 [minerva.leeds.ac.uk](https://minerva.leeds.ac.uk)
@@ -168,7 +166,7 @@ Further support via [MS Team](https://teams.microsoft.com/l/channel/19%3aSF6JCTh
 
 TODO add updated team details
 
-## Tutorials plan
+### Tutorials plan
 
 Weekly tutorials will support you in your learning. See your timetable for when and where you should attend. Please bring the worksheet with you.
 
@@ -188,7 +186,7 @@ TODO make new tutorials plan
 | 10   | Bisection and Newton's method                |
 | 11   | Other root finding                           |
 
-# Numerical algorithms
+## Numerical algorithms
 
 - Numerical algorithms are those which operate on *floating point numbers*.
 
@@ -198,7 +196,7 @@ TODO make new tutorials plan
 
 - An important feature of these algorithms is that they need to account for the fact that arithmetic with floating point numbers is not exact!
 
-## Applications I: Scientific and engineering computing
+### Applications I: Scientific and engineering computing
 
 - Physical simulations are used for prediction in many different scientific and engineering areas.
 
@@ -206,7 +204,7 @@ TODO make new tutorials plan
 
 - Typically large physical domains are split up into small physical pieces which can be modelled more simply using techniques such as conservation laws.
 
-### Airflow simulations
+#### Airflow simulations
 
 <video width="100%" controls>
 	<source src="../video/lec01/LES.webm" type="video/mp4">
@@ -219,13 +217,13 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 
 - Gianmarco Mengaldo, [Industry-relvant implicit LES via spetal/hp element methods](https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/)
 
-### Economics
+#### Economics
 
 <a title="Negative Space - Pexels account, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blur-chart-data-69760.jpg"><img width="100%" alt="Blur-chart-data-69760" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blur-chart-data-69760.jpg/512px-Blur-chart-data-69760.jpg"></a>
 
 - Saul H. Hymans, [Forcasting and econometric models](https://www.econlib.org/library/Enc/ForecastingandEconometricModels.html)
 
-### Weather forecasting
+#### Weather forecasting
 
 <video width="100%" muted controls>
 	<source src="../video/lec01/weather.webm" type="video/mp4">
@@ -239,7 +237,7 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 - Met office, [How weather forecasts are created](https://www.metoffice.gov.uk/weather/learn-about/how-forecasts-are-made)
 - Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)
 
-### Health care
+#### Health care
 
 <video width="100%" controls>
 	<source src="../video/lec01/in-silico.mp4" type="video/mp4">
@@ -251,7 +249,7 @@ Video source: <https://vimeo.com/578167974>
 - Wikipedia: [*In silico* clinical trials](https://en.wikipedia.org/wiki/In_silico_clinical_trials)
 - Sarrami-Foroushani *et al.*, [In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials](https://doi.org/10.1038/s41467-021-23998-w). Nat Commun 12, 3861 (2021).
 
-## Applications II: High performance graphics
+### Applications II: High performance graphics
 
 - Realistic behaviour within games requires an accurate and efficient *physics engine*.
 
@@ -271,7 +269,7 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 - Wikipedia: [Physics engine](https://en.wikipedia.org/wiki/Physics_engine)
 - David M Bourg, [How physics is used in video games](https://doi.org/10.1088/0031-9120/39/5/002), Physics Education, issue 39, 2004.
 
-## Applications III: Artificial intelligence
+### Applications III: Artificial intelligence
 
 - Data mining requires complex models of very large data sets in order to extract useful information from them (e.g. Google PageRank)
 
@@ -281,11 +279,11 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 
 - [Why studying Linear Algebra is important for Machine Learning and where to start](https://www.univ.ai/post/linear-algebra-machine-learning-prerequisites)
 
-### Robotics at Leeds
+#### Robotics at Leeds
 
 [![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)](https://robotics.leeds.ac.uk/)
 
-### Pipebots
+#### Pipebots
 <video width="100%" muted>
 	<source src="../video/lec01/pipebots.webm" type="video/mp4">
 </video>
@@ -294,7 +292,7 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 Video source: <https://youtu.be/pppxa9MpoeY>
 </small>
 
-# Further reading
+## Further reading
 
 - Met office, [How weather forecasts are created](https://www.metoffice.gov.uk/weather/learn-about/how-forecasts-are-made)
 - Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)

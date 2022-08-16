@@ -1,10 +1,8 @@
----
-starttime: "Dec 8, 2021 16:05"
-subtitle: Overview, review and looking forward
-title: Lecture 20
----
 
-# Exam in January
+# Lecture 20: Overview, review and looking forward
+
+
+## Exam in January
 
 -   Friday 14 Jan 2022, 9:00
 
@@ -16,7 +14,7 @@ title: Lecture 20
 
 -   Submission is via Gradescope either through short numerical answers, multiple choice or free response text boxes (no uploads)
 
-## Past papers
+### Past papers
 
 Some exams from recent years are on minerva
 
@@ -25,7 +23,7 @@ Some exams from recent years are on minerva
 -   They are too long
 -   Ignore questions on Newton interpolation.
 
-## Examinable material
+### Examinable material
 
 In this module **everything** may be assessed:
 
@@ -35,7 +33,7 @@ In this module **everything** may be assessed:
 
 -   All material in formative worksheets and summative courseworks.
 
-## What's expected and what to expect
+### What's expected and what to expect
 
 I will expect you to be **able to apply** and **understand** all of the algorithms discussed:
 
@@ -47,7 +45,7 @@ I will expect you to be **able to apply** and **understand** all of the algorith
 
 -   I will expect you to understand and apply simple derivatives.
 
-# Review
+## Review
 
 -   Floating point numbers
     -   Representations and rounding
@@ -57,7 +55,7 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   Inner product
     -   Euclidean norms
 
-## Review (cont.)
+### Review (cont.)
 
 -   Systems of linear equations
     -   Translating between matrices and systems of linear equations
@@ -69,7 +67,7 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   Gauss Seidel iteration
     -   Initial guesses, convergence and stopping criteria
 
-## Review (cont.)
+### Review (cont.)
 
 -   Dynamic problems
     -   Derivatives, gradients/slopes and rates of change
@@ -79,7 +77,7 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   Euler's method
     -   Midpoint scheme
 
-## Review (cont.)
+### Review (cont.)
 
 -   Nonlinear equations
     -   Roots of an equation
@@ -88,7 +86,7 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   Quasi Newton methods
     -   Hybrid methods
 
-## Review (cont.)
+### Review (cont.)
 
 -   Data fitting
     -   How to form a system of linear equations to find a simple curve of best fit
@@ -96,11 +94,11 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   When to choose which curve (from a simple choice)
     -   Problems with our approach
 
-## Python
+### Python
 
 For this module, you are expected to be able to read, understand and construct simple scripts and functions, to implement simple algorithms, or to modify algorithms for your needs, and to be able to present and interpret the outputs from these. To this end, you should be familiar with elementary python notation and syntax (in particular, vectors, matrices, indicies, loops and branches).
 
-# Tips for online exams
+## Tips for online exams
 
 -   Open book exam tips from library: [Online open book exams](https://library.leeds.ac.uk/info/1401/academic_skills/191/online_open_exams)
 
@@ -112,7 +110,7 @@ For this module, you are expected to be able to read, understand and construct s
 
 -   Computer lab open
 
-# What next....?
+## What next....?
 
 -   You will apply ideas from this course in many areas of computer science including
 
@@ -123,7 +121,7 @@ For this module, you are expected to be able to read, understand and construct s
 
 -   There are also funded places for further study in numerical computation....
 
-## 
+### 
 
 **Thank you for your attention!**
 

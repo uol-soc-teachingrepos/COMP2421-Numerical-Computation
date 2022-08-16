@@ -1,10 +1,6 @@
----
-starttime: "Nov 1, 2021 10:05"
-subtitle: Iterative stopping criteria
-title: Lecture 9
----
+# Lecuture 09: Sparse matrices and stopping criteria
 
-#  Sparse Matrices
+##  Sparse Matrices
 
 There are two main ways in which sparse matrices can be exploited in order to obtain benefits within iterative methods.
 
@@ -16,7 +12,7 @@ Recall that a sparse matrix is defined to be such that it has at most $\alpha n$
 
 -   Typically this happens when we know there are at most $\alpha$ non-zero entries in any row.
 
-## Sparse matrix storage
+### Sparse matrix storage
 
 The simplest way in which a sparse matrix is stored is using three arrays:
 
@@ -28,7 +24,7 @@ The simplest way in which a sparse matrix is stored is using three arrays:
 
 This requires just $3 \alpha n$ units of storage - i.e. $O(n)$.
 
-## Sparse matrix multiplication
+### Sparse matrix multiplication
 
 Given the above storage pattern, the following algorithm will execute a sparse matrix-vector multiplication ($\vec{z} = A \vec{y}$) in $O(n)$ operations:
 
@@ -42,7 +38,7 @@ for k in range(nonzero):
 
 -   Note that the cost of this operation is $O(n)$ as required.
 
-# Convergence of an iterative method
+## Convergence of an iterative method
 
 We have discussed the construction of **iterations** which aim to find the solution of the equations $A \vec{x} = \vec{b}$ through a sequence of better and better approximations $\vec{x}^{(k)}$.
 
@@ -58,7 +54,7 @@ We have discussed the construction of **iterations** which aim to find the solut
 
     -   We need $\vec{x} - \vec{x}^{(k)}$ to be small.
 
-## Magnitude of a vector
+### Magnitude of a vector
 
 How do we decide that a vector/array is small?
 
@@ -74,7 +70,7 @@ How do we decide that a vector/array is small?
 
 	where $\vec{r}$ is a vector with $n$ entries.
 
-## Examples
+### Examples
 
 Consider the following sequence $\vec{x}^{(k)}$:
 
@@ -109,7 +105,7 @@ Let $\vec{x} = \begin{pmatrix} 2 \\ 0 \end{pmatrix}$.
 -   What is $\|\vec{x} - \vec{x}^{(4)}\|$?
 -   What is $\|\vec{x} - \vec{x}^{(5)}\|$?
 
-## Convergence detection
+### Convergence detection
 
 Rather than decide in advance how many iterations (of the Jacobi or Gauss-Seidel methods) to use stopping criteria:
 
@@ -132,11 +128,11 @@ Rather than decide in advance how many iterations (of the Jacobi or Gauss-Seidel
 
 -   The choice of $tol$ will control the accuracy of the solution.
 
-## Discussion
+### Discussion
 
 > What is a good convergence tolerance?
 
-# Failure to converge
+## Failure to converge
 
 In general there are two possible reasons that an iteration may fail to converge.
 
@@ -188,7 +184,7 @@ In general there are two possible reasons that an iteration may fail to converge
     \ldots
     $$
 
-## Implementation
+### Implementation
 
 In addition to testing for convergence it is also necessary to include tests for failure to converge.
 
@@ -197,7 +193,7 @@ In addition to testing for convergence it is also necessary to include tests for
 -   Impose a maximum number of iterations to ensure that the loop is not repeated forever!
 
 
-# Further reading
+## Further reading
 
 - Wikipedia [Sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix) - including a long detailed list of software libaries support sparse matrices.
 

@@ -1,11 +1,6 @@
----
-starttime: "Nov 24, 2021 16:05"
-subtitle: Solution of nonlinear equations ii
-title: Lecture 16
-titleextra: Coursework 2 is now available (now updated with clarifications). Deadline 9 December.
----
+# Lecture 16: Newton's method
 
-# Newton's method: Python implementation
+## Newton's method: Python implementation
 
 -   A python implementation is provided in the function [`newton`](../code/nonlinearSolve.html#newton) in [`nonlinearSolve.py`](../code/nonlinearSolve.html).
 
@@ -28,7 +23,7 @@ titleextra: Coursework 2 is now available (now updated with clarifications). Dea
         f = fnon(x)           # reevaluate f at new estimate
     ```
 
-## Examples
+### Examples
 
 1.  Use Newton's method to approximate the value of $\sqrt{2}$ by solving $x^2 - R = 0$.
 
@@ -48,7 +43,7 @@ titleextra: Coursework 2 is now available (now updated with clarifications). Dea
     -   The iteration stopped when $|f(x^{(i)})| < 10^{-4}$.
     -   We could also require that $|x^{(i+1)} - x^{(i)} < 10^{-4}$.
 
-## Examples (cont).
+### Examples (cont).
 
 2.  The call `$ python runNewton.py naca0012 dnaca0012 1.0 1.0e-4` gives the root as $x^* \approx 0.765789$ after 3 iterations for the NACA0012 aerofoil example.
 
@@ -56,7 +51,7 @@ titleextra: Coursework 2 is now available (now updated with clarifications). Dea
 
 In all cases the performance is considerable superior to that of the bisection method.
 
-# Zero derivative as a root
+## Zero derivative as a root
 
 -   We saw that the bisection method cannot deal with the situation where a root occurs at a *turning point*. That is, $$
     f(x^*) = f'(x^*) = 0.
@@ -66,7 +61,7 @@ In all cases the performance is considerable superior to that of the bisection m
 
 -   Fortunately, this is not a problem in practice and the iteration can still converge - although it converges more slowly than to a "simple root".
 
-## Zero derivative as a root - example
+### Zero derivative as a root - example
 
 Find a solution of $f(x) = 0$ using Newton's method when $$
 f(x) = (x-1)^2 = x^2 - 2x + 1.
@@ -80,7 +75,7 @@ The call `$ python runNewton.py lin dlin 4 1.0e-4` gives the root as $x^* \appro
 
 Note that the convergence criterion is $|f(x)| < 10^{-4}$, which does not guarantee that $|x^* - x^{(i)}| < 10^{-4}$!
 
-# Problems with Newton's method
+## Problems with Newton's method
 
 When Newton's method works it is a fast way of solving a nonlinear equation $f(x) = 0$, but it does not always work.
 
@@ -90,7 +85,7 @@ When Newton's method works it is a fast way of solving a nonlinear equation $f(x
      x^{(i+1)} = x^{(i)} - \frac{(x^{(i)})^3 + 2 (x^{(i)})^2 + x^{(i)} + 1}{3 (x^{(i)})^2 + 4 x^{(i)} + 1}.
      $$
 
-## Problems with Newton's method (cont.)
+### Problems with Newton's method (cont.)
 
 With $x^{(0)} = 0$ this gives $$
 \begin{aligned}
@@ -103,19 +98,19 @@ With $x^{(0)} = 0$ this gives $$
  \end{aligned}
 $$
 
-## Problems with Newton's method (cont.)
+### Problems with Newton's method (cont.)
 
 2.  We can also get cases where the iteration does not "blow up" but diverges slowly...
 
 ![](../img/lec16/newton-2.svg)
 
-## Problems with Newtons' method (cont.)
+### Problems with Newtons' method (cont.)
 
 3.  It is even possible for the iteration to simply cycle between two values repeatedly...
 
 ![](../img/lec16/newton-3.svg)
 
-# Summary
+## Summary
 
 -   Newton's method yields a relatively simple iteration for solving $f(x) = 0$.
 
@@ -127,3 +122,7 @@ $$
     -   a good initial guess may sometimes be obtained from the bisection method.
 
 -   Newton's method assumes that the derivative of the function $f(x)$ is known and easily evaluated.
+
+## Further reading
+
+TODO add me

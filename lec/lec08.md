@@ -1,10 +1,6 @@
----
-starttime: "Oct 20, 2021 16:05"
-subtitle: Iterative solution of linear equations
-title: Lecture 8
----
+# Lecture 8: Iterative solutions of linear equations
 
-# Direct methods
+## Direct methods
 
 -   Gaussian elimination and LU factorisation are characterised as **direct** methods.
 
@@ -20,7 +16,7 @@ For a general $n \times n$ matrix system $A \vec{x} = \vec{b}$:
 
 -   as $n$ becomes large the storage and computational work required limit the practicality of the method.
 
-# Iterative methods
+## Iterative methods
 
 It is possible to construct an **iteration** which will improve an approximation $\vec{x}^{(k)}$ to the solution of (linear) equations $A \vec{x} = \vec{b}$.
 
@@ -38,7 +34,7 @@ It is possible to construct an **iteration** which will improve an approximation
 
 -   When should we stop?
 
-## Some very bad examples
+### Some very bad examples
 
 **Example 1**
 
@@ -81,7 +77,7 @@ for some matrix $P$ such that
 -  $P$ is easy to compute, or the matrix vector product $P \vec{r}$ is easy to compute,
 -  $P$ approximates $A^{-1}$ well enough that the algorithm converges in few iterations.
 
-# Jacobi iteration
+## Jacobi iteration
 
 Consider the system $A \vec{x} = \vec{b}$ but rewrite the matrix $A$ as
 
@@ -118,7 +114,7 @@ $$
 
 -   $\vec{b} - A \vec{x}^{(k)} = \vec{r}$ is call the **residual**.
 
-## Notes
+### Notes
 
 -   The cost of one iteration is $O(n^2)$ for a full matrix, and this is dominated by the matrix-vector product $A \vec{x}^{(k)}$.
 
@@ -132,7 +128,7 @@ $$
 
 -   Unfortunately, the iteration might not converge!
 
-## Component by component
+### Component by component
 
 The Jacobi iteration updates all elements of $\vec{x}^{(k)}$ *simultaneously* to get $\vec{x}^{(k+1)}$.
 
@@ -149,7 +145,7 @@ $$
 
 Note that once the first step has been taken, $x_1^{(k+1)}$ is already known, but the Jacobi iteration does not make use of this information!
 
-# Gauss-Seidel iteration
+## Gauss-Seidel iteration
 
 Alternatively, the iteration might use $x_i^{(k+1)}$ as soon as it is calculated, giving
 
@@ -207,7 +203,7 @@ $$
 
 That is $P = (D+L)^{-1}$.
 
-## Example 1
+### Example 1
 
 Take two iterations of (i) Jacobi iteration; (ii) Gauss-Seidel iteration to approximate the solution of the following system using the initial guess $\vec{x}^{(0)} = (1, 1)^T$:
 
@@ -228,7 +224,7 @@ $$
 
 -   Note that the exact solution to this system is $x_1 = 1.5$ and $x_2 = 0.5$.
 
-## Example 2 (homework)
+### Example 2 (homework)
 
 Take one iteration of (i) Jacobi iteration; (ii) Gauss-Seidel iteration to approximate the solution of the following system using the initial guess $\vec{x}^{(0)} = (1, 2, 3)^T$:
 
@@ -249,7 +245,7 @@ $$
 
 Note that the exact solution to this system is $x_1 = 2, x_2 = 2, x_3 = 2$.
 
-## Notes
+### Notes
 
 -   Here both methods converge, but fairly slowly. They might not converge at all!
 
@@ -261,7 +257,7 @@ Note that the exact solution to this system is $x_1 = 2, x_2 = 2, x_3 = 2$.
 
 -   Both iterative algorithms can be made faster and more efficient for sparse systems of equations (far more than direct methods).
 
-# Summary
+## Summary
 
 -   Many complex computational problems simply cannot be solved with today's computers using direct methods.
 
@@ -273,7 +269,7 @@ Note that the exact solution to this system is $x_1 = 2, x_2 = 2, x_3 = 2$.
 
 -   More advanced iterative methods do exist but are beyond the scope of this module - see Final year projects, MSc projects, PhD, and beyond!
 
-# Further reading
+## Further reading
 
 - Wikipedia: [Jacobi method](https://en.wikipedia.org/wiki/Jacobi_method)
 - Wikipedia: [Gauss-Seidel method](https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method)

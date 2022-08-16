@@ -7,52 +7,61 @@ parts:
   - caption: Course introduction and recap
     chapters:
     - file: lec/lec01
-      title: Module introduction
+      title: "Lec01: Module introduction"
     - file: ws/ws00.ipynb
       title: "WS00: Maths revision"
     - file: lec/lec04
-      title: Matrices and vectors
+      title: "Lec02: Matrices and vectors"
     - file: ws/ws01.ipynb
       title: "WS01: Introduction to python and numpy"
     - file: lec/lec02
-      title: Floating point number systems
+      title: "Lec03: Floating point number systems"
     - file: ws/ws02.ipynb
       title: "WS02: Floating point numbers"
   - caption: Systems of linear equations
     chapters:
     - file: lec/lec05
-      title: Introduction to SLE
+      title: "Lec04: Introduction to SLE"
     - file: lec/lec05a
-      title: Solving triangular systems
+      title: "Lec05: Solving triangular systems [missing!]"
     - file: lec/lec06
-      title: Gaussian elimination
+      title: "Lec06: Gaussian elimination"
     - file: ws/ws03.ipynb
       title: "WS03: Triangular systems and Gaussian elimination"
     - file: lec/lec07
-      title: LU factorisation
+      title: "Lec07: LU factorisation"
     - file: lec/lec08
-      title: Iterative methods
+      title: "Lec08: Iterative methods"
     - file: lec/lec09
-      title: Sparse matrices and stopping criteria
+      title: "Lec09: Sparse matrices and stopping criteria"
     - file: lec/lec10
-      title: The effects of finite precision
+      title: "Lec10: The effects of finite precision"
   - caption: Dynamic problems
     chapters:
     - file: lec/lec11
+      title: "Lec11: Dynamic models and rates of change"
     - file: lec/lec12
+      title: "Lec12: Derivatives and differential equations"
     - file: lec/lec13
+      title: "Lec13: Exact solutions and errors"
     - file: lec/lec14
+      title: "Lec14: A modelling example"
   - caption: Nonlinear equations
     chapters:
     - file: lec/lec15
+      title: "Lec15: Introduction"
     - file: lec/lec16
+      title: "Lec16: Newton's method"
     - file: lec/lec17
+      title: "Lec17: Quasi-Newton methods"
     - file: lec/lec18
+      title: "Lec18: Robust nonlinear solvers"
   - caption: Special topics
     chapters:
     - file: lec/lec19
-    - file: lec/lec19a
+      title: "Lec19: Least squares fitting"
   - caption: Summary
     chapters:
     - file: lec/lec20
+      title: "Lec20: Overview, review and looking forward"
 

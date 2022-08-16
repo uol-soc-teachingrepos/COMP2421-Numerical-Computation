@@ -1,10 +1,6 @@
----
-starttime: "Dec 1, 2021 16:05"
-subtitle: More on nonlinear equations
-title: Lecture 18
----
+# Robust nonlinear solvers
 
-## Recap
+### Recap
 
 -   In the previous lecture we consider a modified version of Newton's method in which $f'(x^{(i)})$ is approximated: $$
     f'(x^{(i)}) \approx \frac{f(x^{(i)} + \mathrm{d}x) - f(x^{(i)})}{\mathrm{d}x}.
@@ -16,7 +12,7 @@ title: Lecture 18
 
 -   The resulting iteration is known as the **secant method**.
 
-# Reliability
+## Reliability
 
 -   The Newton, modified Newton and secant methods may not always converge for a particular choice of $x^{(0)}$.
 
@@ -31,7 +27,7 @@ title: Lecture 18
 
 -   In practice a good initial estimate $x^{(0)}$ may not be known in advance.
 
-# A combined approach
+## A combined approach
 
 In this algorithm we seek to combine the reliability of the bisection algorithm with the speed of the secant algorithm:
 
@@ -43,7 +39,7 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
     x^{(2)} = x^{(1)} - f(x^{(1)}) \frac{x^{(1)} - x^{(0)}}{f(x^{(1)}) - f(x^{(0)})}
     $$ to produce a new estimate.
 
-## A combined approach (cont.)
+### A combined approach (cont.)
 
 3.  If $x^{(2)}$ is outside $[x^{(0)}, x^{(1)}]$ then reject it and apply a single bisection step, i.e. find $x^{(2)} = (x^{(0)} + x^{(1)}) / 2$.
 
@@ -56,7 +52,7 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 5.  If the method has not yet converged return to step 2 with the new interval.
 
-## Notes
+### Notes
 
 -   When the secant iteration becomes unreliable the algorithm reverts to the bisection approach.
 
@@ -68,7 +64,7 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 -   Variations and other hybrid methods are implemented in `scipy` as [`scipy.optimize.root_scalar`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html?highlight=root_scalar#scipy.optimize.root_scalar).
 
-## Stopping criteria
+### Stopping criteria
 
 The algorithm stops if any of the following holds:
 
@@ -81,7 +77,7 @@ Criticisms:
 -   convergence criteria should ideally satisfy *both* ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \text{\texttt{tolx}}$ and $|f(x^{(i)})| < \text{\texttt{tolfun}}$;
 -   cannot find solutions which do not cross the $x$-axis.
 
-## Using `fzero`
+### Using `fzero`
 
 ``` python
 fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100, verbose=True)
@@ -95,7 +91,7 @@ fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100, verbose=True)
 
 Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.html).
 
-## Examples
+### Examples
 
 1.  Consider the example with $f(x) = x^2 - R$ and $R=2$. Take $x^{(0)} = 1$ and use the function call
 
@@ -107,7 +103,7 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
     -   `fzero` does not know where to position the initial bracket $[x^{(0)}, x^{(1)}]$.
     -   If $x^{(0)}$ is a poor estimate it takes some time, or fails altogether.
 
-## Examples (cont.)
+### Examples (cont.)
 
 2.  Consider the example with $f(x) = x^2 - R$ with $R=2$, take $x^{(0)} = 1.0$ and use the function call
 
@@ -119,7 +115,7 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
     -   The algorithm gives $x^* = 1.414214$ after 12 iterations.
     -   Convergence is to *machine precision* - so it takes more iterations than previously - but not too many!
 
-## Examples (cont.)
+### Examples (cont.)
 
 3.  Consider the compound interest example with $[x^{(0)}, x^{(1)}] = [200, 300]$, using the function call
 
@@ -129,7 +125,7 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
 
     -   This converges to the root $x^* = 235.889095$ after 18 iterations (using quite a large stopping tolerance in this case).
 
-## Examples (cont.)
+### Examples (cont.)
 
 4.  Consider the NACA0012 aerofoil example with $[x^{(0)}, x^{(1)}] = [0.5, 1]$ using the function call
 
@@ -147,7 +143,7 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
 
     -   This converges to the other root $x^* = 0.33899$ after 44 iterations.
 
-# Summary
+## Summary
 
 -   Solving nonlinear equations is hard.
 
@@ -156,3 +152,8 @@ Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.h
 -   However, it is possible to design a robust algorithm that will usually give a good answer.
 
 -   Finding all possible solutions is particularly challenging since we may not know how many solutions there are in advance.
+
+
+## Further reading
+
+TODO add me

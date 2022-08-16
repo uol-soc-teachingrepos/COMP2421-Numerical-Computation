@@ -1,12 +1,11 @@
----
-starttime: "Nov 22, 2021 10:05"
-subtitle: Solution of nonlinear equations i
-title: Lecture 15
----
+# Lecture 15: Introduction to nonlinear equations
+
 TODO: I don't like the examples used in this section
+
 TODO: remove code references
 
-#  The problem
+
+##  The problem
 
 > Given a continuous function $f(x)$, the problem is to find a point $x^*$ such that $f(x^*) = 0$. That is, $x^*$ is a solution of the equation $f(x) = 0$ and is called a **root of $f(x)$**.
 
@@ -27,7 +26,7 @@ It is also sometimes better to use a numerical method to solve an equation even 
 -   the exact formula may have difficulties due to rounding errors;
 -   the exact formula may be more expensive to compute.
 
-## Example problems
+### Example problems
 
 The following three example problems will be used throughout this section to illustrate the properties of common methods for solving nonlinear equations.
 
@@ -69,7 +68,7 @@ Find the point $x$ at which the thickness $t$ of the aerofoil is $0.1$, i.e. so
 
 ![](../img/lec15/wing.svg)
 
-# Iterative methods
+## Iterative methods
 
 Use the concept of **iterative** (or **iterative improvement**) again.
 
@@ -81,7 +80,7 @@ Use the concept of **iterative** (or **iterative improvement**) again.
 
 -   There are **many** methods for doing this.
 
-## Issues
+### Issues
 
 -   Does the iteration converge?
 
@@ -93,7 +92,7 @@ Use the concept of **iterative** (or **iterative improvement**) again.
 
 -   How should we decide when to stop the iterative procedure?
 
-# Bisection method
+## Bisection method
 
 The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$, is known as the **bisection method**.
 
@@ -109,7 +108,7 @@ The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$
 
 ![](../img/lec15/root-example.svg)
 
-## The algorithm
+### The algorithm
 
 -   Consider the point $x_C = (x_L + x_R) / 2$ and find $f(x_C)$.
 
@@ -123,7 +122,7 @@ The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$
 
 -   Repeat this process until $x_R - x_L < TOL$, where $TOL$ is a user-supplied value, i.e. repeat until the bracket is sufficiently small.
 
-## Convergence analysis
+### Convergence analysis
 
 -   Assume that $k$ steps are taken from an initial bracket $(a, b)$.
 
@@ -135,7 +134,7 @@ The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$
 
 -   Note that once $x_R - x_L < TOL$, we can estimate $x^* = (x_L + x_R)/2$, in which case the absolute error will be at most $\frac{1}{2} TOL$.
 
-## Example 1
+### Example 1
 
 Use the bisection method to calculate $\sqrt{2}$ with an error of less than $10^{-4}$.
 
@@ -166,7 +165,7 @@ $$
 [-10, -1].
 $$
 
-## Example 2
+### Example 2
 
 Use the bisection method to calculate the number of monthly repayments of £1,000 that are required to repay a mortgage of £150,000 at an annual rate of 5%.
 
@@ -190,7 +189,7 @@ Note that if we do not try a sufficiently large value for $n$ for the upper rang
 
 A warning that the initial values for $n$ do not bracket a solution.
 
-## Example 3
+### Example 3
 
 3.  Use the bisection method to find the points at which the thickness of the NACA0012 aerofoil is 0.1 with an error of less than $10^{-4}$.
 
@@ -207,7 +206,7 @@ Note that:
 -   taking $[x_L, x_R] = [0, 0.5]$ gives the other root $x^* \approx 0.0339$;
 -   taking $[x_L, x_R] = [0, 1]$ or $[x_L, x_R] = [0.1, 0.6]$ would fail to give an initial bracket.
 
-## Weaknesses of the bisection algorithm
+### Weaknesses of the bisection algorithm
 
 -   Bisection is a reliable method for finding solutions of $f(x) = 0$ provided an initial bracket can be found.
 
@@ -221,7 +220,7 @@ For example:
 
 ![](../img/lec15/root-example2.svg)
 
-# Newton's method
+## Newton's method
 
 -   **Newton's method** (or the **Newton-Raphson iteration**) is an alternative algorithm for solving $f(x) = 0$.
 
@@ -235,7 +234,7 @@ For example:
 
     -   it is not guaranteed to converge (unlike bisection with a good initial bracket).
 
-## Graphical derivation of Newton's method
+### Graphical derivation of Newton's method
 
 $x^{(i+1)}$ is computed by projecting the *slope* at $x^{(i)}$, $f'(x^{(i)})$, on to the $x$-axis, giving
 
@@ -249,7 +248,7 @@ $$
 
 ![](../img/lec15/newton-graph.svg)
 
-## Notes
+### Notes
 
 -   The formula $x^{(i+1)} = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}$ requires an initial guess at the solution: $x^{(0)}$.
 
@@ -266,7 +265,7 @@ $$
 
 -   There are variants of Newton's method that allow the derivative to be approximated: we will return to these later.
 
-## Examples
+### Examples
 
 Write out an expression for the Newton iteration for each of the following functions $f(x)$ and then carry out 2 iterations using the resulting iteration and the given initial value $x^{(0)}$.
 
@@ -300,7 +299,7 @@ Write out an expression for the Newton iteration for each of the following funct
 
 3.  $f(x) = x^3 - 2$ with $x^{(0)} = 1$. (homework)
 
-# Summary
+## Summary
 
 -   Bisection approach is a simple and reliable algorithm for solving a nonlinear equation.
 
@@ -316,6 +315,6 @@ Write out an expression for the Newton iteration for each of the following funct
 
 -   We will discuss some drawbacks of Newton's method next time...
 
-# Further reading
+## Further reading
 
-TODO
+TODO add reading list

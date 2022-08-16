@@ -1,12 +1,8 @@
----
-starttime: "Nov 17, 2021 16:05"
-subtitle: A modelling example
-title: Lecture 14
----
+# Lecture 14: A modelling example
 
-# A model for the trajectory of an object
+## A model for the trajectory of an object
 
-## Newton's laws of motion
+### Newton's laws of motion
 
 -   A large component of many computer games is the *physics engine*.
 -   Typically this spends large numbers of cpu cycles simulating the motion of bodies, using Newton's laws, based upon the forces that are exerted upon them.
@@ -18,7 +14,7 @@ title: Lecture 14
 
 -   One we know the acceleration of the object we can solve differential equations to calculate its subsequent velocity and position...
 
-## Example - a projectile
+### Example - a projectile
 
 -   Consider an object being projected from the top of a tall building.
 
@@ -26,7 +22,7 @@ title: Lecture 14
 
 ![](../img/lec14/projectile.svg)
 
-## Projectile example - model
+### Projectile example - model
 
 -   In order to produce a model we need to decide which are the most important forces acting on the object:
 
@@ -37,7 +33,7 @@ title: Lecture 14
 
 -   Air resistance *opposes* the motion in both the $x$ and $y$ directions, and we will assume that the force is proportional to the speed in each direction (as we did in the [free fall example](./lec12.html#/an-object-in-free-fall)).
 
-## Projectile example - equations
+### Projectile example - equations
 
 Using the following notation
 
@@ -64,7 +60,7 @@ Y'(t) & = V(t).
 \end{aligned}
 $$
 
-## Projectile example - initial conditions
+### Projectile example - initial conditions
 
 -   In addition to the above 4 differential equations for the unknown speeds ($U$ and $V$) and distances ($X$ and $Y$) we also need to know the initial configuration of the system.
 
@@ -77,7 +73,7 @@ $$
 
 -   Note that we have dropped the units here for convenience, but those are implicit.
 
-## Projectile example - implementation
+### Projectile example - implementation
 
 ``` python
 t = np.zeros([n+1,1]) # Initialise the array t
@@ -92,10 +88,10 @@ V[0] = 0.0
 X[0] = 0.0
 Y[0] = 100.0
 
-# Calculate size of each interval
+## Calculate size of each interval
 dt = (tfinal-t0)/float(n)
 
-# Take n steps of Euler’s method
+## Take n steps of Euler’s method
 for i in range(n):
     U[i+1] = U[i] + dt * (-k*U[i])
     V[i+1] = V[i] + dt * (-k*V[i] - g)
@@ -104,7 +100,7 @@ for i in range(n):
     t[i+1] = t[i] + dt
 ```
 
-## Systems of equations
+### Systems of equations
 
 -   The above example shows how Euler's method can be applied to a system of four differential equations.
 
@@ -125,7 +121,7 @@ for i in range(n):
 
 -   These examples may look quite complex at first but they are simply applying the same techniques to systems of differential equations rather than a single differential equation.
 
-# Solution using Euler's method
+## Solution using Euler's method
 
 -   Consider the following system of differential equations:
 
@@ -163,7 +159,7 @@ for i in range(n):
     t[i+1] = t[i] + 0.5
     ```
 
-# Discussion
+## Discussion
 
 -   Many useful models take the form of a single differential equation.
 
@@ -173,6 +169,6 @@ for i in range(n):
 
 -   Only 2 computational schemes have been introduced here (Euler and midpoint) - there are many more that we haven't considered...
 
-# Further reading
+## Further reading
 
-todo
+TODO add reading list

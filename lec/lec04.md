@@ -1,19 +1,6 @@
----
-title: Lecture 4
-subtitle: Matrices and vectors
-starttime: "Oct 07, 2021 10:05"
-titleextra: |
- [**Celebrating Black history month**](https://ima.org.uk/16445/black-heroes-of-mathematics-conference-2020/)
+# Lecture 02: Matrices and vectors
 
- <div class="logos">
- ![](https://upload.wikimedia.org/wikipedia/commons/7/73/David_Blackwell_1999.jpeg){width=15%}
- ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Katherine_Johnson_at_NASA%2C_in_1966.jpg/256px-Katherine_Johnson_at_NASA%2C_in_1966.jpg){width=15%}
- ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/J._Ernest_Wilkins%2C_Jr._9.jpg/256px-J._Ernest_Wilkins%2C_Jr._9.jpg){width=15%}
- ![](https://www.mathscareers.org.uk/wp-content/uploads/2017/09/Kathleen-Adebola-Okikiolu-300x400.jpg){width=15%}
- ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Kgethi.jpg/256px-Kgethi.jpg){width=15%}
- </div>
----
-# Introduction to matrices
+## Introduction to matrices
 
 **What is a matrix?**
 
@@ -39,7 +26,7 @@ A matrix is a two-dimensional array of objects (usually numbers)...
   \end{pmatrix}
   $$
 
-## General matrix form
+### General matrix form
 
 A *matrix* can have any number of rows and any number of columns...
 
@@ -57,7 +44,7 @@ $$
 This example has $m$ rows and $n$ columns.\
 We call $A$ an $m \times n$ matrix ("$m$ by $n$" matrix).
 
-## Notes
+### Notes
 
 - The entry $A_{ij}$ appears in row $i$ and column $j$.
 - The values $A_{ij}$ are known as **coefficients** of $A$.
@@ -68,7 +55,7 @@ We call $A$ an $m \times n$ matrix ("$m$ by $n$" matrix).
   3. $A_{ij} = B_{ij}$ for every corresponding entry of the matrices.
 
 
-# Matrix addition
+## Matrix addition
 
 Two matrices, $A$ and $B$, may be added to form a new matrix (let's call it $C$) provided $A$ and $B$ are of the same size, i.e.:
 
@@ -77,7 +64,7 @@ Two matrices, $A$ and $B$, may be added to form a new matrix (let's call it $C$)
 
 Their sum, $C$, is such that $C_{ij} = A_{ij} + B_{ij}$ for every entry of each row and column.
 
-## Examples
+### Examples
 
 $$
 \begin{pmatrix}
@@ -121,7 +108,7 @@ $$
 \end{pmatrix}.
 $$
 
-# Scalar multiplication
+## Scalar multiplication
 
 - A matrix, $A$, may be multiplied by a scalar $\alpha$ to form a new matrix - let's call it $B$.
 
@@ -133,7 +120,7 @@ $$
   1. $C$ has the same dimensions as $X$ and $Y$;
   2. $C_{ij} = \alpha X_{ij} + \beta Y_{ij}$ for every entry of each row and column.
 
-## Examples
+### Examples
 
 $$
 2
@@ -178,7 +165,7 @@ $$
 \end{pmatrix}.
 $$
 
-## Examples (homework)
+### Examples (homework)
 
 Let
 $
@@ -207,7 +194,7 @@ $
 - What is $5C + 2A$?
 - What is $2A + \begin{pmatrix} 1.0 & 1.0 \\ 1.0 & 1.0 \end{pmatrix}$?
 
-## Zero matrices
+### Zero matrices
 
 - A zero matrix (let's call is $O$) is a matrix for which every entry is zero.
 
@@ -216,7 +203,7 @@ $
 - If $A$ is an $m \times n$ matrix (i.e., has $m$ rows and $n$ columns) then there is a unique matrix $O$ such that $A + O = A$:
   - $O$ is the $m \times n$ matrix for which every entry is zero.
 
-## Properties of matrix addition
+### Properties of matrix addition
 
 Let $A, B$ and $C$ be matrices of the same dimensions, then
 
@@ -228,7 +215,7 @@ Let $A, B$ and $C$ be matrices of the same dimensions, then
 
 - Defining $-A$ to be $-1A$ then: $-A + A = O$.
 
-## Properties of scalar multiplication
+### Properties of scalar multiplication
 
 Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be scalars, then
 
@@ -237,7 +224,7 @@ Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be s
 - Similarly: $(\alpha + \beta) A = \alpha A +\beta A$.
 - Also: $(\alpha \beta) A = \alpha (\beta A)$.
 
-# Matrix Multiplication
+## Matrix Multiplication
 
 - Recall that it is possible to add matrices together
  provided each matrix has *the same dimensions*.
@@ -251,7 +238,7 @@ Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be s
  two matrices may be multiplied together, to form a new matrix as their
  product...
 
-## Definition of matrix multiplication
+### Definition of matrix multiplication
 
 - If $A$ is an $m \times n$ matrix and $B$ is a $p \times q$ matrix,
  then it is only possible to form their product, $C=AB$, if $n=p$ (i.e.\ the
@@ -270,7 +257,7 @@ Let $A$ and $B$ be matrices of the same dimension, and $\alpha$ and $\beta$ be s
  a $m \times q$ matrix -- with entry $C_{ij}$ computed by multiplying entries
  of row $i$ of $A$ by corresponding entries of column $j$ of $B$.
 
-## Examples
+### Examples
 
 $$
 \begin{pmatrix}
@@ -311,7 +298,7 @@ $$
 		\end{pmatrix}
 $$
 
-## Examples (homework)
+### Examples (homework)
 
 Let
 
@@ -334,7 +321,7 @@ $$
 - What is $(CB)A$?
 - What is $C(BA)$?
 
-## Notes
+### Notes
 
 - The product of two arbitrary matrices, $A$ and $B$ say, may not be
  well-defined (the number of columns of $A$ must equal the number of
@@ -350,7 +337,7 @@ $$
  - Matrix multiplication is associative: $(AB)C = A(BC)$ provided the
  matrices are of appropriate dimensions for these products to be well-defined.
 
-## Matrix Transposition
+### Matrix Transposition
 
 - An important matrix operation is called the **transpose**.
 
@@ -381,7 +368,7 @@ $(A^{\rm T})_{ij} = A_{ji}$.
 - Note that any matrix $A$ such that $A^{\rm T} = A$ is called a **symmetric**
  matrix (and must be a square matrix).
 
-## Identity Matrices
+### Identity Matrices
 
 - These are square matrices that have the structure:
 
@@ -399,7 +386,7 @@ $$
   - $I_2 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ and
  $I_3 = \begin{pmatrix} 1&0&0 \\ 0&1&0 \\ 0&0&1 \end{pmatrix}$.
 
-# Invertible Matrices
+## Invertible Matrices
 
 - An $n \times n$ matrix $A$ is invertible (non-degenerate, non-singular) if there exists $B$ which is an $n \times n$ matrix such that $AB = BA = I_n$.
 
@@ -410,7 +397,7 @@ $$
  $B = \begin{pmatrix} 2/3& -1/3 \\ -1/3&2/3 \end{pmatrix}$.
 - For $n \times n$ matrix $A$, if $AB = I_n$, then $A,B$ are both invertible and $A^{-1}= B$ and $B^{-1} = A$.
 
-## Properties of invertible matrices
+### Properties of invertible matrices
 
 - If $A$ is invertible, then $(A^{-1})^{-1} = A$.
 
@@ -422,7 +409,7 @@ $$
 
 - However, $(A + B)^{-1}$ does not necessary equal to $A^{-1} + B^{-1}$.
 
-## Properties of matrix multiplication
+### Properties of matrix multiplication
 
 Let $A$ be an $m \times n$ matrix and let $B$ and $C$ be matrices for which
 the following sums and products are defined...
@@ -438,7 +425,7 @@ the following sums and products are defined...
 - NOT commutative: $AB \neq BA$.
 
 
-# Row and Column Vectors
+## Row and Column Vectors
 
 - A matrix with just one row is called a **row vector**.
 
@@ -455,7 +442,7 @@ the following sums and products are defined...
   - $\vec{a}^{\rm T} \vec{b}$ is a well-defined matrix multiplication
  resulting in a $1 \times 1$ matrix;
 
-## Row and Column Vectors (cont.)
+### Row and Column Vectors (cont.)
 
 - The numerical value computed by $\vec{a}^{\rm T} \vec{b}$ is
  called the **scalar product** of $\vec{a}$ and $\vec{b}$:
@@ -473,7 +460,7 @@ $$
   - $\vec{x} \cdot \vec{b} = 11 \;;$
   - $A \vec{x} = \vec{b} \;.$
 
-# Further reading
+## Further reading
 
 - Maths is fun:
 

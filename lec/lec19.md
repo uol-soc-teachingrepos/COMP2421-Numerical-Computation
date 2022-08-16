@@ -1,11 +1,6 @@
----
-starttime: "Dec 6, 2021 10:05"
-subtitle: Least squares fitting
-title: Lecture 19
-titleextra: Coursework 2 deadline 12noon on 9 December.
----
+# Lecture 19: Least squares fitting
 
-# Motivation
+## Motivation
 
 -   Suppose we are given data point representing a quantity over time.
 
@@ -16,7 +11,7 @@ titleextra: Coursework 2 deadline 12noon on 9 December.
     -   a straight line;
     -   a quadratic curve.
 
-## Weekly earnings
+### Weekly earnings
 
 ::: r-stack
 ![](../img/lec19/data.svg){.fragment .fade-out data-fragment-index="0"}
@@ -28,7 +23,7 @@ titleextra: Coursework 2 deadline 12noon on 9 December.
 
 [Data source, ons](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01)
 
-## An example of best linear fit
+### An example of best linear fit
 
 ::: container
 ::: col
@@ -50,7 +45,7 @@ $$
     y = mt + c
     $$
 
-## An example of best linear fit (cont.)
+### An example of best linear fit (cont.)
 
 $$
 \begin{array}{c|cccc}
@@ -69,7 +64,7 @@ $$
     \end{aligned}
     $$ We recognise this as a system of linear equations for $(m, c)$ - but there are too many equations!!
 
-## An example of best quadratic fit {#quadratic-fit}
+### An example of best quadratic fit {#quadratic-fit}
 
 ::: container
 ::: col
@@ -91,7 +86,7 @@ $$
     y = a + b t + c t^2
     $$
 
-## An example of best quadratic fit (cont.)
+### An example of best quadratic fit (cont.)
 
 $$
 \begin{array}{c|ccccc}
@@ -111,7 +106,7 @@ $$
     \end{aligned}
     $$ We recognise this as a system of linear equations for $(a, b, c)$ - but there are too many equations!!
 
-# Best approximation
+## Best approximation
 
 -   Given that there is no *exact fit* solution to these **overdetermined systems** of equations what should we do?
 
@@ -123,7 +118,7 @@ $$
     -   When there is no exact solution the next best thing is to make $\vec{r}$ as small as possible.
     -   This means finding $\vec{x}$ that **minimises** $\| \vec{r} \|^2$.
 
-# The normal equations
+## The normal equations
 
 It turns out that the $\vec{x}$ that minimises $\| \vec{b} - A \vec{x} \|^2$ is the same $\vec{x}$ that satisfies that following *square* systems of equations: $$
 A^T A \vec{x} = A^T \vec{b}.
@@ -137,7 +132,7 @@ $$
 
 -   The normal equations, when solved, give the **best solution** to the original problem in the sense of minimising the Euclidean norm of the residual.
 
-## Example I
+### Example I
 
 1.  Find the least squares approximation to the [quadratic fit example](lec19.html#quadratic-fit).
 
@@ -162,7 +157,7 @@ $$
     \| \vec{r} \|^2 = \| \vec{b} - A \vec{x} \|^2.
     $$
 
-## Example 1 (cont.)
+### Example 1 (cont.)
 
 The left and right hand sides of the normal equations are given by $$
 \begin{aligned}
@@ -188,7 +183,7 @@ A^T A & =
 \end{aligned}
 $$
 
-## Example 1 (cont.)
+### Example 1 (cont.)
 
 and $$
 A^T \vec{b} =
@@ -204,7 +199,7 @@ A^T \vec{b} =
 \end{pmatrix}
 $$
 
-## Example 1 (cont.)
+### Example 1 (cont.)
 
 ::: container
 ::: col
@@ -233,7 +228,7 @@ $$
 
 See the file [`leastSquaresTest.py`](../code/lec19/leastSquaresTest.html) for more.
 
-## Example 2
+### Example 2
 
 2.  Find the least square approximation to the system given by $$
     \begin{pmatrix}
@@ -251,7 +246,7 @@ See the file [`leastSquaresTest.py`](../code/lec19/leastSquaresTest.html) for mo
      \end{pmatrix}
     $$
 
-# Problems with the normal equations
+## Problems with the normal equations
 
 Consider the matrix $A = \begin{pmatrix} 1 & 1 \\ \varepsilon & 0 \\ 0 & \varepsilon \end{pmatrix}$, which gives $$
 A^T A = \begin{pmatrix}
@@ -260,7 +255,7 @@ A^T A = \begin{pmatrix}
 \end{pmatrix}
 $$ If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can make $A^T A$ appear to be singular.
 
-## Sensitivity and conditioning
+### Sensitivity and conditioning
 
 -   The condition number of a square matrix $A$ describes how close that matrix is to being singular.
 
@@ -270,7 +265,7 @@ $$ If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can ma
 
 -   The normal equations are typically quite ill-conditioned and so it is essential to use high precision arithmetic to solve them and specialised algorithms.
 
-# Summary
+## Summary
 
 -   Overdetermined systems are common in data modelling and they typically have no solution.
 
@@ -279,3 +274,7 @@ $$ If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can ma
 -   It is common to measure this closeness in the Euclidean norm and this leads naturally to the least squares approximation.
 
 -   A solution to this problem can be found by solving the normal equations but can must be taken to use arithmetic with sufficient precision and specialised algorithms.
+
+## Further reading
+
+TODO add me

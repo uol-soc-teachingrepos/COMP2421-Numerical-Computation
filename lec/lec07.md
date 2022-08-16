@@ -1,10 +1,6 @@
----
-starttime: "Oct 18, 2021 10:05"
-subtitle: Solving systems of linear equations III
-title: Lecture 7
----
+# Lecture 07: LU factorisation
 
-#  The cost of Gaussian Elimination
+##  The cost of Gaussian Elimination
 
 -   Gaussian elimination (GE) is unnecessarily expensive when it is applied to many systems of equations with the same matrix $A$ but different right-hand sides $\vec{b}$.
 
@@ -13,7 +9,7 @@ title: Lecture 7
 
 -   We can use this information to improve the way in which we solve multiple systems of equations with the same matrix $A$ but different right-hand sides $\vec{b}$.
 
-## Elementary row operations (EROs)
+### Elementary row operations (EROs)
 
 Note that the EROs discussed in the last lecture can be produced by left multiplication with a suitable matrix:
 
@@ -77,7 +73,7 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
     \end{pmatrix}
     $$
 
-# LU factorisation
+## LU factorisation
 
 -   Recall from the last lecture that Gaussian elimination (GE) is just a sequence of EROs.
 
@@ -110,7 +106,7 @@ Note that the EROs discussed in the last lecture can be produced by left multipl
 
 -   $L$ and $U$ may be found in $O(n^3)$ operations by performing GE and saving the $E_i$ matrices, however it is more convenient to find them directly (also $O(n^3)$ operations).
 
-## Computing $L$ and $U$
+### Computing $L$ and $U$
 
 Consider a general $4 \times 4$ matrix $A$ and its factorisation $LU$:
 
@@ -153,7 +149,7 @@ $$
 
 The second, third and fourth columns follow in a similar manner, giving all the entries in $L$ and $U$.
 
-## Notes
+### Notes
 
 -   $L$ is assumed to have 1's on the diagonal, to ensure that the factorisation is unique.
 
@@ -171,7 +167,7 @@ The second, third and fourth columns follow in a similar manner, giving all the 
           ...
     ```
 
-## Example 1
+### Example 1
 
 Use $LU$ factorisation to solve the linear system of equations given by
 
@@ -290,7 +286,7 @@ x_1 \\ x_2 \\ x_3
 \end{pmatrix}.
 $$
 
-## Example 2 (homework)
+### Example 2 (homework)
 
 Rewrite the matrix $A$ as the product of lower and upper triangular matrices where 
 
@@ -303,7 +299,7 @@ A =
 \end{pmatrix}.
 $$
 
-## The link
+### The link
 
 The first example gives
 
@@ -332,7 +328,7 @@ Note that
 
 -   $L$ contains the multipliers that were used at each stage to eliminate the rows.
 
-# Further reading
+## Further reading
 
 - Wikipedia: [LU decomposition](https://en.wikipedia.org/wiki/LU_decomposition)
 - Wikipedia: [Matrix decomposition](https://en.wikipedia.org/wiki/Matrix_decomposition) (Other examples of decompositions).

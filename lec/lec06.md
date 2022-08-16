@@ -1,10 +1,6 @@
----
-starttime: "Oct 13, 2021 16:05"
-subtitle: Solving systems of linear equations II
-title: Lecture 6
----
+# Lecture 06: Gaussian elimination
 
-# Elementary row operations
+## Elementary row operations
 
 Recall the problem is to solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, for $j=1, 2, \ldots, n$.
 
@@ -21,7 +17,7 @@ $$
 \end{aligned}
 $$
 
-## Elementary row operations
+### Elementary row operations
 
 Consider equation $p$ of the above system:
 
@@ -63,7 +59,7 @@ Note three things...
     (k a_{p1} + a_{q1}) x_1 + (k a_{p2} + a_{q2}) x_2 + \cdots + (k a_{pn} + a_{qn}) x_n = k b_p + b_q.
     $$
 
-## Example 1
+### Example 1
 
 Consider the system
 
@@ -79,7 +75,7 @@ $$
 -   $(2) + (1)$ $\rightarrow$ $-x_1 + 5 x_2 = 11$.
 -   $(2) + 1.5 \times (1)$ $\rightarrow$ $0 + 6.5 x_2 = 13$.
 
-## Example 2 (homework)
+### Example 2 (homework)
 
 Consider the system
 
@@ -95,7 +91,7 @@ $$
 -   $(4) + (-1) \times (3)$ $\rightarrow$
 -   $(4) + (-4) \times (3)$ $\rightarrow$
 
-## General matrix-vector form
+### General matrix-vector form
 
 What does this mean when we write the equations as a single matrix equation?
 
@@ -117,7 +113,7 @@ $$
 
 Recall the $n \times n$ matrix $A$ represents the coefficients that multiply the unknowns in each equation (row), while the $n$-vector $\vec{b}$ represents the right-hand-side values.
 
-## Application to matrix equations
+### Application to matrix equations
 
 For a system written in matrix form our three observations mean the following:
 
@@ -219,7 +215,7 @@ For a system written in matrix form our three observations mean the following:
 
 	(here we replaced row $2$ by row $2 + (-4) \times$ row $1$)
 
-## Triangular systems
+### Triangular systems
 
 Recall that we can easily solve a lower triangular system:
 
@@ -269,7 +265,7 @@ $$
     a_{ij} = 0 \text{ for } i > j.
     $$
 
-## Strategy
+### Strategy
 
 -   Three types of operation described above are called **elementary row operations** (ERO).
 
@@ -277,7 +273,7 @@ $$
 
 -   The answer is "yes"... and the algorithm for doing this is known as **forward elimination** or (more commonly) as **Gaussian elimination** (GE).
 
-# Gaussian elimination
+## Gaussian elimination
 
 **First appeared in China...**
 
@@ -289,7 +285,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination):
 
 ![](../img/lec06/NineChapters.jpg)
 
-## The algorithm
+### The algorithm
 
 The following algorithm systematically introduces zeros into the system of equations, below the diagonal.
 
@@ -299,7 +295,7 @@ The following algorithm systematically introduces zeros into the system of equat
 
 After row $n-1$ all entities below the diagonal have been eliminated, so $A$ is now upper triangular and the resulting system can be solved by backward substitution.
 
-## Example 1
+### Example 1
 
 Use Gaussian eliminate to solve the linear system of equations given by
 
@@ -363,7 +359,7 @@ Now use the second row to eliminate the second column below the diagonal.
 
 The system is now in upper triangular form and can be solved using backward substitution to give $\vec{x} = (1, 2, 2)^T$ (see the [final example from previous lecture](lec05.html#/examples-2-1)).
 
-## Example 2 (homework)
+### Example 2 (homework)
 
 Use Gaussian elimination to solve the linear system of equations given by
 
@@ -379,7 +375,7 @@ x_1 \\ x_2 \\ x_3
 \end{pmatrix}.
 $$
 
-## Notes
+### Notes
 
 -   Each row $i$ is used to eliminate the entries in column $i$ below $a_{ii}$, i.e. it forces $a_{ji} = 0$ for $j > i$.
 
@@ -395,7 +391,7 @@ $$
     a_{ji} \leftarrow a_{ji} - \frac{a_{ji}}{a_{ii}} a_{ii} = a_{ji} - a_{ji} = 0.
     $$
 
-## Example 3 (homework)
+### Example 3 (homework)
 
 Solve the system
 
@@ -414,7 +410,7 @@ $$
 
 The solution is $\vec{x} = (1, 1, 1, 1)^T$.
 
-# Final Notes
+## Final Notes
 
 GE can be used to solve linear systems of equations...
 
@@ -430,7 +426,7 @@ GE can be used to solve linear systems of equations...
 
 - If the unique solution does exist the GE algorithm (with row swapping if needed)  will find it!
 
-# Further reading
+## Further reading
 
 - Wikipedia: [Gaussian elimination](https://en.wikipedia.org/wiki/Gaussian_elimination)
 - Joseph F. Grcar. [How ordinary elimination became Gaussian elimination](https://doi.org/10.1016/j.hm.2010.06.003). Historia Mathematica. Volume 38, Issue 2, May 2011. (More history)

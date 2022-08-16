@@ -1,10 +1,6 @@
----
-starttime: "Nov 10, 2021 16:05"
-subtitle: Derivatives and differential equations
-title: Lecture 12
----
+# Lecture 12: Derivatives and differential equations
 
-# Recap
+## Recap
 
 -   We discussed the concept of **rate of change**
 
@@ -45,7 +41,7 @@ title: Lecture 12
     \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
     $$
 
-# Graphs and derivatives
+## Graphs and derivatives
 
 -   We now know a geometric interpretation of the derivative of a function, as being equal to the function's slope at each point.
 
@@ -53,22 +49,22 @@ title: Lecture 12
 
 -   In the following examples, the graph of a function $y(t)$ is given and the graph of $y'(t)$ is then approximated.
 
-## Example 1
+### Example 1
 
 ![](../img/lec12/f1-b.svg)
 
-## Example 2
+### Example 2
 
 ![](../img/lec12/f3-b.svg)
 
-## Example 3
+### Example 3
 
 ![](../img/lec12/covid-cases-c.svg)
 
 log cases by specimen date\
 [Data source, cornavirus.data.gov.uk](https://coronavirus.data.gov.uk/details/cases)
 
-# Differential equations
+## Differential equations
 
 -   We have already seen that, for speed, $S(t) = D'(t)$.
 
@@ -94,7 +90,7 @@ log cases by specimen date\
 
     -   i.e. $a(t) = S'(t)$.
 
-## An object in free fall
+### An object in free fall
 
 -   Consider a simple model for an object falling from a large height, based on the two following assumptions:
 
@@ -132,7 +128,7 @@ log cases by specimen date\
     S(t + \mathrm{d}t) = S(t) + \mathrm{d}t (g - k S(t)).
     $$
 
-## Python algorithm:
+### Python algorithm:
 
 ``` python
 def freefall(n):
@@ -165,11 +161,11 @@ def freefall(n):
     plt.plot(t, s, label=f"n = {n}")
 ```
 
-## Python algorithm: Results
+### Python algorithm: Results
 
 ![](../img/lec12/freefall.svg)
 
-# Euler's method
+## Euler's method
 
 -   The approach we have used applies for *any* differential equation involving just a single derivative.
 
@@ -199,7 +195,7 @@ For the general equation we have the following algorithm:
    \end{aligned}
    $$
 
-## Example
+### Example
 
 -   Take three steps of Euler's method to approximate the solution of
 
@@ -218,7 +214,7 @@ For the general equation we have the following algorithm:
     -   $\mathrm{d}t = (2-1)/3 = 1/3$
     -   $f(t, y) = -y^2 + 1/t$.
 
-# Summary
+## Summary
 
 -   Given the graph of $y(t)$ it is possible to sketch the graph of $y'(t)$ (with some care!).
 
@@ -230,6 +226,6 @@ For the general equation we have the following algorithm:
 
 -   One computational approach to solve such equations is **Euler's method** - which gets more accurate with more sub-intervals used.
 
-# Further reading
+## Further reading
 
-todo
+TODO: add reading list

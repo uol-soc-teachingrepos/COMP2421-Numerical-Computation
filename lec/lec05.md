@@ -1,10 +1,6 @@
----
-starttime: "Oct 11, 2021 10:05"
-subtitle: Solving systems of linear equations
-title: Lecture 5
----
+# Lecture 04: Introduction to systems of linear equations
 
-# Introduction
+## Introduction
 
 **Basic problem**:
 Solve a set of $n$ **linear** equations for $n$ unknown values $x_j$, $j = 1, \ldots, n$.
@@ -32,7 +28,7 @@ $$
 
 Computing $x_1, x_2, x_3, \ldots, x_n$ solves the problem.
 
-## Notes
+### Notes
 
 -   Many computational algorithms require the solution of linear equations, e.g. in fields such as
 
@@ -49,7 +45,7 @@ Computing $x_1, x_2, x_3, \ldots, x_n$ solves the problem.
     -   efficiently;
     -   reliably.
 
-## General matrix-vector form
+### General matrix-vector form
 
 Solve the system of equations given by
 
@@ -71,7 +67,7 @@ $$
 
 In other words, given an $n \times n$ matrix $A$ and an $n$-vector $\vec{b}$, find the $n$-vector $\vec{x}$ which satisfies $A \vec{x} = \vec{b}$.
 
-## Application I: Temperature in a sealed room
+### Application I: Temperature in a sealed room
 
 Suppose we wish to estimate the temperature distribution inside an object:
 
@@ -99,7 +95,7 @@ $$
 \end{pmatrix}.
 $$
 
-## Application II: Traffic network
+### Application II: Traffic network
 
 Suppose we wish to monitor the flow of traffic in a city centre:
 
@@ -129,7 +125,7 @@ y_{11} + y_{12} - y_{10} \\ y_9 \\ y_2 - y_3 \\ y_1
 \end{pmatrix}.
 $$
 
-# Special types of matrices
+## Special types of matrices
 
 The general matrix $A$ on the slide before the examples is known as a **full** matrix: any of its components $a_{ij}$ might be nonzero.
 
@@ -138,7 +134,7 @@ Often the problem being solved leads to a matrix with a particular structure.
 -   Some entries may be known to be zero.
 -   If this is the case then it is often possible to use this knowledge to improve the efficiency of the algorithm (in terms of both speed and/or storage).
 
-## Example 1: Triangular matrix
+### Example 1: Triangular matrix
 
 One common (and important) structure takes the form
 
@@ -166,7 +162,7 @@ $$
 
 -   The *transpose* of this matrix is an **upper triangular** matrix and can be treated in a very similar manner.
 
-## Example 2: Sparse matrices
+### Example 2: Sparse matrices
 
 **Sparse matrices** are extremely common in any application which relies on some form of *graph* structure (see both [temperature](#application-i-temperature-in-a-sealed-room) and [traffic network examples](#application-ii-traffic-network)).
 
@@ -181,7 +177,7 @@ $$
     -   A sparse $n \times n$ has $\alpha n$ nonzero entries, where $\alpha \ll n$.
 -   Many special techniques exist for handling sparse matrices, some of which can be used automatically within Python ([`scipy.sparse` documentation](https://docs.scipy.org/doc/scipy/reference/sparse.html))
 
-## Significance
+### Significance
 
 What is the significance of these special examples?
 
@@ -191,7 +187,7 @@ What is the significance of these special examples?
 
 -   In subsequent lectures, we will see that, for *sparse* matrix systems, alternative solution techniques are available.
 
-# Uniqueness of solutions
+## Uniqueness of solutions
 
 For the time-being we will only consider *square* systems of equations:
 for which the number of equations is equal to the number of unknowns ($n$, say).
@@ -202,7 +198,7 @@ In this case the following statements are *equivalent*:
 -   There exists a matrix (let's call it $A^{-1}$) such that $A^{-1} A = I$, and we say that the matrix $A$ is **invertible**.
 -   The linear system $A \vec{x} = \vec{b}$ is **non-singular**.
 
-# Further reading
+## Further reading
 
 - Wikipedia: [Systems of linear equations](https://en.wikipedia.org/wiki/System_of_linear_equations) (includes a nice geometric picture of what a system of linear equations means).
 - Maths is fun: [Systems of linear equations](https://www.mathsisfun.com/algebra/systems-linear-equations.html) (very basic!)

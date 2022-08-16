@@ -1,10 +1,6 @@
----
-starttime: "Nov 8, 2021 10:05"
-subtitle: Dynamic models and rates of change
-title: Lecture 11
----
+# Lecture 11: Dynamic models and rates of change
 
-# Static versus dynamic problems
+## Static versus dynamic problems
 
 -   So far we have considered computational models of problems that are assumed to be static, for example:
 
@@ -26,9 +22,9 @@ title: Lecture 11
 
     -   atmospheric chemistry models for the dispersion of emissions, pollutants, ozone, etc.
 
-# Rates of change
+## Rates of change
 
-## Example: Tracking an object
+### Example: Tracking an object
 
 -   Suppose we know that an object is moving at 2 meters per second (m/s) - what does that mean?
 
@@ -54,7 +50,7 @@ title: Lecture 11
     -   0.000002 meters per microsecond;
     -   etc.
 
-# The derivative as a rate of change
+## The derivative as a rate of change
 
 -   Now suppose the object's speed is not constant.
 
@@ -64,7 +60,7 @@ title: Lecture 11
 
 -   How far would the object travel in one second now?
 
-## Tracking at a non-constant speed
+### Tracking at a non-constant speed
 
 This is a much harder problem.
 
@@ -99,7 +95,7 @@ This is a much harder problem.
 
 We expect each of these approximations to get more and more accurate...
 
-### Example
+#### Example
 
 Consider $S(t)$ given by:
 ```python
@@ -124,7 +120,7 @@ def s(t):
 
 -   We appear to be converging to an answer in the limit as $\mathrm{d}t \to 0$...
 
-## Why does this work?
+### Why does this work?
 
 -   The approach above uses the fact that, at any *instant* in time, the speed is the rate of change in distance:
 
@@ -159,7 +155,7 @@ def s(t):
 
 -   The notation for this is $S(t) = D'(t)$.
 
-## A graphical interpretation
+### A graphical interpretation
 
 -   We can give a graphical interpretation of the relationship between $D(t)$ and its derivative $D'(t)$.
 
@@ -179,7 +175,7 @@ This provides for an alternative interpretation of the derivative of a function.
 
 > The function $D'(t)$ is the function whose value is equal to the slope (or gradient) of $D(t)$ at every value of $t$.
 
-# The derivative as a gradient
+## The derivative as a gradient
 
 -   What is the slope/gradient of a line?
 
@@ -193,7 +189,7 @@ This provides for an alternative interpretation of the derivative of a function.
     y(t) = m t + c.
     $$
 
-## Slope of a curve
+### Slope of a curve
 
 -   What is the slope/gradient of a curve?
 
@@ -222,7 +218,7 @@ $$
 
 *But this is precisely the definition of derivative $y'(t)$!*
 
-# Further reading
+## Further reading
 
 - Wikipedia: [Rate of change](https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change)
 - Wikipedia: [Speed](https://en.wikipedia.org/wiki/Speed)

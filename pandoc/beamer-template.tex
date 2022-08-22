@@ -37,10 +37,11 @@ $for(classoption)$
 $endfor$
 ]{$documentclass$}
 $if(title)$
-\title[$course.code$ $title$]{%
-  $course.code$ $course.title$
-  $title$
-  $if(thanks)$\thanks{$thanks$}$endif$}
+% \title[$course.code$ $title$]{%
+%   $course.code$ $course.title$
+%   $title$
+%   $if(thanks)$\thanks{$thanks$}$endif$}
+\title{$title$}
 $endif$
 $if(subtitle)$
 $if(beamer)$
@@ -468,6 +469,10 @@ $endif$
 $if(csquotes)$
 \usepackage{csquotes}
 $endif$
+
+\let\oldframe\frame
+ \renewcommand\frame[1][]{\oldframe[allowframebreaks,#1]}
+
 
 \begin{document}
 $if(has-frontmatter)$

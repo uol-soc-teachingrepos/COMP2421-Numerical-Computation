@@ -6,7 +6,7 @@ root: README
 parts:
   - caption: Course introduction and recap
     chapters:
-    - file: ws/ws00.ipynb
+    - file: ws/ws00.md
       title: "WS00: Maths revision"
     - file: lec/lec01
       title: "Lec01: Module introduction"

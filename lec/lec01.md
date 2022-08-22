@@ -39,7 +39,7 @@ Examples and applications
 
 ## Numerical computation
 
-All administration details in the [module handbook](../).
+All administration details in the [module handbook](../README.md).
 
 ### Python
 

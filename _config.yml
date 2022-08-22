@@ -11,6 +11,9 @@ author: Dr Thomas Ranner, University of Leeds
 execute:
   execute_notebooks: 'off'
 
+# only build pages listed in _toc.yml
+only_build_toc_files: true
+
 # Define the name of the latex output file for PDF builds
 # latex:
 #   latex_documents:

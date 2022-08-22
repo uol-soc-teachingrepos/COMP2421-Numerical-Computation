@@ -31,7 +31,7 @@
 
 -   Note that gravity only acts in the negative $y$ direction (not in the $x$ direction), and always leads to a constant acceleration ($g = 9.81 \, \mathrm{m}/\mathrm{s}^2$).
 
--   Air resistance *opposes* the motion in both the $x$ and $y$ directions, and we will assume that the force is proportional to the speed in each direction (as we did in the [free fall example](./lec12.html#/an-object-in-free-fall)).
+-   Air resistance *opposes* the motion in both the $x$ and $y$ directions, and we will assume that the force is proportional to the speed in each direction (as we did in the [free fall example](./lec12.html#an-object-in-free-fall)).
 
 ### Projectile example - equations
 

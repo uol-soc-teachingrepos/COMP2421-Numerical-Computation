@@ -13,90 +13,76 @@
 
 ### Weekly earnings
 
-::: r-stack
-![](../img/lec19/data.svg){.fragment .fade-out data-fragment-index="0"}
+Raw data for weekly earnings:
 
-![](../img/lec19/data-line.svg){.fragment .current-visible data-fragment-index="0"}
+![](../img/lec19/data.svg)
 
-![](../img/lec19/data-quad.svg){.fragment}
-:::
+Raw data for weekly earning with a straight line of best fit:
+
+![](../img/lec19/data-line.svg)
+
+Raw data for weekly earnings with a quadric curve of best fit:
+
+![](../img/lec19/data-quad.svg)
 
 [Data source, ons](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01)
 
 ### An example of best linear fit
 
-::: container
-::: col
-Suppose that the following measured data, $y$, is observed at different times $t$: $$
+Suppose that the following measured data, $y$, is observed at different times $t$:
+
+$$
 \begin{array}{c|cccc}
 t & 1 & 2 & 3 & 4 \\
 \hline
 y & 1 & 1.5 & 2.5 & 3.5
 \end{array}
 $$
-:::
 
-::: col
 ![](../img/lec19/line-points.svg)
-:::
-:::
 
--   Consider representing this data as a straight line: $$
+-   Consider representing this data as a straight line:
+
+	$$
     y = mt + c
     $$
 
-### An example of best linear fit (cont.)
+-   An *exact fit* would require the following equations to be satisfied:
 
-$$
-\begin{array}{c|cccc}
-t & 1.0 & 2.0 & 3.0 & 4.0 \\
-\hline
-y & 1.0 & 1.5 & 2.5 & 3.5
-\end{array}
-$$
-
--   An *exact fit* would require the following equations to be satisfied: $$
+	$$
     \begin{aligned}
     m \times 1 + c & = 1 \\
     m \times 2 + c & = 1.5 \\
     m \times 3 + c & = 2.5 \\
     m \times 4 + c & = 3.5.
     \end{aligned}
-    $$ We recognise this as a system of linear equations for $(m, c)$ - but there are too many equations!!
+    $$
 
-### An example of best quadratic fit {#quadratic-fit}
+	We recognise this as a system of linear equations for $(m, c)$ - but there are too many equations!!
 
-::: container
-::: col
-Suppose that the following measured data, $y$, is observed at different times $t$: $$
+### An example of best quadratic fit
+
+Suppose that the following measured data, $y$, is observed at different times $t$:
+
+$$
 \begin{array}{c|ccccc}
 t & -1.0 & -0.5 & 0  & 0.5 & 1.0 \\
 \hline
 y & 1.0 & 0.5 & 0.0 & 0.5 & 2.0
 \end{array}
 $$
-:::
 
-::: col
 ![](../img/lec19/quad-points.svg)
-:::
-:::
 
--   Consider representing this data as a quadratic line: $$
+-   Consider representing this data as a quadratic line:
+
+	$$
     y = a + b t + c t^2
     $$
 
-### An example of best quadratic fit (cont.)
+-   An *exact fit* would require the following equations to be satisfied:
 
-$$
-\begin{array}{c|ccccc}
-t & -1 & -0.5 & 0  & 0.5 & 1 \\
-\hline
-y & 1.0 & 0.5 & 0.0 & 0.5 & 2
-\end{array}
-$$
-
--   An *exact fit* would require the following equations to be satisfied: $$
+	$$
     \begin{aligned}
     a + b \times -1 + c \times (-1)^2 & = 1 \\
     a + b \times -0.5 + c \times (-0.5)^2 & = 0.5 \\
@@ -104,13 +90,17 @@ $$
     a + b \times 0.5 + c \times 0.5^2 & = 0.5 \\
     a + b \times 1 + c \times 1^2 & = 2.
     \end{aligned}
-    $$ We recognise this as a system of linear equations for $(a, b, c)$ - but there are too many equations!!
+    $$
+
+	We recognise this as a system of linear equations for $(a, b, c)$ - but there are too many equations!!
 
 ## Best approximation
 
 -   Given that there is no *exact fit* solution to these **overdetermined systems** of equations what should we do?
 
--   Recall the definition of the **residual** for the system $A \vec{x} = \vec{b}$: $$
+-   Recall the definition of the **residual** for the system $A \vec{x} = \vec{b}$:
+
+	$$
     \vec{r} = \vec{b} - A \vec{x},
     $$
 
@@ -120,7 +110,9 @@ $$
 
 ## The normal equations
 
-It turns out that the $\vec{x}$ that minimises $\| \vec{b} - A \vec{x} \|^2$ is the same $\vec{x}$ that satisfies that following *square* systems of equations: $$
+It turns out that the $\vec{x}$ that minimises $\| \vec{b} - A \vec{x} \|^2$ is the same $\vec{x}$ that satisfies that following *square* systems of equations:
+
+$$
 A^T A \vec{x} = A^T \vec{b}.
 $$
 
@@ -136,30 +128,34 @@ $$
 
 1.  Find the least squares approximation to the [quadratic fit example](lec19.html#quadratic-fit).
 
-    The residual is given by $$
-    \begin{aligned}
-    \vec{r} & = \vec{b} - A \vec{x} \\
-    & = \begin{pmatrix} 1 \\ 0.5 \\ 0 \\ 0.5 \\ 2 \end{pmatrix} - 
-    \begin{pmatrix}
-    1 & -1 & 1 \\
-    1 & -0.5 & 0.25 \\
-    1 & 0 & 0 \\
-    1 & 0.5 & 0.25 \\
-    1 & 1 & 1
-    \end{pmatrix}
-    \begin{pmatrix}
-    x_1 \\ x_2 \\ x_3
-    \end{pmatrix}
-    \end{aligned}
-    $$
+The residual is given by
 
-    We want to find $\vec{x}$ that minimises $$
-    \| \vec{r} \|^2 = \| \vec{b} - A \vec{x} \|^2.
-    $$
+$$
+\begin{aligned}
+\vec{r} & = \vec{b} - A \vec{x} \\
+& = \begin{pmatrix} 1 \\ 0.5 \\ 0 \\ 0.5 \\ 2 \end{pmatrix} - 
+\begin{pmatrix}
+1 & -1 & 1 \\
+1 & -0.5 & 0.25 \\
+1 & 0 & 0 \\
+1 & 0.5 & 0.25 \\
+1 & 1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+\end{aligned}
+$$
 
-### Example 1 (cont.)
+We want to find $\vec{x}$ that minimises
 
-The left and right hand sides of the normal equations are given by $$
+$$
+\| \vec{r} \|^2 = \| \vec{b} - A \vec{x} \|^2.
+$$
+
+The left and right hand sides of the normal equations are given by
+
+$$
 \begin{aligned}
 A^T A & =
 \begin{pmatrix}
@@ -183,9 +179,9 @@ A^T A & =
 \end{aligned}
 $$
 
-### Example 1 (cont.)
+and
 
-and $$
+$$
 A^T \vec{b} =
 \begin{pmatrix}
 1 & 1 & 1 & 1 & 1 \\
@@ -199,11 +195,9 @@ A^T \vec{b} =
 \end{pmatrix}
 $$
 
-### Example 1 (cont.)
+Gaussian elimination gives
 
-::: container
-::: col
-Gaussian elimination gives $$
+$$
 \begin{pmatrix}
 5 & 0 & 2.5 \\
 0 & 2.5 & 0 \\
@@ -216,21 +210,23 @@ x_1 \\ x_2 \\ x_3
 \begin{pmatrix}
 4 \\ 1 \\ 1.25
 \end{pmatrix},
-$$ and backward substitution gives (to 4 significant figures) $$
+$$
+
+and backward substitution gives (to 4 significant figures)
+
+$$
 \vec{x} = (0.08571, 0.4000, 1.429).
 $$
-:::
 
-::: col
 ![](../img/lec19/quad-lines.svg)
-:::
-:::
 
 See the file [`leastSquaresTest.py`](../code/lec19/leastSquaresTest.html) for more.
 
 ### Example 2
 
-2.  Find the least square approximation to the system given by $$
+2.  Find the least square approximation to the system given by
+
+	$$
     \begin{pmatrix}
     -2 & 2 & -1 \\
     0 & 1 & 0 \\
@@ -248,12 +244,16 @@ See the file [`leastSquaresTest.py`](../code/lec19/leastSquaresTest.html) for mo
 
 ## Problems with the normal equations
 
-Consider the matrix $A = \begin{pmatrix} 1 & 1 \\ \varepsilon & 0 \\ 0 & \varepsilon \end{pmatrix}$, which gives $$
+Consider the matrix $A = \begin{pmatrix} 1 & 1 \\ \varepsilon & 0 \\ 0 & \varepsilon \end{pmatrix}$, which gives
+
+$$
 A^T A = \begin{pmatrix}
 1 + \varepsilon^2 & 1 \\
 1 & 1 + \varepsilon^2.
 \end{pmatrix}
-$$ If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can make $A^T A$ appear to be singular.
+$$
+
+If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can make $A^T A$ appear to be singular.
 
 ### Sensitivity and conditioning
 

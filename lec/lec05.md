@@ -34,8 +34,8 @@ Computing $x_1, x_2, x_3, \ldots, x_n$ solves the problem.
 
     -   Scientific computation;
     -   Network design and optimisation;
-    -   Graphics and visualisation.
-    -   See [here](http://aix1.uottawa.ca/~jkhoury/system.html) for examples.
+    -   Graphics and visualisation;
+	-   Machine learning.
 
 -   Typically these systems are *very* large ($n \approx 10^9$).
 

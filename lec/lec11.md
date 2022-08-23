@@ -4,9 +4,9 @@
 
 -   So far we have considered computational models of problems that are assumed to be static, for example:
 
-    -   calculating the [distribution of temperature inside an object](lec05.html#/application-i-temperature-in-a-sealed-room) for a given, fixed, temperature distribution around the boundary;
+    -   calculating the [distribution of temperature inside an object](./lec05.md) for a given, fixed, temperature distribution around the boundary;
 
-    -   finding the [flow of traffic in a network](lec05.html#/application-ii-traffic-network) given a fixed set of observations;
+    -   finding the [flow of traffic in a network](./lec05.md) given a fixed set of observations;
 
     -   the sparse matrix representation of the WWW, at a given instant in time, that is used by [Google's PageRank algorithm](https://en.wikipedia.org/wiki/PageRank#Algorithm).
 

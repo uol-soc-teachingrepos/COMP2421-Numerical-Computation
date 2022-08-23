@@ -43,13 +43,13 @@ $$
 
 -   Consider representing this data as a straight line:
 
-	$$
+    $$
     y = mt + c
     $$
 
 -   An *exact fit* would require the following equations to be satisfied:
 
-	$$
+    $$
     \begin{aligned}
     m \times 1 + c & = 1 \\
     m \times 2 + c & = 1.5 \\
@@ -58,8 +58,9 @@ $$
     \end{aligned}
     $$
 
-	We recognise this as a system of linear equations for $(m, c)$ - but there are too many equations!!
+    We recognise this as a system of linear equations for $(m, c)$ - but there are too many equations!!
 
+(quadratic-fit)=
 ### An example of best quadratic fit
 
 Suppose that the following measured data, $y$, is observed at different times $t$:
@@ -76,13 +77,13 @@ $$
 
 -   Consider representing this data as a quadratic line:
 
-	$$
+    $$
     y = a + b t + c t^2
     $$
 
 -   An *exact fit* would require the following equations to be satisfied:
 
-	$$
+    $$
     \begin{aligned}
     a + b \times -1 + c \times (-1)^2 & = 1 \\
     a + b \times -0.5 + c \times (-0.5)^2 & = 0.5 \\
@@ -92,7 +93,7 @@ $$
     \end{aligned}
     $$
 
-	We recognise this as a system of linear equations for $(a, b, c)$ - but there are too many equations!!
+    We recognise this as a system of linear equations for $(a, b, c)$ - but there are too many equations!!
 
 ## Best approximation
 
@@ -100,7 +101,7 @@ $$
 
 -   Recall the definition of the **residual** for the system $A \vec{x} = \vec{b}$:
 
-	$$
+    $$
     \vec{r} = \vec{b} - A \vec{x},
     $$
 
@@ -126,7 +127,7 @@ $$
 
 ### Example I
 
-1.  Find the least squares approximation to the [quadratic fit example](lec19.html#quadratic-fit).
+1.  Find the least squares approximation to the [quadratic fit example](#quadratic-fit).
 
 The residual is given by
 
@@ -226,7 +227,7 @@ See the file [`leastSquaresTest.py`](../code/lec19/leastSquaresTest.html) for mo
 
 2.  Find the least square approximation to the system given by
 
-	$$
+    $$
     \begin{pmatrix}
     -2 & 2 & -1 \\
     0 & 1 & 0 \\

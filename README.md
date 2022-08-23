@@ -121,7 +121,8 @@ The programming for this module will be carried out using `python3`.
 
 -   For a refresher course in Python:
 
-    - <http://interactivepython.org/runestone/static/thinkcspy/index.html>
+    - <https://developers.google.com/edu/python/?hl=en>
+	- <https://learnxinyminutes.com/docs/python/>
 
 -   For `numpy`, `scipy` etc:
 

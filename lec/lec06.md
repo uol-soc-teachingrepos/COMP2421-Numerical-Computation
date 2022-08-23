@@ -357,7 +357,7 @@ Now use the second row to eliminate the second column below the diagonal.
     \end{pmatrix}
     $$
 
-The system is now in upper triangular form and can be solved using backward substitution to give $\vec{x} = (1, 2, 2)^T$ (see the [final example from previous lecture](lec05.html#/examples-2-1)).
+The system is now in upper triangular form and can be solved using backward substitution to give $\vec{x} = (1, 2, 2)^T$ (see the [final example from previous lecture](lec05.md)).
 
 ### Example 2 (homework)
 

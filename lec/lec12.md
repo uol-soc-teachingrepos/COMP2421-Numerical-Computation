@@ -90,7 +90,6 @@ log cases by specimen date\
 
     -   i.e. $a(t) = S'(t)$.
 
-(an-object-in-free-fall)=
 ### An object in free fall
 
 -   Consider a simple model for an object falling from a large height, based on the two following assumptions:

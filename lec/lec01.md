@@ -51,6 +51,8 @@ Anaconda provides a full scientific Python distribution, including as standard t
 
 This scientific Python distribution is available on all School of Computing machines, specifically all SoC Linux computers.
 
+*TODO* Test on new RHEL image
+
 On a SoC Linux computer, you can run
 ```sh
 > module add anaconda3/2020.11
@@ -141,10 +143,12 @@ More details to follow.
 Two pieces of coursework each worth 20% submitted via Gradescope.
 The dates are tentative at this stage and are subject to change.
 
+DATES TO BE CONFIRMED
+
 | Coursework | Date set    | Submission deadline | Feedback date   |
 |------------|-------------|---------------------|-----------------|
-| 1          | 11 October  | 4 November          | 18 November     |
-| 2          | 22 November | 9 December          | after Christmas |
+| 1          |             |                     |                 |
+| 2          |             |                     |                 |
 
 **Formative homework**
 
@@ -170,14 +174,12 @@ TODO add updated team details
 
 Weekly tutorials will support you in your learning. See your timetable for when and where you should attend. Please bring the worksheet with you.
 
-TODO make new tutorials plan
-
 | Week | Topic                                        |
 |------|----------------------------------------------|
 | 1    | Maths preliminary                            |
-| 2    | Floating point numbers                       |
-| 3    | Vectors, matrices and linear transformations |
-| 4    | Gaussian elimination and triangular systems  |
+| 2    | Introduction to python                       |
+| 3    | Floating point number systems                |
+| 4    | Triangular systems and Gaussian elimination  |
 | -    | *reading week*                               |
 | 6    | LU Factorisation and iterative methods       |
 | 7    | Sparse systems/pivoting                      |

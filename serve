@@ -3,7 +3,7 @@
 from livereload import Server, shell
 
 server = Server()
-server.watch("img/*.md", shell("make"))
+server.watch("img/*", shell("make"))
 server.watch("lec/*.md", shell("make"))
-server.watch("ws/*.md", shell("make"))
+server.watch("ws/*.ipynb", shell("make"))
 server.serve(root="_build/html")

@@ -209,7 +209,7 @@ Weekly tutorials will support you in your learning. See your timetable for when 
 #### Airflow simulations
 
 <video width="100%" controls>
-	<source src="../video/lec01/LES.webm" type="video/mp4">
+	<source src="../_static/video/lec01/LES.webm" type="video/mp4">
 	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
 </video>
 
@@ -228,7 +228,7 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 #### Weather forecasting
 
 <video width="100%" muted controls>
-	<source src="../video/lec01/weather.webm" type="video/mp4">
+	<source src="../_static/video/lec01/weather.webm" type="video/mp4">
 	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
 </video>
 
@@ -242,7 +242,7 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 #### Health care
 
 <video width="100%" controls>
-	<source src="../video/lec01/in-silico.mp4" type="video/mp4">
+	<source src="../_static/video/lec01/in-silico.mp4" type="video/mp4">
 	<img width="100%" alt="Workflow of the FD-PASS in-silico trial" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-23998-w/MediaObjects/41467_2021_23998_Fig1_HTML.png">
 </video>
 
@@ -260,7 +260,7 @@ Video source: <https://vimeo.com/578167974>
 - These are examples of dynamic models which must be solved and then rendered in "real time".
 
  <video width="100%" muted>
-  <source src="../video/lec01/HPG.webm" type="video/mp4" >
+  <source src="../_static/video/lec01/HPG.webm" type="video/mp4" >
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
 </video>
 
@@ -287,7 +287,7 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 
 #### Pipebots
 <video width="100%" muted>
-	<source src="../video/lec01/pipebots.webm" type="video/mp4">
+	<source src="../_static/video/lec01/pipebots.webm" type="video/mp4">
 </video>
 
 <small>

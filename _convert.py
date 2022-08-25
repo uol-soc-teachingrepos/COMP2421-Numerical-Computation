@@ -51,7 +51,7 @@ for filename in ws_files:
     except IndexError:
         print(filename)
         continue
-    ws_filename = f"ws%2Fws{ws_number}.pynb"
+    ws_filename = f"ws%2Fws{ws_number}.ipynb"
 
     with open(filename, "r") as f:
         lines = f.readlines()

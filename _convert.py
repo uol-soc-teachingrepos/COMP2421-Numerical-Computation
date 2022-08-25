@@ -38,3 +38,29 @@ for file in files:
         r"new\?title=([^&]*)&body=([^&]*)",
         r"new\?issue[title]=\g<1>&issue[description]=\g<2>",
     )
+
+
+ws_files = glob("./_build/html/ws/*html", recursive=True)
+
+for filename in ws_files:
+    if '00' in filename:
+        continue
+
+    try:
+        ws_number = re.findall(r'\d+', filename)[0]
+    except IndexError:
+        print(filename)
+        continue
+    ws_filename = f"ws%2Fws{ws_number}.pynb"
+
+    with open(filename, "r") as f:
+        lines = f.readlines()
+        for j, line in enumerate(lines):
+            if '<div class="header-article__right">' in line:
+                lines.insert(j+1, f'<a class="reference external" href="https://mybinder.org/v2/gl/comp2421-numerical-computation%2Fbook/master?labpath={ws_filename}" target="_blank" rel="noopener noreferrer"><img alt="Launch binder" src="https://mybinder.org/badge_logo.svg" /></a>\n\n')
+                break
+
+    with open(filename, "w") as f:
+        f.write(''.join(lines))
+
+

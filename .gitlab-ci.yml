@@ -1,4 +1,4 @@
-image: continuumio/miniconda3:latest
+image: mambaorg/micromamba:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -10,8 +10,7 @@ stages:
 jupyter-build:
   stage: build
   before_script:
-    - conda env create -f environment.yml
-    - source activate comp2421-book
+    - micromamba install -y -n base -f environment.yml
 
   script:
     # - jupyter-book build . --builder linkcheck TODO make this pass

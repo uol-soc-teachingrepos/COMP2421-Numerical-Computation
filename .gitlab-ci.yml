@@ -5,6 +5,7 @@ variables:
 
 stages:
   - build
+  - accessibility
   - deploy
 
 jupyter-build:
@@ -20,6 +21,20 @@ jupyter-build:
   artifacts:
     paths:
       - _build/
+
+a11y:
+  stage: accessibility
+  image: "$CI_TEMPLATE_REGISTRY_HOST/gitlab-org/ci-cd/accessibility:6.2.3"
+  script:
+    - a11y_urls=$(find _build/ -name "*.html" -type f)
+    - /gitlab-accessibility.sh "$a11y_urls"
+  allow_failure: true
+  artifacts:
+    when: always
+    expose_as: 'Accessibility Reports'
+    paths: ['reports/']
+    reports:
+      accessibility: reports/gl-accessibility.json
 
 pages:
   stage: deploy

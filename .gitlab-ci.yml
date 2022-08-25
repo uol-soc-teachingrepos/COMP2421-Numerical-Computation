@@ -16,6 +16,7 @@ jupyter-build:
     # - jupyter-book build . --builder linkcheck TODO make this pass
     - jupyter-book clean .
     - jupyter-book build .
+    - python _convert.py
   artifacts:
     paths:
       - _build/

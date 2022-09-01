@@ -28,15 +28,15 @@ Email
 
 ## Module components
 
-**Lectures**
+### Lectures
 
 2 hours per week
 
-**Tutorials**
+### Tutorials
 
 1 hour per week face to face (see timetable)
 
-**Homework and coursework exercise**
+### Homework and coursework exercise
 
 These will be provided *weekly* throughout the semester.
 
@@ -54,10 +54,29 @@ There are two pieces of coursework for this module. Each is worth 20% of your mo
 
 <!-- TODO update dates -->
 
-  | Coursework | Date set | Submission deadline | Feedback date |
-  |------------|----------|---------------------|---------------|
-  | 1          |          |                     |               |
-  | 2          |          |                     |               |
+<table class="colwidths-auto table">
+	<caption>Summative coursework timetable</caption>
+	<thead>
+	<tr>
+	<th class="head">Coursework</th>
+	<th class="head">Date set</th>
+	<th class="head">Submission deadline</th>
+	<th class="head">Feedback date</th>
+	</tr>
+	</thead>
+	<tr>
+	<td>1</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>2</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+</table>
 
 Late submission will only be allowed up to 1 week after the submission deadline to allow feedback to be returned in a reasonable time frame.
 
@@ -69,48 +88,127 @@ There will be weekly homework assignment sheets. These are not for credit. Addit
 
 This is a rough breakdown of topics to be covered this semester. Please note that this is not entirely fixed and I cannot guarantee to follow this precise structure.
 
-
- | Lecture    | Topic |
- |------------|------------------------------------------------|
- |1 (week 1)  |Introduction |
- |2           |Floating point number systems |
- |3 (week 2)  |Vectors and matrices |
- |4           |Linear transformations |
- |5 (week 3)  |Solving triangular systems of linear equations |
- |6           |Gaussian elimination |
- |7 (week 4)  |LU factorisation |
- |8           |Indirect methods (Jacobi, Gauss-Seidel) |
- |              |*reading week* |
- |9 (week 6)    |Sparse systems of linear equations, norms |
- |10            |Pivoting |
- |11 (week 7)   |Derivatives and rates of change |
- |12            |Euler's method |
- |13 (week 8)   |Euler & midpoint methods |
- |14            |Runge-Kutte integration |
- |15 (week 9)   |Bisection, Newton's method |
- |16            |Newton's method |
- |17 (week 10)  |The secant method |
- |18            |Hybrid methods |
- |19 (week 11)  |Special topics |
- |20            |Review |
+<table class="colwidths-auto table">
+<caption>Lecture topics</caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Lecture</p></th>
+<th class="head"><p>Topic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 (week 1)</p></td>
+<td><p>Introduction</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Floating point number systems</p></td>
+</tr>
+<tr class="row-even"><td><p>3 (week 2)</p></td>
+<td><p>Vectors and matrices</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Linear transformations</p></td>
+</tr>
+<tr class="row-even"><td><p>5 (week 3)</p></td>
+<td><p>Solving triangular systems of linear equations</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Gaussian elimination</p></td>
+</tr>
+<tr class="row-even"><td><p>7 (week 4)</p></td>
+<td><p>LU factorisation</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Indirect methods (Jacobi, Gauss-Seidel)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><em>reading week</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>9 (week 6)</p></td>
+<td><p>Sparse systems of linear equations, norms</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Pivoting</p></td>
+</tr>
+<tr class="row-odd"><td><p>11 (week 7)</p></td>
+<td><p>Derivatives and rates of change</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>Euler’s method</p></td>
+</tr>
+<tr class="row-odd"><td><p>13 (week 8)</p></td>
+<td><p>Euler &amp; midpoint methods</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>Runge-Kutte integration</p></td>
+</tr>
+<tr class="row-odd"><td><p>15 (week 9)</p></td>
+<td><p>Bisection, Newton’s method</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>Newton’s method</p></td>
+</tr>
+<tr class="row-odd"><td><p>17 (week 10)</p></td>
+<td><p>The secant method</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>Hybrid methods</p></td>
+</tr>
+<tr class="row-odd"><td><p>19 (week 11)</p></td>
+<td><p>Special topics</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>Review</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Tutorials plan
 
 Weekly tutorials should will support you in your learning. See your timetable for when and where you should attend.
 
-| Week | Topic                                        |
-|------|----------------------------------------------|
-| 1    | Maths preliminary                            |
-| 2    | Introduction to python                       |
-| 3    | Floating point number systems                |
-| 4    | Triangular systems and Gaussian elimination  |
-| -    | *reading week*                               |
-| 6    | LU Factorisation and iterative methods       |
-| 7    | Sparse systems/pivoting                      |
-| 8    | Derivatives and Euler's method               |
-| 9    | Other time stepping                          |
-| 10   | Bisection and Newton's method                |
-| 11   | Other root finding                           |
+<table class="colwidths-auto table">
+<caption>Tutorials plan</caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Week</p></th>
+<th class="head"><p>Topic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Maths preliminary</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Introduction to python</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Floating point number systems</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Triangular systems and Gaussian elimination</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p><em>reading week</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>LU Factorisation and iterative methods</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Sparse systems/pivoting</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Derivatives and Euler’s method</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Other time stepping</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Bisection and Newton’s method</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Other root finding</p></td>
+</tr>
+</tbody>
+</table>
 
 ## Reference materials
 

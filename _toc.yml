@@ -32,30 +32,42 @@ parts:
       title: "Lec07: LU factorisation"
     - file: lec/lec08
       title: "Lec08: Iterative methods"
+    - file: ws/ws04.ipynb
+      title: "WS04: LU Factorisation and iterative methods"
     - file: lec/lec09
       title: "Lec09: Sparse matrices and stopping criteria"
     - file: lec/lec10
       title: "Lec10: The effects of finite precision"
+    - file: ws/ws05.ipynb
+      title: "WS05: Sparse systems and pivoting"
   - caption: Dynamic problems
     chapters:
     - file: lec/lec11
       title: "Lec11: Dynamic models and rates of change"
     - file: lec/lec12
       title: "Lec12: Derivatives and differential equations"
+    - file: ws/ws06.ipynb
+      title: "WS06: Derivatives and Euler's method"
     - file: lec/lec13
       title: "Lec13: Exact solutions and errors"
     - file: lec/lec14
       title: "Lec14: A modelling example"
+    - title: "WS07: Improved Euler's methods"
+      file: ws/ws07.ipynb
   - caption: Nonlinear equations
     chapters:
     - file: lec/lec15
       title: "Lec15: Introduction"
     - file: lec/lec16
       title: "Lec16: Newton's method"
+    - file: ws/ws08.ipynb
+      title: "WS08: Bisection and Newton's method"
     - file: lec/lec17
       title: "Lec17: Quasi-Newton methods"
     - file: lec/lec18
       title: "Lec18: Robust nonlinear solvers"
+    - file: ws/ws09.ipynb
+      title: "Robust nonlinear solvers"
   - caption: Special topics
     chapters:
     - file: lec/lec19

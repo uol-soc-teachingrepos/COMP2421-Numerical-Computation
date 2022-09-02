@@ -1,9 +1,16 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 15: Introduction to nonlinear equations
-
-TODO: I don't like the examples used in this section
-
-TODO: remove code references
-
 
 ##  The problem
 
@@ -66,7 +73,33 @@ Find the point $x$ at which the thickness $t$ of the aerofoil is $0.1$, i.e. so
 
 -   There will be two solutions for $x$ for this value of $t$.
 
-![](../img/lec15/wing.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+%matplotlib inline
+
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def f(x):
+    yp = -0.1015 * np.power(x, 4) \
+             + 0.2843 * np.power(x, 3) \
+             - 0.3516 * np.power(x, 2) \
+             - 0.126 * x \
+             + 0.2969 * np.sqrt(x)
+    return yp
+
+plt.axhline(0,color='0.8') # x = 0
+
+t = np.linspace(0, 1, 1000)
+p = plt.plot(t, f(t))
+plt.plot(t, -f(t), color=p[0].get_color())
+plt.axis('equal')
+
+plt.show()
+```
 
 ## Iterative methods
 
@@ -106,7 +139,25 @@ The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$
 
 -   If $f$ is continuous then this implies that there must be at least one root $x^*$ in the interval $(x_L, x_R)$. There may be more than one root.
 
-![](../img/lec15/root-example.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+%matplotlib inline
+
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+plt.axvline(0,color='0.8') # y = 0
+plt.axhline(0,color='0.8') # x = 0
+
+t = np.linspace(-1, 1, 1000)
+p = plt.plot(t, t**3)
+plt.axis('equal')
+
+plt.show()
+```
 
 ### The algorithm
 
@@ -141,15 +192,49 @@ Use the bisection method to calculate $\sqrt{2}$ with an error of less than $10^
 -   Use $R = 2$, so $f(x) = x^2 - 2$, which gives $x^* = \sqrt{2}$.
 -   Set the initial bracket to be $[a, b] = [0, 2]$ and the error tolerance to be $TOL = 10^{-4}$.
 
-This is implemented in [`runBisection.py`](../code/lec15/runBisection.html) using [`bisection`](../code/nonlinearSolve.html#bisection) from [`nonlinearSolve.py`](../code/nonlinearSolve.html).
+```{code-cell} ipython3
+:tags: [remove-input]
+def f(x):
+    return x * x - 2
 
-The function call
 
-``` bash
-$ python runBisection.py sqrt2 0 2 1.0e-4
+a = 0
+b = 2
+tol = 1.0e-4
+
+fa = f(a)
+fb = f(b)
+
+it = 0
+
+data = [["it", "a", "b", "f(a)", "f(b)", "update"]]
+
+while b - a > tol:
+    new_data = [it, a, b, f(a), f(b)]
+
+    c = (a + b) / 2
+    fc = f(c)
+
+    if fa * fc < 0:
+        b = c
+        fb = fc
+
+        new_data.append(f"b := {c:.4f}")
+    else:
+        a = c
+        fa = fc
+
+        new_data.append(f"a := {c:.4f}")
+
+    data.append(new_data)
+    it += 1
+
+import tabulate
+
+table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=".4f")
+# caption='Results of bisection method on example 1')
+table
 ```
-
-gives the root as $x^* = 1.4142$ after 14 iterations.
 
 Note that
 
@@ -171,32 +256,113 @@ Use the bisection method to calculate the number of monthly repayments of £1,00
 
 It is clear that 1 monthly repayment ($n=1$) will not be sufficient, whilst we should try a very large value of $n$ to try to bracket the correct solution.
 
-The function call
+```{code-cell} ipython3
+:tags: [remove-input]
+M = 1000
+P = 150000
+r = 5
+def f(x):
+    return M - P * ((r/1200)*(1+r/1200)**x) / ((1+r/1200)**x - 1)
 
-``` bash
-$ python runBisection.py compound 1.0 1000.0 0.1
+a = 1
+b = 1000
+tol = 0.1
+
+fa = f(a)
+fb = f(b)
+
+it = 0
+
+data = [["it", "a", "b", "f(a)", "f(b)", "update"]]
+
+while b - a > tol:
+    new_data = [it, a, b, f(a), f(b)]
+
+    c = (a + b) / 2
+    fc = f(c)
+
+    if fa * fc < 0:
+        b = c
+        fb = fc
+
+        new_data.append(f"b := {c:.4f}")
+    else:
+        a = c
+        fa = fc
+
+        new_data.append(f"a := {c:.4f}")
+
+    data.append(new_data)
+    it += 1
+
+import tabulate
+
+table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=".4f")
+# caption='Results of bisection method on example 2'
+table
 ```
 
-The code does indeed give an initial bracket, and then converges to a solution of $x^* = 235.9$ after 13 iterations.
+We converges to a solution of $x^* = 235.9$ after 13 iterations.
 
-Note that if we do not try a sufficiently large value for $n$ for the upper range of the bracketing interval the method will fail. For example,
-
-    $ python runBisection.py compound 1.0 100.0 0.1
-    Running bisection on nonlinear function: compound
-    With parameters:  ['1.0', '100.0', '0.1']
-    Warning! The input values do not provide a bracket
-    solution: x = None, f = None
-
-A warning that the initial values for $n$ do not bracket a solution.
+Note that if we do not try a sufficiently large value for $n$ for the upper range of the bracketing interval the method will fail.
 
 ### Example 3
 
-3.  Use the bisection method to find the points at which the thickness of the NACA0012 aerofoil is 0.1 with an error of less than $10^{-4}$.
+Use the bisection method to find the points at which the thickness of the NACA0012 aerofoil is 0.1 with an error of less than $10^{-4}$.
 
 It can be seen that $0 \le x^* \le 1$ but there are two solutions in this interval, so try $[x_L, x_R] = [0.5, 1]$ as the initial bracket.
 
-``` bash
-$ python runBisection.py naca0012 0.5 1.0 1.0e-4
+```{code-cell} ipython3
+:tags: [remove-input]
+import numpy as np
+
+
+def f(x):
+    yp = -0.1015 * np.power(x, 4) \
+             + 0.2843 * np.power(x, 3) \
+             - 0.3516 * np.power(x, 2) \
+             - 0.126 * x \
+             + 0.2969 * np.sqrt(x)
+    t = 0.1
+    return yp - 0.5 * t
+
+
+a = 0.5
+b = 1.0
+tol = 1.0e-4
+
+fa = f(a)
+fb = f(b)
+
+it = 0
+
+data = [["it", "a", "b", "f(a)", "f(b)", "update"]]
+
+while b - a > tol:
+    new_data = [it, a, b, f(a), f(b)]
+
+    c = (a + b) / 2
+    fc = f(c)
+
+    if fa * fc < 0:
+        b = c
+        fb = fc
+
+        new_data.append(f"b := {c:.4f}")
+    else:
+        a = c
+        fa = fc
+
+        new_data.append(f"a := {c:.4f}")
+
+    data.append(new_data)
+    it += 1
+
+import tabulate
+
+table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=".4f")
+# caption='Results of bisection method on example 2'
+table
 ```
 
 This gives the root as $x^* \approx 0.7652$ after 12 iterations.
@@ -218,7 +384,23 @@ Note that:
 
 For example:
 
-![](../img/lec15/root-example2.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+%matplotlib inline
+
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.axhline(0,color='0.8') # x = 0
+plt.axvline(0,color='0.8') # y = 0
+
+x = np.linspace(-1, 1)
+y = (x - 0.2) ** 2
+
+plt.plot(x, y)
+plt.show()
+```
 
 ## Newton's method
 
@@ -246,7 +428,60 @@ x^{(i+1)} & = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}.
 \end{aligned}
 $$
 
-![](../img/lec15/newton-graph.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+%matplotlib inline
+
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.axhline(0, color="0.8")  # x = 0
+plt.axvline(0, color="0.8")  # y = 0
+
+f = lambda t: t**2 - 0.2
+df = lambda t: 2 * t
+
+x = np.linspace(0, 1)
+y = f(x)
+
+plt.plot(x, y)
+
+x0 = 0.8
+f0 = f(x0)
+
+p0 = plt.plot(x0, f0, "o")
+color = p0[0].get_color()
+plt.plot([x0, x0, 0], [0, f0, f0], color=color, linestyle="--")
+
+x1 = x0 - f0 / df(x0)
+f1 = f(x1)
+
+tgt0 = f(x0) + (x - x0) * df(x0)
+pt0 = plt.plot(x, tgt0)
+color = pt0[0].get_color()
+plt.plot(x1, 0, "o", color=color)
+
+plt.text(
+    x0 + 0.03,
+    f0 + 0.01,
+    "slope at $x^{(0)}$",
+    fontsize=10,
+    color=color,
+)
+
+p1 = plt.plot(x1, f1, "o")
+color = p1[0].get_color()
+plt.plot([x1, x1, 0], [0, f1, f1], color=color, linestyle="--")
+
+plt.xticks([x0, x1], ["$x^{(0)}$", "$x^{(1)}$"])
+plt.yticks([f0, f1], ["$f(x^{(0)})$", "$f(x^{(1)})$"])
+
+plt.xlim([0, 1])
+plt.ylim([-0.2, 0.8])
+
+plt.show()
+```
 
 ### Notes
 

@@ -105,6 +105,6 @@ $$
 -   This will be the topic of the next section...
 
 
-# Further reading
+## Further reading
 
 - Wikipedia: [Triangular matrix](https://en.wikipedia.org/wiki/Triangular_matrix)

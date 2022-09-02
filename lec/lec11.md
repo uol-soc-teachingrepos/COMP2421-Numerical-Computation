@@ -56,7 +56,7 @@
 
 -   For example, the speed $S(t)$ could be given at each time $t$ by
 
-    ![](../img/lec11/speed.svg)
+    ![Plot of an object's speed against time](../img/lec11/speed.svg)
 
 -   How far would the object travel in one second now?
 
@@ -110,13 +110,37 @@ def s(t):
 
 -   The following table of results is obtained:
 
-    | \# intervals   | increment size ($\mathrm{d}t$)   | total distance   |
-    | -------------- | -------------------------------- | ---------------- |
-    | 10             | 1.000e-01                        | 1.54000          |
-    | 100            | 1.000e-02                        | 1.50490          |
-    | 1000           | 1.000e-03                        | 1.50050          |
-    | 10000          | 1.000e-04                        | 1.50005          |
-    | 100000         | 1.000e-05                        | 1.50000          |
+<table class="colwidths-auto table">
+<caption>Total distance as a function of number of steps</caption>
+<thead>
+<tr class="row-odd"><th class="head"><p># intervals</p></th>
+<th class="head"><p>increment size (<span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>)</p></th>
+<th class="head"><p>total distance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>1.000e-01</p></td>
+<td><p>1.54000</p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>1.000e-02</p></td>
+<td><p>1.50490</p></td>
+</tr>
+<tr class="row-even"><td><p>1000</p></td>
+<td><p>1.000e-03</p></td>
+<td><p>1.50050</p></td>
+</tr>
+<tr class="row-odd"><td><p>10000</p></td>
+<td><p>1.000e-04</p></td>
+<td><p>1.50005</p></td>
+</tr>
+<tr class="row-even"><td><p>100000</p></td>
+<td><p>1.000e-05</p></td>
+<td><p>1.50000</p></td>
+</tr>
+</tbody>
+</table>
 
 -   We appear to be converging to an answer in the limit as $\mathrm{d}t \to 0$...
 
@@ -159,7 +183,7 @@ def s(t):
 
 -   We can give a graphical interpretation of the relationship between $D(t)$ and its derivative $D'(t)$.
 
-![](../img/lec11/graphical.svg)
+![Plot of an object's speed and displacement against time](../img/lec11/graphical.svg)
 
 Inspection of the plots shows that the **steepness** of the red curve $D(t)$ is related to the **value** of the blue curve $S(t)$:
 
@@ -181,7 +205,7 @@ This provides for an alternative interpretation of the derivative of a function.
 
 -   It is the steepness...
 
-    ![](../img/lec11/lines.svg)
+    ![Examples of different gradients represented by triangles](../img/lec11/lines.svg)
 
 -   The equation of a straight line with slope $m$ is given by
 
@@ -193,7 +217,7 @@ This provides for an alternative interpretation of the derivative of a function.
 
 -   What is the slope/gradient of a curve?
 
-    ![](../img/lec11/curve-0.svg)
+    ![A plot of the varying slope of a curve](../img/lec11/curve-0.svg)
 
 -   The slope of the straight-line approximation ("chord") is
 
@@ -203,11 +227,11 @@ This provides for an alternative interpretation of the derivative of a function.
 
 -   We can get a better approximation by taking a smaller value for $\mathrm{d}t$...
 
-    ![](../img/lec11/curve-1.svg)
+    ![A plot of the varying slope of a curve](../img/lec11/curve-1.svg)
 
 -   We can get an **even** better approximation by taking an **even** smaller value for $\mathrm{d}t$...
 
-    ![](../img/lec11/curve-2.svg)
+    ![A plot of the varying slope of a curve](../img/lec11/curve-2.svg)
 
 
 By taking smaller and smaller values of $\mathrm{d}t$, it becomes clear that we can assign an instantaneous value to the slope at any point $t$:

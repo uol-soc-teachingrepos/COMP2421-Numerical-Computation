@@ -283,7 +283,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_elimination):
 
 > The method in Europe stems from the notes of Isaac Newton. In 1670, he wrote that all the algebra books known to him lacked a lesson for solving simultaneous equations, which Newton then supplied. Carl Friedrich Gauss in 1810 devised a notation for symmetric elimination that was adopted in the 19th century by professional hand computers to solve the normal equations of least-squares problems. The algorithm that is taught in high school was named for Gauss only in the 1950s as a result of confusion over the history of the subject.
 
-![](../img/lec06/NineChapters.jpg)
+![Image from Nine Chapter of the Mathematical art](../img/lec06/NineChapters.jpg)
 
 ### The algorithm
 

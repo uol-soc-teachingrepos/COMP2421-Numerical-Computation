@@ -20,7 +20,7 @@
 
 -   We know its initial position and speed in each direction and wish to predict its trajectory.
 
-![](../img/lec14/projectile.svg)
+![Sample trajectory of a projectileNACA0012 prototype wing section](../img/lec14/projectile.svg)
 
 ### Projectile example - model
 

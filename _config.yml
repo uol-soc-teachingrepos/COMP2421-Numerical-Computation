@@ -9,7 +9,8 @@ author: Dr Thomas Ranner, University of Leeds
 # See https://jupyterbook.org/content/execute.html
 
 execute:
-  execute_notebooks: 'off'
+  execute_notebooks: 'auto'
+  exclude_patterns: ['ws/*']
 
 # only build pages listed in _toc.yml
 only_build_toc_files: true

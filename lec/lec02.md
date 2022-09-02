@@ -122,7 +122,9 @@ It can be proved that if the relative error is equal to $\beta^{-d}$ then $fl(x)
 
 ### Bounding the errors
 
-In the number system given by $(\beta, t, L, U)$, the nearest (larger) representable number to $x = 0.b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e$ is $$
+In the number system given by $(\beta, t, L, U)$, the nearest (larger) representable number to $x = 0.b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e$ is
+
+$$
  \tilde{x} = x + .\underbrace{000\ldots01}_{t \text{ digits}} \times \beta^e = x + \beta^{e-t}
 $$
 
@@ -147,9 +149,8 @@ $$
 
 The last term is known as **machine precision** or **unit roundoff** and is often called $eps$. This is obtained in Python with
 
-``` python
->>> np.finfo(np.double).eps
-2.220446049250313e-16
+```python
+np.finfo(np.double).eps
 ```
 
 ### Examples

@@ -1,21 +1,5 @@
 # Lecture 01: Module introduction
 
-## Module contents
-
-**Module overview**
-
-Objectives and syllabus
-
-**Semester one**
-
-Books and websites
-
-Administration
-
-What is numerical computation?
-
-Examples and applications
-
 ### Module objectives
 
 - Understand how to compute with vectors and matrices.
@@ -116,15 +100,19 @@ Further more specific references will be given in each section of the notes.
 
 ### Module components
 
-**Lectures**
+### Lectures
 
-2 hours per week
+2 hours per week in this room.
 
-**Tutorials**
+Leeds content delivered by Tom Ranner and Yongxing Wang.
 
-1 hour per week (see timetable)
+Chengdu content delivered by Zhiguo Long.
 
-**Homework and coursework exercise**
+### Tutorials
+
+1 hour per week (see timetable for your session)
+
+### Homework and coursework exercise
 
 These will be provided *weekly* throughout the semester.
 
@@ -132,27 +120,46 @@ Coursework assignments are designed to give practice and reinforce the lectures.
 
 ### Assessment
 
-**Examination**
+#### Examination
 
 On-line assessment in January.
 Worth 60%.
 More details to follow.
 
-**Summative coursework**
+#### Summative coursework
 
 Two pieces of coursework each worth 20% submitted via Gradescope.
 The dates are tentative at this stage and are subject to change.
 
 DATES TO BE CONFIRMED
 
-| Coursework | Date set    | Submission deadline | Feedback date   |
-|------------|-------------|---------------------|-----------------|
-| 1          |             |                     |                 |
-| 2          |             |                     |                 |
+<table class="colwidths-auto table">
+	<caption>Summative coursework timetable</caption>
+	<thead>
+	<tr>
+	<th class="head">Coursework</th>
+	<th class="head">Date set</th>
+	<th class="head">Submission deadline</th>
+	<th class="head">Feedback date</th>
+	</tr>
+	</thead>
+	<tr>
+	<td>1</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>2</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+</table>
 
-**Formative homework**
+#### Formative homework
 
-There will be weekly homework assignment sheets. These are not for credit. You can check your understanding by submitting answers via Gradescope.
+There will be weekly homework assignment sheets. These are not for credit.
 
 ### Virtual learning environment
 
@@ -174,19 +181,49 @@ TODO add updated team details
 
 Weekly tutorials will support you in your learning. See your timetable for when and where you should attend. Please bring the worksheet with you.
 
-| Week | Topic                                        |
-|------|----------------------------------------------|
-| 1    | Maths preliminary                            |
-| 2    | Introduction to python                       |
-| 3    | Floating point number systems                |
-| 4    | Triangular systems and Gaussian elimination  |
-| -    | *reading week*                               |
-| 6    | LU Factorisation and iterative methods       |
-| 7    | Sparse systems/pivoting                      |
-| 8    | Derivatives and Euler's method               |
-| 9    | Other time stepping                          |
-| 10   | Bisection and Newton's method                |
-| 11   | Other root finding                           |
+<table class="colwidths-auto table">
+<caption>Tutorials plan</caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Week</p></th>
+<th class="head"><p>Topic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Maths preliminary</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Introduction to python</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Floating point number systems</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Triangular systems and Gaussian elimination</p></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p><em>reading week</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>LU Factorisation and iterative methods</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Sparse systems/pivoting</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Derivatives and Euler’s method</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Other time stepping</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Bisection and Newton’s method</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Other root finding</p></td>
+</tr>
+</tbody>
+</table>
 
 ## Numerical algorithms
 
@@ -208,9 +245,11 @@ Weekly tutorials will support you in your learning. See your timetable for when 
 
 #### Airflow simulations
 
+Car manufacturer and motor spots teams often perform computer simulations to test and optimise new designs.
+
 <video width="100%" controls>
 	<source src="../_static/video/lec01/LES.webm" type="video/mp4">
-	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
+	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
 </video>
 
 <small>
@@ -221,11 +260,15 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 
 #### Economics
 
+Most modern day economic forecasting involves performing numerical simulations.
+
 <a title="Negative Space - Pexels account, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blur-chart-data-69760.jpg"><img width="100%" alt="Blur-chart-data-69760" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blur-chart-data-69760.jpg/512px-Blur-chart-data-69760.jpg"></a>
 
 - Saul H. Hymans, [Forcasting and econometric models](https://www.econlib.org/library/Enc/ForecastingandEconometricModels.html)
 
 #### Weather forecasting
+
+One of the most popular applications of numerical simulation in the UK today is in predicting tomorrow's weather.
 
 <video width="100%" muted controls>
 	<source src="../_static/video/lec01/weather.webm" type="video/mp4">
@@ -240,6 +283,8 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 - Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)
 
 #### Health care
+
+Many different areas of medicine now use simulations. This can be used both as an earlier step in clinical trials in order to reduce harm to animal or human participants or to predict how medical interventions will work in practice.
 
 <video width="100%" controls>
 	<source src="../_static/video/lec01/in-silico.mp4" type="video/mp4">
@@ -283,9 +328,12 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 
 #### Robotics at Leeds
 
-[![](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)](https://robotics.leeds.ac.uk/)
+Many tasks in robotics are tested first in simulated environments where simulation plays a key role.
+
+[![Robotics at Leeds](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)](https://robotics.leeds.ac.uk/)
 
 #### Pipebots
+
 <video width="100%" muted>
 	<source src="../_static/video/lec01/pipebots.webm" type="video/mp4">
 </video>

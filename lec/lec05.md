@@ -71,7 +71,7 @@ In other words, given an $n \times n$ matrix $A$ and an $n$-vector $\vec{b}$, fi
 
 Suppose we wish to estimate the temperature distribution inside an object:
 
-![](../img/lec05/temperature.svg)
+![Image showing sample temperature and relations in a room.](../img/lec05/temperature.svg)
 
 We can place a network of points inside the object and use the following model: the temperature at each interior point is the average of its neighbours.
 
@@ -99,7 +99,7 @@ $$
 
 Suppose we wish to monitor the flow of traffic in a city centre:
 
-![](../img/lec05/traffic.svg)
+![Example network showing traffic flow in a city](../img/lec05/traffic.svg)
 
 As the above example shows, it is not necessary to monitor at every single road. If we know all of the $y$ values we can calculate the $x$ values!
 
@@ -127,7 +127,7 @@ $$
 
 ## Special types of matrices
 
-The general matrix $A$ on the slide before the examples is known as a **full** matrix: any of its components $a_{ij}$ might be nonzero.
+The general matrix $A$ before the examples is known as a **full** matrix: any of its components $a_{ij}$ might be nonzero.
 
 Often the problem being solved leads to a matrix with a particular structure.
 

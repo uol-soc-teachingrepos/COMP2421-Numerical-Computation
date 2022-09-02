@@ -76,15 +76,61 @@
 
 -   We can solve this problem using Euler's method and then look at the errors when $t = 2.0$.
 
-| $n$   | $\mathrm{d}t$   | solution   | abs. error   | ratio    |
-| ----- | --------------- | ---------- | ------------ | -------- |
-| 10    | 0.1000          | 7.0000     | 1.0000       | 0.0000   |
-| 20    | 0.0500          | 7.4545     | 0.5455       | 0.5455   |
-| 40    | 0.0250          | 7.7143     | 0.2857       | 0.5238   |
-| 80    | 0.0125          | 7.8537     | 0.1463       | 0.5122   |
-| 160   | 0.0063          | 7.9259     | 0.0741       | 0.5062   |
-| 320   | 0.0031          | 7.9627     | 0.0373       | 0.5031   |
-| 640   | 0.0016          | 7.9813     | 0.0187       | 0.5016   |
+<table class="colwidths-auto table">
+<caption>Results of using Euler's method varying <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathrm{d}t\)</span></p></th>
+<th class="head"><p>solution</p></th>
+<th class="head"><p>abs. error</p></th>
+<th class="head"><p>ratio</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>0.1000</p></td>
+<td><p>7.0000</p></td>
+<td><p>1.0000</p></td>
+<td><p>0.0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>0.0500</p></td>
+<td><p>7.4545</p></td>
+<td><p>0.5455</p></td>
+<td><p>0.5455</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>0.0250</p></td>
+<td><p>7.7143</p></td>
+<td><p>0.2857</p></td>
+<td><p>0.5238</p></td>
+</tr>
+<tr class="row-odd"><td><p>80</p></td>
+<td><p>0.0125</p></td>
+<td><p>7.8537</p></td>
+<td><p>0.1463</p></td>
+<td><p>0.5122</p></td>
+</tr>
+<tr class="row-even"><td><p>160</p></td>
+<td><p>0.0063</p></td>
+<td><p>7.9259</p></td>
+<td><p>0.0741</p></td>
+<td><p>0.5062</p></td>
+</tr>
+<tr class="row-odd"><td><p>320</p></td>
+<td><p>0.0031</p></td>
+<td><p>7.9627</p></td>
+<td><p>0.0373</p></td>
+<td><p>0.5031</p></td>
+</tr>
+<tr class="row-even"><td><p>640</p></td>
+<td><p>0.0016</p></td>
+<td><p>7.9813</p></td>
+<td><p>0.0187</p></td>
+<td><p>0.5016</p></td>
+</tr>
+</tbody>
+</table>
 
 -   What is happening to the error as $\mathrm{d}t \to 0$?
 
@@ -203,15 +249,61 @@ We use this idea to derive a improve numerical scheme.
 
 -   The following tables shows computed results for the final solution, at $t = 2.0$.
 
-| $n$   | $\mathrm{d}t$   | solution   | abs. error  | ratio    |
-| ----- | --------------- | ---------- | ----------- | -------- |
-| 10    | 0.1000          | 7.9351     | 0.0649      | 0.0000   |
-| 20    | 0.0500          | 7.9825     | 0.0175      | 0.2689   |
-| 40    | 0.0250          | 7.9955     | 0.0045      | 0.2591   |
-| 80    | 0.0125          | 7.9988     | 0.0012      | 0.2545   |
-| 160   | 0.0063          | 7.9997     | 0.0003      | 0.2522   |
-| 320   | 0.0031          | 7.9999     | 0.0001      | 0.2511   |
-| 640   | 0.0016          | 8.0000     | 0.0000      | 0.2505   |
+<table class="colwidths-auto table">
+<caption>Results of using the midpoint method varying <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span><caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathrm{d}t\)</span></p></th>
+<th class="head"><p>solution</p></th>
+<th class="head"><p>abs. error</p></th>
+<th class="head"><p>ratio</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>0.1000</p></td>
+<td><p>7.9351</p></td>
+<td><p>0.0649</p></td>
+<td><p>0.0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>0.0500</p></td>
+<td><p>7.9825</p></td>
+<td><p>0.0175</p></td>
+<td><p>0.2689</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>0.0250</p></td>
+<td><p>7.9955</p></td>
+<td><p>0.0045</p></td>
+<td><p>0.2591</p></td>
+</tr>
+<tr class="row-odd"><td><p>80</p></td>
+<td><p>0.0125</p></td>
+<td><p>7.9988</p></td>
+<td><p>0.0012</p></td>
+<td><p>0.2545</p></td>
+</tr>
+<tr class="row-even"><td><p>160</p></td>
+<td><p>0.0063</p></td>
+<td><p>7.9997</p></td>
+<td><p>0.0003</p></td>
+<td><p>0.2522</p></td>
+</tr>
+<tr class="row-odd"><td><p>320</p></td>
+<td><p>0.0031</p></td>
+<td><p>7.9999</p></td>
+<td><p>0.0001</p></td>
+<td><p>0.2511</p></td>
+</tr>
+<tr class="row-even"><td><p>640</p></td>
+<td><p>0.0016</p></td>
+<td><p>8.0000</p></td>
+<td><p>0.0000</p></td>
+<td><p>0.2505</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Notes
 

@@ -33,7 +33,7 @@
 
 -   We saw a geometric interpretation of the derivative of $y(t)$ by considering the slope of its graph:
 
-    ![](../img/lec11/curve-1.svg)
+    ![A plot of the varying slope of a curve](../img/lec11/curve-1.svg)
 
 -   The slope of the straight line approximation (chord) is
 
@@ -51,15 +51,15 @@
 
 ### Example 1
 
-![](../img/lec12/f1-b.svg)
+![An example of a function and its derivative](../img/lec12/f1-b.svg)
 
 ### Example 2
 
-![](../img/lec12/f3-b.svg)
+![An example of a function and its derivative](../img/lec12/f3-b.svg)
 
 ### Example 3
 
-![](../img/lec12/covid-cases-c.svg)
+![An example of a function and its derivative](../img/lec12/covid-cases-c.svg)
 
 log cases by specimen date\
 [Data source, cornavirus.data.gov.uk](https://coronavirus.data.gov.uk/details/cases)
@@ -163,7 +163,7 @@ def freefall(n):
 
 ### Python algorithm: Results
 
-![](../img/lec12/freefall.svg)
+![Results of python algorithm](../img/lec12/freefall.svg)
 
 ## Euler's method
 

@@ -278,4 +278,9 @@ If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can make 
 
 ## Further reading
 
-TODO add me
+
+- Wikipedia: [Curve fitting](https://en.wikipedia.org/wiki/Curve_fitting)
+- Wikipedia: [Linear least squares](https://en.wikipedia.org/wiki/Linear_least_squares)
+- Maths is fun: [Least Squares Regression](https://www.mathsisfun.com/data/least-squares-regression.html)
+
+- Cross Validated StackExchange: [Is a model fitted to data or is data fitted to a model?](https://stats.stackexchange.com/questions/399094/is-a-model-fitted-to-data-or-is-data-fitted-to-a-model)

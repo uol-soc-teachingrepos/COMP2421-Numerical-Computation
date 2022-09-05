@@ -351,4 +351,6 @@ We use this idea to derive a improve numerical scheme.
 
 ## Further reading
 
-TODO: add reading list
+- Wikipedia: [Midpoint method](https://en.wikipedia.org/wiki/Midpoint_method)
+- Wikipedia: [Runga-Kutta method](https://en.wikipedia.org/wiki/Runge–Kutta_methods) - the midpoint method a second order Runga-Kutta method
+- Computational Science StackExchange: [Numerically determning convergence order of Euler's method](https://scicomp.stackexchange.com/questions/10106/numerically-determining-convergence-order-of-eulers-method)

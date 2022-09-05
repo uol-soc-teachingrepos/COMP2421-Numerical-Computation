@@ -228,4 +228,12 @@ For the general equation we have the following algorithm:
 
 ## Further reading
 
-TODO: add reading list
+- Wikipedia: [Differential equations](https://en.wikipedia.org/wiki/Differential_equation)
+- Maths is fun: [Differential equations](https://www.mathsisfun.com/calculus/differential-equations.html)
+
+- Wikipedia: [Euler method](https://en.wikipedia.org/wiki/Euler_method)
+- CalcWorkshop: [How to do Euler's method?](https://calcworkshop.com/first-order-differential-equations/eulers-method-table/)
+
+Euler's method in films:
+
+- Khan, Amina. "[Meet the 'Hidden Figures' mathematician who helped send Americans into space](http://www.latimes.com/science/sciencenow/la-sci-sn-hidden-figures-katherine-johnson-20170109-story.html)". Los Angeles Times. Retrieved 12 February 2017

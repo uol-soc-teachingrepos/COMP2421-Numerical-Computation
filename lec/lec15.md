@@ -552,4 +552,10 @@ Write out an expression for the Newton iteration for each of the following funct
 
 ## Further reading
 
-TODO add reading list
+- Maths is fun: [Quadratic equation](https://www.mathsisfun.com/algebra/quadratic-equation.html)
+- John D Cook, "[The quadratic formula and low-precision arithmetic](https://www.johndcook.com/blog/2018/04/28/quadratic-formula/)"
+
+- Wikipedia: [Root finding algorithms](https://en.wikipedia.org/wiki/Root-finding_algorithms)
+- Wikipedia: [Bisection method](https://en.wikipedia.org/wiki/Bisection_method)
+- Wikipedia: [Newton's method](https://en.wikipedia.org/wiki/Newton%27s_method)
+- X-engineer: [Bisection method for root finding](https://x-engineer.org/bisection-method/)

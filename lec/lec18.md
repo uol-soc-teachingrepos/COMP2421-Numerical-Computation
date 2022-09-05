@@ -196,7 +196,6 @@ brentq(naca0012, 0.0, 0.5, xtol=1.0e-4, full_output=True)
 
 -   Finding all possible solutions is particularly challenging since we may not know how many solutions there are in advance.
 
-
 ## Further reading
 
-TODO add me
+- `scipy`: Optimization and root finding [`scipy.optimize`](https://docs.scipy.org/doc/scipy/reference/optimize.html)

@@ -171,4 +171,5 @@ for i in range(n):
 
 ## Further reading
 
-TODO add reading list
+- Wikipedia: [Projectile motion](https://en.wikipedia.org/wiki/Projectile_motion)
+- [`scipy.integrate.solve_ivp`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)

@@ -163,4 +163,6 @@ Disadvantages:
 
 ## Further reading
 
-TODO add me
+- Wikipedia: [Quasi-Newton method](https://en.wikipedia.org/wiki/Quasi-Newton_method)
+- Wikipedia: [Secant method](https://en.wikipedia.org/wiki/Secant_method)
+- `scipy`: Optimization and root finding [`scipy.optimize`](https://docs.scipy.org/doc/scipy/reference/optimize.html)

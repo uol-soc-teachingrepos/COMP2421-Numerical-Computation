@@ -291,8 +291,6 @@ Many different areas of medicine now use simulations. This can be used both as a
 	<img width="100%" alt="Workflow of the FD-PASS in-silico trial" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-23998-w/MediaObjects/41467_2021_23998_Fig1_HTML.png">
 </video>
 
-Video source: <https://vimeo.com/578167974>
-
 - Wikipedia: [*In silico* clinical trials](https://en.wikipedia.org/wiki/In_silico_clinical_trials)
 - Sarrami-Foroushani *et al.*, [In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials](https://doi.org/10.1038/s41467-021-23998-w). Nat Commun 12, 3861 (2021).
 

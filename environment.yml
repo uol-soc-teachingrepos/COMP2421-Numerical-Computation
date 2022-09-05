@@ -7,8 +7,9 @@ dependencies:
   - jupyterlab
   - numpy
   - matplotlib
+  - scipy
   - make
   - git
   - git-lfs
   - livereload
-  
+

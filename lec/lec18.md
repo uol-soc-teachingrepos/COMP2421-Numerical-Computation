@@ -1,8 +1,22 @@
-# Robust nonlinear solvers
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+# Lecture 18: Robust nonlinear solvers
 
 ### Recap
 
--   In the previous lecture we consider a modified version of Newton's method in which $f'(x^{(i)})$ is approximated: $$
+-   In the previous lecture we consider a modified version of Newton's method in which $f'(x^{(i)})$ is approximated:
+
+    $$
     f'(x^{(i)}) \approx \frac{f(x^{(i)} + \mathrm{d}x) - f(x^{(i)})}{\mathrm{d}x}.
     $$
 
@@ -35,30 +49,32 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 1.  Search for an initial point $x^{(1)}$ such that $f(x^{(0)}) f(x^{(1)}) < 0$, i.e. an initial bracket $[x^{(0)}, x^{(1)}]$ for $x^*$.
 
-2.  Take a single step with the secant method $$
-    x^{(2)} = x^{(1)} - f(x^{(1)}) \frac{x^{(1)} - x^{(0)}}{f(x^{(1)}) - f(x^{(0)})}
-    $$ to produce a new estimate.
+2.  Take a single step with the secant method
 
-### A combined approach (cont.)
+    $$
+    x^{(2)} = x^{(1)} - f(x^{(1)}) \frac{x^{(1)} - x^{(0)}}{f(x^{(1)}) - f(x^{(0)})}
+    $$
+
+	to produce a new estimate.
 
 3.  If $x^{(2)}$ is outside $[x^{(0)}, x^{(1)}]$ then reject it and apply a single bisection step, i.e. find $x^{(2)} = (x^{(0)} + x^{(1)}) / 2$.
 
-4.  Update the bracket to $$
+4.  Update the bracket to
+
+    $$
     \begin{cases}
     [x^{(0)}, x^{(2)}] & \text{ if } f(x^{(0)}) f(x^{(2)}) \le 0; \\
     [x^{(2)}, x^{(1)}] & \text{ if } f(x^{(2)}) f(x^{(1)}) \le 0.
     \end{cases}
     $$
 
-5.  If the method has not yet converged return to step 2 with the new interval.
+5.  If the method has not yet converged return to step 3 with the new interval.
 
 ### Notes
 
 -   When the secant iteration becomes unreliable the algorithm reverts to the bisection approach.
 
 -   When the approximation is close to the root the secant method will usually be used and should converge (almost) as rapidly as Newton.
-
--   This is implemented in [`fzero`](../code/nonlinearSolve.html#fzero) in [`nonlinearSolve.py`](../code/nonlinearSolve.py).
 
 -   The approach can easily be adapted to find all of the roots in a given interval.
 
@@ -68,80 +84,107 @@ In this algorithm we seek to combine the reliability of the bisection algorithm 
 
 The algorithm stops if any of the following holds:
 
--   ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \text{\texttt{tolx}}$;
--   $|f(x^{(i)})| < \text{\texttt{tolfun}}$;
+-   ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \texttt{tolx}$;
+-   $|f(x^{(i)})| < \texttt{tolfun}$;
 -   the number of iterations exceeds a specified number `maxiter`.
 
 Criticisms:
 
--   convergence criteria should ideally satisfy *both* ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \text{\texttt{tolx}}$ and $|f(x^{(i)})| < \text{\texttt{tolfun}}$;
+-   convergence criteria should ideally satisfy *both* ${|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} < \texttt{tolx}$ and $|f(x^{(i)})| < \texttt{tolfun}$;
 -   cannot find solutions which do not cross the $x$-axis.
 
-### Using `fzero`
+### Implementation
 
-``` python
-fzero(fnon, x0, x1=None, tolx=1e-4, tolfun=1e-4, maxiter=100, verbose=True)
+The method has been slightly improved to become [Brent's method](https://en.wikipedia.org/wiki/Brent%27s_method) which is implemented in `scipy` as [`scipy.optimize.brentq`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html).
+
+Note that this method requires both initial estimates $x^{(0)}$ and $x^{(1)}$.
+
+```{code-cell} ipython3
+:tags: [hide-input]
+from scipy.optimize import brentq
+
+help(brentq)
 ```
 
--   `fnon` is the function handle for $f(x)$ (`Callable[[float], float]`);
--   `x0` is the initial guess;
--   `x1` is an optional parameter giving the other end of the bracket. If `x1` is not passed to the function, `x1` is found automatically;
--   `tolx`, `tolfun`, `maxiter` related to the stopping criteria. Each are optional with default values set;
--   `verbose` says whether to print out convergence information.
+#### Exercise
 
-Some sample function calls are given in [`runFzero.py`](../code/lec18/runFzero.html).
+How can we estimate this initial bracket from an initial guess?
 
 ### Examples
 
-1.  Consider the example with $f(x) = x^2 - R$ and $R=2$. Take $x^{(0)} = 1$ and use the function call
+We will test `scipy`'s implementation with our three examples from before.
 
-    ``` python
-    fzero(sqrt2, 1.0, tolx=1.0e-12, tolfun=1.0e-12)
-    ```
+Consider the example with $f(x) = x^2 - R$ and $R=2$. Take $x^{(0)} = 0$ and $x^{(1)} = 2$ and use the function call
 
-    -   The algorithm gives $x^* = 1.414214$ after 10 iterations.
-    -   `fzero` does not know where to position the initial bracket $[x^{(0)}, x^{(1)}]$.
-    -   If $x^{(0)}$ is a poor estimate it takes some time, or fails altogether.
+```{code-cell} ipython3
+def sqrt2(x):
+    return x**2 - 2.0
 
-### Examples (cont.)
+brentq(sqrt2, 0.0, 2.0, xtol=1.0e-4, maxiter=100, full_output=True)
+```
 
-2.  Consider the example with $f(x) = x^2 - R$ with $R=2$, take $x^{(0)} = 1.0$ and use the function call
+-   The algorithm gives $x^* = 1.4142$ after 7 iterations.
 
-    ``` python
-    eps = np.finfo(float).eps
-    fzero(sqrt2, 1.0, tolx=eps, tolfun=eps)
-    ```
+Consider the example with $f(x) = x^2 - R$ with $R=2$, take $x^{(0)} = 0$ and $x^{(1)} = 2$ and use the function call
 
-    -   The algorithm gives $x^* = 1.414214$ after 12 iterations.
-    -   Convergence is to *machine precision* - so it takes more iterations than previously - but not too many!
+```{code-cell} ipython3
+import numpy as np
+eps = np.finfo(np.double).eps
+brentq(sqrt2, 0.0, 2.0, xtol=4*eps, maxiter=100, full_output=True)
+```
 
-### Examples (cont.)
+-   The algorithm gives $x^* = 1.414214$ after 9 iterations.
+-   Convergence is to *machine precision* - so it takes more iterations than previously - but not too many!
 
-3.  Consider the compound interest example with $[x^{(0)}, x^{(1)}] = [200, 300]$, using the function call
+Consider the compound interest example with $[x^{(0)}, x^{(1)}] = [200, 300]$, using the function call
 
-    ``` python
-    fzero(compound, 200, 300, tolx=1.0e-3, tolfun=1.0e-12)
-    ```
+```{code-cell} ipython3
+def compound(n):
+    # Set P, M and r.
+    P = 150000
+    M = 1000
+    r = 5.0
+    # Evaluate the function.
+    i = r / 1200
+    f = M - P * (i * (1 + i)**n) / ((1 + i)**n - 1)
 
-    -   This converges to the root $x^* = 235.889095$ after 18 iterations (using quite a large stopping tolerance in this case).
+    return f
 
-### Examples (cont.)
+brentq(compound, 200, 300, xtol=1.0e-1, full_output=True)
+```
 
-4.  Consider the NACA0012 aerofoil example with $[x^{(0)}, x^{(1)}] = [0.5, 1]$ using the function call
+-   This converges to the root $x^* = 235.87$ after 5 iterations (using quite a large stopping tolerance in this case).
 
-    ``` python
-    fzero(naca0012, 0.5, 1.0, tolx=1.0e-12, tolfun=1.0e-12)
-    ```
 
-    This converges to the root $x^* = 0.765249$ in 13 iterations.
+Consider the NACA0012 aerofoil example with $[x^{(0)}, x^{(1)}] = [0.5, 1]$ using the function call
 
-5.  Consider the NACA0012 aerofoil example with $[x^{(0)}, x^{(1)}] = [0, 0.5]$ using the function call
+```{code-cell} ipython3
+def naca0012(x):
+    # Set the required thickness at the intersection to be 0.1.
+    t = 0.1
 
-    ``` python
-    fzero(naca0012, 0.0, 0.5, tolx=1.0e-12, tolfun=1.0e-12)
-    ```
+    # Evaluate the function.
+    yp = -0.1015 * np.power(x, 4) \
+         + 0.2843 * np.power(x, 3) \
+         - 0.3516 * np.power(x, 2) \
+         - 0.126 * x \
+         + 0.2969 * np.sqrt(x)
+    f = yp - 0.5 * t
 
-    -   This converges to the other root $x^* = 0.33899$ after 44 iterations.
+    return f
+
+brentq(naca0012, 0.5, 1.0, xtol=1.0e-4, full_output=True)
+```
+
+This converges to the root $x^* = 0.765249$ in 6 iterations.
+
+Consider the NACA0012 aerofoil example with $[x^{(0)}, x^{(1)}] = [0, 0.5]$ using the function call
+
+```{code-cell} ipython3
+brentq(naca0012, 0.0, 0.5, xtol=1.0e-4, full_output=True)
+```
+
+-   This converges to the other root $x^* = 0.33899$ after 44 iterations.
 
 ## Summary
 

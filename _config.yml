@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: COMP2421 Numerical Computation
-author: Dr Thomas Ranner, University of Leeds
+author: Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
 # logo: logo.png
 
 # Force re-execution of notebooks on each build.

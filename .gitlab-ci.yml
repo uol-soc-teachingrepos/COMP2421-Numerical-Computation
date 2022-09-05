@@ -15,7 +15,7 @@ jupyter-build:
 
   script:
     - jupyter nbconvert --clear-output --to notebook --inplace ws/*.ipynb
-    # - jupyter-book build . --builder linkcheck TODO make this pass
+    - jupyter-book build . --builder linkcheck
     - jupyter-book clean .
     - jupyter-book build .
     - python _convert.py

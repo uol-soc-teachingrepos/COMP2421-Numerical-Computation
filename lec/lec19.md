@@ -221,8 +221,6 @@ $$
 
 ![](../img/lec19/quad-lines.svg)
 
-See the file [`leastSquaresTest.py`](../code/lec19/leastSquaresTest.html) for more.
-
 ### Example 2
 
 2.  Find the least square approximation to the system given by

@@ -29,7 +29,7 @@ All administration details in the [module handbook](../README.md).
 
 The programming for this module will be carried out using `python3`.
 
-The latest available version of python is available via [Anaconda](https://www.anaconda.com/products/individual#Downloads).
+The latest available version of python is available via [Anaconda](https://www.anaconda.com/products/distribution).
 
 Anaconda provides a full scientific Python distribution, including as standard tools for numerical analysis, data visualisation, image processing, and much more!
 

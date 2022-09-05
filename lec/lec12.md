@@ -232,8 +232,8 @@ For the general equation we have the following algorithm:
 - Maths is fun: [Differential equations](https://www.mathsisfun.com/calculus/differential-equations.html)
 
 - Wikipedia: [Euler method](https://en.wikipedia.org/wiki/Euler_method)
-- CalcWorkshop: [How to do Euler's method?](https://calcworkshop.com/first-order-differential-equations/eulers-method-table/)
+- x-engineer: [Euler integration method for solving differential equations](https://x-engineer.org/euler-integration/)
 
 Euler's method in films:
 
-- Khan, Amina. "[Meet the 'Hidden Figures' mathematician who helped send Americans into space](http://www.latimes.com/science/sciencenow/la-sci-sn-hidden-figures-katherine-johnson-20170109-story.html)". Los Angeles Times. Retrieved 12 February 2017
+- Catherine Meyers, [Exploring the Math in `Hidden Figures'](https://www.insidescience.org/news/exploring-math-hidden-figures), Inside Science, 2017.

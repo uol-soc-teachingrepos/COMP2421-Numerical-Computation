@@ -1,4 +1,16 @@
-# Quasi-Newton methods
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+# Lecture 17: Quasi-Newton methods
 
 ## Approximation of the derivative
 
@@ -15,11 +27,15 @@
 
 -   Recall that $f'(x) = \lim_{\mathrm{d}x \to 0} \frac{f(x + \mathrm{d}x) - f(x)}{\mathrm{d}x}$.
 
--   Hence we can choose a small value for $\mathrm{d}x$ (how small?) and approximate: $$
+-   Hence we can choose a small value for $\mathrm{d}x$ (how small?) and approximate:
+
+    $$
     f'(x) \approx \frac{f(x + \mathrm{d}x) - f(x)}{\mathrm{d}x}.
     $$
 
--   This modified-Newton method then becomes $$
+-   This modified-Newton method then becomes
+
+    $$
     x^{(i+1)} = x^{(i)} - \frac{\mathrm{d}x \times f(x^{(i)})}{f(x^{(i)} + \mathrm{d}x) - f(x^{(i)})}.
     $$
 
@@ -43,79 +59,78 @@
 
 -   Consider what happens when we approximate this with python, using finite values for $\mathrm{d}x$.
 
-### Problems with floating point arithmetic (cont.)
+```{code-cell} ipython3
+:tags: [remove-input]
+def f(x):
+    return x**3
+def df(x):
+    return 3*x**2
 
-  dx        approx         abs error    rel error
-  --------- -------------- ------------ ------------
-  1.0e-04   3.0003000100   3.0001e-04   1.0000e-04
-  1.0e-06   3.0000029998   2.9998e-06   9.9993e-07
-  1.0e-08   3.0000000040   3.9720e-09   1.3240e-09
-  1.0e-10   3.0000002482   2.4822e-07   8.2740e-08
-  1.0e-12   3.0002667017   2.6670e-04   8.8900e-05
-  1.0e-14   2.9976021665   2.3978e-03   7.9927e-04
-  1.0e-16   0.0000000000   3.0000e+00   1.0000e+00
+x = 1
 
-### python example
+data = [["dx", "approx", "abs error", "rel error"]]
 
--   A python demonstration of the above difference is provided by the function [`difference`](../code/nonlinearSolve.html#difference) in [`nonlinearSolve.py`](../code/nonlinearSolve.html).
+for e in range(4, 18, 2):
+    dx = 10 ** -e
+    approx = (f(x + dx) - f(x)) / dx
+    exact = df(x)
+    abs_error = abs(exact - approx)
+    rel_error = abs(exact - approx) / exact
 
--   This has four parameters
+    new_data = [dx, approx, abs_error, rel_error]
+    data.append(new_data)
 
-    ``` python
-    difference(fnon, dfnon, x0, dx)
-    ```
+import tabulate
 
-    -   the first two are "function handles" for $f(x)$ and $f'(x)$ (`Callable[[float], float]`);
-    -   the third and fourth are the value at which the derivative is estimated and the size of $\mathrm{d}x$ to be used.
-
--   The main code is
-
-    ``` python
-    d = (fnon(x0 + dx) - fnon(x0)) / dx
-    ```
-
--   See how the code maybe called from [`runDerivative.py`](../code/lec17/runDerivative.html).
+table = tabulate.tabulate(data, tablefmt="html", headers="firstrow")
+table
+```
 
 ## Modified Newton's method
 
 -   Recall the definition of machine precision/unit roundoff from Lecture 3.
 
--   The function [`modified_newton`](../code/nonlinearSolve.html#modified_newton) in [`nonlinearSolve.py`](../code/nonlinearSolve.html) implements the modified Newton algorithm without the need to know $f'(x)$.
+-   The modified Newton method uses $\mathrm{d}x = \sqrt{eps}$.
 
--   The main loop is as follows:
+- For double precision we have
 
-``` python
+```{code-cell} ipython3
+import numpy as np
 eps = np.finfo(float).eps
 dx = np.sqrt(eps)
-x = x0
-f = fnon(x)
-while abs(f) > tol:
-    x = x - (dx * f) / (fnon(x + dx) - f)
-    f = fnon(x)
-```
 
-See also [`runNewtonModified.py`](../code/lec17/runModifiedNewton.html).
+x0 = 1.0
+df_approx = ((x0+dx)**3 - x0**3) / dx
+abs_error = abs(df_approx - 3)
+rel_error = abs_error / 3
+
+print(f"{dx=}\n{df_approx=}\n{abs_error=}\n{rel_error=}")
+```
 
 ### Examples
 
--   The function call `modified_newton(sqrt2, 1, 1.0e-12)` gives $x^* \approx 1.4142135623731$ after 5 iterations.
+- The example to compute the square root of 2 to a tolerance of $10^{-12}$ with starting value $1$ gives $x^* \approx 1.4142135623731$ after 5 iterations.
 
--   The function call `modified_newton(naca0012, 1, 1.0e-4)` gives $x^* \approx 0.76579$ after 2 iterations.
+- The naca0012 example starting at 1 with tolerance $10^{-4}$ gives $x^* \approx 0.76579$ after 2 iterations.
 
--   The function call `modified_newton(naca0012, 1, 1.0e-5)` gives $x^* \approx 0.765239$ after 3 iterations.
+- The naca0012 example starting at 1 with tolerance $10^{-5}$ gives $x^* \approx 0.765239$ after 3 iterations.
 
--   The function call `modified_newton(naca0012, 0.1, 1.0e-4)` gives $x^* \approx 0.03386$ after 5 iterations.
+- The naca0012 example starting at 0.1 with tolerance $10^{-4}$ gives $x^* \approx 0.03386$ after 5 iterations.
 
 In each case the performance is almost identical to the Newton method.
 
 ## The secant method
 
--   Suppose we choose $\mathrm{d}x = x^{(i-1)} - x^{(i)}$, then we get $$
+-   Suppose we choose $\mathrm{d}x = x^{(i-1)} - x^{(i)}$, then we get
+
+    $$
     f'(x^{(i)}) \approx \frac{f(x^{(i)} + \mathrm{d}x) - f(x^{(i)})}{\mathrm{d}x}
     = \frac{f(x^{(i)}) - f(x^{(i-1)})}{x^{(i)} - x^{(i-1)}}.
     $$
 
--   Newton's method then becomes $$
+-   Newton's method then becomes
+
+    $$
     x^{(i+1)} = x^{(i)} - f(x^{(i)}) \frac{x^{(i)} - x^{(i-1)}}{f(x^{i}) - f(x^{(i-1)})}
     \left(\approx x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})} \right).
     $$
@@ -138,15 +153,13 @@ Disadvantages:
 
 ### Examples
 
--   The function call `secant(sqrt2, 1.0, 1.5, 1.0e-4)` gives the solution as $x^* \approx 1.4142$ after 3 iterations.
+- The example to compute the square root of 2 starting from 1 and 1.5 to a tolerance of $10^{-4}$ gives the solution as $x^* \approx 1.4142$ after 3 iterations.
 
--   The function call `secant(compound, 100, 120, 0.1)` gives the solution as $x^* \approx 235.9$ after 6 iterations.
+- The example to computation compound interest start from 100 and 120 to a tolerance of 0.1 gives the solution as $x^* \approx 235.9$ after 6 iterations.
 
--   The function call `secant(naca0012, 1, 0.9, 1.0e-4)` gives the solution as $x^* \approx 0.7653$ after 3 iterations.
+- The naca0012 example starting from 1 and 0.9 to a tolerance of $10^{-4}$ gives the solution as $x^* \approx 0.7653$ after 3 iterations.
 
--   The function call `secant(naca0012, 0, 0.1, 1.0e-4)` gives the solution as $x^* \approx 0.0339$ after 5 iterations.
-
--   The function call `secant(lin, 2, 3, 1.0e-4)` gives the solution as $x^* \approx 1.0062$ after 11 iterations when $f(x) = (x-1)^2$.
+- The naca0012 example starting from 0 and 0.1 to a tolerance of $10^{-4}$ gives the solution as $x^* \approx 0.0339$ after 5 iterations.
 
 ## Further reading
 

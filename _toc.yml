@@ -67,7 +67,7 @@ parts:
     - file: lec/lec18
       title: "Lec18: Robust nonlinear solvers"
     - file: ws/ws09.ipynb
-      title: "Robust nonlinear solvers"
+      title: "WS09: Robust nonlinear solvers"
   - caption: Special topics
     chapters:
     - file: lec/lec19

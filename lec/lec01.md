@@ -35,10 +35,9 @@ Anaconda provides a full scientific Python distribution, including as standard t
 
 This scientific Python distribution is available on all School of Computing machines, specifically all SoC Linux computers.
 
-*TODO* Test on new RHEL image
-
 On a SoC Linux computer, you can run
 ```sh
+> module load legacy-eng # This step may be removed in future
 > module add anaconda3/2020.11
 ```
 and you can test your python version with

@@ -50,8 +50,6 @@ On-line assessment in January. 2 hour exam with some multiple choice, short and 
 
 There are two pieces of coursework for this module. Each is worth 20% of your module grade. Coursework will be submitted via Gradescope. The dates are tentative at this stage and are subject to change.
 
-<!-- TODO update dates -->
-
 <table class="colwidths-auto table">
 	<caption>Summative coursework timetable</caption>
 	<thead>
@@ -64,15 +62,15 @@ There are two pieces of coursework for this module. Each is worth 20% of your mo
 	</thead>
 	<tr>
 	<td>1</td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td>17/11/22</td>
+	<td>8/11/22</td>
+	<td>22/11/22</td>
 	</tr>
 	<tr>
 	<td>2</td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td>28/11/22</td>
+	<td>13/12/22</td>
+	<td>early 23</td>
 	</tr>
 </table>
 

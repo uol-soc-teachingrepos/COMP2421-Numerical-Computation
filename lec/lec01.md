@@ -130,8 +130,6 @@ More details to follow.
 Two pieces of coursework each worth 20% submitted via Gradescope.
 The dates are tentative at this stage and are subject to change.
 
-DATES TO BE CONFIRMED
-
 <table class="colwidths-auto table">
 	<caption>Summative coursework timetable</caption>
 	<thead>
@@ -144,15 +142,15 @@ DATES TO BE CONFIRMED
 	</thead>
 	<tr>
 	<td>1</td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td>17/11/22</td>
+	<td>8/11/22</td>
+	<td>22/11/22</td>
 	</tr>
 	<tr>
 	<td>2</td>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td>28/11/22</td>
+	<td>13/12/22</td>
+	<td>early 23</td>
 	</tr>
 </table>
 

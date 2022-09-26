@@ -62,7 +62,7 @@ There are two pieces of coursework for this module. Each is worth 20% of your mo
 	</thead>
 	<tr>
 	<td>1</td>
-	<td>17/11/22</td>
+	<td>17/10/22</td>
 	<td>8/11/22</td>
 	<td>22/11/22</td>
 	</tr>

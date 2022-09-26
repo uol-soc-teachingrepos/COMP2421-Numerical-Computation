@@ -11,10 +11,8 @@ Module leader
 Email
 :   T.Ranner@leeds.ac.uk
 
-<!-- TODO update teams group when available -->
-
-<!-- Teams group -->
-<!-- :   [21/22 (1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/channel/19%3aSF6JCThw2h0hfRTPmJ4u9eHraovCLyg7I_CCsc7rjT81%40thread.tacv2/General?groupId=43cc2fb7-d867-4498-99c7-385f3eb82e09&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) -->
+Teams group
+:   [22/23(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
 
 ## Course contents
 

@@ -3,8 +3,8 @@
 from livereload import Server, shell
 
 server = Server()
-server.watch("README.md", shell("make"))
-server.watch("img/*", shell("make"))
-server.watch("lec/*.md", shell("make"))
-server.watch("ws/*.ipynb", shell("make"))
+server.watch("README.md", shell("make build slides"))
+server.watch("img/*", shell("make build slides"))
+server.watch("lec/*.md", shell("make build slides"))
+server.watch("ws/*.ipynb", shell("make build slides"))
 server.serve(root="_build/")

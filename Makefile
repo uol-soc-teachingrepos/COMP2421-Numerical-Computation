@@ -1,7 +1,3 @@
-all:
-	$(MAKE) -C . build
-	$(MAKE) -C . slides
-
 build:
 	jupyter-book build .
 	python _convert.py

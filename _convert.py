@@ -25,29 +25,35 @@ def replace_regex_in_file(filename: str, regex: str, replacement):
     #     return
 
     with open(filename, "w") as f:
-        new_content = re.sub(regex, replacement, content)
+        new_content = re.sub(regex, replacement, content, flags=re.S)
         f.write(new_content)
 
 
+# find all files
 files = glob("./_build/html/**/*html", recursive=True)
 
 for file in files:
+    # convert github icons to gitlab icons and change urls
     change_string_in_file(file, "fa-github", "fa-gitlab")
     replace_regex_in_file(
         file,
         r"new\?title=([^&]*)&body=([^&]*)",
         r"new\?issue[title]=\g<1>&issue[description]=\g<2>",
     )
+    # remove all revealjs specific code
+    replace_regex_in_file(file, r"<revealjs>.*?</revealjs>", "")
 
 
+# for all worksheets
 ws_files = glob("./_build/html/ws/*html", recursive=True)
 
+# add binder link
 for filename in ws_files:
-    if '00' in filename:
+    if "00" in filename:
         continue
 
     try:
-        ws_number = re.findall(r'\d+', filename)[0]
+        ws_number = re.findall(r"\d+", filename)[0]
     except IndexError:
         print(filename)
         continue
@@ -57,10 +63,11 @@ for filename in ws_files:
         lines = f.readlines()
         for j, line in enumerate(lines):
             if '<div class="header-article__right">' in line:
-                lines.insert(j+1, f'<a class="reference external" href="https://mybinder.org/v2/gl/comp2421-numerical-computation%2Fbook/master?labpath={ws_filename}" target="_blank" rel="noopener noreferrer"><img alt="Launch binder" src="https://mybinder.org/badge_logo.svg" /></a>\n\n')
+                lines.insert(
+                    j + 1,
+                    f'<a class="reference external" href="https://mybinder.org/v2/gl/comp2421-numerical-computation%2Fbook/master?labpath={ws_filename}" target="_blank" rel="noopener noreferrer"><img alt="Launch binder" src="https://mybinder.org/badge_logo.svg" /></a>\n\n',
+                )
                 break
 
     with open(filename, "w") as f:
-        f.write(''.join(lines))
-
-
+        f.write("".join(lines))

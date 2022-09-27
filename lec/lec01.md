@@ -1,3 +1,7 @@
+---
+title: "Lecture 01: Module introduction"
+---
+
 # Lecture 01: Module introduction
 
 ### Module objectives
@@ -6,6 +10,11 @@
 - Appreciate the role numerical computation plays in CS.
 - Choose a computational model appropriately, accounting for issues of accuracy, reliability and efficiency.
 - Understand how to assess or measure the error in a numerical algorithm and be familiar with how such errors are controlled.
+
+<revealjs>
+---
+</revealjs>
+
 - Understand the fundamental techniques for the design of efficiency numerical algorithms.
 - Demonstrate how these algorithms are analysed.
 - Understand several advanced data structures, their efficient implementation and applications.
@@ -17,13 +26,17 @@
 
 - **Approximation and errors**: modelling and mathematical modelling; discrete and continuous models; floating point and rounding errors; balancing accuracy and efficiency.
 
+<revealjs>
+---
+</revealjs>
+
 - **Static systems**: iterative methods for solving nonlinear scalar equations; methods for solving linear systems of equations; systems without unique solutions.
 
 - **Evolving systems**: derivatives and rates of change; initial value problems; stability and convergence of computer models.
 
 ## Numerical computation
 
-All administration details in the [module handbook](../README.md).
+All administration details in the [module handbook](https://comp2421-numerical-computation.gitlab.io/book).
 
 ### Python
 
@@ -32,6 +45,10 @@ The programming for this module will be carried out using `python3`.
 The latest available version of python is available via [Anaconda](https://www.anaconda.com/products/distribution).
 
 Anaconda provides a full scientific Python distribution, including as standard tools for numerical analysis, data visualisation, image processing, and much more!
+
+<revealjs>
+---
+</revealjs>
 
 This scientific Python distribution is available on all School of Computing machines, specifically all SoC Linux computers.
 
@@ -45,6 +62,10 @@ and you can test your python version with
 > python --version
 Python 3.8.5
 ```
+
+<revealjs>
+---
+</revealjs>
 
 Alternatively, you can install anaconda python on your own machine.
 
@@ -73,6 +94,10 @@ This module is a pre-requisite for later modules in:
 - **COMP3910** Combinatorial optimisation
 - **COMP3221** Parallel computation
 
+<revealjs>
+---
+</revealjs>
+
 Other modules that will benefit from material covered here:
 
 - **COMP2721** Algorithms and data structures II (level 2)
@@ -91,13 +116,17 @@ Additional useful texts
 - [Scientific Computing: An Introductory Survey](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991009203099705181), T.M. Heath, McGraw-Hill, 2002. \
   some [lecture notes based on the book](http://heath.cs.illinois.edu/scicomp/notes/index.html)
 
+<revealjs>
+---
+</revealjs>
+
 - [Numerical Recipes in C++/C/FORTRAN](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991010465229705181): The Art of Scientific Computing, W.H. Press, S.A. Teukolsky, W.T. Vetterling and B.P. Flannery, Cambridge University Press, 2002/1993/1993.
 
 - [Engineering Mathematics](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991019677711205181), K.A. Stroud, Macmillan, 2001. *available online*
 
 Further more specific references will be given in each section of the notes.
 
-### Module components
+## Module components
 
 ### Lectures
 
@@ -117,47 +146,6 @@ These will be provided *weekly* throughout the semester.
 
 Coursework assignments are designed to give practice and reinforce the lectures. Coursework material is examinable.
 
-### Assessment
-
-#### Examination
-
-On-line assessment in January.
-Worth 60%.
-More details to follow.
-
-#### Summative coursework
-
-Two pieces of coursework each worth 20% submitted via Gradescope.
-The dates are tentative at this stage and are subject to change.
-
-<table class="colwidths-auto table">
-	<caption>Summative coursework timetable</caption>
-	<thead>
-	<tr>
-	<th class="head">Coursework</th>
-	<th class="head">Date set</th>
-	<th class="head">Submission deadline</th>
-	<th class="head">Feedback date</th>
-	</tr>
-	</thead>
-	<tr>
-	<td>1</td>
-	<td>17/10/22</td>
-	<td>8/11/22</td>
-	<td>22/11/22</td>
-	</tr>
-	<tr>
-	<td>2</td>
-	<td>28/11/22</td>
-	<td>13/12/22</td>
-	<td>early 23</td>
-	</tr>
-</table>
-
-#### Formative homework
-
-There will be weekly homework assignment sheets. These are not for credit.
-
 ### Virtual learning environment
 
 As with all SoC  modules COMP2421 will make substantial use of the VLE:
@@ -170,9 +158,7 @@ This will include all:
 - links to external resources and web pages;
 - module-related discussions
 
-Further support via [MS Team](https://teams.microsoft.com/l/channel/19%3aSF6JCThw2h0hfRTPmJ4u9eHraovCLyg7I_CCsc7rjT81%40thread.tacv2/General?groupId=43cc2fb7-d867-4498-99c7-385f3eb82e09&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
-
-TODO add updated team details
+Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
 
 ### Tutorials plan
 
@@ -222,11 +208,60 @@ Weekly tutorials will support you in your learning. See your timetable for when 
 </tbody>
 </table>
 
+## Assessment
+
+### Examination
+
+On-line assessment in January.
+Worth 60%.
+More details to follow.
+
+### Summative coursework
+
+Two pieces of coursework each worth 20% submitted via Gradescope.
+The dates are tentative at this stage and are subject to change.
+
+<revealjs>
+---
+</revealjs>
+
+<table class="colwidths-auto table">
+	<caption>Summative coursework timetable</caption>
+	<thead>
+	<tr>
+	<th class="head">Coursework</th>
+	<th class="head">Date set</th>
+	<th class="head">Submission deadline</th>
+	<th class="head">Feedback date</th>
+	</tr>
+	</thead>
+	<tr>
+	<td>1</td>
+	<td>17/10/22</td>
+	<td>8/11/22</td>
+	<td>22/11/22</td>
+	</tr>
+	<tr>
+	<td>2</td>
+	<td>28/11/22</td>
+	<td>13/12/22</td>
+	<td>early 23</td>
+	</tr>
+</table>
+
+### Formative homework
+
+There will be weekly homework assignment sheets. These are not for credit.
+
 ## Numerical algorithms
 
 - Numerical algorithms are those which operate on *floating point numbers*.
 
 - They are used to provide solutions (or approximations to solutions) of mathematical models of "real world" problems.
+
+<revealjs>
+---
+</revealjs>
 
 - Such problems arise in a very wide range of applications (a few examples to follow).
 
@@ -240,7 +275,11 @@ Weekly tutorials will support you in your learning. See your timetable for when 
 
 - Typically large physical domains are split up into small physical pieces which can be modelled more simply using techniques such as conservation laws.
 
-#### Airflow simulations
+<revealjs>
+---
+</revealjs>
+
+**Airflow simulations**
 
 Car manufacturer and motor spots teams often perform computer simulations to test and optimise new designs.
 
@@ -255,7 +294,11 @@ Video source: <https://youtu.be/-4gSS-UHWcc>
 
 - Gianmarco Mengaldo, [Industry-relvant implicit LES via spetal/hp element methods](https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/)
 
-#### Economics
+<revealjs>
+---
+</revealjs>
+
+**Economics**
 
 Most modern day economic forecasting involves performing numerical simulations.
 
@@ -263,7 +306,11 @@ Most modern day economic forecasting involves performing numerical simulations.
 
 - Saul H. Hymans, [Forcasting and econometric models](https://www.econlib.org/library/Enc/ForecastingandEconometricModels.html)
 
-#### Weather forecasting
+<revealjs>
+---
+</revealjs>
+
+**Weather forecasting**
 
 One of the most popular applications of numerical simulation in the UK today is in predicting tomorrow's weather.
 
@@ -279,7 +326,11 @@ One of the most popular applications of numerical simulation in the UK today is 
 - Met office, [How weather forecasts are created](https://www.metoffice.gov.uk/weather/learn-about/how-forecasts-are-made)
 - Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)
 
-#### Health care
+<revealjs>
+---
+</revealjs>
+
+**Health care**
 
 Many different areas of medicine now use simulations. This can be used both as an earlier step in clinical trials in order to reduce harm to animal or human participants or to predict how medical interventions will work in practice.
 
@@ -298,6 +349,10 @@ Many different areas of medicine now use simulations. This can be used both as a
 - Uses *Newton's laws of motion* to predict motion (e.g. projectiles, vehicles, etc) and impacts (e.g. crashes, collisions, etc).
 
 - These are examples of dynamic models which must be solved and then rendered in "real time".
+
+<revealjs>
+---
+</revealjs>
 
  <video width="100%" muted>
   <source src="../_static/video/lec01/HPG.webm" type="video/mp4" >
@@ -319,15 +374,23 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 
 - Much of AI boils down to *optimisation* which requires special numerical methods
 
-- [Why studying Linear Algebra is important for Machine Learning and where to start](https://www.univ.ai/post/linear-algebra-machine-learning-prerequisites)
+ [Why studying Linear Algebra is important for Machine Learning and where to start](https://www.univ.ai/post/linear-algebra-machine-learning-prerequisites)
 
-#### Robotics at Leeds
+<revealjs>
+---
+</revealjs>
+
+**Robotics at Leeds**
 
 Many tasks in robotics are tested first in simulated environments where simulation plays a key role.
 
 [![Robotics at Leeds](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)](https://robotics.leeds.ac.uk/)
 
-#### Pipebots
+<revealjs>
+---
+</revealjs>
+
+**Pipebots**
 
 <video width="100%" muted>
 	<source src="../_static/video/lec01/pipebots.webm" type="video/mp4">

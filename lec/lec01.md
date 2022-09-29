@@ -37,10 +37,10 @@ title: "Lecture 01: Module introduction"
 ## Numerical computation
 
 All administration details in the [module handbook](https://comp2421-numerical-computation.gitlab.io/book).
-<revealjs>
+
 ### Contact
 
-- Please contact me through MS Teams (not email)
+- Please contact me through MS Teams [22/23(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email)
 - Questions about content should go in the class team
 - Responses in 24h (or out of office)
 - No response out of working hours
@@ -55,14 +55,21 @@ All administration details in the [module handbook](https://comp2421-numerical-c
 
 ### How to get 100%?
 
-**No one gets 100%**
+**Exam profile last year:**
 
-- You should be able to apply all algorithms to get 40-50%.
-- You should be able to apply modifications to algorithms to get 50-60%
-- You should be able to explore algorithms to get 60-70%
-- You should be able to understand why algorithms are good/bad to get 70%+
-- You should be able to write research papers on this topic to get 90%+
-</revealjs>
+![**No one gets 100%**](../img/lec01/gradescope.png)
+
+---
+
+**Marking expectations:**
+
+| Mark   | Demonstrate                                    |
+|--------|------------------------------------------------|
+| 40-50% | Apply all algorithms                           |
+| 50-60% | Apply modifications of algorithms              |
+| 60-70% | Know how to explore algorithms computationally |
+| 70%+   | Understand why algorithms are good/bad         |
+| 95%+   | Read and write research papers in this area    |
 
 ### Python
 
@@ -157,6 +164,8 @@ Further more specific references will be given in each section of the notes.
 ### Lectures
 
 2 hours per week in this room.
+
+Thursday 12:00-13:00 | Friday 11:00-12:00
 
 Leeds content delivered by Tom Ranner and Yongxing Wang.
 
@@ -267,6 +276,10 @@ There will be weekly homework assignment sheets. These are not for credit.
 
 Car manufacturer and motor spots teams often perform computer simulations to test and optimise new designs.
 
+<revealjs>
+---
+</revealjs>
+
 <video width="100%" controls>
 	<source src="../_static/video/lec01/LES.webm" type="video/mp4">
 	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
@@ -317,6 +330,10 @@ One of the most popular applications of numerical simulation in the UK today is 
 **Health care**
 
 Many different areas of medicine now use simulations. This can be used both as an earlier step in clinical trials in order to reduce harm to animal or human participants or to predict how medical interventions will work in practice.
+
+<revealjs>
+---
+</revealjs>
 
 <video width="100%" controls>
 	<source src="../_static/video/lec01/in-silico.mp4" type="video/mp4">

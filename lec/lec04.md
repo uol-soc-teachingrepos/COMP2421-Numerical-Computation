@@ -442,8 +442,6 @@ the following sums and products are defined...
   - $\vec{a}^{\rm T} \vec{b}$ is a well-defined matrix multiplication
  resulting in a $1 \times 1$ matrix;
 
-### Row and Column Vectors (cont.)
-
 - The numerical value computed by $\vec{a}^{\rm T} \vec{b}$ is
  called the **scalar product** of $\vec{a}$ and $\vec{b}$:
   - this is sometimes denoted as $\vec{a} \cdot \vec{b}\; ;$

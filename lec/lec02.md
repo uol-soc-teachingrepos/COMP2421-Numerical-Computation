@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 03: Floating point number systems
 
 ## Finite precision number systems
@@ -87,7 +99,9 @@ d.  What is the smallest possible difference between two numbers in this system?
 
 ### Example 2 (homework)
 
-Consider the number system given by $(\beta, t, L, U) = (10, 3, -3, 3)$ which gives $$
+Consider the number system given by $(\beta, t, L, U) = (10, 3, -3, 3)$ which gives
+
+$$
  x = \pm .b_1 b_2 b_3 \times 10^e \text{ where } -3 \le e \le 3.
 $$
 
@@ -118,7 +132,7 @@ $$
  \text{Relative error} < 0.5 \times \beta^{1-t}.
 $$
 
-It can be proved that if the relative error is equal to $\beta^{-d}$ then $fl(x)$ has $d$ correct significant digits. -->
+It can be proved that if the relative error is equal to $\beta^{-d}$ then $fl(x)$ has $d$ correct significant digits.
 
 ### Bounding the errors
 
@@ -149,7 +163,8 @@ $$
 
 The last term is known as **machine precision** or **unit roundoff** and is often called $eps$. This is obtained in Python with
 
-```python
+```{code-cell} ipython3
+import numpy as np
 np.finfo(np.double).eps
 ```
 

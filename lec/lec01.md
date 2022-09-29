@@ -37,6 +37,32 @@ title: "Lecture 01: Module introduction"
 ## Numerical computation
 
 All administration details in the [module handbook](https://comp2421-numerical-computation.gitlab.io/book).
+<revealjs>
+### Contact
+
+- Please contact me through MS Teams (not email)
+- Questions about content should go in the class team
+- Responses in 24h (or out of office)
+- No response out of working hours
+
+### How to succeed?
+
+- Read lecture notes **before lectures** -- [all available](https://comp2421-numerical-computation.gitlab.io/book/)
+- Turn up to lectures with **pen and paper**
+- Attempt **worksheet** before tutorial
+- Let tutorial leader know where you are having problems before the session
+- Attend tutorial every week - ask questions
+
+### How to get 100%?
+
+**No one gets 100%**
+
+- You should be able to apply all algorithms to get 40-50%.
+- You should be able to apply modifications to algorithms to get 50-60%
+- You should be able to explore algorithms to get 60-70%
+- You should be able to understand why algorithms are good/bad to get 70%+
+- You should be able to write research papers on this topic to get 90%+
+</revealjs>
 
 ### Python
 
@@ -140,6 +166,10 @@ Chengdu content delivered by Zhiguo Long.
 
 1 hour per week (see timetable for your session)
 
+Please attempt the worksheet before the session and bring your attempts with you!
+
+Opportunity for **feedback** on learning.
+
 ### Homework and coursework exercise
 
 These will be provided *weekly* throughout the semester.
@@ -158,55 +188,7 @@ This will include all:
 - links to external resources and web pages;
 - module-related discussions
 
-Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
-
-### Tutorials plan
-
-Weekly tutorials will support you in your learning. See your timetable for when and where you should attend. Please bring the worksheet with you.
-
-<table class="colwidths-auto table">
-<caption>Tutorials plan</caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Week</p></th>
-<th class="head"><p>Topic</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Maths preliminary</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Introduction to python</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Floating point number systems</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Triangular systems and Gaussian elimination</p></td>
-</tr>
-<tr class="row-even"><td><p>-</p></td>
-<td><p><em>reading week</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>LU Factorisation and iterative methods</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>Sparse systems/pivoting</p></td>
-</tr>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p>Derivatives and Euler’s method</p></td>
-</tr>
-<tr class="row-even"><td><p>9</p></td>
-<td><p>Other time stepping</p></td>
-</tr>
-<tr class="row-odd"><td><p>10</p></td>
-<td><p>Bisection and Newton’s method</p></td>
-</tr>
-<tr class="row-even"><td><p>11</p></td>
-<td><p>Other root finding</p></td>
-</tr>
-</tbody>
-</table>
+Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb). Please use the class team for all questions about content.
 
 ## Assessment
 
@@ -220,6 +202,8 @@ More details to follow.
 
 Two pieces of coursework each worth 20% submitted via Gradescope.
 The dates are tentative at this stage and are subject to change.
+
+**Feedback** given in tutorial sessions and written group feedback.
 
 <revealjs>
 ---

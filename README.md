@@ -30,9 +30,14 @@ Teams group
 
 2 hours per week
 
+- Thursdays at 12:00
+- Fridays at 11:00
+
 ### Tutorials
 
 1 hour per week face to face (see timetable)
+
+Opportunity to get **feedback** on learning
 
 ### Homework and coursework exercise
 
@@ -49,6 +54,8 @@ On-line assessment in January. 2 hour exam with some multiple choice, short and 
 ### Summative coursework
 
 There are two pieces of coursework for this module. Each is worth 20% of your module grade. Coursework will be submitted via Gradescope. The dates are tentative at this stage and are subject to change.
+
+**Feedback** will be provided in tutorials and written group feedback.
 
 <table class="colwidths-auto table">
 	<caption>Summative coursework timetable</caption>
@@ -79,6 +86,24 @@ Late submission will only be allowed up to 1 week after the submission deadline 
 ### Formative homework
 
 There will be weekly homework assignment sheets. These are not for credit. Additional feedback will be given through the release of worked solutions and in tutorial sessions.
+
+### How to succeed?
+
+- Read lecture notes **before lectures** -- all available
+- Turn up to lectures with **pen and paper**
+- Attempt **worksheet** before tutorial
+- Let tutorial leader know where you are having problems before the session
+- Attend tutorial every week - ask questions
+
+### How to get 100%?
+
+**No one gets 100%**
+
+- You should be able to apply all algorithms to get 40-50%.
+- You should be able to apply modifications to algorithms to get 50-60%
+- You should be able to explore algorithms to get 60-70%
+- You should be able to understand why algorithms are good/bad to get 70%+
+- You should be able to write research papers on this topic to get 90%+
 
 ## Syllabus
 
@@ -205,6 +230,13 @@ Weekly tutorials should will support you in your learning. See your timetable fo
 </tr>
 </tbody>
 </table>
+
+## Contact
+
+- Please contact me through MS Teams [22/23(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email)
+- Questions about content should go in the class team
+- Responses in 24h (or out of office)
+- No response out of working hours
 
 ## Reference materials
 

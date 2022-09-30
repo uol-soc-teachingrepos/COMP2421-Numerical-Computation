@@ -30,11 +30,6 @@ $if(quotes)$
       q { quotes: "“" "”" "‘" "’"; }
 $endif$
   </style>
-$if(theme)$
-  <link rel="stylesheet" href="$revealjs-url$/dist/theme/$theme$.css" id="theme">
-$else$
-  <link rel="stylesheet" href="$revealjs-url$/dist/theme/black.css" id="theme">
-$endif$
 $for(css)$
   <link rel="stylesheet" href="$css$"/>
 $endfor$
@@ -51,12 +46,12 @@ $include-before$
 $endfor$
   <div class="reveal">
 $if(title)$
-  <!-- <div class="footer"> -->
-  <!--   <h6 class="title"> -->
-  <!--     $course.code$ -->
-  <!--     $title$ -->
-  <!--   </h6> -->
-  <!-- </div> -->
+  <div class="footer">
+    <h6 class="title">
+      $course.code$
+      $title$
+    </h6>
+  </div>
 $endif$
   <div class="slides">
 
@@ -65,10 +60,12 @@ $if(title)$
 	 $if(title-attr)$
 	 $title-attr$
 	 $endif$>
-  <h2 class="title">
+  <h1 class="title">
     $course.code$
     $course.title$
-    - $title$
+  </h1>
+  <h2 class="title">
+    $title$
   </h2>
 $if(subtitle)$
   <h4 class="subtitle">$subtitle$</h4>
@@ -94,8 +91,6 @@ $endif$
   <hr>
   $titleextra$
   $endif$
-
-  <p>Please sit in the middle of rows to ensure that everyone fits!</p>
 </section>
 $endif$
 

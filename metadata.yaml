@@ -6,6 +6,10 @@ course:
 author:
   - name: 'Dr. Thomas Ranner'
     email: 'T.Ranner@leeds.ac.uk'
-    room: '3.40d Bragg Building'
 
-theme: white
+titleextra: "Please sit in the middle of rows to ensure that everyone fits!"
+
+css:
+  - "../pandoc/common.css"
+  - "../pandoc/fira-fonts.css"
+  - "../pandoc/metropolis.css"

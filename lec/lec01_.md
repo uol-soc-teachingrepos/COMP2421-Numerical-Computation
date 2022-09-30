@@ -352,3 +352,7 @@ Video source: <https://youtu.be/pppxa9MpoeY>
 </small>
 
 # See you tomorrow!
+
+Friday 7 October 11:00-12:00
+
+Conference Auditorium 1 (GM.03)

@@ -5,10 +5,10 @@ PANDOC_REVEALJS= \
 	--metadata-file=../metadata.yaml \
 	--mathjax \
 	--embed-resources \
-	--slide-level 3 \
+	--slide-level 2 \
 	--standalone \
 	--table-of-contents \
-	--toc-depth=2 \
+	--toc-depth 1 \
 	-V history=true \
 	-V lang="en_GB" \
 	-V controls=false \
@@ -17,5 +17,5 @@ PANDOC_REVEALJS= \
 	-V overview=true \
 	-V navigationMode='linear'
 
-%.revealjs.html: %.md
+%.revealjs.html: %_.md
 	$(PANDOC_REVEALJS) $< -o $@

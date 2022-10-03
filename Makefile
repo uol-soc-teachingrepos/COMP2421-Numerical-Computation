@@ -21,5 +21,5 @@ _build/revealjs/%.html: lec/%.revealjs.html
 	@mkdir -p _build/revealjs
 	cp $< $@
 
-lec/%.revealjs.html: lec/%.md
+lec/%.revealjs.html: lec/%_.md
 	$(MAKE) -C lec $(@:lec/%=%)

@@ -13,7 +13,7 @@ execute:
   exclude_patterns: ['ws/*']
 
 # only build pages listed in _toc.yml
-only_build_toc_files: true
+only_build_toc_files: false
 
 # Define the name of the latex output file for PDF builds
 # latex:

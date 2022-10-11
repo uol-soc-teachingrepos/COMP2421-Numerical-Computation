@@ -49,7 +49,7 @@ Courseworks are designed to give practice and reinforce the lectures. Coursework
 
 ### Examination
 
-On-line assessment in January. 2 hour exam with some multiple choice, short and longer answer questions. The exam is worth 60% of the credit for the module.
+On-line, open book assessment in January. 2 hour exam with some multiple choice, short and longer answer questions. The exam is worth 60% of the credit for the module.
 
 ### Summative coursework
 

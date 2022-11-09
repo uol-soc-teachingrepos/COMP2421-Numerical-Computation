@@ -13,4 +13,5 @@ dependencies:
   - git-lfs
   - tabulate
   - livereload
+  - pandas
 

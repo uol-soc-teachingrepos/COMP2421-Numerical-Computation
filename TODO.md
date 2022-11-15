@@ -6,3 +6,4 @@ suggestions and other ideas for next year
 17. detailed coursework answers
 18. swap lectures around so all iterative methods together after direct methods (lectures 08 and 10).
 19. fzero has a redundant step. replace with false position or Dekker's method
+20. run workbook solutions through ci with proper tests

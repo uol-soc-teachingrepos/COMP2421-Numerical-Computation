@@ -10,6 +10,7 @@ server.watch("lec/*.ipynb", shell("make build "))
 server.watch("ws/*.md", shell("make build "))
 server.watch("ws/*.ipynb", shell("make build "))
 server.watch("cw/*.md", shell("make build "))
+server.watch("cw/*.ipynb", shell("make build "))
 
 port = 5500
 unserved = True

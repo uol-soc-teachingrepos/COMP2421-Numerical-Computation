@@ -2,7 +2,7 @@
 
 *This exam formed part of the assessment of this module that students took in 2021/22. You may wish to use it to help in your revision for the final exam.*
 
-*Support is provided through the MS Class Team. Solutions will be provided shortly*
+*Support is provided through the MS Class Team. [Solutions are available for checking answers](./solutions-exam.md).*
 
 This exam is worth 60% of the credit of this module.
 

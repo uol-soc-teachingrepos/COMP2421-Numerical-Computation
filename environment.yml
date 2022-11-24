@@ -3,15 +3,18 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - jupyter-book
-  - jupyterlab
-  - numpy
-  - matplotlib
-  - scipy
-  - make
-  - git
-  - git-lfs
-  - tabulate
-  - livereload
-  - pandas
+  # soc machine default versions
+  - python = 3.8
+  - jupyterlab = 2.2
+  - matplotlib = 3.3
+  - numpy =1.19
+  - scipy = 1.5
+  - pandas = 1.1
+  # for building the book
+  - jupyter-book = 0.13
+  - make = 4.3
+  - git = 2.38
+  - git-lfs = 3.2
+  # for help making the book
+  - livereload = 2.6
 

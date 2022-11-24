@@ -41,7 +41,9 @@ it = 0
 x = 1.0
 tol = 1.0e-4
 
-data = [["iter", "x", "f(x)"]]
+headers = ["iter", "x", "f(x)"]
+data = []
+
 it = 0
 data.append([it, x, f(x)])
 
@@ -50,11 +52,10 @@ while abs(f(x)) > tol:
     it += 1
     data.append([it, x, f(x)])
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=["d", ".6f", ".4e"])
-# caption='Results of Newton's method on example 1')
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Results of Newton's method on example 1")
 ```
 
 -   We get the root as $x^* \approx 1.414216$ after 3 iterations.
@@ -94,7 +95,9 @@ it = 0
 x = 1.0
 tol = 1.0e-4
 
-data = [["iter", "x", "f(x)"]]
+headers = ["iter", "x", "f(x)"]
+data = []
+
 it = 0
 data.append([it, x, f(x)])
 
@@ -103,11 +106,10 @@ while abs(f(x)) > tol:
     it += 1
     data.append([it, x, f(x)])
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=["d", ".6f", ".4e"])
-# caption='Results of Newton's method on example 1')
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Results of Newton's method on example 2")
 ```
 
 ### Example 3
@@ -143,7 +145,9 @@ it = 0
 x = 0.1
 tol = 1.0e-4
 
-data = [["iter", "x", "f(x)"]]
+headers = ["iter", "x", "f(x)"]
+data = []
+
 it = 0
 data.append([it, x, f(x)])
 
@@ -152,11 +156,10 @@ while abs(f(x)) > tol:
     it += 1
     data.append([it, x, f(x)])
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=["d", ".6f", ".4e"])
-# caption='Results of Newton's method on example 1')
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Results of Newton's method on example 3")
 ```
 
 In all cases the performance is considerable superior to that of the bisection method.
@@ -202,7 +205,9 @@ it = 0
 x = 4.0
 tol = 1.0e-4
 
-data = [["iter", "x", "f(x)"]]
+["iter", "x", "f(x)"]
+data = []
+
 it = 0
 data.append([it, x, f(x)])
 
@@ -211,11 +216,10 @@ while abs(f(x)) > tol:
     it += 1
     data.append([it, x, f(x)])
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=["d", ".6f", ".4e"])
-# caption='Results of Newton's method on example 1')
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Results of Newton's method on example with zero derivative at root")
 ```
 
 Starting from $x^{(0)} = 4$ with $TOL = 10^{-4}$ we get the root as $x^* \approx 1.0059$ after 9 iterations, confirming that we are able to obtain a solution.

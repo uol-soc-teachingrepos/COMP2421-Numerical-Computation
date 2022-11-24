@@ -68,7 +68,8 @@ def df(x):
 
 x = 1
 
-data = [["dx", "approx", "abs error", "rel error"]]
+headers = ["dx", "approx", "abs error", "rel error"]
+data = []
 
 for e in range(4, 18, 2):
     dx = 10 ** -e
@@ -80,10 +81,10 @@ for e in range(4, 18, 2):
     new_data = [dx, approx, abs_error, rel_error]
     data.append(new_data)
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow")
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.format(formatter={"dx": "{:e}", "approx": "{:f}", "abs error": "{:e}", "rel error": "{:e}"}).hide_index().set_caption("Simple approximation of a derivative using floating point arithmetic")
 ```
 
 ## Modified Newton's method

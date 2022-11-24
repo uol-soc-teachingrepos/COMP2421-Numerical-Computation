@@ -207,7 +207,8 @@ fb = f(b)
 
 it = 0
 
-data = [["it", "a", "b", "f(a)", "f(b)", "update"]]
+headers = ["it", "a", "b", "f(a)", "f(b)", "update"]
+data = []
 
 while b - a > tol:
     new_data = [it, a, b, f(a), f(b)]
@@ -229,11 +230,10 @@ while b - a > tol:
     data.append(new_data)
     it += 1
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=".4f")
-# caption='Results of bisection method on example 1')
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption('Results of bisection method on example 1')
 ```
 
 Note that
@@ -273,7 +273,8 @@ fb = f(b)
 
 it = 0
 
-data = [["it", "a", "b", "f(a)", "f(b)", "update"]]
+headers=["it", "a", "b", "f(a)", "f(b)", "update"]
+data = []
 
 while b - a > tol:
     new_data = [it, a, b, f(a), f(b)]
@@ -295,11 +296,10 @@ while b - a > tol:
     data.append(new_data)
     it += 1
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=".4f")
-# caption='Results of bisection method on example 2'
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption('Results of bisection method on example 2')
 ```
 
 We converges to a solution of $x^* = 235.9$ after 13 iterations.
@@ -336,7 +336,8 @@ fb = f(b)
 
 it = 0
 
-data = [["it", "a", "b", "f(a)", "f(b)", "update"]]
+headers = ["it", "a", "b", "f(a)", "f(b)", "update"]
+data = []
 
 while b - a > tol:
     new_data = [it, a, b, f(a), f(b)]
@@ -358,11 +359,10 @@ while b - a > tol:
     data.append(new_data)
     it += 1
 
-import tabulate
+import pandas as pd
 
-table = tabulate.tabulate(data, tablefmt="html", headers="firstrow", floatfmt=".4f")
-# caption='Results of bisection method on example 2'
-table
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption('Results of bisection method on example 3')
 ```
 
 This gives the root as $x^* \approx 0.7652$ after 12 iterations.

@@ -19,6 +19,8 @@ jupyter-test:
     # using numpy.testing where possible to check solutions and implementations
     - jupyter nbconvert --clear-output --to notebook --inplace ws/*implemented.ipynb
     - jupyter execute ws/*implemented.ipynb
+    # test links in the book
+    - jupyter-book build . --builder linkcheck
 
 jupyter-build:
   stage: build
@@ -26,10 +28,13 @@ jupyter-build:
     - micromamba install -y -n base -f environment.yml
 
   script:
+    # clear output
     - jupyter nbconvert --clear-output --to notebook --inplace ws/*.ipynb
-    - jupyter-book build . --builder linkcheck
+    # clear any old files
     - jupyter-book clean .
+    # build book
     - jupyter-book build .
+    # add some gitlab flourish
     - python _convert.py
   artifacts:
     paths:

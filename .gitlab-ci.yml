@@ -4,9 +4,21 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
+  - test
   - build
   - accessibility
   - deploy
+
+jupyter-test:
+ stage: build
+  before_script:
+    - micromamba install -y -n base -f environment.yml
+
+  script:
+    # simply run the code to test if it can be execute successfully with no errors raised
+    # using numpy.testing where possible to check solutions and implementations
+    - jupyter nbconvert --clear-output --to notebook --inplace ws/*implemented.ipynb
+    - jupyter execute ws/*implemented.ipynb
 
 jupyter-build:
   stage: build

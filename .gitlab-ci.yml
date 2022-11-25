@@ -10,7 +10,7 @@ stages:
   - deploy
 
 jupyter-test:
- stage: build
+  stage: test
   before_script:
     - micromamba install -y -n base -f environment.yml
 

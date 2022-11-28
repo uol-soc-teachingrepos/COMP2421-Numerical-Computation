@@ -48,9 +48,16 @@ for file in files:
 ws_files = glob("./_build/html/ws/*html", recursive=True)
 
 
-import subprocess
+import os
 
-gitref = subprocess.getoutput('git log --format="%H" -n 1')
+gitref = os.getenv("CI_COMMIT_SHA")
+
+if gitref is None:
+    import subprocess
+
+    gitref = subprocess.getoutput('git log --format="%H" -n 1')
+
+print(f"adding binding links for {gitref}")
 
 # add binder link
 for filename in ws_files:

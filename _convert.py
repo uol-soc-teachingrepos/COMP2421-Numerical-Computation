@@ -47,6 +47,11 @@ for file in files:
 # for all worksheets
 ws_files = glob("./_build/html/ws/*html", recursive=True)
 
+
+import subprocess
+
+gitref = subprocess.getoutput('git log --format="%H" -n 1')
+
 # add binder link
 for filename in ws_files:
     if "00" in filename:
@@ -65,7 +70,7 @@ for filename in ws_files:
             if '<div class="header-article__right">' in line:
                 lines.insert(
                     j + 1,
-                    f'<a class="reference external" href="https://mybinder.org/v2/gl/comp2421-numerical-computation%2Fbook/master?labpath={ws_filename}" target="_blank" rel="noopener noreferrer"><img alt="Launch binder" src="https://mybinder.org/badge_logo.svg" /></a>\n\n',
+                    f'<a class="reference external" href="https://mybinder.org/v2/gl/comp2421-numerical-computation%2Fbook/{gitref}" target="_blank" rel="noopener noreferrer"><img alt="Launch binder" src="https://mybinder.org/badge_logo.svg" /></a>\n\n',
                 )
                 break
 

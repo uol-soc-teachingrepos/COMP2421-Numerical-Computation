@@ -23,3 +23,5 @@ _build/revealjs/%.html: lec/%.revealjs.html
 
 lec/%.revealjs.html: lec/%_.md
 	$(MAKE) -C lec $(@:lec/%=%)
+lec/%.revealjs.html: lec/%_.ipynb
+	$(MAKE) -C lec $(@:lec/%=%)

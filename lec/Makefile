@@ -19,3 +19,10 @@ PANDOC_REVEALJS= \
 
 %.revealjs.html: %_.md
 	$(PANDOC_REVEALJS) $< -o $@
+
+
+%.revealjs.html: %_.ipynb
+	jupyter nbconvert  \
+	  --TagRemovePreprocessor.remove_input_tags={\"remove-input\"} \
+	  $< --to slides --output $@
+	mv $@.slides.html $@

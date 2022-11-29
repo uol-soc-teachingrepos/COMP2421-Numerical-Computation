@@ -114,7 +114,7 @@ df.style.hide_index().set_caption("Results of Newton's method on example 2")
 
 ### Example 3
 
- Starting from $x^{(0)} = 0.1$ with $TOL = 10^{-4}$, we get the root as $x^* \approx 0.033863$ after 3 iterations for the second solution to the NACA0012 aerofoil example.
+ Starting from $x^{(0)} = 0.1$ with $TOL = 10^{-4}$, we get the root as $x^* \approx 0.033863$ after 5 iterations for the second solution to the NACA0012 aerofoil example.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -350,3 +350,4 @@ Can you find a Newton iteration with period 3 or more?
 -   Newton's method assumes that the derivative of the function $f(x)$ is known and easily evaluated.
 
 
+The [slides used in the lecture](./lec15_.html) are also available

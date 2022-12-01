@@ -337,4 +337,4 @@ Note that the exact solution to this system is $x_1 = 2, x_2 = 2, x_3 = 2$.
 - Saad, Yousef (2003). Iterative Methods for Sparse Linear Systems (2nd ed.). SIAM. p. 414. ISBN 0898715342.
 
 - `scipy.sparse` iterative solvers: [Solving linear problems](https://docs.scipy.org/doc/scipy/reference/sparse.linalg.html#solving-linear-problems)
-- PETSc: [Linear system solvers](https://petsc.org/main/docs/manual/ksp/) - a high performance linear algebra toolkit
+- PETSc: [Linear system solvers](https://petsc.org/release/docs/manual/ksp/) - a high performance linear algebra toolkit

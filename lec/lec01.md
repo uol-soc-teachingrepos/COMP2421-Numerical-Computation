@@ -60,8 +60,7 @@ All administration details in the [module handbook](https://comp2421-numerical-c
 
 ---
 
-**Marking expectations:**
-
+```{table} Summary of marking expectations
 | Mark   | Demonstrate                                    |
 |--------|------------------------------------------------|
 | 40-50% | Apply all algorithms                           |
@@ -69,6 +68,7 @@ All administration details in the [module handbook](https://comp2421-numerical-c
 | 60-70% | Know how to explore algorithms computationally |
 | 70%+   | Understand why algorithms are good/bad         |
 | 95%+   | Read and write research papers in this area    |
+```
 
 ### Python
 
@@ -197,16 +197,13 @@ The dates are tentative at this stage and are subject to change.
 
 **Feedback** given in tutorial sessions and written group feedback.
 
-```{code-cell} ipython3
-:tags: [remove-input]
-import pandas as pd
+```{table} Summative coursework timetable
 
-headers = ["Coursework", "Date set", "Submission deadline", "Feedback date"]
-data = [["1", "17/10/22", "8/11/22", "22/11/22"],
-        ["2", "28/11/22", "13/12/22", "early 23"]]
+| Coursework | Date set | Submission deadline | Feedback date |
+|------------|----------|---------------------|---------------|
+| 1          | 17/10/22 | 8/11/22             | 22/11/22      |
+| 2          | 28/11/22 | 13/12/22            | early 23      |
 
-df = pd.DataFrame(data, columns=headers)
-df.style.hide_index().set_caption("Summative coursework timetable")
 ```
 
 ### Formative homework

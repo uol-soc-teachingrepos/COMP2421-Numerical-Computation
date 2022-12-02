@@ -350,4 +350,4 @@ Can you find a Newton iteration with period 3 or more?
 -   Newton's method assumes that the derivative of the function $f(x)$ is known and easily evaluated.
 
 
-The [slides used in the lecture](./lec15_.html) are also available
+The [slides used in the lecture](./lec15_.ipynb) are also available

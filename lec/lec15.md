@@ -560,4 +560,4 @@ Write out an expression for the Newton iteration for each of the following funct
 - Wikipedia: [Newton's method](https://en.wikipedia.org/wiki/Newton%27s_method)
 - X-engineer: [Bisection method for root finding](https://x-engineer.org/bisection-method/)
 
-The [slides used in the lecture](./lec15_.html) are also available
+The [slides used in the lecture](./lec15_.ipynb) are also available

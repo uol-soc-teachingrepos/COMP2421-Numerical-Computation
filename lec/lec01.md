@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 01: Module introduction
 
 ### Module objectives
@@ -185,29 +197,17 @@ The dates are tentative at this stage and are subject to change.
 
 **Feedback** given in tutorial sessions and written group feedback.
 
-<table class="colwidths-auto table">
-	<caption>Summative coursework timetable</caption>
-	<thead>
-	<tr>
-	<th class="head">Coursework</th>
-	<th class="head">Date set</th>
-	<th class="head">Submission deadline</th>
-	<th class="head">Feedback date</th>
-	</tr>
-	</thead>
-	<tr>
-	<td>1</td>
-	<td>17/10/22</td>
-	<td>8/11/22</td>
-	<td>22/11/22</td>
-	</tr>
-	<tr>
-	<td>2</td>
-	<td>28/11/22</td>
-	<td>13/12/22</td>
-	<td>early 23</td>
-	</tr>
-</table>
+```{code-cell} ipython3
+:tags: [remove-input]
+import pandas as pd
+
+headers = ["Coursework", "Date set", "Submission deadline", "Feedback date"]
+data = [["1", "17/10/22", "8/11/22", "22/11/22"],
+        ["2", "28/11/22", "13/12/22", "early 23"]]
+
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Summative coursework timetable")
+```
 
 ### Formative homework
 

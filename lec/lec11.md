@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 11: Dynamic models and rates of change
 
 ## Static versus dynamic problems
@@ -56,7 +68,21 @@
 
 -   For example, the speed $S(t)$ could be given at each time $t$ by
 
-    ![Plot of an object's speed against time](../img/lec11/speed.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+t = np.linspace(0, 1)
+s = -(t-1.0)*(t+0.5)
+plt.plot(t, s)
+
+plt.title("An object's speed against time")
+plt.xlabel("t: time (s)")
+plt.ylabel("s(t): speed (m/s)")
+plt.grid()
+plt.show()
+```
 
 -   How far would the object travel in one second now?
 
@@ -98,49 +124,40 @@ We expect each of these approximations to get more and more accurate...
 #### Example
 
 Consider $S(t)$ given by:
-```python
-def s(t):
+
+```{code-cell} ipython3
+def S(t):
     """
-    Return a value for the speed, s, as a function of time, t.
+    Return a value for the speed, S, as a function of time, t.
     ARGUMENTS:  t   the time
-    RETURNS:    s   the speed
+    RETURNS:    S   the speed
     """
     return 1 + 5 * t - 6 * t ** 2
 ```
 
 -   The following table of results is obtained:
 
-<table class="colwidths-auto table">
-<caption>Total distance as a function of number of steps</caption>
-<thead>
-<tr class="row-odd"><th class="head"><p># intervals</p></th>
-<th class="head"><p>increment size (<span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>)</p></th>
-<th class="head"><p>total distance</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>10</p></td>
-<td><p>1.000e-01</p></td>
-<td><p>1.54000</p></td>
-</tr>
-<tr class="row-odd"><td><p>100</p></td>
-<td><p>1.000e-02</p></td>
-<td><p>1.50490</p></td>
-</tr>
-<tr class="row-even"><td><p>1000</p></td>
-<td><p>1.000e-03</p></td>
-<td><p>1.50050</p></td>
-</tr>
-<tr class="row-odd"><td><p>10000</p></td>
-<td><p>1.000e-04</p></td>
-<td><p>1.50005</p></td>
-</tr>
-<tr class="row-even"><td><p>100000</p></td>
-<td><p>1.000e-05</p></td>
-<td><p>1.50000</p></td>
-</tr>
-</tbody>
-</table>
+```{code-cell} ipython3
+:tags: [remove-input]
+import pandas as pd
+
+headers = ["# intervals", "increment size dt", "total distance"]
+data = []
+
+for j in range(1, 6):
+	n = 10**j
+	dt = 1.0/n
+
+	D, t = 0.0, 0.0
+	for i in range(n):
+		D = D + dt * S(t)
+		t = t + dt
+
+	data.append([n, dt, D])
+
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Total distance as a function of number of steps")
+```
 
 -   We appear to be converging to an answer in the limit as $\mathrm{d}t \to 0$...
 
@@ -183,7 +200,27 @@ def s(t):
 
 -   We can give a graphical interpretation of the relationship between $D(t)$ and its derivative $D'(t)$.
 
-![Plot of an object's speed and displacement against time](../img/lec11/graphical.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+def D(t):
+	return -t**3/3 + t**2/4 + t/2
+
+def S(t):
+	return -(t-1.0)*(t+0.5)
+
+t = np.linspace(0, 1)
+plt.plot(t, S(t), label="Speed")
+plt.plot(t, D(t), label="Distance")
+
+plt.title("Distance and speed as functions of time")
+plt.xlabel("t: time (s)")
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 Inspection of the plots shows that the **steepness** of the red curve $D(t)$ is related to the **value** of the blue curve $S(t)$:
 
@@ -205,7 +242,31 @@ This provides for an alternative interpretation of the derivative of a function.
 
 -   It is the steepness...
 
-    ![Examples of different gradients represented by triangles](../img/lec11/lines.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+def plot_slope(a, b):
+	plt.plot([0, a, a, 0], [0, 0, b, 0], 'k')
+
+	plt.text(a/2, -0.4, f"{a}", fontsize="xx-large")
+	plt.text(a+0.1, b/2, f"{b}", fontsize="xx-large")
+
+	plt.axis('square')
+	plt.axis('off')
+
+plt.subplot(131)
+plot_slope(2, 1)
+
+plt.subplot(132)
+plot_slope(2, 2)
+
+plt.subplot(133)
+plot_slope(1, 2)
+
+plt.show()
+```
 
 -   The equation of a straight line with slope $m$ is given by
 
@@ -217,22 +278,96 @@ This provides for an alternative interpretation of the derivative of a function.
 
 -   What is the slope/gradient of a curve?
 
-    ![A plot of the varying slope of a curve](../img/lec11/curve-0.svg)
-
 -   The slope of the straight-line approximation ("chord") is
 
     $$
     \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
     $$
 
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+def f(x):
+	return np.exp(-x**2)
+
+def plot(dt=1.0):
+	t = np.linspace(-2, 2, 200)
+	plt.plot(t, f(t))
+
+	plt.plot([0, 0, -2], [0, f(0), f(0)], '--')
+	plt.plot([dt, dt, -2], [0, f(dt), f(dt)], '--')
+
+	slope = (f(dt)- f(0)) / dt
+	plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
+
+	plt.xticks([0, dt], ['t', 't + dt'])
+	plt.yticks([f(0), f(dt)], ['f(t)', 'f(t + dt)'])
+
+	plt.legend()
+	plt.show()
+
+plot(1.0)
+```
+
 -   We can get a better approximation by taking a smaller value for $\mathrm{d}t$...
 
-    ![A plot of the varying slope of a curve](../img/lec11/curve-1.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+def f(x):
+	return np.exp(-x**2)
+
+def plot(dt=1.0):
+	t = np.linspace(-2, 2, 200)
+	plt.plot(t, f(t))
+
+	plt.plot([0, 0, -2], [0, f(0), f(0)], '--')
+	plt.plot([dt, dt, -2], [0, f(dt), f(dt)], '--')
+
+	slope = (f(dt)- f(0)) / dt
+	plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
+
+	plt.xticks([0, dt], ['t', 't + dt'])
+	plt.yticks([f(0), f(dt)], ['f(t)', 'f(t + dt)'])
+
+	plt.legend()
+	plt.show()
+
+plot(0.5)
+```
 
 -   We can get an **even** better approximation by taking an **even** smaller value for $\mathrm{d}t$...
 
-    ![A plot of the varying slope of a curve](../img/lec11/curve-2.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
 
+def f(x):
+	return np.exp(-x**2)
+
+def plot(dt=1.0):
+	t = np.linspace(-2, 2, 200)
+	plt.plot(t, f(t))
+
+	plt.plot([0, 0, -2], [0, f(0), f(0)], '--')
+	plt.plot([dt, dt, -2], [0, f(dt), f(dt)], '--')
+
+	slope = (f(dt)- f(0)) / dt
+	plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
+
+	plt.xticks([0, dt], ['t', 't + dt'])
+	plt.yticks([f(0), f(dt)], ['f(t)', 'f(t + dt)'])
+
+	plt.legend()
+	plt.show()
+
+plot(0.25)
+```
 
 By taking smaller and smaller values of $\mathrm{d}t$, it becomes clear that we can assign an instantaneous value to the slope at any point $t$:
 

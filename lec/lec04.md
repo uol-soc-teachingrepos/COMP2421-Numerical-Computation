@@ -449,12 +449,14 @@ the following sums and products are defined...
   \vec{a}\; .$
 
 - For example, suppose:
-$$
+
+  $$
   A = \begin{pmatrix} 1 & 2 \\ 2 & -1 \end{pmatrix}\;,
   \;\; \vec{x} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}\;,
   \;\; \vec{b} = \begin{pmatrix} 4 \\ 3 \end{pmatrix}\;,
-$$
- then show that:
+  $$
+
+  then show that:
   - $\vec{x} \cdot \vec{b} = 11 \;;$
   - $A \vec{x} = \vec{b} \;.$
 

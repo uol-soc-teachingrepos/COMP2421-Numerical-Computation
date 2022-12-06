@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 12: Derivatives and differential equations
 
 ## Recap
@@ -51,17 +63,101 @@
 
 ### Example 1
 
-![An example of a function and its derivative](../img/lec12/f1-b.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+def f1(x):
+    return x * (1.0 - x)
+
+def df1(x):
+    return 1.0 - 2.0 * x
+
+t = np.linspace(0, 1)
+y = f1(t)
+yp = df1(t)
+
+plt.plot(t, y, label="function: $f(t)$")
+plt.plot(t, yp, label="derivative: $f'(t)$")
+
+plt.title("Example of a function and its derivative")
+plt.xlabel("t")
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 ### Example 2
 
-![An example of a function and its derivative](../img/lec12/f3-b.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+
+def f3(x):
+    if type(x) == np.ndarray:
+        return np.array([f3(xx) for xx in x])
+
+    if x < 0.4:
+        return x
+    if x > 0.6:
+        return 1 - x
+    return -5 * x ** 2 + 5 * x - 0.8
+
+
+def df3(x):
+    if type(x) == np.ndarray:
+        return np.array([df3(xx) for xx in x])
+
+    if x < 0.4:
+        return 1
+    if x > 0.6:
+        return -1
+    return -10 * x + 5
+
+t = np.linspace(0, 1, 1000)
+y = f3(t)
+yp = df3(t)
+
+plt.plot(t, y, label="function: $f(t)$")
+plt.plot(t, yp, label="derivative: $f'(t)$")
+
+plt.title("Example of a function and its derivative")
+plt.xlabel("t")
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 ### Example 3
 
-![An example of a function and its derivative](../img/lec12/covid-cases-c.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
 
-log cases by specimen date\
+CASES_URL = "https://coronavirus.data.gov.uk/api/v1/data?filters=areaName=United%2520Kingdom;areaType=overview;date%253E2021-12-06&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDateRollingSum%22:%22newCasesBySpecimenDateRollingSum%22,%22newCasesBySpecimenDateRollingRate%22:%22newCasesBySpecimenDateRollingRate%22,%22newCasesBySpecimenDateChange%22:%22newCasesBySpecimenDateChange%22,%22newCasesBySpecimenDateChangePercentage%22:%22newCasesBySpecimenDateChangePercentage%22%7D&format=csv"
+
+import pandas as pd
+
+df = pd.read_csv(CASES_URL)
+df["date"] = pd.to_datetime(df["date"])
+
+dates = df["date"]
+cases = df["newCasesBySpecimenDateRollingRate"]
+
+
+dcases = np.gradient(cases) * 7
+
+fig, ax = plt.subplots(1, 1)
+ax.plot(dates, cases, label="function (cases)")
+ax.plot(dates, dcases, label="derivative")
+ax.set_xlabel("date")
+ax.xaxis.set_major_locator(plt.MaxNLocator(6))
+ax.legend()
+ax.grid()
+plt.show()
+```
+
+
+Rate of cases per 100,000 people in the rolling 7-day period ending on the dates shown.
 [Data source, cornavirus.data.gov.uk](https://coronavirus.data.gov.uk/details/cases)
 
 ## Differential equations
@@ -130,7 +226,7 @@ log cases by specimen date\
 
 ### Python algorithm:
 
-``` python
+```{code-cell} ipython3
 def freefall(n):
     """
     Plot the trajectory of an object falling freely.
@@ -163,7 +259,17 @@ def freefall(n):
 
 ### Python algorithm: Results
 
-![Results of python algorithm](../img/lec12/freefall.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+
+for n in [10, 20, 40 , 80]:
+	freefall(n)
+plt.xlabel("time: t")
+plt.ylabel("distance: s")
+plt.grid()
+plt.legend()
+plt.show()
+```
 
 ## Euler's method
 

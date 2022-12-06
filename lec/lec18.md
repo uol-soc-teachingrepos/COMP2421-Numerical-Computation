@@ -199,3 +199,5 @@ brentq(naca0012, 0.0, 0.5, xtol=1.0e-4, full_output=True)
 ## Further reading
 
 - `scipy`: Optimization and root finding [`scipy.optimize`](https://docs.scipy.org/doc/scipy/reference/optimize.html)
+
+The [slides used in the lecture](./lec18_.ipynb) are also available

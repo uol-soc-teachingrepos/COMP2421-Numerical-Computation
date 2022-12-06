@@ -64,7 +64,7 @@ df.style.hide_index().set_caption("Results of Newton's method on example 1")
 
 ### Example 2
 
-Starting from $x^{(0)} = 1$ with $TOL = 10^{-4}$, we get the root as $x^* \approx 0.765789$ after 3 iterations for the NACA0012 aerofoil example.
+Starting from $x^{(0)} = 1$ with $TOL = 10^{-4}$, we get the root as $x^* \approx 0.765789$ after 2 iterations for the NACA0012 aerofoil example.
 
 ```{code-cell} ipython3
 :tags: [remove-input]

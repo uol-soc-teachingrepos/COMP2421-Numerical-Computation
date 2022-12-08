@@ -144,12 +144,12 @@ dates = df["date"]
 cases = df["newCasesBySpecimenDateRollingRate"]
 
 
-dcases = np.gradient(cases) * 7
+dcases = -np.gradient(cases) * 7
 
 fig, ax = plt.subplots(1, 1)
 ax.plot(dates, cases, label="function (cases)")
 ax.plot(dates, dcases, label="derivative")
-ax.set_xlabel("date")
+ax.set_xlabel("time (date)")
 ax.xaxis.set_major_locator(plt.MaxNLocator(6))
 ax.legend()
 ax.grid()

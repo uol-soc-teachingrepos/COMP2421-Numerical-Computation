@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 19: Least squares fitting
 
 ## Motivation
@@ -13,19 +25,96 @@
 
 ### Weekly earnings
 
+```{code-cell} ipython3
+:tags: [remove-input]
+from datetime import datetime as dt
+import pandas as pd
+import requests
+
+data_url = "http://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01/current/earn01nov2022.xls"
+r = requests.get(data_url)
+df = pd.read_excel(r.content, sheet_name="1. AWE Total Pay")
+df = df.iloc[:, [0, 1]]
+df.columns = ["date", "earnings"]
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df = df.dropna()
+# since 2008
+df = df[df["date"] > "2008-01-01"]
+
+def to_days(date):
+	return float((date - dt(2008, 1, 1)).days)
+
+days = df.apply(lambda row: to_days(row.date), axis=1)
+```
+
 Raw data for weekly earnings:
 
-![](../img/lec19/data.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+plt.plot(df["date"], df["earnings"], '.', label="data")
+plt.xlabel("date")
+plt.ylabel("mean weekly earnings (£)")
+plt.grid()
+plt.legend()
+plt.show()
+```
 
 Raw data for weekly earning with a straight line of best fit:
 
-![](../img/lec19/data-line.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+import numpy as np
+
+def fit_line(x, y):
+	A = np.array([[d, 1] for d in x])
+	b = np.array([[e] for e in y])
+
+	AtA = A.T @ A
+	Atb = A.T @ b
+
+	coef = np.linalg.solve(AtA, Atb)
+	return lambda t : coef[0] * t + coef[1]
+
+fit1 = fit_line(days, df["earnings"])
+
+plt.plot(df["date"], df["earnings"], '.', label="data")
+plt.plot(df["date"], fit1(days), label="linear fit")
+plt.xlabel("date")
+plt.ylabel("mean weekly earnings (£)")
+plt.grid()
+plt.legend()
+plt.show()
+```
 
 Raw data for weekly earnings with a quadric curve of best fit:
 
-![](../img/lec19/data-quad.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+def fit_quad(x, y):
+	A = np.array([[d*d, d, 1] for d in x])
+	b = np.array([[e] for e in y])
 
-[Data source, ons](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01)
+	AtA = A.T @ A
+	Atb = A.T @ b
+
+	coef = np.linalg.solve(AtA, Atb)
+	return lambda t : coef[0] * t*t + coef[1] * t + coef[2]
+
+fit2 = fit_quad(days, df["earnings"])
+
+plt.plot(df["date"], df["earnings"], '.', label="data")
+plt.plot(df["date"], fit1(days), label="linear fit")
+plt.plot(df["date"], fit2(days), label="quadratic fit")
+plt.xlabel("date")
+plt.ylabel("mean weekly earnings (£)")
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+[Data source, ons](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01),
+[[xls](http://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01/current/earn01nov2022.xls)]
 
 ### An example of best linear fit
 
@@ -39,7 +128,18 @@ y & 1 & 1.5 & 2.5 & 3.5
 \end{array}
 $$
 
-![](../img/lec19/line-points.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+tt = [1.0, 2.0, 3.0, 4.0]
+yy = [1.0, 1.5, 2.5, 3.5]
+
+plt.plot(tt, yy, 'o')
+
+plt.xlabel("t")
+plt.ylabel("y")
+plt.grid()
+plt.show()
+```
 
 -   Consider representing this data as a straight line:
 
@@ -73,7 +173,18 @@ y & 1.0 & 0.5 & 0.0 & 0.5 & 2.0
 \end{array}
 $$
 
-![](../img/lec19/quad-points.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+tt = [-1.0, -0.5, 0.0, 0.5, 1.0]
+yy = [1.0, 0.5, 0.0, 0.5, 2.0]
+
+plt.plot(tt, yy, 'o')
+
+plt.xlabel("t")
+plt.ylabel("y")
+plt.grid()
+plt.show()
+```
 
 -   Consider representing this data as a quadratic line:
 
@@ -219,9 +330,28 @@ $$
 \vec{x} = (0.08571, 0.4000, 1.429).
 $$
 
-![](../img/lec19/quad-lines.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+tt = [-1.0, -0.5, 0.0, 0.5, 1.0]
+yy = [1.0, 0.5, 0.0, 0.5, 2.0]
 
-### Example 2
+
+plt.plot(tt, yy, 'o', label="data")
+
+fit = fit_quad(tt, yy)
+tt = np.linspace(min(tt), max(tt))
+fitt = fit(tt)
+
+plt.plot(tt, fitt, label="fit")
+
+plt.xlabel("t")
+plt.ylabel("y")
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+### Example 2 (homework)
 
 2.  Find the least square approximation to the system given by
 
@@ -253,6 +383,8 @@ A^T A = \begin{pmatrix}
 $$
 
 If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can make $A^T A$ appear to be singular.
+
+See also: Nick Higham, [Seven sings of numerical linear algebra](https://nhigham.com/2022/10/11/seven-sins-of-numerical-linear-algebra/)
 
 ### Sensitivity and conditioning
 

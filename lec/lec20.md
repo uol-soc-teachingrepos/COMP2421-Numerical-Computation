@@ -44,12 +44,11 @@ I will expect you to be **able to apply** and **understand** all of the algorith
 -   Floating point numbers
     -   Representations and rounding
     -   $eps$, machine precision
+
 -   Matrices and vectors
     -   Multiplication
     -   Inner product
     -   Euclidean norms
-
-### Review (cont.)
 
 -   Systems of linear equations
     -   Translating between matrices and systems of linear equations
@@ -61,8 +60,6 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   Gauss Seidel iteration
     -   Initial guesses, convergence and stopping criteria
 
-### Review (cont.)
-
 -   Dynamic problems
     -   Derivatives, gradients/slopes and rates of change
     -   Reading and drawing simple graphs
@@ -71,16 +68,12 @@ I will expect you to be **able to apply** and **understand** all of the algorith
     -   Euler's method
     -   Midpoint scheme
 
-### Review (cont.)
-
 -   Nonlinear equations
     -   Roots of an equation
     -   Bisection algorithm
     -   Newton's method
     -   Quasi Newton methods
     -   Hybrid methods
-
-### Review (cont.)
 
 -   Data fitting
     -   How to form a system of linear equations to find a simple curve of best fit
@@ -92,7 +85,7 @@ I will expect you to be **able to apply** and **understand** all of the algorith
 
 For this module, you are expected to be able to read, understand and construct simple scripts and functions, to implement simple algorithms, or to modify algorithms for your needs, and to be able to present and interpret the outputs from these. To this end, you should be familiar with elementary python notation and syntax (in particular, vectors, matrices, indicies, loops and branches).
 
-## ## What next....?
+## What next....?
 
 -   You will apply ideas from this course in many areas of computer science including
 

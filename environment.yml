@@ -15,6 +15,7 @@ dependencies:
   - make = 4.3
   - git = 2.38
   - git-lfs = 3.2
+  - xlrd = 1.2
   # for help making the book
   - livereload = 2.6
 

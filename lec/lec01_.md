@@ -297,7 +297,7 @@ One of the most popular applications of numerical simulation in the UK today is 
 
 ## Health care
 
-Numerical simluation can be used both as an earlier step in clinical trials in order to reduce harm to animal or human participants or to predict how medical interventions will work in practice.
+Numerical simulation can be used both as an earlier step in clinical trials in order to reduce harm to animal or human participants or to predict how medical interventions will work in practice.
 
 <video width="100%" controls autoplay muted>
 	<source src="../_static/video/lec01/in-silico.mp4" type="video/mp4">

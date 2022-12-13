@@ -76,4 +76,13 @@ parts:
     chapters:
     - file: lec/lec20
       title: "Lec20: Overview, review and looking forward"
-
+  - caption: Past assessments
+    chapters:
+    - file: cw/cw01
+      title: "2021: Cw1"
+    - file: cw/cw02
+      title: "2021: Cw2"
+    - file: cw/exam
+      title: "2021: Exam"
+    - file: cw/resit
+      title: "2021: Resit"

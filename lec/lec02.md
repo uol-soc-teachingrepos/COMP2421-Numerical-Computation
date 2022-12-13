@@ -268,7 +268,7 @@ Overflow
 :   the number is too large to be represented, e.g. multiply the largest representable number by 10. This gives `inf` (infinity) with `numpy.double`s and is usually "fatal".
 
 Underflow
-:   the number is too small to be reprsented, e.g. divide the smallest representable number by 10. This gives $0$ and may not be immediately obvious.
+:   the number is too small to be represented, e.g. divide the smallest representable number by 10. This gives $0$ and may not be immediately obvious.
 
 Divide by zero
 :   gives a result of `inf`, but $\frac{0}{0}$ gives `nan` (not a number)
@@ -303,5 +303,5 @@ Divide by `inf`
 ### Further reading
 
 - Wikipedia: [Floating-point arithmetic](https://en.wikipedia.org/wiki/Floating-point_arithmetic)
-- David Goldberg, [What every computer scientist should know about floating-point arithmetic](https://doi.org/10.1145/103162.103163), ACM Computing Surverys, Volume 23, Issue 1, March 1991.
+- David Goldberg, [What every computer scientist should know about floating-point arithmetic](https://doi.org/10.1145/103162.103163), ACM Computing Surveys, Volume 23, Issue 1, March 1991.
 - John D Cook, [Floating point error is the least of my worries](https://www.johndcook.com/blog/2011/11/01/floating-point-worries/), *online*, November 2011.

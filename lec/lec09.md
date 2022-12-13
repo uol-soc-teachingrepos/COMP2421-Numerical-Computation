@@ -1,4 +1,4 @@
-# Lecuture 09: Sparse matrices and stopping criteria
+# Lecture 09: Sparse matrices and stopping criteria
 
 ##  Sparse Matrices
 
@@ -195,7 +195,7 @@ In addition to testing for convergence it is also necessary to include tests for
 
 ## Further reading
 
-- Wikipedia [Sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix) - including a long detailed list of software libaries support sparse matrices.
+- Wikipedia [Sparse matrix](https://en.wikipedia.org/wiki/Sparse_matrix) - including a long detailed list of software libraries support sparse matrices.
 
 - [`scipy.sparse`](https://docs.scipy.org/doc/scipy/reference/sparse.html) custom routines specialised to sparse matrices
 - [SuiteSparse](http://faculty.cse.tamu.edu/davis/suitesparse.html), a suite of sparse matrix algorithms, geared toward the direct solution of sparse linear systems

@@ -4,7 +4,41 @@
 
 ## Exam in January
 
-Details to be confirmed
+Monday 23 January, 9am
+
+Computer Exam 1
+
+### Computer Exam 1
+
+You will be in a room on campus with a *Windows* university machine.
+
+You will have access to:
+
+- Minerva
+- Gradescope
+- Notes (comp2421-numerical-computation.gitlab.io/book)
+- Jupyter
+    - Binder **It is your responsibility to ensure the extenal service is available**
+    - Apps anywhere  (see next slide)
+
+You should bring:
+
+- University ID card
+
+Ahead of the exam you should read the [university guidence](https://students.leeds.ac.uk/info/10111/assessment/858/on_campus_examinations_preparation_and_arrangements).
+
+### AppsAnywhere
+
+[KB0014827: Getting started with AppsAnywhere](https://leeds.service-now.com/it?id=kb_article&sysparm_article=KB0014827#using)
+
+**It is your responsibility to test you can open Jupyter Notebook via AppsAnywhere before the exam**
+
+You can do this by:
+
+- visiting a Windows cluster
+- [KB0014379: Using Windows Virtual Desktop (WVD)](https://it.leeds.ac.uk/it?id=kb_article&sysparm_article=KB0014379)
+
+You should ensure any files you require are already available before the exam
 
 ### Past papers
 
@@ -16,6 +50,8 @@ Some exams from recent years are on minerva
 -   They were closed book
 -   They are too long
 -   Ignore questions on Newton interpolation.
+
+### Additional help
 
 ### Examinable material
 
@@ -103,3 +139,5 @@ For this module, you are expected to be able to read, understand and construct s
 Good luck with your exam and future studies
 
 I hope you have a good Christmas break!
+
+The [slides used in the lecture](./lec20_.ipynb) are also available

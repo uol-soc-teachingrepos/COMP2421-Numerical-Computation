@@ -307,7 +307,7 @@ A^T \vec{b} =
 \end{pmatrix}
 $$
 
-Gaussian elimination gives
+We can apply Gaussian elimination to solve this problem (only one row operation is required!). The algorithm gives:
 
 $$
 \begin{pmatrix}
@@ -414,3 +414,5 @@ See also: Nick Higham, [Seven sings of numerical linear algebra](https://nhigham
 - Maths is fun: [Least Squares Regression](https://www.mathsisfun.com/data/least-squares-regression.html)
 
 - Cross Validated StackExchange: [Is a model fitted to data or is data fitted to a model?](https://stats.stackexchange.com/questions/399094/is-a-model-fitted-to-data-or-is-data-fitted-to-a-model)
+
+The [slides used in the lecture](./lec19_.ipynb) are also available

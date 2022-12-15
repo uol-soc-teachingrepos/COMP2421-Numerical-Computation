@@ -168,7 +168,7 @@
 
 -   Let's assume that the error in Euler's method is proportional to $\mathrm{d}t$.
 
--   Then halving $\mathrm{d}t$ will have the error.
+-   Then halving $\mathrm{d}t$ will halve the error.
 
 -   Suppose the error in taking one step of size $\mathrm{d}t$ is $E$, call this solution $\alpha$, then taking two steps of size $\frac{1}{2} \mathrm{d}t$ should yield and error of $E/2$, call this solution $\beta$:
 

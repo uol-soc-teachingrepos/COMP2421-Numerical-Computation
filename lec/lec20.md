@@ -29,7 +29,7 @@ Ahead of the exam you should read the [university guidence](https://students.lee
 
 ### AppsAnywhere
 
-[KB0014827: Getting started with AppsAnywhere](https://leeds.service-now.com/it?id=kb_article&sysparm_article=KB0014827#using)
+[KB0014827: Getting started with AppsAnywhere](https://leeds.service-now.com/it?id=kb_article&sysparm_article=KB0014827)
 
 **It is your responsibility to test you can open Jupyter Notebook via AppsAnywhere before the exam**
 

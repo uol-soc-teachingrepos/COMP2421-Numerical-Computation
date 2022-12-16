@@ -4,9 +4,11 @@
 
 ## Exam in January
 
-Monday 23 January, 9am
+Monday 23 January, 9am, 2 hour exam
 
 Computer Exam 1
+
+*This information supersede what is stated in the module catalogue and previous in the notes*
 
 ### Computer Exam 1
 

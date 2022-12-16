@@ -174,9 +174,12 @@ Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4Qiy
 
 ### Examination
 
-On-line assessment in January.
+Computer exam in January.
 Worth 60%.
-More details to follow.
+More details to follow - see [Lecture 20](./lec20.md) for details.
+
+*Edit: exam type changed - please follow updated guidance*
+
 
 ### Summative coursework
 

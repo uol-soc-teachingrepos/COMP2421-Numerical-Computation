@@ -22,6 +22,7 @@ You will have access to:
 - Jupyter
     - Binder **It is your responsibility to ensure the extenal service is available**
     - Apps anywhere  (see next slide)
+- Windows virtual desktop in case Apps anywhere doesn't load properly
 
 You should bring:
 

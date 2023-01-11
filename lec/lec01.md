@@ -323,4 +323,4 @@ Video source: <https://youtu.be/pppxa9MpoeY>
 - Saul H. Hymans, [Forcasting and econometric models](https://www.econlib.org/library/Enc/ForecastingandEconometricModels.html)
 - Wikipedia: [Physics engine](https://en.wikipedia.org/wiki/Physics_engine)
 - David M Bourg, [How physics is used in video games](https://doi.org/10.1088/0031-9120/39/5/002), Physics Education, issue 39, 2004.
-- [Why studying Linear Algebra is important for Machine Learning and where to start](https://www.univ.ai/post/linear-algebra-machine-learning-prerequisites)
+- [Unlock the Secrets of Machine Learning with Linear Algebra](https://www.univ.ai/blog/studying-linear-algebra)

@@ -333,7 +333,7 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 
 - Much of AI boils down to *optimisation* which requires special numerical methods
 
- [Why studying Linear Algebra is important for Machine Learning and where to start](https://www.univ.ai/post/linear-algebra-machine-learning-prerequisites)
+[Unlock the Secrets of Machine Learning with Linear Algebra](https://www.univ.ai/blog/studying-linear-algebra)
 
 ## Robotics at Leeds
 

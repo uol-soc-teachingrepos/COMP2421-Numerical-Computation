@@ -1,4 +1,4 @@
-# Lecture 8: Iterative solutions of linear equations
+# Lecture 09: Iterative solutions of linear equations
 
 ## Direct methods
 

@@ -45,7 +45,27 @@ kernelspec:
 
 -   We saw a geometric interpretation of the derivative of $y(t)$ by considering the slope of its graph:
 
-    ![A plot of the varying slope of a curve](../img/lec11/curve-1.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+def D(t):
+	return -t**3/3 + t**2/4 + t/2
+
+def S(t):
+	return -(t-1.0)*(t+0.5)
+
+t = np.linspace(0, 1)
+plt.plot(t, S(t), label="Speed")
+plt.plot(t, D(t), label="Distance")
+
+plt.title("Distance and speed as functions of time")
+plt.xlabel("t: time (s)")
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 -   The slope of the straight line approximation (chord) is
 

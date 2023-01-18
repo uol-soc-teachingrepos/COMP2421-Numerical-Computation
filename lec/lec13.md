@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 13: Exact solutions and errors
 
 ## Exact derivatives and exact solutions
@@ -16,7 +28,32 @@
 
 -   We can plot an estimate of the graph of $y'(t)$ quite easily in this case:
 
-![](../img/lec13/f1-b.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+from matplotlib import pyplot as plt
+import numpy as np
+
+def f1(t):
+    return t*t
+def df1(t):
+    return 2*t
+
+t_ = np.linspace(0, 1, 1000)
+f_ = f1(t_)
+df_ = df1(t_)
+
+plt.plot(t_, f_, label="function")
+plt.plot(t_, df_, label="derivative")
+
+plt.xlim(0.0, 1.0)
+plt.ylim(0.0, 2.0)
+
+plt.xlabel("t")
+
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 -   In fact we may use the definition of $y'(t)$ to evaluate this function at any point:
 
@@ -76,61 +113,51 @@
 
 -   We can solve this problem using Euler's method and then look at the errors when $t = 2.0$.
 
-<table class="colwidths-auto table">
-<caption>Results of using Euler's method varying <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathrm{d}t\)</span></p></th>
-<th class="head"><p>solution</p></th>
-<th class="head"><p>abs. error</p></th>
-<th class="head"><p>ratio</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>10</p></td>
-<td><p>0.1000</p></td>
-<td><p>7.0000</p></td>
-<td><p>1.0000</p></td>
-<td><p>0.0000</p></td>
-</tr>
-<tr class="row-odd"><td><p>20</p></td>
-<td><p>0.0500</p></td>
-<td><p>7.4545</p></td>
-<td><p>0.5455</p></td>
-<td><p>0.5455</p></td>
-</tr>
-<tr class="row-even"><td><p>40</p></td>
-<td><p>0.0250</p></td>
-<td><p>7.7143</p></td>
-<td><p>0.2857</p></td>
-<td><p>0.5238</p></td>
-</tr>
-<tr class="row-odd"><td><p>80</p></td>
-<td><p>0.0125</p></td>
-<td><p>7.8537</p></td>
-<td><p>0.1463</p></td>
-<td><p>0.5122</p></td>
-</tr>
-<tr class="row-even"><td><p>160</p></td>
-<td><p>0.0063</p></td>
-<td><p>7.9259</p></td>
-<td><p>0.0741</p></td>
-<td><p>0.5062</p></td>
-</tr>
-<tr class="row-odd"><td><p>320</p></td>
-<td><p>0.0031</p></td>
-<td><p>7.9627</p></td>
-<td><p>0.0373</p></td>
-<td><p>0.5031</p></td>
-</tr>
-<tr class="row-even"><td><p>640</p></td>
-<td><p>0.0016</p></td>
-<td><p>7.9813</p></td>
-<td><p>0.0187</p></td>
-<td><p>0.5016</p></td>
-</tr>
-</tbody>
-</table>
+```{code-cell} ipython3
+:tags: [remove-input]
+import pandas as pd
+
+headers = ["n", "dt", "solution", "abs. error", "ratio"]
+data = []
+
+def euler(f, n, dt, t0, y0, T):
+    t = np.double(t0)
+    y = np.double(y0)
+
+    for i in range(n):
+        y += dt * f(t, y)
+        t += dt
+    
+    return y
+
+t0 = 1.0
+y0 = 1.0
+T = 2.0
+
+def f(t, y):
+    return 3 * y / t
+
+exact = 8.0
+
+old_error = None
+
+for n in [10, 20, 40, 80, 160, 320, 640]:
+    dt = (T - t0) / n
+    y = euler(f, n, dt, t0, y0, T)
+    error = abs(y - exact)
+
+    if old_error is not None:
+        ratio = error / old_error
+    else:
+        ratio = '---'
+    
+    old_error = error
+
+    data.append([n, dt, y, error, ratio])
+
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Results of using Euler's method varying dt")
+```
 
 -   What is happening to the error as $\mathrm{d}t \to 0$?
 
@@ -249,61 +276,53 @@ We use this idea to derive a improve numerical scheme.
 
 -   The following tables shows computed results for the final solution, at $t = 2.0$.
 
-<table class="colwidths-auto table">
-<caption>Results of using the midpoint method varying <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span><caption>
-<thead>
-<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathrm{d}t\)</span></p></th>
-<th class="head"><p>solution</p></th>
-<th class="head"><p>abs. error</p></th>
-<th class="head"><p>ratio</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>10</p></td>
-<td><p>0.1000</p></td>
-<td><p>7.9351</p></td>
-<td><p>0.0649</p></td>
-<td><p>0.0000</p></td>
-</tr>
-<tr class="row-odd"><td><p>20</p></td>
-<td><p>0.0500</p></td>
-<td><p>7.9825</p></td>
-<td><p>0.0175</p></td>
-<td><p>0.2689</p></td>
-</tr>
-<tr class="row-even"><td><p>40</p></td>
-<td><p>0.0250</p></td>
-<td><p>7.9955</p></td>
-<td><p>0.0045</p></td>
-<td><p>0.2591</p></td>
-</tr>
-<tr class="row-odd"><td><p>80</p></td>
-<td><p>0.0125</p></td>
-<td><p>7.9988</p></td>
-<td><p>0.0012</p></td>
-<td><p>0.2545</p></td>
-</tr>
-<tr class="row-even"><td><p>160</p></td>
-<td><p>0.0063</p></td>
-<td><p>7.9997</p></td>
-<td><p>0.0003</p></td>
-<td><p>0.2522</p></td>
-</tr>
-<tr class="row-odd"><td><p>320</p></td>
-<td><p>0.0031</p></td>
-<td><p>7.9999</p></td>
-<td><p>0.0001</p></td>
-<td><p>0.2511</p></td>
-</tr>
-<tr class="row-even"><td><p>640</p></td>
-<td><p>0.0016</p></td>
-<td><p>8.0000</p></td>
-<td><p>0.0000</p></td>
-<td><p>0.2505</p></td>
-</tr>
-</tbody>
-</table>
+```{code-cell} ipython3
+:tags: [remove-input]
+import pandas as pd
+
+headers = ["n", "dt", "solution", "abs. error", "ratio"]
+data = []
+
+def midpoint(f, n, dt, t0, y0, T):
+    t = np.double(t0)
+    y = np.double(y0)
+
+    for i in range(n):
+        k = y + (dt/2) * f(t, y)
+        m = t + dt/2
+        y += dt * f(m, k)
+        t += dt
+    
+    return y
+
+t0 = 1.0
+y0 = 1.0
+T = 2.0
+
+def f(t, y):
+    return 3 * y / t
+
+exact = 8.0
+
+old_error = None
+
+for n in [10, 20, 40, 80, 160, 320, 640]:
+    dt = (T - t0) / n
+    y = midpoint(f, n, dt, t0, y0, T)
+    error = abs(y - exact)
+
+    if old_error is not None:
+        ratio = error / old_error
+    else:
+        ratio = '---'
+    
+    old_error = error
+
+    data.append([n, dt, y, error, ratio])
+
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Results of using the midpoint method varying dt")
+```
 
 ### Notes
 

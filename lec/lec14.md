@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Lecture 14: A modelling example
 
 ## A model for the trajectory of an object
@@ -20,7 +32,56 @@
 
 -   We know its initial position and speed in each direction and wish to predict its trajectory.
 
-![Sample trajectory of a projectileNACA0012 prototype wing section](../img/lec14/projectile.svg)
+```{code-cell} ipython3
+:tags: [remove-input]
+def projectile(n, t0, tfinal):
+    t = np.zeros([n+1,1]) # Initialise the array t
+    U = np.zeros([n+1,1]) # Initialise the array U
+    V = np.zeros([n+1,1]) # Initialise the array V
+    X = np.zeros([n+1,1]) # Initialise the array X
+    Y = np.zeros([n+1,1]) # Initialise the array Y
+
+    ## define initial conditions
+    t[0] = 0.0
+    U[0] = 20.0
+    V[0] = 0.0
+    X[0] = 0.0
+    Y[0] = 100.0
+
+    ## define constants
+    k = 0.2
+    g = 9.81
+
+    ## Calculate size of each interval
+    dt = (tfinal-t0)/float(n)
+
+    ## Take n steps of Euler’s method
+    for i in range(n):
+        U[i+1] = U[i] + dt * (-k*U[i])
+        V[i+1] = V[i] + dt * (-k*V[i] - g)
+        X[i+1] = X[i] + dt * U[i]
+        Y[i+1] = Y[i] + dt * V[i]
+        t[i+1] = t[i] + dt
+
+    return t, X, Y, U, V
+
+import numpy as np
+from matplotlib import pyplot as plt
+
+t0 = 0.0
+tfinal = 6.0
+
+t, X, Y, U, V = projectile(160, t0, tfinal)
+plt.plot(X, Y)
+
+plt.xlabel("x (meters)")
+plt.ylabel("y (meters)")
+plt.grid()
+plt.xlim(0.0, 100.0)
+plt.ylim(0.0, 100.0)
+plt.show()
+```
+
 
 ### Projectile example - model
 
@@ -75,29 +136,58 @@ $$
 
 ### Projectile example - implementation
 
-``` python
-t = np.zeros([n+1,1]) # Initialise the array t
-U = np.zeros([n+1,1]) # Initialise the array U
-V = np.zeros([n+1,1]) # Initialise the array V
-X = np.zeros([n+1,1]) # Initialise the array X
-Y = np.zeros([n+1,1]) # Initialise the array Y
+```{code-cell} ipython3
+def projectile(n, t0, tfinal):
+    t = np.zeros([n+1,1]) # Initialise the array t
+    U = np.zeros([n+1,1]) # Initialise the array U
+    V = np.zeros([n+1,1]) # Initialise the array V
+    X = np.zeros([n+1,1]) # Initialise the array X
+    Y = np.zeros([n+1,1]) # Initialise the array Y
 
-t[0] = 0.0
-U[0] = 20.0
-V[0] = 0.0
-X[0] = 0.0
-Y[0] = 100.0
+    ## define initial conditions
+    t[0] = 0.0
+    U[0] = 20.0
+    V[0] = 0.0
+    X[0] = 0.0
+    Y[0] = 100.0
 
-## Calculate size of each interval
-dt = (tfinal-t0)/float(n)
+    ## define constants
+    k = 0.2
+    g = 9.81
 
-## Take n steps of Euler’s method
-for i in range(n):
-    U[i+1] = U[i] + dt * (-k*U[i])
-    V[i+1] = V[i] + dt * (-k*V[i] - g)
-    X[i+1] = X[i] + dt * U[i]
-    Y[i+1] = Y[i] + dt * V[i]
-    t[i+1] = t[i] + dt
+    ## Calculate size of each interval
+    dt = (tfinal-t0)/float(n)
+
+    ## Take n steps of Euler’s method
+    for i in range(n):
+        U[i+1] = U[i] + dt * (-k*U[i])
+        V[i+1] = V[i] + dt * (-k*V[i] - g)
+        X[i+1] = X[i] + dt * U[i]
+        Y[i+1] = Y[i] + dt * V[i]
+        t[i+1] = t[i] + dt
+
+    return t, X, Y, U, V
+```
+
+```{code-cell} ipython3
+:tags: [hide-input]
+import numpy as np
+from matplotlib import pyplot as plt
+
+t0 = 0.0
+tfinal = 6.0
+
+for n in [10, 20, 40, 80, 160]:
+    t, X, Y, U, V = projectile(n, t0, tfinal)
+    plt.plot(X, Y, label=f"{n=}")
+
+plt.xlabel("x (meters)")
+plt.ylabel("y (meters)")
+plt.xlim(0.0, 100.0)
+plt.ylim(0.0, 110.0)
+plt.legend()
+plt.grid()
+plt.show()
 ```
 
 ### Systems of equations

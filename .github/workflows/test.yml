@@ -9,8 +9,8 @@ on:
 
 jobs: 
   # This job deploys the example book
-  deploy-example-book:
-    runs-on: ubuntu-latest
+  test-book:
+   runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
 
@@ -18,15 +18,19 @@ jobs:
       uses: mamba-org/provision-with-micromamba@main
 
     - name: Test links
+      shell: bash -l {0}
       run: |
         jupyter-book . --builder linkcheck
     
     - name: Test worksheet solutions
+      shell: bash -l {0}
       run: |
         jupyter nbconvert --clear-output --to notebook --inplace ws/*impemented.ipynb
         jupyter execute ws/*implemented.ipynb
 
     # Build the example book
     - name: Build book
+      shell: bash -l {0}
       run: |
+        jupyter nbconvert --clear-output --to notebook --inplace ws/*impemented.ipynb
         jupyter-book build .

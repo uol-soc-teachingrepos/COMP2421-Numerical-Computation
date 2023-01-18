@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  # Trigger the deploy on push to main branch
+  push:
+    branches:
+      - main
+      - 2023
+
+jobs: 
+  # This job deploys the example book
+  deploy-example-book:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install conda environment from environment.yml
+      uses: mamba-org/provision-with-micromamba@main
+
+    - name: Test links
+      run: |
+        jupyter-book . --builder linkcheck
+    
+    - name: Test worksheet solutions
+      run: |
+        jupyter nbconvert --clear-output --to notebook --inplace ws/*impemented.ipynb
+        jupyter execute ws/*implemented.ipynb
+
+    # Build the example book
+    - name: Build book
+      run: |
+        jupyter-book build .

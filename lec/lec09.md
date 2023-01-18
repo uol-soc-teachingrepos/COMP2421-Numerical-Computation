@@ -1,4 +1,4 @@
-# Lecture 09: Sparse matrices and stopping criteria
+# Lecture 08: Sparse matrices and stopping criteria
 
 ##  Sparse Matrices
 

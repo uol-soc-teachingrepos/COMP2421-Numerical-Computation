@@ -17,6 +17,11 @@ jobs:
     - name: Install conda environment from environment.yml
       uses: mamba-org/provision-with-micromamba@main
 
+    - name: Notebook formatting
+      shell: bashl -l {0}
+      run: |
+        black --check .
+
     - name: Test links
       shell: bash -l {0}
       run: |

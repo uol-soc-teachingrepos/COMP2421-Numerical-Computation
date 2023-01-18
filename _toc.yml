@@ -30,14 +30,14 @@ parts:
       title: "WS03: Triangular systems and Gaussian elimination"
     - file: lec/lec07
       title: "Lec07: LU factorisation"
-    - file: lec/lec08
-      title: "Lec08: Iterative methods"
+    - file: lec/lec10
+      title: "Lec08: The effects of finite precision"
     - file: ws/ws04.ipynb
       title: "WS04: LU Factorisation and iterative methods"
+    - file: lec/lec08
+      title: "Lec09: Iterative methods"
     - file: lec/lec09
       title: "Lec09: Sparse matrices and stopping criteria"
-    - file: lec/lec10
-      title: "Lec10: The effects of finite precision"
     - file: ws/ws05.ipynb
       title: "WS05: Sparse systems and pivoting"
   - caption: Dynamic problems

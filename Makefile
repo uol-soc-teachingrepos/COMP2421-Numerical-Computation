@@ -1,6 +1,5 @@
 build:
 	jupyter-book build .
-	python _convert.py
 
 linkcheck:
 	jupyter-book build . --builder linkcheck

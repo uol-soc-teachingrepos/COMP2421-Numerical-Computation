@@ -4,7 +4,7 @@ on:
   # Trigger the deploy on push to main branch
   push:
     branches:
-      - main
+      - master
       - 2023
 
 jobs: 

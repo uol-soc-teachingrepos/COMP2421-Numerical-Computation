@@ -4,7 +4,7 @@ on:
   # Trigger the deploy on push to main branch
   push:
     branches:
-      - main
+      - master
 
 jobs: 
   # This job deploys the example book

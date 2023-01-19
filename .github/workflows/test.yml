@@ -25,17 +25,18 @@ jobs:
     - name: Test links
       shell: bash -l {0}
       run: |
-        jupyter-book . --builder linkcheck
+        jupyter-book build . --builder linkcheck
     
     - name: Test worksheet solutions
       shell: bash -l {0}
       run: |
-        jupyter nbconvert --clear-output --to notebook --inplace ws/*impemented.ipynb
+        jupyter nbconvert --clear-output --to notebook --inplace ws/*implemented.ipynb
         jupyter execute ws/*implemented.ipynb
 
     # Build the example book
     - name: Build book
       shell: bash -l {0}
       run: |
-        jupyter nbconvert --clear-output --to notebook --inplace ws/*impemented.ipynb
+        # clear notebooks
+        jupyter nbconvert --clear-output --to notebook --inplace */*.ipynb
         jupyter-book build .

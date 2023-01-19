@@ -18,7 +18,7 @@ jobs:
       uses: mamba-org/provision-with-micromamba@main
 
     - name: Notebook formatting
-      shell: bashl -l {0}
+      shell: bash -l {0}
       run: |
         black --check .
 

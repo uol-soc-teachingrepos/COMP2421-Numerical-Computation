@@ -22,4 +22,7 @@ dependencies:
   - livereload = 2.6
   - black = 22.12
   - black-jupyter = 22.12
+  - ruff = 0.0
+  - nbqa = 1.6
+  - blacken-docs = 1.12
 

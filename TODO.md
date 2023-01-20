@@ -5,3 +5,4 @@ suggestions and other ideas for next year
 15. https://twitter.com/Dr_Paul_Penn/status/1476591990800359431?s=20
 19. fzero has a redundant step. replace with false position or Dekker's method
 21. Use `pandas` for all tables
+22. Use ruff, nbqa, black, black-docs etc

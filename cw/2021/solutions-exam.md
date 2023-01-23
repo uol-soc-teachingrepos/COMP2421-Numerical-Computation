@@ -2,7 +2,9 @@
 
 # Linear systems of equations \[13 marks\]
 
-1.  Consider the system of linear equations $$
+1.  Consider the system of linear equations
+
+    $$
     \begin{aligned}
     2 x_1 - x_2 & = 1 \\
     - x_1 + x_2 + 3 x_3 & = 3 \\
@@ -84,7 +86,7 @@
          -1 & 1 \\ 0 & 1 \\ 1 & 1
          \end{pmatrix}
          \quad
-         \mbox{ and }
+         \text{ and }
          \quad
          \vec{b} = \begin{pmatrix}
          0.5 \\ 1.2 \\ 1.0.
@@ -104,7 +106,7 @@
          2 & 0 \\ 0 & 3
          \end{pmatrix}
          \quad
-         \mbox{ and }
+         \text{ and }
          \quad
          A^T \vec{b} = \begin{pmatrix}
          1 \\ 3.2

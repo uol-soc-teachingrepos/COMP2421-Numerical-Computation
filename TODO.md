@@ -6,3 +6,8 @@ suggestions and other ideas for next year
 19. fzero has a redundant step. replace with false position or Dekker's method
 21. Use `pandas` for all tables
 22. Use ruff, nbqa, black, black-docs etc
+23. exam misunderstandings:
+    - bisection iteration numbers
+    - dt is only for time stepping problems
+    - euler/midpoint to approxiamte speeds
+    - test for exponential growth

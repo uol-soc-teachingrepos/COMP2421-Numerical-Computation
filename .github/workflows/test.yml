@@ -21,6 +21,8 @@ jobs:
       shell: bash -l {0}
       run: |
         black --check .
+        nbqa black --check .
+        nbqa blacken-docs . --nbqa-md
 
     - name: Test links
       shell: bash -l {0}

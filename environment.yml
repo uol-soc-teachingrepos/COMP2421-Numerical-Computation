@@ -11,7 +11,7 @@ dependencies:
   - scipy = 1.5
   - pandas = 1.1
   # for building the book
-  - jupyter-book = 0.13
+  - jupyter-book = 0.15
   - make = 4.3
   - git = 2.38
   - git-lfs = 3.2

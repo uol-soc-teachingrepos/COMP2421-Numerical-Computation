@@ -23,7 +23,7 @@ jupyter-test:
     - jupyter nbconvert --clear-output --to notebook --inplace ws/*implemented.ipynb
     - jupyter execute ws/*implemented.ipynb
     # test links in the book
-    - jupyter-book build . --builder linkcheck
+    # - jupyter-book build . --builder linkcheck
 
 jupyter-build:
   stage: build

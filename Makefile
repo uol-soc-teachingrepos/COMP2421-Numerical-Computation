@@ -1,3 +1,5 @@
+all: build slides
+
 build:
 	jupyter-book build .
 
@@ -6,18 +8,16 @@ linkcheck:
 
 clean:
 	jupyter-book clean .
-
-zip:
-	$(MAKE) build
-	zip -r comp2421.zip _build/html
-
+	rm -f lec/*html
 
 LEC=$(shell find lec -name "lec*.md")
-SLIDES=$(LEC:lec/%.md=_build/revealjs/%.html)
+PRES=$(shell find lec -name "lec*.ipynb")
+SLIDES=$(LEC:lec/%_.md=_build/html/revealjs/%.html) $(PRES:lec/%_.ipynb=_build/html/revealjs/%.html)
+
 slides:	$(SLIDES)
 
-_build/revealjs/%.html: lec/%.revealjs.html
-	@mkdir -p _build/revealjs
+_build/html/revealjs/%.html: lec/%.revealjs.html
+	@mkdir -p _build/html/revealjs
 	cp $< $@
 
 lec/%.revealjs.html: lec/%_.md

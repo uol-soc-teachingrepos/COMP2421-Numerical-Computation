@@ -6,7 +6,7 @@ on:
     branches:
       - master
 
-jobs: 
+jobs:
   # This job deploys the example book
   deploy-book:
     runs-on: ubuntu-latest

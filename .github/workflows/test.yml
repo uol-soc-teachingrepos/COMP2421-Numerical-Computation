@@ -28,7 +28,7 @@ jobs:
       shell: bash -l {0}
       run: |
         jupyter-book build . --builder linkcheck
-    
+
     - name: Test worksheet solutions
       shell: bash -l {0}
       run: |

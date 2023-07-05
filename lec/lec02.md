@@ -77,9 +77,9 @@ Examples:
 
 ### Standards
 
-1.  The [IEEE single precision standard](https://doi.org/10.1109/IEEESTD.2019.8766229) is $(\beta, t, L, U) = (2, 23, -127, 128)$. This is available via `numpy.single`.
+1.  The [IEEE single precision standard](https://en.wikipedia.org/wiki/IEEE_754) is $(\beta, t, L, U) = (2, 23, -127, 128)$. This is available via `numpy.single`.
 
-2.  The [IEEE double precision standard](https://doi.org/10.1109/IEEESTD.2019.8766229) is $(\beta, t, L, U) = (2, 52, -1023, 1024)$. This is available via `numpy.double`.
+2.  The [IEEE double precision standard](https://en.wikipedia.org/wiki/IEEE_754) is $(\beta, t, L, U) = (2, 52, -1023, 1024)$. This is available via `numpy.double`.
 
 ### Example 1
 

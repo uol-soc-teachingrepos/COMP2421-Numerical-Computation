@@ -23,6 +23,7 @@ PANDOC_REVEALJS= \
 
 %.revealjs.html: %_.ipynb
 	jupyter nbconvert  \
+	  --execute \
 	  --TagRemovePreprocessor.remove_input_tags={\"remove-input\"} \
 	  $< --to slides --output $@
 	mv $@.slides.html $@

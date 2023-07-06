@@ -13,7 +13,7 @@ on:
 
 jobs:
   # This job deploys the example book
-  test-book:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -45,24 +45,9 @@ jobs:
       run: |
         jupyter-book build .
 
-  # This job deploys the example book on success of tests
-  deploy-book:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install conda environment from environment.yml
-      uses: mamba-org/provision-with-micromamba@main
-
-    # Build the example book
-    - name: Build book
-      shell: bash -l {0}
-      run: |
-        jupyter-book build .
-
     # Deploy html to gh-pages
     - name: GitHub Pages action
+      if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,746 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Coursework 2 2021/22 &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cw/2021/cw02';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exam 2021/22" href="exam.html" />
+    <link rel="prev" title="Coursework 1 2021/22" href="cw01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./cw/2021/cw02.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Fcw/2021/cw02.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cw/2021/cw02.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coursework 2 2021/22</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-short-answer-questions-9-marks">Part 1: Short answer questions (9 marks)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-free-answer-questions-11-marks">Part 2: Free answer questions (11 marks)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coursework-2-2021-22">
+<h1>Coursework 2 2021/22<a class="headerlink" href="#coursework-2-2021-22" title="Permalink to this headline">#</a></h1>
+<p><em>This coursework formed part of the assessment of this module that students took in 2021/22. You may wish to use it to help in your revision for the final exam.</em></p>
+<p><em>Support is provided through the MS Class Team. <a class="reference internal" href="solutions02.html"><span class="doc std std-doc">Solutions are available for checking answers</span></a>.</em></p>
+<p>This coursework is worth 20% of the credit of the module.</p>
+<section id="part-1-short-answer-questions-9-marks">
+<h2>Part 1: Short answer questions (9 marks)<a class="headerlink" href="#part-1-short-answer-questions-9-marks" title="Permalink to this headline">#</a></h2>
+<ol class="arabic">
+<li><p><em>Gaussian elimination with pivoting</em></p>
+<p>Solve the following system of linear equations using Gaussian elimination (with pivoting if necessary) and backward substitution.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    3 x_1 + x_2 &amp; = \frac{14}{3} \\
+    2 x_1 + 3 x_2 &amp; = \frac{7}{3}.
+    \end{aligned}
+    \end{split}\]</div>
+<p>What is the solution? <strong>[ 2 marks ]</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_1 = 7/9, x_2 = 7/3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1 = 1, x_2 = 5/3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1 = 5/3, x_2 = -1/3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1 = 14/3, x_2 = 7/3\)</span></p></li>
+</ul>
+</li>
+<li><p><em>LU factorisation</em></p>
+<p>What is the LU factorisation of the following matrix <strong>[ 2 marks ]</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    A = \begin{pmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 5 &amp; 8 \\
+    3 &amp; 8 &amp; 14
+    \end{pmatrix}?
+    \end{split}\]</div>
+<ul>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 1/2 &amp; 1/3 \\
+        0 &amp; 1 &amp; 1/2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        1/2 &amp; 1 &amp; 0 \\
+        1/3 &amp; 1/2 &amp; 1
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        1/2 &amp; 1 &amp; 0 \\
+        1/3 &amp; 1/2 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 1/2 &amp; 1/3 \\
+        0 &amp; 1 &amp; 1/2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        0 &amp; 1 &amp; 2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        2 &amp; 1 &amp; 0 \\
+        3 &amp; 2 &amp; 1
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        2 &amp; 1 &amp; 0 \\
+        3 &amp; 2 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        0 &amp; 1 &amp; 2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+</ul>
+</li>
+<li><p><em>Jacobi method</em></p>
+<p>Consider the system of linear equations for Q1 again and the Jacobi method starting from <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (0, 0)^T\)</span>. How many iterations are required to find the solution so that the absolute error to the exact solution is less than <span class="math notranslate nohighlight">\(0.01\)</span> in the Euclidean norm? <strong>[ 2 marks ]</strong></p>
+</li>
+<li><p><em>Midpoint method</em></p>
+<p>Consider the differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = -(y(t))^2 + t^2, \qquad y(0) = 1.
+    \]</div>
+<p>Use two steps of the midpoint method to approximate the solution <span class="math notranslate nohighlight">\(y(1)\)</span> (i.e., <span class="math notranslate nohighlight">\(y(t)\)</span> at <span class="math notranslate nohighlight">\(t=1\)</span>). Given that the exact solution <span class="math notranslate nohighlight">\(y^*(1) = 3/4\)</span>, which of the following correctly bounds the absolute error? <strong>[3 marks]</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(10^1 &gt; \text{error} &gt; 10^0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(10^0 &gt; \text{error} &gt; 10^{-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(10^{-1} &gt; \text{error} &gt; 10^{-2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(10^{-2} &gt; \text{error} &gt; 10^{-3}\)</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="part-2-free-answer-questions-11-marks">
+<h2>Part 2: Free answer questions (11 marks)<a class="headerlink" href="#part-2-free-answer-questions-11-marks" title="Permalink to this headline">#</a></h2>
+<p>Please upload a single <strong>pdf</strong> file containing the answers to all parts of question 5. Code and tables should be included in-line (no screen shots, no dark backgrounds). You should clearly label each part of your answer.</p>
+<ol class="arabic" start="5">
+<li><p>Consider the problem of heating a one dimensional (i.e., long and thin) rod which has length <span class="math notranslate nohighlight">\(1\,\mathrm{m}\)</span>. We will set the temperature at one end equal to <span class="math notranslate nohighlight">\(20^\circ\,\mathrm{C}\)</span> and to the other end at <span class="math notranslate nohighlight">\(80^\circ\,\mathrm{C}\)</span> and see how the temperature evolves over time. In this question we will explore the properties of different numerical methods to approximate the temperature at time <span class="math notranslate nohighlight">\(T = 10\, \mathrm{seconds}\)</span>.</p>
+<p><img alt="Schematic of a rod" src="cw/_static/img/cw02/rod.svg" /></p>
+<p>To model this we split the rod up into <span class="math notranslate nohighlight">\(N-1\)</span> small sections each of length <span class="math notranslate nohighlight">\(h := 1/(N-1)\)</span>, as shown in the picture, and denote the temperature at the end of each section to be <span class="math notranslate nohighlight">\(x_i\)</span> for <span class="math notranslate nohighlight">\(i = 0, \ldots, N-1\)</span>. The temperature at each end is fixed so <span class="math notranslate nohighlight">\(x_0(t) = 20\)</span> and <span class="math notranslate nohighlight">\(x_{N-1}(t) = 80\)</span> for all times. The temperatures evolve according to the system of differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+    x_i'(t) = \frac{x_{i-1}(t) - 2 x_{i}(t) + x_{i+1}(t)}{h^2} \mbox{ for } i = 1, \ldots, N-2.
+    \]</div>
+<p>Equivalently, denoting <span class="math notranslate nohighlight">\(\vec{x}(t) = (x_0(t), x_1(t), \ldots, x_{N-1}(t))\)</span> we can write this system as</p>
+<div class="math notranslate nohighlight">
+\[
+    \vec{x}'(t) = \vec{f}(\vec{x}, t) = A \vec{x}(t),
+    \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    A_{ij} = \begin{cases}
+    1 / h^2 &amp; \mbox{ if } j = i-1, \mbox{ for } 1 \le i \le N-2 \\
+    -2 / h^2 &amp; \mbox{ if } j = i, \mbox{ for } 1 \le i \le N-2 \\
+    1 / h^2 &amp; \mbox{ if } j = i+1, \mbox{ for } 1 \le i \le N-2 \\
+    0 &amp; \mbox{ for all other } i, j
+    \end{cases}.
+    \end{split}\]</div>
+<p>In particular, the first and final rows of the matrix are all zeros.</p>
+<p>You may want to use the following python code to “assemble” the matrix <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_heat_matrix</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="c1"># initialise matrix</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># fill entries</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">h</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</div>
+<p>a.  Given the system of differential equations, what condition must be imposed on the initial value to ensure that we get the correct values for <span class="math notranslate nohighlight">\(x_0(t)\)</span> and <span class="math notranslate nohighlight">\(x_{N-1}(t)\)</span>? How does that ensure we model these values correctly? <strong>[1 mark]</strong></p>
+<p>b.  Set <span class="math notranslate nohighlight">\(N = 10\)</span> and <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (20, 20, 20, 20, 20, 20, 20, 20, 20, 80)^T\)</span>. Take 10 steps of the Euler method to compute the solution at the final time <span class="math notranslate nohighlight">\(T=10\)</span> (i.e., take <span class="math notranslate nohighlight">\(\mathrm{d}t = 1.0\)</span> and use the code <code class="docutils literal notranslate"><span class="pre">eulerN</span></code> from the lectures). What values do you get? Do you trust your solution? Why? <strong>[2 mark]</strong></p>
+<p>c.  Repeat the experiment for <span class="math notranslate nohighlight">\(\mathrm{d}t = 2^{-1}, 2^{-2}, 2^{-3}, \ldots\)</span> until you find a solution that you trust. Which is the largest value of <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> of the form <span class="math notranslate nohighlight">\(2^{-k}\)</span> that you trust? <strong>[1 mark]</strong></p>
+<p>You have (hopefully) found that the Euler method is not very reliable for this problem. The reason is that the Euler method is not well suited to so-called <em>stiff</em> equations.</p>
+<p>A method better suited to stiff differential equations is the <strong>implicit Euler</strong> method. For a system of differential equations <span class="math notranslate nohighlight">\(y' = f(y, t)\)</span>, the method says to take the update formula</p>
+<div class="math notranslate nohighlight">
+\[
+    y^{(i+1)} = y^{(i)} + \mathrm{d}t f(y^{(i+1)}, t).
+    \]</div>
+<p>For our heat problem, this corresponds to:</p>
+<div class="math notranslate nohighlight">
+\[
+    \vec{x}^{(i+1)} = \vec{x}^{(i)} + \mathrm{d}t A \vec{x}^{(i+1)},
+    \]</div>
+<p>which we can rearrange to:</p>
+<div class="math notranslate nohighlight">
+\[
+    (I_N - \mathrm{d}t A) \vec{x}^{(i+1)} = \vec{x}^{(i)}.
+    \]</div>
+<p>d.  Implement the implicit Euler method for our heat problem. Your function should take arguments <span class="math notranslate nohighlight">\(N\)</span>, the size of the system; <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>, the step size; <span class="math notranslate nohighlight">\(\vec{x}^{(0)}\)</span>, the initial value; and <span class="math notranslate nohighlight">\(T\)</span>, the final time and return the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> at the final time step. Which is the best choice of linear solver from those studied in the course for large <span class="math notranslate nohighlight">\(N\)</span> and small <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>? Why? Use this choice of linear solver in your implementation and include your code in your submission. <strong>[3 marks]</strong></p>
+<p>e.  Set <span class="math notranslate nohighlight">\(N = 10\)</span> and <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (20, 20, 20, 20, 20, 20, 20, 20, 20, 80)^T\)</span>. Take 10 steps of the implicit Euler method to compute the solution at the final time <span class="math notranslate nohighlight">\(T=10\)</span> (i.e., take <span class="math notranslate nohighlight">\(\mathrm{d}t = 1.0\)</span> and use the code from part d.). What values do you get? <strong>[1 mark]</strong></p>
+<p>f.  Make a table of the run time (i.e., how long it takes to run your code) of calling your function from part d. for <span class="math notranslate nohighlight">\((N, \mathrm{d}t) = (10 \times 2^k, 2^{-2k})\)</span> for <span class="math notranslate nohighlight">\(k = 0, 1, 2, 3\)</span>. The columns of the table should be <code class="docutils literal notranslate"><span class="pre">N</span></code>, <code class="docutils literal notranslate"><span class="pre">dt</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">ratio</span></code> (the ratio of subsequent run times). For starting values you should take <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (20, 20, 20, \ldots, 20, 80)^T\)</span>. What do you think is the ratio should be for your implementation? Why? Comment on the difference between what you expected and what you observed. <strong>[3 marks]</strong></p>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cw/2021"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cw01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Coursework 1 2021/22</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exam.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exam 2021/22</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-short-answer-questions-9-marks">Part 1: Short answer questions (9 marks)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-free-answer-questions-11-marks">Part 2: Free answer questions (11 marks)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

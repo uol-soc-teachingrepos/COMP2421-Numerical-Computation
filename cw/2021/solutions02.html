@@ -1,0 +1,1606 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Coursework 2 2021/22 - Solutions &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cw/2021/solutions02';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lec/lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/COMP2421-Numerical-Computation/book/2023?urlpath=lab/tree/./cw/2021/solutions02.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/COMP2421-Numerical-Computation/book/blob/2023/./cw/2021/solutions02.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./cw/2021/solutions02.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Fcw/2021/solutions02.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cw/2021/solutions02.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coursework 2 2021/22 - Solutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-short-answer-questions-9-marks">Part 1: Short answer questions (9 marks)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-free-answer-questions-11-marks">Part 2: Free answer questions (11 marks)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coursework-2-2021-22-solutions">
+<h1>Coursework 2 2021/22 - Solutions<a class="headerlink" href="#coursework-2-2021-22-solutions" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="part-1-short-answer-questions-9-marks">
+<h2>Part 1: Short answer questions (9 marks)<a class="headerlink" href="#part-1-short-answer-questions-9-marks" title="Permalink to this headline">#</a></h2>
+<ol class="arabic">
+<li><p><em>Gaussian elimination with pivoting</em></p>
+<p>Solve the following system of linear equations using Gaussian elimination (with pivoting if necessary) and backward substitution.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    3 x_1 + x_2 &amp; = \frac{14}{3} \\
+    2 x_1 + 3 x_2 &amp; = \frac{7}{3}.
+    \end{aligned}
+    \end{split}\]</div>
+<p>What is the solution? <strong>[ 2 marks ]</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_1 = 7/9, x_2 = 7/3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1 = 1, x_2 = 5/3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1 = 5/3, x_2 = -1/3\)</span> <span class="math notranslate nohighlight">\((\checkmark)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_1 = 14/3, x_2 = 7/3\)</span></p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p><em>LU factorisation</em></p>
+<p>What is the LU factorisation of the following matrix <strong>[ 2 marks ]</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    A = \begin{pmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 5 &amp; 8 \\
+    3 &amp; 8 &amp; 14
+    \end{pmatrix}?
+    \end{split}\]</div>
+<ul>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 1/2 &amp; 1/3 \\
+        0 &amp; 1 &amp; 1/2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        1/2 &amp; 1 &amp; 0 \\
+        1/3 &amp; 1/2 &amp; 1
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        1/2 &amp; 1 &amp; 0 \\
+        1/3 &amp; 1/2 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 1/2 &amp; 1/3 \\
+        0 &amp; 1 &amp; 1/2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        0 &amp; 1 &amp; 2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        2 &amp; 1 &amp; 0 \\
+        3 &amp; 2 &amp; 1
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+<li><div class="math notranslate nohighlight">
+\[\begin{split}
+        L = \begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        2 &amp; 1 &amp; 0 \\
+        3 &amp; 2 &amp; 1
+        \end{pmatrix}
+        \qquad
+        U = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        0 &amp; 1 &amp; 2 \\
+        0 &amp; 0 &amp; 1
+        \end{pmatrix} \qquad (\checkmark)
+        \end{split}\]</div>
+</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p><em>Jacobi method</em></p>
+<p>Consider the system of linear equations for Q1 again and the Jacobi method starting from <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (0, 0)^T\)</span>. How many iterations are required to find the solution so that the absolute error to the exact solution is less than <span class="math notranslate nohighlight">\(0.01\)</span> in the Euclidean norm? <strong>[ 2 marks ]</strong></p>
+</li>
+</ol>
+<p>We implement the Jacobi method and print out the absolute error after each iteration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jacobi_printing</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n_iterations</span><span class="p">,</span> <span class="n">u_exact</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the system A u = b using a Jacobi iteration</span>
+
+<span class="sd">    ARGUMENTS:  A   k x k matrix</span>
+<span class="sd">                u   k-vector storing initial estimate</span>
+<span class="sd">                b   k-vector storing right-hand side</span>
+<span class="sd">                n_iterations</span>
+<span class="sd">                    integer number of iterations to carry out</span>
+<span class="sd">                u_exact</span>
+<span class="sd">                    exact solution for comparison</span>
+
+<span class="sd">    RESULTS:    u   k-vector storing solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get dimension</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="c1"># Make sure we are working with floats</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># Print headers</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n    abs. error&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---  ----------&quot;</span><span class="p">)</span>
+
+    <span class="c1"># print zero it error</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_exact</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">0</span><span class="si">:</span><span class="s2">3d</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">r</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">u_exact</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">3d</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">u</span>
+
+
+<span class="c1"># define problem</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">14</span> <span class="o">/</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]])</span>
+
+<span class="c1"># intial guess</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># exact solution</span>
+<span class="n">x_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]])</span>
+
+<span class="c1"># print solution information</span>
+<span class="n">jacobi_printing</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">x_exact</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n    abs. error
+---  ----------
+  0  1.699673171197595
+  1  1.11665284679121
+  2  0.3777051491550212
+  3  0.24814507706471342
+  4  0.08393447759000477
+  5  0.055143350458825235
+  6  0.01865210613111217
+  7  0.012254077879738954
+  8  0.004144912473580499
+  9  0.0027231284177197342
+ 10  0.0009210916607954779
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.66576346],
+       [-0.33315269]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we need 8 iterations for an error less than <span class="math notranslate nohighlight">\(0.01\)</span>.</p>
+<ol class="arabic" start="4">
+<li><p><em>Midpoint method</em></p>
+<p>Consider the differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = -(y(t))^2 + t^2, \qquad y(0) = 1.
+    \]</div>
+<p>Use two steps of the midpoint method to approximate the solution <span class="math notranslate nohighlight">\(y(1)\)</span> (i.e., <span class="math notranslate nohighlight">\(y(t)\)</span> at <span class="math notranslate nohighlight">\(t=1\)</span>). Given that the exact solution <span class="math notranslate nohighlight">\(y^*(1) = 3/4\)</span>, which of the following correctly bounds the absolute error? <strong>[3 marks]</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(10^1 &gt; \text{error} &gt; 10^0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(10^0 &gt; \text{error} &gt; 10^{-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(10^{-1} &gt; \text{error} &gt; 10^{-2}\)</span> (<span class="math notranslate nohighlight">\(\checkmark\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(10^{-2} &gt; \text{error} &gt; 10^{-3}\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p>We set <span class="math notranslate nohighlight">\(\mathrm{d}t = 1/2\)</span>.</p>
+<p>In the first iteration, we get</p>
+<div class="math notranslate nohighlight">
+\[
+y_{\text{mid}} = 3/4, \quad
+t_{\text{mid}} = 1/4, \quad
+y^{(1)} = 3/4, \quad
+t^{(1)} = 1/2.
+\]</div>
+<p>In the second iteration, we get</p>
+<div class="math notranslate nohighlight">
+\[
+y_{\text{mid}} = 43/64, \quad
+t_{\text{mid}} = 3/4, \quad
+y^{(2)} = 6599/8192 \approx 0.80554, \quad
+t^{(2)} = 1.
+\]</div>
+<p>The error <span class="math notranslate nohighlight">\(|y^*(1) - y^{(2)}| = 0.05554199\)</span> which is less than <span class="math notranslate nohighlight">\(10^{-1}\)</span> but not less than <span class="math notranslate nohighlight">\(10^{-2}\)</span>.</p>
+</section>
+<section id="part-2-free-answer-questions-11-marks">
+<h2>Part 2: Free answer questions (11 marks)<a class="headerlink" href="#part-2-free-answer-questions-11-marks" title="Permalink to this headline">#</a></h2>
+<p>Please upload a single <strong>pdf</strong> file containing the answers to all parts of question 5. Code and tables should be included in-line (no screen shots, no dark backgrounds). You should clearly label each part of your answer.</p>
+<ol class="arabic" start="5">
+<li><p>Consider the problem of heating a one dimensional (i.e., long and thin) rod which has length <span class="math notranslate nohighlight">\(1\,\mathrm{m}\)</span>. We will set the temperature at one end equal to <span class="math notranslate nohighlight">\(20^\circ\,\mathrm{C}\)</span> and to the other end at <span class="math notranslate nohighlight">\(80^\circ\,\mathrm{C}\)</span> and see how the temperature evolves over time. In this question we will explore the properties of different numerical methods to approximate the temperature at time <span class="math notranslate nohighlight">\(T = 10\, \mathrm{seconds}\)</span>.</p>
+<p><img alt="Schematic of a rod" src="cw/_static/img/cw02/rod.svg" /></p>
+<p>To model this we split the rod up into <span class="math notranslate nohighlight">\(N-1\)</span> small sections each of length <span class="math notranslate nohighlight">\(h := 1/(N-1)\)</span>, as shown in the picture, and denote the temperature at the end of each section to be <span class="math notranslate nohighlight">\(x_i\)</span> for <span class="math notranslate nohighlight">\(i = 0, \ldots, N-1\)</span>. The temperature at each end is fixed so <span class="math notranslate nohighlight">\(x_0(t) = 20\)</span> and <span class="math notranslate nohighlight">\(x_{N-1}(t) = 80\)</span> for all times. The temperatures evolve according to the system of differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+    x_i'(t) = \frac{x_{i-1}(t) - 2 x_{i}(t) + x_{i+1}(t)}{h^2} \mbox{ for } i = 1, \ldots, N-2.
+    \]</div>
+<p>Equivalently, denoting <span class="math notranslate nohighlight">\(\vec{x}(t) = (x_0(t), x_1(t), \ldots, x_{N-1}(t))\)</span> we can write this system as</p>
+<div class="math notranslate nohighlight">
+\[
+    \vec{x}'(t) = \vec{f}(\vec{x}, t) = A \vec{x}(t),
+    \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    A_{ij} = \begin{cases}
+    1 / h^2 &amp; \mbox{ if } j = i-1, \mbox{ for } 1 \le i \le N-2 \\
+    -2 / h^2 &amp; \mbox{ if } j = i, \mbox{ for } 1 \le i \le N-2 \\
+    1 / h^2 &amp; \mbox{ if } j = i+1, \mbox{ for } 1 \le i \le N-2 \\
+    0 &amp; \mbox{ for all other } i, j
+    \end{cases}.
+    \end{split}\]</div>
+<p>In particular, the first and final rows of the matrix are all zeros.</p>
+<p>You may want to use the following python code to “assemble” the matrix <span class="math notranslate nohighlight">\(A\)</span>:</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_heat_matrix</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="c1"># initialise matrix</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># fill entries</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>a.  Given the system of differential equations, what condition must be imposed on the initial value to ensure that we get the correct values for <span class="math notranslate nohighlight">\(x_0(t)\)</span> and <span class="math notranslate nohighlight">\(x_{N-1}(t)\)</span>? How does that ensure we model these values correctly? <strong>[1 mark]</strong></p>
+<p>You need <span class="math notranslate nohighlight">\(x_0^{(0)} = 20\)</span> and <span class="math notranslate nohighlight">\(x_{N-1}^{(0)} = 80\)</span>. This is propagated through time since the equations give us <span class="math notranslate nohighlight">\(x_0' = x_{N_1}' = 0\)</span>.</p>
+<p>b.  Set <span class="math notranslate nohighlight">\(N = 10\)</span> and <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (20, 20, 20, 20, 20, 20, 20, 20, 20, 80)^T\)</span>. Take 10 steps of the Euler method to compute the solution at the final time <span class="math notranslate nohighlight">\(T=10\)</span> (i.e., take <span class="math notranslate nohighlight">\(\mathrm{d}t = 1.0\)</span> and use the code <code class="docutils literal notranslate"><span class="pre">eulerN</span></code> from the lectures). What values do you get? Do you trust your solution? Why? <strong>[2 mark]</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eulerN</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">tfinal</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Use Euler&#39;s method to solve N number of differential equation y&#39;(t)=f(t,y) subject</span>
+<span class="sd">    to the initial condition y(t0) = y0.</span>
+
+<span class="sd">    ARGUMENTS:  t0  initial value of t</span>
+<span class="sd">                y0  N-dimensional array of initial value of y(t) when t=t0</span>
+<span class="sd">                tfinal final value of t for which the solution is required</span>
+<span class="sd">                n   the number of sub-intervals to use for the approximation</span>
+<span class="sd">                rhs function of right-hand side of differential equation</span>
+
+
+<span class="sd">    RESULTS:    t   (n+1)-vector storing the values of t at which the solution</span>
+<span class="sd">                    is estimated</span>
+<span class="sd">                y   N x (n+1)-matrix array storing the estimated solution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get dimensions</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
+
+    <span class="c1"># Initialise the arrays ta and y</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">])</span>  <span class="c1"># N x (n+1) matrix</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">t0</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">y0</span>
+
+    <span class="c1"># Calculate the size of each interval</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">tfinal</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># Take n steps of Euler&#39;s method</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get problem parameters</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">T</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># set up right hand side</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">make_heat_matrix</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The right hand side of the equation is just given by the matrix A multiplying</span>
+<span class="sd">    the vector x.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span>
+
+
+<span class="c1"># set initial data</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">20.0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">80.0</span><span class="p">])</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># solve system</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">eulerN</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># get solution at final time</span>
+<span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.00000000e+01,  1.08712544e+23, -5.71462145e+23,  2.07199743e+24,
+       -5.50341726e+24,  1.09711293e+25, -1.64151736e+25,  1.77510545e+25,
+       -1.18212372e+25,  8.00000000e+01])
+</pre></div>
+</div>
+</div>
+</div>
+<p>c.  Repeat the experiment for <span class="math notranslate nohighlight">\(\mathrm{d}t = 2^{-1}, 2^{-2}, 2^{-3}, \ldots\)</span> until you find a solution that you trust. Which is the largest value of <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> of the form <span class="math notranslate nohighlight">\(2^{-k}\)</span> that you trust? <strong>[1 mark]</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># solve the problm using euler for different time steps</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">10.0</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">make_heat_matrix</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span>
+
+
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">20.0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">80.0</span><span class="p">])</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">):</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">**-</span><span class="n">k</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">T</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="n">t</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">eulerN</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1.0 [ 2.00000000e+01  1.08712544e+23 -5.71462145e+23  2.07199743e+24
+ -5.50341726e+24  1.09711293e+25 -1.64151736e+25  1.77510545e+25
+ -1.18212372e+25  8.00000000e+01]
+1 0.5 [ 2.00000000e+01  1.36494733e+43 -3.05171490e+43  5.17773652e+43
+ -7.49366015e+43  9.34873565e+43 -9.87745908e+43  8.40040911e+43
+ -4.85856605e+43  8.00000000e+01]
+2 0.25 [ 2.00000000e+01  1.41261501e+75 -2.70101240e+75  3.73453250e+75
+ -4.38025689e+75  4.52272928e+75 -4.09528528e+75  3.11124541e+75
+ -1.68037563e+75  8.00000000e+01]
+3 0.125 [ 2.00000000e+001  1.73846221e+126 -3.26829344e+126  4.40553388e+126
+ -5.01282093e+126  5.01604821e+126 -4.41370564e+126  3.27758602e+126
+ -1.74452751e+126  8.00000000e+001]
+4 0.0625 [ 2.00000000e+001  7.47036769e+202 -1.40397001e+203  1.89156395e+203
+ -2.15100754e+203  2.15100794e+203 -1.89156497e+203  1.40397117e+203
+ -7.47037526e+202  8.00000000e+001]
+5 0.03125 [ 2.00000000e+001  1.41059750e+302 -2.65105612e+302  3.57175825e+302
+ -4.06165362e+302  4.06165362e+302 -3.57175825e+302  2.65105612e+302
+ -1.41059750e+302  8.00000000e+001]
+6 0.015625 [nan nan nan nan nan nan nan nan nan nan]
+7 0.0078125 [ 2.00000000e+001  1.09565055e+208 -2.05914948e+208  2.77428459e+208
+ -3.15480004e+208  3.15480004e+208 -2.77428459e+208  2.05914948e+208
+ -1.09565055e+208  8.00000000e+001]
+8 0.00390625 [20.         26.66666667 33.33333333 40.         46.66666667 53.33333333
+ 60.         66.66666667 73.33333333 80.        ]
+9 0.001953125 [20.         26.66666667 33.33333333 40.         46.66666667 53.33333333
+ 60.         66.66666667 73.33333333 80.        ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 0.0009765625 [20.         26.66666667 33.33333333 40.         46.66666667 53.33333333
+ 60.         66.66666667 73.33333333 80.        ]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3222/3977684066.py:7: RuntimeWarning: overflow encountered in matmul
+  return A @ x
+/tmp/ipykernel_3222/3977684066.py:7: RuntimeWarning: invalid value encountered in matmul
+  return A @ x
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11 0.00048828125 [20.         26.66666667 33.33333333 40.         46.66666667 53.33333333
+ 60.         66.66666667 73.33333333 80.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first trustworthy solution is at <span class="math notranslate nohighlight">\(2^{-8} = 0.00390625\)</span>.</p>
+<p>You have (hopefully) found that the Euler method is not very reliable for this problem. The reason is that the Euler method is not well suited to so-called <em>stiff</em> equations.</p>
+<p>A method better suited to stiff differential equations is the <strong>implicit Euler</strong> method. For a system of differential equations <span class="math notranslate nohighlight">\(y' = f(y, t)\)</span>, the method says to take the update formula</p>
+<div class="math notranslate nohighlight">
+\[
+y^{(i+1)} = y^{(i)} + \mathrm{d}t f(y^{(i+1)}, t).
+\]</div>
+<p>For our heat problem, this corresponds to:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{x}^{(i+1)} = \vec{x}^{(i)} + \mathrm{d}t A \vec{x}^{(i+1)},
+\]</div>
+<p>which we can rearrange to:</p>
+<div class="math notranslate nohighlight">
+\[
+(I_N - \mathrm{d}t A) \vec{x}^{(i+1)} = \vec{x}^{(i)}.
+\]</div>
+<p>d.  Implement the implicit Euler method for our heat problem. Your function should take arguments <span class="math notranslate nohighlight">\(N\)</span>, the size of the system; <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>, the step size; <span class="math notranslate nohighlight">\(\vec{x}^{(0)}\)</span>, the initial value; and <span class="math notranslate nohighlight">\(T\)</span>, the final time and return the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> at the final time step. Which is the best choice of linear solver from those studied in the course for large <span class="math notranslate nohighlight">\(N\)</span> and small <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>? Why? Use this choice of linear solver in your implementation and include your code in your submission. <strong>[3 marks]</strong></p>
+<p><em>Sample implementations</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lower_triangular_solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the system  A x = b  where A is assumed to be lower triangular,</span>
+<span class="sd">    i.e. A(i,j) = 0 for j &gt; i, and the diagonal is assumed to be nonzero,</span>
+<span class="sd">    i.e. A(i,i) != 0.</span>
+
+<span class="sd">    ARGUMENTS:  A   lower triangular n x n array</span>
+<span class="sd">                b0   right hand side column n-vector</span>
+
+<span class="sd">    RETURNS:    x   column n-vector solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check that A is lower triangular</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: The input array is not lower triangular!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># Get n-dimension</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b0</span><span class="p">)</span>
+
+    <span class="c1"># Copy vector b0 and convert to float</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">b0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># Initialise x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Loop through the remaining rows, calculating the solution components</span>
+    <span class="c1"># in turn by backward substitution</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">upper_triangular_solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the system  A x = b  where A is assumed to be upper triangular,</span>
+<span class="sd">    i.e. A(i,j) = 0 for j &lt; i, and the diagonal is assumed to be nonzero,</span>
+<span class="sd">    i.e. A(i,i) != 0.</span>
+
+<span class="sd">    ARGUMENTS:  A   upper triangular n x n array</span>
+<span class="sd">                b0   right hand side column n-vector</span>
+
+<span class="sd">    RETURNS:    x   column n-vector solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check that A is upper triangular</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: The input array is not upper triangular!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># Get n-dimension</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b0</span><span class="p">)</span>
+
+    <span class="c1"># Copy vector b0 and covert to float</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">b0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># Initialise x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Loop through the remaining rows, calculating the solution components</span>
+    <span class="c1"># in turn by backward substitution</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">lu_factorise</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    LU factorise the matrix A into a lower triangular matrix L and an</span>
+<span class="sd">    upper triangular matrix U.</span>
+
+<span class="sd">    ARGUMENTS:  A   n x n matrix</span>
+
+<span class="sd">    RETURNS:    L   lower triangular matrix</span>
+<span class="sd">                U   upper triangular matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get matrix dimension</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="c1"># Make sure A entries are float</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># Initialise L to be the n x n identity matrix I and U to be the</span>
+    <span class="c1"># n x n zero matrix</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># Loop through the column of the matrix</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># Compute the elements of U on and above the diagonal in column j</span>
+        <span class="c1"># using previously computed elements of L and U.</span>
+        <span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">],</span> <span class="n">U</span><span class="p">[:</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+
+        <span class="c1"># Compute the elements of L below the diagonal in column j using</span>
+        <span class="c1"># previously computed elements of L and U</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">j</span><span class="p">],</span> <span class="n">U</span><span class="p">[:</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">]))</span>
+
+    <span class="c1"># For column n there are no entries of L to be computed so only compute</span>
+    <span class="c1"># the % elemens of U on and above the diagonal in column n, again using</span>
+    <span class="c1"># previously computed elements of L and U</span>
+    <span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">],</span> <span class="n">U</span><span class="p">[:</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">L</span><span class="p">,</span> <span class="n">U</span>
+
+
+<span class="k">def</span> <span class="nf">backward_euler_lu</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the heat problem using the implicit Euler method and</span>
+<span class="sd">    LU factorisation for the linear solve</span>
+
+<span class="sd">    ARGUMENTS: N   the size of the problem</span>
+<span class="sd">               dt  the step size for Euler method</span>
+<span class="sd">               x0  initial condition</span>
+<span class="sd">               T   final time</span>
+
+<span class="sd">    RESULTS:   x   solution at final time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># compute system matrix</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">make_heat_matrix</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">A</span>
+
+    <span class="c1"># factorise system matrix</span>
+    <span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">lu_factorise</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+    <span class="c1"># set initial values</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># do the iteration</span>
+    <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">lower_triangular_solve</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">upper_triangular_solve</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jacobi_new</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the system A u = b using a Jacobi iteration</span>
+
+<span class="sd">    ARGUMENTS:  A   k x k matrix</span>
+<span class="sd">                u   k-vector storing initial estimate</span>
+<span class="sd">                b   k-vector storing right-hand side</span>
+<span class="sd">                tol real number providing the required convergence tolerance</span>
+
+<span class="sd">    RESULTS:    u   k-vector storing solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get dimension</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="c1"># Make sure we are working with floats</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># Set the maximum number of iterations</span>
+    <span class="n">maxit</span> <span class="o">=</span> <span class="mi">100000</span>
+
+    <span class="c1"># Initialise the iteration counter</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Initialise diffRMS to exceed tol for the first iteration</span>
+    <span class="n">diffRMS</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tol</span>
+
+    <span class="n">unew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">diffRMS</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">it</span> <span class="o">&lt;</span> <span class="n">maxit</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="n">unew</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:],</span> <span class="n">u</span><span class="p">))</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+
+        <span class="n">diffRMS</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="n">diffRMS</span> <span class="o">=</span> <span class="n">diffRMS</span> <span class="o">+</span> <span class="p">(</span><span class="n">unew</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">u</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+
+        <span class="n">it</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">diffRMS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">diffRMS</span><span class="p">)</span>
+        <span class="c1"># print(it, diffRMS)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">unew</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">diffRMS</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning! Iteration has not converged&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">u</span>
+
+
+<span class="k">def</span> <span class="nf">backward_euler_jacobi</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the heat problem using the implicit Euler method and</span>
+<span class="sd">    Jacobi iteration for the linear solve</span>
+
+<span class="sd">    ARGUMENTS: N   the size of the problem</span>
+<span class="sd">               dt  the step size for Euler method</span>
+<span class="sd">               x0  initial condition</span>
+<span class="sd">               T   final time</span>
+
+<span class="sd">    RESULTS:   x   solution at final time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># compute system matrix</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">make_heat_matrix</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">A</span>
+
+    <span class="c1"># set initial values</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># do the iteration</span>
+    <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">jacobi_new</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">1.0e-8</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_system_matrix_sparse</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Assemble a sparse matrix for solving heat problem.</span>
+
+<span class="sd">    ARGUMENTS: N  size of assembled matrix</span>
+<span class="sd">               dt time step parameter</span>
+
+<span class="sd">    RESULTS:   A_real  storage of nonzero entries</span>
+<span class="sd">               I_row   storage of the row number of corresponding entries in A_real</span>
+<span class="sd">               I_col   storage of the column number of corresponding entires in A_real</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># initialise matrix</span>
+    <span class="n">nnz</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">4</span>
+    <span class="n">A_real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span>
+    <span class="n">I_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">nnz</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">I_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">nnz</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># first row</span>
+    <span class="n">A_real</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># sub diagonal</span>
+        <span class="n">A_real</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">dt</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># diagonal</span>
+        <span class="n">A_real</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># super diagonal</span>
+        <span class="n">A_real</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">dt</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># last row</span>
+    <span class="n">A_real</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">A_real</span><span class="p">,</span> <span class="n">I_row</span><span class="p">,</span> <span class="n">I_col</span>
+
+
+<span class="k">def</span> <span class="nf">jacobi_sparse</span><span class="p">(</span><span class="n">A_real</span><span class="p">,</span> <span class="n">I_row</span><span class="p">,</span> <span class="n">I_col</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the system A u = b using a Jacobi iteration</span>
+
+<span class="sd">    Note we assume that all diagonal entries are included in the sparse matrix storage</span>
+<span class="sd">    since the algorithm requires that they are nonzero.</span>
+
+<span class="sd">    ARGUMENTS:  A_real   nonzero entires of k x k matrix</span>
+<span class="sd">                I_row    corresponding row numbers for A_real</span>
+<span class="sd">                I_col    corresponding column numbers for A_real</span>
+<span class="sd">                u        k-vector storing initial estimate</span>
+<span class="sd">                b        k-vector storing right-hand side</span>
+<span class="sd">                tol      real number providing the required convergence tolerance</span>
+
+<span class="sd">    RESULTS:    u   k-vector storing solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># get dimensions</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">nnz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A_real</span><span class="p">)</span>
+
+    <span class="c1"># make sure we are working with the correct types</span>
+    <span class="n">A_real</span> <span class="o">=</span> <span class="n">A_real</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">I_col</span> <span class="o">=</span> <span class="n">I_col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">I_row</span> <span class="o">=</span> <span class="n">I_row</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># check for nonzero diagonal</span>
+    <span class="n">diag_nonzero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nnz</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+            <span class="n">diag_nonzero</span><span class="p">[</span><span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">diag_nonzero</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning! diagonal elements not given&quot;</span><span class="p">)</span>
+
+    <span class="c1"># set maximum bnumber of iterations</span>
+    <span class="n">maxit</span> <span class="o">=</span> <span class="mi">10000</span>
+
+    <span class="c1"># starting values</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># initialise diffRMS to exceed tol for the first iteration</span>
+    <span class="n">diffRMS</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tol</span>
+
+    <span class="n">unew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">diffRMS</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">it</span> <span class="o">&lt;</span> <span class="n">maxit</span><span class="p">):</span>
+        <span class="c1"># form residual</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nnz</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">[</span><span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span> <span class="o">-=</span> <span class="n">A_real</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
+
+        <span class="c1"># do update</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nnz</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">I_col</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">I_row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+                <span class="n">unew</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">A_real</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+        <span class="c1"># find change in u</span>
+        <span class="n">diffRMS</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="n">diffRMS</span> <span class="o">+=</span> <span class="p">(</span><span class="n">unew</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">u</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+
+        <span class="n">it</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">diffRMS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">diffRMS</span><span class="p">)</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="n">unew</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">diffRMS</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning! Iteration has not converged&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">u</span>
+
+
+<span class="k">def</span> <span class="nf">backward_euler_jacobi_sparse</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solve the heat problem using the implicit Euler method and</span>
+<span class="sd">    Jacobi iteration for the linear solve</span>
+
+<span class="sd">    ARGUMENTS: N   the size of the problem</span>
+<span class="sd">               dt  the step size for Euler method</span>
+<span class="sd">               x0  initial condition</span>
+<span class="sd">               T   final time</span>
+
+<span class="sd">    RESULTS:   x   solution at final time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># get system matrix</span>
+    <span class="n">A_real</span><span class="p">,</span> <span class="n">I_row</span><span class="p">,</span> <span class="n">I_col</span> <span class="o">=</span> <span class="n">make_system_matrix_sparse</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">jacobi_sparse</span><span class="p">(</span><span class="n">A_real</span><span class="p">,</span> <span class="n">I_row</span><span class="p">,</span> <span class="n">I_col</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">1.0e-8</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The best solver for the problem using the given implementation of <span class="math notranslate nohighlight">\(A\)</span> is LU factorisation since we can do the factorisation once then just do the two triangular solves at each time step. (1 mark)</p>
+<p>However the given implementation of <span class="math notranslate nohighlight">\(A\)</span> stores it as a dense matrix which is not required! It is possible to store <span class="math notranslate nohighlight">\(A\)</span>, and hence <span class="math notranslate nohighlight">\(I_N - \mathrm{d}t A\)</span> as a sparse matrix. This reduces the associated storage cost from <span class="math notranslate nohighlight">\(O(N^2)\)</span> to <span class="math notranslate nohighlight">\(O(N)\)</span>. Using the sparse format, one can use a different implementation of <code class="docutils literal notranslate"><span class="pre">jacobi</span></code> or <code class="docutils literal notranslate"><span class="pre">gauss_seidel</span></code>. An example implementation is provided above using ideas from the course. It is also possible to simply implement the matrix vector products also. (2 marks).</p>
+<p>(1 mark if students say Jacobi or Gauss-Seidel is best but don’t mention that this requies a different implementation of <span class="math notranslate nohighlight">\(A\)</span>).</p>
+<p>e.  Set <span class="math notranslate nohighlight">\(N = 10\)</span> and <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (20, 20, 20, 20, 20, 20, 20, 20, 20, 80)^T\)</span>. Take 10 steps of the implicit Euler method to compute the solution at the final time <span class="math notranslate nohighlight">\(T=10\)</span> (i.e., take <span class="math notranslate nohighlight">\(\mathrm{d}t = 1.0\)</span> and use the code from part d.). What values do you get? <strong>[1 mark]</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span>
+
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">20.0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">80.0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">backward_euler</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="n">backward_euler_lu</span><span class="p">,</span>
+    <span class="n">backward_euler_jacobi</span><span class="p">,</span>
+    <span class="n">backward_euler_jacobi_sparse</span><span class="p">,</span>
+<span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- </span><span class="si">{</span><span class="n">backward_euler</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">backward_euler</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- backward_euler_lu
+[[20.        ]
+ [26.66666667]
+ [33.33333333]
+ [40.        ]
+ [46.66666666]
+ [53.33333333]
+ [60.        ]
+ [66.66666667]
+ [73.33333333]
+ [80.        ]]
+
+--- backward_euler_jacobi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[20.        ]
+ [26.66666664]
+ [33.33333329]
+ [39.99999994]
+ [46.6666666 ]
+ [53.33333326]
+ [59.99999994]
+ [66.66666662]
+ [73.33333331]
+ [80.        ]]
+
+--- backward_euler_jacobi_sparse
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20.         26.66666664 33.33333329 39.99999994 46.6666666  53.33333326
+ 59.99999994 66.66666662 73.33333331 80.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>f.  Make a table of the run time (i.e., how long it takes to run your code) of calling your function from part d. for <span class="math notranslate nohighlight">\((N, \mathrm{d}t) = (10 \times 2^k, 2^{-2k})\)</span> for <span class="math notranslate nohighlight">\(k = 0, 1, 2, 3\)</span>. The columns of the table should be <code class="docutils literal notranslate"><span class="pre">N</span></code>, <code class="docutils literal notranslate"><span class="pre">dt</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">ratio</span></code> (the ratio of subsequent run times). For starting values you should take <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (20, 20, 20, \ldots, 20, 80)^T\)</span>. What do you think is the ratio should be for your implementation? Why? Comment on the difference between what you expected and what you observed. <strong>[3 marks]</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_tests</span> <span class="o">=</span> <span class="mi">3</span>
+
+
+<span class="k">def</span> <span class="nf">test_backward_euler</span><span class="p">(</span><span class="n">backward_euler</span><span class="p">):</span>
+    <span class="n">table_headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;ratio&quot;</span><span class="p">]</span>
+    <span class="n">table_data</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">runtime_previous</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">2</span><span class="o">**</span><span class="n">k</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">20.0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">80.0</span><span class="p">])</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="mf">10.0</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_tests</span><span class="p">):</span>
+            <span class="n">backward_euler</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">runtime</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tests</span>
+
+        <span class="k">if</span> <span class="n">runtime_previous</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ratio</span> <span class="o">=</span> <span class="n">runtime</span> <span class="o">/</span> <span class="n">runtime_previous</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ratio</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">table_data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">ratio</span><span class="p">])</span>
+        <span class="n">runtime_previous</span> <span class="o">=</span> <span class="n">runtime</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">table_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">table_headers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">()</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>LU Factorisation</strong></p>
+<p>From the notes we know that the forward and backward solve is <span class="math notranslate nohighlight">\(O(N^2)\)</span> in so the ratio of costs per time step is <span class="math notranslate nohighlight">\(2^2 = 4\)</span>. There are four times as many time steps so the ratio should be <span class="math notranslate nohighlight">\(4 \times 4 = 16\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_backward_euler</span><span class="p">(</span><span class="n">backward_euler_lu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">test_backward_euler</span><span class="p">(</span><span class="n">backward_euler_lu</span><span class="p">)</span>
+
+<span class="nn">Cell In[11], line 18,</span> in <span class="ni">test_backward_euler</span><span class="nt">(backward_euler)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_tests</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">18</span>     <span class="n">backward_euler</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">runtime</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tests</span>
+
+<span class="nn">Cell In[7], line 147,</span> in <span class="ni">backward_euler_lu</span><span class="nt">(N, dt, x0, T)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="c1"># do the iteration</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">147</span>     <span class="n">z</span> <span class="o">=</span> <span class="n">lower_triangular_solve</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">upper_triangular_solve</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+
+<span class="nn">Cell In[7], line 32,</span> in <span class="ni">lower_triangular_solve</span><span class="nt">(A, b0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">32</span>         <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">return</span> <span class="n">x</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Jacobi</strong></p>
+<p>From the notes we know the solve is <span class="math notranslate nohighlight">\(O(N^3)\)</span> in time so the ratio of costs per time step is <span class="math notranslate nohighlight">\(2^3 = 8\)</span> - note that the matrix vector product in forming the residual is implemented as a dense matrix vector product. There are four times as many time steps so the ratio should be <span class="math notranslate nohighlight">\(4 \times 8 = 32\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_backward_euler</span><span class="p">(</span><span class="n">backward_euler_jacobi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Sparse implementations of Jacobi</strong></p>
+<p>If a sparse matrix vector can be used to form the residual then the ratio is decreased by a factor of two to 16.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_backward_euler</span><span class="p">(</span><span class="n">backward_euler_jacobi_sparse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(One mark for ratio with reasoning) (One mark for comment on difference: for iterative methods main reason is fewer iterations, for fixed methods, main reason is not tight bound - in particular, the number of iterations for Jacobi or Gauss-Seidel can be bounded independently of <span class="math notranslate nohighlight">\(N\)</span>).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cw/2021"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-short-answer-questions-9-marks">Part 1: Short answer questions (9 marks)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-free-answer-questions-11-marks">Part 2: Free answer questions (11 marks)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

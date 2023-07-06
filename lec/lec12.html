@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 12: Derivatives and differential equations &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec12';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WS06: Derivatives and Euler’s method" href="../ws/ws06.html" />
+    <link rel="prev" title="Lecture 11: Dynamic models and rates of change" href="lec11.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/COMP2421-Numerical-Computation/book/2023?urlpath=lab/tree/./lec/lec12.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/COMP2421-Numerical-Computation/book/blob/2023/./lec/lec12.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./lec/lec12.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Flec/lec12.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lec/lec12.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/lec/lec12.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 12: Derivatives and differential equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-and-derivatives">Graphs and derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-object-in-free-fall">An object in free fall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-algorithm">Python algorithm:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-algorithm-results">Python algorithm: Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-method">Euler’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-12-derivatives-and-differential-equations">
+<h1>Lecture 12: Derivatives and differential equations<a class="headerlink" href="#lecture-12-derivatives-and-differential-equations" title="Permalink to this headline">#</a></h1>
+<section id="recap">
+<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>We discussed the concept of <strong>rate of change</strong></p>
+<ul>
+<li><p>speed is the rate of change of distance;</p></li>
+<li><p>instantaneous speed is the limit of average speeds over shorter and shorted time periods,</p>
+<div class="math notranslate nohighlight">
+\[
+        \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t} \text{ as } \mathrm{d}t \to 0;
+        \]</div>
+</li>
+<li><p>instantaneous rate of change as the limit of</p>
+<div class="math notranslate nohighlight">
+\[
+        \frac{(\text{value at time } t + \mathrm{d}t) - (\text{value at time } t)}{\mathrm{d}t} \text{ as } \mathrm{d}t \to 0.
+        \]</div>
+</li>
+</ul>
+</li>
+<li><p>We defined the derivative of a function <span class="math notranslate nohighlight">\(y(t)\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = \lim_{\mathrm{d}t \to 0} \frac{y(t+\mathrm{d}t) - y(t)}{\mathrm{d}t}.
+    \]</div>
+</li>
+<li><p>We saw that speed, <span class="math notranslate nohighlight">\(S(t)\)</span>, is the derivative of distance covered, <span class="math notranslate nohighlight">\(D(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+    S(t) = D'(t) = \lim_{\mathrm{d}t \to 0}
+    \frac{D(t+\mathrm{d}t) - D(t)}{\mathrm{d}t}.
+    \]</div>
+</li>
+<li><p>We saw a geometric interpretation of the derivative of <span class="math notranslate nohighlight">\(y(t)\)</span> by considering the slope of its graph:</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/a82b3924be45d0beeff489112938d659c9ac9705ccfbf433ad95118ae2f1d2ce.png" src="../_images/a82b3924be45d0beeff489112938d659c9ac9705ccfbf433ad95118ae2f1d2ce.png" />
+</div>
+</div>
+<ul>
+<li><p>The slope of the straight line approximation (chord) is</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
+    \]</div>
+</li>
+</ul>
+</section>
+<section id="graphs-and-derivatives">
+<h2>Graphs and derivatives<a class="headerlink" href="#graphs-and-derivatives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>We now know a geometric interpretation of the derivative of a function, as being equal to the function’s slope at each point.</p></li>
+<li><p>This means we can sketch an approximation to the derivative of any given function.</p></li>
+<li><p>In the following examples, the graph of a function <span class="math notranslate nohighlight">\(y(t)\)</span> is given and the graph of <span class="math notranslate nohighlight">\(y'(t)\)</span> is then approximated.</p></li>
+</ul>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4aa133bbf6c2483d354ffcade1dcad6651e05660aba8cf1177cea0846cb5b5e9.png" src="../_images/4aa133bbf6c2483d354ffcade1dcad6651e05660aba8cf1177cea0846cb5b5e9.png" />
+</div>
+</div>
+</section>
+<section id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/b06044198bf9728cf9020c66228ff01a290b541c7da87620dbf062513c97e53e.png" src="../_images/b06044198bf9728cf9020c66228ff01a290b541c7da87620dbf062513c97e53e.png" />
+</div>
+</div>
+</section>
+<section id="example-3">
+<h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/e348eb132c67680cf29b82664d5aec092a2356e1ec6d33cc10b8fdbabf6468d9.png" src="../_images/e348eb132c67680cf29b82664d5aec092a2356e1ec6d33cc10b8fdbabf6468d9.png" />
+</div>
+</div>
+<p>Rate of cases per 100,000 people in the rolling 7-day period ending on the dates shown.
+<a class="reference external" href="https://coronavirus.data.gov.uk/details/cases">Data source, cornavirus.data.gov.uk</a></p>
+</section>
+</section>
+<section id="differential-equations">
+<h2>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>We have already seen that, for speed, <span class="math notranslate nohighlight">\(S(t) = D'(t)\)</span>.</p></li>
+<li><p>What is the rate of change of speed?</p></li>
+<li><p>Answer: acceleration, <span class="math notranslate nohighlight">\(a(t)\)</span> say:</p>
+<ul class="simple">
+<li><p>a positive value for <span class="math notranslate nohighlight">\(a(t)\)</span> means that speed is increasing whilst a negative value means that speed is decreasing.</p></li>
+</ul>
+</li>
+<li><p>When a model takes the form of an equation which involves one or more derivatives then it is called a <strong>differential equation</strong>.</p></li>
+<li><p>We have already seen (and computationally solved) a simple example of a differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+    D'(t) = 1 + 5t - 6t^2
+    \]</div>
+<p>where <span class="math notranslate nohighlight">\(D(0) = 0\)</span>.</p>
+</li>
+<li><p>Most models of dynamic processes take the form of differential equations.</p></li>
+<li><p>The following example uses the fact that the acceleration of an object is equal to the rate of change of its speed:</p>
+<ul class="simple">
+<li><p>i.e. <span class="math notranslate nohighlight">\(a(t) = S'(t)\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<section id="an-object-in-free-fall">
+<h3>An object in free fall<a class="headerlink" href="#an-object-in-free-fall" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>Consider a simple model for an object falling from a large height, based on the two following assumptions:</p>
+<ol class="arabic simple">
+<li><p>all objects are attracted downward with an acceleration due to gravity of <span class="math notranslate nohighlight">\(9.81 \, \mathrm{m} / \mathrm{s}^2\)</span>;</p></li>
+<li><p>air resistance causes an object to decelerate in proportion to its speed (i.e., the faster it travels the greater the air resistance).</p></li>
+</ol>
+</li>
+<li><p><em>What is the net acceleration on the object?</em></p>
+<ul class="simple">
+<li><p>If it is falling with speed <span class="math notranslate nohighlight">\(S(t)\)</span> the net acceleration <em>downwards</em> is <span class="math notranslate nohighlight">\(g - kS(t)\)</span> for some constant <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+</ul>
+</li>
+<li><p>This results in the following differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+    S'(t) = g - k S(t).
+    \]</div>
+</li>
+<li><p>How could we solve this equation?</p>
+<ul class="simple">
+<li><p>Recall how we solved <span class="math notranslate nohighlight">\(D'(t) = 1 + 5t - 6t^2\)</span>?</p></li>
+<li><p>We can do a similar thing again: divide the time period into lots of small intervals and assume everything is approximately constant on each time interval.</p></li>
+</ul>
+</li>
+<li><p>We know that</p>
+<div class="math notranslate nohighlight">
+\[
+    S'(t) = \lim_{\mathrm{d}t \to 0} \frac{S(t + \mathrm{d}t) - S(t)}{\mathrm{d}t}
+    \approx \frac{S(t+ \mathrm{d}t) - S(t)}{\mathrm{d}t}
+    \]</div>
+<p>for a small value of <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>.</p>
+</li>
+<li><p>Hence we can say that:</p>
+<div class="math notranslate nohighlight">
+\[
+    S(t + \mathrm{d}t) = S(t) + \mathrm{d}t (g - k S(t)).
+    \]</div>
+</li>
+</ul>
+</section>
+<section id="python-algorithm">
+<h3>Python algorithm:<a class="headerlink" href="#python-algorithm" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">freefall</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot the trajectory of an object falling freely.</span>
+<span class="sd">    Input: n number of timesteps</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">tfinal</span> <span class="o">=</span> <span class="mf">50.0</span>  <span class="c1"># Select the final time</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># acceleration due to gravity (m/s)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># air resistance coefficient</span>
+
+    <span class="c1"># initialise time and speed arrays array</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># set initial conditions</span>
+    <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">tfinal</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">n</span>  <span class="c1"># calculate step size</span>
+
+    <span class="c1"># take n time steps, in which it is assumed that the acceleration</span>
+    <span class="c1"># is constant in each small time interval</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">g</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># plot output</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="python-algorithm-results">
+<h3>Python algorithm: Results<a class="headerlink" href="#python-algorithm-results" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/808467a3be8a4179ed02c7a10e8406963389e6c6a376a5b8c5040d4d464496c1.png" src="../_images/808467a3be8a4179ed02c7a10e8406963389e6c6a376a5b8c5040d4d464496c1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="euler-s-method">
+<h2>Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>The approach we have used applies for <em>any</em> differential equation involving just a single derivative.</p></li>
+<li><p>It is called <strong>Euler’s method</strong>.</p></li>
+<li><p>We can always arrange such an equation in the form:</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = f(t, y) \quad \text{ subject to the initial condition } \quad y(t_0) = y_0.
+    \]</div>
+</li>
+<li><p>Examples:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(y'(t) = 1+ 5t - 6t^2\)</span> and <span class="math notranslate nohighlight">\(y(0) = 0\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y'(t) = g- ky\)</span> and <span class="math notranslate nohighlight">\(y(0) =0\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y'(t) = -y^2 + \frac{1}{t}\)</span> and <span class="math notranslate nohighlight">\(y(1) = 2\)</span>.</p></li>
+</ol>
+</li>
+</ul>
+<p>For the general equation we have the following algorithm:</p>
+<ol class="arabic">
+<li><p>Set initial values <span class="math notranslate nohighlight">\(t^{(0)}\)</span> and <span class="math notranslate nohighlight">\(y^{(0)}\)</span>.</p></li>
+<li><p>Loop over all time steps, until the final time, updating using the formulae:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   \begin{aligned}
+   y^{(i+1)} &amp; = y^{(i)} + \mathrm{d}t f(t^{(i)}, y^{(i)}) \\
+   t^{(i+1)} &amp; = t^{(i)} + \mathrm{d}t.
+   \end{aligned}
+   \end{split}\]</div>
+</li>
+</ol>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>Take three steps of Euler’s method to approximate the solution of</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = -y^2 + \frac{1}{t} \text{ subject to the initial condition } y(1) = 2
+    \]</div>
+<p>for <span class="math notranslate nohighlight">\(1 \le t \le 2\)</span>.</p>
+</li>
+<li><p>For this example we have:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n = 3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(t_0 = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y_0 = 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(t_{\text{final}} = 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{d}t = (2-1)/3 = 1/3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(t, y) = -y^2 + 1/t\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Given the graph of <span class="math notranslate nohighlight">\(y(t)\)</span> it is possible to sketch the graph of <span class="math notranslate nohighlight">\(y'(t)\)</span> (with some care!).</p></li>
+<li><p>Computational models which involve dynamic processes usually involve the use of derivatives.</p></li>
+<li><p>An equation which includes a derivative is known as a <strong>differential equation</strong>.</p></li>
+<li><p>To solve a differential equation it is necessary to know some information about the solution at some starting point (e.g. initial distance travelled, initial speed, population at a given point in time, etc.).</p></li>
+<li><p>One computational approach to solve such equations is <strong>Euler’s method</strong> - which gets more accurate with more sub-intervals used.</p></li>
+</ul>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_equation">Differential equations</a></p></li>
+<li><p>Maths is fun: <a class="reference external" href="https://www.mathsisfun.com/calculus/differential-equations.html">Differential equations</a></p></li>
+<li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_method">Euler method</a></p></li>
+<li><p>x-engineer: <a class="reference external" href="https://x-engineer.org/euler-integration/">Euler integration method for solving differential equations</a></p></li>
+</ul>
+<p>Euler’s method in films:</p>
+<ul class="simple">
+<li><p>Catherine Meyers, <a class="reference external" href="https://www.insidescience.org/news/exploring-math-hidden-figures">Exploring the Math in `Hidden Figures’</a>, Inside Science, 2017.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lec"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lec11.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 11: Dynamic models and rates of change</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ws/ws06.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">WS06: Derivatives and Euler’s method</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-and-derivatives">Graphs and derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-object-in-free-fall">An object in free fall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-algorithm">Python algorithm:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-algorithm-results">Python algorithm: Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-method">Euler’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

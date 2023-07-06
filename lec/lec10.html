@@ -1,0 +1,996 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 10: Effects of finite precision arithmetic &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec10';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WS04: LU Factorisation and iterative methods" href="../ws/ws04.html" />
+    <link rel="prev" title="Lecture 07: LU factorisation" href="lec07.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./lec/lec10.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Flec/lec10.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lec/lec10.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 10: Effects of finite precision arithmetic</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-row-swapping-in-ge">The need for row swapping in GE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-swapping">Row swapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-example">Another example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-finite-precision">Problems with finite precision</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-the-problem">Removing the problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination-with-pivoting">Gaussian elimination with pivoting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-system-using-gaussian-elimination-with-no-pivoting">1. Solve the system using Gaussian elimination with no pivoting.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-system-using-gaussian-elimination-with-pivoting">2. Solve the system using Gaussian elimination with pivoting.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-10-effects-of-finite-precision-arithmetic">
+<h1>Lecture 10: Effects of finite precision arithmetic<a class="headerlink" href="#lecture-10-effects-of-finite-precision-arithmetic" title="Permalink to this headline">#</a></h1>
+<section id="the-need-for-row-swapping-in-ge">
+<h2>The need for row swapping in GE<a class="headerlink" href="#the-need-for-row-swapping-in-ge" title="Permalink to this headline">#</a></h2>
+<p>Consider the following linear system of equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+0 &amp; 2 &amp; 1 \\
+2 &amp; 1 &amp; 0 \\
+1 &amp; 2 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+7 \\ 4 \\ 5
+\end{pmatrix}
+\end{split}\]</div>
+<p><em>Problem</em>. We cannot eliminate the first column by the diagonal by adding multiples of row 1 to rows 2 and 3 respectively.</p>
+<section id="row-swapping">
+<h3>Row swapping<a class="headerlink" href="#row-swapping" title="Permalink to this headline">#</a></h3>
+<p><em>Solution</em>. Swap the order of the equations!</p>
+<ul>
+<li><p>Swap rows 1 and 2:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  2 &amp; 1 &amp; 0 \\
+  0 &amp; 2 &amp; 1 \\
+  1 &amp; 2 &amp; 0
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2 \\ x_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  4 \\ 7 \\ 5
+  \end{pmatrix}
+  \end{split}\]</div>
+</li>
+<li><p>Now apply Gaussian elimination</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  2 &amp; 1 &amp; 0 \\
+  0 &amp; 2 &amp; 1 \\
+  0 &amp; 1.5 &amp; 0
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2 \\ x_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  4 \\ 7 \\ 3
+  \end{pmatrix}
+  ;
+  \begin{pmatrix}
+  2 &amp; 1 &amp; 0 \\
+  0 &amp; 2 &amp; 1 \\
+  0 &amp; 0 &amp; -0.75
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2 \\ x_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  4 \\ 7 \\ -2.25
+  \end{pmatrix}.
+  \end{split}\]</div>
+</li>
+</ul>
+</section>
+<section id="another-example">
+<h3>Another example<a class="headerlink" href="#another-example" title="Permalink to this headline">#</a></h3>
+<p>Consider another system of equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+2 &amp; 1 &amp; 1 \\
+4 &amp; 2 &amp; 1 \\
+2 &amp; 2 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+ 3 \\ 5 \\ 2
+\end{pmatrix}
+\end{split}\]</div>
+<ul>
+<li><p>Apply Gaussian elimination as usual:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  2 &amp; 1 &amp; 1 \\
+  0 &amp; 0 &amp; -1 \\
+  2 &amp; 2 &amp; 0
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2 \\ x_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  3 \\ -1 \\ 2
+  \end{pmatrix}
+  ;
+  \begin{pmatrix}
+  2 &amp; 1 &amp; 1 \\
+  0 &amp; 0 &amp; -1 \\
+  0 &amp; 1 &amp; -1
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2 \\ x_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  3 \\ -1 \\ -1
+  \end{pmatrix}
+  \end{split}\]</div>
+</li>
+<li><p><em>Problem</em>. We cannot eliminate the second column below the diagonal by adding a multiple of row 2 to row3.</p></li>
+<li><p>Again this problem may be overcome simply by swapping the order of the equations - this time swapping rows 2 and 3:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  2 &amp; 1 &amp; 1 \\
+  0 &amp; 1 &amp; -1 \\
+  0 &amp; 0 &amp; -1
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2 \\ x_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  3 \\ -1 \\ -1
+  \end{pmatrix}
+  \end{split}\]</div>
+</li>
+<li><p>We can now continue the Gaussian elimination process as usual.</p></li>
+</ul>
+<p><em>In general</em>. Gaussian elimination requires row swaps to avoid breaking down when there is a zero in the “pivot” position.</p>
+</section>
+</section>
+<section id="problems-with-finite-precision">
+<h2>Problems with finite precision<a class="headerlink" href="#problems-with-finite-precision" title="Permalink to this headline">#</a></h2>
+<p>Consider using Gaussian elimination to solve the linear system of equations given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+\varepsilon &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2
+\end{pmatrix}
+ =
+\begin{pmatrix}
+2 + \varepsilon \\ 3
+\end{pmatrix}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\varepsilon \neq 1\)</span>.</p>
+<ul>
+<li><p>The true, unique solution is <span class="math notranslate nohighlight">\((x_1, x_2)^T = (1, 2)^T\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\varepsilon \neq 0\)</span>, Gaussian elimination gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  \varepsilon &amp; 1 \\
+  0 &amp; 1 - \frac{1}{\varepsilon}
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2
+  \end{pmatrix}
+   =
+  \begin{pmatrix}
+  2 + \varepsilon \\ 3 - \frac{2 + \varepsilon}{\varepsilon}
+  \end{pmatrix}
+  \end{split}\]</div>
+</li>
+<li><p>Problems occur not only when <span class="math notranslate nohighlight">\(\varepsilon = 0\)</span> but also when it is very small, i.e. when <span class="math notranslate nohighlight">\(\frac{1}{\varepsilon}\)</span> is very large, this will introduce very significant rounding errors into the computation.</p></li>
+</ul>
+<section id="removing-the-problem">
+<h3>Removing the problem<a class="headerlink" href="#removing-the-problem" title="Permalink to this headline">#</a></h3>
+<p>Use Gaussian elimination to solve the linear system of equations given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+1 &amp; 1 \\
+\varepsilon &amp; 1
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2
+\end{pmatrix}
+ =
+\begin{pmatrix}
+3 \\ 2 + \varepsilon
+\end{pmatrix}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\varepsilon \neq 1\)</span>.</p>
+<ul>
+<li><p>The true solution is still <span class="math notranslate nohighlight">\((x_1, x_2)^T = (1, 2)^T\)</span>.</p></li>
+<li><p>Gaussian elimination now gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  1 &amp; 1 \\
+  0 &amp; 1 - \varepsilon
+  \end{pmatrix}
+  \begin{pmatrix}
+  x_1 \\ x_2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  3 \\ 2 - 2\varepsilon
+  \end{pmatrix}
+  \end{split}\]</div>
+</li>
+<li><p>The problems due to small values of <span class="math notranslate nohighlight">\(\varepsilon\)</span> have disappeared.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Writing the equations in a different order has removed the previous problem.</p></li>
+<li><p>The diagonal entries are now always <em>relatively</em> larger.</p></li>
+<li><p>The interchange of the order of equations is a simple example of <strong>row pivoting</strong>. This strategy avoids excessive rounding errors in the computations.</p></li>
+</ul>
+</section>
+</section>
+<section id="gaussian-elimination-with-pivoting">
+<h2>Gaussian elimination with pivoting<a class="headerlink" href="#gaussian-elimination-with-pivoting" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Before eliminating entries in column <span class="math notranslate nohighlight">\(j\)</span>:</p>
+<ul>
+<li><p>find the entry in column <span class="math notranslate nohighlight">\(j\)</span>, below the diagonal, of maximum magnitude;</p></li>
+<li><p>if that entry is larger in magnitude than the diagonal entry then swap its row with row <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+</ul>
+</li>
+<li><p>Then eliminate column <span class="math notranslate nohighlight">\(j\)</span> as before.</p></li>
+</ul>
+<section id="id1">
+<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>This algorithm will always work when the matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible/non-singular.</p></li>
+<li><p>Conversely, if all of the possible pivot values are zero this implies that the matrix is singular and a unique solution does not exist.</p></li>
+<li><p>At each elimination step the row multiplies used are guaranteed to be at most one in magnitude…</p></li>
+<li><p>… so any errors in the representation of the system cannot be amplified by the elimination process.</p></li>
+<li><p>As always, solving <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span> requires that the entries in <span class="math notranslate nohighlight">\(\vec{b}\)</span> are also swapped in the appropriate way.</p></li>
+<li><p>Pivoting can be applied in an equivalent way to LU factorisation.</p></li>
+<li><p>The sequence of pivots is independent of the vector <span class="math notranslate nohighlight">\(\vec{b}\)</span> and can be recorded and reused.</p></li>
+<li><p>The constraint imposed on the row multipliers means that for LU factorisation every entry in <span class="math notranslate nohighlight">\(L\)</span> satisfies <span class="math notranslate nohighlight">\(| l_{ij} | \le 1\)</span>.</p></li>
+</ul>
+<p>In python, the function call</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">permute_l</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>factorises <span class="math notranslate nohighlight">\(A\)</span> and returns <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span> and the <strong>pivot matrix</strong> <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<p>Consider the linear system of equations given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+10 &amp; -7 &amp; 0 \\
+-3 &amp; 2.1 - \varepsilon &amp; 6 \\
+5 &amp; -1 &amp; 5
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+7 \\ 9.9 + \varepsilon \\ 11
+\end{pmatrix}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(0 \le \varepsilon \ll 1\)</span>, and solve it using</p>
+<ol class="arabic simple">
+<li><p>Gaussian elimination without pivoting</p></li>
+<li><p>Gaussian elimination with pivoting.</p></li>
+</ol>
+<p>The exact solution is <span class="math notranslate nohighlight">\(\vec{x} = (0, -1, 2)^T\)</span> for any <span class="math notranslate nohighlight">\(\varepsilon\)</span> in the given range.</p>
+<section id="solve-the-system-using-gaussian-elimination-with-no-pivoting">
+<h4>1. Solve the system using Gaussian elimination with no pivoting.<a class="headerlink" href="#solve-the-system-using-gaussian-elimination-with-no-pivoting" title="Permalink to this headline">#</a></h4>
+<p>Eliminating the first column gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+10 &amp; -7 &amp; 0 \\
+0 &amp; -\varepsilon &amp; 6 \\
+0 &amp; 2.5 &amp; 5
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+7 \\ 12 + \varepsilon \\ 7.5
+\end{pmatrix}
+\end{split}\]</div>
+<p>and then the second column gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+10 &amp; -7 &amp; 0 \\
+0 &amp; -\varepsilon &amp; 6 \\
+0 &amp; 0 &amp; 5 + 15/\varepsilon
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+7 \\ 12 + \varepsilon \\ 7.5 + 2.5(12 + \varepsilon)/\varepsilon
+\end{pmatrix}
+\end{split}\]</div>
+<p>which leads to</p>
+<div class="math notranslate nohighlight">
+\[
+x_3 = \frac{3 + \frac{12 + \varepsilon}{\varepsilon}}{2 + \frac{6}{\varepsilon}} \qquad
+x_2 = \frac{(12 + \varepsilon) - 6x_3}{-\varepsilon} \qquad
+x_1 = \frac{7+ 7x_2}{10}.
+\]</div>
+<p>There are many divisions by <span class="math notranslate nohighlight">\(\varepsilon\)</span>, so we will have problems if <span class="math notranslate nohighlight">\(\varepsilon\)</span> is small.</p>
+</section>
+<section id="solve-the-system-using-gaussian-elimination-with-pivoting">
+<h4>2. Solve the system using Gaussian elimination with pivoting.<a class="headerlink" href="#solve-the-system-using-gaussian-elimination-with-pivoting" title="Permalink to this headline">#</a></h4>
+<p>The first stage is identical (because <span class="math notranslate nohighlight">\(a_{11} = 10\)</span> is largest).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+10 &amp; -7 &amp; 0 \\
+0 &amp; -\varepsilon &amp; 6 \\
+0 &amp; 2.5 &amp; 5
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+7 \\ 12 + \varepsilon \\ 7.5
+\end{pmatrix}
+\end{split}\]</div>
+<p>but now <span class="math notranslate nohighlight">\(|a_{22}| = \varepsilon\)</span> and <span class="math notranslate nohighlight">\(|a_{32}| = 2.5\)</span> so we swap rows 2 and 3 to give</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+10 &amp; -7 &amp; 0 \\
+0 &amp; 2.5 &amp; 5 \\
+0 &amp; -\varepsilon &amp; 6
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+7 \\ 7.5 \\ 12 + \varepsilon
+\end{pmatrix}
+\end{split}\]</div>
+<p>Now we may eliminate column 2:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+10 &amp; -7 &amp; 0 \\
+0 &amp; 2.5 &amp; 5 \\
+0 &amp; 0 &amp; 6 + 2 \varepsilon
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+ =
+\begin{pmatrix}
+7 \\ 7.5 \\ 12 + 4 \varepsilon
+\end{pmatrix}
+\end{split}\]</div>
+<p>which leads to the exact answer:</p>
+<div class="math notranslate nohighlight">
+\[
+x_3 = \frac{12 + 4\varepsilon}{6 + 2 \varepsilon} = 2 \qquad
+x_2 = \frac{7.5 - 5x_3}{2.5} = -1 \qquad
+x_1 = \frac{7 + 7 x_2}{10} = 0.
+\]</div>
+</section>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Mathematics stackexchange: <a class="reference external" href="https://math.stackexchange.com/questions/485513/what-are-pivot-numbers-in-lu-decomposition-please-explain-me-in-an-example">what are pivot numbers in LU decomposition? please explain me in an example</a></p></li>
+<li><p><a class="reference external" href="http://www.math.iitb.ac.in/~neela/partialpivot.pdf">Gaussian elimination with Partial Pivoting</a> [pdf]</p></li>
+<li><p><a class="reference external" href="http://www.math.sjsu.edu/~foster/m143m/partial_pivoting_example1.pdf">Gaussian elimination with partial pivoting example</a> [pdf]</p></li>
+<li><p><a class="reference external" href="http://staff.imsa.edu/~fogel/LinAlg/PDF/14%20Solving%20Factored%20Systems.pdf"><span class="math notranslate nohighlight">\(A = LU\)</span> and solving systems</a> [pdf]</p></li>
+<li><p>Trefethen, Lloyd N.; Bau, David (1997), Numerical linear algebra, Philadelphia: Society for Industrial and Applied Mathematics, ISBN 978-0-89871-361-9.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lec"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lec07.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 07: LU factorisation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ws/ws04.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">WS04: LU Factorisation and iterative methods</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-row-swapping-in-ge">The need for row swapping in GE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-swapping">Row swapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-example">Another example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-finite-precision">Problems with finite precision</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-the-problem">Removing the problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination-with-pivoting">Gaussian elimination with pivoting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-system-using-gaussian-elimination-with-no-pivoting">1. Solve the system using Gaussian elimination with no pivoting.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-system-using-gaussian-elimination-with-pivoting">2. Solve the system using Gaussian elimination with pivoting.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

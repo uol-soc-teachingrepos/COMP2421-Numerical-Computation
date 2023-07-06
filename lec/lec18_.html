@@ -1,0 +1,1084 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 18: Robust nonlinear solvers &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec18_';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/COMP2421-Numerical-Computation/book/2023?urlpath=lab/tree/./lec/lec18_.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/COMP2421-Numerical-Computation/book/blob/2023/./lec/lec18_.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./lec/lec18_.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Flec/lec18_.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lec/lec18_.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 18: Robust nonlinear solvers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 18: Robust nonlinear solvers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-so-far">Summary so far</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-big-idea">The big idea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#false-position-method-regula-falisi">False position method (regula falisi)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dekker-s-method">Dekker’s method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="lecture-18-robust-nonlinear-solvers">
+<h1>Lecture 18: Robust nonlinear solvers<a class="headerlink" href="#lecture-18-robust-nonlinear-solvers" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div><p>Given a continuous function <span class="math notranslate nohighlight">\(f(x)\)</span>, the problem is to find a point <span class="math notranslate nohighlight">\(x^*\)</span> such that <span class="math notranslate nohighlight">\(f(x^*) = 0\)</span>. That is, <span class="math notranslate nohighlight">\(x^*\)</span> is a solution of the equation <span class="math notranslate nohighlight">\(f(x) = 0\)</span> and is called a <strong>root of <span class="math notranslate nohighlight">\(f(x)\)</span></strong>.</p>
+</div></blockquote>
+<section id="summary-so-far">
+<h2>Summary so far<a class="headerlink" href="#summary-so-far" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Bisection</p></th>
+<th class="head"><p>Newton’s method</p></th>
+<th class="head"><p>Modified Newton</p></th>
+<th class="head"><p>Secant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple algorithm</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Starting values</p></td>
+<td><p>bracket</p></td>
+<td><p>one</p></td>
+<td><p>one</p></td>
+<td><p>two</p></td>
+</tr>
+<tr class="row-even"><td><p>Iterations</p></td>
+<td><p>lots</p></td>
+<td><p>normally fewer</p></td>
+<td><p>similar to Newton</p></td>
+<td><p>similar to Newton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Function evals</p></td>
+<td><p>one per iteration</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">df</span></code> per iteration</p></td>
+<td><p>two per iteration</p></td>
+<td><p>one per iteration</p></td>
+</tr>
+<tr class="row-even"><td><p>Convergence</p></td>
+<td><p>with good bracket</p></td>
+<td><p><strong>not always</strong></p></td>
+<td><p><strong>not always</strong></p></td>
+<td><p><strong>not always</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Turing point roots</p></td>
+<td><p>no</p></td>
+<td><p>slower</p></td>
+<td><p>slower</p></td>
+<td><p>slower</p></td>
+</tr>
+<tr class="row-even"><td><p>Use of derivative</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-big-idea">
+<h2>The big idea<a class="headerlink" href="#the-big-idea" title="Permalink to this headline">#</a></h2>
+<p>Combine the robustness of the bisection but improve the estimate using the secant method.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/1a035e7878649a6f24c00c4993485128c547da94eb6242f379d8a61ba747f52d.png" src="../_images/1a035e7878649a6f24c00c4993485128c547da94eb6242f379d8a61ba747f52d.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/7b8a63be4eb7f88b8c283e12aa016de7d34a859e451fa01c1c5575b9ced73498.png" src="../_images/7b8a63be4eb7f88b8c283e12aa016de7d34a859e451fa01c1c5575b9ced73498.png" />
+</div>
+</div>
+<p>The bisection method doesn’t use the values of <span class="math notranslate nohighlight">\(f\)</span> only it’s sign. Use this to improve the convergence rate.</p>
+</section>
+<section id="false-position-method-regula-falisi">
+<h2>False position method (regula falisi)<a class="headerlink" href="#false-position-method-regula-falisi" title="Permalink to this headline">#</a></h2>
+<p>The idea is to take the bisection method but instead of evaluating f and the midpoint of <span class="math notranslate nohighlight">\((x_L, x_R)\)</span> and computing signs, we evaluate at the point obtained from the application of the secant method to <span class="math notranslate nohighlight">\(x_L, x_R\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">false_position</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
+    <span class="c1"># Starting values</span>
+    <span class="n">fa</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">fb</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">tol</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">tol</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="c1"># Find new point **using secant method**</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">fb</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">fb</span> <span class="o">-</span> <span class="n">fa</span><span class="p">)</span>
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+        <span class="c1"># if root is in left half of interval</span>
+        <span class="k">if</span> <span class="n">fa</span> <span class="o">*</span> <span class="n">fc</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="c1"># move right end</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+            <span class="n">fb</span> <span class="o">=</span> <span class="n">fc</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># otherwise,</span>
+            <span class="c1"># move the left end</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+            <span class="n">fa</span> <span class="o">=</span> <span class="n">fc</span>
+
+    <span class="k">return</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<p>A simply example <span class="math notranslate nohighlight">\(f(x) = x^2 - 2\)</span> starting from bracket <span class="math notranslate nohighlight">\((1, 2)\)</span>.</p>
+<p><em>What happens to the right end of the bracket?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mf">2.0</span>
+
+
+<span class="n">false_position_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_40cf0188_1bdd_11ee_9260_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >f(a)</th>        <th class="col_heading level0 col3" >b</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >c</th>        <th class="col_heading level0 col6" >f(c)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow0_col2" class="data row0 col2" >-1.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow0_col3" class="data row0 col3" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow0_col4" class="data row0 col4" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow0_col5" class="data row0 col5" >--</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow0_col6" class="data row0 col6" >--</td>
+            </tr>
+            <tr>
+                                <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow1_col1" class="data row1 col1" >1.333333</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow1_col2" class="data row1 col2" >-0.222222</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow1_col3" class="data row1 col3" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow1_col4" class="data row1 col4" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow1_col5" class="data row1 col5" >1.333333</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow1_col6" class="data row1 col6" >-0.222222</td>
+            </tr>
+            <tr>
+                                <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow2_col1" class="data row2 col1" >1.400000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow2_col2" class="data row2 col2" >-0.040000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow2_col3" class="data row2 col3" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow2_col4" class="data row2 col4" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow2_col5" class="data row2 col5" >1.400000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow2_col6" class="data row2 col6" >-0.040000</td>
+            </tr>
+            <tr>
+                                <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow3_col1" class="data row3 col1" >1.411765</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow3_col2" class="data row3 col2" >-0.006920</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow3_col3" class="data row3 col3" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow3_col4" class="data row3 col4" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow3_col5" class="data row3 col5" >1.411765</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow3_col6" class="data row3 col6" >-0.006920</td>
+            </tr>
+            <tr>
+                                <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow4_col1" class="data row4 col1" >1.413793</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow4_col2" class="data row4 col2" >-0.001189</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow4_col3" class="data row4 col3" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow4_col4" class="data row4 col4" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow4_col5" class="data row4 col5" >1.413793</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow4_col6" class="data row4 col6" >-0.001189</td>
+            </tr>
+            <tr>
+                                <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow5_col1" class="data row5 col1" >1.414141</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow5_col2" class="data row5 col2" >-0.000204</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow5_col3" class="data row5 col3" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow5_col4" class="data row5 col4" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow5_col5" class="data row5 col5" >1.414141</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow5_col6" class="data row5 col6" >-0.000204</td>
+            </tr>
+            <tr>
+                                <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow6_col0" class="data row6 col0" >6</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow6_col1" class="data row6 col1" >1.414201</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow6_col2" class="data row6 col2" >-0.000035</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow6_col3" class="data row6 col3" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow6_col4" class="data row6 col4" >2.000000</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow6_col5" class="data row6 col5" >1.414201</td>
+                        <td id="T_40cf0188_1bdd_11ee_9260_6045bd09c4abrow6_col6" class="data row6 col6" >-0.000035</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/065bf52fe8ffe5ae2a168669b71109392697a349c36256f843088169b70dbee5.png" src="../_images/065bf52fe8ffe5ae2a168669b71109392697a349c36256f843088169b70dbee5.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dekker-s-method">
+<h1>Dekker’s method<a class="headerlink" href="#dekker-s-method" title="Permalink to this headline">#</a></h1>
+<p>This is a another hybrid method that combines the bisection and secant method.</p>
+<p>We find two candidates for approximating the root - given by the secant method and by the bisection method. <span class="math notranslate nohighlight">\(b\)</span> becomes the new estimate of the root and <span class="math notranslate nohighlight">\(a\)</span> is updated to maintain the bracket.</p>
+<p>The function requires both an initial bracket:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dekker</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>  <span class="c1"># ensure we have a bracket</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span>  <span class="c1"># start old b at a</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tol</span>  <span class="c1"># ensure we have b != c</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dekker</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
+    <span class="c1"># start at old b at a</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span>
+
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="c1"># generate two possible estimates</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">midpoint_update</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">secant_update</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">m</span>
+
+        <span class="c1"># choose best b and update c</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">update_b</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> <span class="n">b</span>
+
+        <span class="c1"># choose a to form a bracket</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">update_a</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+        <span class="c1"># choose best value for iteration from a and b</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">best_ab</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/a6179442a5020ce8651dd0cbc418c5c89912aac0a74ae101857b21ba64ad06b2.png" src="../_images/a6179442a5020ce8651dd0cbc418c5c89912aac0a74ae101857b21ba64ad06b2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">secant_update</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">xn</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">xn</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">func</span><span class="p">(</span><span class="n">xn</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">midpoint_update</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xL</span><span class="p">,</span> <span class="n">xR</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">xL</span> <span class="o">+</span> <span class="n">xR</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/a6179442a5020ce8651dd0cbc418c5c89912aac0a74ae101857b21ba64ad06b2.png" src="../_images/a6179442a5020ce8651dd0cbc418c5c89912aac0a74ae101857b21ba64ad06b2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_b</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+    <span class="c1"># if s lies strictly between m and b</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">):</span>
+        <span class="c1"># b &lt;- s (secant)</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># b &lt;- m (midpoint)</span>
+        <span class="k">return</span> <span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/a6179442a5020ce8651dd0cbc418c5c89912aac0a74ae101857b21ba64ad06b2.png" src="../_images/a6179442a5020ce8651dd0cbc418c5c89912aac0a74ae101857b21ba64ad06b2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_a</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># set a to be either a or c so that f(a)*f(b) &lt; 0</span>
+    <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># (a, b) form a bracket: a &lt;- a</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">func</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># (c, b) form a bracket: a &lt;- c</span>
+        <span class="k">return</span> <span class="n">c</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No bracket found&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">best_ab</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># if a is better estimate</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">&lt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
+        <span class="c1"># swap!</span>
+        <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># don&#39;t swap!</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<p>A simply example <span class="math notranslate nohighlight">\(f(x) = x^2 - 2\)</span> starting from bracket <span class="math notranslate nohighlight">\((1, 2)\)</span></p>
+<p><em>What happens to the left end of the bracket?</em></p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">2</span>
+
+
+<span class="n">dekker</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >f(a)</th>        <th class="col_heading level0 col3" >b</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >update</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow0_col2" class="data row0 col2" >-1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow0_col3" class="data row0 col3" >2.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow0_col4" class="data row0 col4" >2.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow0_col5" class="data row0 col5" >None</td>
+            </tr>
+            <tr>
+                                <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow1_col1" class="data row1 col1" >1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow1_col2" class="data row1 col2" >-1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow1_col3" class="data row1 col3" >1.500000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow1_col4" class="data row1 col4" >0.250000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow1_col5" class="data row1 col5" >midpoint</td>
+            </tr>
+            <tr>
+                                <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow2_col1" class="data row2 col1" >1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow2_col2" class="data row2 col2" >-1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow2_col3" class="data row2 col3" >1.428571</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow2_col4" class="data row2 col4" >0.040816</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow2_col5" class="data row2 col5" >secant</td>
+            </tr>
+            <tr>
+                                <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow3_col1" class="data row3 col1" >1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow3_col2" class="data row3 col2" >-1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow3_col3" class="data row3 col3" >1.414634</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow3_col4" class="data row3 col4" >0.001190</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow3_col5" class="data row3 col5" >secant</td>
+            </tr>
+            <tr>
+                                <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow4_col1" class="data row4 col1" >1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow4_col2" class="data row4 col2" >-1.000000</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow4_col3" class="data row4 col3" >1.414216</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow4_col4" class="data row4 col4" >0.000006</td>
+                        <td id="T_41b7ab90_1bdd_11ee_9260_6045bd09c4abrow4_col5" class="data row4 col5" >secant</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4809b8aa3917b85eed4aebe501e32b6916d1822fd799262c6c1338cac3f95aa4.png" src="../_images/4809b8aa3917b85eed4aebe501e32b6916d1822fd799262c6c1338cac3f95aa4.png" />
+</div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Bisection</p></th>
+<th class="head"><p>Newton’s method</p></th>
+<th class="head"><p>Modified Newton</p></th>
+<th class="head"><p>Secant</p></th>
+<th class="head"><p>False position</p></th>
+<th class="head"><p>Dekker</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple algorithm</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>more complicated</p></td>
+</tr>
+<tr class="row-odd"><td><p>Starting values</p></td>
+<td><p>bracket</p></td>
+<td><p>one</p></td>
+<td><p>one</p></td>
+<td><p>two</p></td>
+<td><p>bracket</p></td>
+<td><p>bracket</p></td>
+</tr>
+<tr class="row-even"><td><p>Iterations</p></td>
+<td><p>lots</p></td>
+<td><p>normally fewer</p></td>
+<td><p>similar to Newton</p></td>
+<td><p>similar to Newton</p></td>
+<td><p>middle</p></td>
+<td><p>similar to Newton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Function evals</p></td>
+<td><p>one per iteration</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">df</span></code> per iteration</p></td>
+<td><p>two per iteration</p></td>
+<td><p>one per iteration</p></td>
+<td><p>one per iteration</p></td>
+<td><p>one per iteration</p></td>
+</tr>
+<tr class="row-even"><td><p>Convergence</p></td>
+<td><p>with good bracket</p></td>
+<td><p>not always</p></td>
+<td><p>not always</p></td>
+<td><p>not always</p></td>
+<td><p>with good bracket</p></td>
+<td><p>with good bracket</p></td>
+</tr>
+<tr class="row-odd"><td><p>Turing point roots</p></td>
+<td><p>no</p></td>
+<td><p>slower</p></td>
+<td><p>slower</p></td>
+<td><p>slower</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p>Use of derivative</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lec"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 18: Robust nonlinear solvers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-so-far">Summary so far</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-big-idea">The big idea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#false-position-method-regula-falisi">False position method (regula falisi)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dekker-s-method">Dekker’s method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

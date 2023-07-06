@@ -1,0 +1,2275 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Today and tomorrow &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec15_';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/COMP2421-Numerical-Computation/book/2023?urlpath=lab/tree/./lec/lec15_.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/COMP2421-Numerical-Computation/book/blob/2023/./lec/lec15_.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./lec/lec15_.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Flec/lec15_.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lec/lec15_.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Today and tomorrow</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today and tomorrow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-nonlinear-solvers">Why do we need nonlinear solvers?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-from-last-year-s-exam-paper">Example from last year’s exam paper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-implicit-time-stepping-methods-1">The need for implicit time stepping methods (1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-implicit-time-stepping-methods-2">The need for implicit time stepping methods (2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-difficult-problems-1">Other difficult problems (1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-difficult-problems-2">Other difficult problems (2)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bisection-method">The bisection method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implict-euler-with-bisection-for-the-nonlinear-solve">Implict Euler with bisection for the nonlinear solve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4">Example 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root">Zero derivative as a root</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root-example">Zero derivative as a root - example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-newton-s-methods">Problems with Newton’s methods</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="today-and-tomorrow">
+<h1>Today and tomorrow<a class="headerlink" href="#today-and-tomorrow" title="Permalink to this headline">#</a></h1>
+<p><strong>An introduction to nonlinear solvers</strong></p>
+<p><em>Coursework 2 now available: deadline Dec 13 at 2:00PM</em></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-do-we-need-nonlinear-solvers">
+<h1>Why do we need nonlinear solvers?<a class="headerlink" href="#why-do-we-need-nonlinear-solvers" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div><p>Given a continuous function <span class="math notranslate nohighlight">\(f(x)\)</span>, the problem is to find a point <span class="math notranslate nohighlight">\(x^*\)</span> such that <span class="math notranslate nohighlight">\(f(x^*) = 0\)</span>. That is, <span class="math notranslate nohighlight">\(x^*\)</span> is a solution of the equation <span class="math notranslate nohighlight">\(f(x) = 0\)</span> and is called a <strong>root of <span class="math notranslate nohighlight">\(f(x)\)</span></strong>.</p>
+</div></blockquote>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<ol class="arabic">
+<li><p>The linear equation <span class="math notranslate nohighlight">\(f(x) = a x + b = 0\)</span> has a single solution at <span class="math notranslate nohighlight">\(x^* = -\frac{b}{a}\)</span>.</p></li>
+<li><p>The quadratic equation <span class="math notranslate nohighlight">\(f(x) = a x^2 + b x + c = 0\)</span> is nonlinear , but simple enough to have a known formula for the solutions</p>
+<div class="math notranslate nohighlight">
+\[
+    x^* = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
+    \]</div>
+</li>
+<li><p>A general nonlinear equation <span class="math notranslate nohighlight">\(f(x) = 0\)</span> rarely has a formula like those above which can be used to calculate its roots.</p></li>
+</ol>
+</section>
+<section id="example-from-last-year-s-exam-paper">
+<h2>Example from last year’s exam paper<a class="headerlink" href="#example-from-last-year-s-exam-paper" title="Permalink to this headline">#</a></h2>
+<p>We want to solve the quadratic equation</p>
+<div class="math notranslate nohighlight">
+\[f(x) = x^2 -(m+\frac{1}{m}) x + 1 = 0\]</div>
+<p>for large values of <span class="math notranslate nohighlight">\(m\)</span>. The exact solutions are <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(\frac{1}{m}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implementation of quadratic formula</span>
+<span class="k">def</span> <span class="nf">quad</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the roots of the quadratic polynomial a x^2 + b x + c = 0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test for m = 1e8</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1e8</span>
+<span class="n">roots</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">roots</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roots=(100000000.0, 1.4901161193847656e-08)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># absolute and relative errors</span>
+<span class="n">exact_roots</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span>
+
+<span class="n">abs_error</span> <span class="o">=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">roots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">exact_roots</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">roots</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">exact_roots</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">rel_error</span> <span class="o">=</span> <span class="p">(</span><span class="n">abs_error</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">m</span><span class="p">,</span> <span class="n">abs_error</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">abs_error</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rel_error</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abs_error=(0.0, 4.901161193847656e-09)
+rel_error=(0.0, 0.49011611938476557)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-need-for-implicit-time-stepping-methods-1">
+<h2>The need for implicit time stepping methods (1)<a class="headerlink" href="#the-need-for-implicit-time-stepping-methods-1" title="Permalink to this headline">#</a></h2>
+<p>Consider the differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+x'(t) = - 2 x(t), \qquad \text{ subject to } \quad x(0) = 1.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rhs1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
+    <span class="c1"># initialise memory</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># starting values</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># do the time loop</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">rhs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">t</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/38eb863ea1d54a1a11ec76a9aca1c3ca1b4634a028268430360421318812ce7d.png" src="../_images/38eb863ea1d54a1a11ec76a9aca1c3ca1b4634a028268430360421318812ce7d.png" />
+</div>
+</div>
+<p>Recall explicit Euler says:</p>
+<div class="math notranslate nohighlight">
+\[
+x^{(j+1)} = x^{(j)} + \mathrm{dt} f(t^{(j)}, x^{(j)})
+\]</div>
+<p>Consider instead the <strong>implicit Euler method</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+x^{(j+1)} = x^{(j)} + \mathrm{dt} f(t^{(j+1)}, x^{(j+1)})
+\]</div>
+<p>We can’t simply evaluate the right hand side since we don’t know <span class="math notranslate nohighlight">\(x^{(j+1)}\)</span> yet!</p>
+<p>For <span class="math notranslate nohighlight">\(f(x, t) = -2x\)</span>, we can compute that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x^{(j+1)} &amp; = x^{(j)} + \mathrm{dt} f(t^{(j+1)}, x^{(j+1)}) \\
+        &amp; = x^{(j)} - 2 \mathrm{dt}t x^{(j+1)} \\
+(1 + 2 \Delta t) x^{(j+1)} &amp; = x^{(j)} \\
+x^{(j+1)} &amp; = 1 / (1 + 2 \mathrm{dt}) x^{(j)}.
+\end{aligned}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">implicit_euler</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="c1"># initialise memory</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># starting values</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># do the time loop</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/37ec3169625e9fb4ed1a30ec228d6ecfc697ca097b1f10de4d7c00ecb85148fa.png" src="../_images/37ec3169625e9fb4ed1a30ec228d6ecfc697ca097b1f10de4d7c00ecb85148fa.png" />
+</div>
+</div>
+</section>
+<section id="the-need-for-implicit-time-stepping-methods-2">
+<h2>The need for implicit time stepping methods (2)<a class="headerlink" href="#the-need-for-implicit-time-stepping-methods-2" title="Permalink to this headline">#</a></h2>
+<p>Consider the differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+x'(t) = - 2 x(t)^3 \exp(-(1-x(t)^2)), \qquad \text{ subject to } \quad x(0) = 1.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rhs2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/8f8a1dfe6754cb24cbff4f8c8879031864d430cb5d337aee9b967fd209d8d247.png" src="../_images/8f8a1dfe6754cb24cbff4f8c8879031864d430cb5d337aee9b967fd209d8d247.png" />
+</div>
+</div>
+<p>We might wish to use an implicit method, but how can we undo <span class="math notranslate nohighlight">\(f\)</span>??</p>
+<blockquote>
+<div><p>Use a nonlinear solver!</p>
+</div></blockquote>
+</section>
+<section id="other-difficult-problems-1">
+<h2>Other difficult problems (1)<a class="headerlink" href="#other-difficult-problems-1" title="Permalink to this headline">#</a></h2>
+<p>The following formula allows the monthly repayments (<span class="math notranslate nohighlight">\(M\)</span>) on a compound interest mortgage (for a borrowing of <span class="math notranslate nohighlight">\(P\)</span>) to be calculated based upon an annual interest rate of <span class="math notranslate nohighlight">\(r\)</span>% and <span class="math notranslate nohighlight">\(n\)</span> monthly payments (<a class="reference external" href="http://www.fonerbooks.com/interest.htm">more details</a>).</p>
+<div class="math notranslate nohighlight">
+\[
+M = P \frac{\frac{r}{1200} \left(1 + \frac{r}{1200}\right)^n}{\left(1 + \frac{r}{12000}\right)^n - 1}.
+\]</div>
+<ul class="simple">
+<li><p>Suppose that we wish to work out how many monthly repayments of £1,000 would be required to repay a mortgage of £150,000 at an annual rate of 5%.</p></li>
+<li><p>This would require us to solve <span class="math notranslate nohighlight">\(f(n) = 0\)</span> where <span class="math notranslate nohighlight">\(f(n) = 1000 - 150000 \frac{\frac{5}{1200}(1+\frac{5}{1200})^n}{(1+\frac{5}{1200})^n - 1}\)</span>.</p></li>
+</ul>
+</section>
+<section id="other-difficult-problems-2">
+<h2>Other difficult problems (2)<a class="headerlink" href="#other-difficult-problems-2" title="Permalink to this headline">#</a></h2>
+<p>Consider the NACA0012 prototype wing section, which is often used for testing computational methods for simulating flows in aerodynamics</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/wcahAqSFZ8k?rel=0"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>The profile is given by</p>
+<div class="math notranslate nohighlight">
+\[
+y^{\pm}(x) = \pm(0.2969 \sqrt{x} - 0.126 x - 0.3516 x^2 + 0.2843 x^3 - 0.1015 x^4),
+\]</div>
+<p>in which <span class="math notranslate nohighlight">\(+\)</span> gives the upper surface and <span class="math notranslate nohighlight">\(-\)</span> gives the lower surface.</p>
+<p>Find the point <span class="math notranslate nohighlight">\(x\)</span> at which the thickness <span class="math notranslate nohighlight">\(t\)</span> of the aerofoil is <span class="math notranslate nohighlight">\(0.1\)</span>, i.e. solve <span class="math notranslate nohighlight">\(f(x) = 0\)</span> where <span class="math notranslate nohighlight">\(f(x) = y^+(x) - y^-(x) - 0.1\)</span>.</p>
+<ul class="simple">
+<li><p>There will be two solutions for <span class="math notranslate nohighlight">\(x\)</span> for this value of <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/400b42fcdf3f521065c22c99c68542d469e9457719332165c49798c35caa4400.png" src="../_images/400b42fcdf3f521065c22c99c68542d469e9457719332165c49798c35caa4400.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-bisection-method">
+<h1>The bisection method<a class="headerlink" href="#the-bisection-method" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple bisection implementation</span>
+<span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
+    <span class="c1"># Starting values</span>
+    <span class="n">fa</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="c1"># Find new mid point</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+        <span class="c1"># if root is in left half of interval</span>
+        <span class="k">if</span> <span class="n">fa</span> <span class="o">*</span> <span class="n">fc</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="c1"># move right end</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># otherwise,</span>
+            <span class="c1"># move the left end</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+            <span class="n">fa</span> <span class="o">=</span> <span class="n">fc</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="implict-euler-with-bisection-for-the-nonlinear-solve">
+<h2>Implict Euler with bisection for the nonlinear solve<a class="headerlink" href="#implict-euler-with-bisection-for-the-nonlinear-solve" title="Permalink to this headline">#</a></h2>
+<p>Recall the differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+x'(t) = - 2 x(t)^3 \exp(-(1-x(t)^2)), \qquad \text{ subject to } \quad x(0) = 1.
+\]</div>
+<p>Recall the <strong>implicit Euler method</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+x^{(j+1)} = x^{(j)} + \mathrm{dt} f(t^{(j+1)}, x^{(j+1)})
+\]</div>
+<p>We cast this as a nonlinear equation to solve at each timestep: Find <span class="math notranslate nohighlight">\(x^{(j+1)}\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+F(x^{(j+1)}) := x^{(j+1)} - x^{(j)} - \mathrm{dt} f(t^{(j+1)}, x^{(j+1)}) = 0.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">implicit_euler</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="c1"># initialise memory</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># starting values</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># time loop</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">t</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+
+        <span class="c1"># nonlinear function to solve each time step</span>
+        <span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">xnew</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">xnew</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">rhs2</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1"># perform the nonlinear solve</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f67846ec550&gt;
+</pre></div>
+</div>
+<img alt="../_images/d2915117de25751720b4f6a0aa02761089dfab8dfde51a7d97a19dde343a143f.png" src="../_images/d2915117de25751720b4f6a0aa02761089dfab8dfde51a7d97a19dde343a143f.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
+<section id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h2>
+<p>Use the bisection method to calculate the number of monthly repayments of £1,000 that are required to repay a mortgage of £150,000 at an annual rate of 5%.</p>
+<p>It is clear that 1 monthly repayment (<span class="math notranslate nohighlight">\(n=1\)</span>) will not be sufficient, whilst we should try a very large value of <span class="math notranslate nohighlight">\(n\)</span> to try to bracket the correct solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">150000</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">5</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">M</span> <span class="o">-</span> <span class="n">P</span> <span class="o">*</span> <span class="p">((</span><span class="n">r</span> <span class="o">/</span> <span class="mi">1200</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span> <span class="o">/</span> <span class="mi">1200</span><span class="p">)</span> <span class="o">**</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span> <span class="o">/</span> <span class="mi">1200</span><span class="p">)</span> <span class="o">**</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bisection_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_37458984_1bdd_11ee_b197_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >b</th>        <th class="col_heading level0 col3" >f(a)</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >update</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow0_col2" class="data row0 col2" >1000.000000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow0_col3" class="data row0 col3" >-149625.000000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow0_col4" class="data row0 col4" >365.070564</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow0_col5" class="data row0 col5" ></td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow1_col1" class="data row1 col1" >1.000000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow1_col2" class="data row1 col2" >500.500000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow1_col3" class="data row1 col3" >-149625.000000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow1_col4" class="data row1 col4" >285.881715</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow1_col5" class="data row1 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow2_col1" class="data row2 col1" >1.000000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow2_col2" class="data row2 col2" >250.750000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow2_col3" class="data row2 col3" >-149625.000000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow2_col4" class="data row2 col4" >34.705094</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow2_col5" class="data row2 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow3_col1" class="data row3 col1" >125.875000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow3_col2" class="data row3 col2" >250.750000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow3_col3" class="data row3 col3" >-533.775512</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow3_col4" class="data row3 col4" >34.705094</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow3_col5" class="data row3 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow4_col1" class="data row4 col1" >188.312500</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow4_col2" class="data row4 col2" >250.750000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow4_col3" class="data row4 col3" >-151.077416</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow4_col4" class="data row4 col4" >34.705094</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow4_col5" class="data row4 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow5_col1" class="data row5 col1" >219.531250</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow5_col2" class="data row5 col2" >250.750000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow5_col3" class="data row5 col3" >-44.091479</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow5_col4" class="data row5 col4" >34.705094</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow5_col5" class="data row5 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow6_col0" class="data row6 col0" >6</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow6_col1" class="data row6 col1" >235.140625</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow6_col2" class="data row6 col2" >250.750000</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow6_col3" class="data row6 col3" >-1.873702</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow6_col4" class="data row6 col4" >34.705094</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow6_col5" class="data row6 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow7_col0" class="data row7 col0" >7</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow7_col1" class="data row7 col1" >235.140625</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow7_col2" class="data row7 col2" >242.945312</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow7_col3" class="data row7 col3" >-1.873702</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow7_col4" class="data row7 col4" >17.052326</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow7_col5" class="data row7 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow8_col0" class="data row8 col0" >8</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow8_col1" class="data row8 col1" >235.140625</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow8_col2" class="data row8 col2" >239.042969</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow8_col3" class="data row8 col3" >-1.873702</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow8_col4" class="data row8 col4" >7.756305</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow8_col5" class="data row8 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow9_col0" class="data row9 col0" >9</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow9_col1" class="data row9 col1" >235.140625</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow9_col2" class="data row9 col2" >237.091797</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow9_col3" class="data row9 col3" >-1.873702</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow9_col4" class="data row9 col4" >2.984085</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow9_col5" class="data row9 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow10_col0" class="data row10 col0" >10</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow10_col1" class="data row10 col1" >235.140625</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow10_col2" class="data row10 col2" >236.116211</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow10_col3" class="data row10 col3" >-1.873702</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow10_col4" class="data row10 col4" >0.566021</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow10_col5" class="data row10 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow11_col0" class="data row11 col0" >11</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow11_col1" class="data row11 col1" >235.628418</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow11_col2" class="data row11 col2" >236.116211</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow11_col3" class="data row11 col3" >-0.651116</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow11_col4" class="data row11 col4" >0.566021</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow11_col5" class="data row11 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow12_col0" class="data row12 col0" >12</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow12_col1" class="data row12 col1" >235.872314</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow12_col2" class="data row12 col2" >236.116211</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow12_col3" class="data row12 col3" >-0.041869</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow12_col4" class="data row12 col4" >0.566021</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow12_col5" class="data row12 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow13_col0" class="data row13 col0" >13</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow13_col1" class="data row13 col1" >235.872314</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow13_col2" class="data row13 col2" >235.994263</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow13_col3" class="data row13 col3" >-0.041869</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow13_col4" class="data row13 col4" >0.262246</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow13_col5" class="data row13 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow14_col0" class="data row14 col0" >14</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow14_col1" class="data row14 col1" >235.872314</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow14_col2" class="data row14 col2" >235.933289</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow14_col3" class="data row14 col3" >-0.041869</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow14_col4" class="data row14 col4" >0.110231</td>
+                        <td id="T_37458984_1bdd_11ee_b197_6045bd09c4abrow14_col5" class="data row14 col5" >b <- c</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+</section>
+<section id="example-3">
+<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">#</a></h2>
+<p>Use the bisection method to find the points at which the thickness of the NACA0012 aerofoil is 0.1 with an error of less than <span class="math notranslate nohighlight">\(10^{-4}\)</span>.</p>
+<p>It can be seen that <span class="math notranslate nohighlight">\(0 \le x^* \le 1\)</span> but there are two solutions in this interval, so try <span class="math notranslate nohighlight">\([x_L, x_R] = [0.5, 1]\)</span> as the initial bracket.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">yp</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mf">0.1015</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="o">+</span> <span class="mf">0.2843</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="o">-</span> <span class="mf">0.3516</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">-</span> <span class="mf">0.126</span> <span class="o">*</span> <span class="n">x</span>
+        <span class="o">+</span> <span class="mf">0.2969</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="k">return</span> <span class="n">yp</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bisection_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_3749d96c_1bdd_11ee_b197_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >b</th>        <th class="col_heading level0 col3" >f(a)</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >update</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow0_col1" class="data row0 col1" >0.500000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow0_col2" class="data row0 col2" >1.000000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow0_col3" class="data row0 col3" >0.038234</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow0_col4" class="data row0 col4" >-0.047900</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow0_col5" class="data row0 col5" ></td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow1_col1" class="data row1 col1" >0.750000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow1_col2" class="data row1 col2" >1.000000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow1_col3" class="data row1 col3" >0.002672</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow1_col4" class="data row1 col4" >-0.047900</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow1_col5" class="data row1 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow2_col1" class="data row2 col1" >0.750000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow2_col2" class="data row2 col2" >0.875000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow2_col3" class="data row2 col3" >0.002672</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow2_col4" class="data row2 col4" >-0.020758</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow2_col5" class="data row2 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow3_col1" class="data row3 col1" >0.750000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow3_col2" class="data row3 col2" >0.812500</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow3_col3" class="data row3 col3" >0.002672</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow3_col4" class="data row3 col4" >-0.008606</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow3_col5" class="data row3 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow4_col1" class="data row4 col1" >0.750000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow4_col2" class="data row4 col2" >0.781250</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow4_col3" class="data row4 col3" >0.002672</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow4_col4" class="data row4 col4" >-0.002859</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow4_col5" class="data row4 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow5_col1" class="data row5 col1" >0.750000</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow5_col2" class="data row5 col2" >0.765625</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow5_col3" class="data row5 col3" >0.002672</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow5_col4" class="data row5 col4" >-0.000067</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow5_col5" class="data row5 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow6_col0" class="data row6 col0" >6</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow6_col1" class="data row6 col1" >0.757812</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow6_col2" class="data row6 col2" >0.765625</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow6_col3" class="data row6 col3" >0.001309</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow6_col4" class="data row6 col4" >-0.000067</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow6_col5" class="data row6 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow7_col0" class="data row7 col0" >7</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow7_col1" class="data row7 col1" >0.761719</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow7_col2" class="data row7 col2" >0.765625</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow7_col3" class="data row7 col3" >0.000623</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow7_col4" class="data row7 col4" >-0.000067</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow7_col5" class="data row7 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow8_col0" class="data row8 col0" >8</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow8_col1" class="data row8 col1" >0.763672</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow8_col2" class="data row8 col2" >0.765625</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow8_col3" class="data row8 col3" >0.000279</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow8_col4" class="data row8 col4" >-0.000067</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow8_col5" class="data row8 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow9_col0" class="data row9 col0" >9</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow9_col1" class="data row9 col1" >0.764648</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow9_col2" class="data row9 col2" >0.765625</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow9_col3" class="data row9 col3" >0.000106</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow9_col4" class="data row9 col4" >-0.000067</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow9_col5" class="data row9 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow10_col0" class="data row10 col0" >10</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow10_col1" class="data row10 col1" >0.765137</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow10_col2" class="data row10 col2" >0.765625</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow10_col3" class="data row10 col3" >0.000020</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow10_col4" class="data row10 col4" >-0.000067</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow10_col5" class="data row10 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow11_col0" class="data row11 col0" >11</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow11_col1" class="data row11 col1" >0.765137</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow11_col2" class="data row11 col2" >0.765381</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow11_col3" class="data row11 col3" >0.000020</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow11_col4" class="data row11 col4" >-0.000023</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow11_col5" class="data row11 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow12_col0" class="data row12 col0" >12</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow12_col1" class="data row12 col1" >0.765137</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow12_col2" class="data row12 col2" >0.765259</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow12_col3" class="data row12 col3" >0.000020</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow12_col4" class="data row12 col4" >-0.000002</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow12_col5" class="data row12 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow13_col0" class="data row13 col0" >13</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow13_col1" class="data row13 col1" >0.765198</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow13_col2" class="data row13 col2" >0.765259</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow13_col3" class="data row13 col3" >0.000009</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow13_col4" class="data row13 col4" >-0.000002</td>
+                        <td id="T_3749d96c_1bdd_11ee_b197_6045bd09c4abrow13_col5" class="data row13 col5" >a <- c</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="example-4">
+<h1>Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">#</a></h1>
+<p>What about if the root is a turning point?</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = (x-1)^2 = x^2 - 2x + 1.
+\]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/ad54371fa6cccee86ff643121e4c901d33be6ae3513b3f3cff92a170aceedd90.png" src="../_images/ad54371fa6cccee86ff643121e4c901d33be6ae3513b3f3cff92a170aceedd90.png" />
+</div>
+</div>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Bisection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple algorithm</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Starting values</p></td>
+<td><p>bracket</p></td>
+</tr>
+<tr class="row-even"><td><p>Iterations</p></td>
+<td><p>lots</p></td>
+</tr>
+<tr class="row-odd"><td><p>Function evals</p></td>
+<td><p>one per iteration</p></td>
+</tr>
+<tr class="row-even"><td><p>Convergence</p></td>
+<td><p>with good bracket</p></td>
+</tr>
+<tr class="row-odd"><td><p>Turing point roots</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p>Use of derivative</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="newton-s-method">
+<h1>Newton’s method<a class="headerlink" href="#newton-s-method" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">fx</span> <span class="o">/</span> <span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">fx</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># only one function evaluation per loop</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h2>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 1\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span>, we get the root as <span class="math notranslate nohighlight">\(x^* \approx 0.765789\)</span> after 2 iterations for the NACA0012 aerofoil example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+    <span class="n">yp</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mf">0.1015</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="o">+</span> <span class="mf">0.2843</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="o">-</span> <span class="mf">0.3516</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">-</span> <span class="mf">0.126</span> <span class="o">*</span> <span class="n">x</span>
+        <span class="o">+</span> <span class="mf">0.2969</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">yp</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">t</span>
+
+    <span class="k">return</span> <span class="n">f</span>
+
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="mf">0.1015</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">0.2843</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.3516</span> <span class="o">*</span> <span class="n">x</span>
+        <span class="o">-</span> <span class="mf">0.126</span>
+        <span class="o">+</span> <span class="mf">0.2969</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">dy</span>
+
+    <span class="k">return</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow0_col2" class="data row0 col2" >-0.047900</td>
+            </tr>
+            <tr>
+                                <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow1_col1" class="data row1 col1" >0.795168</td>
+                        <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow1_col2" class="data row1 col2" >-0.005392</td>
+            </tr>
+            <tr>
+                                <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow2_col1" class="data row2 col1" >0.765789</td>
+                        <td id="T_376e2c0e_1bdd_11ee_b197_6045bd09c4abrow2_col2" class="data row2 col2" >-0.000096</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 0.1\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span>, we get the root as <span class="math notranslate nohighlight">\(x^* \approx 0.033863\)</span> after 5 iterations for the second solution to the NACA0012 aerofoil example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_377030c6_1bdd_11ee_b197_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow0_col1" class="data row0 col1" >0.100000</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow0_col2" class="data row0 col2" >0.028046</td>
+            </tr>
+            <tr>
+                                <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow1_col1" class="data row1 col1" >0.000278</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow1_col2" class="data row1 col2" >-0.045086</td>
+            </tr>
+            <tr>
+                                <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow2_col1" class="data row2 col1" >0.005413</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow2_col2" class="data row2 col2" >-0.028849</td>
+            </tr>
+            <tr>
+                                <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow3_col1" class="data row3 col1" >0.020693</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow3_col2" class="data row3 col2" >-0.010046</td>
+            </tr>
+            <tr>
+                                <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow4_col1" class="data row4 col1" >0.031958</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow4_col2" class="data row4 col2" >-0.001300</td>
+            </tr>
+            <tr>
+                                <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow5_col1" class="data row5 col1" >0.033863</td>
+                        <td id="T_377030c6_1bdd_11ee_b197_6045bd09c4abrow5_col2" class="data row5 col2" >-0.000024</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># comparison against bisection method</span>
+<span class="n">bisection_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_37725784_1bdd_11ee_b197_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >b</th>        <th class="col_heading level0 col3" >f(a)</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >update</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow0_col1" class="data row0 col1" >0.500000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow0_col2" class="data row0 col2" >1.000000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow0_col3" class="data row0 col3" >0.038234</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow0_col4" class="data row0 col4" >-0.047900</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow0_col5" class="data row0 col5" ></td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow1_col1" class="data row1 col1" >0.750000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow1_col2" class="data row1 col2" >1.000000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow1_col3" class="data row1 col3" >0.002672</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow1_col4" class="data row1 col4" >-0.047900</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow1_col5" class="data row1 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow2_col1" class="data row2 col1" >0.750000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow2_col2" class="data row2 col2" >0.875000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow2_col3" class="data row2 col3" >0.002672</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow2_col4" class="data row2 col4" >-0.020758</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow2_col5" class="data row2 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow3_col1" class="data row3 col1" >0.750000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow3_col2" class="data row3 col2" >0.812500</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow3_col3" class="data row3 col3" >0.002672</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow3_col4" class="data row3 col4" >-0.008606</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow3_col5" class="data row3 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow4_col1" class="data row4 col1" >0.750000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow4_col2" class="data row4 col2" >0.781250</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow4_col3" class="data row4 col3" >0.002672</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow4_col4" class="data row4 col4" >-0.002859</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow4_col5" class="data row4 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow5_col1" class="data row5 col1" >0.750000</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow5_col2" class="data row5 col2" >0.765625</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow5_col3" class="data row5 col3" >0.002672</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow5_col4" class="data row5 col4" >-0.000067</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow5_col5" class="data row5 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow6_col0" class="data row6 col0" >6</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow6_col1" class="data row6 col1" >0.757812</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow6_col2" class="data row6 col2" >0.765625</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow6_col3" class="data row6 col3" >0.001309</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow6_col4" class="data row6 col4" >-0.000067</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow6_col5" class="data row6 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow7_col0" class="data row7 col0" >7</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow7_col1" class="data row7 col1" >0.761719</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow7_col2" class="data row7 col2" >0.765625</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow7_col3" class="data row7 col3" >0.000623</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow7_col4" class="data row7 col4" >-0.000067</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow7_col5" class="data row7 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow8_col0" class="data row8 col0" >8</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow8_col1" class="data row8 col1" >0.763672</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow8_col2" class="data row8 col2" >0.765625</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow8_col3" class="data row8 col3" >0.000279</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow8_col4" class="data row8 col4" >-0.000067</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow8_col5" class="data row8 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow9_col0" class="data row9 col0" >9</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow9_col1" class="data row9 col1" >0.764648</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow9_col2" class="data row9 col2" >0.765625</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow9_col3" class="data row9 col3" >0.000106</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow9_col4" class="data row9 col4" >-0.000067</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow9_col5" class="data row9 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow10_col0" class="data row10 col0" >10</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow10_col1" class="data row10 col1" >0.765137</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow10_col2" class="data row10 col2" >0.765625</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow10_col3" class="data row10 col3" >0.000020</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow10_col4" class="data row10 col4" >-0.000067</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow10_col5" class="data row10 col5" >a <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow11_col0" class="data row11 col0" >11</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow11_col1" class="data row11 col1" >0.765137</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow11_col2" class="data row11 col2" >0.765381</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow11_col3" class="data row11 col3" >0.000020</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow11_col4" class="data row11 col4" >-0.000023</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow11_col5" class="data row11 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow12_col0" class="data row12 col0" >12</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow12_col1" class="data row12 col1" >0.765137</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow12_col2" class="data row12 col2" >0.765259</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow12_col3" class="data row12 col3" >0.000020</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow12_col4" class="data row12 col4" >-0.000002</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow12_col5" class="data row12 col5" >b <- c</td>
+            </tr>
+            <tr>
+                                <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow13_col0" class="data row13 col0" >13</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow13_col1" class="data row13 col1" >0.765198</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow13_col2" class="data row13 col2" >0.765259</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow13_col3" class="data row13 col3" >0.000009</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow13_col4" class="data row13 col4" >-0.000002</td>
+                        <td id="T_37725784_1bdd_11ee_b197_6045bd09c4abrow13_col5" class="data row13 col5" >a <- c</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+</section>
+<section id="zero-derivative-as-a-root">
+<h2>Zero derivative as a root<a class="headerlink" href="#zero-derivative-as-a-root" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>We saw that the bisection method cannot deal with the situation where a root occurs at a <em>turning point</em>. That is,</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x^*) = f'(x^*) = 0.
+    \]</div>
+</li>
+<li><p>At first sight, it may appear that Newton’s method will struggle with such situations since <span class="math notranslate nohighlight">\(x^{(i+1)} = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}\)</span> would lead to <span class="math notranslate nohighlight">\(\frac{0}{0}\)</span> occurring when <span class="math notranslate nohighlight">\(x^{(i)} = x^*\)</span>.</p></li>
+<li><p>Fortunately, this is not a problem in practice and the iteration can still converge - although it converges more slowly than to a “simple root”.</p></li>
+</ul>
+<section id="zero-derivative-as-a-root-example">
+<h3>Zero derivative as a root - example<a class="headerlink" href="#zero-derivative-as-a-root-example" title="Permalink to this headline">#</a></h3>
+<p>Find a solution of <span class="math notranslate nohighlight">\(f(x) = 0\)</span> using Newton’s method when</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = (x-1)^2 = x^2 - 2x + 1.
+\]</div>
+<p>This has a solution <span class="math notranslate nohighlight">\(x^* = 1\)</span>, however <span class="math notranslate nohighlight">\(f'(x) = 2x - 2\)</span>, so <span class="math notranslate nohighlight">\(f'(x^*) = 0\)</span> when <span class="math notranslate nohighlight">\(x = x^*= 1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.005859375
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="problems-with-newton-s-methods">
+<h2>Problems with Newton’s methods<a class="headerlink" href="#problems-with-newton-s-methods" title="Permalink to this headline">#</a></h2>
+<p>When Newton’s method works it is a fast way of solving a nonlinear equation <span class="math notranslate nohighlight">\(f(x) = 0\)</span>, but it does not always work.</p>
+<ol class="arabic">
+<li><p>Consider applying a Newton iteration to the function <span class="math notranslate nohighlight">\(f(x) = x^3 + 2 x^2 + x + 1\)</span> with <span class="math notranslate nohighlight">\(x^{(0)} = 0\)</span>.</p>
+<p>This gives <span class="math notranslate nohighlight">\(f'(x) = 3 x^2 + 4 x + 1\)</span>. With <span class="math notranslate nohighlight">\(x^{(0)} = 0\)</span> this gives:</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="n">newton_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3383/1064162419.py:11: RuntimeWarning: divide by zero encountered in double_scalars
+  x = x - f(x) / df(x)
+/tmp/ipykernel_3383/2921538009.py:2: RuntimeWarning: invalid value encountered in double_scalars
+  return x**3 + 2 * x**2 + x + 1
+</pre></div>
+</div>
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_3778b76e_1bdd_11ee_b197_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow0_col1" class="data row0 col1" >0.000000</td>
+                        <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow0_col2" class="data row0 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow1_col1" class="data row1 col1" >-1.000000</td>
+                        <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow1_col2" class="data row1 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow2_col1" class="data row2 col1" >-inf</td>
+                        <td id="T_3778b76e_1bdd_11ee_b197_6045bd09c4abrow2_col2" class="data row2 col2" >nan</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>We can also get cases where the iteration does not “blow up” but diverges slowly…</p></li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/5c7655c2b67042039ba1ddb272e11e3bf259c24a8ff893dee4114385a20f27bd.png" src="../_images/5c7655c2b67042039ba1ddb272e11e3bf259c24a8ff893dee4114385a20f27bd.png" />
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>It is even possible for the iteration to simply cycle between two values repeatedly…</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+
+
+<span class="n">newton_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING! Newton iteration has not converged. Too many iterations.
+</pre></div>
+</div>
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_379d65d2_1bdd_11ee_b197_6045bd09c4ab" ><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow0_col2" class="data row0 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow1_col1" class="data row1 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow1_col2" class="data row1 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow2_col1" class="data row2 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow2_col2" class="data row2 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow3_col1" class="data row3 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow3_col2" class="data row3 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow4_col1" class="data row4 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow4_col2" class="data row4 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow5_col1" class="data row5 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow5_col2" class="data row5 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow6_col0" class="data row6 col0" >6</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow6_col1" class="data row6 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow6_col2" class="data row6 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow7_col0" class="data row7 col0" >7</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow7_col1" class="data row7 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow7_col2" class="data row7 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow8_col0" class="data row8 col0" >8</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow8_col1" class="data row8 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow8_col2" class="data row8 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow9_col0" class="data row9 col0" >9</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow9_col1" class="data row9 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow9_col2" class="data row9 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow10_col0" class="data row10 col0" >10</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow10_col1" class="data row10 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow10_col2" class="data row10 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow11_col0" class="data row11 col0" >11</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow11_col1" class="data row11 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow11_col2" class="data row11 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow12_col0" class="data row12 col0" >12</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow12_col1" class="data row12 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow12_col2" class="data row12 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow13_col0" class="data row13 col0" >13</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow13_col1" class="data row13 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow13_col2" class="data row13 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow14_col0" class="data row14 col0" >14</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow14_col1" class="data row14 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow14_col2" class="data row14 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow15_col0" class="data row15 col0" >15</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow15_col1" class="data row15 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow15_col2" class="data row15 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow16_col0" class="data row16 col0" >16</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow16_col1" class="data row16 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow16_col2" class="data row16 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow17_col0" class="data row17 col0" >17</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow17_col1" class="data row17 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow17_col2" class="data row17 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow18_col0" class="data row18 col0" >18</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow18_col1" class="data row18 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow18_col2" class="data row18 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow19_col0" class="data row19 col0" >19</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow19_col1" class="data row19 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow19_col2" class="data row19 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow20_col0" class="data row20 col0" >20</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow20_col1" class="data row20 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow20_col2" class="data row20 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow21_col0" class="data row21 col0" >21</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow21_col1" class="data row21 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow21_col2" class="data row21 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow22_col0" class="data row22 col0" >22</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow22_col1" class="data row22 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow22_col2" class="data row22 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow23_col0" class="data row23 col0" >23</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow23_col1" class="data row23 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow23_col2" class="data row23 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow24_col0" class="data row24 col0" >24</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow24_col1" class="data row24 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow24_col2" class="data row24 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow25_col0" class="data row25 col0" >25</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow25_col1" class="data row25 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow25_col2" class="data row25 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow26_col0" class="data row26 col0" >26</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow26_col1" class="data row26 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow26_col2" class="data row26 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow27_col0" class="data row27 col0" >27</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow27_col1" class="data row27 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow27_col2" class="data row27 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow28_col0" class="data row28 col0" >28</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow28_col1" class="data row28 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow28_col2" class="data row28 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow29_col0" class="data row29 col0" >29</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow29_col1" class="data row29 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow29_col2" class="data row29 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow30_col0" class="data row30 col0" >30</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow30_col1" class="data row30 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow30_col2" class="data row30 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow31_col0" class="data row31 col0" >31</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow31_col1" class="data row31 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow31_col2" class="data row31 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow32_col0" class="data row32 col0" >32</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow32_col1" class="data row32 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow32_col2" class="data row32 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow33_col0" class="data row33 col0" >33</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow33_col1" class="data row33 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow33_col2" class="data row33 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow34_col0" class="data row34 col0" >34</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow34_col1" class="data row34 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow34_col2" class="data row34 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow35_col0" class="data row35 col0" >35</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow35_col1" class="data row35 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow35_col2" class="data row35 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow36_col0" class="data row36 col0" >36</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow36_col1" class="data row36 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow36_col2" class="data row36 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow37_col0" class="data row37 col0" >37</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow37_col1" class="data row37 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow37_col2" class="data row37 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow38_col0" class="data row38 col0" >38</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow38_col1" class="data row38 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow38_col2" class="data row38 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow39_col0" class="data row39 col0" >39</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow39_col1" class="data row39 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow39_col2" class="data row39 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow40_col0" class="data row40 col0" >40</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow40_col1" class="data row40 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow40_col2" class="data row40 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow41_col0" class="data row41 col0" >41</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow41_col1" class="data row41 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow41_col2" class="data row41 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow42_col0" class="data row42 col0" >42</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow42_col1" class="data row42 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow42_col2" class="data row42 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow43_col0" class="data row43 col0" >43</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow43_col1" class="data row43 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow43_col2" class="data row43 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow44_col0" class="data row44 col0" >44</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow44_col1" class="data row44 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow44_col2" class="data row44 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow45_col0" class="data row45 col0" >45</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow45_col1" class="data row45 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow45_col2" class="data row45 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow46_col0" class="data row46 col0" >46</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow46_col1" class="data row46 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow46_col2" class="data row46 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow47_col0" class="data row47 col0" >47</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow47_col1" class="data row47 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow47_col2" class="data row47 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow48_col0" class="data row48 col0" >48</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow48_col1" class="data row48 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow48_col2" class="data row48 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow49_col0" class="data row49 col0" >49</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow49_col1" class="data row49 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow49_col2" class="data row49 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow50_col0" class="data row50 col0" >50</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow50_col1" class="data row50 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow50_col2" class="data row50 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow51_col0" class="data row51 col0" >51</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow51_col1" class="data row51 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow51_col2" class="data row51 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow52_col0" class="data row52 col0" >52</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow52_col1" class="data row52 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow52_col2" class="data row52 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow53_col0" class="data row53 col0" >53</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow53_col1" class="data row53 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow53_col2" class="data row53 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow54_col0" class="data row54 col0" >54</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow54_col1" class="data row54 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow54_col2" class="data row54 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow55_col0" class="data row55 col0" >55</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow55_col1" class="data row55 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow55_col2" class="data row55 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow56_col0" class="data row56 col0" >56</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow56_col1" class="data row56 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow56_col2" class="data row56 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow57_col0" class="data row57 col0" >57</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow57_col1" class="data row57 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow57_col2" class="data row57 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow58_col0" class="data row58 col0" >58</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow58_col1" class="data row58 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow58_col2" class="data row58 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow59_col0" class="data row59 col0" >59</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow59_col1" class="data row59 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow59_col2" class="data row59 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow60_col0" class="data row60 col0" >60</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow60_col1" class="data row60 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow60_col2" class="data row60 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow61_col0" class="data row61 col0" >61</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow61_col1" class="data row61 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow61_col2" class="data row61 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow62_col0" class="data row62 col0" >62</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow62_col1" class="data row62 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow62_col2" class="data row62 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow63_col0" class="data row63 col0" >63</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow63_col1" class="data row63 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow63_col2" class="data row63 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow64_col0" class="data row64 col0" >64</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow64_col1" class="data row64 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow64_col2" class="data row64 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow65_col0" class="data row65 col0" >65</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow65_col1" class="data row65 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow65_col2" class="data row65 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow66_col0" class="data row66 col0" >66</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow66_col1" class="data row66 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow66_col2" class="data row66 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow67_col0" class="data row67 col0" >67</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow67_col1" class="data row67 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow67_col2" class="data row67 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow68_col0" class="data row68 col0" >68</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow68_col1" class="data row68 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow68_col2" class="data row68 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow69_col0" class="data row69 col0" >69</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow69_col1" class="data row69 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow69_col2" class="data row69 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow70_col0" class="data row70 col0" >70</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow70_col1" class="data row70 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow70_col2" class="data row70 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow71_col0" class="data row71 col0" >71</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow71_col1" class="data row71 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow71_col2" class="data row71 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow72_col0" class="data row72 col0" >72</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow72_col1" class="data row72 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow72_col2" class="data row72 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow73_col0" class="data row73 col0" >73</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow73_col1" class="data row73 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow73_col2" class="data row73 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow74_col0" class="data row74 col0" >74</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow74_col1" class="data row74 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow74_col2" class="data row74 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow75_col0" class="data row75 col0" >75</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow75_col1" class="data row75 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow75_col2" class="data row75 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow76_col0" class="data row76 col0" >76</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow76_col1" class="data row76 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow76_col2" class="data row76 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow77_col0" class="data row77 col0" >77</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow77_col1" class="data row77 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow77_col2" class="data row77 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow78_col0" class="data row78 col0" >78</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow78_col1" class="data row78 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow78_col2" class="data row78 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow79_col0" class="data row79 col0" >79</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow79_col1" class="data row79 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow79_col2" class="data row79 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow80_col0" class="data row80 col0" >80</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow80_col1" class="data row80 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow80_col2" class="data row80 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow81_col0" class="data row81 col0" >81</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow81_col1" class="data row81 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow81_col2" class="data row81 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow82_col0" class="data row82 col0" >82</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow82_col1" class="data row82 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow82_col2" class="data row82 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow83_col0" class="data row83 col0" >83</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow83_col1" class="data row83 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow83_col2" class="data row83 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow84_col0" class="data row84 col0" >84</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow84_col1" class="data row84 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow84_col2" class="data row84 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow85_col0" class="data row85 col0" >85</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow85_col1" class="data row85 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow85_col2" class="data row85 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow86_col0" class="data row86 col0" >86</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow86_col1" class="data row86 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow86_col2" class="data row86 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow87_col0" class="data row87 col0" >87</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow87_col1" class="data row87 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow87_col2" class="data row87 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow88_col0" class="data row88 col0" >88</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow88_col1" class="data row88 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow88_col2" class="data row88 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow89_col0" class="data row89 col0" >89</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow89_col1" class="data row89 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow89_col2" class="data row89 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow90_col0" class="data row90 col0" >90</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow90_col1" class="data row90 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow90_col2" class="data row90 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow91_col0" class="data row91 col0" >91</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow91_col1" class="data row91 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow91_col2" class="data row91 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow92_col0" class="data row92 col0" >92</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow92_col1" class="data row92 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow92_col2" class="data row92 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow93_col0" class="data row93 col0" >93</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow93_col1" class="data row93 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow93_col2" class="data row93 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow94_col0" class="data row94 col0" >94</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow94_col1" class="data row94 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow94_col2" class="data row94 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow95_col0" class="data row95 col0" >95</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow95_col1" class="data row95 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow95_col2" class="data row95 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow96_col0" class="data row96 col0" >96</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow96_col1" class="data row96 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow96_col2" class="data row96 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow97_col0" class="data row97 col0" >97</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow97_col1" class="data row97 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow97_col2" class="data row97 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow98_col0" class="data row98 col0" >98</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow98_col1" class="data row98 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow98_col2" class="data row98 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow99_col0" class="data row99 col0" >99</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow99_col1" class="data row99 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow99_col2" class="data row99 col2" >2.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow100_col0" class="data row100 col0" >100</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow100_col1" class="data row100 col1" >1.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow100_col2" class="data row100 col2" >1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow101_col0" class="data row101 col0" >101</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow101_col1" class="data row101 col1" >0.000000</td>
+                        <td id="T_379d65d2_1bdd_11ee_b197_6045bd09c4abrow101_col2" class="data row101 col2" >2.000000</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/7ebadf86842a512864b326e8a5a0a641380e90db64f576ffdf7188d0685f8ad2.png" src="../_images/7ebadf86842a512864b326e8a5a0a641380e90db64f576ffdf7188d0685f8ad2.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>Summary<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Bisection</p></th>
+<th class="head"><p>Newton’s method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple algorithm</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Starting values</p></td>
+<td><p>bracket</p></td>
+<td><p>one</p></td>
+</tr>
+<tr class="row-even"><td><p>Iterations</p></td>
+<td><p>lots</p></td>
+<td><p>normally fewer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Function evals</p></td>
+<td><p>one per iteration</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">df</span></code> per iteration</p></td>
+</tr>
+<tr class="row-even"><td><p>Convergence</p></td>
+<td><p>with good bracket</p></td>
+<td><p>not always</p></td>
+</tr>
+<tr class="row-odd"><td><p>Turing point roots</p></td>
+<td><p>no</p></td>
+<td><p>slower</p></td>
+</tr>
+<tr class="row-even"><td><p>Use of derivative</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lec"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today and tomorrow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-nonlinear-solvers">Why do we need nonlinear solvers?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-from-last-year-s-exam-paper">Example from last year’s exam paper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-implicit-time-stepping-methods-1">The need for implicit time stepping methods (1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-implicit-time-stepping-methods-2">The need for implicit time stepping methods (2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-difficult-problems-1">Other difficult problems (1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-difficult-problems-2">Other difficult problems (2)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bisection-method">The bisection method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implict-euler-with-bisection-for-the-nonlinear-solve">Implict Euler with bisection for the nonlinear solve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4">Example 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root">Zero derivative as a root</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root-example">Zero derivative as a root - example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-newton-s-methods">Problems with Newton’s methods</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

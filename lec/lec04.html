@@ -1,0 +1,1130 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 02: Matrices and vectors &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec04';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WS01: Introduction to Python and Jupyter" href="../ws/ws01.html" />
+    <link rel="prev" title="Lecture 01: Module introduction" href="lec01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./lec/lec04.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Flec/lec04.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lec/lec04.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 02: Matrices and vectors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-matrices">Introduction to matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-matrix-form">General matrix form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-addition">Matrix addition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-homework">Examples (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-matrices">Zero matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-matrix-addition">Properties of matrix addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-scalar-multiplication">Properties of scalar multiplication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix Multiplication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-matrix-multiplication">Definition of matrix multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Examples (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-transposition">Matrix Transposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identity-matrices">Identity Matrices</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invertible-matrices">Invertible Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-invertible-matrices">Properties of invertible matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-matrix-multiplication">Properties of matrix multiplication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#row-and-column-vectors">Row and Column Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-02-matrices-and-vectors">
+<h1>Lecture 02: Matrices and vectors<a class="headerlink" href="#lecture-02-matrices-and-vectors" title="Permalink to this headline">#</a></h1>
+<section id="introduction-to-matrices">
+<h2>Introduction to matrices<a class="headerlink" href="#introduction-to-matrices" title="Permalink to this headline">#</a></h2>
+<p><strong>What is a matrix?</strong></p>
+<p>A matrix is a two-dimensional array of objects (usually numbers)…</p>
+<ul>
+<li><p>e.g. 4 rows and 5 columns</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  1.1 &amp; -1.2 &amp; 0.0 &amp; 21.3 &amp; -2.9 \\
+  11.2 &amp; 0.0 &amp; 0.0 &amp; -2.4 &amp; -0.4 \\
+  0.0 &amp; 16.0 &amp; 1.5 &amp; 0.0 &amp; 4.1 \\
+  4.1 &amp; 4.1 &amp; 4.1 &amp; 2.2 &amp; -8.8
+  \end{pmatrix}
+  \end{split}\]</div>
+</li>
+<li><p>e.g. 2 rows and 6 columns</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{pmatrix}
+  1.1 &amp; -1.2 &amp; 0.0 &amp; 21.3 &amp; -2.9 &amp; 1.1 \\
+  4.1 &amp; 4.1 &amp; 4.1 &amp; 2.2 &amp; -8.8 &amp; 1.1
+  \end{pmatrix}
+  \end{split}\]</div>
+</li>
+</ul>
+<section id="general-matrix-form">
+<h3>General matrix form<a class="headerlink" href="#general-matrix-form" title="Permalink to this headline">#</a></h3>
+<p>A <em>matrix</em> can have any number of rows and any number of columns…</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ A =
+ \begin{pmatrix}
+ A_{11} &amp; A_{12} &amp; A_{13} &amp; \cdots &amp; A_{1n} \\
+ A_{21} &amp; A_{22} &amp; A_{23} &amp; \cdots &amp; A_{2n} \\
+ A_{31} &amp; A_{32} &amp; A_{33} &amp; \cdots &amp; A_{3n} \\
+ \vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots \\
+ A_{m1} &amp; A_{m2} &amp; A_{m3} &amp; \cdots &amp; A_{mn}
+ \end{pmatrix}
+\end{split}\]</div>
+<p>This example has <span class="math notranslate nohighlight">\(m\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns.<br />
+We call <span class="math notranslate nohighlight">\(A\)</span> an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix (”<span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span>” matrix).</p>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The entry <span class="math notranslate nohighlight">\(A_{ij}\)</span> appears in row <span class="math notranslate nohighlight">\(i\)</span> and column <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+<li><p>The values <span class="math notranslate nohighlight">\(A_{ij}\)</span> are known as <strong>coefficients</strong> of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>We will only consider cases where the coefficients, <span class="math notranslate nohighlight">\(A_{ij}\)</span>, are real numbers.</p></li>
+<li><p>We say that two matrices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, are equal (i.e. <span class="math notranslate nohighlight">\(A=B\)</span>) if:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same number of rows;</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same number of columns;</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_{ij} = B_{ij}\)</span> for every corresponding entry of the matrices.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+<section id="matrix-addition">
+<h2>Matrix addition<a class="headerlink" href="#matrix-addition" title="Permalink to this headline">#</a></h2>
+<p>Two matrices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, may be added to form a new matrix (let’s call it <span class="math notranslate nohighlight">\(C\)</span>) provided <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are of the same size, i.e.:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same number of rows;</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same number of columns.</p></li>
+</ol>
+<p>Their sum, <span class="math notranslate nohighlight">\(C\)</span>, is such that <span class="math notranslate nohighlight">\(C_{ij} = A_{ij} + B_{ij}\)</span> for every entry of each row and column.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+0.0 &amp; -1.0 \\
+1.0 &amp; 1.0
+\end{pmatrix} +
+\begin{pmatrix}
+-1.0 &amp; 2.0 \\
+1.0 &amp; 0.0
+\end{pmatrix} =
+\begin{pmatrix}
+-1.0 &amp; 1.0 \\
+2.0 &amp; 1.0
+\end{pmatrix}.
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{pmatrix}
+2.0 &amp; -2.0 &amp; 5.0
+\end{pmatrix} +
+\begin{pmatrix}
+3.0 &amp; 2.0 &amp; 4.0
+\end{pmatrix} =
+\begin{pmatrix}
+5.0 &amp; 0.0 &amp; 9.0
+\end{pmatrix}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+11.2 &amp; 0.0 &amp; -2.4 \\
+0.0 &amp; 16.0 &amp; 1.5
+\end{pmatrix} +
+\begin{pmatrix}
+-1.2 &amp; 1.0 &amp; 1.4 \\
+1.0 &amp; -6.0 &amp; 1.5
+\end{pmatrix} =
+\begin{pmatrix}
+10.0  &amp; 1.0 &amp; -1.0 \\
+1.0 &amp; 10.0 &amp; 3.0
+\end{pmatrix}.
+\end{split}\]</div>
+</section>
+</section>
+<section id="scalar-multiplication">
+<h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>A matrix, <span class="math notranslate nohighlight">\(A\)</span>, may be multiplied by a scalar <span class="math notranslate nohighlight">\(\alpha\)</span> to form a new matrix - let’s call it <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>This new matrix, <span class="math notranslate nohighlight">\(B\)</span>, is such that</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(B\)</span> has the same dimensions as <span class="math notranslate nohighlight">\(A\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(B_{ij} = \alpha A_{ij}\)</span> for every entry of each row and column.</p></li>
+</ol>
+</li>
+<li><p>Similarly, provided matrices <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> have the same size, we may define <span class="math notranslate nohighlight">\(C = \alpha X + \beta Y\)</span> (for real numbers <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>) such that:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(C\)</span> has the same dimensions as <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_{ij} = \alpha X_{ij} + \beta Y_{ij}\)</span> for every entry of each row and column.</p></li>
+</ol>
+</li>
+</ul>
+<section id="id1">
+<h3>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+2
+\begin{pmatrix}
+11.2 &amp; 0.0 &amp; -2.4 &amp; -0.4 \\
+0.0 &amp; 16.0 &amp; 1.5 &amp; 0.0
+\end{pmatrix} =
+\begin{pmatrix}
+22.4 &amp; 0.0 &amp; -4.8 &amp; -0.8 \\
+0.0 &amp; 32.0 &amp; 3.0 &amp; 0.0
+\end{pmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+-3
+\begin{pmatrix}
+0.0 &amp; -1.0 \\
+1.0 &amp; 1.0
+\end{pmatrix} +
+2
+\begin{pmatrix}
+-1.0 &amp; 2.0 \\
+1.0 &amp; 0.0
+\end{pmatrix} =
+\begin{pmatrix}
+-2.0 &amp; 7.0 \\
+-1.0 &amp; -3.0
+\end{pmatrix}.
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+3
+\begin{pmatrix}
+ 3.0 \\ 2.0 \\ 1.0
+\end{pmatrix} +
+5
+\begin{pmatrix}
+2.0 \\ -2.0 \\ 0.0
+\end{pmatrix} =
+\begin{pmatrix}
+19.0 \\ -4.0 \\ 3.0
+\end{pmatrix}.
+\end{split}\]</div>
+</section>
+<section id="examples-homework">
+<h3>Examples (homework)<a class="headerlink" href="#examples-homework" title="Permalink to this headline">#</a></h3>
+<p>Let
+<span class="math notranslate nohighlight">\(
+A =
+\begin{pmatrix}
+2.0 &amp; 1.0 \\
+1.0 &amp; 2.0
+\end{pmatrix},
+B =
+\begin{pmatrix}
+1.0 &amp; 2.0 \\
+0.0 &amp; 1.0 \\
+-1.0 &amp; 1.0
+\end{pmatrix},
+C =
+\begin{pmatrix}
+0.0 &amp; 1.0 \\
+1.0 &amp; 2.0 \\
+2.0 &amp; 4.0
+\end{pmatrix}.
+\)</span></p>
+<ul class="simple">
+<li><p>What is <span class="math notranslate nohighlight">\(B+C\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(3B - 2C\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(3A + B\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(5C + 2A\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(2A + \begin{pmatrix} 1.0 &amp; 1.0 \\ 1.0 &amp; 1.0 \end{pmatrix}\)</span>?</p></li>
+</ul>
+</section>
+<section id="zero-matrices">
+<h3>Zero matrices<a class="headerlink" href="#zero-matrices" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>A zero matrix (let’s call is <span class="math notranslate nohighlight">\(O\)</span>) is a matrix for which every entry is zero.</p></li>
+<li><p>Note that there are an infinite number of zero matrices!</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix (i.e., has <span class="math notranslate nohighlight">\(m\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns) then there is a unique matrix <span class="math notranslate nohighlight">\(O\)</span> such that <span class="math notranslate nohighlight">\(A + O = A\)</span>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(O\)</span> is the <span class="math notranslate nohighlight">\(m \times n\)</span> matrix for which every entry is zero.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="properties-of-matrix-addition">
+<h3>Properties of matrix addition<a class="headerlink" href="#properties-of-matrix-addition" title="Permalink to this headline">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(A, B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> be matrices of the same dimensions, then</p>
+<ul class="simple">
+<li><p>Matrix addition is associative: <span class="math notranslate nohighlight">\((A+B)+C = A+(B+C)\)</span>.</p></li>
+<li><p>Matrix addition is commutative: <span class="math notranslate nohighlight">\(A+B = B+A\)</span>.</p></li>
+<li><p>For the corresponding zero matrix: <span class="math notranslate nohighlight">\(O+A = A\)</span>.</p></li>
+<li><p>Defining <span class="math notranslate nohighlight">\(-A\)</span> to be <span class="math notranslate nohighlight">\(-1A\)</span> then: <span class="math notranslate nohighlight">\(-A + A = O\)</span>.</p></li>
+</ul>
+</section>
+<section id="properties-of-scalar-multiplication">
+<h3>Properties of scalar multiplication<a class="headerlink" href="#properties-of-scalar-multiplication" title="Permalink to this headline">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be matrices of the same dimension, and <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> be scalars, then</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(1A = A\)</span> and <span class="math notranslate nohighlight">\(0A = O\)</span>.</p></li>
+<li><p>Scalar multiplication is distributive: <span class="math notranslate nohighlight">\(\alpha(A+B) = \alpha A + \alpha B\)</span>.</p></li>
+<li><p>Similarly: <span class="math notranslate nohighlight">\((\alpha + \beta) A = \alpha A +\beta A\)</span>.</p></li>
+<li><p>Also: <span class="math notranslate nohighlight">\((\alpha \beta) A = \alpha (\beta A)\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="matrix-multiplication">
+<h2>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Recall that it is possible to add matrices together
+provided each matrix has <em>the same dimensions</em>.</p></li>
+<li><p>Note that when a matrix has <span class="math notranslate nohighlight">\(m\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns we say that it
+is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix (these are its dimensions).</p></li>
+<li><p>It was also shown that one can multiple a matrix by a real number (i.e. a <em>scalar</em>).</p></li>
+<li><p>Under certain circumstances it is also possible to define a way in which
+two matrices may be multiplied together, to form a new matrix as their
+product…</p></li>
+</ul>
+<section id="definition-of-matrix-multiplication">
+<h3>Definition of matrix multiplication<a class="headerlink" href="#definition-of-matrix-multiplication" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is a <span class="math notranslate nohighlight">\(p \times q\)</span> matrix,
+then it is only possible to form their product, <span class="math notranslate nohighlight">\(C=AB\)</span>, if <span class="math notranslate nohighlight">\(n=p\)</span> (i.e.\ the
+number of columns in the first matrix is equal to the number of rows in the
+second matrix).</p></li>
+<li><p>If it is the case that <span class="math notranslate nohighlight">\(n=p\)</span> then each entry of the product is defined
+as follows:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+ C_{ij} \; = \;(AB)_{ij} \; = \;
+ A_{i1}B_{1j} + A_{i2}B_{2j} + A_{i3}B_{3j} + \ldots + A_{in}B_{nj} \;.
+ \]</div>
+<ul class="simple">
+<li><p>This holds for <span class="math notranslate nohighlight">\(i=1,...,m\)</span> and <span class="math notranslate nohighlight">\(j=1,...,q\)</span>, hence the product <span class="math notranslate nohighlight">\(C\)</span> is
+a <span class="math notranslate nohighlight">\(m \times q\)</span> matrix – with entry <span class="math notranslate nohighlight">\(C_{ij}\)</span> computed by multiplying entries
+of row <span class="math notranslate nohighlight">\(i\)</span> of <span class="math notranslate nohighlight">\(A\)</span> by corresponding entries of column <span class="math notranslate nohighlight">\(j\)</span> of <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Examples<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+		 0.0 &amp; -1.0 &amp; 1.0 \\ 1.0 &amp; 1.0 &amp; 1.0
+\end{pmatrix}
+\begin{pmatrix}
+		 -1.0 &amp; 2.0 \\ 1.0 &amp; 0.0 \\ 2.0 &amp; 3.0
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+		1.0 &amp; 3.0 \\ 2.0 &amp; 5.0
+		\end{pmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+		 2.0 &amp; -2.0 \\ 5.0 &amp; 1.0
+		\end{pmatrix}
+		\begin{pmatrix}
+		 3.0 &amp; 2.0 &amp; 4.0 \\ 1.0 &amp; 0.0 &amp; -1.0
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+		4.0 &amp; 4.0 &amp; 10.0 \\ 16.0 &amp; 10.0 &amp; 19.0
+	   \end{pmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+		 11.0 &amp; 0.0 &amp; -2.0 &amp; 0.0 \\ 0.0 &amp; 16.0 &amp; 1.0 &amp; 0.0\\1.0&amp;2.0&amp; 1.0&amp;2.0
+\end{pmatrix}
+		\begin{pmatrix}
+		 1.0 &amp; 0.0 \\ 2.0 &amp; 1.0 \\ 0.0 &amp; 1.0 \\ 1.0 &amp; 1.0
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+		11.0 &amp; -2.0 \\ 32.0 &amp; 17.0 \\ 7.0 &amp; 5.0
+		\end{pmatrix}
+\end{split}\]</div>
+</section>
+<section id="id3">
+<h3>Examples (homework)<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \begin{pmatrix}
+		 2.0 &amp; 1.0 \\ 1.0 &amp; 2.0
+	   \end{pmatrix} , \;
+	  B = \begin{pmatrix}
+		 1.0 &amp; 2.0 \\ 0.0 &amp; 1.0 \\ -1.0 &amp; 1.0
+		\end{pmatrix} , \;
+	  C = \begin{pmatrix}
+		 0.0 &amp; 1.0 &amp; 2.0 \\ 1.0 &amp; 2.0 &amp; 3.0 \\ 2.0 &amp; 4.0 &amp; 0.0
+		\end{pmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>What is <span class="math notranslate nohighlight">\(AB\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(BA\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(BC\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(CB\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\((CB)A\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(C(BA)\)</span>?</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Notes<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The product of two arbitrary matrices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> say, may not be
+well-defined (the number of columns of <span class="math notranslate nohighlight">\(A\)</span> must equal the number of
+rows of <span class="math notranslate nohighlight">\(B\)</span>).</p></li>
+<li><p>Even if <span class="math notranslate nohighlight">\(AB\)</span> is well-defined, <span class="math notranslate nohighlight">\(BA\)</span> may not be.</p></li>
+<li><p>Even if both <span class="math notranslate nohighlight">\(AB\)</span> and <span class="math notranslate nohighlight">\(BA\)</span> are well-defined, they will usually be
+different, e.g.
+<span class="math notranslate nohighlight">\(A=\begin{pmatrix}2.0 &amp; 0.0 \\ 1.0 &amp; 2.0\end{pmatrix}\)</span>
+and <span class="math notranslate nohighlight">\(B=\begin{pmatrix}1.0 &amp; 1.0 \\ 1.0 &amp; 0.0\end{pmatrix}\)</span>.</p></li>
+<li><p>Matrix multiplication is associative: <span class="math notranslate nohighlight">\((AB)C = A(BC)\)</span> provided the
+matrices are of appropriate dimensions for these products to be well-defined.</p></li>
+</ul>
+</section>
+<section id="matrix-transposition">
+<h3>Matrix Transposition<a class="headerlink" href="#matrix-transposition" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>An important matrix operation is called the <strong>transpose</strong>.</p></li>
+<li><p>The transpose of a matrix <span class="math notranslate nohighlight">\(A\)</span> (denoted by <span class="math notranslate nohighlight">\(A^{\rm T}\)</span> or <span class="math notranslate nohighlight">\(A'\)</span>) is such that
+<span class="math notranslate nohighlight">\((A^{\rm T})_{ij} = A_{ji}\)</span>.</p></li>
+<li><p>Hence, when <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix, then <span class="math notranslate nohighlight">\(A^{\rm T}\)</span> is <span class="math notranslate nohighlight">\(n \times m\)</span>.</p></li>
+<li><p>Informally, the transpose of a matrix is formed by swapping the rows
+and columns around.</p></li>
+<li><p>For example:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 1.0 &amp; 2.0 &amp; 3.0 \\ 0.0 &amp; 1.0 &amp; 2.0
+	\end{pmatrix}^{\rm T} = \begin{pmatrix}
+	 1.0 &amp; 0.0 \\ 2.0 &amp; 1.0 \\ 3.0 &amp; 2.0 \end{pmatrix}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 2.0 &amp; 0.0 \\ 1.0 &amp; 3.0
+	\end{pmatrix}^{\rm T} = \begin{pmatrix}
+	 2.0 &amp; 1.0 \\ 0.0 &amp; 3.0 \end{pmatrix}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\begin{pmatrix} 2.0 &amp; 0.0 &amp; 1.0 \\ 0.0 &amp; 3.0 &amp; 1.0 \\
+							   1.0 &amp; 1.0 &amp; -1.0 \end{pmatrix}^{\rm T} =
+	 \begin{pmatrix} 2.0 &amp; 0.0 &amp; 1.0 \\ 0.0 &amp; 3.0 &amp; 1.0 \\
+							   1.0 &amp; 1.0 &amp; -1.0 \end{pmatrix}\)</span></p></li>
+</ul>
+</li>
+<li><p>A matrix with an equal number of rows and columns is called a
+<strong>square</strong> matrix.</p></li>
+<li><p>Note that any matrix <span class="math notranslate nohighlight">\(A\)</span> such that <span class="math notranslate nohighlight">\(A^{\rm T} = A\)</span> is called a <strong>symmetric</strong>
+matrix (and must be a square matrix).</p></li>
+</ul>
+</section>
+<section id="identity-matrices">
+<h3>Identity Matrices<a class="headerlink" href="#identity-matrices" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>These are square matrices that have the structure:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ I_n =
+ \begin{pmatrix}
+		 1 &amp; 0 &amp; 0 &amp; \ldots &amp; 0 \\
+		 0 &amp; 1 &amp; 0 &amp; \ldots &amp; 0 \\
+		 0 &amp; 0 &amp; 1 &amp; \ldots &amp; 0 \\
+		 \vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots \\
+		 0 &amp; 0 &amp; 0 &amp; \ldots &amp; 1
+		\end{pmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>For example:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(I_2 = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> and
+<span class="math notranslate nohighlight">\(I_3 = \begin{pmatrix} 1&amp;0&amp;0 \\ 0&amp;1&amp;0 \\ 0&amp;0&amp;1 \end{pmatrix}\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="invertible-matrices">
+<h2>Invertible Matrices<a class="headerlink" href="#invertible-matrices" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>An <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible (non-degenerate, non-singular) if there exists <span class="math notranslate nohighlight">\(B\)</span> which is an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix such that <span class="math notranslate nohighlight">\(AB = BA = I_n\)</span>.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(A\)</span> is invertible, then its inverse is unique and we denote it by <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p></li>
+<li><p>For example:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix}\)</span> and
+<span class="math notranslate nohighlight">\(B = \begin{pmatrix} 2/3&amp; -1/3 \\ -1/3&amp;2/3 \end{pmatrix}\)</span>.</p></li>
+</ul>
+</li>
+<li><p>For <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, if <span class="math notranslate nohighlight">\(AB = I_n\)</span>, then <span class="math notranslate nohighlight">\(A,B\)</span> are both invertible and <span class="math notranslate nohighlight">\(A^{-1}= B\)</span> and <span class="math notranslate nohighlight">\(B^{-1} = A\)</span>.</p></li>
+</ul>
+<section id="properties-of-invertible-matrices">
+<h3>Properties of invertible matrices<a class="headerlink" href="#properties-of-invertible-matrices" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible, then <span class="math notranslate nohighlight">\((A^{-1})^{-1} = A\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible and the scalar <span class="math notranslate nohighlight">\(\lambda \ne 0\)</span>, then <span class="math notranslate nohighlight">\(\lambda A\)</span> is invertible and <span class="math notranslate nohighlight">\((\lambda A)^{-1} = \frac{1}{\lambda}A^{-1}\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible, then <span class="math notranslate nohighlight">\(A^{\rm T}\)</span> is invertible and <span class="math notranslate nohighlight">\((A^{\rm T})^{-1} = (A^{-1})^{\rm T}\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> are <span class="math notranslate nohighlight">\(n \times n\)</span> matrices and are both invertible, then <span class="math notranslate nohighlight">\(AB\)</span> is invertible and <span class="math notranslate nohighlight">\((AB)^{-1} = B^{-1}A^{-1}\)</span>.</p></li>
+<li><p>However, <span class="math notranslate nohighlight">\((A + B)^{-1}\)</span> does not necessary equal to <span class="math notranslate nohighlight">\(A^{-1} + B^{-1}\)</span>.</p></li>
+</ul>
+</section>
+<section id="properties-of-matrix-multiplication">
+<h3>Properties of matrix multiplication<a class="headerlink" href="#properties-of-matrix-multiplication" title="Permalink to this headline">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix and let <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> be matrices for which
+the following sums and products are defined…</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(I_m A = A\)</span> and <span class="math notranslate nohighlight">\(A I_n = A\)</span>.</p></li>
+<li><p>Associative: <span class="math notranslate nohighlight">\((AB)C = A(BC)\)</span>.</p></li>
+<li><p>Left distributive: <span class="math notranslate nohighlight">\(A(B+C) = AB+AC\)</span>.</p></li>
+<li><p>Right distributive: <span class="math notranslate nohighlight">\((A+B)C = AC+BC\)</span>.</p></li>
+<li><p>NOT commutative: <span class="math notranslate nohighlight">\(AB \neq BA\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="row-and-column-vectors">
+<h2>Row and Column Vectors<a class="headerlink" href="#row-and-column-vectors" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>A matrix with just one row is called a <strong>row vector</strong>.</p></li>
+<li><p>A matrix with just one column is called a <strong>column vector</strong>.</p></li>
+<li><p>Often the term <em>vector</em> is used as short-hand for <em>column vector</em>.</p></li>
+<li><p>We often use the notation <span class="math notranslate nohighlight">\(\vec{a}\)</span> to represent a <strong>vector</strong>.</p></li>
+<li><p>Hence <span class="math notranslate nohighlight">\(\vec{a}^{\rm T}\)</span> is a row vector!</p></li>
+<li><p>Suppose <span class="math notranslate nohighlight">\(\vec{a}\)</span> and <span class="math notranslate nohighlight">\(\vec{b}\)</span> are vectors of dimension
+<span class="math notranslate nohighlight">\(n\)</span> (i.e. matrices of dimension <span class="math notranslate nohighlight">\(n \times 1\)</span>) then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\vec{a}^{\rm T} \vec{b}\)</span> is a well-defined matrix multiplication
+resulting in a <span class="math notranslate nohighlight">\(1 \times 1\)</span> matrix;</p></li>
+</ul>
+</li>
+<li><p>The numerical value computed by <span class="math notranslate nohighlight">\(\vec{a}^{\rm T} \vec{b}\)</span> is
+called the <strong>scalar product</strong> of <span class="math notranslate nohighlight">\(\vec{a}\)</span> and <span class="math notranslate nohighlight">\(\vec{b}\)</span>:</p>
+<ul class="simple">
+<li><p>this is sometimes denoted as <span class="math notranslate nohighlight">\(\vec{a} \cdot \vec{b}\; ;\)</span></p></li>
+<li><p>note that <span class="math notranslate nohighlight">\(\vec{a} \cdot \vec{b} = \vec{b} \cdot
+\vec{a}\; .\)</span></p></li>
+</ul>
+</li>
+<li><p>For example, suppose:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  A = \begin{pmatrix} 1 &amp; 2 \\ 2 &amp; -1 \end{pmatrix}\;,
+  \;\; \vec{x} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}\;,
+  \;\; \vec{b} = \begin{pmatrix} 4 \\ 3 \end{pmatrix}\;,
+  \end{split}\]</div>
+<p>then show that:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\vec{x} \cdot \vec{b} = 11 \;;\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A \vec{x} = \vec{b} \;.\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Maths is fun:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.mathsisfun.com/algebra/vectors.html">Vectors</a></p></li>
+<li><p><a class="reference external" href="https://www.mathsisfun.com/algebra/matrix-introduction.html">Matrices</a></p></li>
+<li><p><a class="reference external" href="https://www.mathsisfun.com/algebra/scalar-vector-matrix.html">Scalars, vectors, matrices</a></p></li>
+<li><p><a class="reference external" href="https://www.mathsisfun.com/algebra/matrix-transform.html">Geometry using matrices and vectors</a></p></li>
+</ul>
+</li>
+<li><p>Basic Linear Algebra Subprograms (BLAS) - super efficient implementation of these operations:</p>
+<ul>
+<li><p>Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">Basic linear algebra subprograms</a></p></li>
+<li><p>Stackoverflow: <a class="reference external" href="https://stackoverflow.com/questions/1303182/how-does-blas-get-such-extreme-performance">How does BLAS get such extreme performance?</a></p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p>Algebra is the offer made by the devil to the mathematician. The devil says: “I will give you this powerful machine, it will answer any question you like. All you need to do is give me your soul: give up geometry and you will have this marvelous machine. – Michael Atiyah</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lec"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lec01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 01: Module introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ws/ws01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">WS01: Introduction to Python and Jupyter</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-matrices">Introduction to matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-matrix-form">General matrix form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-addition">Matrix addition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-homework">Examples (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-matrices">Zero matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-matrix-addition">Properties of matrix addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-scalar-multiplication">Properties of scalar multiplication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix Multiplication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-matrix-multiplication">Definition of matrix multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Examples (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-transposition">Matrix Transposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identity-matrices">Identity Matrices</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invertible-matrices">Invertible Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-invertible-matrices">Properties of invertible matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-matrix-multiplication">Properties of matrix multiplication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#row-and-column-vectors">Row and Column Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

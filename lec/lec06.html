@@ -1,0 +1,1035 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 06: Gaussian elimination &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec06';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WS03: Triangular systems and Gaussian elimination" href="../ws/ws03.html" />
+    <link rel="prev" title="Lecture 05: Solving triangular systems" href="lec05a.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec16.html">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./lec/lec06.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Flec/lec06.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lec/lec06.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 06: Gaussian elimination</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-row-operations">Elementary row operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Elementary row operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-homework">Example 2 (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-matrix-vector-form">General matrix-vector form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-matrix-equations">Application to matrix equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-systems">Triangular systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy">Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination">Gaussian elimination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example 2 (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-homework">Example 3 (homework)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-notes">Final Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-06-gaussian-elimination">
+<h1>Lecture 06: Gaussian elimination<a class="headerlink" href="#lecture-06-gaussian-elimination" title="Permalink to this headline">#</a></h1>
+<section id="elementary-row-operations">
+<h2>Elementary row operations<a class="headerlink" href="#elementary-row-operations" title="Permalink to this headline">#</a></h2>
+<p>Recall the problem is to solve a set of <span class="math notranslate nohighlight">\(n\)</span> <strong>linear</strong> equations for <span class="math notranslate nohighlight">\(n\)</span> unknown values <span class="math notranslate nohighlight">\(x_j\)</span>, for <span class="math notranslate nohighlight">\(j=1, 2, \ldots, n\)</span>.</p>
+<p><strong>Notation</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{Equation } 1: &amp;&amp; a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n &amp; = b_1 \\
+\text{Equation } 2: &amp;&amp; a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n &amp; = b_2 \\
+\vdots \\
+\text{Equation } i: &amp;&amp; a_{i1} x_1 + a_{i2} x_2 + a_{i3} x_3 + \cdots + a_{in} x_n &amp; = b_i \\
+\vdots \\
+\text{Equation } n: &amp;&amp; a_{n1} x_1 + a_{n2} x_2 + a_{n3} x_3 + \cdots + a_{nn} x_n &amp; = b_n.
+\end{aligned}
+\end{split}\]</div>
+<section id="id1">
+<h3>Elementary row operations<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Consider equation <span class="math notranslate nohighlight">\(p\)</span> of the above system:</p>
+<div class="math notranslate nohighlight">
+\[
+a_{p1} x_1 + a_{p2} x_2 + a_{p3} x_3 + \cdots + a_{pn} x_n = b_p,
+\]</div>
+<p>and equation <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+a_{q1} x_1 + a_{q2} x_2 + a_{q3} x_3 + \cdots + a_{qn} x_n = b_q.
+\]</div>
+<p>Note three things…</p>
+<ul>
+<li><p>The order in which we choose to write the <span class="math notranslate nohighlight">\(n\)</span> equations is irrelevant</p></li>
+<li><p>We can multiply any equation by an arbitrary real number (<span class="math notranslate nohighlight">\(k \neq 0\)</span> say):</p>
+<div class="math notranslate nohighlight">
+\[
+    k a_{p1} x_1 + k a_{p2} x_2 + k a_{p3} x_3 + \cdots + k a_{pn} x_n = k b_p.
+    \]</div>
+</li>
+<li><p>We can add any two equations:</p>
+<div class="math notranslate nohighlight">
+\[
+    k a_{p1} x_1 + k a_{p2} x_2 + k a_{p3} x_3 + \cdots + k a_{pn} x_n = k b_p
+    \]</div>
+<p>added to</p>
+<div class="math notranslate nohighlight">
+\[
+    a_{q1} x_1 + a_{q2} x_2 + a_{q3} x_3 + \cdots + a_{qn} x_n = b_q
+    \]</div>
+<p>yields</p>
+<div class="math notranslate nohighlight">
+\[
+    (k a_{p1} + a_{q1}) x_1 + (k a_{p2} + a_{q2}) x_2 + \cdots + (k a_{pn} + a_{qn}) x_n = k b_p + b_q.
+    \]</div>
+</li>
+</ul>
+</section>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<p>Consider the system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+2 x_1 + 3 x_2 &amp; = 4 &amp;&amp; (1) \\
+-3 x_1 + 2 x_2 &amp; = 7 &amp;&amp; (2).
+\end{aligned}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(4 \times (1)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(8 x_1 + 12 x_2 = 16\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(-1.5 \times (2)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(4.5 x_1 - 3 x_2 = -10.5\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((2) + (1)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(-x_1 + 5 x_2 = 11\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((2) + 1.5 \times (1)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(0 + 6.5 x_2 = 13\)</span>.</p></li>
+</ul>
+</section>
+<section id="example-2-homework">
+<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this headline">#</a></h3>
+<p>Consider the system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x_1 + 2 x_2 &amp; = 1 &amp;&amp; (3) \\
+4 x_1 + x_2 &amp; = -3 &amp;&amp; (4).
+\end{aligned}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(2 \times (3)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0.25 \times (4)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((4) + (-1) \times (3)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((4) + (-4) \times (3)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span></p></li>
+</ul>
+</section>
+<section id="general-matrix-vector-form">
+<h3>General matrix-vector form<a class="headerlink" href="#general-matrix-vector-form" title="Permalink to this headline">#</a></h3>
+<p>What does this mean when we write the equations as a single matrix equation?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{pmatrix}
+ a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1n} \\
+ a_{21} &amp; a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2n} \\
+ a_{31} &amp; a_{32} &amp; a_{33} &amp; \cdots &amp; a_{3n} \\
+ \vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots \\
+ a_{n1} &amp; a_{n2} &amp; a_{n3} &amp; \cdots &amp; a_{nn}
+ \end{pmatrix}
+ \begin{pmatrix}
+ x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_n
+ \end{pmatrix} =
+ \begin{pmatrix}
+ b_1 \\ b_2 \\ b_3 \\ \vdots \\ b_n
+ \end{pmatrix}.
+\end{split}\]</div>
+<p>Recall the <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> represents the coefficients that multiply the unknowns in each equation (row), while the <span class="math notranslate nohighlight">\(n\)</span>-vector <span class="math notranslate nohighlight">\(\vec{b}\)</span> represents the right-hand-side values.</p>
+</section>
+<section id="application-to-matrix-equations">
+<h3>Application to matrix equations<a class="headerlink" href="#application-to-matrix-equations" title="Permalink to this headline">#</a></h3>
+<p>For a system written in matrix form our three observations mean the following:</p>
+<ul>
+<li><p>We can swap any two rows of the matrix (and corresponding right-hand side entries). For example:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+    2 &amp; 3 \\ -3 &amp; 2
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    4 \\ 7
+    \end{pmatrix}
+    \Rightarrow
+    \begin{pmatrix}
+    -3 &amp; 2\\ 2 &amp; 3
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    7 \\ 4
+    \end{pmatrix}
+    \end{split}\]</div>
+</li>
+<li><p>We can multiply any row of the matrix (and corresponding right-hand side entry) by a scalar. For example:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+    2 &amp; 3 \\ -3 &amp; 2
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    4 \\ 7
+    \end{pmatrix}
+    \Rightarrow
+    \begin{pmatrix}
+    1 &amp; \frac{3}{2} \\ -3 &amp; 2
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    2 \\ 7
+    \end{pmatrix}
+    \end{split}\]</div>
+</li>
+<li><p>We can replace row <span class="math notranslate nohighlight">\(q\)</span> by row <span class="math notranslate nohighlight">\(q + k \times\)</span> row <span class="math notranslate nohighlight">\(p\)</span>. For example:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+    2 &amp; 3 \\ -3 &amp; 2
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    4 \\ 7
+    \end{pmatrix}
+    \Rightarrow
+    \begin{pmatrix}
+    2 &amp; 3 \\ 0 &amp; 6.5
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    4 \\ 13
+    \end{pmatrix}
+    \end{split}\]</div>
+<p>(here we replaced row <span class="math notranslate nohighlight">\(w\)</span> by row <span class="math notranslate nohighlight">\(2 + 1.5 \times\)</span> row <span class="math notranslate nohighlight">\(1\)</span>)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+    1 &amp; 2 \\ 4 &amp; 1
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    1 \\ -3
+    \end{pmatrix}
+    \Rightarrow
+    \begin{pmatrix}
+    1 &amp; 2 \\ 0 &amp; -7
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+    1 \\ -7
+    \end{pmatrix}
+    \end{split}\]</div>
+<p>(here we replaced row <span class="math notranslate nohighlight">\(2\)</span> by row <span class="math notranslate nohighlight">\(2 + (-4) \times\)</span> row <span class="math notranslate nohighlight">\(1\)</span>)</p>
+</li>
+</ul>
+</section>
+<section id="triangular-systems">
+<h3>Triangular systems<a class="headerlink" href="#triangular-systems" title="Permalink to this headline">#</a></h3>
+<p>Recall that we can easily solve a lower triangular system:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{pmatrix}
+ a_{11} &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+ a_{21} &amp; a_{22} &amp; 0 &amp; \cdots &amp; 0 \\
+ a_{31} &amp; a_{32} &amp; a_{33} &amp; \cdots &amp; 0 \\
+ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+ a_{n1} &amp; a_{n2} &amp; a_{n3} &amp; \cdots &amp; a_{nn}
+ \end{pmatrix}
+ \begin{pmatrix}
+ x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_n
+ \end{pmatrix} =
+ \begin{pmatrix}
+ b_1 \\ b_2 \\ b_3 \\ \vdots \\ b_n
+ \end{pmatrix}.
+\end{split}\]</div>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is a lower triangular matrix if every entry above the leading diagonal is zero</p>
+<div class="math notranslate nohighlight">
+\[
+    a_{ij} = 0 \text{ for } j &gt; i.
+    \]</div>
+</li>
+</ul>
+<p>Similarly, we can easily solve an upper triangular system:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{pmatrix}
+ a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1n} \\
+ 0 &amp; a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2n} \\
+ 0 &amp; 0 &amp; a_{33} &amp; \cdots &amp; a_{3n} \\
+ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+ 0 &amp; 0 &amp; 0 &amp; \cdots &amp; a_{nn}
+ \end{pmatrix}
+ \begin{pmatrix}
+ x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_n
+ \end{pmatrix} =
+ \begin{pmatrix}
+ b_1 \\ b_2 \\ b_3 \\ \vdots \\ b_n
+ \end{pmatrix}.
+\end{split}\]</div>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is an upper triangular matrix if every entry below the leading diagonal is zero</p>
+<div class="math notranslate nohighlight">
+\[
+    a_{ij} = 0 \text{ for } i &gt; j.
+    \]</div>
+</li>
+</ul>
+</section>
+<section id="strategy">
+<h3>Strategy<a class="headerlink" href="#strategy" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Three types of operation described above are called <strong>elementary row operations</strong> (ERO).</p></li>
+<li><p>We know that an upper triangular system can be easily solved… so, can we systematically apply a sequence of ERO to reduce an arbitrary system to triangular form?</p></li>
+<li><p>The answer is “yes”… and the algorithm for doing this is known as <strong>forward elimination</strong> or (more commonly) as <strong>Gaussian elimination</strong> (GE).</p></li>
+</ul>
+</section>
+</section>
+<section id="gaussian-elimination">
+<h2>Gaussian elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">#</a></h2>
+<p><strong>First appeared in China…</strong></p>
+<p>From <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_elimination">Wikipedia</a>:</p>
+<blockquote>
+<div><p>The method of Gaussian elimination appears in the Chinese mathematical text <a class="reference external" href="http://www.guoxuemi.com/guji/5445s/">Chapter Eight: Rectangular Arrays of The Nine Chapters on the Mathematical Art.</a> Its use is illustrated in eighteen problems, with two to five equations. The first reference to the book by this title is dated to 179 CE, but parts of it were written as early as approximately 150 BCE. It was commented on by Liu Hui in the 3rd century.</p>
+<p>The method in Europe stems from the notes of Isaac Newton. In 1670, he wrote that all the algebra books known to him lacked a lesson for solving simultaneous equations, which Newton then supplied. Carl Friedrich Gauss in 1810 devised a notation for symmetric elimination that was adopted in the 19th century by professional hand computers to solve the normal equations of least-squares problems. The algorithm that is taught in high school was named for Gauss only in the 1950s as a result of confusion over the history of the subject.</p>
+</div></blockquote>
+<figure class="align-default" id="id4">
+<img alt="../_images/NineChapters.jpg" src="../_images/NineChapters.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Image from Nine Chapter of the Mathematical art</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="the-algorithm">
+<h3>The algorithm<a class="headerlink" href="#the-algorithm" title="Permalink to this headline">#</a></h3>
+<p>The following algorithm systematically introduces zeros into the system of equations, below the diagonal.</p>
+<ol class="arabic simple">
+<li><p>Subtract multiples of row 1 from the rows below it to eliminate (make zero) nonzero entries in column 1.</p></li>
+<li><p>Subtract multiplies of the new row 2 from the rows below it to eliminate nonzero entries in column 2.</p></li>
+<li><p>Repeat for row <span class="math notranslate nohighlight">\(3, 4, \ldots, n-1\)</span>.</p></li>
+</ol>
+<p>After row <span class="math notranslate nohighlight">\(n-1\)</span> all entities below the diagonal have been eliminated, so <span class="math notranslate nohighlight">\(A\)</span> is now upper triangular and the resulting system can be solved by backward substitution.</p>
+</section>
+<section id="id2">
+<h3>Example 1<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Use Gaussian eliminate to solve the linear system of equations given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+ 2 &amp; 1 &amp; 4 \\ 1 &amp; 2 &amp; 2 \\ 2 &amp; 4 &amp; 6
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix} =
+\begin{pmatrix}
+12 \\ 9 \\ 22
+\end{pmatrix}.
+\end{split}\]</div>
+<p>First, use the first row to eliminate the first column below the diagonal:</p>
+<ul>
+<li><p>(row 2) <span class="math notranslate nohighlight">\(- 0.5 \times\)</span> (row 1) gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+     2 &amp; 1 &amp; 4 \\ \mathbf{0} &amp; 1.5 &amp; 0 \\ 2 &amp; 4 &amp; 6
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2 \\ x_3
+    \end{pmatrix} =
+    \begin{pmatrix}
+    12 \\ 3 \\ 22
+    \end{pmatrix}
+    \end{split}\]</div>
+</li>
+<li><p>(row 3) <span class="math notranslate nohighlight">\(-\)</span> (row 1) then gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+     2 &amp; 1 &amp; 4 \\ \mathbf{0} &amp; 1.5 &amp; 0 \\ \mathbf{0} &amp; 3 &amp; 2
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2 \\ x_3
+    \end{pmatrix} =
+    \begin{pmatrix}
+    12 \\ 3 \\ 10
+    \end{pmatrix}
+    \end{split}\]</div>
+</li>
+</ul>
+<p>Now use the second row to eliminate the second column below the diagonal.</p>
+<ul>
+<li><p>(row 3) <span class="math notranslate nohighlight">\(- 2 \times\)</span> (row 2) gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+     2 &amp; 1 &amp; 4 \\ \mathbf{0} &amp; 1.5 &amp; 0 \\ \mathbf{0} &amp; \mathbf{0} &amp; 2
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2 \\ x_3
+    \end{pmatrix} =
+    \begin{pmatrix}
+    12 \\ 3 \\ 4
+    \end{pmatrix}
+    \end{split}\]</div>
+</li>
+</ul>
+<p>The system is now in upper triangular form and can be solved using backward substitution to give <span class="math notranslate nohighlight">\(\vec{x} = (1, 2, 2)^T\)</span> (see the <a class="reference internal" href="lec05.html"><span class="doc std std-doc">final example from previous lecture</span></a>).</p>
+</section>
+<section id="id3">
+<h3>Example 2 (homework)<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Use Gaussian elimination to solve the linear system of equations given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+4 &amp; -1 &amp; -1 \\ 2 &amp; 4 &amp; 2 \\ 1 &amp; 2 &amp; 4
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix} =
+\begin{pmatrix}
+9 \\ -6 \\ 3
+\end{pmatrix}.
+\end{split}\]</div>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>Each row <span class="math notranslate nohighlight">\(i\)</span> is used to eliminate the entries in column <span class="math notranslate nohighlight">\(i\)</span> below <span class="math notranslate nohighlight">\(a_{ii}\)</span>, i.e. it forces <span class="math notranslate nohighlight">\(a_{ji} = 0\)</span> for <span class="math notranslate nohighlight">\(j &gt; i\)</span>.</p></li>
+<li><p>This is done by subtracting a multiple of row <span class="math notranslate nohighlight">\(i\)</span> from row <span class="math notranslate nohighlight">\(j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+    (\text{row } j) \leftarrow (\text{row } j) - \frac{a_{ji}}{a_{ii}} (\text{row } i).
+    \]</div>
+</li>
+<li><p>This guarantees that <span class="math notranslate nohighlight">\(a_{ji}\)</span> becomes zero because</p>
+<div class="math notranslate nohighlight">
+\[
+    a_{ji} \leftarrow a_{ji} - \frac{a_{ji}}{a_{ii}} a_{ii} = a_{ji} - a_{ji} = 0.
+    \]</div>
+</li>
+</ul>
+</section>
+<section id="example-3-homework">
+<h3>Example 3 (homework)<a class="headerlink" href="#example-3-homework" title="Permalink to this headline">#</a></h3>
+<p>Solve the system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+4 &amp; 3 &amp; 2 &amp; 1 \\ 1 &amp; 2 &amp; 2 &amp; 2 \\
+1 &amp; 1 &amp; 3 &amp; 0 \\ 2 &amp; 1 &amp; 2 &amp; 3
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4
+\end{pmatrix} =
+\begin{pmatrix}
+ 10 \\ 7 \\ 5 \\ 8
+\end{pmatrix}.
+\end{split}\]</div>
+<p>The solution is <span class="math notranslate nohighlight">\(\vec{x} = (1, 1, 1, 1)^T\)</span>.</p>
+</section>
+</section>
+<section id="final-notes">
+<h2>Final Notes<a class="headerlink" href="#final-notes" title="Permalink to this headline">#</a></h2>
+<p>GE can be used to solve linear systems of equations…</p>
+<ul class="simple">
+<li><p>The computational cost is <span class="math notranslate nohighlight">\(O(n^3)\)</span> – which can be quite high for large values of <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+<li><p>Problems can occur if <span class="math notranslate nohighlight">\(\,a_{ii} = 0\,\)</span> for any <span class="math notranslate nohighlight">\(i\)</span> in a row that is being used to do the elimination;</p></li>
+<li><p>Can overcome by swapping row <span class="math notranslate nohighlight">\(i\)</span> with any row beneath (more later).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\,a_{ii} = 0\,\)</span> for a row that is being used to do the elimination, and all rows beneath have a zero in column <span class="math notranslate nohighlight">\(i\)</span>, then the GE algorithm breaks down.</p></li>
+<li><p>The GE algorithm will only break down if the system is <strong>singular</strong>  (so no solution exists or no unique solution).</p></li>
+<li><p>If the unique solution does exist the GE algorithm (with row swapping if needed)  will find it!</p></li>
+</ul>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a></p></li>
+<li><p>Joseph F. Grcar. <a class="reference external" href="https://doi.org/10.1016/j.hm.2010.06.003">How ordinary elimination became Gaussian elimination</a>. Historia Mathematica. Volume 38, Issue 2, May 2011. (More history)</p></li>
+<li><p>The method is usually implemented via the LU factorisation method we learn next!</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lec"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lec05a.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 05: Solving triangular systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ws/ws03.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">WS03: Triangular systems and Gaussian elimination</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-row-operations">Elementary row operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Elementary row operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-homework">Example 2 (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-matrix-vector-form">General matrix-vector form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-matrix-equations">Application to matrix equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-systems">Triangular systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy">Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination">Gaussian elimination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example 2 (homework)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-homework">Example 3 (homework)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-notes">Final Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

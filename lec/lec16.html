@@ -1,0 +1,934 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-GB" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 16: Newton’s method &#8212; COMP2421 Numerical Computation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec16';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WS08: Bisection and Newton’s method" href="../ws/ws08.html" />
+    <link rel="prev" title="Lecture 15: Introduction to nonlinear equations" href="lec15.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-GB"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">COMP2421 Numerical Computation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Module information
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course introduction and recap</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws00.html">Worksheet 00: Maths revision</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="lec01.html">Lec01: Module introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec04.html">Lec02: Matrices and vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws01.html">WS01: Introduction to python and numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec02.html">Lec03: Floating point number systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws02.html">WS02: Floating point number systems</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Systems of linear equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec05.html">Lec04: Introduction to SLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec05a.html">Lec05: Solving triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec06.html">Lec06: Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws03.html">WS03: Triangular systems and Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec07.html">Lec07: LU factorisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec10.html">Lec08: The effects of finite precision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws04.html">WS04: LU Factorisation and iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec08.html">Lec09: Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec09.html">Lec09: Sparse matrices and stopping criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws05.html">WS05: Sparse systems and pivoting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic problems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec11.html">Lec11: Dynamic models and rates of change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec12.html">Lec12: Derivatives and differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws06.html">WS06: Derivatives and Euler's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec13.html">Lec13: Exact solutions and errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec14.html">Lec14: A modelling example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws07.html">WS07: Improved Euler's methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonlinear equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec15.html">Lec15: Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lec16: Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws08.html">WS08: Bisection and Newton's method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec17.html">Lec17: Quasi-Newton methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lec18.html">Lec18: Robust nonlinear solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec20.html">Lec20: Overview, review and looking forward</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Past assessments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw01.html">2021: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/cw02.html">2021: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2021/exam.html">2021: Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw01.html">2022: Cw1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/cw02.html">2022: Cw2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cw/2022/exam.html">2022: Exam</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/COMP2421-Numerical-Computation/book/2023?urlpath=lab/tree/./lec/lec16.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/COMP2421-Numerical-Computation/book/blob/2023/./lec/lec16.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/edit/2023/./lec/lec16.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/COMP2421-Numerical-Computation/book/issues/new?title=Issue%20on%20page%20%2Flec/lec16.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lec/lec16.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/lec/lec16.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 16: Newton’s method</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root">Zero derivative as a root</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root-example">Zero derivative as a root - example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-newton-s-method">Problems with Newton’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-homework-hard">Exercise (homework - hard!)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-16-newton-s-method">
+<h1>Lecture 16: Newton’s method<a class="headerlink" href="#lecture-16-newton-s-method" title="Permalink to this headline">#</a></h1>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<p>Use Newton’s method to approximate the value of <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> by solving <span class="math notranslate nohighlight">\(x^2 - R = 0\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+     f(x) = x^2 - R
+     \:
+     \Rightarrow
+     \:
+     f'(x) = 2x
+     \:
+     \Rightarrow
+     \:
+     x^{(i+1)} = x^{(i)} - \frac{(x^{(i)})^2 - R}{2 x^{(i)}}.
+\]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_391ab234_1bdd_11ee_acf1_6045bd09c4ab" ><caption>Results of Newton's method on example 1</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow0_col2" class="data row0 col2" >-1.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow1_col1" class="data row1 col1" >1.500000</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow1_col2" class="data row1 col2" >0.250000</td>
+            </tr>
+            <tr>
+                                <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow2_col1" class="data row2 col1" >1.416667</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow2_col2" class="data row2 col2" >0.006944</td>
+            </tr>
+            <tr>
+                                <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow3_col1" class="data row3 col1" >1.414216</td>
+                        <td id="T_391ab234_1bdd_11ee_acf1_6045bd09c4abrow3_col2" class="data row3 col2" >0.000006</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<ul class="simple">
+<li><p>We get the root as <span class="math notranslate nohighlight">\(x^* \approx 1.414216\)</span> after 3 iterations.</p></li>
+<li><p>The iteration stopped when <span class="math notranslate nohighlight">\(|f(x^{(i)})| &lt; 10^{-4}\)</span>.</p></li>
+<li><p>We could also require that <span class="math notranslate nohighlight">\(|x^{(i+1)} - x^{(i)} &lt; 10^{-4}\)</span>.</p></li>
+</ul>
+</section>
+<section id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h3>
+<p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 1\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span>, we get the root as <span class="math notranslate nohighlight">\(x^* \approx 0.765789\)</span> after 2 iterations for the NACA0012 aerofoil example.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4ab" ><caption>Results of Newton's method on example 2</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow0_col2" class="data row0 col2" >-0.047900</td>
+            </tr>
+            <tr>
+                                <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow1_col1" class="data row1 col1" >0.795168</td>
+                        <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow1_col2" class="data row1 col2" >-0.005392</td>
+            </tr>
+            <tr>
+                                <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow2_col1" class="data row2 col1" >0.765789</td>
+                        <td id="T_391e54e8_1bdd_11ee_acf1_6045bd09c4abrow2_col2" class="data row2 col2" >-0.000096</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+</section>
+<section id="example-3">
+<h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">#</a></h3>
+<p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 0.1\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span>, we get the root as <span class="math notranslate nohighlight">\(x^* \approx 0.033863\)</span> after 5 iterations for the second solution to the NACA0012 aerofoil example.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_39215f12_1bdd_11ee_acf1_6045bd09c4ab" ><caption>Results of Newton's method on example 3</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow0_col1" class="data row0 col1" >0.100000</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow0_col2" class="data row0 col2" >0.028046</td>
+            </tr>
+            <tr>
+                                <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow1_col1" class="data row1 col1" >0.000278</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow1_col2" class="data row1 col2" >-0.045086</td>
+            </tr>
+            <tr>
+                                <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow2_col1" class="data row2 col1" >0.005413</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow2_col2" class="data row2 col2" >-0.028849</td>
+            </tr>
+            <tr>
+                                <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow3_col1" class="data row3 col1" >0.020693</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow3_col2" class="data row3 col2" >-0.010046</td>
+            </tr>
+            <tr>
+                                <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow4_col1" class="data row4 col1" >0.031958</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow4_col2" class="data row4 col2" >-0.001300</td>
+            </tr>
+            <tr>
+                                <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow5_col1" class="data row5 col1" >0.033863</td>
+                        <td id="T_39215f12_1bdd_11ee_acf1_6045bd09c4abrow5_col2" class="data row5 col2" >-0.000024</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p>In all cases the performance is considerable superior to that of the bisection method.</p>
+</section>
+</section>
+<section id="zero-derivative-as-a-root">
+<h2>Zero derivative as a root<a class="headerlink" href="#zero-derivative-as-a-root" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>We saw that the bisection method cannot deal with the situation where a root occurs at a <em>turning point</em>. That is,</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x^*) = f'(x^*) = 0.
+    \]</div>
+</li>
+<li><p>At first sight, it may appear that Newton’s method will struggle with such situations since <span class="math notranslate nohighlight">\(x^{(i+1)} = x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})}\)</span> would lead to <span class="math notranslate nohighlight">\(\frac{0}{0}\)</span> occurring when <span class="math notranslate nohighlight">\(x^{(i)} = x^*\)</span>.</p></li>
+<li><p>Fortunately, this is not a problem in practice and the iteration can still converge - although it converges more slowly than to a “simple root”.</p></li>
+</ul>
+<section id="zero-derivative-as-a-root-example">
+<h3>Zero derivative as a root - example<a class="headerlink" href="#zero-derivative-as-a-root-example" title="Permalink to this headline">#</a></h3>
+<p>Find a solution of <span class="math notranslate nohighlight">\(f(x) = 0\)</span> using Newton’s method when</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = (x-1)^2 = x^2 - 2x + 1.
+\]</div>
+<p>This has a solution <span class="math notranslate nohighlight">\(x^* = 1\)</span>, however <span class="math notranslate nohighlight">\(f'(x) = 2x - 2\)</span>, so <span class="math notranslate nohighlight">\(f'(x^*) = 0\)</span> when <span class="math notranslate nohighlight">\(x = x^*= 1\)</span>. The Newton iteration is given by</p>
+<div class="math notranslate nohighlight">
+\[
+x^{(i+1)} = x^{(i)} - \frac{(x^{(i)} - 1)^2}{2 x^{(i)} - 2}
+= x^{(i)} - \frac{1}{2}(x^{(i)} - 1)
+= \frac{1}{2} (x^{(i)} + 1).
+\]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4ab" ><caption>Results of Newton's method on example with zero derivative at root</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow0_col1" class="data row0 col1" >4.000000</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow0_col2" class="data row0 col2" >9.000000</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow1_col1" class="data row1 col1" >2.500000</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow1_col2" class="data row1 col2" >2.250000</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow2_col1" class="data row2 col1" >1.750000</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow2_col2" class="data row2 col2" >0.562500</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow3_col1" class="data row3 col1" >1.375000</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow3_col2" class="data row3 col2" >0.140625</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow4_col1" class="data row4 col1" >1.187500</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow4_col2" class="data row4 col2" >0.035156</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow5_col1" class="data row5 col1" >1.093750</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow5_col2" class="data row5 col2" >0.008789</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow6_col0" class="data row6 col0" >6</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow6_col1" class="data row6 col1" >1.046875</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow6_col2" class="data row6 col2" >0.002197</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow7_col0" class="data row7 col0" >7</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow7_col1" class="data row7 col1" >1.023438</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow7_col2" class="data row7 col2" >0.000549</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow8_col0" class="data row8 col0" >8</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow8_col1" class="data row8 col1" >1.011719</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow8_col2" class="data row8 col2" >0.000137</td>
+            </tr>
+            <tr>
+                                <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow9_col0" class="data row9 col0" >9</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow9_col1" class="data row9 col1" >1.005859</td>
+                        <td id="T_3923e57a_1bdd_11ee_acf1_6045bd09c4abrow9_col2" class="data row9 col2" >0.000034</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 4\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span> we get the root as <span class="math notranslate nohighlight">\(x^* \approx 1.0059\)</span> after 9 iterations, confirming that we are able to obtain a solution.</p>
+<p>Note that the convergence criterion is <span class="math notranslate nohighlight">\(|f(x)| &lt; 10^{-4}\)</span>, which does not guarantee that <span class="math notranslate nohighlight">\(|x^* - x^{(i)}| &lt; 10^{-4}\)</span>!</p>
+</section>
+</section>
+<section id="problems-with-newton-s-method">
+<h2>Problems with Newton’s method<a class="headerlink" href="#problems-with-newton-s-method" title="Permalink to this headline">#</a></h2>
+<p>When Newton’s method works it is a fast way of solving a nonlinear equation <span class="math notranslate nohighlight">\(f(x) = 0\)</span>, but it does not always work.</p>
+<ol class="arabic">
+<li><p>Consider applying a Newton iteration to the function <span class="math notranslate nohighlight">\(f(x) = x^3 + 2 x^2 + x + 1\)</span> with <span class="math notranslate nohighlight">\(x^{(0)} = 0\)</span>.</p>
+<p>This gives <span class="math notranslate nohighlight">\(f'(x) = 3 x^2 + 4 x + 1\)</span> so Newton’s iteration is:</p>
+<div class="math notranslate nohighlight">
+\[
+     x^{(i+1)} = x^{(i)} - \frac{(x^{(i)})^3 + 2 (x^{(i)})^2 + x^{(i)} + 1}{3 (x^{(i)})^2 + 4 x^{(i)} + 1}.
+     \]</div>
+<p>With <span class="math notranslate nohighlight">\(x^{(0)} = 0\)</span> this gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+     x^{(1)}
+     &amp; = 0 - \frac{0^3 + 2 \times 0^2 + 0 + 1}{3 \times 0^2 + 4 \times 0 + 1}
+     = 0 - \frac{1}{1} = -1 \\
+     x^{(2)}
+     &amp; = -1 - \frac{(-1)^3 + 2 \times (-1)^2 + -1 + 1}{3 \times (-1)^2 + 4 \times -1 + 1}
+     = -1 - \frac{1}{0} = \text{inf}.
+     \end{aligned}
+    \end{split}\]</div>
+</li>
+<li><p>We can also get cases where the iteration does not “blow up” but diverges slowly…</p></li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/bed019d1ba73eb2987178b340faefd00f46db62760d2152aff648d5bc10d5b4e.png" src="../_images/bed019d1ba73eb2987178b340faefd00f46db62760d2152aff648d5bc10d5b4e.png" />
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>It is even possible for the iteration to simply cycle between two values repeatedly…</p></li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/a6e1b1aef8c1a65dfba3ca85a319e882e716ea96a4f0e01fc8bf0041a59ceed5.png" src="../_images/a6e1b1aef8c1a65dfba3ca85a319e882e716ea96a4f0e01fc8bf0041a59ceed5.png" />
+</div>
+</div>
+<section id="exercise-homework-hard">
+<h3>Exercise (homework - hard!)<a class="headerlink" href="#exercise-homework-hard" title="Permalink to this headline">#</a></h3>
+<p>Can you find a Newton iteration with period 3 or more?</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Newton’s method yields a relatively simple iteration for solving <span class="math notranslate nohighlight">\(f(x) = 0\)</span>.</p></li>
+<li><p>When the algorithm converges it <strong>usually</strong> does so very quickly.</p></li>
+<li><p>There are a number of cases for which the method breaks down - a number of initial guesses maybe required:</p>
+<ul>
+<li><p>the initial iterate must be “sufficiently close” to a root;</p></li>
+<li><p>a good initial guess may sometimes be obtained from the bisection method.</p></li>
+</ul>
+</li>
+<li><p>Newton’s method assumes that the derivative of the function <span class="math notranslate nohighlight">\(f(x)\)</span> is known and easily evaluated.</p></li>
+</ul>
+<p>The <a class="reference internal" href="lec15_.html"><span class="doc std std-doc">slides used in the lecture</span></a> are also available</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "COMP2421-Numerical-Computation/book",
+            ref: "2023",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lec"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lec15.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 15: Introduction to nonlinear equations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ws/ws08.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">WS08: Bisection and Newton’s method</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root">Zero derivative as a root</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-derivative-as-a-root-example">Zero derivative as a root - example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-newton-s-method">Problems with Newton’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-homework-hard">Exercise (homework - hard!)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Thomas Ranner and Dr Yongxing Wang, University of Leeds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</p>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -39,6 +39,12 @@ jobs:
         jupyter nbconvert --clear-output --to notebook --inplace ws/*implemented.ipynb
         jupyter execute ws/*implemented.ipynb
 
+    # Build the example book
+    - name: Build book
+      shell: bash -l {0}
+      run: |
+        jupyter-book build .
+
   # This job deploys the example book on success of tests
   deploy-book:
     if: github.ref == 'refs/heads/master'

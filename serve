@@ -3,7 +3,7 @@
 from livereload import Server, shell
 
 server = Server()
-server.watch("README.md", shell("make build "))
+server.watch("index.md", shell("make build "))
 server.watch("img/*", shell("make build "))
 server.watch("lec/*.md", shell("make build "))
 server.watch("lec/*.ipynb", shell("make build "))

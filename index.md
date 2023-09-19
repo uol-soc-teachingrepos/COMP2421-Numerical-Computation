@@ -12,7 +12,7 @@ Email
 :   T.Ranner@leeds.ac.uk
 
 Teams group
-:   [22/23(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
+:   TODO add when group created
 
 ## Course contents
 
@@ -39,207 +39,112 @@ Teams group
 
 Opportunity to get **feedback** on learning
 
-### Homework and coursework exercise
+### Worksheets
 
 These will be provided *weekly* throughout the semester.
 
-Courseworks are designed to give practice and reinforce the lectures. Coursework material is examinable.
-
 ## Assessment
 
-### Examination
+```{table} Assessment schedule
 
-Computer exam in January. 2 hour exam with some multiple choice, short and longer answer questions. The exam is worth 60% of the credit for the module.
+| Title       | Release date | Due date             | Credit |
+|-------------|--------------|----------------------|--------|
+| Portfolio   | Mon 2 Oct    | weekly, Tuesday 10am | 20%    |
+| Coursework  | Mon 4 Dec    | Wed 10 Dec, 10am     | 80%    |
+| Formative 1 | Mon 9 Oct    | Wed 25 Oct, 10am     | 0%     |
+| Formative 2 | Mon  15 Nov  | Wed 29 Nov, 10am     | 0%     |
+```
 
-See [Lecture 20](./lec/lec20.md) for details.
+ The dates are tentative at this stage and are subject to change.
 
-*Edit: exam type changed - please follow updated guidance*
+### Portfolio (20%)
 
-### Summative coursework
+- A question similar to each worksheet is available in minerva each week. (TODO make these available)
+- You will have to submit your answer (and show your working) by the Tuesday 10am deadline.
+- You will receive two mark for giving the correct numerical and one mark for your working.
+- The best 6 of 8 will count for your final mark.
+- No late submission allowed.
 
-There are two pieces of coursework for this module. Each is worth 20% of your module grade. Coursework will be submitted via Gradescope. The dates are tentative at this stage and are subject to change.
+```{table} Portfolio deadlines
 
-**Feedback** will be provided in tutorials and written group feedback.
+| Section | Deadline         |
+|---------|------------------|
+| 1       | Tue 17 Oct, 10am |
+| 2       | Tue 24 Oct, 10am |
+| 3       | Tue 7 Nov, 10am  |
+| 4       | Tue 14 Nov, 10am |
+| 5       | Tue 21 Nov, 10am |
+| 6       | Tue 28 Nov, 10am |
+| 7       | Tue 5 Dec, 10am  |
+| 8       | Tue 12 Dec, 10am |
+```
 
-<table class="colwidths-auto table">
-	<caption>Summative coursework timetable</caption>
-	<thead>
-	<tr>
-	<th class="head">Coursework</th>
-	<th class="head">Date set</th>
-	<th class="head">Submission deadline</th>
-	<th class="head">Feedback date</th>
-	</tr>
-	</thead>
-	<tr>
-	<td>1</td>
-	<td>17/10/22</td>
-	<td>8/11/22</td>
-	<td>22/11/22</td>
-	</tr>
-	<tr>
-	<td>2</td>
-	<td>28/11/22</td>
-	<td>13/12/22</td>
-	<td>early 23</td>
-	</tr>
-</table>
+### Summative coursework (80%)
 
-Late submission will only be allowed up to 1 week after the submission deadline to allow feedback to be returned in a reasonable time frame.
+A single piece of summative coursework will count for the majority of the assessment of this module (80%).
+You will be asked an open ended question which allows you to explore one of the topics from the module in detail.
+The rubric that you will be marked against is available in minerva (TODO make it available).
+The coursework will be submitted via Gradescope.
+Usual late submission rules apply.
 
-### Formative homework
+### Formative coursework
 
-There will be weekly homework assignment sheets. These are not for credit. Additional feedback will be given through the release of worked solutions and in tutorial sessions.
-
-### How to succeed?
-
-- Read lecture notes **before lectures** -- all available
-- Turn up to lectures with **pen and paper**
-- Attempt **worksheet** before tutorial
-- Let tutorial leader know where you are having problems before the session
-- Attend tutorial every week - ask questions
-
-### How to get 100%?
-
-**No one gets 100%**
-
-- You should be able to apply all algorithms to get 40-50%.
-- You should be able to apply modifications to algorithms to get 50-60%
-- You should be able to explore algorithms to get 60-70%
-- You should be able to understand why algorithms are good/bad to get 70%+
-- You should be able to write research papers on this topic to get 90%+
+There will be two additional formative courseworks which you can use to build skills related to the summative coursework.
+Submission and feedback mechanism details to be confirmed.
 
 ## Syllabus
 
 This is a rough breakdown of topics to be covered this semester. Please note that this is not entirely fixed and I cannot guarantee to follow this precise structure.
 
-<table class="colwidths-auto table">
-<caption>Lecture topics</caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Lecture</p></th>
-<th class="head"><p>Topic</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1 (week 1)</p></td>
-<td><p>Introduction</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Floating point number systems</p></td>
-</tr>
-<tr class="row-even"><td><p>3 (week 2)</p></td>
-<td><p>Vectors and matrices</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Linear transformations</p></td>
-</tr>
-<tr class="row-even"><td><p>5 (week 3)</p></td>
-<td><p>Solving triangular systems of linear equations</p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>Gaussian elimination</p></td>
-</tr>
-<tr class="row-even"><td><p>7 (week 4)</p></td>
-<td><p>LU factorisation</p></td>
-</tr>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p>Indirect methods (Jacobi, Gauss-Seidel)</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p><em>reading week</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>9 (week 6)</p></td>
-<td><p>Sparse systems of linear equations, norms</p></td>
-</tr>
-<tr class="row-even"><td><p>10</p></td>
-<td><p>Pivoting</p></td>
-</tr>
-<tr class="row-odd"><td><p>11 (week 7)</p></td>
-<td><p>Derivatives and rates of change</p></td>
-</tr>
-<tr class="row-even"><td><p>12</p></td>
-<td><p>Euler’s method</p></td>
-</tr>
-<tr class="row-odd"><td><p>13 (week 8)</p></td>
-<td><p>Euler &amp; midpoint methods</p></td>
-</tr>
-<tr class="row-even"><td><p>14</p></td>
-<td><p>Runge-Kutte integration</p></td>
-</tr>
-<tr class="row-odd"><td><p>15 (week 9)</p></td>
-<td><p>Bisection, Newton’s method</p></td>
-</tr>
-<tr class="row-even"><td><p>16</p></td>
-<td><p>Newton’s method</p></td>
-</tr>
-<tr class="row-odd"><td><p>17 (week 10)</p></td>
-<td><p>The secant method</p></td>
-</tr>
-<tr class="row-even"><td><p>18</p></td>
-<td><p>Hybrid methods</p></td>
-</tr>
-<tr class="row-odd"><td><p>19 (week 11)</p></td>
-<td><p>Special topics</p></td>
-</tr>
-<tr class="row-even"><td><p>20</p></td>
-<td><p>Review</p></td>
-</tr>
-</tbody>
-</table>
+```{table} Teaching plan
+
+| Lecture         | Topic                                        |
+|-----------------|----------------------------------------------|
+| 1 (week 1)      | Introduction                                 |
+| 2               | Vectors and matrices                         |
+| 3 (week 2)      | Floating point numbers                       |
+| 4               | Introduction to systems of linear equations  |
+| 5 (week 3)      | Solving triangular systems                   |
+| 6               | Gaussian elimination                         |
+| 7 (week 4)      | LU factorisation                             |
+| 8               | The effects of finite precision              |
+|                 | *reading week*                               |
+| 9 (week 6)      | Iterative methods                            |
+| 10              | Sparse matrices and stopping criteria        |
+| 11 (week 7)     | Derivatives and rates of change              |
+| 12              | Euler's method                               |
+| 13 (week 8)     | Midpoint method                              |
+| 14              | Systems of differential equations            |
+| 15 (week 9)     | Introduction to nonlinear equations          |
+| 16              | Newton's method                              |
+| 17 (week 10)    | Quasi-Newton methods                         |
+| 18              | Robust linear solvers                        |
+| 19/20 (week 11) | Special topics/Formative coursework feedback |
+```
 
 ### Tutorials plan
 
 Weekly tutorials should will support you in your learning. See your timetable for when and where you should attend.
 
-<table class="colwidths-auto table">
-<caption>Tutorials plan</caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Week</p></th>
-<th class="head"><p>Topic</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Maths preliminary</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Introduction to python</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Floating point number systems</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Triangular systems and Gaussian elimination</p></td>
-</tr>
-<tr class="row-even"><td><p>-</p></td>
-<td><p><em>reading week</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>LU Factorisation and iterative methods</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>Sparse systems/pivoting</p></td>
-</tr>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p>Derivatives and Euler’s method</p></td>
-</tr>
-<tr class="row-even"><td><p>9</p></td>
-<td><p>Other time stepping</p></td>
-</tr>
-<tr class="row-odd"><td><p>10</p></td>
-<td><p>Bisection and Newton’s method</p></td>
-</tr>
-<tr class="row-even"><td><p>11</p></td>
-<td><p>Other root finding</p></td>
-</tr>
-</tbody>
-</table>
+| Week | Topic                                       |
+|------|---------------------------------------------|
+| 1    | Maths preliminary                           |
+| 2    | Introduction to python                      |
+| 3    | Floating point number systems               |
+| 4    | Triangular systems and Gaussian elimination |
+|      | *reading week*                              |
+| 6    | LU Factorisation and iterative methods      |
+| 7    | Sparse systems/pivoting                     |
+| 8    | Derivatives and Euler’s method              |
+| 9    | Other time stepping                         |
+| 10   | Bisection and Newton's method               |
+| 11 | Other root finding |
 
 ## Contact
 
-- Please contact me through MS Teams [22/23(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email)
+- Please contact me through MS Teams TODO add url
 - Questions about content should go in the class team
-- Responses in 24h (or out of office)
+- Responses in 48h (or out of office)
 - No response out of working hours
 
 ## Reference materials
@@ -262,5 +167,5 @@ The programming for this module will be carried out using `python3`.
 
 -   Module catalogue:
 
-	- COMP2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202122&M=COMP-2421>\
-    - XJCO2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202122&M=XJCO-2421>
+	- COMP2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&M=COMP-2421>\
+    - XJCO2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&M=XJCO-2421>

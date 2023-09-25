@@ -4,9 +4,10 @@ KEY OBJECTIVES:
 - Advanced aim - when do iterative methods converge or not. 
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws04.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws04.html
+
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws04_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws04_implemented.html
 
 Rough plan:
 

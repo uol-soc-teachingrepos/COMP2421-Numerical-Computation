@@ -5,9 +5,10 @@ KEY OBJECTIVES:
 - Advanced aim - deeper understanding of derivative geometrically
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws07.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03.html
+
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws07_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03_implemented.html
 
 Rough plan:
 
@@ -32,4 +33,3 @@ Part c tutorial:
     - also try d' = d^2 -> finite time blow up
     - d' = -2.3 * d for dt = 0.1 -> instability
 
-I'll drop print outs (worksheet, solutions, this guide) on either Friday or early Monday.

@@ -4,9 +4,10 @@ KEY OBJECTIVES:
 - (advanced aim) Understand how Gaussian elimination scales and when it breaks
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws03.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03.html
+
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws03_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03_implemented.html
 
 Rough plan: Try Balance part a, b, c of ws02
 
@@ -18,5 +19,3 @@ Rough plan: Try Balance part a, b, c of ws02
 	- Get students to come up and implement methods
 	- Write in provided solutions in the sessions
 	- Hide implementations then talk through Q5 onwards
-
-Print outs (worksheet, solutions, this guide) should be by my office from around 10am

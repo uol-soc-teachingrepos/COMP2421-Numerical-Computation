@@ -5,9 +5,10 @@ KEY OBJECTIVES:
 - Advanced aim - deeper understanding of derivative geometrically
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws06.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws06.html
+
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws06_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws06_implemented.html
 
 Rough plan:
 
@@ -31,5 +32,3 @@ Part c tutorial:
 
 2. Work through part c implementations. Encourage students to volunteer solutions
 3. Ensure students understand how to plot in `matplotlib` ensuring that you add labels to the axes (code in Q6).
-
-I'll drop print outs (worksheet, solutions, this guide) on Friday.

@@ -4,9 +4,11 @@ KEY OBJECTIVES:
 - Students should understand Newton's method is not robust
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws09.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws09.html
+
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws09_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws09_implemented.html
+
 
 Rough plan:
 
@@ -26,5 +28,3 @@ Part b tutorial:
 Part c tutorial:
 
 2. Work through part c implementations. Encourage students to volunteer solutions
-
-I'll drop print outs (worksheet, solutions, this guide) on either Friday or early Monday.

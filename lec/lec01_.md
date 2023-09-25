@@ -4,15 +4,15 @@ title: "Lecture 01: Module introduction"
 
 # Administration
 
-All administration details in the [module handbook](https://comp2421-numerical-computation.gitlab.io/book)
+All administration details in the [module handbook](https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/)
 
-<https://comp2421-numerical-computation.gitlab.io/book>
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation>
 
 ## Contact
 
-- Please contact me through MS Teams [22/23(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email)
+- Please contact me through MS Teams [23/24(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email or personal teams message)
 - Questions about content should go in the class team
-- Responses in 24h (or out of office)
+- Responses in 48h (or out of office)
 - No response out of working hours
 
 ## How to succeed?
@@ -49,7 +49,7 @@ Leeds content delivered by Tom Ranner and Yongxing Wang.
 
 *Please read the lecture content before the lecture*
 
-<https://comp2421-numerical-computation.gitlab.io/book>
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation>
 
 ## Tutorials and worksheets
 
@@ -61,7 +61,7 @@ Please attempt the worksheet before the session and bring your attempts with you
 
 Opportunity for **feedback** on learning.
 
-<https://comp2421-numerical-computation.gitlab.io/book>
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation>
 
 ## Virtual learning environment
 
@@ -70,59 +70,62 @@ As with all SoC  modules COMP2421 will make substantial use of the VLE:
 
 This will include all:
 
-- lecture notes and announcements;
-- coursework/homework and (later) model solutions;
-- links to external resources and web pages;
-- module-related discussions
+- links to lecture notes and announcements;
+- coursework and (later) model solutions;
 
 ---
 
-Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb). Please use the class team for all questions about content.
+[23/24(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email or personal teams message)
 
 Please use this forum for all questions about content
 
-## Examination
+# Assessment
 
-On-line assessment in January
+| Title       | Release date | Due date             | Credit |
+|-------------|--------------|----------------------|--------|
+| Portfolio   | Mon 2 Oct    | weekly, Tuesday 2pm  | 20%    |
+| Coursework  | Mon 4 Dec    | Wed 10 Dec, 2pm      | 80%    |
+| Formative 1 | Mon 9 Oct    | Wed 25 Oct, 2pm      | 0%     |
+| Formative 2 | Mon  15 Nov  | Wed 29 Nov, 2pm      | 0%     |
 
-Worth 60% of the module
+ The dates are tentative at this stage and are subject to change.
 
-More details to follow.
+## Portfolio (20%)
 
-## Summative coursework
-
-Two pieces of coursework each worth 20% submitted via Gradescope.
-The dates are tentative at this stage and are subject to change.
-
-**Feedback** given in tutorial sessions and written group feedback.
+- A question similar to each worksheet is available in minerva each week.
+- You will have to submit your answer (and show your working) by the Tuesday 2pm deadline.
+- You will receive two mark for giving the correct numerical and one mark for your working.
+- The best 6 of 8 will count for your final mark.
+- No late submission allowed.
 
 <revealjs>
 ---
 </revealjs>
 
-<table class="colwidths-auto table">
-	<caption>Summative coursework timetable</caption>
-	<thead>
-	<tr>
-	<th class="head">Coursework</th>
-	<th class="head">Date set</th>
-	<th class="head">Submission deadline</th>
-	<th class="head">Feedback date</th>
-	</tr>
-	</thead>
-	<tr>
-	<td>1</td>
-	<td>17/10/22</td>
-	<td>8/11/22</td>
-	<td>22/11/22</td>
-	</tr>
-	<tr>
-	<td>2</td>
-	<td>28/11/22</td>
-	<td>13/12/22</td>
-	<td>early 23</td>
-	</tr>
-</table>
+
+| Section | Deadline         |
+|---------|------------------|
+| 1       | Tue 17 Oct, 2pm  |
+| 2       | Tue 24 Oct, 2pm  |
+| 3       | Tue 7 Nov, 2pm   |
+| 4       | Tue 14 Nov, 2pm  |
+| 5       | Tue 21 Nov, 2pm  |
+| 6       | Tue 28 Nov, 2pm  |
+| 7       | Tue 5 Dec, 2pm   |
+| 8       | Tue 12 Dec, 2pm  |
+
+## Summative coursework (80%)
+
+- A single piece of summative coursework will count for the majority of the assessment of this module (80%).
+- You will be asked an open ended question which allows you to explore one of the topics from the module in detail.
+- The rubric that you will be marked against is available in minerva.
+- The coursework will be submitted via Gradescope.
+- Usual late submission rules apply.
+
+## Formative coursework
+
+- There will be two additional formative courseworks which you can use to build skills related to the summative coursework.
+- Submission and feedback mechanism details to be confirmed.
 
 # Module content
 
@@ -176,6 +179,11 @@ and you can test your python version with
 > python --version
 Python 3.8.5
 ```
+<revealjs>
+---
+</revealjs>
+
+New for this year, we have trial access to a university managed online notebook service called Notable. Access is via the minerva module page.
 
 <revealjs>
 ---
@@ -353,6 +361,3 @@ Video source: <https://youtu.be/pppxa9MpoeY>
 
 # See you tomorrow!
 
-Friday 7 October 11:00-12:00
-
-Conference Auditorium 1 (GM.03)

@@ -17,7 +17,7 @@ All administration details in the [module handbook](https://uol-soc-teachingrepo
 
 ## How to succeed?
 
-- Read lecture notes **before lectures** -- [all available](https://comp2421-numerical-computation.gitlab.io/book/)
+- Read lecture notes **before lectures** -- [all available](https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation)
 - Turn up to lectures with **pen and paper**
 - Attempt **worksheet** before tutorial
 - Let tutorial leader know where you are having problems before the session

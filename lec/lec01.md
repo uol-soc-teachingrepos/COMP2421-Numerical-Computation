@@ -23,18 +23,18 @@
 
 ## Numerical computation
 
-All administration details in the [module handbook](https://comp2421-numerical-computation.gitlab.io/book).
+All administration details in the [module handbook](https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/).
 
 ### Contact
 
-- Please contact me through MS Teams [22/23(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email)
+- Please contact me through MS Teams [23/24(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email or personal teams message)
 - Questions about content should go in the class team
-- Responses in 24h (or out of office)
+- Responses in 48h (or out of office)
 - No response out of working hours
 
 ### How to succeed?
 
-- Read lecture notes **before lectures** -- [all available](https://comp2421-numerical-computation.gitlab.io/book/)
+- Read lecture notes **before lectures** -- [all available](https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/)
 - Turn up to lectures with **pen and paper**
 - Attempt **worksheet** before tutorial
 - Let tutorial leader know where you are having problems before the session
@@ -172,34 +172,51 @@ Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4Qiy
 
 ## Assessment
 
-### Examination
-
-Computer exam in January.
-Worth 60%.
-More details to follow - see [Lecture 20](./lec20.md) for details.
-
-*Edit: exam type changed - please follow updated guidance*
-
-
-### Summative coursework
-
-Two pieces of coursework each worth 20% submitted via Gradescope.
-The dates are tentative at this stage and are subject to change.
-
-**Feedback** given in tutorial sessions and written group feedback.
-
-```{table} Summative coursework timetable
-
-| Coursework | Date set | Submission deadline | Feedback date |
-|------------|----------|---------------------|---------------|
-| 1          | 17/10/22 | 8/11/22             | 22/11/22      |
-| 2          | 28/11/22 | 13/12/22            | early 23      |
-
+```{table} Assessment schedule
+| Title       | Release date | Due date             | Credit |
+|-------------|--------------|----------------------|--------|
+| Portfolio   | Mon 2 Oct    | weekly, Tuesday 2pm  | 20%    |
+| Coursework  | Mon 4 Dec    | Wed 10 Dec, 2pm      | 80%    |
+| Formative 1 | Mon 9 Oct    | Wed 25 Oct, 2pm      | 0%     |
+| Formative 2 | Mon  15 Nov  | Wed 29 Nov, 2pm      | 0%     |
 ```
 
-### Formative homework
+ The dates are tentative at this stage and are subject to change.
 
-There will be weekly homework assignment sheets. These are not for credit.
+### Portfolio (20%)
+
+- A question similar to each worksheet is available in minerva each week.
+- You will have to submit your answer (and show your working) by the Tuesday 2pm deadline.
+- You will receive two mark for giving the correct numerical and one mark for your working.
+- The best 6 of 8 will count for your final mark.
+- No late submission allowed.
+
+```{table} Portfolio deadlines
+
+| Section | Deadline         |
+|---------|------------------|
+| 1       | Tue 17 Oct, 2pm  |
+| 2       | Tue 24 Oct, 2pm  |
+| 3       | Tue 7 Nov, 2pm   |
+| 4       | Tue 14 Nov, 2pm  |
+| 5       | Tue 21 Nov, 2pm  |
+| 6       | Tue 28 Nov, 2pm  |
+| 7       | Tue 5 Dec, 2pm   |
+| 8       | Tue 12 Dec, 2pm  |
+```
+
+### Summative coursework (80%)
+
+A single piece of summative coursework will count for the majority of the assessment of this module (80%).
+You will be asked an open ended question which allows you to explore one of the topics from the module in detail.
+The rubric that you will be marked against is available in minerva.
+The coursework will be submitted via Gradescope.
+Usual late submission rules apply.
+
+### Formative coursework
+
+There will be two additional formative courseworks which you can use to build skills related to the summative coursework.
+Submission and feedback mechanism details to be confirmed.
 
 ## Numerical algorithms
 

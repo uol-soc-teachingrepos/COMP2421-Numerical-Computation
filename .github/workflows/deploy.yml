@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - 2023
   # Trigger the deploy on pull requests to main branch
   pull_request:
     branches:
@@ -43,7 +42,7 @@ jobs:
     - name: Build book
       shell: bash -l {0}
       run: |
-        jupyter-book build .
+        make all
 
     # Deploy html to gh-pages
     - name: GitHub Pages action

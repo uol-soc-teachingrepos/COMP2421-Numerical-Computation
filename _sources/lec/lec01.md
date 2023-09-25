@@ -66,6 +66,8 @@ The latest available version of python is available via [Anaconda](https://www.a
 
 Anaconda provides a full scientific Python distribution, including as standard tools for numerical analysis, data visualisation, image processing, and much more!
 
+#### SoC machines
+
 This scientific Python distribution is available on all School of Computing machines, specifically all SoC Linux computers.
 
 On a SoC Linux computer, you can run
@@ -78,6 +80,12 @@ and you can test your python version with
 > python --version
 Python 3.8.5
 ```
+
+#### Notable online service
+
+New for this year, we have trial access to a university managed online notebook service called Notable. Access is via the minerva module page.
+
+#### Your own machine!
 
 Alternatively, you can install anaconda python on your own machine.
 

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>WS06: Derivatives and Euler’s method &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -449,10 +460,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -460,7 +471,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -516,20 +527,20 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ws06-derivatives-and-eulers-method">
-<h1>WS06: Derivatives and Euler’s method<a class="headerlink" href="#ws06-derivatives-and-eulers-method" title="Permalink to this headline">#</a></h1>
+<h1>WS06: Derivatives and Euler’s method<a class="headerlink" href="#ws06-derivatives-and-eulers-method" title="Permalink to this heading">#</a></h1>
 <p>These exercises are indented to give you practice at using the material on numerical approximation and are intended to reinforce the material that was covered in lectures.</p>
 <p>Please attempt the worksheet before your tutorial. Support is available in your tutorial or in the Class Team.</p>
 <p><em><a class="reference internal" href="ws06_implemented.html"><span class="doc std std-doc">Partial solutions</span></a> are available to check your understanding. Please create <a class="reference external" href="https://gitlab.com/comp2421-numerical-computation/book/-/issues">Issues</a> and <a class="reference external" href="https://gitlab.com/comp2421-numerical-computation/book/-/merge_requests">Merge requests</a> with your solutions or share your answers for peer feedback in the class team <a class="reference external" href="https://teams.microsoft.com/l/channel/19%3a43e9bb00fad04d8d8c85399b694657f4%40thread.tacv2/Worksheet%2520solutions?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&amp;tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb">Worksheet solutions channel</a></em></p>
 <section id="part-a-pen-and-paper-warm-up">
-<h2>Part a (pen and paper warm up)<a class="headerlink" href="#part-a-pen-and-paper-warm-up" title="Permalink to this headline">#</a></h2>
+<h2>Part a (pen and paper warm up)<a class="headerlink" href="#part-a-pen-and-paper-warm-up" title="Permalink to this heading">#</a></h2>
 <section id="interpretation-of-derivatives-speed-rate-of-change-of-displacement">
-<h3>1. interpretation of derivatives: speed = rate of change of displacement<a class="headerlink" href="#interpretation-of-derivatives-speed-rate-of-change-of-displacement" title="Permalink to this headline">#</a></h3>
+<h3>1. interpretation of derivatives: speed = rate of change of displacement<a class="headerlink" href="#interpretation-of-derivatives-speed-rate-of-change-of-displacement" title="Permalink to this heading">#</a></h3>
 <p>Say you spent <span class="math notranslate nohighlight">\(1\)</span> hour and walked <span class="math notranslate nohighlight">\(3\)</span> miles, after another hour (2 hours later) and you walked <span class="math notranslate nohighlight">\(5\)</span> miles in total, and 3 hours later you walked <span class="math notranslate nohighlight">\(6\)</span> miles in total… generally you may spend <span class="math notranslate nohighlight">\(t\)</span> hours and walk <span class="math notranslate nohighlight">\(d\)</span> miles (called your displacement). Abstractly or mathematically, displacement <span class="math notranslate nohighlight">\(d\)</span> can be expressed as a function of <span class="math notranslate nohighlight">\(t\)</span>: <span class="math notranslate nohighlight">\(d = d(t)\)</span>.</p>
 <p>Your walking speed is the rate of change of ______?.</p>
 <p>Your walking speed <span class="math notranslate nohighlight">\(s\)</span> is also a function of time <span class="math notranslate nohighlight">\(t\)</span>, denoted by <span class="math notranslate nohighlight">\(s = s(t)\)</span>. How do you compute the rate of change of speed? What is its physical meaning?</p>
 </section>
 <section id="compute-the-derivative-by-definition">
-<h3>2. Compute the derivative by definition<a class="headerlink" href="#compute-the-derivative-by-definition" title="Permalink to this headline">#</a></h3>
+<h3>2. Compute the derivative by definition<a class="headerlink" href="#compute-the-derivative-by-definition" title="Permalink to this heading">#</a></h3>
 <p>Definition of derivative of a function <span class="math notranslate nohighlight">\(d(t)\)</span> at <span class="math notranslate nohighlight">\(t=t_0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -538,7 +549,7 @@ document.write(`
 <p>If we know the general relation between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(d\)</span>, say <span class="math notranslate nohighlight">\(d(t) = -t^2+t+1\)</span>, can you compute <span class="math notranslate nohighlight">\(d^\prime(1)\)</span>?</p>
 </section>
 <section id="approximation-of-derivatives">
-<h3>3. Approximation of  derivatives<a class="headerlink" href="#approximation-of-derivatives" title="Permalink to this headline">#</a></h3>
+<h3>3. Approximation of  derivatives<a class="headerlink" href="#approximation-of-derivatives" title="Permalink to this heading">#</a></h3>
 <p>If we do NOT know the general relation between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(d\)</span>, but we know</p>
 <div class="math notranslate nohighlight">
 \[
@@ -547,7 +558,7 @@ d(1) = 1 \quad\text{and}\quad  d(1+0.01) = 0.9899,
 <p>can you approximate <span class="math notranslate nohighlight">\(d^\prime(1)\)</span> using the definition of derivative?</p>
 </section>
 <section id="differential-equation-euler-s-method">
-<h3>4. Differential equation (Euler’s method)<a class="headerlink" href="#differential-equation-euler-s-method" title="Permalink to this headline">#</a></h3>
+<h3>4. Differential equation (Euler’s method)<a class="headerlink" href="#differential-equation-euler-s-method" title="Permalink to this heading">#</a></h3>
 <p>If we do NOT know the general relation between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(d\)</span>, but we know</p>
 <div class="math notranslate nohighlight">
 \[
@@ -560,9 +571,9 @@ d^\prime(t) = t^2 -3t + d
 </section>
 </section>
 <section id="part-b-code-implementations-and-testing">
-<h2>Part b (code implementations and testing)<a class="headerlink" href="#part-b-code-implementations-and-testing" title="Permalink to this headline">#</a></h2>
+<h2>Part b (code implementations and testing)<a class="headerlink" href="#part-b-code-implementations-and-testing" title="Permalink to this heading">#</a></h2>
 <section id="implement-euler-s-method">
-<h3>5. Implement Euler’s method<a class="headerlink" href="#implement-euler-s-method" title="Permalink to this headline">#</a></h3>
+<h3>5. Implement Euler’s method<a class="headerlink" href="#implement-euler-s-method" title="Permalink to this heading">#</a></h3>
 <p>For the same problem in Q4, compute all these 100 function values: <span class="math notranslate nohighlight">\(d(0.01)\)</span>, <span class="math notranslate nohighlight">\(d(0.02)\)</span>, <span class="math notranslate nohighlight">\(d(0.03)\)</span> … <span class="math notranslate nohighlight">\(d(1.00)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -596,7 +607,7 @@ d^\prime(t) = t^2 -3t + d
 </div>
 </section>
 <section id="test-your-implementation">
-<h3>6. Test your implementation<a class="headerlink" href="#test-your-implementation" title="Permalink to this headline">#</a></h3>
+<h3>6. Test your implementation<a class="headerlink" href="#test-your-implementation" title="Permalink to this heading">#</a></h3>
 <p>Use the example in Q4 to test your implementation and compare with the exact solution: <span class="math notranslate nohighlight">\(d(t) = -t^2 +t +1\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,13 +650,13 @@ d^\prime(t) = t^2 -3t + d
 </section>
 </section>
 <section id="part-c-extension">
-<h2>Part c: Extension<a class="headerlink" href="#part-c-extension" title="Permalink to this headline">#</a></h2>
+<h2>Part c: Extension<a class="headerlink" href="#part-c-extension" title="Permalink to this heading">#</a></h2>
 <p>Derivative is a very important concept non only in math but in all science. We interpret derivative as the rate of change of variable. For example, the derivative of displacement <span class="math notranslate nohighlight">\(d\)</span> with respective to time is velocity <span class="math notranslate nohighlight">\(v\)</span>, and the derivative of velocity <span class="math notranslate nohighlight">\(v\)</span> with respective to time is acceleration <span class="math notranslate nohighlight">\(a\)</span>:
 <span class="math notranslate nohighlight">\(
 d^\prime(t) = v(t)  \quad \text{and} \quad  v^\prime(t) = a(t).
 \)</span></p>
 <section id="derivative-as-the-tangent-of-a-curve">
-<h3>7. Derivative as the tangent of a curve<a class="headerlink" href="#derivative-as-the-tangent-of-a-curve" title="Permalink to this headline">#</a></h3>
+<h3>7. Derivative as the tangent of a curve<a class="headerlink" href="#derivative-as-the-tangent-of-a-curve" title="Permalink to this heading">#</a></h3>
 <p>We know <span class="math notranslate nohighlight">\(y=f(x)\)</span> can be plotted in a x-y plane as a curve. For example, <span class="math notranslate nohighlight">\(y=2x+1\)</span> is a line and <span class="math notranslate nohighlight">\(y=x^2 + x -4\)</span> is a parabola. Recall the definition of derivative of <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -663,7 +674,7 @@ d^\prime(t) = v(t)  \quad \text{and} \quad  v^\prime(t) = a(t).
 </ul>
 </section>
 <section id="euler-s-method">
-<h3>8. Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this headline">#</a></h3>
+<h3>8. Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this heading">#</a></h3>
 <p>Given <span class="math notranslate nohighlight">\(f(x_0)\)</span> at a particular point <span class="math notranslate nohighlight">\(x_0\)</span>, and the derivative <span class="math notranslate nohighlight">\(f^\prime(x)\)</span> everywhere, we then try to find the curve (compute <span class="math notranslate nohighlight">\(f(x)\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>)… Euler’s method can do this job step by step (one iteration after another)!</p>
 <ul class="simple">
 <li><p>Use the above geometrical meaning of the derivative in Q7 and think why Euler’s method can do this job.</p></li>
@@ -698,11 +709,10 @@ d^\prime(t) = v(t)  \quad \text{and} \quad  v^\prime(t) = a(t).
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../lec/lec12.html"
@@ -722,10 +732,7 @@ d^\prime(t) = v(t)  \quad \text{and} \quad  v^\prime(t) = a(t).
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -806,8 +813,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

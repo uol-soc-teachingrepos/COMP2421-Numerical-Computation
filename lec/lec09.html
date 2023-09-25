@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 08: Sparse matrices and stopping criteria &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -382,10 +393,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -393,7 +404,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -449,9 +460,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-08-sparse-matrices-and-stopping-criteria">
-<h1>Lecture 08: Sparse matrices and stopping criteria<a class="headerlink" href="#lecture-08-sparse-matrices-and-stopping-criteria" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 08: Sparse matrices and stopping criteria<a class="headerlink" href="#lecture-08-sparse-matrices-and-stopping-criteria" title="Permalink to this heading">#</a></h1>
 <section id="sparse-matrices">
-<h2>Sparse Matrices<a class="headerlink" href="#sparse-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Sparse Matrices<a class="headerlink" href="#sparse-matrices" title="Permalink to this heading">#</a></h2>
 <p>There are two main ways in which sparse matrices can be exploited in order to obtain benefits within iterative methods.</p>
 <ul class="simple">
 <li><p>The storage must be reduced for <span class="math notranslate nohighlight">\(O(n^2)\)</span>.</p></li>
@@ -462,7 +473,7 @@ document.write(`
 <li><p>Typically this happens when we know there are at most <span class="math notranslate nohighlight">\(\alpha\)</span> non-zero entries in any row.</p></li>
 </ul>
 <section id="sparse-matrix-storage">
-<h3>Sparse matrix storage<a class="headerlink" href="#sparse-matrix-storage" title="Permalink to this headline">#</a></h3>
+<h3>Sparse matrix storage<a class="headerlink" href="#sparse-matrix-storage" title="Permalink to this heading">#</a></h3>
 <p>The simplest way in which a sparse matrix is stored is using three arrays:</p>
 <ul class="simple">
 <li><p>an array of floating point numbers (<code class="docutils literal notranslate"><span class="pre">A_real</span></code> say) that stores the non-zero entries;</p></li>
@@ -472,7 +483,7 @@ document.write(`
 <p>This requires just <span class="math notranslate nohighlight">\(3 \alpha n\)</span> units of storage - i.e. <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
 </section>
 <section id="sparse-matrix-multiplication">
-<h3>Sparse matrix multiplication<a class="headerlink" href="#sparse-matrix-multiplication" title="Permalink to this headline">#</a></h3>
+<h3>Sparse matrix multiplication<a class="headerlink" href="#sparse-matrix-multiplication" title="Permalink to this heading">#</a></h3>
 <p>Given the above storage pattern, the following algorithm will execute a sparse matrix-vector multiplication (<span class="math notranslate nohighlight">\(\vec{z} = A \vec{y}\)</span>) in <span class="math notranslate nohighlight">\(O(n)\)</span> operations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nonzero</span><span class="p">):</span>
@@ -486,7 +497,7 @@ document.write(`
 </section>
 </section>
 <section id="convergence-of-an-iterative-method">
-<h2>Convergence of an iterative method<a class="headerlink" href="#convergence-of-an-iterative-method" title="Permalink to this headline">#</a></h2>
+<h2>Convergence of an iterative method<a class="headerlink" href="#convergence-of-an-iterative-method" title="Permalink to this heading">#</a></h2>
 <p>We have discussed the construction of <strong>iterations</strong> which aim to find the solution of the equations <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span> through a sequence of better and better approximations <span class="math notranslate nohighlight">\(\vec{x}^{(k)}\)</span>.</p>
 <ul>
 <li><p>In general the iteration takes the form</p>
@@ -503,7 +514,7 @@ document.write(`
 </li>
 </ul>
 <section id="magnitude-of-a-vector">
-<h3>Magnitude of a vector<a class="headerlink" href="#magnitude-of-a-vector" title="Permalink to this headline">#</a></h3>
+<h3>Magnitude of a vector<a class="headerlink" href="#magnitude-of-a-vector" title="Permalink to this heading">#</a></h3>
 <p>How do we decide that a vector/array is small?</p>
 <ul>
 <li><p>We need a way of defining the size/magnitude of an array.</p></li>
@@ -518,7 +529,7 @@ document.write(`
 </ul>
 </section>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
 <p>Consider the following sequence <span class="math notranslate nohighlight">\(\vec{x}^{(k)}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -554,7 +565,7 @@ document.write(`
 </ul>
 </section>
 <section id="convergence-detection">
-<h3>Convergence detection<a class="headerlink" href="#convergence-detection" title="Permalink to this headline">#</a></h3>
+<h3>Convergence detection<a class="headerlink" href="#convergence-detection" title="Permalink to this heading">#</a></h3>
 <p>Rather than decide in advance how many iterations (of the Jacobi or Gauss-Seidel methods) to use stopping criteria:</p>
 <ul>
 <li><p>This could be a maximum number of iterations.</p></li>
@@ -575,14 +586,14 @@ document.write(`
 </ul>
 </section>
 <section id="discussion">
-<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">#</a></h3>
+<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p>What is a good convergence tolerance?</p>
 </div></blockquote>
 </section>
 </section>
 <section id="failure-to-converge">
-<h2>Failure to converge<a class="headerlink" href="#failure-to-converge" title="Permalink to this headline">#</a></h2>
+<h2>Failure to converge<a class="headerlink" href="#failure-to-converge" title="Permalink to this heading">#</a></h2>
 <p>In general there are two possible reasons that an iteration may fail to converge.</p>
 <ul>
 <li><p>It may <strong>diverge</strong> - this means that <span class="math notranslate nohighlight">\(\|\vec{x}^{(k)}\| \to \infty\)</span> as <span class="math notranslate nohighlight">\(k\)</span> (the number of iterations) increases, e.g.:</p>
@@ -635,7 +646,7 @@ document.write(`
 </li>
 </ul>
 <section id="implementation">
-<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h3>
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
 <p>In addition to testing for convergence it is also necessary to include tests for failure to converge.</p>
 <ul class="simple">
 <li><p>Divergence may be detected by monitoring <span class="math notranslate nohighlight">\(\|\vec{x}^{(k)}\|\)</span>.</p></li>
@@ -644,7 +655,7 @@ document.write(`
 </section>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">Sparse matrix</a> - including a long detailed list of software libraries support sparse matrices.</p></li>
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html"><code class="docutils literal notranslate"><span class="pre">scipy.sparse</span></code></a> custom routines specialised to sparse matrices</p></li>
@@ -681,11 +692,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="lec08.html"
@@ -705,10 +715,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -789,8 +796,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

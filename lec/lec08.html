@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 09: Iterative solutions of linear equations &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -382,10 +393,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -393,7 +404,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -454,9 +465,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-09-iterative-solutions-of-linear-equations">
-<h1>Lecture 09: Iterative solutions of linear equations<a class="headerlink" href="#lecture-09-iterative-solutions-of-linear-equations" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 09: Iterative solutions of linear equations<a class="headerlink" href="#lecture-09-iterative-solutions-of-linear-equations" title="Permalink to this heading">#</a></h1>
 <section id="direct-methods">
-<h2>Direct methods<a class="headerlink" href="#direct-methods" title="Permalink to this headline">#</a></h2>
+<h2>Direct methods<a class="headerlink" href="#direct-methods" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Gaussian elimination and LU factorisation are characterised as <strong>direct</strong> methods.</p></li>
 <li><p>They are guaranteed to produce a solution with a fixed amount of work (in exact arithmetic).</p></li>
@@ -470,7 +481,7 @@ document.write(`
 </ul>
 </section>
 <section id="iterative-methods">
-<h2>Iterative methods<a class="headerlink" href="#iterative-methods" title="Permalink to this headline">#</a></h2>
+<h2>Iterative methods<a class="headerlink" href="#iterative-methods" title="Permalink to this heading">#</a></h2>
 <p>It is possible to construct an <strong>iteration</strong> which will improve an approximation <span class="math notranslate nohighlight">\(\vec{x}^{(k)}\)</span> to the solution of (linear) equations <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span>.</p>
 <ul>
 <li><p>The iteration takes the form</p>
@@ -485,7 +496,7 @@ document.write(`
 <li><p>When should we stop?</p></li>
 </ul>
 <section id="some-very-bad-examples">
-<h3>Some very bad examples<a class="headerlink" href="#some-very-bad-examples" title="Permalink to this headline">#</a></h3>
+<h3>Some very bad examples<a class="headerlink" href="#some-very-bad-examples" title="Permalink to this heading">#</a></h3>
 <p><strong>Example 1</strong></p>
 <p>Consider</p>
 <div class="math notranslate nohighlight">
@@ -522,7 +533,7 @@ A \vec{x}^{(k+1)} &amp; = A \vec{x}^{(k)} + A A^{-1} (\vec{b} - A \vec{x}^{(k)})
 </section>
 </section>
 <section id="jacobi-iteration">
-<h2>Jacobi iteration<a class="headerlink" href="#jacobi-iteration" title="Permalink to this headline">#</a></h2>
+<h2>Jacobi iteration<a class="headerlink" href="#jacobi-iteration" title="Permalink to this heading">#</a></h2>
 <p>Consider the system <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span> but rewrite the matrix <span class="math notranslate nohighlight">\(A\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -554,7 +565,7 @@ D \vec{x} &amp; = D \vec{x} + (\vec{b} - A \vec{x}) \\
 <li><p><span class="math notranslate nohighlight">\(\vec{b} - A \vec{x}^{(k)} = \vec{r}\)</span> is call the <strong>residual</strong>.</p></li>
 </ul>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The cost of one iteration is <span class="math notranslate nohighlight">\(O(n^2)\)</span> for a full matrix, and this is dominated by the matrix-vector product <span class="math notranslate nohighlight">\(A \vec{x}^{(k)}\)</span>.</p></li>
 <li><p>This cost can be reduced to <span class="math notranslate nohighlight">\(O(n)\)</span> if the matrix <span class="math notranslate nohighlight">\(A\)</span> is sparse - this is when iterative methods are especially attractive (see next lecture).</p></li>
@@ -569,7 +580,7 @@ D \vec{x} &amp; = D \vec{x} + (\vec{b} - A \vec{x}) \\
 </ul>
 </section>
 <section id="component-by-component">
-<h3>Component by component<a class="headerlink" href="#component-by-component" title="Permalink to this headline">#</a></h3>
+<h3>Component by component<a class="headerlink" href="#component-by-component" title="Permalink to this heading">#</a></h3>
 <p>The Jacobi iteration updates all elements of <span class="math notranslate nohighlight">\(\vec{x}^{(k)}\)</span> <em>simultaneously</em> to get <span class="math notranslate nohighlight">\(\vec{x}^{(k+1)}\)</span>.</p>
 <p>Writing the method out component by component gives</p>
 <div class="math notranslate nohighlight">
@@ -585,7 +596,7 @@ x_n^{(k+1)} &amp;= x_n^{(k)} + \frac{1}{A_{nn}} \left( b_n - \sum_{j=1}^n A_{nj}
 </section>
 </section>
 <section id="gauss-seidel-iteration">
-<h2>Gauss-Seidel iteration<a class="headerlink" href="#gauss-seidel-iteration" title="Permalink to this headline">#</a></h2>
+<h2>Gauss-Seidel iteration<a class="headerlink" href="#gauss-seidel-iteration" title="Permalink to this heading">#</a></h2>
 <p>Alternatively, the iteration might use <span class="math notranslate nohighlight">\(x_i^{(k+1)}\)</span> as soon as it is calculated, giving</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -637,7 +648,7 @@ A \vec{x} = (D + L + U) \vec{x} &amp; = \vec{b} \\
 \]</div>
 <p>That is <span class="math notranslate nohighlight">\(P = (D+L)^{-1}\)</span>.</p>
 <section id="example-1">
-<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h3>
 <p>Take two iterations of (i) Jacobi iteration; (ii) Gauss-Seidel iteration to approximate the solution of the following system using the initial guess <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (1, 1)^T\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -657,7 +668,7 @@ x_1 \\ x_2
 <li><p>Note that the exact solution to this system is <span class="math notranslate nohighlight">\(x_1 = 1.5\)</span> and <span class="math notranslate nohighlight">\(x_2 = 0.5\)</span>.</p></li>
 </ul>
 <section id="i-jacobi-iteration">
-<h4>(i) Jacobi iteration<a class="headerlink" href="#i-jacobi-iteration" title="Permalink to this headline">#</a></h4>
+<h4>(i) Jacobi iteration<a class="headerlink" href="#i-jacobi-iteration" title="Permalink to this heading">#</a></h4>
 <p>Starting from <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (2, 1)^T\)</span> we have</p>
 <p>Iteration 1:</p>
 <div class="math notranslate nohighlight">
@@ -682,7 +693,7 @@ x^{(2)}_2 &amp; = x^{(1)}_2 + \frac{1}{A_{22}} (b_2 - A_{21} x^{(1)}_1 - A_{22} 
 <p>Note the only difference between the formulae for Iteration 1 and 2 is the iteration number, the superscript in brackets.</p>
 </section>
 <section id="ii-gauss-seidel-iteration">
-<h4>(ii) Gauss-Seidel iteration<a class="headerlink" href="#ii-gauss-seidel-iteration" title="Permalink to this headline">#</a></h4>
+<h4>(ii) Gauss-Seidel iteration<a class="headerlink" href="#ii-gauss-seidel-iteration" title="Permalink to this heading">#</a></h4>
 <p>Starting from <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (2, 1)^T\)</span> we have</p>
 <p>Iteration 1:</p>
 <div class="math notranslate nohighlight">
@@ -708,7 +719,7 @@ x^{(2)}_2 &amp; = x^{(1)}_2 + \frac{1}{A_{22}} (b_2 - A_{21} x^{(2)}_1 - A_{22} 
 </section>
 </section>
 <section id="example-2-homework">
-<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this headline">#</a></h3>
+<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this heading">#</a></h3>
 <p>Take one iteration of (i) Jacobi iteration; (ii) Gauss-Seidel iteration to approximate the solution of the following system using the initial guess <span class="math notranslate nohighlight">\(\vec{x}^{(0)} = (1, 2, 3)^T\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -728,7 +739,7 @@ x_1 \\ x_2 \\ x_3
 <p>Note that the exact solution to this system is <span class="math notranslate nohighlight">\(x_1 = 2, x_2 = 2, x_3 = 2\)</span>.</p>
 </section>
 <section id="id1">
-<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Here both methods converge, but fairly slowly. They might not converge at all!</p></li>
 <li><p>We will discuss convergence and stopping criteria in the next lecture.</p></li>
@@ -739,7 +750,7 @@ x_1 \\ x_2 \\ x_3
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Many complex computational problems simply cannot be solved with today’s computers using direct methods.</p></li>
 <li><p>Iterative methods are used instead since they can massively reduce the computational cost and storage required to get a “good enough” solution.</p></li>
@@ -749,7 +760,7 @@ x_1 \\ x_2 \\ x_3
 </ul>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Jacobi_method">Jacobi method</a></p></li>
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method">Gauss-Seidel method</a></p></li>
@@ -792,11 +803,10 @@ x_1 \\ x_2 \\ x_3
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../ws/ws04.html"
@@ -816,10 +826,7 @@ x_1 \\ x_2 \\ x_3
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -905,8 +912,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

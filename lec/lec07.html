@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 07: LU factorisation &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -382,10 +393,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -393,7 +404,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -445,9 +456,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-07-lu-factorisation">
-<h1>Lecture 07: LU factorisation<a class="headerlink" href="#lecture-07-lu-factorisation" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 07: LU factorisation<a class="headerlink" href="#lecture-07-lu-factorisation" title="Permalink to this heading">#</a></h1>
 <section id="the-cost-of-gaussian-elimination">
-<h2>The cost of Gaussian Elimination<a class="headerlink" href="#the-cost-of-gaussian-elimination" title="Permalink to this headline">#</a></h2>
+<h2>The cost of Gaussian Elimination<a class="headerlink" href="#the-cost-of-gaussian-elimination" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Gaussian elimination (GE) is unnecessarily expensive when it is applied to many systems of equations with the same matrix <span class="math notranslate nohighlight">\(A\)</span> but different right-hand sides <span class="math notranslate nohighlight">\(\vec{b}\)</span>.</p>
 <ul>
@@ -458,7 +469,7 @@ document.write(`
 <li><p>We can use this information to improve the way in which we solve multiple systems of equations with the same matrix <span class="math notranslate nohighlight">\(A\)</span> but different right-hand sides <span class="math notranslate nohighlight">\(\vec{b}\)</span>.</p></li>
 </ul>
 <section id="elementary-row-operations-eros">
-<h3>Elementary row operations (EROs)<a class="headerlink" href="#elementary-row-operations-eros" title="Permalink to this headline">#</a></h3>
+<h3>Elementary row operations (EROs)<a class="headerlink" href="#elementary-row-operations-eros" title="Permalink to this heading">#</a></h3>
 <p>Note that the EROs discussed in the last lecture can be produced by left multiplication with a suitable matrix:</p>
 <ul>
 <li><p>Row swap:</p>
@@ -525,7 +536,7 @@ document.write(`
 </section>
 </section>
 <section id="lu-factorisation">
-<h2>LU factorisation<a class="headerlink" href="#lu-factorisation" title="Permalink to this headline">#</a></h2>
+<h2>LU factorisation<a class="headerlink" href="#lu-factorisation" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>Recall from the last lecture that Gaussian elimination (GE) is just a sequence of EROs.</p></li>
 <li><p>Each of these EROs is equivalent to (left) multiplication by a suitable matrix, <span class="math notranslate nohighlight">\(E\)</span> say.</p></li>
@@ -555,7 +566,7 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span> may be found in <span class="math notranslate nohighlight">\(O(n^3)\)</span> operations by performing GE and saving the <span class="math notranslate nohighlight">\(E_i\)</span> matrices, however it is more convenient to find them directly (also <span class="math notranslate nohighlight">\(O(n^3)\)</span> operations).</p></li>
 </ul>
 <section id="computing-l-and-u">
-<h3>Computing <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span><a class="headerlink" href="#computing-l-and-u" title="Permalink to this headline">#</a></h3>
+<h3>Computing <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span><a class="headerlink" href="#computing-l-and-u" title="Permalink to this heading">#</a></h3>
 <p>Consider a general <span class="math notranslate nohighlight">\(4 \times 4\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> and its factorisation <span class="math notranslate nohighlight">\(LU\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -596,7 +607,7 @@ a_{41} &amp; = (l_{41}, l_{42}, l_{43}, 1)(u_{11}, 0, 0, 0)^T &amp;&amp; = l_{41
 <p>The second, third and fourth columns follow in a similar manner, giving all the entries in <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span>.</p>
 </section>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(L\)</span> is assumed to have 1’s on the diagonal, to ensure that the factorisation is unique.</p></li>
 <li><p>The process involves division by the diagonal entries <span class="math notranslate nohighlight">\(u_{11}, u_{22}\)</span>, etc., so they <strong>must</strong> be non-zero.</p></li>
@@ -614,7 +625,7 @@ a_{41} &amp; = (l_{41}, l_{42}, l_{43}, 1)(u_{11}, 0, 0, 0)^T &amp;&amp; = l_{41
 </ul>
 </section>
 <section id="example-1">
-<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h3>
 <p>Use <span class="math notranslate nohighlight">\(LU\)</span> factorisation to solve the linear system of equations given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -727,7 +738,7 @@ x_1 \\ x_2 \\ x_3
 \end{split}\]</div>
 </section>
 <section id="example-2-homework">
-<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this headline">#</a></h3>
+<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this heading">#</a></h3>
 <p>Rewrite the matrix <span class="math notranslate nohighlight">\(A\)</span> as the product of lower and upper triangular matrices where</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -740,7 +751,7 @@ A =
 \end{split}\]</div>
 </section>
 <section id="the-link">
-<h3>The link<a class="headerlink" href="#the-link" title="Permalink to this headline">#</a></h3>
+<h3>The link<a class="headerlink" href="#the-link" title="Permalink to this heading">#</a></h3>
 <p>The first example gives</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -769,7 +780,7 @@ A =
 </section>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/LU_decomposition">LU decomposition</a></p></li>
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_decomposition">Matrix decomposition</a> (Other examples of decompositions).</p></li>
@@ -808,11 +819,10 @@ A =
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../ws/ws03.html"
@@ -832,10 +842,7 @@ A =
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -912,8 +919,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

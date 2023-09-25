@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>WS01: Introduction to Python and Jupyter &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -75,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -447,10 +458,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -458,7 +469,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -536,23 +547,23 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ws01-introduction-to-python-and-jupyter">
-<h1>WS01: Introduction to Python and Jupyter<a class="headerlink" href="#ws01-introduction-to-python-and-jupyter" title="Permalink to this headline">#</a></h1>
+<h1>WS01: Introduction to Python and Jupyter<a class="headerlink" href="#ws01-introduction-to-python-and-jupyter" title="Permalink to this heading">#</a></h1>
 <p>This workbook is for you to get to grips with how the rest of the worksheets in this class will work and gain familiarity with Python and jupyter. You should read the text and follow the instructions of how to run each cell.</p>
 <p>If you are familiar with the content you may go quickly through this tutorial.</p>
 <section id="what-is-python">
-<h2>What is Python?<a class="headerlink" href="#what-is-python" title="Permalink to this headline">#</a></h2>
+<h2>What is Python?<a class="headerlink" href="#what-is-python" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.python.org/"><img alt="" src="https://www.python.org/static/community_logos/python-logo.png" /></a></p>
 <p>Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.</p>
 <p>The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python web site, <a class="reference external" href="https://www.python.org/">https://www.python.org/</a>, and may be freely distributed. The same site also contains distributions of and pointers to many free third party Python modules, programs and tools, and additional documentation.</p>
 <p>More: <a class="reference external" href="https://docs.python.org/3/tutorial">https://docs.python.org/3/tutorial</a></p>
 </section>
 <section id="accessing-python">
-<h2>Accessing Python<a class="headerlink" href="#accessing-python" title="Permalink to this headline">#</a></h2>
+<h2>Accessing Python<a class="headerlink" href="#accessing-python" title="Permalink to this heading">#</a></h2>
 <p>There’s a good chance that you already have Python on your operating system.</p>
 <p>If so, you do not need to install or configure anything else to use Python. Having said that, I would strongly recommend that you install the tools and libraries described in the guides below before you start building Python applications for use in this course.</p>
 <p>More: <a class="reference external" href="https://docs.python-guide.org/starting/installation/">https://docs.python-guide.org/starting/installation/</a></p>
 <section id="using-python-on-a-school-of-computing-machine">
-<h3>Using Python on a School of Computing machine<a class="headerlink" href="#using-python-on-a-school-of-computing-machine" title="Permalink to this headline">#</a></h3>
+<h3>Using Python on a School of Computing machine<a class="headerlink" href="#using-python-on-a-school-of-computing-machine" title="Permalink to this heading">#</a></h3>
 <p><em>TODO: update these instructions to RHEL8 image when available.</em></p>
 <p>On a School of Computing machine you can access an upto date version of python using <code class="docutils literal notranslate"><span class="pre">anaconda</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module load legacy-eng
@@ -566,7 +577,7 @@ Python 3.8.5
 </div>
 </section>
 <section id="using-python-on-your-own-device">
-<h3>Using python on your own device<a class="headerlink" href="#using-python-on-your-own-device" title="Permalink to this headline">#</a></h3>
+<h3>Using python on your own device<a class="headerlink" href="#using-python-on-your-own-device" title="Permalink to this heading">#</a></h3>
 <p>You are recommended to install <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a> and python 3. Anaconda is gives up to date version of python and python libraries which you can use during this module.</p>
 <p>Choosing this option will require an initial software installation and routine updates. For this course the recommended package is Anaconda available from Continuum Analytics. Downloading and installing the software is well documented and easy to follow. Allow about 10-30 minutes for the installation depending on your connection speed.</p>
 <p>You will require the following python libraries:</p>
@@ -584,7 +595,7 @@ There is no requirement to submit code that works on a School of Computing machi
 </div></section>
 </section>
 <section id="what-is-jupyter">
-<h2>What is Jupyter?<a class="headerlink" href="#what-is-jupyter" title="Permalink to this headline">#</a></h2>
+<h2>What is Jupyter?<a class="headerlink" href="#what-is-jupyter" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://jupyter.org/"><img alt="" src="https://jupyter.org/assets/homepage/main-logo.svg" /></a></p>
 <p>Jupyter notebooks are documents that can be viewed and executed inside any modern web browser. Since you’re reader this notebook, you already know how to view a Jupyter Notebook. The next step is to learn how to execute comptuations that may be embedded in a Jupyter Notebook.</p>
 <p>To execute Python code in a notebook you will need access to a Python kernal. A kernal is simply a program that runs in the background, maintains workspace memory for variables and functions, and executes Python code. The kernal can be located on the same laptop as your web browser or located in an on-line cloud service.</p>
@@ -611,18 +622,18 @@ There is no requirement to submit code that works on a School of Computing machi
         </div></div>
 </div>
 <section id="using-jupyter-on-a-school-of-computing-machine">
-<h3>Using Jupyter on a School of Computing machine<a class="headerlink" href="#using-jupyter-on-a-school-of-computing-machine" title="Permalink to this headline">#</a></h3>
+<h3>Using Jupyter on a School of Computing machine<a class="headerlink" href="#using-jupyter-on-a-school-of-computing-machine" title="Permalink to this heading">#</a></h3>
 <p><em>TODO: update for RHEL8 image</em></p>
 <p>If you have followed the same <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">add</span> <span class="pre">anaconda3/2020.11</span></code> etc instructions from before to load Python, you will already have Jupyter Lab installed.</p>
 </section>
 <section id="using-jupyter-in-the-cloud">
-<h3>Using Jupyter in the cloud<a class="headerlink" href="#using-jupyter-in-the-cloud" title="Permalink to this headline">#</a></h3>
+<h3>Using Jupyter in the cloud<a class="headerlink" href="#using-jupyter-in-the-cloud" title="Permalink to this heading">#</a></h3>
 <p>The easiest way to use Jupyter notebooks is to sign up for a free or paid account on a cloud-based service such as <a class="reference external" href="https://mybinder.org">binder</a>, <a class="reference external" href="https://colab.research.google.com/">Google Colab</a> or <a class="reference external" href="https://deepnote.com/">Deep note</a>.
 Note that the free services are generally heavily oversubscribed, so you should consider a paid account to assure access during prime hours.</p>
 <p>We have already created the links on binder for you to use. Simply click to <a class="reference external" href="https://mybinder.org/v2/gl/comp2421-numerical-computation%2Fbook/master"><img alt="Launch binder" src="https://mybinder.org/badge_logo.svg" /></a>. Each notebook in this course will have a similar logo at the top so that you can launch that notebook in binder too.</p>
 </section>
 <section id="using-jupyter-on-your-own-laptop">
-<h3>Using Jupyter on your own laptop<a class="headerlink" href="#using-jupyter-on-your-own-laptop" title="Permalink to this headline">#</a></h3>
+<h3>Using Jupyter on your own laptop<a class="headerlink" href="#using-jupyter-on-your-own-laptop" title="Permalink to this heading">#</a></h3>
 <p>For regular off-line use you should consider installing a Jupyter Notebook/Python environment directly on your laptop. This will provide you with reliable off-line access to a computational environment. This will also allow you to install additional code libraries to meet particular needs.</p>
 <p>To install jupyterlab you should write:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge jupyterlab
@@ -631,7 +642,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </section>
 </section>
 <section id="step-1-start-a-jupyter-notebook-session">
-<h2>Step 1: Start a jupyter notebook session<a class="headerlink" href="#step-1-start-a-jupyter-notebook-session" title="Permalink to this headline">#</a></h2>
+<h2>Step 1: Start a jupyter notebook session<a class="headerlink" href="#step-1-start-a-jupyter-notebook-session" title="Permalink to this heading">#</a></h2>
 <p>If you are using a cloud-based service a Jupyter session will be started when you log on.</p>
 <p>If you have installed Jupyter on your own laptop or on a School of Computing machine you can open a Jupyter session from a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter lab
@@ -641,7 +652,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 <p><img alt="" src="https://jupyterlab.readthedocs.io/en/stable/_images/jupyterlab.png" /></p>
 <p>If you are unfamiliar with jupyter lab or jupyter notebooks we recommend you follow the <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/interface.html">user documentation</a>. Alternatively we give a brief guide below.</p>
 <section id="running-cells">
-<h3>Running cells<a class="headerlink" href="#running-cells" title="Permalink to this headline">#</a></h3>
+<h3>Running cells<a class="headerlink" href="#running-cells" title="Permalink to this heading">#</a></h3>
 <p>A notebook’s cells default to code whenever you first create one, and that cell uses the kernal that you chose when you started your notebook.</p>
 <p>To verify everything is working, you can add some python code to the cells and try running its contents.</p>
 <div class="cell docutils container">
@@ -664,7 +675,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </section>
 </section>
 <section id="step-2-simple-calculations-with-python">
-<h2>Step 2: Simple calculations with python<a class="headerlink" href="#step-2-simple-calculations-with-python" title="Permalink to this headline">#</a></h2>
+<h2>Step 2: Simple calculations with python<a class="headerlink" href="#step-2-simple-calculations-with-python" title="Permalink to this heading">#</a></h2>
 <p>Python is an elegant and modern language for programming and problem solving that has found increasing use by engineers and scientists. In the next few cells we’ll demonstrate some basic functionality.</p>
 <p>We take the following from <a class="reference external" href="https://learnxinyminutes.com/docs/python/">https://learnxinyminutes.com/docs/python/</a>. If you are already familiar with python you may wish to skip this section.</p>
 <div class="cell docutils container">
@@ -948,7 +959,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </div>
 <section id="variables-and-collections">
-<h3>Variables and collections<a class="headerlink" href="#variables-and-collections" title="Permalink to this headline">#</a></h3>
+<h3>Variables and collections<a class="headerlink" href="#variables-and-collections" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python has a print function</span>
@@ -1400,7 +1411,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="control-flow-and-iterables">
-<h3>Control flow and iterables<a class="headerlink" href="#control-flow-and-iterables" title="Permalink to this headline">#</a></h3>
+<h3>Control flow and iterables<a class="headerlink" href="#control-flow-and-iterables" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s just make a variable</span>
@@ -1680,7 +1691,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="function">
-<h3>Function<a class="headerlink" href="#function" title="Permalink to this headline">#</a></h3>
+<h3>Function<a class="headerlink" href="#function" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use &quot;def&quot; to create new functions</span>
@@ -1857,7 +1868,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="modules">
-<h3>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">#</a></h3>
+<h3>Modules<a class="headerlink" href="#modules" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can import modules</span>
@@ -1932,7 +1943,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </section>
 </section>
 <section id="step-3-using-numpy">
-<h2>Step 3: Using <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#step-3-using-numpy" title="Permalink to this headline">#</a></h2>
+<h2>Step 3: Using <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#step-3-using-numpy" title="Permalink to this heading">#</a></h2>
 <p>The python language has only basic operations. Most maths functions are in various maths libraries. In this module we will make use of <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <p>The official numpy documentation gives good tutorials on how to get started. The information below is based on these:</p>
 <ul class="simple">
@@ -1950,7 +1961,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </div>
 <section id="the-basics">
-<h3>The basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">#</a></h3>
+<h3>The basics<a class="headerlink" href="#the-basics" title="Permalink to this heading">#</a></h3>
 <p>The fundamental object used in numpy is the homogeneous multidimensional array - we call two dimensional versions of this a matrix in our course. In NumPy these dimensions are called <em>axes</em>.</p>
 <p>For example, the array for the coordinates of a point in 3D space, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">1]</span></code>, has one axis. That axis has 3 elements in it, so we say it has length of 3.</p>
 <p>The next example below, the array has 2 axis. The first axis of length 2 and the second axis of length 3.</p>
@@ -1976,7 +1987,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </div>
 <section id="an-example">
-<h4>An example<a class="headerlink" href="#an-example" title="Permalink to this headline">#</a></h4>
+<h4>An example<a class="headerlink" href="#an-example" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]])</span>
@@ -1994,7 +2005,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </section>
 </section>
 <section id="array-creation">
-<h3>Array creation<a class="headerlink" href="#array-creation" title="Permalink to this headline">#</a></h3>
+<h3>Array creation<a class="headerlink" href="#array-creation" title="Permalink to this heading">#</a></h3>
 <p>There are several ways to create arrays.</p>
 <p>The most common is to create an array from a regular python list using the array function. The type of resulting array is deduced from the type of the elements in the list:</p>
 <div class="cell docutils container">
@@ -2063,7 +2074,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="basic-operators">
-<h3>Basic operators<a class="headerlink" href="#basic-operators" title="Permalink to this headline">#</a></h3>
+<h3>Basic operators<a class="headerlink" href="#basic-operators" title="Permalink to this heading">#</a></h3>
 <p>Arithmetic operators on arrays apply <em>elementwise</em>. A new array is created an filled with the result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2095,7 +2106,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="indexing-slicing-and-iterating">
-<h3>Indexing, slicing and iterating<a class="headerlink" href="#indexing-slicing-and-iterating" title="Permalink to this headline">#</a></h3>
+<h3>Indexing, slicing and iterating<a class="headerlink" href="#indexing-slicing-and-iterating" title="Permalink to this heading">#</a></h3>
 <p>One dimensional arrays can be indexed, sliced and iterated over, much like lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2129,10 +2140,10 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="copies-and-views">
-<h3>Copies and views<a class="headerlink" href="#copies-and-views" title="Permalink to this headline">#</a></h3>
+<h3>Copies and views<a class="headerlink" href="#copies-and-views" title="Permalink to this heading">#</a></h3>
 <p>When operating and manipulating arrays, their data is sometimes copied into a new array and sometimes not. This is often a source of confusion for beginners. There are three cases.</p>
 <section id="no-copy-at-all">
-<h4>No copy at all<a class="headerlink" href="#no-copy-at-all" title="Permalink to this headline">#</a></h4>
+<h4>No copy at all<a class="headerlink" href="#no-copy-at-all" title="Permalink to this heading">#</a></h4>
 <p>Simply assignment makes no copy of objects or their data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2158,7 +2169,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="view-or-shallow-copy">
-<h4>View or shallow copy<a class="headerlink" href="#view-or-shallow-copy" title="Permalink to this headline">#</a></h4>
+<h4>View or shallow copy<a class="headerlink" href="#view-or-shallow-copy" title="Permalink to this heading">#</a></h4>
 <p>Different array objects can share the same data. The <code class="docutils literal notranslate"><span class="pre">view</span></code> method creates a new array object that looks at the same data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2192,7 +2203,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
 </div>
 </section>
 <section id="deep-copy">
-<h4>Deep copy<a class="headerlink" href="#deep-copy" title="Permalink to this headline">#</a></h4>
+<h4>Deep copy<a class="headerlink" href="#deep-copy" title="Permalink to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">copy</span></code> method makes a completely new copy of the array and its data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2247,11 +2258,10 @@ Note that the free services are generally heavily oversubscribed, so you should 
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../lec/lec04.html"
@@ -2271,10 +2281,7 @@ Note that the free services are generally heavily oversubscribed, so you should 
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2377,8 +2384,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

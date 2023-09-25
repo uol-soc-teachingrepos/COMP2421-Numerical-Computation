@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Module information &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -74,6 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -379,10 +390,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -390,7 +401,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -421,15 +432,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-components">Module components</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">Lectures</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials">Tutorials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-and-coursework-exercise">Homework and coursework exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheets">Worksheets</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment">Assessment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examination">Examination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summative-coursework">Summative coursework</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formative-homework">Formative homework</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-succeed">How to succeed?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-100">How to get 100%?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-20">Portfolio (20%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summative-coursework-80">Summative coursework (80%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formative-coursework">Formative coursework</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syllabus">Syllabus</a><ul class="nav section-nav flex-column">
@@ -451,16 +460,16 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="module-information">
-<h1>Module information<a class="headerlink" href="#module-information" title="Permalink to this headline">#</a></h1>
+<h1>Module information<a class="headerlink" href="#module-information" title="Permalink to this heading">#</a></h1>
 <p><strong>All dates below are subject to change.</strong></p>
 <p>Module leader
 :   Dr Thomas Ranner (Tom)</p>
 <p>Email
 :   <a class="reference external" href="mailto:T&#46;Ranner&#37;&#52;&#48;leeds&#46;ac&#46;uk">T<span>&#46;</span>Ranner<span>&#64;</span>leeds<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
 <p>Teams group
-:   <a class="reference external" href="https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&amp;tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb">22/23(1) COMP2421 Numerical Computation (32879)</a></p>
+:   <a class="reference external" href="https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&amp;tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb">23/24(1) COMP2421 Numerical Computation (32879)</a></p>
 <section id="course-contents">
-<h2>Course contents<a class="headerlink" href="#course-contents" title="Permalink to this headline">#</a></h2>
+<h2>Course contents<a class="headerlink" href="#course-contents" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Vectors and matrices</strong>: introduction and justification; vector and matrix operations; identity matrix; inverse of a matrix.</p></li>
 <li><p><strong>Approximation and errors</strong>: modelling and mathematical modelling; discrete and continuous models; floating point and rounding errors; balancing accuracy and efficiency.</p></li>
@@ -469,9 +478,9 @@ document.write(`
 </ul>
 </section>
 <section id="module-components">
-<h2>Module components<a class="headerlink" href="#module-components" title="Permalink to this headline">#</a></h2>
+<h2>Module components<a class="headerlink" href="#module-components" title="Permalink to this heading">#</a></h2>
 <section id="lectures">
-<h3>Lectures<a class="headerlink" href="#lectures" title="Permalink to this headline">#</a></h3>
+<h3>Lectures<a class="headerlink" href="#lectures" title="Permalink to this heading">#</a></h3>
 <p>2 hours per week</p>
 <ul class="simple">
 <li><p>Thursdays at 12:00</p></li>
@@ -479,84 +488,113 @@ document.write(`
 </ul>
 </section>
 <section id="tutorials">
-<h3>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">#</a></h3>
+<h3>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this heading">#</a></h3>
 <p>1 hour per week face to face (see timetable)</p>
 <p>Opportunity to get <strong>feedback</strong> on learning</p>
 </section>
-<section id="homework-and-coursework-exercise">
-<h3>Homework and coursework exercise<a class="headerlink" href="#homework-and-coursework-exercise" title="Permalink to this headline">#</a></h3>
+<section id="worksheets">
+<h3>Worksheets<a class="headerlink" href="#worksheets" title="Permalink to this heading">#</a></h3>
 <p>These will be provided <em>weekly</em> throughout the semester.</p>
-<p>Courseworks are designed to give practice and reinforce the lectures. Coursework material is examinable.</p>
 </section>
 </section>
 <section id="assessment">
-<h2>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">#</a></h2>
-<section id="examination">
-<h3>Examination<a class="headerlink" href="#examination" title="Permalink to this headline">#</a></h3>
-<p>Computer exam in January. 2 hour exam with some multiple choice, short and longer answer questions. The exam is worth 60% of the credit for the module.</p>
-<p>See <a class="reference internal" href="lec/lec20.html"><span class="doc std std-doc">Lecture 20</span></a> for details.</p>
-<p><em>Edit: exam type changed - please follow updated guidance</em></p>
-</section>
-<section id="summative-coursework">
-<h3>Summative coursework<a class="headerlink" href="#summative-coursework" title="Permalink to this headline">#</a></h3>
-<p>There are two pieces of coursework for this module. Each is worth 20% of your module grade. Coursework will be submitted via Gradescope. The dates are tentative at this stage and are subject to change.</p>
-<p><strong>Feedback</strong> will be provided in tutorials and written group feedback.</p>
-<table class="colwidths-auto table">
-	<caption>Summative coursework timetable</caption>
-	<thead>
-	<tr>
-	<th class="head">Coursework</th>
-	<th class="head">Date set</th>
-	<th class="head">Submission deadline</th>
-	<th class="head">Feedback date</th>
-	</tr>
-	</thead>
-	<tr>
-	<td>1</td>
-	<td>17/10/22</td>
-	<td>8/11/22</td>
-	<td>22/11/22</td>
-	</tr>
-	<tr>
-	<td>2</td>
-	<td>28/11/22</td>
-	<td>13/12/22</td>
-	<td>early 23</td>
-	</tr>
+<h2>Assessment<a class="headerlink" href="#assessment" title="Permalink to this heading">#</a></h2>
+<table class="table" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Assessment schedule</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Release date</p></th>
+<th class="head"><p>Due date</p></th>
+<th class="head"><p>Credit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Portfolio</p></td>
+<td><p>Mon 2 Oct</p></td>
+<td><p>weekly, Tuesday 2pm</p></td>
+<td><p>20%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Coursework</p></td>
+<td><p>Mon 4 Dec</p></td>
+<td><p>Wed 10 Dec, 2pm</p></td>
+<td><p>80%</p></td>
+</tr>
+<tr class="row-even"><td><p>Formative 1</p></td>
+<td><p>Mon 9 Oct</p></td>
+<td><p>Wed 25 Oct, 2pm</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Formative 2</p></td>
+<td><p>Mon  15 Nov</p></td>
+<td><p>Wed 29 Nov, 2pm</p></td>
+<td><p>0%</p></td>
+</tr>
+</tbody>
 </table>
-<p>Late submission will only be allowed up to 1 week after the submission deadline to allow feedback to be returned in a reasonable time frame.</p>
-</section>
-<section id="formative-homework">
-<h3>Formative homework<a class="headerlink" href="#formative-homework" title="Permalink to this headline">#</a></h3>
-<p>There will be weekly homework assignment sheets. These are not for credit. Additional feedback will be given through the release of worked solutions and in tutorial sessions.</p>
-</section>
-<section id="how-to-succeed">
-<h3>How to succeed?<a class="headerlink" href="#how-to-succeed" title="Permalink to this headline">#</a></h3>
+<p>The dates are tentative at this stage and are subject to change.</p>
+<section id="portfolio-20">
+<h3>Portfolio (20%)<a class="headerlink" href="#portfolio-20" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Read lecture notes <strong>before lectures</strong> – all available</p></li>
-<li><p>Turn up to lectures with <strong>pen and paper</strong></p></li>
-<li><p>Attempt <strong>worksheet</strong> before tutorial</p></li>
-<li><p>Let tutorial leader know where you are having problems before the session</p></li>
-<li><p>Attend tutorial every week - ask questions</p></li>
+<li><p>A question similar to each worksheet is available in minerva each week.</p></li>
+<li><p>You will have to submit your answer (and show your working) by the Tuesday 2pm deadline.</p></li>
+<li><p>You will receive two mark for giving the correct numerical and one mark for your working.</p></li>
+<li><p>The best 6 of 8 will count for your final mark.</p></li>
+<li><p>No late submission allowed.</p></li>
 </ul>
+<table class="table" id="id2">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Portfolio deadlines</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Section</p></th>
+<th class="head"><p>Deadline</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Tue 17 Oct, 2pm</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Tue 24 Oct, 2pm</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Tue 7 Nov, 2pm</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Tue 14 Nov, 2pm</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Tue 21 Nov, 2pm</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Tue 28 Nov, 2pm</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Tue 5 Dec, 2pm</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Tue 12 Dec, 2pm</p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="how-to-get-100">
-<h3>How to get 100%?<a class="headerlink" href="#how-to-get-100" title="Permalink to this headline">#</a></h3>
-<p><strong>No one gets 100%</strong></p>
-<ul class="simple">
-<li><p>You should be able to apply all algorithms to get 40-50%.</p></li>
-<li><p>You should be able to apply modifications to algorithms to get 50-60%</p></li>
-<li><p>You should be able to explore algorithms to get 60-70%</p></li>
-<li><p>You should be able to understand why algorithms are good/bad to get 70%+</p></li>
-<li><p>You should be able to write research papers on this topic to get 90%+</p></li>
-</ul>
+<section id="summative-coursework-80">
+<h3>Summative coursework (80%)<a class="headerlink" href="#summative-coursework-80" title="Permalink to this heading">#</a></h3>
+<p>A single piece of summative coursework will count for the majority of the assessment of this module (80%).
+You will be asked an open ended question which allows you to explore one of the topics from the module in detail.
+The rubric that you will be marked against is available in minerva.
+The coursework will be submitted via Gradescope.
+Usual late submission rules apply.</p>
+</section>
+<section id="formative-coursework">
+<h3>Formative coursework<a class="headerlink" href="#formative-coursework" title="Permalink to this heading">#</a></h3>
+<p>There will be two additional formative courseworks which you can use to build skills related to the summative coursework.
+Submission and feedback mechanism details to be confirmed.</p>
 </section>
 </section>
 <section id="syllabus">
-<h2>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">#</a></h2>
+<h2>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this heading">#</a></h2>
 <p>This is a rough breakdown of topics to be covered this semester. Please note that this is not entirely fixed and I cannot guarantee to follow this precise structure.</p>
-<table class="colwidths-auto table">
-<caption>Lecture topics</caption>
+<table class="table" id="id3">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Teaching plan</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Lecture</p></th>
 <th class="head"><p>Topic</p></th>
@@ -567,16 +605,16 @@ document.write(`
 <td><p>Introduction</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
-<td><p>Floating point number systems</p></td>
-</tr>
-<tr class="row-even"><td><p>3 (week 2)</p></td>
 <td><p>Vectors and matrices</p></td>
 </tr>
+<tr class="row-even"><td><p>3 (week 2)</p></td>
+<td><p>Floating point numbers</p></td>
+</tr>
 <tr class="row-odd"><td><p>4</p></td>
-<td><p>Linear transformations</p></td>
+<td><p>Introduction to systems of linear equations</p></td>
 </tr>
 <tr class="row-even"><td><p>5 (week 3)</p></td>
-<td><p>Solving triangular systems of linear equations</p></td>
+<td><p>Solving triangular systems</p></td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
 <td><p>Gaussian elimination</p></td>
@@ -585,16 +623,16 @@ document.write(`
 <td><p>LU factorisation</p></td>
 </tr>
 <tr class="row-odd"><td><p>8</p></td>
-<td><p>Indirect methods (Jacobi, Gauss-Seidel)</p></td>
+<td><p>The effects of finite precision</p></td>
 </tr>
 <tr class="row-even"><td><p></p></td>
 <td><p><em>reading week</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>9 (week 6)</p></td>
-<td><p>Sparse systems of linear equations, norms</p></td>
+<td><p>Iterative methods</p></td>
 </tr>
 <tr class="row-even"><td><p>10</p></td>
-<td><p>Pivoting</p></td>
+<td><p>Sparse matrices and stopping criteria</p></td>
 </tr>
 <tr class="row-odd"><td><p>11 (week 7)</p></td>
 <td><p>Derivatives and rates of change</p></td>
@@ -603,36 +641,32 @@ document.write(`
 <td><p>Euler’s method</p></td>
 </tr>
 <tr class="row-odd"><td><p>13 (week 8)</p></td>
-<td><p>Euler &amp; midpoint methods</p></td>
+<td><p>Midpoint method</p></td>
 </tr>
 <tr class="row-even"><td><p>14</p></td>
-<td><p>Runge-Kutte integration</p></td>
+<td><p>Systems of differential equations</p></td>
 </tr>
 <tr class="row-odd"><td><p>15 (week 9)</p></td>
-<td><p>Bisection, Newton’s method</p></td>
+<td><p>Introduction to nonlinear equations</p></td>
 </tr>
 <tr class="row-even"><td><p>16</p></td>
 <td><p>Newton’s method</p></td>
 </tr>
 <tr class="row-odd"><td><p>17 (week 10)</p></td>
-<td><p>The secant method</p></td>
+<td><p>Quasi-Newton methods</p></td>
 </tr>
 <tr class="row-even"><td><p>18</p></td>
-<td><p>Hybrid methods</p></td>
+<td><p>Robust linear solvers</p></td>
 </tr>
-<tr class="row-odd"><td><p>19 (week 11)</p></td>
-<td><p>Special topics</p></td>
-</tr>
-<tr class="row-even"><td><p>20</p></td>
-<td><p>Review</p></td>
+<tr class="row-odd"><td><p>19/20 (week 11)</p></td>
+<td><p>Special topics/Formative coursework feedback</p></td>
 </tr>
 </tbody>
 </table>
 <section id="tutorials-plan">
-<h3>Tutorials plan<a class="headerlink" href="#tutorials-plan" title="Permalink to this headline">#</a></h3>
+<h3>Tutorials plan<a class="headerlink" href="#tutorials-plan" title="Permalink to this heading">#</a></h3>
 <p>Weekly tutorials should will support you in your learning. See your timetable for when and where you should attend.</p>
-<table class="colwidths-auto table">
-<caption>Tutorials plan</caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Week</p></th>
 <th class="head"><p>Topic</p></th>
@@ -651,7 +685,7 @@ document.write(`
 <tr class="row-odd"><td><p>4</p></td>
 <td><p>Triangular systems and Gaussian elimination</p></td>
 </tr>
-<tr class="row-even"><td><p>-</p></td>
+<tr class="row-even"><td><p></p></td>
 <td><p><em>reading week</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
@@ -677,16 +711,16 @@ document.write(`
 </section>
 </section>
 <section id="contact">
-<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">#</a></h2>
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Please contact me through MS Teams <a class="reference external" href="https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&amp;tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb">22/23(1) COMP2421 Numerical Computation (32879)</a> (not email)</p></li>
+<li><p>Please contact me through MS Teams: <a class="reference external" href="https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&amp;tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb">23/24(1) COMP2421 Numerical Computation (32879)</a></p></li>
 <li><p>Questions about content should go in the class team</p></li>
-<li><p>Responses in 24h (or out of office)</p></li>
+<li><p>Responses in 48h (or out of office)</p></li>
 <li><p>No response out of working hours</p></li>
 </ul>
 </section>
 <section id="reference-materials">
-<h2>Reference materials<a class="headerlink" href="#reference-materials" title="Permalink to this headline">#</a></h2>
+<h2>Reference materials<a class="headerlink" href="#reference-materials" title="Permalink to this heading">#</a></h2>
 <p>The programming for this module will be carried out using <code class="docutils literal notranslate"><span class="pre">python3</span></code>.</p>
 <ul class="simple">
 <li><p>For general Python, refer to your first-year teaching materials.</p></li>
@@ -705,12 +739,12 @@ document.write(`
 </ul>
 </section>
 <section id="links">
-<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">#</a></h2>
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Module catalogue:</p>
 <ul>
-<li><p>COMP2421 <a class="reference external" href="https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202122&amp;amp;M=COMP-2421">https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202122&amp;M=COMP-2421</a>\</p></li>
-<li><p>XJCO2421 <a class="reference external" href="https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202122&amp;amp;M=XJCO-2421">https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202122&amp;M=XJCO-2421</a></p></li>
+<li><p>COMP2421 <a class="reference external" href="https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&amp;amp;M=COMP-2421">https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&amp;M=COMP-2421</a>\</p></li>
+<li><p>XJCO2421 <a class="reference external" href="https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&amp;amp;M=XJCO-2421">https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&amp;M=XJCO-2421</a></p></li>
 </ul>
 </li>
 </ul>
@@ -756,11 +790,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
        href="ws/ws00.html"
@@ -771,10 +804,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -793,15 +823,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-components">Module components</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">Lectures</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials">Tutorials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-and-coursework-exercise">Homework and coursework exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheets">Worksheets</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment">Assessment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examination">Examination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summative-coursework">Summative coursework</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formative-homework">Formative homework</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-succeed">How to succeed?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-100">How to get 100%?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-20">Portfolio (20%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summative-coursework-80">Summative coursework (80%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formative-coursework">Formative coursework</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syllabus">Syllabus</a><ul class="nav section-nav flex-column">
@@ -860,8 +888,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 11: Dynamic models and rates of change &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -466,10 +477,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -477,7 +488,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -535,9 +546,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-11-dynamic-models-and-rates-of-change">
-<h1>Lecture 11: Dynamic models and rates of change<a class="headerlink" href="#lecture-11-dynamic-models-and-rates-of-change" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 11: Dynamic models and rates of change<a class="headerlink" href="#lecture-11-dynamic-models-and-rates-of-change" title="Permalink to this heading">#</a></h1>
 <section id="static-versus-dynamic-problems">
-<h2>Static versus dynamic problems<a class="headerlink" href="#static-versus-dynamic-problems" title="Permalink to this headline">#</a></h2>
+<h2>Static versus dynamic problems<a class="headerlink" href="#static-versus-dynamic-problems" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>So far we have considered computational models of problems that are assumed to be static, for example:</p>
 <ul>
@@ -558,9 +569,9 @@ document.write(`
 </ul>
 </section>
 <section id="rates-of-change">
-<h2>Rates of change<a class="headerlink" href="#rates-of-change" title="Permalink to this headline">#</a></h2>
+<h2>Rates of change<a class="headerlink" href="#rates-of-change" title="Permalink to this heading">#</a></h2>
 <section id="example-tracking-an-object">
-<h3>Example: Tracking an object<a class="headerlink" href="#example-tracking-an-object" title="Permalink to this headline">#</a></h3>
+<h3>Example: Tracking an object<a class="headerlink" href="#example-tracking-an-object" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Suppose we know that an object is moving at 2 meters per second (m/s) - what does that mean?</p>
 <ul>
@@ -594,7 +605,7 @@ document.write(`
 </section>
 </section>
 <section id="the-derivative-as-a-rate-of-change">
-<h2>The derivative as a rate of change<a class="headerlink" href="#the-derivative-as-a-rate-of-change" title="Permalink to this headline">#</a></h2>
+<h2>The derivative as a rate of change<a class="headerlink" href="#the-derivative-as-a-rate-of-change" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Now suppose the object’s speed is not constant.</p></li>
 <li><p>For example, the speed <span class="math notranslate nohighlight">\(S(t)\)</span> could be given at each time <span class="math notranslate nohighlight">\(t\)</span> by</p></li>
@@ -608,7 +619,7 @@ document.write(`
 <li><p>How far would the object travel in one second now?</p></li>
 </ul>
 <section id="tracking-at-a-non-constant-speed">
-<h3>Tracking at a non-constant speed<a class="headerlink" href="#tracking-at-a-non-constant-speed" title="Permalink to this headline">#</a></h3>
+<h3>Tracking at a non-constant speed<a class="headerlink" href="#tracking-at-a-non-constant-speed" title="Permalink to this heading">#</a></h3>
 <p>This is a much harder problem.</p>
 <p><strong>How can we approximate the solution?</strong></p>
 <ol class="arabic">
@@ -639,7 +650,7 @@ document.write(`
 </ol>
 <p>We expect each of these approximations to get more and more accurate…</p>
 <section id="example">
-<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h4>
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h4>
 <p>Consider <span class="math notranslate nohighlight">\(S(t)\)</span> given by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -660,31 +671,31 @@ document.write(`
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_37275d50_3083_11ee_91b1_000d3a7a5a72" ><caption>Total distance as a function of number of steps</caption><thead>    <tr>        <th class="col_heading level0 col0" ># intervals</th>        <th class="col_heading level0 col1" >increment size dt</th>        <th class="col_heading level0 col2" >total distance</th>    </tr></thead><tbody>
+</style><table id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cf" ><caption>Total distance as a function of number of steps</caption><thead>    <tr>        <th class="col_heading level0 col0" ># intervals</th>        <th class="col_heading level0 col1" >increment size dt</th>        <th class="col_heading level0 col2" >total distance</th>    </tr></thead><tbody>
                 <tr>
-                                <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row0_col0" class="data row0 col0" >10</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row0_col2" class="data row0 col2" >1.540000</td>
+                                <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow0_col0" class="data row0 col0" >10</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow0_col1" class="data row0 col1" >0.100000</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow0_col2" class="data row0 col2" >1.540000</td>
             </tr>
             <tr>
-                                <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row1_col0" class="data row1 col0" >100</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row1_col1" class="data row1 col1" >0.010000</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row1_col2" class="data row1 col2" >1.504900</td>
+                                <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow1_col0" class="data row1 col0" >100</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow1_col1" class="data row1 col1" >0.010000</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow1_col2" class="data row1 col2" >1.504900</td>
             </tr>
             <tr>
-                                <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row2_col0" class="data row2 col0" >1000</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row2_col1" class="data row2 col1" >0.001000</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row2_col2" class="data row2 col2" >1.500499</td>
+                                <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow2_col0" class="data row2 col0" >1000</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow2_col1" class="data row2 col1" >0.001000</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow2_col2" class="data row2 col2" >1.500499</td>
             </tr>
             <tr>
-                                <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row3_col0" class="data row3 col0" >10000</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row3_col1" class="data row3 col1" >0.000100</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row3_col2" class="data row3 col2" >1.500050</td>
+                                <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow3_col0" class="data row3 col0" >10000</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow3_col1" class="data row3 col1" >0.000100</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow3_col2" class="data row3 col2" >1.500050</td>
             </tr>
             <tr>
-                                <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row4_col0" class="data row4 col0" >100000</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row4_col1" class="data row4 col1" >0.000010</td>
-                        <td id="T_37275d50_3083_11ee_91b1_000d3a7a5a72row4_col2" class="data row4 col2" >1.500005</td>
+                                <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow4_col0" class="data row4 col0" >100000</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow4_col1" class="data row4 col1" >0.000010</td>
+                        <td id="T_77a321c8_5ba0_11ee_9f5e_000d3a71c3cfrow4_col2" class="data row4 col2" >1.500005</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -694,7 +705,7 @@ document.write(`
 </section>
 </section>
 <section id="why-does-this-work">
-<h3>Why does this work?<a class="headerlink" href="#why-does-this-work" title="Permalink to this headline">#</a></h3>
+<h3>Why does this work?<a class="headerlink" href="#why-does-this-work" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The approach above uses the fact that, at any <em>instant</em> in time, the speed is the rate of change in distance:</p>
 <ul>
@@ -726,7 +737,7 @@ document.write(`
 </ul>
 </section>
 <section id="a-graphical-interpretation">
-<h3>A graphical interpretation<a class="headerlink" href="#a-graphical-interpretation" title="Permalink to this headline">#</a></h3>
+<h3>A graphical interpretation<a class="headerlink" href="#a-graphical-interpretation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>We can give a graphical interpretation of the relationship between <span class="math notranslate nohighlight">\(D(t)\)</span> and its derivative <span class="math notranslate nohighlight">\(D'(t)\)</span>.</p></li>
 </ul>
@@ -749,7 +760,7 @@ document.write(`
 </section>
 </section>
 <section id="the-derivative-as-a-gradient">
-<h2>The derivative as a gradient<a class="headerlink" href="#the-derivative-as-a-gradient" title="Permalink to this headline">#</a></h2>
+<h2>The derivative as a gradient<a class="headerlink" href="#the-derivative-as-a-gradient" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>What is the slope/gradient of a line?</p></li>
 <li><p>It is the steepness…</p></li>
@@ -768,7 +779,7 @@ document.write(`
 </li>
 </ul>
 <section id="slope-of-a-curve">
-<h3>Slope of a curve<a class="headerlink" href="#slope-of-a-curve" title="Permalink to this headline">#</a></h3>
+<h3>Slope of a curve<a class="headerlink" href="#slope-of-a-curve" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>What is the slope/gradient of a curve?</p></li>
 <li><p>The slope of the straight-line approximation (“chord”) is</p>
@@ -808,7 +819,7 @@ document.write(`
 </section>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Rate_(mathematics)#Of_change">Rate of change</a></p></li>
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Speed">Speed</a></p></li>
@@ -843,11 +854,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../ws/ws05.html"
@@ -867,10 +877,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -953,8 +960,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

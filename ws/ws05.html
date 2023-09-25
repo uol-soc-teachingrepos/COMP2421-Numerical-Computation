@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>WS05: Sparse systems and pivoting &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -449,10 +460,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -460,7 +471,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -517,14 +528,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ws05-sparse-systems-and-pivoting">
-<h1>WS05: Sparse systems and pivoting<a class="headerlink" href="#ws05-sparse-systems-and-pivoting" title="Permalink to this headline">#</a></h1>
+<h1>WS05: Sparse systems and pivoting<a class="headerlink" href="#ws05-sparse-systems-and-pivoting" title="Permalink to this heading">#</a></h1>
 <p>These exercises are indented to give you practice at using the material on numerical approximation and are intended to reinforce the material that was covered in lectures.</p>
 <p>Please attempt the worksheet before your tutorial. Support is available in your tutorial or in the Class Team.</p>
 <p><em><a class="reference internal" href="ws05_implemented.html"><span class="doc std std-doc">Partial solutions</span></a> are available to check your understanding. Please create <a class="reference external" href="https://gitlab.com/comp2421-numerical-computation/book/-/issues">Issues</a> and <a class="reference external" href="https://gitlab.com/comp2421-numerical-computation/book/-/merge_requests">Merge requests</a> with your solutions or share your answers for peer feedback in the class team <a class="reference external" href="https://teams.microsoft.com/l/channel/19%3a43e9bb00fad04d8d8c85399b694657f4%40thread.tacv2/Worksheet%2520solutions?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&amp;tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb">Worksheet solutions channel</a></em></p>
 <section id="part-a-pen-and-paper-warm-up">
-<h2>Part a (pen and paper warm up)<a class="headerlink" href="#part-a-pen-and-paper-warm-up" title="Permalink to this headline">#</a></h2>
+<h2>Part a (pen and paper warm up)<a class="headerlink" href="#part-a-pen-and-paper-warm-up" title="Permalink to this heading">#</a></h2>
 <section id="sparse-matrix-storage">
-<h3>1. Sparse matrix storage<a class="headerlink" href="#sparse-matrix-storage" title="Permalink to this headline">#</a></h3>
+<h3>1. Sparse matrix storage<a class="headerlink" href="#sparse-matrix-storage" title="Permalink to this heading">#</a></h3>
 <p>Write down the three arrays: array of floating point numbers (say A_real) to store the non-zero entries, array of integers (say I_row) to store the row number and array of integers (say I_col) to store the column number.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -534,7 +545,7 @@ document.write(`
    \end{split}\]</div>
 </section>
 <section id="gaussian-elimination-with-pivoting">
-<h3>2. Gaussian elimination with pivoting<a class="headerlink" href="#gaussian-elimination-with-pivoting" title="Permalink to this headline">#</a></h3>
+<h3>2. Gaussian elimination with pivoting<a class="headerlink" href="#gaussian-elimination-with-pivoting" title="Permalink to this heading">#</a></h3>
 <p>Using GE with pivoting to solve the following linear system of equations</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -554,14 +565,14 @@ document.write(`
    \end{split}\]</div>
 </section>
 <section id="sparse-matrix-storage-and-access">
-<h3>3. Sparse matrix storage and access<a class="headerlink" href="#sparse-matrix-storage-and-access" title="Permalink to this headline">#</a></h3>
+<h3>3. Sparse matrix storage and access<a class="headerlink" href="#sparse-matrix-storage-and-access" title="Permalink to this heading">#</a></h3>
 <p>To implement a direct solver such as Gaussian elimination, is it convenient to store a matrix as sparse matrix? What’s about iterative solver: Jacobi iteration or Gauss-Seidel iteration?</p>
 </section>
 </section>
 <section id="part-b-code-implementations-and-testing">
-<h2>Part b (code implementations and testing)<a class="headerlink" href="#part-b-code-implementations-and-testing" title="Permalink to this headline">#</a></h2>
+<h2>Part b (code implementations and testing)<a class="headerlink" href="#part-b-code-implementations-and-testing" title="Permalink to this heading">#</a></h2>
 <section id="sparse-matrix-multiplication">
-<h3>4. Sparse matrix multiplication<a class="headerlink" href="#sparse-matrix-multiplication" title="Permalink to this headline">#</a></h3>
+<h3>4. Sparse matrix multiplication<a class="headerlink" href="#sparse-matrix-multiplication" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -585,7 +596,7 @@ document.write(`
 </div>
 </section>
 <section id="implementation-of-gaussian-elimination-with-pivoting">
-<h3>5. implementation of Gaussian elimination with pivoting<a class="headerlink" href="#implementation-of-gaussian-elimination-with-pivoting" title="Permalink to this headline">#</a></h3>
+<h3>5. implementation of Gaussian elimination with pivoting<a class="headerlink" href="#implementation-of-gaussian-elimination-with-pivoting" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -656,7 +667,7 @@ document.write(`
 </div>
 </section>
 <section id="test-your-implementation">
-<h3>6. Test your implementation<a class="headerlink" href="#test-your-implementation" title="Permalink to this headline">#</a></h3>
+<h3>6. Test your implementation<a class="headerlink" href="#test-your-implementation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -695,9 +706,9 @@ document.write(`
 </section>
 </section>
 <section id="part-c-extension">
-<h2>Part c: Extension<a class="headerlink" href="#part-c-extension" title="Permalink to this headline">#</a></h2>
+<h2>Part c: Extension<a class="headerlink" href="#part-c-extension" title="Permalink to this heading">#</a></h2>
 <section id="implement-jacobi-iteration-for-sparse-matrix">
-<h3>5. implement Jacobi iteration for sparse matrix<a class="headerlink" href="#implement-jacobi-iteration-for-sparse-matrix" title="Permalink to this headline">#</a></h3>
+<h3>5. implement Jacobi iteration for sparse matrix<a class="headerlink" href="#implement-jacobi-iteration-for-sparse-matrix" title="Permalink to this heading">#</a></h3>
 <p>using the following stopping criterion</p>
 <div class="math notranslate nohighlight">
 \[
@@ -765,7 +776,7 @@ document.write(`
 </div>
 </section>
 <section id="test-jacobi-iteration-sparse">
-<h3>6. Test <code class="docutils literal notranslate"><span class="pre">Jacobi_iteration_sparse</span></code><a class="headerlink" href="#test-jacobi-iteration-sparse" title="Permalink to this headline">#</a></h3>
+<h3>6. Test <code class="docutils literal notranslate"><span class="pre">Jacobi_iteration_sparse</span></code><a class="headerlink" href="#test-jacobi-iteration-sparse" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test different linear solvers starting from the above two-dimensional linear system</span>
@@ -791,7 +802,7 @@ document.write(`
 </div>
 </section>
 <section id="compare-jacobi-iteration-sparse-with-gaussian-elimination-pivoting">
-<h3>7. Compare <code class="docutils literal notranslate"><span class="pre">Jacobi_iteration_sparse()</span></code> with <code class="docutils literal notranslate"><span class="pre">Gaussian_elimination_pivoting()</span></code><a class="headerlink" href="#compare-jacobi-iteration-sparse-with-gaussian-elimination-pivoting" title="Permalink to this headline">#</a></h3>
+<h3>7. Compare <code class="docutils literal notranslate"><span class="pre">Jacobi_iteration_sparse()</span></code> with <code class="docutils literal notranslate"><span class="pre">Gaussian_elimination_pivoting()</span></code><a class="headerlink" href="#compare-jacobi-iteration-sparse-with-gaussian-elimination-pivoting" title="Permalink to this heading">#</a></h3>
 <p>Notice that there is a condition for Jacobi iteration: non zero element on the diagonal of the system matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -858,11 +869,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../lec/lec09.html"
@@ -882,10 +892,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -967,8 +974,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

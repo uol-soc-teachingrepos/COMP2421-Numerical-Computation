@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 03: Floating point number systems &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -466,10 +477,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -477,7 +488,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -548,9 +559,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-03-floating-point-number-systems">
-<h1>Lecture 03: Floating point number systems<a class="headerlink" href="#lecture-03-floating-point-number-systems" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 03: Floating point number systems<a class="headerlink" href="#lecture-03-floating-point-number-systems" title="Permalink to this heading">#</a></h1>
 <section id="finite-precision-number-systems">
-<h2>Finite precision number systems<a class="headerlink" href="#finite-precision-number-systems" title="Permalink to this headline">#</a></h2>
+<h2>Finite precision number systems<a class="headerlink" href="#finite-precision-number-systems" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Computers store numbers with <strong>finite precision</strong>, i.e. using a finite set of bits (binary digits), typically 32 or 64 of them.</p></li>
 <li><p>Many numbers cannot be stored exactly</p>
@@ -564,7 +575,7 @@ e.g. <span class="math notranslate nohighlight">\(\frac{1}{9} = 0.111\ldots\)</
 </li>
 </ul>
 <section id="issues">
-<h3>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">#</a></h3>
+<h3>Issues<a class="headerlink" href="#issues" title="Permalink to this heading">#</a></h3>
 <p>The inaccuracies inherent in finite precision arithmetic must be modelled in order to understand:</p>
 <ul class="simple">
 <li><p>how the numbers are represented (and the nature of associated limitations);</p></li>
@@ -575,9 +586,9 @@ e.g. <span class="math notranslate nohighlight">\(\frac{1}{9} = 0.111\ldots\)</
 </section>
 </section>
 <section id="normalised-systems">
-<h2>Normalised systems<a class="headerlink" href="#normalised-systems" title="Permalink to this headline">#</a></h2>
+<h2>Normalised systems<a class="headerlink" href="#normalised-systems" title="Permalink to this heading">#</a></h2>
 <section id="a-general-representation">
-<h3>A general representation<a class="headerlink" href="#a-general-representation" title="Permalink to this headline">#</a></h3>
+<h3>A general representation<a class="headerlink" href="#a-general-representation" title="Permalink to this heading">#</a></h3>
 <p>Any finite precision number can be written using the floating point representation</p>
 <div class="math notranslate nohighlight">
 \[
@@ -592,7 +603,7 @@ e.g. <span class="math notranslate nohighlight">\(\frac{1}{9} = 0.111\ldots\)</
 <p><span class="math notranslate nohighlight">\((\beta, t, L, U)\)</span> fully defines a finite precision number system.</p>
 </section>
 <section id="normalisation">
-<h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this headline">#</a></h3>
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this heading">#</a></h3>
 <p><strong>Normalised</strong> finite precision systems will be considered here for which</p>
 <div class="math notranslate nohighlight">
 \[
@@ -614,14 +625,14 @@ b_1 \neq 0 \quad (0 &lt; b_1 \le \beta -1).
 </ol>
 </section>
 <section id="standards">
-<h3>Standards<a class="headerlink" href="#standards" title="Permalink to this headline">#</a></h3>
+<h3>Standards<a class="headerlink" href="#standards" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE single precision standard</a> is <span class="math notranslate nohighlight">\((\beta, t, L, U) = (2, 23, -127, 128)\)</span>. This is available via <code class="docutils literal notranslate"><span class="pre">numpy.single</span></code>.</p></li>
 <li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE double precision standard</a> is <span class="math notranslate nohighlight">\((\beta, t, L, U) = (2, 52, -1023, 1024)\)</span>. This is available via <code class="docutils literal notranslate"><span class="pre">numpy.double</span></code>.</p></li>
 </ol>
 </section>
 <section id="example-1">
-<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h3>
 <p>Consider the number system given by <span class="math notranslate nohighlight">\((\beta, t, L, U) = (10, 2, -1, 2)\)</span> which gives</p>
 <div class="math notranslate nohighlight">
 \[
@@ -633,7 +644,7 @@ b_1 \neq 0 \quad (0 &lt; b_1 \le \beta -1).
 <p>d.  What is the smallest possible difference between two numbers in this system?</p>
 </section>
 <section id="example-2-homework">
-<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this headline">#</a></h3>
+<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this heading">#</a></h3>
 <p>Consider the number system given by <span class="math notranslate nohighlight">\((\beta, t, L, U) = (10, 3, -3, 3)\)</span> which gives</p>
 <div class="math notranslate nohighlight">
 \[
@@ -647,7 +658,7 @@ b_1 \neq 0 \quad (0 &lt; b_1 \le \beta -1).
 </section>
 </section>
 <section id="errors-and-their-representations">
-<h2>Errors and their representations<a class="headerlink" href="#errors-and-their-representations" title="Permalink to this headline">#</a></h2>
+<h2>Errors and their representations<a class="headerlink" href="#errors-and-their-representations" title="Permalink to this heading">#</a></h2>
 <p>From now on <span class="math notranslate nohighlight">\(fl(x)\)</span> will be used to represent the (approximate) stored value of <span class="math notranslate nohighlight">\(x\)</span>. The error in this representation can be expressed in two ways.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -663,7 +674,7 @@ b_1 \neq 0 \quad (0 &lt; b_1 \le \beta -1).
 \]</div>
 <p>It can be proved that if the relative error is equal to <span class="math notranslate nohighlight">\(\beta^{-d}\)</span> then <span class="math notranslate nohighlight">\(fl(x)\)</span> has <span class="math notranslate nohighlight">\(d\)</span> correct significant digits.</p>
 <section id="bounding-the-errors">
-<h3>Bounding the errors<a class="headerlink" href="#bounding-the-errors" title="Permalink to this headline">#</a></h3>
+<h3>Bounding the errors<a class="headerlink" href="#bounding-the-errors" title="Permalink to this heading">#</a></h3>
 <p>In the number system given by <span class="math notranslate nohighlight">\((\beta, t, L, U)\)</span>, the nearest (larger) representable number to <span class="math notranslate nohighlight">\(x = 0.b_1 b_2 b_3 \ldots b_{t-1} b_t \times \beta^e\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -677,7 +688,7 @@ b_1 \neq 0 \quad (0 &lt; b_1 \le \beta -1).
 </section>
 </section>
 <section id="machine-precision">
-<h2>Machine precision<a class="headerlink" href="#machine-precision" title="Permalink to this headline">#</a></h2>
+<h2>Machine precision<a class="headerlink" href="#machine-precision" title="Permalink to this heading">#</a></h2>
 <p>It follow from <span class="math notranslate nohighlight">\(y &gt; x \ge .100 \ldots 00 \times \beta^e = \beta^{e-1}\)</span> that</p>
 <div class="math notranslate nohighlight">
 \[
@@ -703,7 +714,7 @@ b_1 \neq 0 \quad (0 &lt; b_1 \le \beta -1).
 </div>
 </div>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>The number system <span class="math notranslate nohighlight">\((\beta, t, L, U) = (10, 2, -1, 2)\)</span> gives</p>
 <div class="math notranslate nohighlight">
@@ -726,7 +737,7 @@ b_1 \neq 0 \quad (0 &lt; b_1 \le \beta -1).
 </ol>
 </section>
 <section id="why-is-this-important">
-<h3>Why is this important?<a class="headerlink" href="#why-is-this-important" title="Permalink to this headline">#</a></h3>
+<h3>Why is this important?<a class="headerlink" href="#why-is-this-important" title="Permalink to this heading">#</a></h3>
 <p>Arithmetic operations are usually carried out as though infinite precision is available, after which the result is rounded to the nearest representable number.</p>
 <p>This means that arithmetic cannot be completely trusted<br />
 e.g. <span class="math notranslate nohighlight">\(x + y = ?\)</span>,</p>
@@ -734,7 +745,7 @@ e.g. <span class="math notranslate nohighlight">\(x + y = ?\)</span>,</p>
 e.g. <span class="math notranslate nohighlight">\(x + (y+z) = (x+y) + z\)</span>?</p>
 </section>
 <section id="id1">
-<h3>Example 1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Example 1<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Consider the number system <span class="math notranslate nohighlight">\((\beta, t, L, U) = (10, 2, -1, 2)\)</span> and take</p>
 <div class="math notranslate nohighlight">
 \[
@@ -764,7 +775,7 @@ x+(z+z), \quad
 <p>(Also note the benefits of adding the <em>smallest</em> terms first!)</p>
 </section>
 <section id="more-examples-homework">
-<h3>More examples (homework)<a class="headerlink" href="#more-examples-homework" title="Permalink to this headline">#</a></h3>
+<h3>More examples (homework)<a class="headerlink" href="#more-examples-homework" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Verify that a similar problem arises for the numbers</p>
 <div class="math notranslate nohighlight">
@@ -779,7 +790,7 @@ x+(z+z), \quad
 </ol>
 </section>
 <section id="an-alternative-definition-of-eps">
-<h3>An alternative definition of <span class="math notranslate nohighlight">\(eps\)</span><a class="headerlink" href="#an-alternative-definition-of-eps" title="Permalink to this headline">#</a></h3>
+<h3>An alternative definition of <span class="math notranslate nohighlight">\(eps\)</span><a class="headerlink" href="#an-alternative-definition-of-eps" title="Permalink to this heading">#</a></h3>
 <p><strong>Machine precision</strong> is the smallest positive number <span class="math notranslate nohighlight">\(eps\)</span> such that <span class="math notranslate nohighlight">\(1 + eps &gt; 1\)</span>, i.e. it is half the difference between <span class="math notranslate nohighlight">\(1\)</span> and the next largest representable number.</p>
 <p>Examples:</p>
 <ol class="arabic">
@@ -799,7 +810,7 @@ x+(z+z), \quad
 </section>
 </section>
 <section id="features-of-finite-precision">
-<h2>“Features” of finite precision<a class="headerlink" href="#features-of-finite-precision" title="Permalink to this headline">#</a></h2>
+<h2>“Features” of finite precision<a class="headerlink" href="#features-of-finite-precision" title="Permalink to this heading">#</a></h2>
 <p>Overflow
 :   the number is too large to be represented, e.g. multiply the largest representable number by 10. This gives <code class="docutils literal notranslate"><span class="pre">inf</span></code> (infinity) with <code class="docutils literal notranslate"><span class="pre">numpy.double</span></code>s and is usually “fatal”.</p>
 <p>Underflow
@@ -809,7 +820,7 @@ x+(z+z), \quad
 <p>Divide by <code class="docutils literal notranslate"><span class="pre">inf</span></code>
 :   gives <span class="math notranslate nohighlight">\(0.0\)</span> with no warning</p>
 <section id="is-this-all-academic">
-<h3>Is this all academic?<a class="headerlink" href="#is-this-all-academic" title="Permalink to this headline">#</a></h3>
+<h3>Is this all academic?<a class="headerlink" href="#is-this-all-academic" title="Permalink to this heading">#</a></h3>
 <p><strong>No!</strong> There are many examples of major software errors that have occurred due to programmers not understanding the issues associated with computer arithmetic…</p>
 <ul class="simple">
 <li><p>In February 1991, a <a class="reference external" href="https://www-users.cse.umn.edu/~arnold/disasters/patriot.html">basic rounding error</a> within software for the US Patriot missile system caused it to fail, contributing to the loss of 28 lives.</p></li>
@@ -819,7 +830,7 @@ x+(z+z), \quad
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>There is inaccuracy in almost all computer arithmetic.</p></li>
 <li><p>Care must be taken to minimise its effects, for example:</p>
@@ -833,7 +844,7 @@ x+(z+z), \quad
 <li><p>There is no point in trying to compute a solution to a problem to a greater accuracy than can be stored by the computer.</p></li>
 </ul>
 <section id="further-reading">
-<h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating-point arithmetic</a></p></li>
 <li><p>David Goldberg, <a class="reference external" href="https://doi.org/10.1145/103162.103163">What every computer scientist should know about floating-point arithmetic</a>, ACM Computing Surveys, Volume 23, Issue 1, March 1991.</p></li>
@@ -868,11 +879,10 @@ x+(z+z), \quad
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../ws/ws01.html"
@@ -892,10 +902,7 @@ x+(z+z), \quad
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -991,8 +998,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 18: Robust nonlinear solvers &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -466,10 +477,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -477,7 +488,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -530,9 +541,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-18-robust-nonlinear-solvers">
-<h1>Lecture 18: Robust nonlinear solvers<a class="headerlink" href="#lecture-18-robust-nonlinear-solvers" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 18: Robust nonlinear solvers<a class="headerlink" href="#lecture-18-robust-nonlinear-solvers" title="Permalink to this heading">#</a></h1>
 <section id="recap">
-<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>In the previous lecture we consider a modified version of Newton’s method in which <span class="math notranslate nohighlight">\(f'(x^{(i)})\)</span> is approximated:</p>
 <div class="math notranslate nohighlight">
@@ -546,7 +557,7 @@ document.write(`
 </ul>
 </section>
 <section id="reliability">
-<h2>Reliability<a class="headerlink" href="#reliability" title="Permalink to this headline">#</a></h2>
+<h2>Reliability<a class="headerlink" href="#reliability" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The Newton, modified Newton and secant methods may not always converge for a particular choice of <span class="math notranslate nohighlight">\(x^{(0)}\)</span>.</p></li>
 <li><p>The secant method in particular will fail if <span class="math notranslate nohighlight">\(x^{(0)} = x^{(1)}\)</span> or <span class="math notranslate nohighlight">\(f(x^{(0)}) = f(x^{(1)})\)</span>.</p></li>
@@ -561,7 +572,7 @@ document.write(`
 </ul>
 </section>
 <section id="a-combined-approach">
-<h2>A combined approach<a class="headerlink" href="#a-combined-approach" title="Permalink to this headline">#</a></h2>
+<h2>A combined approach<a class="headerlink" href="#a-combined-approach" title="Permalink to this heading">#</a></h2>
 <p>In this algorithm we seek to combine the reliability of the bisection algorithm with the speed of the secant algorithm:</p>
 <ol class="arabic" start="0">
 <li><p>Take a function <span class="math notranslate nohighlight">\(f(x)\)</span> and initial estimate <span class="math notranslate nohighlight">\(x^{(0)}\)</span>.</p></li>
@@ -586,7 +597,7 @@ document.write(`
 <li><p>If the method has not yet converged return to step 3 with the new interval.</p></li>
 </ol>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>When the secant iteration becomes unreliable the algorithm reverts to the bisection approach.</p></li>
 <li><p>When the approximation is close to the root the secant method will usually be used and should converge (almost) as rapidly as Newton.</p></li>
@@ -595,7 +606,7 @@ document.write(`
 </ul>
 </section>
 <section id="stopping-criteria">
-<h3>Stopping criteria<a class="headerlink" href="#stopping-criteria" title="Permalink to this headline">#</a></h3>
+<h3>Stopping criteria<a class="headerlink" href="#stopping-criteria" title="Permalink to this heading">#</a></h3>
 <p>The algorithm stops if any of the following holds:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\({|x^{(i)} - x^{(i-1)}|}/{|x^{(i)}|} &lt; \texttt{tolx}\)</span>;</p></li>
@@ -609,7 +620,7 @@ document.write(`
 </ul>
 </section>
 <section id="implementation">
-<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h3>
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
 <p>The method has been slightly improved to become <a class="reference external" href="https://en.wikipedia.org/wiki/Brent%27s_method">Brent’s method</a> which is implemented in <code class="docutils literal notranslate"><span class="pre">scipy</span></code> as <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.brentq</span></code></a>.</p>
 <p>Note that this method requires both initial estimates <span class="math notranslate nohighlight">\(x^{(0)}\)</span> and <span class="math notranslate nohighlight">\(x^{(1)}\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -749,12 +760,12 @@ brentq(f, a, b, args=(), xtol=2e-12, rtol=8.881784197001252e-16, maxiter=100, fu
 </div>
 </div>
 <section id="exercise">
-<h4>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h4>
+<h4>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h4>
 <p>How can we estimate this initial bracket from an initial guess?</p>
 </section>
 </section>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
 <p>We will test <code class="docutils literal notranslate"><span class="pre">scipy</span></code>’s implementation with our three examples from before.</p>
 <p>Consider the example with <span class="math notranslate nohighlight">\(f(x) = x^2 - R\)</span> and <span class="math notranslate nohighlight">\(R=2\)</span>. Take <span class="math notranslate nohighlight">\(x^{(0)} = 0\)</span> and <span class="math notranslate nohighlight">\(x^{(1)} = 2\)</span> and use the function call</p>
 <div class="cell docutils container">
@@ -893,7 +904,7 @@ brentq(f, a, b, args=(), xtol=2e-12, rtol=8.881784197001252e-16, maxiter=100, fu
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Solving nonlinear equations is hard.</p></li>
 <li><p>It is not always possible to guarantee an accurate solution.</p></li>
@@ -902,7 +913,7 @@ brentq(f, a, b, args=(), xtol=2e-12, rtol=8.881784197001252e-16, maxiter=100, fu
 </ul>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code>: Optimization and root finding <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a></p></li>
 </ul>
@@ -935,11 +946,10 @@ brentq(f, a, b, args=(), xtol=2e-12, rtol=8.881784197001252e-16, maxiter=100, fu
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="lec17.html"
@@ -959,10 +969,7 @@ brentq(f, a, b, args=(), xtol=2e-12, rtol=8.881784197001252e-16, maxiter=100, fu
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1040,8 +1047,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

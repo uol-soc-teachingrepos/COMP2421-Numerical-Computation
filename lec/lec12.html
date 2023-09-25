@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 12: Derivatives and differential equations &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -466,10 +477,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -477,7 +488,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -535,9 +546,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-12-derivatives-and-differential-equations">
-<h1>Lecture 12: Derivatives and differential equations<a class="headerlink" href="#lecture-12-derivatives-and-differential-equations" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 12: Derivatives and differential equations<a class="headerlink" href="#lecture-12-derivatives-and-differential-equations" title="Permalink to this heading">#</a></h1>
 <section id="recap">
-<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>We discussed the concept of <strong>rate of change</strong></p>
 <ul>
@@ -586,14 +597,14 @@ document.write(`
 </ul>
 </section>
 <section id="graphs-and-derivatives">
-<h2>Graphs and derivatives<a class="headerlink" href="#graphs-and-derivatives" title="Permalink to this headline">#</a></h2>
+<h2>Graphs and derivatives<a class="headerlink" href="#graphs-and-derivatives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>We now know a geometric interpretation of the derivative of a function, as being equal to the function’s slope at each point.</p></li>
 <li><p>This means we can sketch an approximation to the derivative of any given function.</p></li>
 <li><p>In the following examples, the graph of a function <span class="math notranslate nohighlight">\(y(t)\)</span> is given and the graph of <span class="math notranslate nohighlight">\(y'(t)\)</span> is then approximated.</p></li>
 </ul>
 <section id="example-1">
-<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../_images/4aa133bbf6c2483d354ffcade1dcad6651e05660aba8cf1177cea0846cb5b5e9.png" src="../_images/4aa133bbf6c2483d354ffcade1dcad6651e05660aba8cf1177cea0846cb5b5e9.png" />
@@ -601,7 +612,7 @@ document.write(`
 </div>
 </section>
 <section id="example-2">
-<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h3>
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../_images/b06044198bf9728cf9020c66228ff01a290b541c7da87620dbf062513c97e53e.png" src="../_images/b06044198bf9728cf9020c66228ff01a290b541c7da87620dbf062513c97e53e.png" />
@@ -609,10 +620,10 @@ document.write(`
 </div>
 </section>
 <section id="example-3">
-<h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">#</a></h3>
+<h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/ea195590720af6d96ceeddd5573d904bd8b9b292b918c1e4053ebb41371d28fb.png" src="../_images/ea195590720af6d96ceeddd5573d904bd8b9b292b918c1e4053ebb41371d28fb.png" />
+<img alt="../_images/674621943ba78835f6581e98f06034fa4e6991edec0bc680bd74ba4d3494b635.png" src="../_images/674621943ba78835f6581e98f06034fa4e6991edec0bc680bd74ba4d3494b635.png" />
 </div>
 </div>
 <p>Rate of cases per 100,000 people in the rolling 7-day period ending on the dates shown.
@@ -620,7 +631,7 @@ document.write(`
 </section>
 </section>
 <section id="differential-equations">
-<h2>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this headline">#</a></h2>
+<h2>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>We have already seen that, for speed, <span class="math notranslate nohighlight">\(S(t) = D'(t)\)</span>.</p></li>
 <li><p>What is the rate of change of speed?</p></li>
@@ -645,7 +656,7 @@ document.write(`
 </li>
 </ul>
 <section id="an-object-in-free-fall">
-<h3>An object in free fall<a class="headerlink" href="#an-object-in-free-fall" title="Permalink to this headline">#</a></h3>
+<h3>An object in free fall<a class="headerlink" href="#an-object-in-free-fall" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>Consider a simple model for an object falling from a large height, based on the two following assumptions:</p>
 <ol class="arabic simple">
@@ -687,7 +698,7 @@ document.write(`
 </ul>
 </section>
 <section id="python-algorithm">
-<h3>Python algorithm:<a class="headerlink" href="#python-algorithm" title="Permalink to this headline">#</a></h3>
+<h3>Python algorithm:<a class="headerlink" href="#python-algorithm" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">freefall</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -724,7 +735,7 @@ document.write(`
 </div>
 </section>
 <section id="python-algorithm-results">
-<h3>Python algorithm: Results<a class="headerlink" href="#python-algorithm-results" title="Permalink to this headline">#</a></h3>
+<h3>Python algorithm: Results<a class="headerlink" href="#python-algorithm-results" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../_images/808467a3be8a4179ed02c7a10e8406963389e6c6a376a5b8c5040d4d464496c1.png" src="../_images/808467a3be8a4179ed02c7a10e8406963389e6c6a376a5b8c5040d4d464496c1.png" />
@@ -733,7 +744,7 @@ document.write(`
 </section>
 </section>
 <section id="euler-s-method">
-<h2>Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this headline">#</a></h2>
+<h2>Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>The approach we have used applies for <em>any</em> differential equation involving just a single derivative.</p></li>
 <li><p>It is called <strong>Euler’s method</strong>.</p></li>
@@ -765,7 +776,7 @@ document.write(`
 </li>
 </ol>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>Take three steps of Euler’s method to approximate the solution of</p>
 <div class="math notranslate nohighlight">
@@ -788,7 +799,7 @@ document.write(`
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Given the graph of <span class="math notranslate nohighlight">\(y(t)\)</span> it is possible to sketch the graph of <span class="math notranslate nohighlight">\(y'(t)\)</span> (with some care!).</p></li>
 <li><p>Computational models which involve dynamic processes usually involve the use of derivatives.</p></li>
@@ -798,7 +809,7 @@ document.write(`
 </ul>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_equation">Differential equations</a></p></li>
 <li><p>Maths is fun: <a class="reference external" href="https://www.mathsisfun.com/calculus/differential-equations.html">Differential equations</a></p></li>
@@ -837,11 +848,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="lec11.html"
@@ -861,10 +871,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -947,8 +954,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Exam 2021/22 - Solutions &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -75,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -380,10 +391,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -391,7 +402,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -436,10 +447,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exam-2021-22-solutions">
-<h1>Exam 2021/22 - Solutions<a class="headerlink" href="#exam-2021-22-solutions" title="Permalink to this headline">#</a></h1>
+<h1>Exam 2021/22 - Solutions<a class="headerlink" href="#exam-2021-22-solutions" title="Permalink to this heading">#</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="linear-systems-of-equations-13-marks">
-<h1>Linear systems of equations [13 marks]<a class="headerlink" href="#linear-systems-of-equations-13-marks" title="Permalink to this headline">#</a></h1>
+<h1>Linear systems of equations [13 marks]<a class="headerlink" href="#linear-systems-of-equations-13-marks" title="Permalink to this heading">#</a></h1>
 <ol class="arabic">
 <li><p>Consider the system of linear equations</p>
 <div class="math notranslate nohighlight">
@@ -543,7 +554,7 @@ document.write(`
 </ol>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="derivatives-and-differential-equations-20-marks">
-<h1>Derivatives and differential equations [20 marks]<a class="headerlink" href="#derivatives-and-differential-equations-20-marks" title="Permalink to this headline">#</a></h1>
+<h1>Derivatives and differential equations [20 marks]<a class="headerlink" href="#derivatives-and-differential-equations-20-marks" title="Permalink to this heading">#</a></h1>
 <ol class="arabic" start="3">
 <li><p>Consider the differential equation</p>
 <div class="math notranslate nohighlight">
@@ -590,7 +601,7 @@ document.write(`
 </li>
 <li><p>The following table shows results from using three different methods to solve a differential equation. The table headings are: <code class="docutils literal notranslate"><span class="pre">n</span></code> the number of time steps, <code class="docutils literal notranslate"><span class="pre">solution</span></code> the solution at the final time, <code class="docutils literal notranslate"><span class="pre">error</span></code> the error in the solution at the final time, <code class="docutils literal notranslate"><span class="pre">feval</span></code> the total number of right hand side evaluations. Comment on which is the best method and why by considering the accuracy and efficiency of each method. <strong>[10 marks, free response]</strong></p>
 <p><strong>Method 1</strong></p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>n</p></th>
 <th class="head"><p>solution</p></th>
@@ -632,7 +643,7 @@ document.write(`
 </tbody>
 </table>
 <p><strong>Method 2</strong></p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>n</p></th>
 <th class="head"><p>solution</p></th>
@@ -674,7 +685,7 @@ document.write(`
 </tbody>
 </table>
 <p><strong>Method 3</strong></p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>n</p></th>
 <th class="head"><p>solution</p></th>
@@ -723,7 +734,7 @@ document.write(`
 </ol>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="nonlinear-solvers-22-marks">
-<h1>Nonlinear solvers [22 marks]<a class="headerlink" href="#nonlinear-solvers-22-marks" title="Permalink to this headline">#</a></h1>
+<h1>Nonlinear solvers [22 marks]<a class="headerlink" href="#nonlinear-solvers-22-marks" title="Permalink to this heading">#</a></h1>
 <ol class="arabic" start="5">
 <li><p>We want to solve the quadratic equation</p>
 <div class="math notranslate nohighlight">
@@ -757,7 +768,7 @@ document.write(`
 <p>b.  Use the bisection method starting from the bracket <span class="math notranslate nohighlight">\([0, 0.1]\)</span> to estimate the smaller root for <span class="math notranslate nohighlight">\(m = 10^8\)</span>. How many iterations are required to find the solution to a relative error of less than <span class="math notranslate nohighlight">\(0.5\)</span>? <strong>[5 marks]</strong></p>
 <p>–&gt; 22 iterations [5 marks]</p>
 <p>The bisection method will return bracket <span class="math notranslate nohighlight">\([0, 0.1/2^{j}]\)</span> at iteration stage <span class="math notranslate nohighlight">\(j\)</span> until <span class="math notranslate nohighlight">\(0.1/2^j &lt; 10^{-8}\)</span>. So the right hand end of the bracket is:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(j\)</span></p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(0.1/2^{j}\)</span></p></th>
@@ -848,7 +859,7 @@ document.write(`
        \]</div>
 <p>Which happens for <span class="math notranslate nohighlight">\(j = 22\)</span>.</p>
 <p>We can confirm this by doing the iteration:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>it</p></th>
 <th class="head"><p>xC</p></th>
@@ -988,7 +999,7 @@ document.write(`
 </ol>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="summary-5-marks">
-<h1>Summary [5 marks]<a class="headerlink" href="#summary-5-marks" title="Permalink to this headline">#</a></h1>
+<h1>Summary [5 marks]<a class="headerlink" href="#summary-5-marks" title="Permalink to this heading">#</a></h1>
 <ol class="arabic" start="6">
 <li><p>Choose an algorithm from the course which you think is useful. Give an example of where you expect to use this algorithm in the future. Why is this method useful for this application? <strong>[5 marks, free response]</strong></p>
 <p>–&gt; [1 mark for any algorithm from the course. 2 marks for any relevant application 2 marks for why suitable.]</p>
@@ -1021,16 +1032,12 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1100,8 +1107,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

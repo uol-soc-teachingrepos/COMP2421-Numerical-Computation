@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 10: Effects of finite precision arithmetic &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -382,10 +393,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -393,7 +404,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -452,9 +463,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-10-effects-of-finite-precision-arithmetic">
-<h1>Lecture 10: Effects of finite precision arithmetic<a class="headerlink" href="#lecture-10-effects-of-finite-precision-arithmetic" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 10: Effects of finite precision arithmetic<a class="headerlink" href="#lecture-10-effects-of-finite-precision-arithmetic" title="Permalink to this heading">#</a></h1>
 <section id="the-need-for-row-swapping-in-ge">
-<h2>The need for row swapping in GE<a class="headerlink" href="#the-need-for-row-swapping-in-ge" title="Permalink to this headline">#</a></h2>
+<h2>The need for row swapping in GE<a class="headerlink" href="#the-need-for-row-swapping-in-ge" title="Permalink to this heading">#</a></h2>
 <p>Consider the following linear system of equations</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -473,7 +484,7 @@ x_1 \\ x_2 \\ x_3
 \end{split}\]</div>
 <p><em>Problem</em>. We cannot eliminate the first column by the diagonal by adding multiples of row 1 to rows 2 and 3 respectively.</p>
 <section id="row-swapping">
-<h3>Row swapping<a class="headerlink" href="#row-swapping" title="Permalink to this headline">#</a></h3>
+<h3>Row swapping<a class="headerlink" href="#row-swapping" title="Permalink to this heading">#</a></h3>
 <p><em>Solution</em>. Swap the order of the equations!</p>
 <ul>
 <li><p>Swap rows 1 and 2:</p>
@@ -526,7 +537,7 @@ x_1 \\ x_2 \\ x_3
 </ul>
 </section>
 <section id="another-example">
-<h3>Another example<a class="headerlink" href="#another-example" title="Permalink to this headline">#</a></h3>
+<h3>Another example<a class="headerlink" href="#another-example" title="Permalink to this heading">#</a></h3>
 <p>Consider another system of equations</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -598,7 +609,7 @@ x_1 \\ x_2 \\ x_3
 </section>
 </section>
 <section id="problems-with-finite-precision">
-<h2>Problems with finite precision<a class="headerlink" href="#problems-with-finite-precision" title="Permalink to this headline">#</a></h2>
+<h2>Problems with finite precision<a class="headerlink" href="#problems-with-finite-precision" title="Permalink to this heading">#</a></h2>
 <p>Consider using Gaussian elimination to solve the linear system of equations given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -636,7 +647,7 @@ x_1 \\ x_2
 <li><p>Problems occur not only when <span class="math notranslate nohighlight">\(\varepsilon = 0\)</span> but also when it is very small, i.e. when <span class="math notranslate nohighlight">\(\frac{1}{\varepsilon}\)</span> is very large, this will introduce very significant rounding errors into the computation.</p></li>
 </ul>
 <section id="removing-the-problem">
-<h3>Removing the problem<a class="headerlink" href="#removing-the-problem" title="Permalink to this headline">#</a></h3>
+<h3>Removing the problem<a class="headerlink" href="#removing-the-problem" title="Permalink to this heading">#</a></h3>
 <p>Use Gaussian elimination to solve the linear system of equations given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -675,7 +686,7 @@ x_1 \\ x_2
 </ul>
 </section>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Writing the equations in a different order has removed the previous problem.</p></li>
 <li><p>The diagonal entries are now always <em>relatively</em> larger.</p></li>
@@ -684,7 +695,7 @@ x_1 \\ x_2
 </section>
 </section>
 <section id="gaussian-elimination-with-pivoting">
-<h2>Gaussian elimination with pivoting<a class="headerlink" href="#gaussian-elimination-with-pivoting" title="Permalink to this headline">#</a></h2>
+<h2>Gaussian elimination with pivoting<a class="headerlink" href="#gaussian-elimination-with-pivoting" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Before eliminating entries in column <span class="math notranslate nohighlight">\(j\)</span>:</p>
 <ul>
@@ -695,7 +706,7 @@ x_1 \\ x_2
 <li><p>Then eliminate column <span class="math notranslate nohighlight">\(j\)</span> as before.</p></li>
 </ul>
 <section id="id1">
-<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>This algorithm will always work when the matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible/non-singular.</p></li>
 <li><p>Conversely, if all of the possible pivot values are zero this implies that the matrix is singular and a unique solution does not exist.</p></li>
@@ -713,7 +724,7 @@ x_1 \\ x_2
 <p>factorises <span class="math notranslate nohighlight">\(A\)</span> and returns <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span> and the <strong>pivot matrix</strong> <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </section>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>Consider the linear system of equations given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -737,7 +748,7 @@ x_1 \\ x_2 \\ x_3
 </ol>
 <p>The exact solution is <span class="math notranslate nohighlight">\(\vec{x} = (0, -1, 2)^T\)</span> for any <span class="math notranslate nohighlight">\(\varepsilon\)</span> in the given range.</p>
 <section id="solve-the-system-using-gaussian-elimination-with-no-pivoting">
-<h4>1. Solve the system using Gaussian elimination with no pivoting.<a class="headerlink" href="#solve-the-system-using-gaussian-elimination-with-no-pivoting" title="Permalink to this headline">#</a></h4>
+<h4>1. Solve the system using Gaussian elimination with no pivoting.<a class="headerlink" href="#solve-the-system-using-gaussian-elimination-with-no-pivoting" title="Permalink to this heading">#</a></h4>
 <p>Eliminating the first column gives</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -780,7 +791,7 @@ x_1 = \frac{7+ 7x_2}{10}.
 <p>There are many divisions by <span class="math notranslate nohighlight">\(\varepsilon\)</span>, so we will have problems if <span class="math notranslate nohighlight">\(\varepsilon\)</span> is small.</p>
 </section>
 <section id="solve-the-system-using-gaussian-elimination-with-pivoting">
-<h4>2. Solve the system using Gaussian elimination with pivoting.<a class="headerlink" href="#solve-the-system-using-gaussian-elimination-with-pivoting" title="Permalink to this headline">#</a></h4>
+<h4>2. Solve the system using Gaussian elimination with pivoting.<a class="headerlink" href="#solve-the-system-using-gaussian-elimination-with-pivoting" title="Permalink to this heading">#</a></h4>
 <p>The first stage is identical (because <span class="math notranslate nohighlight">\(a_{11} = 10\)</span> is largest).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -840,7 +851,7 @@ x_1 = \frac{7 + 7 x_2}{10} = 0.
 </section>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Mathematics stackexchange: <a class="reference external" href="https://math.stackexchange.com/questions/485513/what-are-pivot-numbers-in-lu-decomposition-please-explain-me-in-an-example">what are pivot numbers in LU decomposition? please explain me in an example</a></p></li>
 <li><p><a class="reference external" href="http://www.math.iitb.ac.in/~neela/partialpivot.pdf">Gaussian elimination with Partial Pivoting</a> [pdf]</p></li>
@@ -876,11 +887,10 @@ x_1 = \frac{7 + 7 x_2}{10} = 0.
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="lec07.html"
@@ -900,10 +910,7 @@ x_1 = \frac{7 + 7 x_2}{10} = 0.
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -987,8 +994,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

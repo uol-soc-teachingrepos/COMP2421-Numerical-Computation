@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 04: Introduction to systems of linear equations &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -382,10 +393,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -393,7 +404,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -447,9 +458,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-04-introduction-to-systems-of-linear-equations">
-<h1>Lecture 04: Introduction to systems of linear equations<a class="headerlink" href="#lecture-04-introduction-to-systems-of-linear-equations" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 04: Introduction to systems of linear equations<a class="headerlink" href="#lecture-04-introduction-to-systems-of-linear-equations" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p><strong>Basic problem</strong>:
 Solve a set of <span class="math notranslate nohighlight">\(n\)</span> <strong>linear</strong> equations for <span class="math notranslate nohighlight">\(n\)</span> unknown values <span class="math notranslate nohighlight">\(x_j\)</span>, <span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>.</p>
 <p><strong>Notation</strong>:</p>
@@ -472,7 +483,7 @@ Solve a set of <span class="math notranslate nohighlight">\(n\)</span> <strong>l
 </ul>
 <p>Computing <span class="math notranslate nohighlight">\(x_1, x_2, x_3, \ldots, x_n\)</span> solves the problem.</p>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Many computational algorithms require the solution of linear equations, e.g. in fields such as</p>
 <ul>
@@ -493,7 +504,7 @@ Solve a set of <span class="math notranslate nohighlight">\(n\)</span> <strong>l
 </ul>
 </section>
 <section id="general-matrix-vector-form">
-<h3>General matrix-vector form<a class="headerlink" href="#general-matrix-vector-form" title="Permalink to this headline">#</a></h3>
+<h3>General matrix-vector form<a class="headerlink" href="#general-matrix-vector-form" title="Permalink to this heading">#</a></h3>
 <p>Solve the system of equations given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -514,7 +525,7 @@ Solve a set of <span class="math notranslate nohighlight">\(n\)</span> <strong>l
 <p>In other words, given an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> and an <span class="math notranslate nohighlight">\(n\)</span>-vector <span class="math notranslate nohighlight">\(\vec{b}\)</span>, find the <span class="math notranslate nohighlight">\(n\)</span>-vector <span class="math notranslate nohighlight">\(\vec{x}\)</span> which satisfies <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span>.</p>
 </section>
 <section id="application-i-temperature-in-a-sealed-room">
-<h3>Application I: Temperature in a sealed room<a class="headerlink" href="#application-i-temperature-in-a-sealed-room" title="Permalink to this headline">#</a></h3>
+<h3>Application I: Temperature in a sealed room<a class="headerlink" href="#application-i-temperature-in-a-sealed-room" title="Permalink to this heading">#</a></h3>
 <p>Suppose we wish to estimate the temperature distribution inside an object:</p>
 <figure class="align-default" id="id1">
 <img alt="../_images/temperature.svg" src="../_images/temperature.svg" /><figcaption>
@@ -543,7 +554,7 @@ Solve a set of <span class="math notranslate nohighlight">\(n\)</span> <strong>l
 \end{split}\]</div>
 </section>
 <section id="application-ii-traffic-network">
-<h3>Application II: Traffic network<a class="headerlink" href="#application-ii-traffic-network" title="Permalink to this headline">#</a></h3>
+<h3>Application II: Traffic network<a class="headerlink" href="#application-ii-traffic-network" title="Permalink to this heading">#</a></h3>
 <p>Suppose we wish to monitor the flow of traffic in a city centre:</p>
 <figure class="align-default" id="id2">
 <img alt="../_images/traffic.svg" src="../_images/traffic.svg" /><figcaption>
@@ -575,7 +586,7 @@ y_{11} + y_{12} - y_{10} \\ y_9 \\ y_2 - y_3 \\ y_1
 </section>
 </section>
 <section id="special-types-of-matrices">
-<h2>Special types of matrices<a class="headerlink" href="#special-types-of-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Special types of matrices<a class="headerlink" href="#special-types-of-matrices" title="Permalink to this heading">#</a></h2>
 <p>The general matrix <span class="math notranslate nohighlight">\(A\)</span> before the examples is known as a <strong>full</strong> matrix: any of its components <span class="math notranslate nohighlight">\(a_{ij}\)</span> might be nonzero.</p>
 <p>Often the problem being solved leads to a matrix with a particular structure.</p>
 <ul class="simple">
@@ -583,7 +594,7 @@ y_{11} + y_{12} - y_{10} \\ y_9 \\ y_2 - y_3 \\ y_1
 <li><p>If this is the case then it is often possible to use this knowledge to improve the efficiency of the algorithm (in terms of both speed and/or storage).</p></li>
 </ul>
 <section id="example-1-triangular-matrix">
-<h3>Example 1: Triangular matrix<a class="headerlink" href="#example-1-triangular-matrix" title="Permalink to this headline">#</a></h3>
+<h3>Example 1: Triangular matrix<a class="headerlink" href="#example-1-triangular-matrix" title="Permalink to this heading">#</a></h3>
 <p>One common (and important) structure takes the form</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -612,7 +623,7 @@ y_{11} + y_{12} - y_{10} \\ y_9 \\ y_2 - y_3 \\ y_1
 </ul>
 </section>
 <section id="example-2-sparse-matrices">
-<h3>Example 2: Sparse matrices<a class="headerlink" href="#example-2-sparse-matrices" title="Permalink to this headline">#</a></h3>
+<h3>Example 2: Sparse matrices<a class="headerlink" href="#example-2-sparse-matrices" title="Permalink to this heading">#</a></h3>
 <p><strong>Sparse matrices</strong> are extremely common in any application which relies on some form of <em>graph</em> structure (see both <span class="xref myst">temperature</span> and <span class="xref myst">traffic network examples</span>).</p>
 <ul class="simple">
 <li><p>The <span class="math notranslate nohighlight">\(a_{ij}\)</span> typically represents some form of “communication” between vertices <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> of the graph, so the element is only nonzero if the vertices are connected.</p></li>
@@ -628,7 +639,7 @@ y_{11} + y_{12} - y_{10} \\ y_9 \\ y_2 - y_3 \\ y_1
 </ul>
 </section>
 <section id="significance">
-<h3>Significance<a class="headerlink" href="#significance" title="Permalink to this headline">#</a></h3>
+<h3>Significance<a class="headerlink" href="#significance" title="Permalink to this heading">#</a></h3>
 <p>What is the significance of these special examples?</p>
 <ul class="simple">
 <li><p>In the next lecture we will discuss a general numerical algorithm for the solution of linear systems of equations.</p></li>
@@ -638,7 +649,7 @@ y_{11} + y_{12} - y_{10} \\ y_9 \\ y_2 - y_3 \\ y_1
 </section>
 </section>
 <section id="uniqueness-of-solutions">
-<h2>Uniqueness of solutions<a class="headerlink" href="#uniqueness-of-solutions" title="Permalink to this headline">#</a></h2>
+<h2>Uniqueness of solutions<a class="headerlink" href="#uniqueness-of-solutions" title="Permalink to this heading">#</a></h2>
 <p>For the time-being we will only consider <em>square</em> systems of equations:
 for which the number of equations is equal to the number of unknowns (<span class="math notranslate nohighlight">\(n\)</span>, say).</p>
 <p>In this case the following statements are <em>equivalent</em>:</p>
@@ -649,7 +660,7 @@ for which the number of equations is equal to the number of unknowns (<span clas
 </ul>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/System_of_linear_equations">Systems of linear equations</a> (includes a nice geometric picture of what a system of linear equations means).</p></li>
 <li><p>Maths is fun: <a class="reference external" href="https://www.mathsisfun.com/algebra/systems-linear-equations.html">Systems of linear equations</a> (very basic!)</p></li>
@@ -683,11 +694,10 @@ for which the number of equations is equal to the number of unknowns (<span clas
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../ws/ws02.html"
@@ -707,10 +717,7 @@ for which the number of equations is equal to the number of unknowns (<span clas
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -789,8 +796,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

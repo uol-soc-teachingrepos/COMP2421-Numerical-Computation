@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 02: Matrices and vectors &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -382,10 +393,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -393,7 +404,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -465,9 +476,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-02-matrices-and-vectors">
-<h1>Lecture 02: Matrices and vectors<a class="headerlink" href="#lecture-02-matrices-and-vectors" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 02: Matrices and vectors<a class="headerlink" href="#lecture-02-matrices-and-vectors" title="Permalink to this heading">#</a></h1>
 <section id="introduction-to-matrices">
-<h2>Introduction to matrices<a class="headerlink" href="#introduction-to-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Introduction to matrices<a class="headerlink" href="#introduction-to-matrices" title="Permalink to this heading">#</a></h2>
 <p><strong>What is a matrix?</strong></p>
 <p>A matrix is a two-dimensional array of objects (usually numbers)…</p>
 <ul>
@@ -493,7 +504,7 @@ document.write(`
 </li>
 </ul>
 <section id="general-matrix-form">
-<h3>General matrix form<a class="headerlink" href="#general-matrix-form" title="Permalink to this headline">#</a></h3>
+<h3>General matrix form<a class="headerlink" href="#general-matrix-form" title="Permalink to this heading">#</a></h3>
 <p>A <em>matrix</em> can have any number of rows and any number of columns…</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -510,7 +521,7 @@ document.write(`
 We call <span class="math notranslate nohighlight">\(A\)</span> an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix (”<span class="math notranslate nohighlight">\(m\)</span> by <span class="math notranslate nohighlight">\(n\)</span>” matrix).</p>
 </section>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The entry <span class="math notranslate nohighlight">\(A_{ij}\)</span> appears in row <span class="math notranslate nohighlight">\(i\)</span> and column <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
 <li><p>The values <span class="math notranslate nohighlight">\(A_{ij}\)</span> are known as <strong>coefficients</strong> of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
@@ -526,7 +537,7 @@ We call <span class="math notranslate nohighlight">\(A\)</span> an <span class="
 </section>
 </section>
 <section id="matrix-addition">
-<h2>Matrix addition<a class="headerlink" href="#matrix-addition" title="Permalink to this headline">#</a></h2>
+<h2>Matrix addition<a class="headerlink" href="#matrix-addition" title="Permalink to this heading">#</a></h2>
 <p>Two matrices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, may be added to form a new matrix (let’s call it <span class="math notranslate nohighlight">\(C\)</span>) provided <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are of the same size, i.e.:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have the same number of rows;</p></li>
@@ -534,7 +545,7 @@ We call <span class="math notranslate nohighlight">\(A\)</span> an <span class="
 </ol>
 <p>Their sum, <span class="math notranslate nohighlight">\(C\)</span>, is such that <span class="math notranslate nohighlight">\(C_{ij} = A_{ij} + B_{ij}\)</span> for every entry of each row and column.</p>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix}
@@ -580,7 +591,7 @@ We call <span class="math notranslate nohighlight">\(A\)</span> an <span class="
 </section>
 </section>
 <section id="scalar-multiplication">
-<h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Permalink to this headline">#</a></h2>
+<h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>A matrix, <span class="math notranslate nohighlight">\(A\)</span>, may be multiplied by a scalar <span class="math notranslate nohighlight">\(\alpha\)</span> to form a new matrix - let’s call it <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
 <li><p>This new matrix, <span class="math notranslate nohighlight">\(B\)</span>, is such that</p>
@@ -597,7 +608,7 @@ We call <span class="math notranslate nohighlight">\(A\)</span> an <span class="
 </li>
 </ul>
 <section id="id1">
-<h3>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Examples<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 2
@@ -643,7 +654,7 @@ We call <span class="math notranslate nohighlight">\(A\)</span> an <span class="
 \end{split}\]</div>
 </section>
 <section id="examples-homework">
-<h3>Examples (homework)<a class="headerlink" href="#examples-homework" title="Permalink to this headline">#</a></h3>
+<h3>Examples (homework)<a class="headerlink" href="#examples-homework" title="Permalink to this heading">#</a></h3>
 <p>Let
 <span class="math notranslate nohighlight">\(
 A =
@@ -673,7 +684,7 @@ C =
 </ul>
 </section>
 <section id="zero-matrices">
-<h3>Zero matrices<a class="headerlink" href="#zero-matrices" title="Permalink to this headline">#</a></h3>
+<h3>Zero matrices<a class="headerlink" href="#zero-matrices" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A zero matrix (let’s call is <span class="math notranslate nohighlight">\(O\)</span>) is a matrix for which every entry is zero.</p></li>
 <li><p>Note that there are an infinite number of zero matrices!</p></li>
@@ -685,7 +696,7 @@ C =
 </ul>
 </section>
 <section id="properties-of-matrix-addition">
-<h3>Properties of matrix addition<a class="headerlink" href="#properties-of-matrix-addition" title="Permalink to this headline">#</a></h3>
+<h3>Properties of matrix addition<a class="headerlink" href="#properties-of-matrix-addition" title="Permalink to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(A, B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> be matrices of the same dimensions, then</p>
 <ul class="simple">
 <li><p>Matrix addition is associative: <span class="math notranslate nohighlight">\((A+B)+C = A+(B+C)\)</span>.</p></li>
@@ -695,7 +706,7 @@ C =
 </ul>
 </section>
 <section id="properties-of-scalar-multiplication">
-<h3>Properties of scalar multiplication<a class="headerlink" href="#properties-of-scalar-multiplication" title="Permalink to this headline">#</a></h3>
+<h3>Properties of scalar multiplication<a class="headerlink" href="#properties-of-scalar-multiplication" title="Permalink to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be matrices of the same dimension, and <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> be scalars, then</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(1A = A\)</span> and <span class="math notranslate nohighlight">\(0A = O\)</span>.</p></li>
@@ -706,7 +717,7 @@ C =
 </section>
 </section>
 <section id="matrix-multiplication">
-<h2>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">#</a></h2>
+<h2>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Recall that it is possible to add matrices together
 provided each matrix has <em>the same dimensions</em>.</p></li>
@@ -718,7 +729,7 @@ two matrices may be multiplied together, to form a new matrix as their
 product…</p></li>
 </ul>
 <section id="definition-of-matrix-multiplication">
-<h3>Definition of matrix multiplication<a class="headerlink" href="#definition-of-matrix-multiplication" title="Permalink to this headline">#</a></h3>
+<h3>Definition of matrix multiplication<a class="headerlink" href="#definition-of-matrix-multiplication" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is a <span class="math notranslate nohighlight">\(p \times q\)</span> matrix,
 then it is only possible to form their product, <span class="math notranslate nohighlight">\(C=AB\)</span>, if <span class="math notranslate nohighlight">\(n=p\)</span> (i.e.\ the
@@ -739,7 +750,7 @@ of row <span class="math notranslate nohighlight">\(i\)</span> of <span class="m
 </ul>
 </section>
 <section id="id2">
-<h3>Examples<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>Examples<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix}
@@ -781,7 +792,7 @@ of row <span class="math notranslate nohighlight">\(i\)</span> of <span class="m
 \end{split}\]</div>
 </section>
 <section id="id3">
-<h3>Examples (homework)<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Examples (homework)<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>Let</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -805,7 +816,7 @@ A = \begin{pmatrix}
 </ul>
 </section>
 <section id="id4">
-<h3>Notes<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>Notes<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The product of two arbitrary matrices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> say, may not be
 well-defined (the number of columns of <span class="math notranslate nohighlight">\(A\)</span> must equal the number of
@@ -820,7 +831,7 @@ matrices are of appropriate dimensions for these products to be well-defined.</p
 </ul>
 </section>
 <section id="matrix-transposition">
-<h3>Matrix Transposition<a class="headerlink" href="#matrix-transposition" title="Permalink to this headline">#</a></h3>
+<h3>Matrix Transposition<a class="headerlink" href="#matrix-transposition" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>An important matrix operation is called the <strong>transpose</strong>.</p></li>
 <li><p>The transpose of a matrix <span class="math notranslate nohighlight">\(A\)</span> (denoted by <span class="math notranslate nohighlight">\(A^{\rm T}\)</span> or <span class="math notranslate nohighlight">\(A'\)</span>) is such that
@@ -849,7 +860,7 @@ matrix (and must be a square matrix).</p></li>
 </ul>
 </section>
 <section id="identity-matrices">
-<h3>Identity Matrices<a class="headerlink" href="#identity-matrices" title="Permalink to this headline">#</a></h3>
+<h3>Identity Matrices<a class="headerlink" href="#identity-matrices" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>These are square matrices that have the structure:</p></li>
 </ul>
@@ -875,7 +886,7 @@ matrix (and must be a square matrix).</p></li>
 </section>
 </section>
 <section id="invertible-matrices">
-<h2>Invertible Matrices<a class="headerlink" href="#invertible-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Invertible Matrices<a class="headerlink" href="#invertible-matrices" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>An <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible (non-degenerate, non-singular) if there exists <span class="math notranslate nohighlight">\(B\)</span> which is an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix such that <span class="math notranslate nohighlight">\(AB = BA = I_n\)</span>.</p></li>
 <li><p>When <span class="math notranslate nohighlight">\(A\)</span> is invertible, then its inverse is unique and we denote it by <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p></li>
@@ -888,7 +899,7 @@ matrix (and must be a square matrix).</p></li>
 <li><p>For <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, if <span class="math notranslate nohighlight">\(AB = I_n\)</span>, then <span class="math notranslate nohighlight">\(A,B\)</span> are both invertible and <span class="math notranslate nohighlight">\(A^{-1}= B\)</span> and <span class="math notranslate nohighlight">\(B^{-1} = A\)</span>.</p></li>
 </ul>
 <section id="properties-of-invertible-matrices">
-<h3>Properties of invertible matrices<a class="headerlink" href="#properties-of-invertible-matrices" title="Permalink to this headline">#</a></h3>
+<h3>Properties of invertible matrices<a class="headerlink" href="#properties-of-invertible-matrices" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible, then <span class="math notranslate nohighlight">\((A^{-1})^{-1} = A\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible and the scalar <span class="math notranslate nohighlight">\(\lambda \ne 0\)</span>, then <span class="math notranslate nohighlight">\(\lambda A\)</span> is invertible and <span class="math notranslate nohighlight">\((\lambda A)^{-1} = \frac{1}{\lambda}A^{-1}\)</span>.</p></li>
@@ -898,7 +909,7 @@ matrix (and must be a square matrix).</p></li>
 </ul>
 </section>
 <section id="properties-of-matrix-multiplication">
-<h3>Properties of matrix multiplication<a class="headerlink" href="#properties-of-matrix-multiplication" title="Permalink to this headline">#</a></h3>
+<h3>Properties of matrix multiplication<a class="headerlink" href="#properties-of-matrix-multiplication" title="Permalink to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> be an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix and let <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> be matrices for which
 the following sums and products are defined…</p>
 <ul class="simple">
@@ -911,7 +922,7 @@ the following sums and products are defined…</p>
 </section>
 </section>
 <section id="row-and-column-vectors">
-<h2>Row and Column Vectors<a class="headerlink" href="#row-and-column-vectors" title="Permalink to this headline">#</a></h2>
+<h2>Row and Column Vectors<a class="headerlink" href="#row-and-column-vectors" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>A matrix with just one row is called a <strong>row vector</strong>.</p></li>
 <li><p>A matrix with just one column is called a <strong>column vector</strong>.</p></li>
@@ -949,7 +960,7 @@ called the <strong>scalar product</strong> of <span class="math notranslate nohi
 </ul>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Maths is fun:</p>
 <ul>
@@ -997,11 +1008,10 @@ called the <strong>scalar product</strong> of <span class="math notranslate nohi
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="lec01.html"
@@ -1021,10 +1031,7 @@ called the <strong>scalar product</strong> of <span class="math notranslate nohi
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1121,8 +1128,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

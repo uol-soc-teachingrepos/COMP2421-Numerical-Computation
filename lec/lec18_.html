@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 18: Robust nonlinear solvers &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -75,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -447,10 +458,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -458,7 +469,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -512,13 +523,13 @@ document.write(`
   <div class="cell tag_remove-input docutils container">
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="lecture-18-robust-nonlinear-solvers">
-<h1>Lecture 18: Robust nonlinear solvers<a class="headerlink" href="#lecture-18-robust-nonlinear-solvers" title="Permalink to this headline">#</a></h1>
+<h1>Lecture 18: Robust nonlinear solvers<a class="headerlink" href="#lecture-18-robust-nonlinear-solvers" title="Permalink to this heading">#</a></h1>
 <blockquote>
 <div><p>Given a continuous function <span class="math notranslate nohighlight">\(f(x)\)</span>, the problem is to find a point <span class="math notranslate nohighlight">\(x^*\)</span> such that <span class="math notranslate nohighlight">\(f(x^*) = 0\)</span>. That is, <span class="math notranslate nohighlight">\(x^*\)</span> is a solution of the equation <span class="math notranslate nohighlight">\(f(x) = 0\)</span> and is called a <strong>root of <span class="math notranslate nohighlight">\(f(x)\)</span></strong>.</p>
 </div></blockquote>
 <section id="summary-so-far">
-<h2>Summary so far<a class="headerlink" href="#summary-so-far" title="Permalink to this headline">#</a></h2>
-<table class="colwidths-auto table">
+<h2>Summary so far<a class="headerlink" href="#summary-so-far" title="Permalink to this heading">#</a></h2>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Bisection</p></th>
@@ -574,7 +585,7 @@ document.write(`
 </table>
 </section>
 <section id="the-big-idea">
-<h2>The big idea<a class="headerlink" href="#the-big-idea" title="Permalink to this headline">#</a></h2>
+<h2>The big idea<a class="headerlink" href="#the-big-idea" title="Permalink to this heading">#</a></h2>
 <p>Combine the robustness of the bisection but improve the estimate using the secant method.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -589,7 +600,7 @@ document.write(`
 <p>The bisection method doesn’t use the values of <span class="math notranslate nohighlight">\(f\)</span> only it’s sign. Use this to improve the convergence rate.</p>
 </section>
 <section id="false-position-method-regula-falisi">
-<h2>False position method (regula falisi)<a class="headerlink" href="#false-position-method-regula-falisi" title="Permalink to this headline">#</a></h2>
+<h2>False position method (regula falisi)<a class="headerlink" href="#false-position-method-regula-falisi" title="Permalink to this heading">#</a></h2>
 <p>The idea is to take the bisection method but instead of evaluating f and the midpoint of <span class="math notranslate nohighlight">\((x_L, x_R)\)</span> and computing signs, we evaluate at the point obtained from the application of the secant method to <span class="math notranslate nohighlight">\(x_L, x_R\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,7 +635,7 @@ document.write(`
 </div>
 </section>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
 <p>A simply example <span class="math notranslate nohighlight">\(f(x) = x^2 - 2\)</span> starting from bracket <span class="math notranslate nohighlight">\((1, 2)\)</span>.</p>
 <p><em>What happens to the right end of the bracket?</em></p>
 <div class="cell docutils container">
@@ -639,69 +650,69 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >f(a)</th>        <th class="col_heading level0 col3" >b</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >c</th>        <th class="col_heading level0 col6" >f(c)</th>    </tr></thead><tbody>
+</style><table id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cf" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >f(a)</th>        <th class="col_heading level0 col3" >b</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >c</th>        <th class="col_heading level0 col6" >f(c)</th>    </tr></thead><tbody>
                 <tr>
-                                <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row0_col0" class="data row0 col0" >0</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row0_col1" class="data row0 col1" >1.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row0_col2" class="data row0 col2" >-1.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row0_col3" class="data row0 col3" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row0_col4" class="data row0 col4" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row0_col5" class="data row0 col5" >--</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row0_col6" class="data row0 col6" >--</td>
+                                <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow0_col2" class="data row0 col2" >-1.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow0_col3" class="data row0 col3" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow0_col4" class="data row0 col4" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow0_col5" class="data row0 col5" >--</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow0_col6" class="data row0 col6" >--</td>
             </tr>
             <tr>
-                                <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row1_col0" class="data row1 col0" >1</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row1_col1" class="data row1 col1" >1.333333</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row1_col2" class="data row1 col2" >-0.222222</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row1_col3" class="data row1 col3" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row1_col4" class="data row1 col4" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row1_col5" class="data row1 col5" >1.333333</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row1_col6" class="data row1 col6" >-0.222222</td>
+                                <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow1_col1" class="data row1 col1" >1.333333</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow1_col2" class="data row1 col2" >-0.222222</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow1_col3" class="data row1 col3" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow1_col4" class="data row1 col4" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow1_col5" class="data row1 col5" >1.333333</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow1_col6" class="data row1 col6" >-0.222222</td>
             </tr>
             <tr>
-                                <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row2_col0" class="data row2 col0" >2</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row2_col1" class="data row2 col1" >1.400000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row2_col2" class="data row2 col2" >-0.040000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row2_col3" class="data row2 col3" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row2_col4" class="data row2 col4" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row2_col5" class="data row2 col5" >1.400000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row2_col6" class="data row2 col6" >-0.040000</td>
+                                <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow2_col1" class="data row2 col1" >1.400000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow2_col2" class="data row2 col2" >-0.040000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow2_col3" class="data row2 col3" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow2_col4" class="data row2 col4" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow2_col5" class="data row2 col5" >1.400000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow2_col6" class="data row2 col6" >-0.040000</td>
             </tr>
             <tr>
-                                <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row3_col0" class="data row3 col0" >3</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row3_col1" class="data row3 col1" >1.411765</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row3_col2" class="data row3 col2" >-0.006920</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row3_col3" class="data row3 col3" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row3_col4" class="data row3 col4" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row3_col5" class="data row3 col5" >1.411765</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row3_col6" class="data row3 col6" >-0.006920</td>
+                                <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow3_col1" class="data row3 col1" >1.411765</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow3_col2" class="data row3 col2" >-0.006920</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow3_col3" class="data row3 col3" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow3_col4" class="data row3 col4" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow3_col5" class="data row3 col5" >1.411765</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow3_col6" class="data row3 col6" >-0.006920</td>
             </tr>
             <tr>
-                                <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row4_col0" class="data row4 col0" >4</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row4_col1" class="data row4 col1" >1.413793</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row4_col2" class="data row4 col2" >-0.001189</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row4_col3" class="data row4 col3" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row4_col4" class="data row4 col4" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row4_col5" class="data row4 col5" >1.413793</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row4_col6" class="data row4 col6" >-0.001189</td>
+                                <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow4_col1" class="data row4 col1" >1.413793</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow4_col2" class="data row4 col2" >-0.001189</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow4_col3" class="data row4 col3" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow4_col4" class="data row4 col4" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow4_col5" class="data row4 col5" >1.413793</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow4_col6" class="data row4 col6" >-0.001189</td>
             </tr>
             <tr>
-                                <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row5_col0" class="data row5 col0" >5</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row5_col1" class="data row5 col1" >1.414141</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row5_col2" class="data row5 col2" >-0.000204</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row5_col3" class="data row5 col3" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row5_col4" class="data row5 col4" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row5_col5" class="data row5 col5" >1.414141</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row5_col6" class="data row5 col6" >-0.000204</td>
+                                <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow5_col0" class="data row5 col0" >5</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow5_col1" class="data row5 col1" >1.414141</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow5_col2" class="data row5 col2" >-0.000204</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow5_col3" class="data row5 col3" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow5_col4" class="data row5 col4" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow5_col5" class="data row5 col5" >1.414141</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow5_col6" class="data row5 col6" >-0.000204</td>
             </tr>
             <tr>
-                                <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row6_col0" class="data row6 col0" >6</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row6_col1" class="data row6 col1" >1.414201</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row6_col2" class="data row6 col2" >-0.000035</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row6_col3" class="data row6 col3" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row6_col4" class="data row6 col4" >2.000000</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row6_col5" class="data row6 col5" >1.414201</td>
-                        <td id="T_458881d0_3083_11ee_8ad0_000d3a7a5a72row6_col6" class="data row6 col6" >-0.000035</td>
+                                <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow6_col0" class="data row6 col0" >6</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow6_col1" class="data row6 col1" >1.414201</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow6_col2" class="data row6 col2" >-0.000035</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow6_col3" class="data row6 col3" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow6_col4" class="data row6 col4" >2.000000</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow6_col5" class="data row6 col5" >1.414201</td>
+                        <td id="T_87b5d3f8_5ba0_11ee_b7e0_000d3a71c3cfrow6_col6" class="data row6 col6" >-0.000035</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -713,7 +724,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="dekker-s-method">
-<h1>Dekker’s method<a class="headerlink" href="#dekker-s-method" title="Permalink to this headline">#</a></h1>
+<h1>Dekker’s method<a class="headerlink" href="#dekker-s-method" title="Permalink to this heading">#</a></h1>
 <p>This is a another hybrid method that combines the bisection and secant method.</p>
 <p>We find two candidates for approximating the root - given by the secant method and by the bisection method. <span class="math notranslate nohighlight">\(b\)</span> becomes the new estimate of the root and <span class="math notranslate nohighlight">\(a\)</span> is updated to maintain the bracket.</p>
 <p>The function requires both an initial bracket:</p>
@@ -823,7 +834,7 @@ document.write(`
 </div>
 </div>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
 <p>A simply example <span class="math notranslate nohighlight">\(f(x) = x^2 - 2\)</span> starting from bracket <span class="math notranslate nohighlight">\((1, 2)\)</span></p>
 <p><em>What happens to the left end of the bracket?</em></p>
 <div class="cell tag_remove-input docutils container">
@@ -840,46 +851,46 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >f(a)</th>        <th class="col_heading level0 col3" >b</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >update</th>    </tr></thead><tbody>
+</style><table id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cf" ><thead>    <tr>        <th class="col_heading level0 col0" >it</th>        <th class="col_heading level0 col1" >a</th>        <th class="col_heading level0 col2" >f(a)</th>        <th class="col_heading level0 col3" >b</th>        <th class="col_heading level0 col4" >f(b)</th>        <th class="col_heading level0 col5" >update</th>    </tr></thead><tbody>
                 <tr>
-                                <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row0_col0" class="data row0 col0" >0</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row0_col1" class="data row0 col1" >1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row0_col2" class="data row0 col2" >-1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row0_col3" class="data row0 col3" >2.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row0_col4" class="data row0 col4" >2.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row0_col5" class="data row0 col5" >None</td>
+                                <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow0_col1" class="data row0 col1" >1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow0_col2" class="data row0 col2" >-1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow0_col3" class="data row0 col3" >2.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow0_col4" class="data row0 col4" >2.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow0_col5" class="data row0 col5" >None</td>
             </tr>
             <tr>
-                                <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row1_col0" class="data row1 col0" >1</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row1_col1" class="data row1 col1" >1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row1_col2" class="data row1 col2" >-1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row1_col3" class="data row1 col3" >1.500000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row1_col4" class="data row1 col4" >0.250000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row1_col5" class="data row1 col5" >midpoint</td>
+                                <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow1_col1" class="data row1 col1" >1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow1_col2" class="data row1 col2" >-1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow1_col3" class="data row1 col3" >1.500000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow1_col4" class="data row1 col4" >0.250000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow1_col5" class="data row1 col5" >midpoint</td>
             </tr>
             <tr>
-                                <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row2_col0" class="data row2 col0" >2</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row2_col1" class="data row2 col1" >1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row2_col2" class="data row2 col2" >-1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row2_col3" class="data row2 col3" >1.428571</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row2_col4" class="data row2 col4" >0.040816</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row2_col5" class="data row2 col5" >secant</td>
+                                <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow2_col0" class="data row2 col0" >2</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow2_col1" class="data row2 col1" >1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow2_col2" class="data row2 col2" >-1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow2_col3" class="data row2 col3" >1.428571</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow2_col4" class="data row2 col4" >0.040816</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow2_col5" class="data row2 col5" >secant</td>
             </tr>
             <tr>
-                                <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row3_col0" class="data row3 col0" >3</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row3_col1" class="data row3 col1" >1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row3_col2" class="data row3 col2" >-1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row3_col3" class="data row3 col3" >1.414634</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row3_col4" class="data row3 col4" >0.001190</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row3_col5" class="data row3 col5" >secant</td>
+                                <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow3_col0" class="data row3 col0" >3</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow3_col1" class="data row3 col1" >1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow3_col2" class="data row3 col2" >-1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow3_col3" class="data row3 col3" >1.414634</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow3_col4" class="data row3 col4" >0.001190</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow3_col5" class="data row3 col5" >secant</td>
             </tr>
             <tr>
-                                <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row4_col0" class="data row4 col0" >4</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row4_col1" class="data row4 col1" >1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row4_col2" class="data row4 col2" >-1.000000</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row4_col3" class="data row4 col3" >1.414216</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row4_col4" class="data row4 col4" >0.000006</td>
-                        <td id="T_4626093c_3083_11ee_8ad0_000d3a7a5a72row4_col5" class="data row4 col5" >secant</td>
+                                <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow4_col0" class="data row4 col0" >4</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow4_col1" class="data row4 col1" >1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow4_col2" class="data row4 col2" >-1.000000</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow4_col3" class="data row4 col3" >1.414216</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow4_col4" class="data row4 col4" >0.000006</td>
+                        <td id="T_8860508a_5ba0_11ee_b7e0_000d3a71c3cfrow4_col5" class="data row4 col5" >secant</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -890,8 +901,8 @@ document.write(`
 </div>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
-<table class="colwidths-auto table">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Bisection</p></th>
@@ -989,16 +1000,12 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1075,8 +1082,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

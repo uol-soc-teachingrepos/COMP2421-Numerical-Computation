@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Coursework 2 2021/22 - Solutions &#8212; COMP2421 Numerical Computation</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -75,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -447,10 +458,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -458,7 +469,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -499,7 +510,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="coursework-2-2021-22-solutions">
-<h1>Coursework 2 2021/22 - Solutions<a class="headerlink" href="#coursework-2-2021-22-solutions" title="Permalink to this headline">#</a></h1>
+<h1>Coursework 2 2021/22 - Solutions<a class="headerlink" href="#coursework-2-2021-22-solutions" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -511,7 +522,7 @@ document.write(`
 </div>
 </div>
 <section id="part-1-short-answer-questions-9-marks">
-<h2>Part 1: Short answer questions (9 marks)<a class="headerlink" href="#part-1-short-answer-questions-9-marks" title="Permalink to this headline">#</a></h2>
+<h2>Part 1: Short answer questions (9 marks)<a class="headerlink" href="#part-1-short-answer-questions-9-marks" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
 <li><p><em>Gaussian elimination with pivoting</em></p>
 <p>Solve the following system of linear equations using Gaussian elimination (with pivoting if necessary) and backward substitution.</p>
@@ -731,7 +742,7 @@ t^{(2)} = 1.
 <p>The error <span class="math notranslate nohighlight">\(|y^*(1) - y^{(2)}| = 0.05554199\)</span> which is less than <span class="math notranslate nohighlight">\(10^{-1}\)</span> but not less than <span class="math notranslate nohighlight">\(10^{-2}\)</span>.</p>
 </section>
 <section id="part-2-free-answer-questions-11-marks">
-<h2>Part 2: Free answer questions (11 marks)<a class="headerlink" href="#part-2-free-answer-questions-11-marks" title="Permalink to this headline">#</a></h2>
+<h2>Part 2: Free answer questions (11 marks)<a class="headerlink" href="#part-2-free-answer-questions-11-marks" title="Permalink to this heading">#</a></h2>
 <p>Please upload a single <strong>pdf</strong> file containing the answers to all parts of question 5. Code and tables should be included in-line (no screen shots, no dark backgrounds). You should clearly label each part of your answer.</p>
 <ol class="arabic" start="5">
 <li><p>Consider the problem of heating a one dimensional (i.e., long and thin) rod which has length <span class="math notranslate nohighlight">\(1\,\mathrm{m}\)</span>. We will set the temperature at one end equal to <span class="math notranslate nohighlight">\(20^\circ\,\mathrm{C}\)</span> and to the other end at <span class="math notranslate nohighlight">\(80^\circ\,\mathrm{C}\)</span> and see how the temperature evolves over time. In this question we will explore the properties of different numerical methods to approximate the temperature at time <span class="math notranslate nohighlight">\(T = 10\, \mathrm{seconds}\)</span>.</p>
@@ -914,9 +925,9 @@ t^{(2)} = 1.
  60.         66.66666667 73.33333333 80.        ]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4188/3977684066.py:7: RuntimeWarning: overflow encountered in matmul
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4642/3977684066.py:7: RuntimeWarning: overflow encountered in matmul
   return A @ x
-/tmp/ipykernel_4188/3977684066.py:7: RuntimeWarning: invalid value encountered in matmul
+/tmp/ipykernel_4642/3977684066.py:7: RuntimeWarning: invalid value encountered in matmul
   return A @ x
 </pre></div>
 </div>
@@ -1518,16 +1529,12 @@ y^{(i+1)} = y^{(i)} + \mathrm{d}t f(y^{(i+1)}, t).
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1593,8 +1600,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

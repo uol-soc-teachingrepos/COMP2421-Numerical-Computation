@@ -4,9 +4,11 @@ KEY OBJECTIVES:
 - Advanced aim - apply the sparse format to improve run times of iterative methods 
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws05.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws05.html
+
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws05_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws05_implemented.html
+
 
 Rough plan:
 
@@ -26,5 +28,3 @@ Part c tutorial:
 
 2. Work through part c implementations. Encourage students to volunteer solutions
 3. Discuss direct vs iterative approaches - how would you know which is best?
-
-Print outs (worksheet, solutions, this guide) from 11 or I'll drop them into you

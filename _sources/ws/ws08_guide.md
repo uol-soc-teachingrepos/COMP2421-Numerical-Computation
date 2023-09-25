@@ -5,9 +5,11 @@ KEY OBJECTIVES:
 - Advanced aim - think about how to solve the robustness of Newton's method
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws08.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws08.html
+
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws08_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws08_implemented.html
+
 
 Rough plan:
 

@@ -8,9 +8,9 @@ KEY OBJECTIVES:
   - Avoid subtraction of similar numbers
 
 Worksheet:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws02.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02.html
 Partial solutions:
-https://comp2421-numerical-computation.gitlab.io/book/ws/ws02_implemented.html
+https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02_implemented.html
 
 Rough plan: Try Balance part a, b of ws02
 
@@ -19,7 +19,5 @@ Rough plan: Try Balance part a, b of ws02
 	- if students are reluctant to do, say that you can write but they should tell you what to write
 3. Q5 and Q6 - get students to tell you what code to write/get them up to write the code. run it and discuss what's going on
 
-Partial worked solutions are available in gitlab or binder. Invite students to make merge requests/issues with improved/more complete solutions:
-e.g. https://gitlab.com/comp2421-numerical-computation/book/-/issues/1
-
-Print outs (worksheet, solutions, this guide) should be by my office from around 10am
+Partial worked solutions are available in online. Invite students to make merge requests/issues with improved/more complete solutions:
+e.g. https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/issues

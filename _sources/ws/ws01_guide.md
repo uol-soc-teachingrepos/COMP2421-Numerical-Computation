@@ -23,7 +23,7 @@ KEY OBJECTIVE: can students open jupyter lab, import numpy as run simple cost? i
 
 	a. What are cells and how to execute? (inc cell types - markdown and code)
 	b. Remember to restart kernel and run all before submission to make sure no hidden state
-	c. Introduction to numpy comp2421-numerical-computation.gitlab.io/book/ws/ws01.html#step-3-using-numpy
+	c. Introduction to numpy https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws01.html#step-3-using-numpy
 
        - how to import
 	   - how to make array

@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -30,13 +32,18 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def f1(t):
-    return t*t
+    return t * t
+
+
 def df1(t):
-    return 2*t
+    return 2 * t
+
 
 t_ = np.linspace(0, 1, 1000)
 f_ = f1(t_)
@@ -115,10 +122,12 @@ plt.show()
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import pandas as pd
 
 headers = ["n", "dt", "solution", "abs. error", "ratio"]
 data = []
+
 
 def euler(f, n, dt, t0, y0, T):
     t = np.double(t0)
@@ -127,15 +136,18 @@ def euler(f, n, dt, t0, y0, T):
     for i in range(n):
         y += dt * f(t, y)
         t += dt
-    
+
     return y
+
 
 t0 = 1.0
 y0 = 1.0
 T = 2.0
 
+
 def f(t, y):
     return 3 * y / t
+
 
 exact = 8.0
 
@@ -149,8 +161,8 @@ for n in [10, 20, 40, 80, 160, 320, 640]:
     if old_error is not None:
         ratio = error / old_error
     else:
-        ratio = '---'
-    
+        ratio = "---"
+
     old_error = error
 
     data.append([n, dt, y, error, ratio])
@@ -278,29 +290,34 @@ We use this idea to derive a improve numerical scheme.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import pandas as pd
 
 headers = ["n", "dt", "solution", "abs. error", "ratio"]
 data = []
+
 
 def midpoint(f, n, dt, t0, y0, T):
     t = np.double(t0)
     y = np.double(y0)
 
     for i in range(n):
-        k = y + (dt/2) * f(t, y)
-        m = t + dt/2
+        k = y + (dt / 2) * f(t, y)
+        m = t + dt / 2
         y += dt * f(m, k)
         t += dt
-    
+
     return y
+
 
 t0 = 1.0
 y0 = 1.0
 T = 2.0
 
+
 def f(t, y):
     return 3 * y / t
+
 
 exact = 8.0
 
@@ -314,8 +331,8 @@ for n in [10, 20, 40, 80, 160, 320, 640]:
     if old_error is not None:
         ratio = error / old_error
     else:
-        ratio = '---'
-    
+        ratio = "---"
+
     old_error = error
 
     data.append([n, dt, y, error, ratio])

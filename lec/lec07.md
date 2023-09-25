@@ -288,7 +288,7 @@ $$
 
 ### Example 2 (homework)
 
-Rewrite the matrix $A$ as the product of lower and upper triangular matrices where 
+Rewrite the matrix $A$ as the product of lower and upper triangular matrices where
 
 $$
 A =

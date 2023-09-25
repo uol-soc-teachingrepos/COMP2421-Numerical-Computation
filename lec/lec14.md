@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -34,12 +36,13 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 def projectile(n, t0, tfinal):
-    t = np.zeros([n+1,1]) # Initialise the array t
-    U = np.zeros([n+1,1]) # Initialise the array U
-    V = np.zeros([n+1,1]) # Initialise the array V
-    X = np.zeros([n+1,1]) # Initialise the array X
-    Y = np.zeros([n+1,1]) # Initialise the array Y
+    t = np.zeros([n + 1, 1])  # Initialise the array t
+    U = np.zeros([n + 1, 1])  # Initialise the array U
+    V = np.zeros([n + 1, 1])  # Initialise the array V
+    X = np.zeros([n + 1, 1])  # Initialise the array X
+    Y = np.zeros([n + 1, 1])  # Initialise the array Y
 
     ## define initial conditions
     t[0] = 0.0
@@ -53,17 +56,18 @@ def projectile(n, t0, tfinal):
     g = 9.81
 
     ## Calculate size of each interval
-    dt = (tfinal-t0)/float(n)
+    dt = (tfinal - t0) / float(n)
 
     ## Take n steps of Euler’s method
     for i in range(n):
-        U[i+1] = U[i] + dt * (-k*U[i])
-        V[i+1] = V[i] + dt * (-k*V[i] - g)
-        X[i+1] = X[i] + dt * U[i]
-        Y[i+1] = Y[i] + dt * V[i]
-        t[i+1] = t[i] + dt
+        U[i + 1] = U[i] + dt * (-k * U[i])
+        V[i + 1] = V[i] + dt * (-k * V[i] - g)
+        X[i + 1] = X[i] + dt * U[i]
+        Y[i + 1] = Y[i] + dt * V[i]
+        t[i + 1] = t[i] + dt
 
     return t, X, Y, U, V
+
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -81,7 +85,6 @@ plt.xlim(0.0, 100.0)
 plt.ylim(0.0, 100.0)
 plt.show()
 ```
-
 
 ### Projectile example - model
 
@@ -138,11 +141,11 @@ $$
 
 ```{code-cell} ipython3
 def projectile(n, t0, tfinal):
-    t = np.zeros([n+1,1]) # Initialise the array t
-    U = np.zeros([n+1,1]) # Initialise the array U
-    V = np.zeros([n+1,1]) # Initialise the array V
-    X = np.zeros([n+1,1]) # Initialise the array X
-    Y = np.zeros([n+1,1]) # Initialise the array Y
+    t = np.zeros([n + 1, 1])  # Initialise the array t
+    U = np.zeros([n + 1, 1])  # Initialise the array U
+    V = np.zeros([n + 1, 1])  # Initialise the array V
+    X = np.zeros([n + 1, 1])  # Initialise the array X
+    Y = np.zeros([n + 1, 1])  # Initialise the array Y
 
     ## define initial conditions
     t[0] = 0.0
@@ -156,21 +159,22 @@ def projectile(n, t0, tfinal):
     g = 9.81
 
     ## Calculate size of each interval
-    dt = (tfinal-t0)/float(n)
+    dt = (tfinal - t0) / float(n)
 
     ## Take n steps of Euler’s method
     for i in range(n):
-        U[i+1] = U[i] + dt * (-k*U[i])
-        V[i+1] = V[i] + dt * (-k*V[i] - g)
-        X[i+1] = X[i] + dt * U[i]
-        Y[i+1] = Y[i] + dt * V[i]
-        t[i+1] = t[i] + dt
+        U[i + 1] = U[i] + dt * (-k * U[i])
+        V[i + 1] = V[i] + dt * (-k * V[i] - g)
+        X[i + 1] = X[i] + dt * U[i]
+        Y[i + 1] = Y[i] + dt * V[i]
+        t[i + 1] = t[i] + dt
 
     return t, X, Y, U, V
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 import numpy as np
 from matplotlib import pyplot as plt
 

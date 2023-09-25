@@ -32,4 +32,3 @@ Part c tutorial:
 
     - also try d' = d^2 -> finite time blow up
     - d' = -2.3 * d for dt = 0.1 -> instability
-

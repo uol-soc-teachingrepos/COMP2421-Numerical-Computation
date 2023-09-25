@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -61,10 +63,14 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 def f(x):
     return x**3
+
+
 def df(x):
-    return 3*x**2
+    return 3 * x**2
+
 
 x = 1
 
@@ -72,7 +78,7 @@ headers = ["dx", "approx", "abs error", "rel error"]
 data = []
 
 for e in range(4, 18, 2):
-    dx = 10 ** -e
+    dx = 10**-e
     approx = (f(x + dx) - f(x)) / dx
     exact = df(x)
     abs_error = abs(exact - approx)
@@ -84,7 +90,11 @@ for e in range(4, 18, 2):
 import pandas as pd
 
 df = pd.DataFrame(data, columns=headers)
-df.style.format(formatter={"dx": "{:e}", "approx": "{:f}", "abs error": "{:e}", "rel error": "{:e}"}).hide_index().set_caption("Simple approximation of a derivative using floating point arithmetic")
+df.style.format(
+    formatter={"dx": "{:e}", "approx": "{:f}", "abs error": "{:e}", "rel error": "{:e}"}
+).hide_index().set_caption(
+    "Simple approximation of a derivative using floating point arithmetic"
+)
 ```
 
 ## Modified Newton's method
@@ -97,11 +107,12 @@ df.style.format(formatter={"dx": "{:e}", "approx": "{:f}", "abs error": "{:e}", 
 
 ```{code-cell} ipython3
 import numpy as np
+
 eps = np.finfo(float).eps
 dx = np.sqrt(eps)
 
 x0 = 1.0
-df_approx = ((x0+dx)**3 - x0**3) / dx
+df_approx = ((x0 + dx) ** 3 - x0**3) / dx
 abs_error = abs(df_approx - 3)
 rel_error = abs_error / 3
 

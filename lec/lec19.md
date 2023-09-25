@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -27,6 +29,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from datetime import datetime as dt
 import pandas as pd
 import requests
@@ -41,8 +44,10 @@ df = df.dropna()
 # since 2008
 df = df[df["date"] > "2008-01-01"]
 
+
 def to_days(date):
-	return float((date - dt(2008, 1, 1)).days)
+    return float((date - dt(2008, 1, 1)).days)
+
 
 days = df.apply(lambda row: to_days(row.date), axis=1)
 ```
@@ -51,8 +56,10 @@ Raw data for weekly earnings:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
-plt.plot(df["date"], df["earnings"], '.', label="data")
+
+plt.plot(df["date"], df["earnings"], ".", label="data")
 plt.xlabel("date")
 plt.ylabel("mean weekly earnings (£)")
 plt.grid()
@@ -64,21 +71,24 @@ Raw data for weekly earning with a straight line of best fit:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import numpy as np
 
+
 def fit_line(x, y):
-	A = np.array([[d, 1] for d in x])
-	b = np.array([[e] for e in y])
+    A = np.array([[d, 1] for d in x])
+    b = np.array([[e] for e in y])
 
-	AtA = A.T @ A
-	Atb = A.T @ b
+    AtA = A.T @ A
+    Atb = A.T @ b
 
-	coef = np.linalg.solve(AtA, Atb)
-	return lambda t : coef[0] * t + coef[1]
+    coef = np.linalg.solve(AtA, Atb)
+    return lambda t: coef[0] * t + coef[1]
+
 
 fit1 = fit_line(days, df["earnings"])
 
-plt.plot(df["date"], df["earnings"], '.', label="data")
+plt.plot(df["date"], df["earnings"], ".", label="data")
 plt.plot(df["date"], fit1(days), label="linear fit")
 plt.xlabel("date")
 plt.ylabel("mean weekly earnings (£)")
@@ -91,19 +101,21 @@ Raw data for weekly earnings with a quadric curve of best fit:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 def fit_quad(x, y):
-	A = np.array([[d*d, d, 1] for d in x])
-	b = np.array([[e] for e in y])
+    A = np.array([[d * d, d, 1] for d in x])
+    b = np.array([[e] for e in y])
 
-	AtA = A.T @ A
-	Atb = A.T @ b
+    AtA = A.T @ A
+    Atb = A.T @ b
 
-	coef = np.linalg.solve(AtA, Atb)
-	return lambda t : coef[0] * t*t + coef[1] * t + coef[2]
+    coef = np.linalg.solve(AtA, Atb)
+    return lambda t: coef[0] * t * t + coef[1] * t + coef[2]
+
 
 fit2 = fit_quad(days, df["earnings"])
 
-plt.plot(df["date"], df["earnings"], '.', label="data")
+plt.plot(df["date"], df["earnings"], ".", label="data")
 plt.plot(df["date"], fit1(days), label="linear fit")
 plt.plot(df["date"], fit2(days), label="quadratic fit")
 plt.xlabel("date")
@@ -130,10 +142,11 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 tt = [1.0, 2.0, 3.0, 4.0]
 yy = [1.0, 1.5, 2.5, 3.5]
 
-plt.plot(tt, yy, 'o')
+plt.plot(tt, yy, "o")
 
 plt.xlabel("t")
 plt.ylabel("y")
@@ -175,10 +188,11 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 tt = [-1.0, -0.5, 0.0, 0.5, 1.0]
 yy = [1.0, 0.5, 0.0, 0.5, 2.0]
 
-plt.plot(tt, yy, 'o')
+plt.plot(tt, yy, "o")
 
 plt.xlabel("t")
 plt.ylabel("y")
@@ -245,7 +259,7 @@ The residual is given by
 $$
 \begin{aligned}
 \vec{r} & = \vec{b} - A \vec{x} \\
-& = \begin{pmatrix} 1 \\ 0.5 \\ 0 \\ 0.5 \\ 2 \end{pmatrix} - 
+& = \begin{pmatrix} 1 \\ 0.5 \\ 0 \\ 0.5 \\ 2 \end{pmatrix} -
 \begin{pmatrix}
 1 & -1 & 1 \\
 1 & -0.5 & 0.25 \\
@@ -332,11 +346,12 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 tt = [-1.0, -0.5, 0.0, 0.5, 1.0]
 yy = [1.0, 0.5, 0.0, 0.5, 2.0]
 
 
-plt.plot(tt, yy, 'o', label="data")
+plt.plot(tt, yy, "o", label="data")
 
 fit = fit_quad(tt, yy)
 tt = np.linspace(min(tt), max(tt))

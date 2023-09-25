@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -165,6 +167,7 @@ The last term is known as **machine precision** or **unit roundoff** and is ofte
 
 ```{code-cell} ipython3
 import numpy as np
+
 np.finfo(np.double).eps
 ```
 

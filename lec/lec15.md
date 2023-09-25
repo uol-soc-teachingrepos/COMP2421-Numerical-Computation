@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -75,6 +77,7 @@ Find the point $x$ at which the thickness $t$ of the aerofoil is $0.1$, i.e. so
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 %matplotlib inline
 
 import matplotlib
@@ -84,19 +87,22 @@ import numpy as np
 
 
 def f(x):
-    yp = -0.1015 * np.power(x, 4) \
-             + 0.2843 * np.power(x, 3) \
-             - 0.3516 * np.power(x, 2) \
-             - 0.126 * x \
-             + 0.2969 * np.sqrt(x)
+    yp = (
+        -0.1015 * np.power(x, 4)
+        + 0.2843 * np.power(x, 3)
+        - 0.3516 * np.power(x, 2)
+        - 0.126 * x
+        + 0.2969 * np.sqrt(x)
+    )
     return yp
 
-plt.axhline(0,color='0.8') # x = 0
+
+plt.axhline(0, color="0.8")  # x = 0
 
 t = np.linspace(0, 1, 1000)
 p = plt.plot(t, f(t))
 plt.plot(t, -f(t), color=p[0].get_color())
-plt.axis('equal')
+plt.axis("equal")
 
 plt.show()
 ```
@@ -141,6 +147,7 @@ The simplest method for solving $f(x) = 0$, finding $x^*$ such that $f(x^*) = 0$
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 %matplotlib inline
 
 import matplotlib
@@ -149,12 +156,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-plt.axvline(0,color='0.8') # y = 0
-plt.axhline(0,color='0.8') # x = 0
+plt.axvline(0, color="0.8")  # y = 0
+plt.axhline(0, color="0.8")  # x = 0
 
 t = np.linspace(-1, 1, 1000)
 p = plt.plot(t, t**3)
-plt.axis('equal')
+plt.axis("equal")
 
 plt.show()
 ```
@@ -194,6 +201,7 @@ Use the bisection method to calculate $\sqrt{2}$ with an error of less than $10^
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 def f(x):
     return x * x - 2
 
@@ -233,7 +241,7 @@ while b - a > tol:
 import pandas as pd
 
 df = pd.DataFrame(data, columns=headers)
-df.style.hide_index().set_caption('Results of bisection method on example 1')
+df.style.hide_index().set_caption("Results of bisection method on example 1")
 ```
 
 Note that
@@ -258,11 +266,15 @@ It is clear that 1 monthly repayment ($n=1$) will not be sufficient, whilst we s
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 M = 1000
 P = 150000
 r = 5
+
+
 def f(x):
-    return M - P * ((r/1200)*(1+r/1200)**x) / ((1+r/1200)**x - 1)
+    return M - P * ((r / 1200) * (1 + r / 1200) ** x) / ((1 + r / 1200) ** x - 1)
+
 
 a = 1
 b = 1000
@@ -273,7 +285,7 @@ fb = f(b)
 
 it = 0
 
-headers=["it", "a", "b", "f(a)", "f(b)", "update"]
+headers = ["it", "a", "b", "f(a)", "f(b)", "update"]
 data = []
 
 while b - a > tol:
@@ -299,7 +311,7 @@ while b - a > tol:
 import pandas as pd
 
 df = pd.DataFrame(data, columns=headers)
-df.style.hide_index().set_caption('Results of bisection method on example 2')
+df.style.hide_index().set_caption("Results of bisection method on example 2")
 ```
 
 We converges to a solution of $x^* = 235.9$ after 13 iterations.
@@ -314,15 +326,18 @@ It can be seen that $0 \le x^* \le 1$ but there are two solutions in this interv
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import numpy as np
 
 
 def f(x):
-    yp = -0.1015 * np.power(x, 4) \
-             + 0.2843 * np.power(x, 3) \
-             - 0.3516 * np.power(x, 2) \
-             - 0.126 * x \
-             + 0.2969 * np.sqrt(x)
+    yp = (
+        -0.1015 * np.power(x, 4)
+        + 0.2843 * np.power(x, 3)
+        - 0.3516 * np.power(x, 2)
+        - 0.126 * x
+        + 0.2969 * np.sqrt(x)
+    )
     t = 0.1
     return yp - 0.5 * t
 
@@ -362,7 +377,7 @@ while b - a > tol:
 import pandas as pd
 
 df = pd.DataFrame(data, columns=headers)
-df.style.hide_index().set_caption('Results of bisection method on example 3')
+df.style.hide_index().set_caption("Results of bisection method on example 3")
 ```
 
 This gives the root as $x^* \approx 0.7652$ after 12 iterations.
@@ -386,14 +401,15 @@ For example:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 %matplotlib inline
 
 import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.axhline(0,color='0.8') # x = 0
-plt.axvline(0,color='0.8') # y = 0
+plt.axhline(0, color="0.8")  # x = 0
+plt.axvline(0, color="0.8")  # y = 0
 
 x = np.linspace(-1, 1)
 y = (x - 0.2) ** 2
@@ -430,6 +446,7 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 %matplotlib inline
 
 import matplotlib

@@ -72,9 +72,9 @@ The solution can be calculated systematically from
 $$
 \begin{aligned}
 x_1 &= \frac{b_1}{a_{11}} = \frac{2}{2} = 1 \\
-x_2 &= \frac{b_2 - a_{21} x_1}{a_{22}} 
+x_2 &= \frac{b_2 - a_{21} x_1}{a_{22}}
 = \frac{7 - 1 \times 1}{2} = \frac{6}{2} = 3 \\
-x_3 &= \frac{b_3 - a_{31} x_1 - a_{32} x_2}{a_33} 
+x_3 &= \frac{b_3 - a_{31} x_1 - a_{32} x_2}{a_33}
 = \frac{26 - 2 \times 1 - 4 \times 3}{6}  = \frac{12}{6}
 = 2
 \end{aligned}

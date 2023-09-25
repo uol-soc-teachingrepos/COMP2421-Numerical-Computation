@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -101,6 +103,7 @@ Note that this method requires both initial estimates $x^{(0)}$ and $x^{(1)}$.
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 from scipy.optimize import brentq
 
 help(brentq)
@@ -120,6 +123,7 @@ Consider the example with $f(x) = x^2 - R$ and $R=2$. Take $x^{(0)} = 0$ and $x^
 def sqrt2(x):
     return x**2 - 2.0
 
+
 brentq(sqrt2, 0.0, 2.0, xtol=1.0e-4, maxiter=100, full_output=True)
 ```
 
@@ -129,8 +133,9 @@ Consider the example with $f(x) = x^2 - R$ with $R=2$, take $x^{(0)} = 0$ and $x
 
 ```{code-cell} ipython3
 import numpy as np
+
 eps = np.finfo(np.double).eps
-brentq(sqrt2, 0.0, 2.0, xtol=4*eps, maxiter=100, full_output=True)
+brentq(sqrt2, 0.0, 2.0, xtol=4 * eps, maxiter=100, full_output=True)
 ```
 
 -   The algorithm gives $x^* = 1.414214$ after 9 iterations.
@@ -146,9 +151,10 @@ def compound(n):
     r = 5.0
     # Evaluate the function.
     i = r / 1200
-    f = M - P * (i * (1 + i)**n) / ((1 + i)**n - 1)
+    f = M - P * (i * (1 + i) ** n) / ((1 + i) ** n - 1)
 
     return f
+
 
 brentq(compound, 200, 300, xtol=1.0e-1, full_output=True)
 ```
@@ -164,14 +170,17 @@ def naca0012(x):
     t = 0.1
 
     # Evaluate the function.
-    yp = -0.1015 * np.power(x, 4) \
-         + 0.2843 * np.power(x, 3) \
-         - 0.3516 * np.power(x, 2) \
-         - 0.126 * x \
-         + 0.2969 * np.sqrt(x)
+    yp = (
+        -0.1015 * np.power(x, 4)
+        + 0.2843 * np.power(x, 3)
+        - 0.3516 * np.power(x, 2)
+        - 0.126 * x
+        + 0.2969 * np.sqrt(x)
+    )
     f = yp - 0.5 * t
 
     return f
+
 
 brentq(naca0012, 0.5, 1.0, xtol=1.0e-4, full_output=True)
 ```

@@ -24,4 +24,4 @@ dependencies:
   - ruff = 0.0
   - nbqa = 1.6
   - blacken-docs = 1.12
-
+  - pre-commit = 3.4

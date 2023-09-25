@@ -62,7 +62,7 @@ For this module, you are expected to be able to read, understand and construct s
 
 -   There are also funded places for further study in numerical computation....
 
-### 
+###
 
 **Thank you for your attention!**
 

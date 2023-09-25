@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -32,10 +34,14 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 def f(x):
     return x * x - 2
+
+
 def df(x):
     return 2 * x
+
 
 it = 0
 x = 1.0
@@ -68,28 +74,37 @@ Starting from $x^{(0)} = 1$ with $TOL = 10^{-4}$, we get the root as $x^* \appro
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import numpy as np
+
 
 def f(x):
     t = 0.1
 
-    yp = -0.1015 * np.power(x, 4) \
-         + 0.2843 * np.power(x, 3) \
-         - 0.3516 * np.power(x, 2) \
-         - 0.126 * x \
-         + 0.2969 * np.sqrt(x)
+    yp = (
+        -0.1015 * np.power(x, 4)
+        + 0.2843 * np.power(x, 3)
+        - 0.3516 * np.power(x, 2)
+        - 0.126 * x
+        + 0.2969 * np.sqrt(x)
+    )
     f = yp - 0.5 * t
 
     return f
+
+
 def df(x):
-    dy = -4 * 0.1015 * np.power(x, 3) \
-         + 3 * 0.2843 * np.power(x, 2) \
-         - 2 * 0.3516 * x \
-         - 0.126 \
-         + 0.2969 * 0.5 * np.power(x, -0.5)
+    dy = (
+        -4 * 0.1015 * np.power(x, 3)
+        + 3 * 0.2843 * np.power(x, 2)
+        - 2 * 0.3516 * x
+        - 0.126
+        + 0.2969 * 0.5 * np.power(x, -0.5)
+    )
     f = dy
 
     return f
+
 
 it = 0
 x = 1.0
@@ -118,28 +133,37 @@ df.style.hide_index().set_caption("Results of Newton's method on example 2")
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import numpy as np
+
 
 def f(x):
     t = 0.1
 
-    yp = -0.1015 * np.power(x, 4) \
-         + 0.2843 * np.power(x, 3) \
-         - 0.3516 * np.power(x, 2) \
-         - 0.126 * x \
-         + 0.2969 * np.sqrt(x)
+    yp = (
+        -0.1015 * np.power(x, 4)
+        + 0.2843 * np.power(x, 3)
+        - 0.3516 * np.power(x, 2)
+        - 0.126 * x
+        + 0.2969 * np.sqrt(x)
+    )
     f = yp - 0.5 * t
 
     return f
+
+
 def df(x):
-    dy = -4 * 0.1015 * np.power(x, 3) \
-         + 3 * 0.2843 * np.power(x, 2) \
-         - 2 * 0.3516 * x \
-         - 0.126 \
-         + 0.2969 * 0.5 * np.power(x, -0.5)
+    dy = (
+        -4 * 0.1015 * np.power(x, 3)
+        + 3 * 0.2843 * np.power(x, 2)
+        - 2 * 0.3516 * x
+        - 0.126
+        + 0.2969 * 0.5 * np.power(x, -0.5)
+    )
     f = dy
 
     return f
+
 
 it = 0
 x = 0.1
@@ -194,12 +218,17 @@ $$
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import numpy as np
 
+
 def f(x):
-    return (x-1)**2
+    return (x - 1) ** 2
+
+
 def df(x):
-    return 2*(x-1)
+    return 2 * (x - 1)
+
 
 it = 0
 x = 4.0
@@ -219,7 +248,9 @@ while abs(f(x)) > tol:
 import pandas as pd
 
 df = pd.DataFrame(data, columns=headers)
-df.style.hide_index().set_caption("Results of Newton's method on example with zero derivative at root")
+df.style.hide_index().set_caption(
+    "Results of Newton's method on example with zero derivative at root"
+)
 ```
 
 Starting from $x^{(0)} = 4$ with $TOL = 10^{-4}$ we get the root as $x^* \approx 1.0059$ after 9 iterations, confirming that we are able to obtain a solution.
@@ -255,19 +286,24 @@ When Newton's method works it is a fast way of solving a nonlinear equation $f(x
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 %matplotlib inline
 
 import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 
-def f(t):
-    return np.log(t + 1) * np.exp(-(t ** 2))
-def df(t):
-    return np.exp(-(t ** 2)) / (t + 1) - 2 * t * np.log(t + 1) * np.exp(-(t ** 2))
 
-plt.axhline(0,color='0.8') # x = 0
-plt.axvline(0,color='0.8') # y = 0
+def f(t):
+    return np.log(t + 1) * np.exp(-(t**2))
+
+
+def df(t):
+    return np.exp(-(t**2)) / (t + 1) - 2 * t * np.log(t + 1) * np.exp(-(t**2))
+
+
+plt.axhline(0, color="0.8")  # x = 0
+plt.axvline(0, color="0.8")  # y = 0
 
 x = np.linspace(0, 3)
 y = f(x)
@@ -284,7 +320,7 @@ for i in range(5):
     ticklabels.append(r"$x^{(" + str(i) + ")}$")
 
     x_new = x - f(x) / df(x)
-    plt.plot([x, x_new], [f(x), 0], '--', color=p0[0].get_color())
+    plt.plot([x, x_new], [f(x), 0], "--", color=p0[0].get_color())
     x = x_new
 
 plt.xticks(ticks, ticklabels)
@@ -295,20 +331,24 @@ plt.show()
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 %matplotlib inline
 
 import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def f(t):
-    return t ** 3 - 2 * t + 2
+    return t**3 - 2 * t + 2
+
 
 def df(t):
-    return 3 * t ** 2 - 2
+    return 3 * t**2 - 2
 
-plt.axhline(0,color='0.8') # x = 0
-plt.axvline(0,color='0.8') # y = 0
+
+plt.axhline(0, color="0.8")  # x = 0
+plt.axvline(0, color="0.8")  # y = 0
 
 x = np.linspace(-0.5, 1.5)
 y = f(x)
@@ -325,7 +365,7 @@ for i in range(2):
     ticklabels.append(r"$x^{(" + str(i) + ")}$")
 
     x_new = x - f(x) / df(x)
-    plt.plot([x, x_new], [f(x), 0], '--', color=p0[0].get_color())
+    plt.plot([x, x_new], [f(x), 0], "--", color=p0[0].get_color())
     x = x_new
 
 plt.xticks(ticks, ticklabels)

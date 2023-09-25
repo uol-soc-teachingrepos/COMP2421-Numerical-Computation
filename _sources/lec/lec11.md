@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -70,11 +72,12 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
 t = np.linspace(0, 1)
-s = -(t-1.0)*(t+0.5)
+s = -(t - 1.0) * (t + 0.5)
 plt.plot(t, s)
 
 plt.title("An object's speed against time")
@@ -132,28 +135,29 @@ def S(t):
     ARGUMENTS:  t   the time
     RETURNS:    S   the speed
     """
-    return 1 + 5 * t - 6 * t ** 2
+    return 1 + 5 * t - 6 * t**2
 ```
 
 -   The following table of results is obtained:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import pandas as pd
 
 headers = ["# intervals", "increment size dt", "total distance"]
 data = []
 
 for j in range(1, 6):
-	n = 10**j
-	dt = 1.0/n
+    n = 10**j
+    dt = 1.0 / n
 
-	D, t = 0.0, 0.0
-	for i in range(n):
-		D = D + dt * S(t)
-		t = t + dt
+    D, t = 0.0, 0.0
+    for i in range(n):
+        D = D + dt * S(t)
+        t = t + dt
 
-	data.append([n, dt, D])
+    data.append([n, dt, D])
 
 df = pd.DataFrame(data, columns=headers)
 df.style.hide_index().set_caption("Total distance as a function of number of steps")
@@ -202,14 +206,18 @@ df.style.hide_index().set_caption("Total distance as a function of number of ste
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def D(t):
-	return -t**3/3 + t**2/4 + t/2
+    return -(t**3) / 3 + t**2 / 4 + t / 2
+
 
 def S(t):
-	return -(t-1.0)*(t+0.5)
+    return -(t - 1.0) * (t + 0.5)
+
 
 t = np.linspace(0, 1)
 plt.plot(t, S(t), label="Speed")
@@ -244,17 +252,20 @@ This provides for an alternative interpretation of the derivative of a function.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def plot_slope(a, b):
-	plt.plot([0, a, a, 0], [0, 0, b, 0], 'k')
+    plt.plot([0, a, a, 0], [0, 0, b, 0], "k")
 
-	plt.text(a/2, -0.4, f"{a}", fontsize="xx-large")
-	plt.text(a+0.1, b/2, f"{b}", fontsize="xx-large")
+    plt.text(a / 2, -0.4, f"{a}", fontsize="xx-large")
+    plt.text(a + 0.1, b / 2, f"{b}", fontsize="xx-large")
 
-	plt.axis('square')
-	plt.axis('off')
+    plt.axis("square")
+    plt.axis("off")
+
 
 plt.subplot(131)
 plot_slope(2, 1)
@@ -286,27 +297,31 @@ plt.show()
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def f(x):
-	return np.exp(-x**2)
+    return np.exp(-(x**2))
+
 
 def plot(dt=1.0):
-	t = np.linspace(-2, 2, 200)
-	plt.plot(t, f(t))
+    t = np.linspace(-2, 2, 200)
+    plt.plot(t, f(t))
 
-	plt.plot([0, 0, -2], [0, f(0), f(0)], '--')
-	plt.plot([dt, dt, -2], [0, f(dt), f(dt)], '--')
+    plt.plot([0, 0, -2], [0, f(0), f(0)], "--")
+    plt.plot([dt, dt, -2], [0, f(dt), f(dt)], "--")
 
-	slope = (f(dt)- f(0)) / dt
-	plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
+    slope = (f(dt) - f(0)) / dt
+    plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
 
-	plt.xticks([0, dt], ['t', 't + dt'])
-	plt.yticks([f(0), f(dt)], ['f(t)', 'f(t + dt)'])
+    plt.xticks([0, dt], ["t", "t + dt"])
+    plt.yticks([f(0), f(dt)], ["f(t)", "f(t + dt)"])
 
-	plt.legend()
-	plt.show()
+    plt.legend()
+    plt.show()
+
 
 plot(1.0)
 ```
@@ -315,27 +330,31 @@ plot(1.0)
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def f(x):
-	return np.exp(-x**2)
+    return np.exp(-(x**2))
+
 
 def plot(dt=1.0):
-	t = np.linspace(-2, 2, 200)
-	plt.plot(t, f(t))
+    t = np.linspace(-2, 2, 200)
+    plt.plot(t, f(t))
 
-	plt.plot([0, 0, -2], [0, f(0), f(0)], '--')
-	plt.plot([dt, dt, -2], [0, f(dt), f(dt)], '--')
+    plt.plot([0, 0, -2], [0, f(0), f(0)], "--")
+    plt.plot([dt, dt, -2], [0, f(dt), f(dt)], "--")
 
-	slope = (f(dt)- f(0)) / dt
-	plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
+    slope = (f(dt) - f(0)) / dt
+    plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
 
-	plt.xticks([0, dt], ['t', 't + dt'])
-	plt.yticks([f(0), f(dt)], ['f(t)', 'f(t + dt)'])
+    plt.xticks([0, dt], ["t", "t + dt"])
+    plt.yticks([f(0), f(dt)], ["f(t)", "f(t + dt)"])
 
-	plt.legend()
-	plt.show()
+    plt.legend()
+    plt.show()
+
 
 plot(0.5)
 ```
@@ -344,27 +363,31 @@ plot(0.5)
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def f(x):
-	return np.exp(-x**2)
+    return np.exp(-(x**2))
+
 
 def plot(dt=1.0):
-	t = np.linspace(-2, 2, 200)
-	plt.plot(t, f(t))
+    t = np.linspace(-2, 2, 200)
+    plt.plot(t, f(t))
 
-	plt.plot([0, 0, -2], [0, f(0), f(0)], '--')
-	plt.plot([dt, dt, -2], [0, f(dt), f(dt)], '--')
+    plt.plot([0, 0, -2], [0, f(0), f(0)], "--")
+    plt.plot([dt, dt, -2], [0, f(dt), f(dt)], "--")
 
-	slope = (f(dt)- f(0)) / dt
-	plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
+    slope = (f(dt) - f(0)) / dt
+    plt.plot([0, dt], [f(0), f(dt)], label=f"{slope=:.1f}")
 
-	plt.xticks([0, dt], ['t', 't + dt'])
-	plt.yticks([f(0), f(dt)], ['f(t)', 'f(t + dt)'])
+    plt.xticks([0, dt], ["t", "t + dt"])
+    plt.yticks([f(0), f(dt)], ["f(t)", "f(t + dt)"])
 
-	plt.legend()
-	plt.show()
+    plt.legend()
+    plt.show()
+
 
 plot(0.25)
 ```

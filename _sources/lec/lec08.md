@@ -48,7 +48,7 @@ Each iteration is very cheap to compute but very inaccurate - it never converges
 
 **Example 2**
 
-Consider 
+Consider
 
 $$
 \vec{F}(\vec{x}^{(k)}) = \vec{x}^{(k)} + A^{-1} (\vec{b} - A \vec{x}^{(k)}).

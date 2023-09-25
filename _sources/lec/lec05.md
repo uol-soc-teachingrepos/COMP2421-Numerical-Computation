@@ -207,4 +207,3 @@ In this case the following statements are *equivalent*:
 - Wikipedia: [Systems of linear equations](https://en.wikipedia.org/wiki/System_of_linear_equations) (includes a nice geometric picture of what a system of linear equations means).
 - Maths is fun: [Systems of linear equations](https://www.mathsisfun.com/algebra/systems-linear-equations.html) (very basic!)
 - Gregory Gundersen [Why shouldn't I invert that matrix?](http://gregorygundersen.com/blog/2020/12/09/matrix-inversion/)
-

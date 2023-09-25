@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -47,14 +49,18 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def D(t):
-	return -t**3/3 + t**2/4 + t/2
+    return -(t**3) / 3 + t**2 / 4 + t / 2
+
 
 def S(t):
-	return -(t-1.0)*(t+0.5)
+    return -(t - 1.0) * (t + 0.5)
+
 
 t = np.linspace(0, 1)
 plt.plot(t, S(t), label="Speed")
@@ -85,14 +91,18 @@ plt.show()
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 from matplotlib import pyplot as plt
 import numpy as np
+
 
 def f1(x):
     return x * (1.0 - x)
 
+
 def df1(x):
     return 1.0 - 2.0 * x
+
 
 t = np.linspace(0, 1)
 y = f1(t)
@@ -121,7 +131,7 @@ def f3(x):
         return x
     if x > 0.6:
         return 1 - x
-    return -5 * x ** 2 + 5 * x - 0.8
+    return -5 * x**2 + 5 * x - 0.8
 
 
 def df3(x):
@@ -133,6 +143,7 @@ def df3(x):
     if x > 0.6:
         return -1
     return -10 * x + 5
+
 
 t = np.linspace(0, 1, 1000)
 y = f3(t)
@@ -175,7 +186,6 @@ ax.legend()
 ax.grid()
 plt.show()
 ```
-
 
 Rate of cases per 100,000 people in the rolling 7-day period ending on the dates shown.
 [Data source, cornavirus.data.gov.uk](https://coronavirus.data.gov.uk/details/cases)
@@ -282,8 +292,8 @@ def freefall(n):
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-for n in [10, 20, 40 , 80]:
-	freefall(n)
+for n in [10, 20, 40, 80]:
+    freefall(n)
 plt.xlabel("time: t")
 plt.ylabel("distance: s")
 plt.grid()

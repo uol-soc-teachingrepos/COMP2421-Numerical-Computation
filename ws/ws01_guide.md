@@ -1,4 +1,7 @@
+# WS01 guide
 
+Worksheet (not in this pack):
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws01.html>
 
 KEY OBJECTIVE: can students open jupyter lab, import numpy as run simple cost? if not go to labs and ask for help
 

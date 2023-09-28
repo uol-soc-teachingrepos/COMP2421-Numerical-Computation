@@ -1,13 +1,15 @@
+# WS05 guide
+
 KEY OBJECTIVES:
 
 - Students should be able to write matrices in solve Gaussian elimination with pivoting and use the sparse format from lectures either in code or by hand
 - Advanced aim - apply the sparse format to improve run times of iterative methods
 
 Worksheet:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws05.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws05.html>
 
 Partial solutions:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws05_implemented.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws05_implemented.html>
 
 
 Rough plan:

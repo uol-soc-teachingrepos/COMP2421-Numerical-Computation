@@ -1,13 +1,15 @@
+# WS02 guide
+
 KEY OBJECTIVES:
 
 - Students should be able to perform Gaussian elimination and backwards substitution to solve systems of linear equations
 - (advanced aim) Understand how Gaussian elimination scales and when it breaks
 
 Worksheet:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03.html>
 
 Partial solutions:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03_implemented.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws03_implemented.html>
 
 Rough plan: Try Balance part a, b, c of ws02
 

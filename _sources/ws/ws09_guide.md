@@ -1,13 +1,15 @@
+# WS09 guide
+
 KEY OBJECTIVES:
 
 - Students should be able to find solutions to scalar nonlinear problems using secant method
 - Students should understand Newton's method is not robust
 
 Worksheet:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws09.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws09.html>
 
 Partial solutions:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws09_implemented.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws09_implemented.html>
 
 
 Rough plan:

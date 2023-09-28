@@ -1,13 +1,15 @@
+# WS04 guide
+
 KEY OBJECTIVES:
 
 - Students should be able to perform LU factorisation, Jacobi iteration and Gauss Seidel iteration either in code or by hand
 - Advanced aim - when do iterative methods converge or not.
 
 Worksheet:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws04.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws04.html>
 
 Partial solutions:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws04_implemented.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws04_implemented.html>
 
 Rough plan:
 

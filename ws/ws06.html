@@ -535,9 +535,9 @@ document.write(`
 <p>Definition of derivative of a function <span class="math notranslate nohighlight">\(d(t)\)</span> at <span class="math notranslate nohighlight">\(t=t_0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
- d^\prime(t_0) = \lim_{\Delta t\to 0} \frac{d(t_0+\Delta t) - d(t)}{\Delta t}.
+ d'(t_0) = \lim_{\Delta t\to 0} \frac{d(t_0+\Delta t) - d(t)}{\Delta t}.
  \]</div>
-<p>If we know the general relation between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(d\)</span>, say <span class="math notranslate nohighlight">\(d(t) = -t^2+t+1\)</span>, can you compute <span class="math notranslate nohighlight">\(d^\prime(1)\)</span>?</p>
+<p>If we know the general relation between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(d\)</span>, say <span class="math notranslate nohighlight">\(d(t) = -t^2+t+1\)</span>, can you compute <span class="math notranslate nohighlight">\(d'(1)\)</span>?</p>
 </section>
 <section id="approximation-of-derivatives">
 <h3>3. Approximation of  derivatives<a class="headerlink" href="#approximation-of-derivatives" title="Permalink to this heading">#</a></h3>
@@ -546,17 +546,17 @@ document.write(`
 \[
 d(1) = 1 \quad\text{and}\quad  d(1+0.01) = 0.9899,
 \]</div>
-<p>can you approximate <span class="math notranslate nohighlight">\(d^\prime(1)\)</span> using the definition of derivative?</p>
+<p>can you approximate <span class="math notranslate nohighlight">\(d'(1)\)</span> using the definition of derivative?</p>
 </section>
 <section id="differential-equation-euler-s-method">
 <h3>4. Differential equation (Euler’s method)<a class="headerlink" href="#differential-equation-euler-s-method" title="Permalink to this heading">#</a></h3>
 <p>If we do NOT know the general relation between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(d\)</span>, but we know</p>
 <div class="math notranslate nohighlight">
 \[
-d^\prime(t) = t^2 -3t + d
+d'(t) = t^2 -3t + d
 \]</div>
 <ul class="simple">
-<li><p>Use your idea for question 3 and the definition of derivative, given an arbitrary <span class="math notranslate nohighlight">\(\Delta t\)</span>, to approximate <span class="math notranslate nohighlight">\(d^\prime(t)\)</span> in this differential equation. What you get is just the Euler’s formula.</p></li>
+<li><p>Use your idea for question 3 and the definition of derivative, given an arbitrary <span class="math notranslate nohighlight">\(\Delta t\)</span>, to approximate <span class="math notranslate nohighlight">\(d'(t)\)</span> in this differential equation. What you get is just the Euler’s formula.</p></li>
 <li><p>let <span class="math notranslate nohighlight">\(\Delta t = 0.01\)</span>, and <span class="math notranslate nohighlight">\(d(0) =1\)</span>, use Euler’s method to compute <span class="math notranslate nohighlight">\(d(0.01)\)</span> and <span class="math notranslate nohighlight">\(d(0.02)\)</span>.</p></li>
 </ul>
 </section>
@@ -644,14 +644,14 @@ d^\prime(t) = t^2 -3t + d
 <h2>Part c: Extension<a class="headerlink" href="#part-c-extension" title="Permalink to this heading">#</a></h2>
 <p>Derivative is a very important concept non only in math but in all science. We interpret derivative as the rate of change of variable. For example, the derivative of displacement <span class="math notranslate nohighlight">\(d\)</span> with respective to time is velocity <span class="math notranslate nohighlight">\(v\)</span>, and the derivative of velocity <span class="math notranslate nohighlight">\(v\)</span> with respective to time is acceleration <span class="math notranslate nohighlight">\(a\)</span>:
 <span class="math notranslate nohighlight">\(
-d^\prime(t) = v(t)  \quad \text{and} \quad  v^\prime(t) = a(t).
+d'(t) = v(t)  \quad \text{and} \quad  v'(t) = a(t).
 \)</span></p>
 <section id="derivative-as-the-tangent-of-a-curve">
 <h3>7. Derivative as the tangent of a curve<a class="headerlink" href="#derivative-as-the-tangent-of-a-curve" title="Permalink to this heading">#</a></h3>
 <p>We know <span class="math notranslate nohighlight">\(y=f(x)\)</span> can be plotted in a x-y plane as a curve. For example, <span class="math notranslate nohighlight">\(y=2x+1\)</span> is a line and <span class="math notranslate nohighlight">\(y=x^2 + x -4\)</span> is a parabola. Recall the definition of derivative of <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
- f^\prime(x_0) = \lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x)}{\Delta x}.
+ f'(x_0) = \lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x)}{\Delta x}.
  \]</div>
 <ul class="simple">
 <li><p>Draw a curve such as <span class="math notranslate nohighlight">\(y=x^2\)</span> on the x-y plane, say <span class="math notranslate nohighlight">\(x_0=1\)</span>, <span class="math notranslate nohighlight">\(\Delta x=1\)</span>, so what is the meaning of</p></li>
@@ -661,15 +661,15 @@ d^\prime(t) = v(t)  \quad \text{and} \quad  v^\prime(t) = a(t).
 \frac{f(x_0+\Delta x) - f(x)}{\Delta x}?
  \]</div>
 <ul class="simple">
-<li><p>As <span class="math notranslate nohighlight">\(\Delta x\)</span> becomes smaller and smaller… goes to 0, you would get the geometrical meaning of <span class="math notranslate nohighlight">\(f^\prime(x_0)\)</span>, what’s that?</p></li>
+<li><p>As <span class="math notranslate nohighlight">\(\Delta x\)</span> becomes smaller and smaller… goes to 0, you would get the geometrical meaning of <span class="math notranslate nohighlight">\(f'(x_0)\)</span>, what’s that?</p></li>
 </ul>
 </section>
 <section id="euler-s-method">
 <h3>8. Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this heading">#</a></h3>
-<p>Given <span class="math notranslate nohighlight">\(f(x_0)\)</span> at a particular point <span class="math notranslate nohighlight">\(x_0\)</span>, and the derivative <span class="math notranslate nohighlight">\(f^\prime(x)\)</span> everywhere, we then try to find the curve (compute <span class="math notranslate nohighlight">\(f(x)\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>)… Euler’s method can do this job step by step (one iteration after another)!</p>
+<p>Given <span class="math notranslate nohighlight">\(f(x_0)\)</span> at a particular point <span class="math notranslate nohighlight">\(x_0\)</span>, and the derivative <span class="math notranslate nohighlight">\(f'(x)\)</span> everywhere, we then try to find the curve (compute <span class="math notranslate nohighlight">\(f(x)\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>)… Euler’s method can do this job step by step (one iteration after another)!</p>
 <ul class="simple">
 <li><p>Use the above geometrical meaning of the derivative in Q7 and think why Euler’s method can do this job.</p></li>
-<li><p>Comparing with the rate-of-change interpretation: given your position or displacement <span class="math notranslate nohighlight">\(d(t_0)\)</span> at a particular time <span class="math notranslate nohighlight">\(t_0\)</span>, and your speed <span class="math notranslate nohighlight">\(d^\prime(t)\)</span> for all the time, how to compute your position for all the time.</p></li>
+<li><p>Comparing with the rate-of-change interpretation: given your position or displacement <span class="math notranslate nohighlight">\(d(t_0)\)</span> at a particular time <span class="math notranslate nohighlight">\(t_0\)</span>, and your speed <span class="math notranslate nohighlight">\(d'(t)\)</span> for all the time, how to compute your position for all the time.</p></li>
 </ul>
 </section>
 </section>

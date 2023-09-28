@@ -1,3 +1,5 @@
+# WS02 guide
+
 KEY OBJECTIVES:
 
 - Understand the $(\beta, t, L, U)$ notation (and how to do calculations in that format)
@@ -8,9 +10,9 @@ KEY OBJECTIVES:
   - Avoid subtraction of similar numbers
 
 Worksheet:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02.html>
 Partial solutions:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02_implemented.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02_implemented.html>
 
 Rough plan: Try Balance part a, b of ws02
 
@@ -20,4 +22,4 @@ Rough plan: Try Balance part a, b of ws02
 3. Q5 and Q6 - get students to tell you what code to write/get them up to write the code. run it and discuss what's going on
 
 Partial worked solutions are available in online. Invite students to make merge requests/issues with improved/more complete solutions:
-e.g. https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/issues
+e.g. <https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/issues>

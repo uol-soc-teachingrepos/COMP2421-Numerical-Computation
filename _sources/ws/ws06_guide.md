@@ -1,3 +1,5 @@
+# WS06 guide
+
 KEY OBJECTIVES:
 
 - Make plots in `matplotlib`
@@ -5,10 +7,10 @@ KEY OBJECTIVES:
 - Advanced aim - deeper understanding of derivative geometrically
 
 Worksheet:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws06.html
+	<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws06.html>
 
 Partial solutions:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws06_implemented.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws06_implemented.html>
 
 Rough plan:
 

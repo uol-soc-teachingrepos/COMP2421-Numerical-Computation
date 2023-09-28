@@ -1,3 +1,5 @@
+# WS08 guide
+
 KEY OBJECTIVES:
 
 - Students should be able to find solutions to scalar nonlinear problems using bisection and Newton's method
@@ -5,10 +7,10 @@ KEY OBJECTIVES:
 - Advanced aim - think about how to solve the robustness of Newton's method
 
 Worksheet:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws08.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws08.html>
 
 Partial solutions:
-https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws08_implemented.html
+<https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws08_implemented.html>
 
 
 Rough plan:

@@ -49,7 +49,7 @@ These will be provided *weekly* throughout the semester.
 | Title       | Release date | Due date             | Credit |
 |-------------|--------------|----------------------|--------|
 | Portfolio   | Mon 2 Oct    | weekly, Tuesday 2pm  | 20%    |
-| Coursework  | Mon 4 Dec    | Wed 10 Dec, 2pm      | 80%    |
+| Coursework  | Mon 4 Dec    | Wed 20 Dec, 2pm      | 80%    |
 | Formative 1 | Mon 9 Oct    | Wed 25 Oct, 2pm      | 0%     |
 | Formative 2 | Mon  15 Nov  | Wed 29 Nov, 2pm      | 0%     |
 ```

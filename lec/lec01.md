@@ -248,14 +248,7 @@ Submission and feedback mechanism details to be confirmed.
 
 Car manufacturer and motor spots teams often perform computer simulations to test and optimise new designs.
 
-<video width="100%" controls>
-	<source src="../_static/video/lec01/LES.webm" type="video/mp4">
-	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
-</video>
-
-<small>
-Video source: <https://youtu.be/-4gSS-UHWcc>
-</small>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-4gSS-UHWcc?si=EX-Q7cw3WSbaXn7c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - Gianmarco Mengaldo, [Industry-relvant implicit LES via spetal/hp element methods](https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/)
 
@@ -271,14 +264,7 @@ Most modern day economic forecasting involves performing numerical simulations.
 
 One of the most popular applications of numerical simulation in the UK today is in predicting tomorrow's weather.
 
-<video width="100%" muted controls>
-	<source src="../_static/video/lec01/weather.webm" type="video/mp4">
-	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
-</video>
-
-<small>
-	Video source: <https://youtu.be/5kpw5WeR5V4>
-</small>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nuT_U1AQz3g?si=6awXNXmO0JYUfsRT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - Met office, [How weather forecasts are created](https://www.metoffice.gov.uk/weather/learn-about/how-forecasts-are-made)
 - Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)
@@ -287,10 +273,7 @@ One of the most popular applications of numerical simulation in the UK today is 
 
 Many different areas of medicine now use simulations. This can be used both as an earlier step in clinical trials in order to reduce harm to animal or human participants or to predict how medical interventions will work in practice.
 
-<video width="100%" controls>
-	<source src="../_static/video/lec01/in-silico.mp4" type="video/mp4">
-	<img width="100%" alt="Workflow of the FD-PASS in-silico trial" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-23998-w/MediaObjects/41467_2021_23998_Fig1_HTML.png">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fpPx0D0ZTlM?si=tzO7FZ1KBmBPU5aS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - Wikipedia: [*In silico* clinical trials](https://en.wikipedia.org/wiki/In_silico_clinical_trials)
 - Sarrami-Foroushani *et al.*, [In-silico trial of intracranial flow diverters replicates and expands insights from conventional clinical trials](https://doi.org/10.1038/s41467-021-23998-w). Nat Commun 12, 3861 (2021).
@@ -303,14 +286,7 @@ Many different areas of medicine now use simulations. This can be used both as a
 
 - These are examples of dynamic models which must be solved and then rendered in "real time".
 
- <video width="100%" muted>
-  <source src="../_static/video/lec01/HPG.webm" type="video/mp4" >
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
-</video>
-
-<small>
-Student Showcase, High Performance Graphics and Game Engineering 2021, University of Leeds
-</small>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YLsFN1mp2V8?si=jdvVa7uOq2C9Z1TJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - Wikipedia: [Physics engine](https://en.wikipedia.org/wiki/Physics_engine)
 - David M Bourg, [How physics is used in video games](https://doi.org/10.1088/0031-9120/39/5/002), Physics Education, issue 39, 2004.
@@ -333,13 +309,7 @@ Many tasks in robotics are tested first in simulated environments where simulati
 
 **Pipebots**
 
-<video width="100%" muted>
-	<source src="../_static/video/lec01/pipebots.webm" type="video/mp4">
-</video>
-
-<small>
-Video source: <https://youtu.be/pppxa9MpoeY>
-</small>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pppxa9MpoeY?si=w_NyuvAx_6MwkT4L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Further reading
 

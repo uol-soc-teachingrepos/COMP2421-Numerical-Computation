@@ -280,9 +280,7 @@ Car manufacturer and motor spots teams often perform computer simulations to tes
 	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
 </video>
 
-<small>
-Video source: <https://youtu.be/-4gSS-UHWcc>
-</small>
+*Video source: <https://youtu.be/-4gSS-UHWcc>*
 
 ## Economics
 
@@ -295,7 +293,7 @@ Most modern day economic forecasting involves performing numerical simulations.
 One of the most popular applications of numerical simulation in the UK today is in predicting tomorrow's weather.
 
 <video width="100%" controls autoplay muted>
-	<source src="../_static/video/lec01/weather.webm" type="video/mp4">
+	<source src="../_static/video/lec01/weather.mp4" type="video/mp4">
 	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
 </video>
 

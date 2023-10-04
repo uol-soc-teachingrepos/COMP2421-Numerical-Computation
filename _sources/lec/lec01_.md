@@ -276,13 +276,11 @@ Further more specific references will be given in each section of the notes.
 Car manufacturer and motor spots teams often perform computer simulations to test and optimise new designs.
 
 <video width="100%" controls autoplay muted>
-	<source src="../_static/video/lec01/LES.webm" type="video/mp4">
+	<source src="../_static/video/lec01/LES.mp4" type="video/mp4">
 	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
 </video>
 
-<small>
-Video source: <https://youtu.be/-4gSS-UHWcc>
-</small>
+*Video source: <https://youtu.be/-4gSS-UHWcc>*
 
 ## Economics
 
@@ -295,7 +293,7 @@ Most modern day economic forecasting involves performing numerical simulations.
 One of the most popular applications of numerical simulation in the UK today is in predicting tomorrow's weather.
 
 <video width="100%" controls autoplay muted>
-	<source src="../_static/video/lec01/weather.webm" type="video/mp4">
+	<source src="../_static/video/lec01/weather.mp4" type="video/mp4">
 	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
 </video>
 
@@ -325,7 +323,7 @@ Numerical simulation can be used both as an earlier step in clinical trials in o
 </revealjs>
 
 <video width="100%" controls autoplay muted>
-  <source src="../_static/video/lec01/HPG.webm" type="video/mp4" >
+  <source src="../_static/video/lec01/HPG.mp4" type="video/mp4" >
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
 </video>
 
@@ -352,7 +350,7 @@ Many tasks in robotics are tested first in simulated environments where simulati
 ## Pipebots
 
 <video width="100%" controls autoplay muted>
-	<source src="../_static/video/lec01/pipebots.webm" type="video/mp4">
+	<source src="../_static/video/lec01/pipebots.mp4" type="video/mp4">
 </video>
 
 <small>

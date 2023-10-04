@@ -4,7 +4,6 @@ PANDOC_REVEALJS= \
 	--template=../pandoc/revealjs-template.html \
 	--metadata-file=../metadata.yaml \
 	--mathjax \
-	--embed-resources \
 	--slide-level 2 \
 	--standalone \
 	--table-of-contents \

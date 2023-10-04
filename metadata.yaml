@@ -10,6 +10,6 @@ author:
 titleextra: "Please sit in the middle of rows to ensure that everyone fits!"
 
 css:
-  - "../pandoc/common.css"
-  - "../pandoc/fira-fonts.css"
-  - "../pandoc/metropolis.css"
+  - "../_static/css/common.css"
+  - "../_static/css/fira-fonts.css"
+  - "../_static/css/metropolis.css"

@@ -18,6 +18,7 @@ dependencies:
   # additional packages used in the book
   - xlrd = 1.2
   - qrcode = 7.3
+  - ffmpeg = 5.1
   # for help making the book
   - livereload = 2.6
   - black = 22.12

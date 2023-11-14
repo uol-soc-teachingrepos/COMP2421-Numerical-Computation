@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 19: Least squares fitting &#8212; COMP2421 Numerical Computation</title>
+    <title>Today: a new topic &#8212; COMP2421 Numerical Computation</title>
   
   
   
@@ -67,11 +67,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec19';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec11_';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lecture 20: Overview, review and looking forward" href="lec20.html" />
-    <link rel="prev" title="WS09: Robust nonlinear solvers" href="../ws/ws09.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-GB"/>
   </head>
@@ -210,8 +208,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ws/ws09.html">WS09: Robust nonlinear solvers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Special topics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lec19: Least squares fitting</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lec19.html">Lec19: Least squares fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
 <ul class="nav bd-sidenav">
@@ -270,7 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/uol-soc-teachingrepos/COMP2421-Numerical-Computation/main?urlpath=lab/tree/./lec/lec19.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/uol-soc-teachingrepos/COMP2421-Numerical-Computation/main?urlpath=lab/tree/./lec/lec11_.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/uol-soc-teachingrepos/COMP2421-Numerical-Computation/blob/main/./lec/lec19.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/uol-soc-teachingrepos/COMP2421-Numerical-Computation/blob/main/./lec/lec11_.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,7 +352,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/edit/main/./lec/lec19.md" target="_blank"
+      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/edit/main/./lec/lec11_.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +369,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/issues/new?title=Issue%20on%20page%20%2Flec/lec19.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/issues/new?title=Issue%20on%20page%20%2Flec/lec11_.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,24 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lec/lec19.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../_sources/lec/lec19.md" target="_blank"
+      <li><a href="../_sources/lec/lec11_.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -428,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -500,7 +481,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 19: Least squares fitting</h1>
+    <h1>Today: a new topic</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -510,25 +491,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-earnings">Weekly earnings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-linear-fit">An example of best linear fit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-quadratic-fit">An example of best quadratic fit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: a new topic</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-problems">Static vs dynamic problems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Static vs dynamic problems</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-approximation">Best approximation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-equations">The normal equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-i">Example I</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-homework">Example 2 (homework)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rates-of-change">Rates of change</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-rate-of-change">The derivative as a rate of change</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-values-do-we-get">What values do we get?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-the-normal-equations">Problems with the normal equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-and-conditioning">Sensitivity and conditioning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-s-going-on">So what’s going on</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematically-speaking">Mathematically speaking</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-graphical-interpretation">A graphical interpretation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-gradient">The derivative as a gradient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-of-a-curve">Slope of a curve</a></li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -539,310 +524,242 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-19-least-squares-fitting">
-<h1>Lecture 19: Least squares fitting<a class="headerlink" href="#lecture-19-least-squares-fitting" title="Permalink to this heading">#</a></h1>
-<section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">#</a></h2>
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="today-a-new-topic">
+<h1>Today: a new topic<a class="headerlink" href="#today-a-new-topic" title="Permalink to this heading">#</a></h1>
+<p><strong>Dynamic problems</strong> – problems that involve time</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="static-vs-dynamic-problems">
+<h1>Static vs dynamic problems<a class="headerlink" href="#static-vs-dynamic-problems" title="Permalink to this heading">#</a></h1>
+<p>Examples so far have focussed on <strong>static</strong> problems that don’t change in time:</p>
+<p><img alt="Image showing sample temperature and relations in a room" src="_images/temperature.svg" /></p>
+<section id="id1">
+<h2>Static vs dynamic problems<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>There are many other problems that require models to change in time, that is the models are <strong>dynamic</strong>:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<video width="33%" controls autoplay muted>
+	<source src="../_static/video/lec01/LES.mp4" type="video/mp4">
+	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
+</video>
+<video width="33%" controls autoplay muted>
+	<source src="../_static/video/lec01/weather.mp4" type="video/mp4">
+	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
+</video>
+<video width="33%" controls autoplay muted>
+  <source src="../_static/video/lec01/HPG.mp4" type="video/mp4" >
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
+</video>
+</div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rates-of-change">
+<h1>Rates of change<a class="headerlink" href="#rates-of-change" title="Permalink to this heading">#</a></h1>
+<p>Suppose we know that a person is walking at <em>constant</em> 3 meters per second (m/s) - what does that mean?</p>
+<p>So how far will they travel in:</p>
 <ul class="simple">
-<li><p>Suppose we are given data point representing a quantity over time.</p></li>
-<li><p>We want to represent the graph of this data as a simple curve.</p></li>
-<li><p>The examples on the following slide show the fitting of two different curves through some experimental data:</p>
-<ul>
-<li><p>a straight line;</p></li>
-<li><p>a quadratic curve.</p></li>
+<li><p><span class="math notranslate nohighlight">\(0.1\)</span> seconds?</p></li>
+<li><p><span class="math notranslate nohighlight">\(0.01\)</span> seconds?</p></li>
+<li><p><span class="math notranslate nohighlight">\(0.001\)</span> seconds?</p></li>
+<li><p><span class="math notranslate nohighlight">\(10^{-6}\)</span> seconds?</p></li>
 </ul>
-</li>
-</ul>
-<section id="weekly-earnings">
-<h3>Weekly earnings<a class="headerlink" href="#weekly-earnings" title="Permalink to this heading">#</a></h3>
-<div class="cell tag_remove-input docutils container">
-</div>
-<p>Raw data for weekly earnings:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/2ec147b3a412db78b6d22f25dbde1cd891b19358cd31eb138fef83f1f2bdc75d.png" src="../_images/2ec147b3a412db78b6d22f25dbde1cd891b19358cd31eb138fef83f1f2bdc75d.png" />
-</div>
-</div>
-<p>Raw data for weekly earning with a straight line of best fit:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/40f117f7c089990f59899af892b1ef051d56b672169dbe850de757e1c0a6788f.png" src="../_images/40f117f7c089990f59899af892b1ef051d56b672169dbe850de757e1c0a6788f.png" />
-</div>
-</div>
-<p>Raw data for weekly earnings with a quadric curve of best fit:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/2ecff142d11c3ef304036afd445c6500eb0df681ad8f0337e23bce4b147ae411.png" src="../_images/2ecff142d11c3ef304036afd445c6500eb0df681ad8f0337e23bce4b147ae411.png" />
-</div>
-</div>
-<p><a class="reference external" href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01">Data source, ons</a>,
-[<a class="reference external" href="http://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01/current/earn01nov2022.xls">xls</a>]</p>
-</section>
-<section id="an-example-of-best-linear-fit">
-<h3>An example of best linear fit<a class="headerlink" href="#an-example-of-best-linear-fit" title="Permalink to this heading">#</a></h3>
-<p>Suppose that the following measured data, <span class="math notranslate nohighlight">\(y\)</span>, is observed at different times <span class="math notranslate nohighlight">\(t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{c|cccc}
-t &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\
-\hline
-y &amp; 1 &amp; 1.5 &amp; 2.5 &amp; 3.5
-\end{array}
-\end{split}\]</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/676910153a7a16d18b7117443d09ad6985d869158ce8de9e035512ba29018efd.png" src="../_images/676910153a7a16d18b7117443d09ad6985d869158ce8de9e035512ba29018efd.png" />
-</div>
-</div>
-<ul>
-<li><p>Consider representing this data as a straight line:</p>
+<p>What does this tell us about speed?</p>
 <div class="math notranslate nohighlight">
 \[
-    y = mt + c
-    \]</div>
-</li>
-<li><p>An <em>exact fit</em> would require the following equations to be satisfied:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-    \begin{aligned}
-    m \times 1 + c &amp; = 1 \\
-    m \times 2 + c &amp; = 1.5 \\
-    m \times 3 + c &amp; = 2.5 \\
-    m \times 4 + c &amp; = 3.5.
-    \end{aligned}
-    \end{split}\]</div>
-<p>We recognise this as a system of linear equations for <span class="math notranslate nohighlight">\((m, c)\)</span> - but there are too many equations!!</p>
-</li>
-</ul>
-</section>
-<section id="an-example-of-best-quadratic-fit">
-<span id="quadratic-fit"></span><h3>An example of best quadratic fit<a class="headerlink" href="#an-example-of-best-quadratic-fit" title="Permalink to this heading">#</a></h3>
-<p>Suppose that the following measured data, <span class="math notranslate nohighlight">\(y\)</span>, is observed at different times <span class="math notranslate nohighlight">\(t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{c|ccccc}
-t &amp; -1.0 &amp; -0.5 &amp; 0  &amp; 0.5 &amp; 1.0 \\
-\hline
-y &amp; 1.0 &amp; 0.5 &amp; 0.0 &amp; 0.5 &amp; 2.0
-\end{array}
-\end{split}\]</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/d05fac1bd7012ec4152164ae58f09d67e7630d1eda9dd67454a52d46189617e6.png" src="../_images/d05fac1bd7012ec4152164ae58f09d67e7630d1eda9dd67454a52d46189617e6.png" />
-</div>
-</div>
-<ul>
-<li><p>Consider representing this data as a quadratic line:</p>
-<div class="math notranslate nohighlight">
-\[
-    y = a + b t + c t^2
-    \]</div>
-</li>
-<li><p>An <em>exact fit</em> would require the following equations to be satisfied:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-    \begin{aligned}
-    a + b \times -1 + c \times (-1)^2 &amp; = 1 \\
-    a + b \times -0.5 + c \times (-0.5)^2 &amp; = 0.5 \\
-    a + b \times 0 + c \times 0^2 &amp; = 0 \\
-    a + b \times 0.5 + c \times 0.5^2 &amp; = 0.5 \\
-    a + b \times 1 + c \times 1^2 &amp; = 2.
-    \end{aligned}
-    \end{split}\]</div>
-<p>We recognise this as a system of linear equations for <span class="math notranslate nohighlight">\((a, b, c)\)</span> - but there are too many equations!!</p>
-</li>
-</ul>
-</section>
-</section>
-<section id="best-approximation">
-<h2>Best approximation<a class="headerlink" href="#best-approximation" title="Permalink to this heading">#</a></h2>
-<ul>
-<li><p>Given that there is no <em>exact fit</em> solution to these <strong>overdetermined systems</strong> of equations what should we do?</p></li>
-<li><p>Recall the definition of the <strong>residual</strong> for the system <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-    \vec{r} = \vec{b} - A \vec{x},
-    \]</div>
-<ul class="simple">
-<li><p>When <span class="math notranslate nohighlight">\(\vec{r} = \vec{0}\)</span>, then <span class="math notranslate nohighlight">\(\vec{x} = \vec{x}^*\)</span> the exact solution.</p></li>
-<li><p>When there is no exact solution the next best thing is to make <span class="math notranslate nohighlight">\(\vec{r}\)</span> as small as possible.</p></li>
-<li><p>This means finding <span class="math notranslate nohighlight">\(\vec{x}\)</span> that <strong>minimises</strong> <span class="math notranslate nohighlight">\(\| \vec{r} \|^2\)</span>.</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="the-normal-equations">
-<h2>The normal equations<a class="headerlink" href="#the-normal-equations" title="Permalink to this heading">#</a></h2>
-<p>It turns out that the <span class="math notranslate nohighlight">\(\vec{x}\)</span> that minimises <span class="math notranslate nohighlight">\(\| \vec{b} - A \vec{x} \|^2\)</span> is the same <span class="math notranslate nohighlight">\(\vec{x}\)</span> that satisfies that following <em>square</em> systems of equations:</p>
-<div class="math notranslate nohighlight">
-\[
-A^T A \vec{x} = A^T \vec{b}.
+\text{Distance travelled} = \text{speed} \times \text{time}
 \]</div>
-<ul class="simple">
-<li><p>These equations are referred to as the <strong>normal equations</strong> for the overdetermined system <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span>.</p></li>
-<li><p>The square matrix <span class="math notranslate nohighlight">\(A^T A\)</span> is generally non-singular (i.e., the solution is unique).</p></li>
-<li><p>You can find this solution using Gaussian elimination (for example).</p></li>
-<li><p>The normal equations, when solved, give the <strong>best solution</strong> to the original problem in the sense of minimising the Euclidean norm of the residual.</p></li>
-</ul>
-<section id="example-i">
-<h3>Example I<a class="headerlink" href="#example-i" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Find the least squares approximation to the <span class="xref myst">quadratic fit example</span>.</p></li>
-</ol>
-<p>The residual is given by</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-\vec{r} &amp; = \vec{b} - A \vec{x} \\
-&amp; = \begin{pmatrix} 1 \\ 0.5 \\ 0 \\ 0.5 \\ 2 \end{pmatrix} -
-\begin{pmatrix}
-1 &amp; -1 &amp; 1 \\
-1 &amp; -0.5 &amp; 0.25 \\
-1 &amp; 0 &amp; 0 \\
-1 &amp; 0.5 &amp; 0.25 \\
-1 &amp; 1 &amp; 1
-\end{pmatrix}
-\begin{pmatrix}
-x_1 \\ x_2 \\ x_3
-\end{pmatrix}
-\end{aligned}
-\end{split}\]</div>
-<p>We want to find <span class="math notranslate nohighlight">\(\vec{x}\)</span> that minimises</p>
+<p>That is,
+$<span class="math notranslate nohighlight">\(
+\text{speed} = \dfrac{\text{distance travelled}}{\text{time}}
+\)</span>$</p>
+<p>Equivalently,
+$<span class="math notranslate nohighlight">\(
+\text{speed} = \dfrac{(\text{distance at end}) - (\text{distance at start})}{\text{time}}.
+\)</span>$</p>
+<section id="the-derivative-as-a-rate-of-change">
+<h2>The derivative as a rate of change<a class="headerlink" href="#the-derivative-as-a-rate-of-change" title="Permalink to this heading">#</a></h2>
+<p>What if the object’s speed was not constant? For example,</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/dcefde4fc730e987d54cd83f9f160d1e686668697d58b0df4ad58ff104133988.png" src="../_images/dcefde4fc730e987d54cd83f9f160d1e686668697d58b0df4ad58ff104133988.png" />
+</div>
+</div>
+<p>How far would the object travel in one second now? – with difficulty :(</p>
+<p>We could consider each tenth of a second separately and estimate the distance covered at each tenth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/8c4f95c56adb2c0f6edc1d0e67d9edd602121263ca743128528dcd7737d7d60d.png" src="../_images/8c4f95c56adb2c0f6edc1d0e67d9edd602121263ca743128528dcd7737d7d60d.png" />
+</div>
+</div>
+<p>We could consider each hundredth of a second separately and estimate the distance covered at each hundredth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/afd16cfced7ea9f91110ba3fa54584c0ed0e843f8bfc290701fccb1f951c7d0f.png" src="../_images/afd16cfced7ea9f91110ba3fa54584c0ed0e843f8bfc290701fccb1f951c7d0f.png" />
+</div>
+</div>
+<p>We could consider each thousandth of a second separately and estimate the distance covered at each thousandth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.001</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/57432104422e80e366e843f46aed9ce60fb93ccd73fb63ea74f6fc10a3e39c61.png" src="../_images/57432104422e80e366e843f46aed9ce60fb93ccd73fb63ea74f6fc10a3e39c61.png" />
+</div>
+</div>
+<section id="what-values-do-we-get">
+<h3>What values do we get?<a class="headerlink" href="#what-values-do-we-get" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_ec603552_833a_11ee_8f7b_000d3a365111" ><caption>Total distance as a function of number of steps</caption><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" ># intervals</th>        <th class="col_heading level0 col1" >increment size dt</th>        <th class="col_heading level0 col2" >total distance</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row0_col0" class="data row0 col0" >10</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row0_col1" class="data row0 col1" >0.100000</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row0_col2" class="data row0 col2" >0.440000</td>
+            </tr>
+            <tr>
+                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row1_col0" class="data row1 col0" >100</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row1_col1" class="data row1 col1" >0.010000</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row1_col2" class="data row1 col2" >0.419150</td>
+            </tr>
+            <tr>
+                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row2_col0" class="data row2 col0" >1000</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row2_col1" class="data row2 col1" >0.001000</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row2_col2" class="data row2 col2" >0.416916</td>
+            </tr>
+            <tr>
+                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row3_col0" class="data row3 col0" >10000</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row3_col1" class="data row3 col1" >0.000100</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row3_col2" class="data row3 col2" >0.416692</td>
+            </tr>
+            <tr>
+                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row4_col0" class="data row4 col0" >100000</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row4_col1" class="data row4 col1" >0.000010</td>
+                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row4_col2" class="data row4 col2" >0.416669</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p>… we appear to be converging to an answer in the limit as <span class="math notranslate nohighlight">\(\mathrm{d}t \to 0\)</span>…</p>
+</section>
+</section>
+<section id="so-what-s-going-on">
+<h2>So what’s going on<a class="headerlink" href="#so-what-s-going-on" title="Permalink to this heading">#</a></h2>
+<p>At any <em>instant</em> of time, the speed is the rate of change in distance:</p>
 <div class="math notranslate nohighlight">
 \[
-\| \vec{r} \|^2 = \| \vec{b} - A \vec{x} \|^2.
+\text{speed} = \dfrac{\text{change in distance}}{\text{time}}
 \]</div>
-<p>The left and right hand sides of the normal equations are given by</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-A^T A &amp; =
-\begin{pmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
--1 &amp; -0.5 &amp; 0 &amp; 0.5 &amp; 1 \\
-1 &amp; 0.25 &amp; 0 &amp; 0.25 &amp; 1
-\end{pmatrix}
-\begin{pmatrix}
-1 &amp; -1 &amp; 1 \\
-1 &amp; -0.5 &amp; 0.25 \\
-1 &amp; 0 &amp; 0 \\
-1 &amp; 0.5 &amp; 0.25 \\
-1 &amp; 1 &amp; 1
-\end{pmatrix} \\
-&amp; =
-\begin{pmatrix}
-5 &amp; 0 &amp; 2.5 \\
-0 &amp; 2.5 &amp; 0 \\
-2.5 &amp; 0 &amp; 2.125
-\end{pmatrix}
-\end{aligned}
-\end{split}\]</div>
-<p>and</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-A^T \vec{b} =
-\begin{pmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
--1 &amp; -0.5 &amp; 0 &amp; 0.5 &amp; 1 \\
-1 &amp; 0.25 &amp; 0 &amp; 0.25 &amp; 1
-\end{pmatrix}
-\begin{pmatrix} 1 \\ 0.5 \\ 0 \\ 0.5 \\ 2 \end{pmatrix}
- =
-\begin{pmatrix}
-4 \\ 1 \\ 3.25
-\end{pmatrix}
-\end{split}\]</div>
-<p>We can apply Gaussian elimination to solve this problem (only one row operation is required!). The algorithm gives:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{pmatrix}
-5 &amp; 0 &amp; 2.5 \\
-0 &amp; 2.5 &amp; 0 \\
-0 &amp; 0 &amp; 0.875 \\
-\end{pmatrix}
-\begin{pmatrix}
-x_1 \\ x_2 \\ x_3
-\end{pmatrix}
- =
-\begin{pmatrix}
-4 \\ 1 \\ 1.25
-\end{pmatrix},
-\end{split}\]</div>
-<p>and backward substitution gives (to 4 significant figures)</p>
+<p>so</p>
 <div class="math notranslate nohighlight">
 \[
-\vec{x} = (0.08571, 0.4000, 1.429).
+\text{change in distance} = \text{time} \times \text{speed}
+\]</div>
+</section>
+<section id="mathematically-speaking">
+<h2>Mathematically speaking<a class="headerlink" href="#mathematically-speaking" title="Permalink to this heading">#</a></h2>
+<p>Call the speed <span class="math notranslate nohighlight">\(S(t)\)</span> and distance <span class="math notranslate nohighlight">\(D(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t) = \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t}
+\]</div>
+<p>In fact, to obtain a <em>converged</em> answer, we must take smaller and smaller choices for <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t) = \lim_{\mathrm{d}t \to 0} \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t}
+\]</div>
+<p>We say that speed, <span class="math notranslate nohighlight">\(S(t)\)</span>, is the <strong>derivative</strong> of distance, <span class="math notranslate nohighlight">\(D(t)\)</span>, with respect to time and write <span class="math notranslate nohighlight">\(S(t) = D'(t)\)</span>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-graphical-interpretation">
+<h1>A graphical interpretation<a class="headerlink" href="#a-graphical-interpretation" title="Permalink to this heading">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/a82b3924be45d0beeff489112938d659c9ac9705ccfbf433ad95118ae2f1d2ce.png" src="../_images/a82b3924be45d0beeff489112938d659c9ac9705ccfbf433ad95118ae2f1d2ce.png" />
+</div>
+</div>
+<p>We see the <strong>gradient</strong> (slope) of the orange curve is the <strong>value</strong> of the blue curve.</p>
+<section id="the-derivative-as-a-gradient">
+<h2>The derivative as a gradient<a class="headerlink" href="#the-derivative-as-a-gradient" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>What is the gradient of a line?</p>
+</div></blockquote>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/6c1e55a2cbdd3aa1182515bc414888d726523251aa2b3394a01f216e0db4319c.png" src="../_images/6c1e55a2cbdd3aa1182515bc414888d726523251aa2b3394a01f216e0db4319c.png" />
+</div>
+</div>
+<p>The equation of a straight line with slope <span class="math notranslate nohighlight">\(m\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+y(t) = m t + c.
+\]</div>
+<section id="slope-of-a-curve">
+<h3>Slope of a curve<a class="headerlink" href="#slope-of-a-curve" title="Permalink to this heading">#</a></h3>
+<p>What is the gradient of a <em>curve</em>?</p>
+<p>Well… the gradient of the straight-line approximation…</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/2d48dcbc4d7cb265018a2c38e403638ee0c4f932b8d0b55aef882cda004bbdfe.png" src="../_images/2d48dcbc4d7cb265018a2c38e403638ee0c4f932b8d0b55aef882cda004bbdfe.png" />
+<img alt="../_images/501aa4f56b3af841de7b4f5f9eeb41ae8e6ea0d94056a8cf7a3e32dfb2690207.png" src="../_images/501aa4f56b3af841de7b4f5f9eeb41ae8e6ea0d94056a8cf7a3e32dfb2690207.png" />
 </div>
 </div>
-</section>
-<section id="example-2-homework">
-<h3>Example 2 (homework)<a class="headerlink" href="#example-2-homework" title="Permalink to this heading">#</a></h3>
-<ol class="arabic" start="2">
-<li><p>Find the least square approximation to the system given by</p>
+<p>What about reducing <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>?</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/f5058441947a1d42f7b8545c77bcd60e66569cbf30e64a338027aadde7f22823.png" src="../_images/f5058441947a1d42f7b8545c77bcd60e66569cbf30e64a338027aadde7f22823.png" />
+</div>
+</div>
+<p>Even more?</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/8b303e262bf76ce79986094aa5ce2a6254cdd3a733aa60ce2642c5dc0e859906.png" src="../_images/8b303e262bf76ce79986094aa5ce2a6254cdd3a733aa60ce2642c5dc0e859906.png" />
+</div>
+</div>
+<p>By taking smaller and smaller values of <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>, it becomes clear that we can assign an instantaneous value to the slope at any point <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-    \begin{pmatrix}
-    -2 &amp; 2 &amp; -1 \\
-    0 &amp; 1 &amp; 0 \\
-    3 &amp; 1 &amp; -2 \\
-    1 &amp; 1 &amp; 4
-    \end{pmatrix}
-    \begin{pmatrix}
-    x_1 \\ x_2 \\ x_3
-    \end{pmatrix}
-     =
-     \begin{pmatrix}
-     2 \\ 1 \\ 0 \\ -3
-     \end{pmatrix}
-    \end{split}\]</div>
-</li>
-</ol>
+\[
+\lim_{\mathrm{d}t \to 0} \frac{y(t+\mathrm{d}t) - y(t)}{\mathrm{d}t}.
+\]</div>
+<p><em>But this is precisely the definition of derivative <span class="math notranslate nohighlight">\(y'(t)\)</span>!</em></p>
 </section>
-</section>
-<section id="problems-with-the-normal-equations">
-<h2>Problems with the normal equations<a class="headerlink" href="#problems-with-the-normal-equations" title="Permalink to this heading">#</a></h2>
-<p>Consider the matrix <span class="math notranslate nohighlight">\(A = \begin{pmatrix} 1 &amp; 1 \\ \varepsilon &amp; 0 \\ 0 &amp; \varepsilon \end{pmatrix}\)</span>, which gives</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-A^T A = \begin{pmatrix}
-1 + \varepsilon^2 &amp; 1 \\
-1 &amp; 1 + \varepsilon^2.
-\end{pmatrix}
-\end{split}\]</div>
-<p>If <span class="math notranslate nohighlight">\(\varepsilon \approx \sqrt{eps}\)</span> then the effects of rounding error can make <span class="math notranslate nohighlight">\(A^T A\)</span> appear to be singular.</p>
-<p>See also: Nick Higham, <a class="reference external" href="https://nhigham.com/2022/10/11/seven-sins-of-numerical-linear-algebra/">Seven sings of numerical linear algebra</a></p>
-<section id="sensitivity-and-conditioning">
-<h3>Sensitivity and conditioning<a class="headerlink" href="#sensitivity-and-conditioning" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>The condition number of a square matrix <span class="math notranslate nohighlight">\(A\)</span> describes how close that matrix is to being singular.</p></li>
-<li><p>If the condition number is larger then <span class="math notranslate nohighlight">\(A\)</span> is “close” to being singular.</p></li>
-<li><p>When the condition number is very large it is likely that the effects of rounding errors will be most serious: we refer to such a system as being ill-conditioned.</p></li>
-<li><p>The normal equations are typically quite ill-conditioned and so it is essential to use high precision arithmetic to solve them and specialised algorithms.</p></li>
-</ul>
-</section>
-</section>
-<section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Overdetermined systems are common in data modelling and they typically have no solution.</p></li>
-<li><p>Even so, it is possible to find a <em>closest</em> solution to the problem.</p></li>
-<li><p>It is common to measure this closeness in the Euclidean norm and this leads naturally to the least squares approximation.</p></li>
-<li><p>A solution to this problem can be found by solving the normal equations but can must be taken to use arithmetic with sufficient precision and specialised algorithms.</p></li>
-</ul>
-</section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Curve_fitting">Curve fitting</a></p></li>
-<li><p>Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_least_squares">Linear least squares</a></p></li>
-<li><p>Maths is fun: <a class="reference external" href="https://www.mathsisfun.com/data/least-squares-regression.html">Least Squares Regression</a></p></li>
-<li><p>Cross Validated StackExchange: <a class="reference external" href="https://stats.stackexchange.com/questions/399094/is-a-model-fitted-to-data-or-is-data-fitted-to-a-model">Is a model fitted to data or is data fitted to a model?</a></p></li>
-</ul>
-<p>The <a class="reference internal" href="lec19_.html"><span class="doc std std-doc">slides used in the lecture</span></a> are also available</p>
 </section>
 </section>
 
@@ -876,24 +793,6 @@ A^T A = \begin{pmatrix}
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../ws/ws09.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">WS09: Robust nonlinear solvers</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="lec20.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 20: Overview, review and looking forward</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -909,25 +808,29 @@ A^T A = \begin{pmatrix}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-earnings">Weekly earnings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-linear-fit">An example of best linear fit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-quadratic-fit">An example of best quadratic fit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: a new topic</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-problems">Static vs dynamic problems</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Static vs dynamic problems</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-approximation">Best approximation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-equations">The normal equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-i">Example I</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-homework">Example 2 (homework)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rates-of-change">Rates of change</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-rate-of-change">The derivative as a rate of change</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-values-do-we-get">What values do we get?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-the-normal-equations">Problems with the normal equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-and-conditioning">Sensitivity and conditioning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-s-going-on">So what’s going on</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematically-speaking">Mathematically speaking</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-graphical-interpretation">A graphical interpretation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-gradient">The derivative as a gradient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-of-a-curve">Slope of a curve</a></li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

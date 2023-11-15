@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Today: a new topic &#8212; COMP2421 Numerical Computation</title>
+    <title>Today: Introduction to dynamic problems &#8212; COMP2421 Numerical Computation</title>
   
   
   
@@ -481,7 +481,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Today: a new topic</h1>
+    <h1>Today: Introduction to dynamic problems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -491,7 +491,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: a new topic</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: Introduction to dynamic problems</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-problems">Static vs dynamic problems</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Static vs dynamic problems</a></li>
 </ul>
@@ -526,9 +526,9 @@ document.write(`
                   
   <div class="cell tag_remove-input docutils container">
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="today-a-new-topic">
-<h1>Today: a new topic<a class="headerlink" href="#today-a-new-topic" title="Permalink to this heading">#</a></h1>
-<p><strong>Dynamic problems</strong> – problems that involve time</p>
+<section class="tex2jax_ignore mathjax_ignore" id="today-introduction-to-dynamic-problems">
+<h1>Today: Introduction to dynamic problems<a class="headerlink" href="#today-introduction-to-dynamic-problems" title="Permalink to this heading">#</a></h1>
+<p>Tom Ranner</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="static-vs-dynamic-problems">
 <h1>Static vs dynamic problems<a class="headerlink" href="#static-vs-dynamic-problems" title="Permalink to this heading">#</a></h1>
@@ -542,15 +542,21 @@ document.write(`
 <div class="output text_html">
 <video width="33%" controls autoplay muted>
 	<source src="../_static/video/lec01/LES.mp4" type="video/mp4">
-	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/"><img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg"></a>
+	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/">
+     <img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg">
+    </a>
 </video>
 <video width="33%" controls autoplay muted>
 	<source src="../_static/video/lec01/weather.mp4" type="video/mp4">
-	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
+	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons"  href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg">
+     <img width="100%" alt="Lightning Pritzerbe 01 (MK)"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg">
+    </a>
 </video>
 <video width="33%" controls autoplay muted>
   <source src="../_static/video/lec01/HPG.mp4" type="video/mp4" >
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8"
+   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
 </video>
 </div></div>
 </div>
@@ -581,10 +587,10 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <section id="the-derivative-as-a-rate-of-change">
 <h2>The derivative as a rate of change<a class="headerlink" href="#the-derivative-as-a-rate-of-change" title="Permalink to this heading">#</a></h2>
-<p>What if the object’s speed was not constant? For example,</p>
+<p>What if the object’s speed was not constant? For example, <span class="math notranslate nohighlight">\(S(t) = -(t-1.0)(t+0.5)\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/dcefde4fc730e987d54cd83f9f160d1e686668697d58b0df4ad58ff104133988.png" src="../_images/dcefde4fc730e987d54cd83f9f160d1e686668697d58b0df4ad58ff104133988.png" />
+<img alt="../_images/c75e7fd8d2ccf606b509f12b4825732de737c4c32dcf38b330d5de13a1299c17.png" src="../_images/c75e7fd8d2ccf606b509f12b4825732de737c4c32dcf38b330d5de13a1299c17.png" />
 </div>
 </div>
 <p>How far would the object travel in one second now? – with difficulty :(</p>
@@ -601,7 +607,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/8c4f95c56adb2c0f6edc1d0e67d9edd602121263ca743128528dcd7737d7d60d.png" src="../_images/8c4f95c56adb2c0f6edc1d0e67d9edd602121263ca743128528dcd7737d7d60d.png" />
+<img alt="../_images/dede5fdd3514d530c67fadecd172a6b30d9f5e318ab03647bd9ea825ebe3e9e2.png" src="../_images/dede5fdd3514d530c67fadecd172a6b30d9f5e318ab03647bd9ea825ebe3e9e2.png" />
 </div>
 </div>
 <p>We could consider each hundredth of a second separately and estimate the distance covered at each hundredth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
@@ -617,7 +623,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/afd16cfced7ea9f91110ba3fa54584c0ed0e843f8bfc290701fccb1f951c7d0f.png" src="../_images/afd16cfced7ea9f91110ba3fa54584c0ed0e843f8bfc290701fccb1f951c7d0f.png" />
+<img alt="../_images/6b86b1adcdbfc8fa5ad251a48c230d5174c6f73694fd4a9827aa6393c0d0e109.png" src="../_images/6b86b1adcdbfc8fa5ad251a48c230d5174c6f73694fd4a9827aa6393c0d0e109.png" />
 </div>
 </div>
 <p>We could consider each thousandth of a second separately and estimate the distance covered at each thousandth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
@@ -633,7 +639,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/57432104422e80e366e843f46aed9ce60fb93ccd73fb63ea74f6fc10a3e39c61.png" src="../_images/57432104422e80e366e843f46aed9ce60fb93ccd73fb63ea74f6fc10a3e39c61.png" />
+<img alt="../_images/0a55ecdd9ddddba05c000be28ea34cd815ec3e1bb3aeac55546cead14411f752.png" src="../_images/0a55ecdd9ddddba05c000be28ea34cd815ec3e1bb3aeac55546cead14411f752.png" />
 </div>
 </div>
 <section id="what-values-do-we-get">
@@ -641,36 +647,36 @@ $<span class="math notranslate nohighlight">\(
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_ec603552_833a_11ee_8f7b_000d3a365111" ><caption>Total distance as a function of number of steps</caption><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" ># intervals</th>        <th class="col_heading level0 col1" >increment size dt</th>        <th class="col_heading level0 col2" >total distance</th>    </tr></thead><tbody>
+</style><table id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92" ><caption>Total distance as a function of number of steps</caption><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" ># intervals</th>        <th class="col_heading level0 col1" >increment size dt</th>        <th class="col_heading level0 col2" >total distance</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row0" class="row_heading level0 row0" >0</th>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row0_col0" class="data row0 col0" >10</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row0_col2" class="data row0 col2" >0.440000</td>
+                        <th id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row0_col0" class="data row0 col0" >10</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row0_col1" class="data row0 col1" >0.100000</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row0_col2" class="data row0 col2" >0.440000</td>
             </tr>
             <tr>
-                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row1" class="row_heading level0 row1" >1</th>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row1_col0" class="data row1 col0" >100</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row1_col1" class="data row1 col1" >0.010000</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row1_col2" class="data row1 col2" >0.419150</td>
+                        <th id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row1_col0" class="data row1 col0" >100</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row1_col1" class="data row1 col1" >0.010000</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row1_col2" class="data row1 col2" >0.419150</td>
             </tr>
             <tr>
-                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row2" class="row_heading level0 row2" >2</th>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row2_col0" class="data row2 col0" >1000</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row2_col1" class="data row2 col1" >0.001000</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row2_col2" class="data row2 col2" >0.416916</td>
+                        <th id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row2_col0" class="data row2 col0" >1000</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row2_col1" class="data row2 col1" >0.001000</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row2_col2" class="data row2 col2" >0.416916</td>
             </tr>
             <tr>
-                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row3" class="row_heading level0 row3" >3</th>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row3_col0" class="data row3 col0" >10000</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row3_col1" class="data row3 col1" >0.000100</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row3_col2" class="data row3 col2" >0.416692</td>
+                        <th id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row3_col0" class="data row3 col0" >10000</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row3_col1" class="data row3 col1" >0.000100</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row3_col2" class="data row3 col2" >0.416692</td>
             </tr>
             <tr>
-                        <th id="T_ec603552_833a_11ee_8f7b_000d3a365111level0_row4" class="row_heading level0 row4" >4</th>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row4_col0" class="data row4 col0" >100000</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row4_col1" class="data row4 col1" >0.000010</td>
-                        <td id="T_ec603552_833a_11ee_8f7b_000d3a365111row4_col2" class="data row4 col2" >0.416669</td>
+                        <th id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row4_col0" class="data row4 col0" >100000</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row4_col1" class="data row4 col1" >0.000010</td>
+                        <td id="T_b1d73714_83fd_11ee_8aa5_6045bd4b6d92row4_col2" class="data row4 col2" >0.416669</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -709,18 +715,16 @@ S(t) = \lim_{\mathrm{d}t \to 0} \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t}
 <h1>A graphical interpretation<a class="headerlink" href="#a-graphical-interpretation" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/a82b3924be45d0beeff489112938d659c9ac9705ccfbf433ad95118ae2f1d2ce.png" src="../_images/a82b3924be45d0beeff489112938d659c9ac9705ccfbf433ad95118ae2f1d2ce.png" />
+<img alt="../_images/54ad614cd0fdbdc287d96754611970f5bbb51c2deb04b494bc724f07cd014799.png" src="../_images/54ad614cd0fdbdc287d96754611970f5bbb51c2deb04b494bc724f07cd014799.png" />
 </div>
 </div>
 <p>We see the <strong>gradient</strong> (slope) of the orange curve is the <strong>value</strong> of the blue curve.</p>
 <section id="the-derivative-as-a-gradient">
 <h2>The derivative as a gradient<a class="headerlink" href="#the-derivative-as-a-gradient" title="Permalink to this heading">#</a></h2>
-<blockquote>
-<div><p>What is the gradient of a line?</p>
-</div></blockquote>
+<p>What is the gradient of a line?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/6c1e55a2cbdd3aa1182515bc414888d726523251aa2b3394a01f216e0db4319c.png" src="../_images/6c1e55a2cbdd3aa1182515bc414888d726523251aa2b3394a01f216e0db4319c.png" />
+<img alt="../_images/f71654148d568a8949b0f526dcd0bfd2194b89ea1bb4cf175567f35f3deffb94.png" src="../_images/f71654148d568a8949b0f526dcd0bfd2194b89ea1bb4cf175567f35f3deffb94.png" />
 </div>
 </div>
 <p>The equation of a straight line with slope <span class="math notranslate nohighlight">\(m\)</span> is given by</p>
@@ -731,26 +735,26 @@ y(t) = m t + c.
 <section id="slope-of-a-curve">
 <h3>Slope of a curve<a class="headerlink" href="#slope-of-a-curve" title="Permalink to this heading">#</a></h3>
 <p>What is the gradient of a <em>curve</em>?</p>
-<p>Well… the gradient of the straight-line approximation…</p>
+<p>Well… the gradient of the straight-line approximation (chord) for a small step is</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/501aa4f56b3af841de7b4f5f9eeb41ae8e6ea0d94056a8cf7a3e32dfb2690207.png" src="../_images/501aa4f56b3af841de7b4f5f9eeb41ae8e6ea0d94056a8cf7a3e32dfb2690207.png" />
+<img alt="../_images/f902aec3bc6747f6c79dfe5fd6eee473f70f6360273ab1836d4e707de6bda3bc.png" src="../_images/f902aec3bc6747f6c79dfe5fd6eee473f70f6360273ab1836d4e707de6bda3bc.png" />
 </div>
 </div>
 <p>What about reducing <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/f5058441947a1d42f7b8545c77bcd60e66569cbf30e64a338027aadde7f22823.png" src="../_images/f5058441947a1d42f7b8545c77bcd60e66569cbf30e64a338027aadde7f22823.png" />
+<img alt="../_images/189b653fb724af1721f5133437a18ead7984aac46227ab63d96ecf5026f72866.png" src="../_images/189b653fb724af1721f5133437a18ead7984aac46227ab63d96ecf5026f72866.png" />
 </div>
 </div>
 <p>Even more?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/8b303e262bf76ce79986094aa5ce2a6254cdd3a733aa60ce2642c5dc0e859906.png" src="../_images/8b303e262bf76ce79986094aa5ce2a6254cdd3a733aa60ce2642c5dc0e859906.png" />
+<img alt="../_images/2a3e647deaabebaa4ffd814ec4a9e03e598b3c4254d8ed41010bc09d3dec9041.png" src="../_images/2a3e647deaabebaa4ffd814ec4a9e03e598b3c4254d8ed41010bc09d3dec9041.png" />
 </div>
 </div>
 <p>By taking smaller and smaller values of <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>, it becomes clear that we can assign an instantaneous value to the slope at any point <span class="math notranslate nohighlight">\(t\)</span>:</p>
@@ -808,7 +812,7 @@ y(t) = m t + c.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: a new topic</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: Introduction to dynamic problems</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-problems">Static vs dynamic problems</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Static vs dynamic problems</a></li>
 </ul>

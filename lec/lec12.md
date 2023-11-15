@@ -20,7 +20,7 @@ kernelspec:
 
     -   speed is the rate of change of distance;
 
-    -   instantaneous speed is the limit of average speeds over shorter and shorted time periods,
+    -   instantaneous speed is the limit of average speeds over shorter and shorter time periods,
 
 	    $$
         \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t} \text{ as } \mathrm{d}t \to 0;

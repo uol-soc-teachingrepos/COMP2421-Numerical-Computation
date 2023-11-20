@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Today: Introduction to dynamic problems &#8212; COMP2421 Numerical Computation</title>
+    <title>Today: A modelling example &#8212; COMP2421 Numerical Computation</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec11_';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec14_';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -268,7 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/uol-soc-teachingrepos/COMP2421-Numerical-Computation/main?urlpath=lab/tree/./lec/lec11_.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/uol-soc-teachingrepos/COMP2421-Numerical-Computation/main?urlpath=lab/tree/./lec/lec14_.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/uol-soc-teachingrepos/COMP2421-Numerical-Computation/blob/main/./lec/lec11_.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/uol-soc-teachingrepos/COMP2421-Numerical-Computation/blob/main/./lec/lec14_.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +352,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/edit/main/./lec/lec11_.ipynb" target="_blank"
+      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/edit/main/./lec/lec14_.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +369,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/issues/new?title=Issue%20on%20page%20%2Flec/lec11_.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/uol-soc-teachingrepos/COMP2421-Numerical-Computation/issues/new?title=Issue%20on%20page%20%2Flec/lec14_.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lec/lec11_.ipynb" target="_blank"
+      <li><a href="../_sources/lec/lec14_.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -481,7 +481,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Today: Introduction to dynamic problems</h1>
+    <h1>Today: A modelling example</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -491,25 +491,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: Introduction to dynamic problems</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-problems">Static vs dynamic problems</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Static vs dynamic problems</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: A modelling example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-model-for-the-trajectory-of-an-object">A model for the trajectory of an object</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-laws-of-motion">Newton’s laws of motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-projectile">Example - a projectile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-example-the-model">Project example - the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectile-example-equations">Projectile example - equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectile-example-initial-conditions">Projectile example - initial conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectile-example-results">Projectile example - results</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rates-of-change">Rates of change</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-rate-of-change">The derivative as a rate of change</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-values-do-we-get">What values do we get?</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-s-going-on">So what’s going on</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematically-speaking">Mathematically speaking</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-graphical-interpretation">A graphical interpretation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-gradient">The derivative as a gradient</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-of-a-curve">Slope of a curve</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-method-for-systems-of-equations">Euler’s method for systems of equations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-euler-s-method">Solution using Euler’s method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-version">The Python version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-results">Python results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-errors">What about errors?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -526,244 +523,199 @@ document.write(`
                   
   <div class="cell tag_remove-input docutils container">
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="today-introduction-to-dynamic-problems">
-<h1>Today: Introduction to dynamic problems<a class="headerlink" href="#today-introduction-to-dynamic-problems" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="today-a-modelling-example">
+<h1>Today: A modelling example<a class="headerlink" href="#today-a-modelling-example" title="Permalink to this heading">#</a></h1>
 <p>Tom Ranner</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="static-vs-dynamic-problems">
-<h1>Static vs dynamic problems<a class="headerlink" href="#static-vs-dynamic-problems" title="Permalink to this heading">#</a></h1>
-<p>Examples so far have focussed on <strong>static</strong> problems that don’t change in time:</p>
-<p><img alt="Image showing sample temperature and relations in a room" src="_images/temperature.svg" /></p>
-<section id="id1">
-<h2>Static vs dynamic problems<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>There are many other problems that require models to change in time, that is the models are <strong>dynamic</strong>:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="a-model-for-the-trajectory-of-an-object">
+<h1>A model for the trajectory of an object<a class="headerlink" href="#a-model-for-the-trajectory-of-an-object" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html">
-<video width="33%" controls autoplay muted>
-	<source src="../_static/video/lec01/LES.mp4" type="video/mp4">
-	<a href="https://www.nektar.info/industry-relevant-implicit-les-via-spectral-hp-element-methods/">
-     <img width="50%" alt="Airflow simulation example" src="https://www.nektar.info/wp-content/uploads/2021/05/D1-1-811x1024.jpg">
-    </a>
-</video>
-<video width="33%" controls autoplay muted>
-	<source src="../_static/video/lec01/weather.mp4" type="video/mp4">
-	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons"  href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg">
-     <img width="100%" alt="Lightning Pritzerbe 01 (MK)"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg">
-    </a>
-</video>
-<video width="33%" controls autoplay muted>
-  <source src="../_static/video/lec01/HPG.mp4" type="video/mp4" >
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YLsFN1mp2V8"
-   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
-</video>
-</div></div>
+<img alt="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" src="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" />
+</div>
+</div>
+<section id="newton-s-laws-of-motion">
+<h2>Newton’s laws of motion<a class="headerlink" href="#newton-s-laws-of-motion" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Important in many computer games is the <strong>physics engine</strong></p></li>
+<li><p>This is often one of the computationally expensive parts of running a game</p></li>
+<li><p>Models often derived by working out the forces on an object and applying Newton’s laws!</p></li>
+</ul>
+<blockquote>
+<div><p>Force = mass <span class="math notranslate nohighlight">\(\times\)</span> acceleration</p>
+</div></blockquote>
+<p>Newton’s 2nd law of motion states that the accerlation of an object <em>in each direction</em> is equal to the applied force in that direction divided by the mass of the object.</p>
+<p>-&gt; once we know the acceleration of the object, we can solve the differential equation to calculate the objects velocity and position…</p>
+</section>
+<section id="example-a-projectile">
+<h2>Example - a projectile<a class="headerlink" href="#example-a-projectile" title="Permalink to this heading">#</a></h2>
+<p>Consider an object being projected from the top of a tall building</p>
+<ul class="simple">
+<li><p>We know its initial postion and speed <em>in each direction</em> and wish to predict is trajectory!</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" src="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" />
+</div>
+</div>
+</section>
+<section id="project-example-the-model">
+<h2>Project example - the model<a class="headerlink" href="#project-example-the-model" title="Permalink to this heading">#</a></h2>
+<p>We consider a similar model to the freefall example from lecture 12.</p>
+<p>The important <em>forces</em> are:</p>
+<ul class="simple">
+<li><p><strong>gravity</strong> acts in the negative <span class="math notranslate nohighlight">\(y\)</span> direction at a constant acceleration <span class="math notranslate nohighlight">\(g = 9.81 \, \mathrm{m} / \mathrm{s}^2\)</span></p></li>
+<li><p><strong>air resistance</strong> acts in the opposite direction to way the projectile is moving - in <em>both</em> the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> directions. We assume the size of the force is proportional to the speed is each direction</p></li>
+</ul>
+</section>
+<section id="projectile-example-equations">
+<h2>Projectile example - equations<a class="headerlink" href="#projectile-example-equations" title="Permalink to this heading">#</a></h2>
+<p>Using the following notation</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X(t)\)</span> is the horizontal distance of the object at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y(t)\)</span> is the vertical distance of the object at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U(t)\)</span> is the horizontal speed of the object at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V(t)\)</span> is the vertical speed of the object at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+</ul>
+<p>The above model leads to the following two differential equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+U'(t) &amp; = -k U(t) \\
+V'(t) &amp; = -k V(t) - g.
+\end{aligned}
+\end{split}\]</div>
+<p>We also know, from the definition of speed, that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+X'(t) &amp; = U(t) \\
+Y'(t) &amp; = V(t).
+\end{aligned}
+\end{split}\]</div>
+</section>
+<section id="projectile-example-initial-conditions">
+<h2>Projectile example - initial conditions<a class="headerlink" href="#projectile-example-initial-conditions" title="Permalink to this heading">#</a></h2>
+<p>In addition to the 4 differential equations, we need 4 starting values.</p>
+<p>For example at <span class="math notranslate nohighlight">\(t = 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+U &amp; = 20 \\
+V &amp; = 0 \\
+X &amp; = 0 \\
+Y &amp; = 100 \\
+\end{aligned}
+\end{split}\]</div>
+<p>(We’re not going to write down the units any more but they are still there!)</p>
+</section>
+<section id="projectile-example-results">
+<h2>Projectile example - results<a class="headerlink" href="#projectile-example-results" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/ae70c56da719ede746eefc0a5762429934cbe914cfeebfb60916f73b051d666e.png" src="../_images/ae70c56da719ede746eefc0a5762429934cbe914cfeebfb60916f73b051d666e.png" />
+</div>
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="rates-of-change">
-<h1>Rates of change<a class="headerlink" href="#rates-of-change" title="Permalink to this heading">#</a></h1>
-<p>Suppose we know that a person is walking at <em>constant</em> 3 meters per second (m/s) - what does that mean?</p>
-<p>So how far will they travel in:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="euler-s-method-for-systems-of-equations">
+<h1>Euler’s method for systems of equations<a class="headerlink" href="#euler-s-method-for-systems-of-equations" title="Permalink to this heading">#</a></h1>
+<p>In general, a system of four differential equations will take the form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+Y_1'(t) &amp; = F_1(t, Y_1, Y_2, Y_3, Y_4) \\
+Y_2'(t) &amp; = F_2(t, Y_1, Y_2, Y_3, Y_4) \\
+Y_3'(t) &amp; = F_3(t, Y_1, Y_2, Y_3, Y_4) \\
+Y_4'(t) &amp; = F_4(t, Y_1, Y_2, Y_3, Y_4).
+\end{aligned}
+\end{split}\]</div>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(0.1\)</span> seconds?</p></li>
-<li><p><span class="math notranslate nohighlight">\(0.01\)</span> seconds?</p></li>
-<li><p><span class="math notranslate nohighlight">\(0.001\)</span> seconds?</p></li>
-<li><p><span class="math notranslate nohighlight">\(10^{-6}\)</span> seconds?</p></li>
+<li><p>How does this relate to the projectile example above?</p></li>
+<li><p>It is possible to apply Euler’s method or the midpoint method to apply Euler’s method or the midpoint method to a general system such as this</p></li>
 </ul>
-<p>What does this tell us about speed?</p>
+<section id="solution-using-euler-s-method">
+<h2>Solution using Euler’s method<a class="headerlink" href="#solution-using-euler-s-method" title="Permalink to this heading">#</a></h2>
+<p>Consider the following system of differential equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{y}'(t) = A \vec{y}(t),
+\quad \text{ subject to } \quad \vec{y}(0) = \begin{pmatrix} 0 \\ 1 \end{pmatrix},
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{y}(t) = \begin{pmatrix} y_1(t) \\ y_2(t) \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(A = \begin{pmatrix} -1 &amp; 1 \\ 1 &amp; -2 \end{pmatrix}\)</span>.</p>
+<ul class="simple">
+<li><p>Approximate the solution using 2 steps of Euler’s method with <span class="math notranslate nohighlight">\(\mathrm{d}t = 0.5\)</span>.</p></li>
+</ul>
+</section>
+<section id="the-python-version">
+<h2>The Python version<a class="headerlink" href="#the-python-version" title="Permalink to this heading">#</a></h2>
+<p>Using Python notation each time step would be given by</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y1</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">y2</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">A</span> <span class="o">@</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</section>
+<section id="python-results">
+<h2>Python results<a class="headerlink" href="#python-results" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/d8e33ce6cbae4011951b2d9d3d7881dedd8b4f1d7065d5f6668205aee8b67944.png" src="../_images/d8e33ce6cbae4011951b2d9d3d7881dedd8b4f1d7065d5f6668205aee8b67944.png" />
+</div>
+</div>
+</section>
+<section id="what-about-errors">
+<h2>What about errors?<a class="headerlink" href="#what-about-errors" title="Permalink to this heading">#</a></h2>
+<p>We can use the Euclidean norm as before to calculate the error against an exact solution:</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Distance travelled} = \text{speed} \times \text{time}
+\text{Abs. error} = \| \vec{y}_\text{exact} - \vec{y}(T) \|
 \]</div>
-<p>That is,
-$<span class="math notranslate nohighlight">\(
-\text{speed} = \dfrac{\text{distance travelled}}{\text{time}}
-\)</span>$</p>
-<p>Equivalently,
-$<span class="math notranslate nohighlight">\(
-\text{speed} = \dfrac{(\text{distance at end}) - (\text{distance at start})}{\text{time}}.
-\)</span>$</p>
-<section id="the-derivative-as-a-rate-of-change">
-<h2>The derivative as a rate of change<a class="headerlink" href="#the-derivative-as-a-rate-of-change" title="Permalink to this heading">#</a></h2>
-<p>What if the object’s speed was not constant? For example, <span class="math notranslate nohighlight">\(S(t) = -(t-1.0)(t+0.5)\)</span>.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/c75e7fd8d2ccf606b509f12b4825732de737c4c32dcf38b330d5de13a1299c17.png" src="../_images/c75e7fd8d2ccf606b509f12b4825732de737c4c32dcf38b330d5de13a1299c17.png" />
-</div>
-</div>
-<p>How far would the object travel in one second now? – with difficulty :(</p>
-<p>We could consider each tenth of a second separately and estimate the distance covered at each tenth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/dede5fdd3514d530c67fadecd172a6b30d9f5e318ab03647bd9ea825ebe3e9e2.png" src="../_images/dede5fdd3514d530c67fadecd172a6b30d9f5e318ab03647bd9ea825ebe3e9e2.png" />
-</div>
-</div>
-<p>We could consider each hundredth of a second separately and estimate the distance covered at each hundredth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.01</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/6b86b1adcdbfc8fa5ad251a48c230d5174c6f73694fd4a9827aa6393c0d0e109.png" src="../_images/6b86b1adcdbfc8fa5ad251a48c230d5174c6f73694fd4a9827aa6393c0d0e109.png" />
-</div>
-</div>
-<p>We could consider each thousandth of a second separately and estimate the distance covered at each thousandth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.001</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/0a55ecdd9ddddba05c000be28ea34cd815ec3e1bb3aeac55546cead14411f752.png" src="../_images/0a55ecdd9ddddba05c000be28ea34cd815ec3e1bb3aeac55546cead14411f752.png" />
-</div>
-</div>
-<section id="what-values-do-we-get">
-<h3>What values do we get?<a class="headerlink" href="#what-values-do-we-get" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4" ><caption>Total distance as a function of number of steps</caption><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" ># intervals</th>        <th class="col_heading level0 col1" >increment size dt</th>        <th class="col_heading level0 col2" >total distance</th>    </tr></thead><tbody>
+</style><table id="T_79a100be_87ea_11ee_b872_6045bdb922d4" ><caption>Results of using Euler's method on a system of equtaions</caption><thead>    <tr>        <th class="col_heading level0 col0" >dt</th>        <th class="col_heading level0 col1" >abs. error</th>        <th class="col_heading level0 col2" >ratio</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4level0_row0" class="row_heading level0 row0" >0</th>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row0_col0" class="data row0 col0" >10</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row0_col2" class="data row0 col2" >0.440000</td>
+                                <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row0_col0" class="data row0 col0" >0.500000</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row0_col1" class="data row0 col1" >0.017606</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row0_col2" class="data row0 col2" >---</td>
             </tr>
             <tr>
-                        <th id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4level0_row1" class="row_heading level0 row1" >1</th>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row1_col0" class="data row1 col0" >100</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row1_col1" class="data row1 col1" >0.010000</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row1_col2" class="data row1 col2" >0.419150</td>
+                                <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row1_col0" class="data row1 col0" >0.250000</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row1_col1" class="data row1 col1" >0.008555</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row1_col2" class="data row1 col2" >0.485941</td>
             </tr>
             <tr>
-                        <th id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4level0_row2" class="row_heading level0 row2" >2</th>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row2_col0" class="data row2 col0" >1000</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row2_col1" class="data row2 col1" >0.001000</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row2_col2" class="data row2 col2" >0.416916</td>
+                                <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row2_col0" class="data row2 col0" >0.125000</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row2_col1" class="data row2 col1" >0.004219</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row2_col2" class="data row2 col2" >0.493091</td>
             </tr>
             <tr>
-                        <th id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4level0_row3" class="row_heading level0 row3" >3</th>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row3_col0" class="data row3 col0" >10000</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row3_col1" class="data row3 col1" >0.000100</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row3_col2" class="data row3 col2" >0.416692</td>
+                                <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row3_col0" class="data row3 col0" >0.062500</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row3_col1" class="data row3 col1" >0.002095</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row3_col2" class="data row3 col2" >0.496579</td>
             </tr>
             <tr>
-                        <th id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4level0_row4" class="row_heading level0 row4" >4</th>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row4_col0" class="data row4 col0" >100000</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row4_col1" class="data row4 col1" >0.000010</td>
-                        <td id="T_17d06ee6_87eb_11ee_9123_6045bdb922d4row4_col2" class="data row4 col2" >0.416669</td>
+                                <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row4_col0" class="data row4 col0" >0.031250</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row4_col1" class="data row4 col1" >0.001044</td>
+                        <td id="T_79a100be_87ea_11ee_b872_6045bdb922d4row4_col2" class="data row4 col2" >0.498299</td>
             </tr>
     </tbody></table></div></div>
 </div>
-<p>… we appear to be converging to an answer in the limit as <span class="math notranslate nohighlight">\(\mathrm{d}t \to 0\)</span>…</p>
 </section>
-</section>
-<section id="so-what-s-going-on">
-<h2>So what’s going on<a class="headerlink" href="#so-what-s-going-on" title="Permalink to this heading">#</a></h2>
-<p>At any <em>instant</em> of time, the speed is the rate of change in distance:</p>
-<div class="math notranslate nohighlight">
-\[
-\text{speed} = \dfrac{\text{change in distance}}{\text{time}}
-\]</div>
-<p>so</p>
-<div class="math notranslate nohighlight">
-\[
-\text{change in distance} = \text{time} \times \text{speed}
-\]</div>
-</section>
-<section id="mathematically-speaking">
-<h2>Mathematically speaking<a class="headerlink" href="#mathematically-speaking" title="Permalink to this heading">#</a></h2>
-<p>Call the speed <span class="math notranslate nohighlight">\(S(t)\)</span> and distance <span class="math notranslate nohighlight">\(D(t)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-S(t) = \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t}
-\]</div>
-<p>In fact, to obtain a <em>converged</em> answer, we must take smaller and smaller choices for <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-S(t) = \lim_{\mathrm{d}t \to 0} \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t}
-\]</div>
-<p>We say that speed, <span class="math notranslate nohighlight">\(S(t)\)</span>, is the <strong>derivative</strong> of distance, <span class="math notranslate nohighlight">\(D(t)\)</span>, with respect to time and write <span class="math notranslate nohighlight">\(S(t) = D'(t)\)</span>.</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="a-graphical-interpretation">
-<h1>A graphical interpretation<a class="headerlink" href="#a-graphical-interpretation" title="Permalink to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/54ad614cd0fdbdc287d96754611970f5bbb51c2deb04b494bc724f07cd014799.png" src="../_images/54ad614cd0fdbdc287d96754611970f5bbb51c2deb04b494bc724f07cd014799.png" />
-</div>
-</div>
-<p>We see the <strong>gradient</strong> (slope) of the orange curve is the <strong>value</strong> of the blue curve.</p>
-<section id="the-derivative-as-a-gradient">
-<h2>The derivative as a gradient<a class="headerlink" href="#the-derivative-as-a-gradient" title="Permalink to this heading">#</a></h2>
-<p>What is the gradient of a line?</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/f71654148d568a8949b0f526dcd0bfd2194b89ea1bb4cf175567f35f3deffb94.png" src="../_images/f71654148d568a8949b0f526dcd0bfd2194b89ea1bb4cf175567f35f3deffb94.png" />
-</div>
-</div>
-<p>The equation of a straight line with slope <span class="math notranslate nohighlight">\(m\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[
-y(t) = m t + c.
-\]</div>
-<section id="slope-of-a-curve">
-<h3>Slope of a curve<a class="headerlink" href="#slope-of-a-curve" title="Permalink to this heading">#</a></h3>
-<p>What is the gradient of a <em>curve</em>?</p>
-<p>Well… the gradient of the straight-line approximation (chord) for a small step is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{y(t + \mathrm{d}t) - y(t)}{\mathrm{d}t}.
-\]</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/f902aec3bc6747f6c79dfe5fd6eee473f70f6360273ab1836d4e707de6bda3bc.png" src="../_images/f902aec3bc6747f6c79dfe5fd6eee473f70f6360273ab1836d4e707de6bda3bc.png" />
-</div>
-</div>
-<p>What about reducing <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>?</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/189b653fb724af1721f5133437a18ead7984aac46227ab63d96ecf5026f72866.png" src="../_images/189b653fb724af1721f5133437a18ead7984aac46227ab63d96ecf5026f72866.png" />
-</div>
-</div>
-<p>Even more?</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/2a3e647deaabebaa4ffd814ec4a9e03e598b3c4254d8ed41010bc09d3dec9041.png" src="../_images/2a3e647deaabebaa4ffd814ec4a9e03e598b3c4254d8ed41010bc09d3dec9041.png" />
-</div>
-</div>
-<p>By taking smaller and smaller values of <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>, it becomes clear that we can assign an instantaneous value to the slope at any point <span class="math notranslate nohighlight">\(t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-\lim_{\mathrm{d}t \to 0} \frac{y(t+\mathrm{d}t) - y(t)}{\mathrm{d}t}.
-\]</div>
-<p><em>But this is precisely the definition of derivative <span class="math notranslate nohighlight">\(y'(t)\)</span>!</em></p>
-</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Many useful models take the form of a single differential equation.</p></li>
+<li><p>However, many important models require systems of <em>coupled differential equations</em> to be solved.</p></li>
+<li><p>In the latter case we may generalise the standard techniques, such as Euler’s method or the midpoint method, to get effective computational models.</p></li>
+<li><p>Only 2 computational schemes have been introduced here (Euler and midpoint) - there are many more that we haven’t considered…</p></li>
+</ul>
 </section>
 </section>
 
@@ -812,25 +764,22 @@ y(t) = m t + c.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: Introduction to dynamic problems</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-problems">Static vs dynamic problems</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Static vs dynamic problems</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Today: A modelling example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-model-for-the-trajectory-of-an-object">A model for the trajectory of an object</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-laws-of-motion">Newton’s laws of motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-projectile">Example - a projectile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-example-the-model">Project example - the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectile-example-equations">Projectile example - equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectile-example-initial-conditions">Projectile example - initial conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectile-example-results">Projectile example - results</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rates-of-change">Rates of change</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-rate-of-change">The derivative as a rate of change</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-values-do-we-get">What values do we get?</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-s-going-on">So what’s going on</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematically-speaking">Mathematically speaking</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-graphical-interpretation">A graphical interpretation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-derivative-as-a-gradient">The derivative as a gradient</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-of-a-curve">Slope of a curve</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-method-for-systems-of-equations">Euler’s method for systems of equations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-euler-s-method">Solution using Euler’s method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-version">The Python version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-results">Python results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-errors">What about errors?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 </li>
 </ul>

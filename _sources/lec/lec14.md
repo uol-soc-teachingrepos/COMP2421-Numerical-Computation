@@ -26,7 +26,7 @@ kernelspec:
     \text{Force} = \text{Mass} \times \text{Acceleration}.
     $$
 
--   One we know the acceleration of the object we can solve differential equations to calculate its subsequent velocity and position...
+-   Once we know the acceleration of the object we can solve differential equations to calculate its subsequent velocity and position...
 
 ### Example - a projectile
 

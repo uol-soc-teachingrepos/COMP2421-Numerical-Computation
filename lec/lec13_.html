@@ -35,8 +35,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/fira-fonts.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/metropolis.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/fira-fonts.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/common.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
@@ -508,7 +508,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-o-notation">Big O Notation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-on-euler-s-method">Improving on Euler’s method</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-on-euler-s-method">Improving on Euler’s method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-proposal">The proposal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-midpoint-method">The midpoint method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results">The results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-the-big-o">What about the big O?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 
             </nav>
@@ -593,7 +601,7 @@ y'(t) = \frac{3 y(t)}{t} \quad\text{subject to the initial condition}\quad y(1) 
 <p>Solve this differential equation using Euler’s method and check the error at <span class="math notranslate nohighlight">\(t = 2\)</span></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/174e5a8eff4ab601ece26c32de35e27047ec762da0be00da96a3ed5de082653f.png" src="../_images/174e5a8eff4ab601ece26c32de35e27047ec762da0be00da96a3ed5de082653f.png" />
+<img alt="../_images/4b6161e86166c213c997a4f3f889e1ea4a3a25167a7b31c1f7f4167b2ab85080.png" src="../_images/4b6161e86166c213c997a4f3f889e1ea4a3a25167a7b31c1f7f4167b2ab85080.png" />
 </div>
 </div>
 <section id="the-errors-at-t-2">
@@ -606,55 +614,55 @@ y'(t) = \frac{3 y(t)}{t} \quad\text{subject to the initial condition}\quad y(1) 
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_82e179c6_8540_11ee_86a5_6045bd791057" ><caption>Results of using Euler's method varying dt</caption><thead>    <tr>        <th class="col_heading level0 col0" >n</th>        <th class="col_heading level0 col1" >dt</th>        <th class="col_heading level0 col2" >solution</th>        <th class="col_heading level0 col3" >abs. error</th>        <th class="col_heading level0 col4" >ratio</th>    </tr></thead><tbody>
+</style><table id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86" ><caption>Results of using Euler's method varying dt</caption><thead>    <tr>        <th class="col_heading level0 col0" >n</th>        <th class="col_heading level0 col1" >dt</th>        <th class="col_heading level0 col2" >solution</th>        <th class="col_heading level0 col3" >abs. error</th>        <th class="col_heading level0 col4" >ratio</th>    </tr></thead><tbody>
                 <tr>
-                                <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row0_col0" class="data row0 col0" >10</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row0_col2" class="data row0 col2" >7.000000</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row0_col3" class="data row0 col3" >1.000000</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row0_col4" class="data row0 col4" >---</td>
+                                <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row0_col0" class="data row0 col0" >10</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row0_col1" class="data row0 col1" >0.100000</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row0_col2" class="data row0 col2" >7.000000</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row0_col3" class="data row0 col3" >1.000000</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row0_col4" class="data row0 col4" >---</td>
             </tr>
             <tr>
-                                <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row1_col0" class="data row1 col0" >20</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row1_col1" class="data row1 col1" >0.050000</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row1_col2" class="data row1 col2" >7.454545</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row1_col3" class="data row1 col3" >0.545455</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row1_col4" class="data row1 col4" >0.545455</td>
+                                <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row1_col0" class="data row1 col0" >20</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row1_col1" class="data row1 col1" >0.050000</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row1_col2" class="data row1 col2" >7.454545</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row1_col3" class="data row1 col3" >0.545455</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row1_col4" class="data row1 col4" >0.545455</td>
             </tr>
             <tr>
-                                <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row2_col0" class="data row2 col0" >40</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row2_col1" class="data row2 col1" >0.025000</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row2_col2" class="data row2 col2" >7.714286</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row2_col3" class="data row2 col3" >0.285714</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row2_col4" class="data row2 col4" >0.523810</td>
+                                <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row2_col0" class="data row2 col0" >40</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row2_col1" class="data row2 col1" >0.025000</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row2_col2" class="data row2 col2" >7.714286</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row2_col3" class="data row2 col3" >0.285714</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row2_col4" class="data row2 col4" >0.523810</td>
             </tr>
             <tr>
-                                <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row3_col0" class="data row3 col0" >80</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row3_col1" class="data row3 col1" >0.012500</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row3_col2" class="data row3 col2" >7.853659</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row3_col3" class="data row3 col3" >0.146341</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row3_col4" class="data row3 col4" >0.512195</td>
+                                <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row3_col0" class="data row3 col0" >80</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row3_col1" class="data row3 col1" >0.012500</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row3_col2" class="data row3 col2" >7.853659</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row3_col3" class="data row3 col3" >0.146341</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row3_col4" class="data row3 col4" >0.512195</td>
             </tr>
             <tr>
-                                <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row4_col0" class="data row4 col0" >160</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row4_col1" class="data row4 col1" >0.006250</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row4_col2" class="data row4 col2" >7.925926</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row4_col3" class="data row4 col3" >0.074074</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row4_col4" class="data row4 col4" >0.506173</td>
+                                <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row4_col0" class="data row4 col0" >160</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row4_col1" class="data row4 col1" >0.006250</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row4_col2" class="data row4 col2" >7.925926</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row4_col3" class="data row4 col3" >0.074074</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row4_col4" class="data row4 col4" >0.506173</td>
             </tr>
             <tr>
-                                <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row5_col0" class="data row5 col0" >320</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row5_col1" class="data row5 col1" >0.003125</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row5_col2" class="data row5 col2" >7.962733</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row5_col3" class="data row5 col3" >0.037267</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row5_col4" class="data row5 col4" >0.503106</td>
+                                <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row5_col0" class="data row5 col0" >320</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row5_col1" class="data row5 col1" >0.003125</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row5_col2" class="data row5 col2" >7.962733</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row5_col3" class="data row5 col3" >0.037267</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row5_col4" class="data row5 col4" >0.503106</td>
             </tr>
             <tr>
-                                <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row6_col0" class="data row6 col0" >640</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row6_col1" class="data row6 col1" >0.001563</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row6_col2" class="data row6 col2" >7.981308</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row6_col3" class="data row6 col3" >0.018692</td>
-                        <td id="T_82e179c6_8540_11ee_86a5_6045bd791057row6_col4" class="data row6 col4" >0.501558</td>
+                                <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row6_col0" class="data row6 col0" >640</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row6_col1" class="data row6 col1" >0.001563</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row6_col2" class="data row6 col2" >7.981308</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row6_col3" class="data row6 col3" >0.018692</td>
+                        <td id="T_efa7b08e_87a7_11ee_b17a_000d3a590c86row6_col4" class="data row6 col4" >0.501558</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -691,6 +699,170 @@ f(x) = 2 x^2 + 4 x^3 + x^5 + 2 x^6,
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="improving-on-euler-s-method">
 <h1>Improving on Euler’s method<a class="headerlink" href="#improving-on-euler-s-method" title="Permalink to this heading">#</a></h1>
+<p>So the error is proportional to <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>, …. so what?</p>
+<section id="the-proposal">
+<h2>The proposal<a class="headerlink" href="#the-proposal" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Take one time step of size <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> - call this solution <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
+<li><p>Take two time steps of size <span class="math notranslate nohighlight">\(\frac{1}{2} \mathrm{d}t\)</span> - call this solution <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
+</ol>
+<p>The error using <span class="math notranslate nohighlight">\(\beta\)</span> should be <em>about</em> half the error using <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\alpha - y_{\text{exact}} = E \\
+\beta - y_{\text{exact}} = E/2.
+\end{aligned}
+\end{split}\]</div>
+<p>Rearranging gives:
+$<span class="math notranslate nohighlight">\(
+y_{\text{exact}} = 2 \beta - \alpha
+\)</span>$
+which should be an improve approximation!</p>
+<p>We use this approach to construct <strong>the midpoint method</strong></p>
+</section>
+<section id="the-midpoint-method">
+<h2>The midpoint method<a class="headerlink" href="#the-midpoint-method" title="Permalink to this heading">#</a></h2>
+<p>Assume we have already computed up to time step <span class="math notranslate nohighlight">\(i\)</span>: <span class="math notranslate nohighlight">\(t^{(i)}\)</span> and <span class="math notranslate nohighlight">\(y^{(i)}\)</span></p>
+<ol class="arabic">
+<li><p>Take one time step of size <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> - call this solution <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    \alpha &amp; = y^{(i)} + \mathrm{d}t f(t^{(i)}, y^{(i)}) \\
+    t^{(i+1)} &amp; = t^{(i)} + \mathrm{d} t
+    \end{aligned}
+    \end{split}\]</div>
+</li>
+<li><p>Take two time steps of size <span class="math notranslate nohighlight">\(\frac{1}{2} \mathrm{d}t\)</span> - call this solution <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    k &amp; = y^{(i)} + (\mathrm{d}t / 2) f(t^{(i)}, y^{(i)}) \\
+    m &amp; = t^{(i)} + \mathrm{d}t / 2 \\
+    \beta &amp; = k + (\mathrm{d}t / 2) f(m, k) \\
+    t^{(i+1)} &amp; = m + \mathrm{d}t / 2.
+    \end{aligned}
+    \end{split}\]</div>
+</li>
+</ol>
+<p>Combine <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> as suggested on the previous slide…</p>
+<p>… results in</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+	k &amp; = y^{(i)} + (\mathrm{d}t / 2) f(t^{(i)}, y^{(i)}) \\
+	m &amp; = t^{(i)} + \mathrm{d}t / 2 \\
+	y^{(i+1)} &amp; = y^{(i)} + \mathrm{d}t f(m, k) \\
+	t^{(i+1)} &amp; = t^{(i)} + \mathrm{d}t.
+\end{aligned}
+\end{split}\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">y_mid</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">t_mid</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t_mid</span><span class="p">,</span> <span class="n">y_mid</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+</pre></div>
+</div>
+</section>
+<section id="the-results">
+<h2>The results<a class="headerlink" href="#the-results" title="Permalink to this heading">#</a></h2>
+<p>We look at the results for the same problem as before for the solution at the final time <span class="math notranslate nohighlight">\(t = 2.0\)</span>:</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/fe00e4c9bd1d78d90398d88c19ea96c3d2a058577e7eb36a311bb032459258fb.png" src="../_images/fe00e4c9bd1d78d90398d88c19ea96c3d2a058577e7eb36a311bb032459258fb.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_f01056a2_87a7_11ee_b17a_000d3a590c86" ><caption>Results of using the midpoint method varying dt</caption><thead>    <tr>        <th class="col_heading level0 col0" >n</th>        <th class="col_heading level0 col1" >dt</th>        <th class="col_heading level0 col2" >solution</th>        <th class="col_heading level0 col3" >abs. error</th>        <th class="col_heading level0 col4" >ratio</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row0_col0" class="data row0 col0" >10</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row0_col1" class="data row0 col1" >0.100000</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row0_col2" class="data row0 col2" >7.935060</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row0_col3" class="data row0 col3" >0.064940</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row0_col4" class="data row0 col4" >---</td>
+            </tr>
+            <tr>
+                                <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row1_col0" class="data row1 col0" >20</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row1_col1" class="data row1 col1" >0.050000</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row1_col2" class="data row1 col2" >7.982538</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row1_col3" class="data row1 col3" >0.017462</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row1_col4" class="data row1 col4" >0.268892</td>
+            </tr>
+            <tr>
+                                <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row2_col0" class="data row2 col0" >40</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row2_col1" class="data row2 col1" >0.025000</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row2_col2" class="data row2 col2" >7.995475</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row2_col3" class="data row2 col3" >0.004525</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row2_col4" class="data row2 col4" >0.259127</td>
+            </tr>
+            <tr>
+                                <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row3_col0" class="data row3 col0" >80</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row3_col1" class="data row3 col1" >0.012500</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row3_col2" class="data row3 col2" >7.998849</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row3_col3" class="data row3 col3" >0.001151</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row3_col4" class="data row3 col4" >0.254473</td>
+            </tr>
+            <tr>
+                                <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row4_col0" class="data row4 col0" >160</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row4_col1" class="data row4 col1" >0.006250</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row4_col2" class="data row4 col2" >7.999710</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row4_col3" class="data row4 col3" >0.000290</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row4_col4" class="data row4 col4" >0.252212</td>
+            </tr>
+            <tr>
+                                <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row5_col0" class="data row5 col0" >320</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row5_col1" class="data row5 col1" >0.003125</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row5_col2" class="data row5 col2" >7.999927</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row5_col3" class="data row5 col3" >0.000073</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row5_col4" class="data row5 col4" >0.251100</td>
+            </tr>
+            <tr>
+                                <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row6_col0" class="data row6 col0" >640</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row6_col1" class="data row6 col1" >0.001563</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row6_col2" class="data row6 col2" >7.999982</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row6_col3" class="data row6 col3" >0.000018</td>
+                        <td id="T_f01056a2_87a7_11ee_b17a_000d3a590c86row6_col4" class="data row6 col4" >0.250548</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<blockquote>
+<div><p>Each time <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> is halved the error is quartered!?!?!?!?!?!?!?</p>
+</div></blockquote>
+</section>
+<section id="what-about-the-big-o">
+<h2>What about the big O?<a class="headerlink" href="#what-about-the-big-o" title="Permalink to this heading">#</a></h2>
+<p>The error quarters each time that the time interval size <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> is halved - the error is proportional to <span class="math notranslate nohighlight">\((\mathrm{d}t)^2\)</span>.</p>
+<p>The error of the midpoint method is <span class="math notranslate nohighlight">\(O(\mathrm{d}t^2)\)</span> as <span class="math notranslate nohighlight">\(\mathrm{d}t \to 0\)</span></p>
+<p>This is a significant improvement over Euler’s method:</p>
+<ul class="simple">
+<li><p>Euler is a <strong>first order</strong> method</p></li>
+<li><p>the midpoint method is a <strong>second order</strong> method</p></li>
+</ul>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<p>Take two steps of the midpoint method to approximate the solution of</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = y(1-y) \text{ subject to the initial condition } y(0) = 2,
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(0 \le t \le 1\)</span>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>In some special cases exact solutions of differential equations can be found - this is not true in general however.</p></li>
+<li><p>Computational modelling is required for most problems of practical interest (and will of course work just as well even if an exact solution could be found).</p></li>
+<li><p>Comparison with a known solution shows that Euler’s method leads to an error that is proportional to <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>.</p></li>
+<li><p>The midpoint scheme’s error is proportional to <span class="math notranslate nohighlight">\((\mathrm{d}t)^2\)</span> but requires about twice the computational work per step.</p></li>
+<li><p>Only 2 computational schemes are introduced here - there are many more that we don’t consider…</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -755,7 +927,15 @@ f(x) = 2 x^2 + 4 x^3 + x^5 + 2 x^6,
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-o-notation">Big O Notation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-on-euler-s-method">Improving on Euler’s method</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-on-euler-s-method">Improving on Euler’s method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-proposal">The proposal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-midpoint-method">The midpoint method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-results">The results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-the-big-o">What about the big O?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 
   </nav></div>

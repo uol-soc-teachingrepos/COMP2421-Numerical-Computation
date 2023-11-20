@@ -161,7 +161,7 @@ b_2 - A_{21} x_1^{(k+1)} - \sum_{j=2}^n A_{2j} x_j^{(k)}
 \right) \\
 x_3^{(k+1)}
 & = x_3^{(k)} + \frac{1}{A_{33}} \left(
-b_1 - \sum_{j=1}^2 A_{3j} x_j^{(k+1)} - \sum_{j=2}^n A_{3j} x_j^{(k)}
+b_3 - \sum_{j=1}^2 A_{3j} x_j^{(k+1)} - \sum_{j=3}^n A_{3j} x_j^{(k)}
 \right) \\
 \vdots \quad & \hphantom{=} \quad \vdots \\
 x_i^{(k+1)}

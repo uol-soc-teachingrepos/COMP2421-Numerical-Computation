@@ -194,10 +194,7 @@ df.style.hide_index().set_caption("Results of using Euler's method varying dt")
 
 -   We can make use of the "big O" notation in either case.
 
--   For example, suppose $$
-      f(x) = 2 x^2 + 4 x^3 + x^5 + 2 x^6,
-      $$
-
+-   For example, suppose $f(x) = 2 x^2 + 4 x^3 + x^5 + 2 x^6,$
     -   then $f(x) = O(x^6)$ as $x \to \infty$
     -   and $f(x) = O(x^2)$ as $x \to 0$.
 

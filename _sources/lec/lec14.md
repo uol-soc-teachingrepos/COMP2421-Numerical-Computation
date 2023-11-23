@@ -267,3 +267,5 @@ plt.show()
 
 - Wikipedia: [Projectile motion](https://en.wikipedia.org/wiki/Projectile_motion)
 - [`scipy.integrate.solve_ivp`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)
+
+The [slides used in the lecture](./lec14_.ipynb) are also available

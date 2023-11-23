@@ -373,3 +373,5 @@ For the general equation we have the following algorithm:
 Euler's method in films:
 
 - Catherine Meyers, [Exploring the Math in `Hidden Figures'](https://www.insidescience.org/news/exploring-math-hidden-figures), Inside Science, 2017.
+
+The [slides used in the lecture](./lec12_.ipynb) are also available

@@ -387,3 +387,5 @@ df.style.hide_index().set_caption("Results of using the midpoint method varying 
 - Wikipedia: [Midpoint method](https://en.wikipedia.org/wiki/Midpoint_method)
 - Wikipedia: [Runga-Kutta method](https://en.wikipedia.org/wiki/Runge–Kutta_methods) - the midpoint method a second order Runga-Kutta method
 - Computational Science StackExchange: [Numerically determning convergence order of Euler's method](https://scicomp.stackexchange.com/questions/10106/numerically-determining-convergence-order-of-eulers-method)
+
+The [slides used in the lecture](./lec13_.ipynb) are also available

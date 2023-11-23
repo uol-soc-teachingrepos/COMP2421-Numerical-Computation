@@ -406,3 +406,5 @@ $$
 - Wikipedia: [Speed](https://en.wikipedia.org/wiki/Speed)
 - Wikipedia: [Derivative](https://en.wikipedia.org/wiki/Derivative)
 - Maths is fun: [Derivatives introduction](https://www.mathsisfun.com/calculus/derivatives-introduction.html)
+
+The [slides used in the lecture](./lec11_.ipynb) are also available

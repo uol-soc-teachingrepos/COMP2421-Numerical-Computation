@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/metropolis.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/fira-fonts.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/fira-fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/metropolis.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -65,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lec/lec19_';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -496,6 +498,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-earnings">Weekly earnings</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-linear-fit">An example of best linear fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-quadratic-fit">An example of best quadratic fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-approximation">Best approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do">What can we do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-equations">The normal equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The normal equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-the-normal-equations">Problems with the normal equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-and-conditioning">Sensitivity and conditioning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -507,13 +521,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-19-least-squares-fitting">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">dt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="lecture-19-least-squares-fitting">
 <h1>Lecture 19: Least squares fitting<a class="headerlink" href="#lecture-19-least-squares-fitting" title="Permalink to this heading">#</a></h1>
 <p>… time to starting thinking about ~~Christmas~~ ~~data~~ coursework! :(</p>
 <p><em>Module feedback</em>: <a class="reference external" href="https://leeds.bluera.com/leeds">https://leeds.bluera.com/leeds</a></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/2deec7458bbdb49a4c2e95333bd8ea696aff4e857208e8f70794220494961143.png" src="../_images/2deec7458bbdb49a4c2e95333bd8ea696aff4e857208e8f70794220494961143.png" />
+<img alt="../_images/75899652da556bd9fbbf2b5860c21f9743304d711d13b72d224923a79ac24a8e.png" src="../_images/75899652da556bd9fbbf2b5860c21f9743304d711d13b72d224923a79ac24a8e.png" />
 </div>
 </div>
 <section id="motivation">
@@ -535,23 +562,196 @@ document.write(`
 <p>Raw data for average UK weekly earnings since 2008 (from ONS)</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/2ec147b3a412db78b6d22f25dbde1cd891b19358cd31eb138fef83f1f2bdc75d.png" src="../_images/2ec147b3a412db78b6d22f25dbde1cd891b19358cd31eb138fef83f1f2bdc75d.png" />
+<img alt="../_images/ad1c2de06062f443e540da7c4e6a390fca22a2cfbf5867875df440fd13ef20aa.png" src="../_images/ad1c2de06062f443e540da7c4e6a390fca22a2cfbf5867875df440fd13ef20aa.png" />
 </div>
 </div>
 <p>Raw data for weekly earning with a straight line of best fit:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/40f117f7c089990f59899af892b1ef051d56b672169dbe850de757e1c0a6788f.png" src="../_images/40f117f7c089990f59899af892b1ef051d56b672169dbe850de757e1c0a6788f.png" />
+<img alt="../_images/0bdc29e747eda0252446d0123324327e314347121a044d56fe43c7fe67516b7d.png" src="../_images/0bdc29e747eda0252446d0123324327e314347121a044d56fe43c7fe67516b7d.png" />
 </div>
 </div>
 <p>Raw data for weekly earnings with a quadric curve of best fit:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/2ecff142d11c3ef304036afd445c6500eb0df681ad8f0337e23bce4b147ae411.png" src="../_images/2ecff142d11c3ef304036afd445c6500eb0df681ad8f0337e23bce4b147ae411.png" />
+<img alt="../_images/5a402c4f1710a7d40efe3d05f4c7e25a1ddcccfb2add4024793d2a1cb9d9f826.png" src="../_images/5a402c4f1710a7d40efe3d05f4c7e25a1ddcccfb2add4024793d2a1cb9d9f826.png" />
 </div>
 </div>
 <p>…. how do we do this….</p>
 </section>
+</section>
+<section id="an-example-of-best-linear-fit">
+<h2>An example of best linear fit<a class="headerlink" href="#an-example-of-best-linear-fit" title="Permalink to this heading">#</a></h2>
+<p>Suppose that the following measured data, <span class="math notranslate nohighlight">\(y\)</span>, is observed at different times <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|cccc}
+t &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\
+\hline
+y &amp; 1 &amp; 1.5 &amp; 2.5 &amp; 3.5
+\end{array}
+\end{split}\]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/1ad41d66b07dd257e3ce5d37b65d8f443f02b59b18317000caece9c3a9510feb.png" src="../_images/1ad41d66b07dd257e3ce5d37b65d8f443f02b59b18317000caece9c3a9510feb.png" />
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|cccc}
+t &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\
+\hline
+y &amp; 1 &amp; 1.5 &amp; 2.5 &amp; 3.5
+\end{array}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Suppose we want to represent the data using a straight line: <span class="math notranslate nohighlight">\(y = m t + c\)</span></p></li>
+<li><p>An <em>exact fit</em> would require the following equations to be satisfied:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    m \times 1 + c &amp; = 1 \\
+    m \times 2 + c &amp; = 1.5 \\
+    m \times 3 + c &amp; = 2.5 \\
+    m \times 4 + c &amp; = 3.5.
+    \end{aligned}
+\end{split}\]</div>
+<blockquote>
+<div><p>This is a system of linear equations for <span class="math notranslate nohighlight">\((m , c)\)</span> but there are too many equations!</p>
+</div></blockquote>
+</section>
+<section id="an-example-of-best-quadratic-fit">
+<h2>An example of best quadratic fit<a class="headerlink" href="#an-example-of-best-quadratic-fit" title="Permalink to this heading">#</a></h2>
+<p>Suppose that the following measured data, <span class="math notranslate nohighlight">\(y\)</span>, is observed at different times <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|ccccc}
+t &amp; -1.0 &amp; -0.5 &amp; 0  &amp; 0.5 &amp; 1.0 \\
+\hline
+y &amp; 1.0 &amp; 0.5 &amp; 0.0 &amp; 0.5 &amp; 2.0
+\end{array}
+\end{split}\]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/6d72b3fa7d81150b4c2284197796c731221b946bc752dbf7c98a1b397358cd67.png" src="../_images/6d72b3fa7d81150b4c2284197796c731221b946bc752dbf7c98a1b397358cd67.png" />
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|ccccc}
+t &amp; -1.0 &amp; -0.5 &amp; 0  &amp; 0.5 &amp; 1.0 \\
+\hline
+y &amp; 1.0 &amp; 0.5 &amp; 0.0 &amp; 0.5 &amp; 2.0
+\end{array}
+\end{split}\]</div>
+<ul>
+<li><p>Consider representing this data as a quadratic line:</p>
+<div class="math notranslate nohighlight">
+\[
+    y = a + b t + c t^2
+    \]</div>
+</li>
+<li><p>An <em>exact fit</em> would require the following equations to be satisfied:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    a + b \times -1 + c \times (-1)^2 &amp; = 1 \\
+    a + b \times -0.5 + c \times (-0.5)^2 &amp; = 0.5 \\
+    a + b \times 0 + c \times 0^2 &amp; = 0 \\
+    a + b \times 0.5 + c \times 0.5^2 &amp; = 0.5 \\
+    a + b \times 1 + c \times 1^2 &amp; = 2.
+    \end{aligned}
+    \end{split}\]</div>
+</li>
+</ul>
+<blockquote>
+<div><p>We recognise this as a system of linear equations for <span class="math notranslate nohighlight">\((a, b, c)\)</span> - but there are too many equations!!</p>
+</div></blockquote>
+</section>
+<section id="best-approximation">
+<h2>Best approximation<a class="headerlink" href="#best-approximation" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>Given that there is no <em>exact fit</em> solution to these <strong>overdetermined systems</strong> of equations what should we do?</p>
+</div></blockquote>
+</section>
+<section id="what-can-we-do">
+<h2>What can we do?<a class="headerlink" href="#what-can-we-do" title="Permalink to this heading">#</a></h2>
+<p>Recall the definition of the <strong>residual</strong> for the system <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r} = \vec{b} - A \vec{x},
+\]</div>
+<ul class="simple">
+<li><p>When <span class="math notranslate nohighlight">\(\vec{r} = \vec{0}\)</span>, then <span class="math notranslate nohighlight">\(\vec{x} = \vec{x}^*\)</span> the exact solution.</p></li>
+<li><p>When there is no exact solution the next best thing is to make <span class="math notranslate nohighlight">\(\vec{r}\)</span> as small as possible.</p></li>
+<li><p>This means finding <span class="math notranslate nohighlight">\(\vec{x}\)</span> that <strong>minimises</strong> <span class="math notranslate nohighlight">\(\| \vec{r} \|^2\)</span>.</p></li>
+</ul>
+</section>
+<section id="the-normal-equations">
+<h2>The normal equations<a class="headerlink" href="#the-normal-equations" title="Permalink to this heading">#</a></h2>
+<p><em>It turns out</em> that the <span class="math notranslate nohighlight">\(\vec{x}\)</span> that minimises <span class="math notranslate nohighlight">\(\|\vec{b} - A \vec{x}\|^2\)</span> is the same <span class="math notranslate nohighlight">\(\vec{x}\)</span> that satisfies the following <em>square</em> system of equations:</p>
+<div class="math notranslate nohighlight">
+\[
+A^T A \vec{x} = A^T \vec{b}
+\]</div>
+</section>
+<section id="id1">
+<h2>The normal equations<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>These equations are referred to as the <strong>normal equations</strong> for the overdetermined system <span class="math notranslate nohighlight">\(A \vec{x} = \vec{b}\)</span>.</p></li>
+<li><p>The square matrix <span class="math notranslate nohighlight">\(A^T A\)</span> is generally non-singular (i.e., the solution is unique).</p></li>
+<li><p>You can find this solution using Gaussian elimination (for example).</p></li>
+<li><p>The normal equations, when solved, give the <strong>best solution</strong> to the original problem in the sense of minimising the Euclidean norm of the residual.</p></li>
+</ul>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h3>
+<p>Find the least squares approximation to the match the data:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|ccccc}
+t &amp; -1.0 &amp; -0.5 &amp; 0  &amp; 0.5 &amp; 1.0 \\
+\hline
+y &amp; 1.0 &amp; 0.5 &amp; 0.0 &amp; 0.5 &amp; 2.0
+\end{array}
+\end{split}\]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/61329d78cbbbf1a66e5c0b3976cb4e98d12461cb0bf185ef43cc7aeb0e768b80.png" src="../_images/61329d78cbbbf1a66e5c0b3976cb4e98d12461cb0bf185ef43cc7aeb0e768b80.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="problems-with-the-normal-equations">
+<h2>Problems with the normal equations<a class="headerlink" href="#problems-with-the-normal-equations" title="Permalink to this heading">#</a></h2>
+<p>Consider the matrix <span class="math notranslate nohighlight">\(A = \begin{pmatrix} 1 &amp; 1 \\ \varepsilon &amp; 0 \\ 0 &amp; \varepsilon \end{pmatrix}\)</span>, which gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A^T A = \begin{pmatrix}
+1 + \varepsilon^2 &amp; 1 \\
+1 &amp; 1 + \varepsilon^2.
+\end{pmatrix}
+\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(\varepsilon \approx \sqrt{eps}\)</span> then the effects of rounding error can make <span class="math notranslate nohighlight">\(A^T A\)</span> appear to be singular.</p>
+<p>See also: Nick Higham, <a class="reference external" href="https://nhigham.com/2022/10/11/seven-sins-of-numerical-linear-algebra/">Seven sins of numerical linear algebra</a></p>
+</section>
+<section id="sensitivity-and-conditioning">
+<h2>Sensitivity and conditioning<a class="headerlink" href="#sensitivity-and-conditioning" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The condition number of a square matrix <span class="math notranslate nohighlight">\(A\)</span> describes how close that matrix is to being singular.</p></li>
+<li><p>If the condition number is larger then <span class="math notranslate nohighlight">\(A\)</span> is “close” to being singular.</p></li>
+<li><p>When the condition number is very large it is likely that the effects of rounding errors will be most serious: we refer to such a system as being ill-conditioned.</p></li>
+<li><p>The normal equations are typically quite ill-conditioned and so it is essential to use high precision arithmetic to solve them and specialised algorithms.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Overdetermined systems are common in data modelling and they typically have no solution.</p></li>
+<li><p>Even so, it is possible to find a <em>closest</em> solution to the problem.</p></li>
+<li><p>It is common to measure this closeness in the Euclidean norm and this leads naturally to the least squares approximation.</p></li>
+<li><p>A solution to this problem can be found by solving the normal equations but can must be taken to use arithmetic with sufficient precision and specialised algorithms.</p></li>
+</ul>
 </section>
 </section>
 
@@ -604,6 +804,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekly-earnings">Weekly earnings</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-linear-fit">An example of best linear fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-best-quadratic-fit">An example of best quadratic fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-approximation">Best approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do">What can we do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-equations">The normal equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The normal equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-the-normal-equations">Problems with the normal equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-and-conditioning">Sensitivity and conditioning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
 

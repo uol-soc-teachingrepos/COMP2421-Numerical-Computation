@@ -399,7 +399,7 @@ $$
 
 If $\varepsilon \approx \sqrt{eps}$ then the effects of rounding error can make $A^T A$ appear to be singular.
 
-See also: Nick Higham, [Seven sings of numerical linear algebra](https://nhigham.com/2022/10/11/seven-sins-of-numerical-linear-algebra/)
+See also: Nick Higham, [Seven sins of numerical linear algebra](https://nhigham.com/2022/10/11/seven-sins-of-numerical-linear-algebra/)
 
 ### Sensitivity and conditioning
 

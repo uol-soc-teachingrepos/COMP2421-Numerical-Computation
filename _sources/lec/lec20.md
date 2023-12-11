@@ -43,14 +43,6 @@
     -   When to choose which curve (from a simple choice)
     -   Problems with our approach
 
-### Python
-
-For this module, you are expected to be able to read, understand and construct simple scripts and functions, to implement simple algorithms, or to modify algorithms for your needs, and to be able to present and interpret the outputs from these. To this end, you should be familiar with elementary python notation and syntax (in particular, vectors, matrices, indices, loops and branches).
-
-**You will not need to write any code during the exam. All questions can be answered using pen and paper.**
-
-**You may prefer to use your own/the provided solutions to help answer some questions. It is your responsibility to make sure the code does what it should.**
-
 ## What next....?
 
 -   You will apply ideas from this course in many areas of computer science including

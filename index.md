@@ -5,14 +5,16 @@ title: COMP2421 Numerical computation
 
 **All dates below are subject to change.**
 
-Module leader
-:   Dr Thomas Ranner (Tom)
+Module staff:
 
-Email
-:   T.Ranner@leeds.ac.uk
+```{table}
+||||
+|-|-|-|
+| Dr Thomas Ranner (Tom, he/him) | T.Ranner@leeds.ac.uk | Module leader |
+| Dr Yongxing Wang (Yongxing, he/him) | Y.Wang3@leeds.ac.uk | Lecturer |
+```
 
-Teams group
-:   [23/24(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
+Support for the module is provided through MS Teams. The teams group for this module is: [24/25(1) COMP2421 Numerical Computation (32879)]( https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
 
 ## Course contents
 
@@ -30,8 +32,12 @@ Teams group
 
 2 hours per week
 
-- Thursdays at 12:00
-- Fridays at 11:00
+```{table}
+| Day | Time | Room |
+|-|-|-|
+| Mondays | 10:00-11:00 | Conference Auditorium 1 (GM.03) |
+| Thursdays | 14:00-15:00 | Conference Auditorium 1 (GM.03) |
+```
 
 ### Tutorials
 
@@ -45,13 +51,13 @@ These will be provided *weekly* throughout the semester.
 
 ## Assessment
 
-```{table} Assessment schedule
+```{table} Assessment schedule 2024
 | Title       | Release date | Due date             | Credit |
 |-------------|--------------|----------------------|--------|
-| Portfolio   | Mon 2 Oct    | weekly, Tuesday 2pm  | 20%    |
-| Coursework  | Mon 4 Dec    | Wed 20 Dec, 2pm      | 80%    |
-| Formative 1 | Mon 9 Oct    | Wed 25 Oct, 2pm      | 0%     |
-| Formative 2 | Mon  15 Nov  | Wed 29 Nov, 2pm      | 0%     |
+| Portfolio   | Mon 30 Sept  | weekly, Tuesday 2pm  | 20%    |
+| Coursework  | Mon 2 Dec    | Wed 18 Dec, 2pm      | 80%    |
+| Formative 1 | Mon 7 Oct    | Wed 23 Oct, 2pm      | 0%     |
+| Formative 2 | Mon 4 Nov    | Wed 27 Nov, 2pm      | 0%     |
 ```
 
  The dates are tentative at this stage and are subject to change.
@@ -60,22 +66,22 @@ These will be provided *weekly* throughout the semester.
 
 - A question similar to each worksheet is available in minerva each week.
 - You will have to submit your answer (and show your working) by the Tuesday 2pm deadline.
-- You will receive two mark for giving the correct numerical and one mark for your working.
+- You will receive two marks for giving the correct numerical and one mark for your working.
 - The best 6 of 8 will count for your final mark.
 - No late submission allowed.
 
-```{table} Portfolio deadlines
+```{table} Portfolio deadlines 2024
 
 | Section | Deadline         |
 |---------|------------------|
-| 1       | Tue 17 Oct, 2pm  |
-| 2       | Tue 24 Oct, 2pm  |
-| 3       | Tue 7 Nov, 2pm   |
-| 4       | Tue 14 Nov, 2pm  |
-| 5       | Tue 21 Nov, 2pm  |
-| 6       | Tue 28 Nov, 2pm  |
-| 7       | Tue 5 Dec, 2pm   |
-| 8       | Tue 12 Dec, 2pm  |
+| 1       | Tue 15 Oct, 2pm  |
+| 2       | Tue 22 Oct, 2pm  |
+| 3       | Tue 5 Nov, 2pm   |
+| 4       | Tue 12 Nov, 2pm  |
+| 5       | Tue 19 Nov, 2pm  |
+| 6       | Tue 26 Nov, 2pm  |
+| 7       | Tue 3 Dec, 2pm   |
+| 8       | Tue 10 Dec, 2pm  |
 ```
 
 ### Summative coursework (80%)
@@ -141,7 +147,7 @@ Weekly tutorials should will support you in your learning. See your timetable fo
 
 ## Contact
 
-- Please contact me through MS Teams: [23/24(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
+- Please contact me through MS Teams: [24/25(1) COMP2421 Numerical Computation (32879)]( https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
 - Questions about content should go in the class team
 - Responses in 48h (or out of office)
 - No response out of working hours
@@ -166,5 +172,5 @@ The programming for this module will be carried out using `python3`.
 
 -   Module catalogue:
 
-	- COMP2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&M=COMP-2421>\
-    - XJCO2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202324&M=XJCO-2421>
+	- COMP2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202425&M=COMP-2421>\
+    - XJCO2421 <https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202425&M=XJCO-2421>

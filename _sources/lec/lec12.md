@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.15.2
+    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3
   language: python
@@ -161,34 +161,36 @@ plt.show()
 
 ### Example 3
 
+The population of Leeds over time (fitted):
+
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-CASES_URL = "https://coronavirus.data.gov.uk/api/v1/data?filters=areaName=United%2520Kingdom;areaType=overview;date%253E2021-12-06&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDateRollingSum%22:%22newCasesBySpecimenDateRollingSum%22,%22newCasesBySpecimenDateRollingRate%22:%22newCasesBySpecimenDateRollingRate%22,%22newCasesBySpecimenDateChange%22:%22newCasesBySpecimenDateChange%22,%22newCasesBySpecimenDateChangePercentage%22:%22newCasesBySpecimenDateChangePercentage%22%7D&format=csv"
+t = np.array([1991, 2001, 2011, 2021], dtype=np.double)
+y = np.array([680739, 715399, 751485, 812000], dtype=np.double)
 
-import pandas as pd
+fit = np.polyfit(t, y, 2)
 
-df = pd.read_csv(CASES_URL)
-df["date"] = pd.to_datetime(df["date"])
+time = np.linspace(t[0], t[-1])
+population = fit[0] * time**2 + fit[1] * time + fit[2]
 
-dates = df["date"]
-cases = df["newCasesBySpecimenDateRollingRate"]
+derivative = 2 * fit[0] * time + fit[1]
 
+fig, axs = plt.subplots(1, 2)
 
-dcases = -np.gradient(cases) * 7
+axs[0].plot(t, y, ".")
+axs[0].plot(time, population, "C0", label="function")
+axs[1].plot(time, derivative, "C1", label="derivative")
 
-fig, ax = plt.subplots(1, 1)
-ax.plot(dates, cases, label="function (cases)")
-ax.plot(dates, dcases, label="derivative")
-ax.set_xlabel("time (date)")
-ax.xaxis.set_major_locator(plt.MaxNLocator(6))
-ax.legend()
-ax.grid()
+for ax in axs:
+    ax.set_xlabel("time (year)")
+    ax.xaxis.set_major_locator(plt.MaxNLocator(4))
+    ax.grid()
+    ax.legend()
+
+plt.tight_layout()
 plt.show()
 ```
-
-Rate of cases per 100,000 people in the rolling 7-day period ending on the dates shown.
-[Data source, cornavirus.data.gov.uk](https://coronavirus.data.gov.uk/details/cases)
 
 ## Differential equations
 

@@ -36,8 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/fira-fonts.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/metropolis.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/clean.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -496,12 +495,12 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">What is Python?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-python">Accessing Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-on-a-school-of-computing-machine">Using Python on a School of Computing machine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-on-a-school-of-computer-science-machine">Using Python on a School of Computer Science machine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-on-your-own-device">Using python on your own device</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jupyter">What is Jupyter?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-on-a-school-of-computing-machine">Using Jupyter on a School of Computing machine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-on-a-school-of-computer-science-machine">Using Jupyter on a School of Computer Science machine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-in-the-cloud">Using Jupyter in the cloud</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-on-your-own-laptop">Using Jupyter on your own laptop</a></li>
 </ul>
@@ -560,9 +559,13 @@ document.write(`
 <p>There’s a good chance that you already have Python on your operating system.</p>
 <p>If so, you do not need to install or configure anything else to use Python. Having said that, I would strongly recommend that you install the tools and libraries described in the guides below before you start building Python applications for use in this course.</p>
 <p>More: <a class="reference external" href="https://docs.python-guide.org/starting/installation/">https://docs.python-guide.org/starting/installation/</a></p>
-<section id="using-python-on-a-school-of-computing-machine">
-<h3>Using Python on a School of Computing machine<a class="headerlink" href="#using-python-on-a-school-of-computing-machine" title="Permalink to this heading">#</a></h3>
-<p>On a School of Computing machine you can access an upto date version of python using <code class="docutils literal notranslate"><span class="pre">anaconda</span></code>:</p>
+<section id="using-python-on-a-school-of-computer-science-machine">
+<h3>Using Python on a School of Computer Science machine<a class="headerlink" href="#using-python-on-a-school-of-computer-science-machine" title="Permalink to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TODO This needs to be checked on new RHEL9 image</p>
+</div>
+<p>On a School of Computer Science machine you can access an upto date version of python using <code class="docutils literal notranslate"><span class="pre">anaconda</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module load legacy-eng
 $ module add anaconda3/2020.11
 </pre></div>
@@ -588,7 +591,7 @@ Python 3.8.5
 </pre></div>
 </div>
 <div class="alert alert-block alert-warning">
-There is no requirement to submit code that works on a School of Computing machine for this module.
+There is no requirement to submit code that works on a School of Computer Science machine for this module.
 </div></section>
 </section>
 <section id="what-is-jupyter">
@@ -618,8 +621,8 @@ There is no requirement to submit code that works on a School of Computing machi
         ></iframe>
         </div></div>
 </div>
-<section id="using-jupyter-on-a-school-of-computing-machine">
-<h3>Using Jupyter on a School of Computing machine<a class="headerlink" href="#using-jupyter-on-a-school-of-computing-machine" title="Permalink to this heading">#</a></h3>
+<section id="using-jupyter-on-a-school-of-computer-science-machine">
+<h3>Using Jupyter on a School of Computer Science machine<a class="headerlink" href="#using-jupyter-on-a-school-of-computer-science-machine" title="Permalink to this heading">#</a></h3>
 <p>If you have followed the same <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">add</span> <span class="pre">anaconda3/2020.11</span></code> etc instructions from before to load Python, you will already have Jupyter Lab installed.</p>
 </section>
 <section id="using-jupyter-in-the-cloud">
@@ -2294,12 +2297,12 @@ Note that the free services are generally heavily oversubscribed, so you should 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">What is Python?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-python">Accessing Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-on-a-school-of-computing-machine">Using Python on a School of Computing machine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-on-a-school-of-computer-science-machine">Using Python on a School of Computer Science machine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-on-your-own-device">Using python on your own device</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jupyter">What is Jupyter?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-on-a-school-of-computing-machine">Using Jupyter on a School of Computing machine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-on-a-school-of-computer-science-machine">Using Jupyter on a School of Computer Science machine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-in-the-cloud">Using Jupyter in the cloud</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-on-your-own-laptop">Using Jupyter on your own laptop</a></li>
 </ul>

@@ -27,7 +27,8 @@ All administration details in the [module handbook](https://uol-soc-teachingrepo
 
 ### Contact
 
-- Please contact me through MS Teams [23/24(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) (not email or personal teams message)
+- Please contact me through MS Teams [24/25(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
+(not email or personal teams message)
 - Questions about content should go in the class team
 - Responses in 48h (or out of office)
 - No response out of working hours
@@ -39,14 +40,6 @@ All administration details in the [module handbook](https://uol-soc-teachingrepo
 - Attempt **worksheet** before tutorial
 - Let tutorial leader know where you are having problems before the session
 - Attend tutorial every week - ask questions
-
-### How to get 100%?
-
-**Exam profile last year:**
-
-![**No one gets 100%**](../img/lec01/gradescope.png)
-
----
 
 ```{table} Summary of marking expectations
 | Mark   | Demonstrate                                    |
@@ -66,11 +59,15 @@ The latest available version of python is available via [Anaconda](https://www.a
 
 Anaconda provides a full scientific Python distribution, including as standard tools for numerical analysis, data visualisation, image processing, and much more!
 
-#### SoC machines
+#### SoCS machines
 
-This scientific Python distribution is available on all School of Computing machines, specifically all SoC Linux computers.
+```{warning}
+This section needs updating after testing on new RHEL9 image.
+```
 
-On a SoC Linux computer, you can run
+This scientific Python distribution is available on all School of Computer Science machines, specifically all SoCS Linux computers.
+
+On a SoCS Linux computer, you can run
 ```sh
 > module load legacy-eng # This step may be removed in future
 > module add anaconda3/2020.11
@@ -83,7 +80,7 @@ Python 3.8.5
 
 #### Notable online service
 
-New for this year, we have trial access to a university managed online notebook service called Notable. Access is via the minerva module page.
+We have access to a university managed online notebook service called Notable. Access is via the minerva module page.
 
 #### Your own machine!
 
@@ -144,7 +141,12 @@ Further more specific references will be given in each section of the notes.
 
 2 hours per week in this room.
 
-Thursday 12:00-13:00 | Friday 11:00-12:00
+```{table}
+| Day | Time | Room |
+|-|-|-|
+| Mondays | 10:00-11:00 | Conference Auditorium 1 (GM.03) |
+| Thursdays | 14:00-15:00 | Conference Auditorium 1 (GM.03) |
+```
 
 Leeds content delivered by Tom Ranner and Yongxing Wang.
 
@@ -176,17 +178,17 @@ This will include all:
 - links to external resources and web pages;
 - module-related discussions
 
-Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4QiyZ3S1zNFHomIWxtG3UJiRimjR_RzgapA7g1%40thread.tacv2/conversations?groupId=54035a7f-8376-45f0-b7b8-d4fac9d5ab54&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb). Please use the class team for all questions about content.
+Further support via MS Teams: [24/25(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb). Please use this route for all questions about content to ensure your question is picked up.
 
 ## Assessment
 
-```{table} Assessment schedule
+```{table} Assessment schedule 2024
 | Title       | Release date | Due date             | Credit |
 |-------------|--------------|----------------------|--------|
-| Portfolio   | Mon 2 Oct    | weekly, Tuesday 2pm  | 20%    |
-| Coursework  | Mon 4 Dec    | Wed 10 Dec, 2pm      | 80%    |
-| Formative 1 | Mon 9 Oct    | Wed 25 Oct, 2pm      | 0%     |
-| Formative 2 | Mon  15 Nov  | Wed 29 Nov, 2pm      | 0%     |
+| Portfolio   | Mon 30 Sept  | weekly, Tuesday 2pm  | 20%    |
+| Coursework  | Mon 2 Dec    | Wed 18 Dec, 2pm      | 80%    |
+| Formative 1 | Mon 7 Oct    | Wed 23 Oct, 2pm      | 0%     |
+| Formative 2 | Mon 4 Nov    | Wed 27 Nov, 2pm      | 0%     |
 ```
 
  The dates are tentative at this stage and are subject to change.
@@ -199,18 +201,18 @@ Further support via [MS Team](https://teams.microsoft.com/l/team/19%3aMD-x6E4Qiy
 - The best 6 of 8 will count for your final mark.
 - No late submission allowed.
 
-```{table} Portfolio deadlines
+```{table} Portfolio deadlines 2024
 
 | Section | Deadline         |
 |---------|------------------|
-| 1       | Tue 17 Oct, 2pm  |
-| 2       | Tue 24 Oct, 2pm  |
-| 3       | Tue 7 Nov, 2pm   |
-| 4       | Tue 14 Nov, 2pm  |
-| 5       | Tue 21 Nov, 2pm  |
-| 6       | Tue 28 Nov, 2pm  |
-| 7       | Tue 5 Dec, 2pm   |
-| 8       | Tue 12 Dec, 2pm  |
+| 1       | Tue 15 Oct, 2pm  |
+| 2       | Tue 22 Oct, 2pm  |
+| 3       | Tue 5 Nov, 2pm   |
+| 4       | Tue 12 Nov, 2pm  |
+| 5       | Tue 19 Nov, 2pm  |
+| 6       | Tue 26 Nov, 2pm  |
+| 7       | Tue 3 Dec, 2pm   |
+| 8       | Tue 10 Dec, 2pm  |
 ```
 
 ### Summative coursework (80%)
@@ -312,6 +314,8 @@ Many tasks in robotics are tested first in simulated environments where simulati
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pppxa9MpoeY?si=w_NyuvAx_6MwkT4L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Further reading
+
+The slides used in this lecture are available in [narrative form](lec01_.md)
 
 - Met office, [How weather forecasts are created](https://www.metoffice.gov.uk/weather/learn-about/how-forecasts-are-made)
 - Met office, [Climate modelling](https://www.metoffice.gov.uk/weather/climate/science/climate-modelling)

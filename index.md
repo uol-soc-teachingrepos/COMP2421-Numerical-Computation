@@ -14,7 +14,7 @@ Module staff:
 | Dr Yongxing Wang (Yongxing, he/him) | Y.Wang3@leeds.ac.uk | Lecturer |
 ```
 
-Support for the module is provided through MS Teams. The teams group for this module is: [24/25(1) COMP2421 Numerical Computation (32879)]( https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
+Support for the module is provided through MS Teams. The teams group for this module is: [24/25(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
 
 ## Course contents
 

@@ -14,7 +14,8 @@ PANDOC_REVEALJS= \
 	-V progress=true \
 	-V slideNumber="'c'" \
 	-V overview=true \
-	-V navigationMode='linear'
+	-V navigationMode='linear' \
+	-V transition='none'
 
 %.revealjs.html: %_.md
 	$(PANDOC_REVEALJS) $< -o $@

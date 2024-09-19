@@ -1,8 +1,11 @@
 import qrcode
 from matplotlib import pyplot as plt
 
-
 def feedback():
+    return
+
+def _feedback():
+    # TODO read once we have new feedback link
     FEEDBACK_URL = "https://go.blueja.io/BeQtMbSiPUm6DWQUJ2WVgA"
     qr = qrcode.make(FEEDBACK_URL)
 
@@ -14,4 +17,5 @@ def feedback():
 
 
 if __name__ == "__main__":
-    feedback()
+    # feedback()
+    pass

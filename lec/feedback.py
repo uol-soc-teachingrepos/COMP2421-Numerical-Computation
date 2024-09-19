@@ -1,8 +1,10 @@
 import qrcode
 from matplotlib import pyplot as plt
 
+
 def feedback():
     return
+
 
 def _feedback():
     # TODO read once we have new feedback link

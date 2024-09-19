@@ -9,8 +9,8 @@ repos:
     -   id: check-yaml
     -   id: check-added-large-files
         exclude: ^_static/video/
-- repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.7.0
-  hooks:
-    - id: nbqa-black
-      additional_dependencies: [jupytext, black]  # optional, only if you're using Jupytext
+#- repo: https://github.com/nbQA-dev/nbQA
+#  rev: 1.6.0
+#  hooks:
+#    - id: nbqa-black
+#      additional_dependencies: [jupytext, black]  # optional, only if you're using Jupytext

@@ -1,15 +1,13 @@
 course:
   code: 'COMP2421'
   title: 'Numerical Computation'
-  contact: 'Please contact me via [Teams](https://teams.microsoft.com/l/channel/19%3ahUoIeRn2EblWvdn-NlrtZh8E1zp4H5ax9sZ50Y8gj5o1%40thread.tacv2/General?groupId=6940f84b-cee2-4092-a9b8-314aeca01445&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)'
 
 author:
-  - name: 'Dr. Thomas Ranner'
+  - name: 'Dr. Thomas Ranner (he/him, Tom)'
     email: 'T.Ranner@leeds.ac.uk'
 
 titleextra: "Please sit in the middle of rows to ensure that everyone fits!"
 
 css:
   - "../_static/css/common.css"
-  - "../_static/css/fira-fonts.css"
-  - "../_static/css/metropolis.css"
+  - "../_static/css/clean.css"

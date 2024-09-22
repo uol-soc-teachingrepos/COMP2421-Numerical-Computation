@@ -2,6 +2,7 @@
 title: "Lecture 01: Module introduction"
 ---
 
+
 # Administration
 
 All administration details in the [module handbook](https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/)
@@ -357,3 +358,5 @@ Video source: <https://youtu.be/pppxa9MpoeY>
 </small>
 
 # See you Friday!
+
+## { background-image=../_static/img/attendance.jpg data-background-size=contain }

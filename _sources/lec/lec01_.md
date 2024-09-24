@@ -165,19 +165,16 @@ Anaconda provides a full scientific Python distribution, including as standard t
 
 ---
 
-TODO check this
-
-This scientific Python distribution is available on all School of Computing machines, specifically all SoC Linux computers.
+This scientific Python distribution is available on all School of Computer Science machines, specifically all SoCS Linux computers.
 
 On a SoC Linux computer, you can run
 ```sh
-> module load legacy-eng # This step may be removed in future
-> module add anaconda3/2020.11
+> module add anaconda3
 ```
 and you can test your python version with
 ```sh
 > python --version
-Python 3.8.5
+Python 3.12.4
 ```
 <revealjs>
 ---
@@ -191,7 +188,7 @@ We have access to a university managed online notebook service called Notable. A
 
 Alternatively, you can install anaconda python on your own machine.
 
-> Try this yourself! Make sure you can access a working version of python (version >= 3.6) and can import `numpy` and `scipy`.
+> Try this yourself! Make sure you can access a working version of python (version >= 3.10) and can import `numpy` and `scipy`.
 
 More help will be given with python programming throughout the course.
 

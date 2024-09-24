@@ -61,21 +61,16 @@ Anaconda provides a full scientific Python distribution, including as standard t
 
 #### SoCS machines
 
-```{warning}
-This section needs updating after testing on new RHEL9 image.
-```
-
 This scientific Python distribution is available on all School of Computer Science machines, specifically all SoCS Linux computers.
 
 On a SoCS Linux computer, you can run
 ```sh
-> module load legacy-eng # This step may be removed in future
-> module add anaconda3/2020.11
+> module add anaconda3
 ```
 and you can test your python version with
 ```sh
 > python --version
-Python 3.8.5
+Python 3.12.4
 ```
 
 #### Notable online service

@@ -3,13 +3,13 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  # soc machine default versions
-  - python = 3.8
-  - jupyterlab = 2.2
-  - matplotlib = 3.3
-  - numpy =1.19
-  - scipy = 1.5
-  - pandas = 1.1
+  # socs machine default versions
+  - python = 3.12
+  - jupyterlab = 4.0
+  - matplotlib = 3.8
+  - numpy = 1.26
+  - scipy = 1.13
+  - pandas = 2.2
   # for building the book
   - jupyter-book = 0.15
   - make = 4.3
@@ -18,13 +18,13 @@ dependencies:
   # for making slides
   - pandoc = 3.4
   # additional packages used in the book
-  - xlrd = 1.2
+  - xlrd = 2.0
   - qrcode = 7.3
   - ffmpeg = 5.1
   # for help making the book
   - livereload = 2.6
-  - black = 22.12
-  - ruff = 0.0
+  - black = 24.8
+  - ruff = 0.6
   - nbqa = 1.6
   - blacken-docs = 1.12
   - pre-commit = 3.4

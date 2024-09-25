@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Today: Exact solutions and error &#8212; COMP2421 Numerical Computation</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -40,9 +40,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,28 +78,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +116,22 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +147,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -229,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -238,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,10 +461,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -465,7 +472,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -529,7 +536,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell tag_remove-input docutils container">
 </div>
@@ -603,70 +610,84 @@ y'(t) = \frac{3 y(t)}{t} \quad\text{subject to the initial condition}\quad y(1) 
 <p>Solve this differential equation using Euler’s method and check the error at <span class="math notranslate nohighlight">\(t = 2\)</span></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/4b6161e86166c213c997a4f3f889e1ea4a3a25167a7b31c1f7f4167b2ab85080.png" src="../_images/4b6161e86166c213c997a4f3f889e1ea4a3a25167a7b31c1f7f4167b2ab85080.png" />
+<img alt="../_images/dfff673fe9b5baa12ea5fd2a07a8e91989df43479345e998d0b513182c4a9cd2.png" src="../_images/dfff673fe9b5baa12ea5fd2a07a8e91989df43479345e998d0b513182c4a9cd2.png" />
 </div>
 </div>
 <section id="the-errors-at-t-2">
 <h2>The errors at <span class="math notranslate nohighlight">\(t=2\)</span><a class="headerlink" href="#the-errors-at-t-2" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/5ebd247b2652c21085b85c87207b2ded3dfb27f590e2b6735904839220a2ff3a.png" src="../_images/5ebd247b2652c21085b85c87207b2ded3dfb27f590e2b6735904839220a2ff3a.png" />
+<img alt="../_images/10f8f1ca6131fec14a9c76e49576fe8e9d5f51a24e714689224923dee1b5c938.png" src="../_images/10f8f1ca6131fec14a9c76e49576fe8e9d5f51a24e714689224923dee1b5c938.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_74188408_7aa3_11ef_ac65_6045bd80aabd" ><caption>Results of using Euler's method varying dt</caption><thead>    <tr>        <th class="col_heading level0 col0" >n</th>        <th class="col_heading level0 col1" >dt</th>        <th class="col_heading level0 col2" >solution</th>        <th class="col_heading level0 col3" >abs. error</th>        <th class="col_heading level0 col4" >ratio</th>    </tr></thead><tbody>
-                <tr>
-                                <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow0_col0" class="data row0 col0" >10</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow0_col2" class="data row0 col2" >7.000000</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow0_col3" class="data row0 col3" >1.000000</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow0_col4" class="data row0 col4" >---</td>
-            </tr>
-            <tr>
-                                <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow1_col0" class="data row1 col0" >20</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow1_col1" class="data row1 col1" >0.050000</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow1_col2" class="data row1 col2" >7.454545</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow1_col3" class="data row1 col3" >0.545455</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow1_col4" class="data row1 col4" >0.545455</td>
-            </tr>
-            <tr>
-                                <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow2_col0" class="data row2 col0" >40</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow2_col1" class="data row2 col1" >0.025000</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow2_col2" class="data row2 col2" >7.714286</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow2_col3" class="data row2 col3" >0.285714</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow2_col4" class="data row2 col4" >0.523810</td>
-            </tr>
-            <tr>
-                                <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow3_col0" class="data row3 col0" >80</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow3_col1" class="data row3 col1" >0.012500</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow3_col2" class="data row3 col2" >7.853659</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow3_col3" class="data row3 col3" >0.146341</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow3_col4" class="data row3 col4" >0.512195</td>
-            </tr>
-            <tr>
-                                <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow4_col0" class="data row4 col0" >160</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow4_col1" class="data row4 col1" >0.006250</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow4_col2" class="data row4 col2" >7.925926</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow4_col3" class="data row4 col3" >0.074074</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow4_col4" class="data row4 col4" >0.506173</td>
-            </tr>
-            <tr>
-                                <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow5_col0" class="data row5 col0" >320</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow5_col1" class="data row5 col1" >0.003125</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow5_col2" class="data row5 col2" >7.962733</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow5_col3" class="data row5 col3" >0.037267</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow5_col4" class="data row5 col4" >0.503106</td>
-            </tr>
-            <tr>
-                                <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow6_col0" class="data row6 col0" >640</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow6_col1" class="data row6 col1" >0.001563</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow6_col2" class="data row6 col2" >7.981308</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow6_col3" class="data row6 col3" >0.018692</td>
-                        <td id="T_74188408_7aa3_11ef_ac65_6045bd80aabdrow6_col4" class="data row6 col4" >0.501558</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_33421">
+  <caption>Results of using Euler's method varying dt</caption>
+  <thead>
+    <tr>
+      <th id="T_33421_level0_col0" class="col_heading level0 col0" >n</th>
+      <th id="T_33421_level0_col1" class="col_heading level0 col1" >dt</th>
+      <th id="T_33421_level0_col2" class="col_heading level0 col2" >solution</th>
+      <th id="T_33421_level0_col3" class="col_heading level0 col3" >abs. error</th>
+      <th id="T_33421_level0_col4" class="col_heading level0 col4" >ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_33421_row0_col0" class="data row0 col0" >10</td>
+      <td id="T_33421_row0_col1" class="data row0 col1" >0.100000</td>
+      <td id="T_33421_row0_col2" class="data row0 col2" >7.000000</td>
+      <td id="T_33421_row0_col3" class="data row0 col3" >1.000000</td>
+      <td id="T_33421_row0_col4" class="data row0 col4" >---</td>
+    </tr>
+    <tr>
+      <td id="T_33421_row1_col0" class="data row1 col0" >20</td>
+      <td id="T_33421_row1_col1" class="data row1 col1" >0.050000</td>
+      <td id="T_33421_row1_col2" class="data row1 col2" >7.454545</td>
+      <td id="T_33421_row1_col3" class="data row1 col3" >0.545455</td>
+      <td id="T_33421_row1_col4" class="data row1 col4" >0.545455</td>
+    </tr>
+    <tr>
+      <td id="T_33421_row2_col0" class="data row2 col0" >40</td>
+      <td id="T_33421_row2_col1" class="data row2 col1" >0.025000</td>
+      <td id="T_33421_row2_col2" class="data row2 col2" >7.714286</td>
+      <td id="T_33421_row2_col3" class="data row2 col3" >0.285714</td>
+      <td id="T_33421_row2_col4" class="data row2 col4" >0.523810</td>
+    </tr>
+    <tr>
+      <td id="T_33421_row3_col0" class="data row3 col0" >80</td>
+      <td id="T_33421_row3_col1" class="data row3 col1" >0.012500</td>
+      <td id="T_33421_row3_col2" class="data row3 col2" >7.853659</td>
+      <td id="T_33421_row3_col3" class="data row3 col3" >0.146341</td>
+      <td id="T_33421_row3_col4" class="data row3 col4" >0.512195</td>
+    </tr>
+    <tr>
+      <td id="T_33421_row4_col0" class="data row4 col0" >160</td>
+      <td id="T_33421_row4_col1" class="data row4 col1" >0.006250</td>
+      <td id="T_33421_row4_col2" class="data row4 col2" >7.925926</td>
+      <td id="T_33421_row4_col3" class="data row4 col3" >0.074074</td>
+      <td id="T_33421_row4_col4" class="data row4 col4" >0.506173</td>
+    </tr>
+    <tr>
+      <td id="T_33421_row5_col0" class="data row5 col0" >320</td>
+      <td id="T_33421_row5_col1" class="data row5 col1" >0.003125</td>
+      <td id="T_33421_row5_col2" class="data row5 col2" >7.962733</td>
+      <td id="T_33421_row5_col3" class="data row5 col3" >0.037267</td>
+      <td id="T_33421_row5_col4" class="data row5 col4" >0.503106</td>
+    </tr>
+    <tr>
+      <td id="T_33421_row6_col0" class="data row6 col0" >640</td>
+      <td id="T_33421_row6_col1" class="data row6 col1" >0.001563</td>
+      <td id="T_33421_row6_col2" class="data row6 col2" >7.981308</td>
+      <td id="T_33421_row6_col3" class="data row6 col3" >0.018692</td>
+      <td id="T_33421_row6_col4" class="data row6 col4" >0.501558</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <blockquote>
 <div><p>Each time <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> is halved the error is halved!?!?!?!?!?!?!?</p>
@@ -774,63 +795,77 @@ which should be an improve approximation!</p>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/fe00e4c9bd1d78d90398d88c19ea96c3d2a058577e7eb36a311bb032459258fb.png" src="../_images/fe00e4c9bd1d78d90398d88c19ea96c3d2a058577e7eb36a311bb032459258fb.png" />
+<img alt="../_images/ee0c9493ac2c9882be482f6940c5fa4db854ac5115367e7de188a46da01ffc26.png" src="../_images/ee0c9493ac2c9882be482f6940c5fa4db854ac5115367e7de188a46da01ffc26.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_7480a632_7aa3_11ef_ac65_6045bd80aabd" ><caption>Results of using the midpoint method varying dt</caption><thead>    <tr>        <th class="col_heading level0 col0" >n</th>        <th class="col_heading level0 col1" >dt</th>        <th class="col_heading level0 col2" >solution</th>        <th class="col_heading level0 col3" >abs. error</th>        <th class="col_heading level0 col4" >ratio</th>    </tr></thead><tbody>
-                <tr>
-                                <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow0_col0" class="data row0 col0" >10</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow0_col2" class="data row0 col2" >7.935060</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow0_col3" class="data row0 col3" >0.064940</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow0_col4" class="data row0 col4" >---</td>
-            </tr>
-            <tr>
-                                <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow1_col0" class="data row1 col0" >20</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow1_col1" class="data row1 col1" >0.050000</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow1_col2" class="data row1 col2" >7.982538</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow1_col3" class="data row1 col3" >0.017462</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow1_col4" class="data row1 col4" >0.268892</td>
-            </tr>
-            <tr>
-                                <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow2_col0" class="data row2 col0" >40</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow2_col1" class="data row2 col1" >0.025000</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow2_col2" class="data row2 col2" >7.995475</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow2_col3" class="data row2 col3" >0.004525</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow2_col4" class="data row2 col4" >0.259127</td>
-            </tr>
-            <tr>
-                                <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow3_col0" class="data row3 col0" >80</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow3_col1" class="data row3 col1" >0.012500</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow3_col2" class="data row3 col2" >7.998849</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow3_col3" class="data row3 col3" >0.001151</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow3_col4" class="data row3 col4" >0.254473</td>
-            </tr>
-            <tr>
-                                <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow4_col0" class="data row4 col0" >160</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow4_col1" class="data row4 col1" >0.006250</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow4_col2" class="data row4 col2" >7.999710</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow4_col3" class="data row4 col3" >0.000290</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow4_col4" class="data row4 col4" >0.252212</td>
-            </tr>
-            <tr>
-                                <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow5_col0" class="data row5 col0" >320</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow5_col1" class="data row5 col1" >0.003125</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow5_col2" class="data row5 col2" >7.999927</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow5_col3" class="data row5 col3" >0.000073</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow5_col4" class="data row5 col4" >0.251100</td>
-            </tr>
-            <tr>
-                                <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow6_col0" class="data row6 col0" >640</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow6_col1" class="data row6 col1" >0.001563</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow6_col2" class="data row6 col2" >7.999982</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow6_col3" class="data row6 col3" >0.000018</td>
-                        <td id="T_7480a632_7aa3_11ef_ac65_6045bd80aabdrow6_col4" class="data row6 col4" >0.250548</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_8ff4d">
+  <caption>Results of using the midpoint method varying dt</caption>
+  <thead>
+    <tr>
+      <th id="T_8ff4d_level0_col0" class="col_heading level0 col0" >n</th>
+      <th id="T_8ff4d_level0_col1" class="col_heading level0 col1" >dt</th>
+      <th id="T_8ff4d_level0_col2" class="col_heading level0 col2" >solution</th>
+      <th id="T_8ff4d_level0_col3" class="col_heading level0 col3" >abs. error</th>
+      <th id="T_8ff4d_level0_col4" class="col_heading level0 col4" >ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_8ff4d_row0_col0" class="data row0 col0" >10</td>
+      <td id="T_8ff4d_row0_col1" class="data row0 col1" >0.100000</td>
+      <td id="T_8ff4d_row0_col2" class="data row0 col2" >7.935060</td>
+      <td id="T_8ff4d_row0_col3" class="data row0 col3" >0.064940</td>
+      <td id="T_8ff4d_row0_col4" class="data row0 col4" >---</td>
+    </tr>
+    <tr>
+      <td id="T_8ff4d_row1_col0" class="data row1 col0" >20</td>
+      <td id="T_8ff4d_row1_col1" class="data row1 col1" >0.050000</td>
+      <td id="T_8ff4d_row1_col2" class="data row1 col2" >7.982538</td>
+      <td id="T_8ff4d_row1_col3" class="data row1 col3" >0.017462</td>
+      <td id="T_8ff4d_row1_col4" class="data row1 col4" >0.268892</td>
+    </tr>
+    <tr>
+      <td id="T_8ff4d_row2_col0" class="data row2 col0" >40</td>
+      <td id="T_8ff4d_row2_col1" class="data row2 col1" >0.025000</td>
+      <td id="T_8ff4d_row2_col2" class="data row2 col2" >7.995475</td>
+      <td id="T_8ff4d_row2_col3" class="data row2 col3" >0.004525</td>
+      <td id="T_8ff4d_row2_col4" class="data row2 col4" >0.259127</td>
+    </tr>
+    <tr>
+      <td id="T_8ff4d_row3_col0" class="data row3 col0" >80</td>
+      <td id="T_8ff4d_row3_col1" class="data row3 col1" >0.012500</td>
+      <td id="T_8ff4d_row3_col2" class="data row3 col2" >7.998849</td>
+      <td id="T_8ff4d_row3_col3" class="data row3 col3" >0.001151</td>
+      <td id="T_8ff4d_row3_col4" class="data row3 col4" >0.254473</td>
+    </tr>
+    <tr>
+      <td id="T_8ff4d_row4_col0" class="data row4 col0" >160</td>
+      <td id="T_8ff4d_row4_col1" class="data row4 col1" >0.006250</td>
+      <td id="T_8ff4d_row4_col2" class="data row4 col2" >7.999710</td>
+      <td id="T_8ff4d_row4_col3" class="data row4 col3" >0.000290</td>
+      <td id="T_8ff4d_row4_col4" class="data row4 col4" >0.252212</td>
+    </tr>
+    <tr>
+      <td id="T_8ff4d_row5_col0" class="data row5 col0" >320</td>
+      <td id="T_8ff4d_row5_col1" class="data row5 col1" >0.003125</td>
+      <td id="T_8ff4d_row5_col2" class="data row5 col2" >7.999927</td>
+      <td id="T_8ff4d_row5_col3" class="data row5 col3" >0.000073</td>
+      <td id="T_8ff4d_row5_col4" class="data row5 col4" >0.251100</td>
+    </tr>
+    <tr>
+      <td id="T_8ff4d_row6_col0" class="data row6 col0" >640</td>
+      <td id="T_8ff4d_row6_col1" class="data row6 col1" >0.001563</td>
+      <td id="T_8ff4d_row6_col2" class="data row6 col2" >7.999982</td>
+      <td id="T_8ff4d_row6_col3" class="data row6 col3" >0.000018</td>
+      <td id="T_8ff4d_row6_col4" class="data row6 col4" >0.250548</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <blockquote>
 <div><p>Each time <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span> is halved the error is quartered!?!?!?!?!?!?!?</p>
@@ -894,7 +929,7 @@ which should be an improve approximation!</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -905,6 +940,7 @@ which should be an improve approximation!</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -989,8 +1025,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

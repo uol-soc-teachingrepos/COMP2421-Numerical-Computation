@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Today: A modelling example &#8212; COMP2421 Numerical Computation</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -40,9 +40,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,28 +78,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +116,22 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +147,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -229,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -238,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,10 +461,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -465,7 +472,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -521,7 +528,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell tag_remove-input docutils container">
 </div>
@@ -533,7 +540,7 @@ document.write(`
 <h1>A model for the trajectory of an object<a class="headerlink" href="#a-model-for-the-trajectory-of-an-object" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" src="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" />
+<img alt="../_images/dd2449aa340cf0e2252c64da1a4ca61b2bfa277d13346b8527c7d24d24a810f0.png" src="../_images/dd2449aa340cf0e2252c64da1a4ca61b2bfa277d13346b8527c7d24d24a810f0.png" />
 </div>
 </div>
 <section id="newton-s-laws-of-motion">
@@ -557,7 +564,7 @@ document.write(`
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" src="../_images/5ee3c0e4ee7ce2ba61ea165a3cb8bad2520e86129fe37df3c2fe40a749f9b26d.png" />
+<img alt="../_images/dd2449aa340cf0e2252c64da1a4ca61b2bfa277d13346b8527c7d24d24a810f0.png" src="../_images/dd2449aa340cf0e2252c64da1a4ca61b2bfa277d13346b8527c7d24d24a810f0.png" />
 </div>
 </div>
 </section>
@@ -615,7 +622,7 @@ Y &amp; = 100 \\
 <h2>Projectile example - results<a class="headerlink" href="#projectile-example-results" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/ae70c56da719ede746eefc0a5762429934cbe914cfeebfb60916f73b051d666e.png" src="../_images/ae70c56da719ede746eefc0a5762429934cbe914cfeebfb60916f73b051d666e.png" />
+<img alt="../_images/e48ff6294127a4a058e53db9bd5cee0a2daf8b1532c1d77b4e3ccd5cb74bb54d.png" src="../_images/e48ff6294127a4a058e53db9bd5cee0a2daf8b1532c1d77b4e3ccd5cb74bb54d.png" />
 </div>
 </div>
 </section>
@@ -667,7 +674,7 @@ Y_4'(t) &amp; = F_4(t, Y_1, Y_2, Y_3, Y_4).
 <h2>Python results<a class="headerlink" href="#python-results" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/d8e33ce6cbae4011951b2d9d3d7881dedd8b4f1d7065d5f6668205aee8b67944.png" src="../_images/d8e33ce6cbae4011951b2d9d3d7881dedd8b4f1d7065d5f6668205aee8b67944.png" />
+<img alt="../_images/624b74ad197c345ac5c963d97683a281cba303f5c838f9f21b8fe2f112b52c28.png" src="../_images/624b74ad197c345ac5c963d97683a281cba303f5c838f9f21b8fe2f112b52c28.png" />
 </div>
 </div>
 </section>
@@ -680,34 +687,46 @@ Y_4'(t) &amp; = F_4(t, Y_1, Y_2, Y_3, Y_4).
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabd" ><caption>Results of using Euler's method on a system of equtaions</caption><thead>    <tr>        <th class="col_heading level0 col0" >dt</th>        <th class="col_heading level0 col1" >abs. error</th>        <th class="col_heading level0 col2" >ratio</th>    </tr></thead><tbody>
-                <tr>
-                                <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow0_col0" class="data row0 col0" >0.500000</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow0_col1" class="data row0 col1" >0.017606</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow0_col2" class="data row0 col2" >---</td>
-            </tr>
-            <tr>
-                                <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow1_col0" class="data row1 col0" >0.250000</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow1_col1" class="data row1 col1" >0.008555</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow1_col2" class="data row1 col2" >0.485941</td>
-            </tr>
-            <tr>
-                                <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow2_col0" class="data row2 col0" >0.125000</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow2_col1" class="data row2 col1" >0.004219</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow2_col2" class="data row2 col2" >0.493091</td>
-            </tr>
-            <tr>
-                                <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow3_col0" class="data row3 col0" >0.062500</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow3_col1" class="data row3 col1" >0.002095</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow3_col2" class="data row3 col2" >0.496579</td>
-            </tr>
-            <tr>
-                                <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow4_col0" class="data row4 col0" >0.031250</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow4_col1" class="data row4 col1" >0.001044</td>
-                        <td id="T_76578bc4_7aa3_11ef_80d5_6045bd80aabdrow4_col2" class="data row4 col2" >0.498299</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_02017">
+  <caption>Results of using Euler's method on a system of equtaions</caption>
+  <thead>
+    <tr>
+      <th id="T_02017_level0_col0" class="col_heading level0 col0" >dt</th>
+      <th id="T_02017_level0_col1" class="col_heading level0 col1" >abs. error</th>
+      <th id="T_02017_level0_col2" class="col_heading level0 col2" >ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_02017_row0_col0" class="data row0 col0" >0.500000</td>
+      <td id="T_02017_row0_col1" class="data row0 col1" >0.017606</td>
+      <td id="T_02017_row0_col2" class="data row0 col2" >---</td>
+    </tr>
+    <tr>
+      <td id="T_02017_row1_col0" class="data row1 col0" >0.250000</td>
+      <td id="T_02017_row1_col1" class="data row1 col1" >0.008555</td>
+      <td id="T_02017_row1_col2" class="data row1 col2" >0.485941</td>
+    </tr>
+    <tr>
+      <td id="T_02017_row2_col0" class="data row2 col0" >0.125000</td>
+      <td id="T_02017_row2_col1" class="data row2 col1" >0.004219</td>
+      <td id="T_02017_row2_col2" class="data row2 col2" >0.493091</td>
+    </tr>
+    <tr>
+      <td id="T_02017_row3_col0" class="data row3 col0" >0.062500</td>
+      <td id="T_02017_row3_col1" class="data row3 col1" >0.002095</td>
+      <td id="T_02017_row3_col2" class="data row3 col2" >0.496579</td>
+    </tr>
+    <tr>
+      <td id="T_02017_row4_col0" class="data row4 col0" >0.031250</td>
+      <td id="T_02017_row4_col1" class="data row4 col1" >0.001044</td>
+      <td id="T_02017_row4_col2" class="data row4 col2" >0.498299</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 </section>
 <section id="summary">
@@ -748,7 +767,7 @@ Y_4'(t) &amp; = F_4(t, Y_1, Y_2, Y_3, Y_4).
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -759,6 +778,7 @@ Y_4'(t) &amp; = F_4(t, Y_1, Y_2, Y_3, Y_4).
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -835,8 +855,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

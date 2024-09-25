@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Lecture 16: Newton’s method &#8212; COMP2421 Numerical Computation</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -40,9 +40,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -80,28 +80,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -123,12 +118,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -144,6 +147,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -231,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -240,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -473,10 +478,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -484,7 +489,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -536,7 +541,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-16-newton-s-method">
 <h1>Lecture 16: Newton’s method<a class="headerlink" href="#lecture-16-newton-s-method" title="Permalink to this heading">#</a></h1>
@@ -559,29 +564,17 @@ document.write(`
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabd" ><caption>Results of Newton's method on example 1</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
-                <tr>
-                                <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow0_col0" class="data row0 col0" >0</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow0_col1" class="data row0 col1" >1.000000</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow0_col2" class="data row0 col2" >-1.000000</td>
-            </tr>
-            <tr>
-                                <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow1_col0" class="data row1 col0" >1</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow1_col1" class="data row1 col1" >1.500000</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow1_col2" class="data row1 col2" >0.250000</td>
-            </tr>
-            <tr>
-                                <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow2_col0" class="data row2 col0" >2</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow2_col1" class="data row2 col1" >1.416667</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow2_col2" class="data row2 col2" >0.006944</td>
-            </tr>
-            <tr>
-                                <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow3_col0" class="data row3 col0" >3</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow3_col1" class="data row3 col1" >1.414216</td>
-                        <td id="T_7a574584_7aa3_11ef_b4aa_6045bd80aabdrow3_col2" class="data row3 col2" >0.000006</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">27</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">27</span> <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide_index</span><span class="p">()</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;Results of Newton&#39;s method on example 1&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Styler&#39; object has no attribute &#39;hide_index&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <ul class="simple">
 <li><p>We get the root as <span class="math notranslate nohighlight">\(x^* \approx 1.414216\)</span> after 3 iterations.</p></li>
@@ -593,65 +586,12 @@ document.write(`
 <h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h3>
 <p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 1\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span>, we get the root as <span class="math notranslate nohighlight">\(x^* \approx 0.765789\)</span> after 2 iterations for the NACA0012 aerofoil example.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabd" ><caption>Results of Newton's method on example 2</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
-                <tr>
-                                <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow0_col0" class="data row0 col0" >0</td>
-                        <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow0_col1" class="data row0 col1" >1.000000</td>
-                        <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow0_col2" class="data row0 col2" >-0.047900</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow1_col0" class="data row1 col0" >1</td>
-                        <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow1_col1" class="data row1 col1" >0.795168</td>
-                        <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow1_col2" class="data row1 col2" >-0.005392</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow2_col0" class="data row2 col0" >2</td>
-                        <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow2_col1" class="data row2 col1" >0.765789</td>
-                        <td id="T_7a5901d0_7aa3_11ef_b4aa_6045bd80aabdrow2_col2" class="data row2 col2" >-0.000096</td>
-            </tr>
-    </tbody></table></div></div>
 </div>
 </section>
 <section id="example-3">
 <h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this heading">#</a></h3>
 <p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 0.1\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span>, we get the root as <span class="math notranslate nohighlight">\(x^* \approx 0.033863\)</span> after 5 iterations for the second solution to the NACA0012 aerofoil example.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabd" ><caption>Results of Newton's method on example 3</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
-                <tr>
-                                <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow0_col0" class="data row0 col0" >0</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow0_col2" class="data row0 col2" >0.028046</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow1_col0" class="data row1 col0" >1</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow1_col1" class="data row1 col1" >0.000278</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow1_col2" class="data row1 col2" >-0.045086</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow2_col0" class="data row2 col0" >2</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow2_col1" class="data row2 col1" >0.005413</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow2_col2" class="data row2 col2" >-0.028849</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow3_col0" class="data row3 col0" >3</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow3_col1" class="data row3 col1" >0.020693</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow3_col2" class="data row3 col2" >-0.010046</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow4_col0" class="data row4 col0" >4</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow4_col1" class="data row4 col1" >0.031958</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow4_col2" class="data row4 col2" >-0.001300</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow5_col0" class="data row5 col0" >5</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow5_col1" class="data row5 col1" >0.033863</td>
-                        <td id="T_7a5a9fa4_7aa3_11ef_b4aa_6045bd80aabdrow5_col2" class="data row5 col2" >-0.000024</td>
-            </tr>
-    </tbody></table></div></div>
 </div>
 <p>In all cases the performance is considerable superior to that of the bisection method.</p>
 </section>
@@ -683,60 +623,6 @@ x^{(i+1)} = x^{(i)} - \frac{(x^{(i)} - 1)^2}{2 x^{(i)} - 2}
 = \frac{1}{2} (x^{(i)} + 1).
 \]</div>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabd" ><caption>Results of Newton's method on example with zero derivative at root</caption><thead>    <tr>        <th class="col_heading level0 col0" >iter</th>        <th class="col_heading level0 col1" >x</th>        <th class="col_heading level0 col2" >f(x)</th>    </tr></thead><tbody>
-                <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow0_col0" class="data row0 col0" >0</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow0_col1" class="data row0 col1" >4.000000</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow0_col2" class="data row0 col2" >9.000000</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow1_col0" class="data row1 col0" >1</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow1_col1" class="data row1 col1" >2.500000</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow1_col2" class="data row1 col2" >2.250000</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow2_col0" class="data row2 col0" >2</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow2_col1" class="data row2 col1" >1.750000</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow2_col2" class="data row2 col2" >0.562500</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow3_col0" class="data row3 col0" >3</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow3_col1" class="data row3 col1" >1.375000</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow3_col2" class="data row3 col2" >0.140625</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow4_col0" class="data row4 col0" >4</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow4_col1" class="data row4 col1" >1.187500</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow4_col2" class="data row4 col2" >0.035156</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow5_col0" class="data row5 col0" >5</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow5_col1" class="data row5 col1" >1.093750</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow5_col2" class="data row5 col2" >0.008789</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow6_col0" class="data row6 col0" >6</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow6_col1" class="data row6 col1" >1.046875</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow6_col2" class="data row6 col2" >0.002197</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow7_col0" class="data row7 col0" >7</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow7_col1" class="data row7 col1" >1.023438</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow7_col2" class="data row7 col2" >0.000549</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow8_col0" class="data row8 col0" >8</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow8_col1" class="data row8 col1" >1.011719</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow8_col2" class="data row8 col2" >0.000137</td>
-            </tr>
-            <tr>
-                                <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow9_col0" class="data row9 col0" >9</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow9_col1" class="data row9 col1" >1.005859</td>
-                        <td id="T_7a5c0056_7aa3_11ef_b4aa_6045bd80aabdrow9_col2" class="data row9 col2" >0.000034</td>
-            </tr>
-    </tbody></table></div></div>
 </div>
 <p>Starting from <span class="math notranslate nohighlight">\(x^{(0)} = 4\)</span> with <span class="math notranslate nohighlight">\(TOL = 10^{-4}\)</span> we get the root as <span class="math notranslate nohighlight">\(x^* \approx 1.0059\)</span> after 9 iterations, confirming that we are able to obtain a solution.</p>
 <p>Note that the convergence criterion is <span class="math notranslate nohighlight">\(|f(x)| &lt; 10^{-4}\)</span>, which does not guarantee that <span class="math notranslate nohighlight">\(|x^* - x^{(i)}| &lt; 10^{-4}\)</span>!</p>
@@ -768,17 +654,11 @@ x^{(i+1)} = x^{(i)} - \frac{(x^{(i)} - 1)^2}{2 x^{(i)} - 2}
 <li><p>We can also get cases where the iteration does not “blow up” but diverges slowly…</p></li>
 </ol>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/bed019d1ba73eb2987178b340faefd00f46db62760d2152aff648d5bc10d5b4e.png" src="../_images/bed019d1ba73eb2987178b340faefd00f46db62760d2152aff648d5bc10d5b4e.png" />
-</div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>It is even possible for the iteration to simply cycle between two values repeatedly…</p></li>
 </ol>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/a6e1b1aef8c1a65dfba3ca85a319e882e716ea96a4f0e01fc8bf0041a59ceed5.png" src="../_images/a6e1b1aef8c1a65dfba3ca85a319e882e716ea96a4f0e01fc8bf0041a59ceed5.png" />
-</div>
 </div>
 <section id="exercise-homework-hard">
 <h3>Exercise (homework - hard!)<a class="headerlink" href="#exercise-homework-hard" title="Permalink to this heading">#</a></h3>
@@ -829,7 +709,7 @@ x^{(i+1)} = x^{(i)} - \frac{(x^{(i)} - 1)^2}{2 x^{(i)} - 2}
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -858,6 +738,7 @@ x^{(i+1)} = x^{(i)} - \frac{(x^{(i)} - 1)^2}{2 x^{(i)} - 2}
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -930,8 +811,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

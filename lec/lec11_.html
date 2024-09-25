@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Today: Introduction to dynamic problems &#8212; COMP2421 Numerical Computation</title>
   
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -40,9 +40,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,28 +78,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +116,22 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +147,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -229,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -238,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,10 +461,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -465,7 +472,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -524,7 +531,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell tag_remove-input docutils container">
 </div>
@@ -592,7 +599,7 @@ $<span class="math notranslate nohighlight">\(
 <p>What if the object’s speed was not constant? For example, <span class="math notranslate nohighlight">\(S(t) = -(t-1.0)(t+0.5)\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/c75e7fd8d2ccf606b509f12b4825732de737c4c32dcf38b330d5de13a1299c17.png" src="../_images/c75e7fd8d2ccf606b509f12b4825732de737c4c32dcf38b330d5de13a1299c17.png" />
+<img alt="../_images/b3edc159c9764b9b0aec31253d2046d4ea933684aac2a50133f4693f71176354.png" src="../_images/b3edc159c9764b9b0aec31253d2046d4ea933684aac2a50133f4693f71176354.png" />
 </div>
 </div>
 <p>How far would the object travel in one second now? – with difficulty :(</p>
@@ -609,7 +616,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/dede5fdd3514d530c67fadecd172a6b30d9f5e318ab03647bd9ea825ebe3e9e2.png" src="../_images/dede5fdd3514d530c67fadecd172a6b30d9f5e318ab03647bd9ea825ebe3e9e2.png" />
+<img alt="../_images/3a63411c447fabfd2ce1e6398a3850978bce87e34e6cec8c70bebb0419f69834.png" src="../_images/3a63411c447fabfd2ce1e6398a3850978bce87e34e6cec8c70bebb0419f69834.png" />
 </div>
 </div>
 <p>We could consider each hundredth of a second separately and estimate the distance covered at each hundredth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
@@ -625,7 +632,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/6b86b1adcdbfc8fa5ad251a48c230d5174c6f73694fd4a9827aa6393c0d0e109.png" src="../_images/6b86b1adcdbfc8fa5ad251a48c230d5174c6f73694fd4a9827aa6393c0d0e109.png" />
+<img alt="../_images/25c6e0f049134141c163156ad7bc3faa6a24b535d3e8004e86b517b38c223b65.png" src="../_images/25c6e0f049134141c163156ad7bc3faa6a24b535d3e8004e86b517b38c223b65.png" />
 </div>
 </div>
 <p>We could consider each thousandth of a second separately and estimate the distance covered at each thousandth (assuming the <span class="math notranslate nohighlight">\(s\)</span> is approximately constant in each interval):</p>
@@ -641,46 +648,59 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/0a55ecdd9ddddba05c000be28ea34cd815ec3e1bb3aeac55546cead14411f752.png" src="../_images/0a55ecdd9ddddba05c000be28ea34cd815ec3e1bb3aeac55546cead14411f752.png" />
+<img alt="../_images/8038f5a318831ea489e1c458b64ba1a02ce6f40e05e131990b7df224c1533687.png" src="../_images/8038f5a318831ea489e1c458b64ba1a02ce6f40e05e131990b7df224c1533687.png" />
 </div>
 </div>
 <section id="what-values-do-we-get">
 <h3>What values do we get?<a class="headerlink" href="#what-values-do-we-get" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-</style><table id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabd" ><caption>Total distance as a function of number of steps</caption><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" ># intervals</th>        <th class="col_heading level0 col1" >increment size dt</th>        <th class="col_heading level0 col2" >total distance</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdlevel0_row0" class="row_heading level0 row0" >0</th>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow0_col0" class="data row0 col0" >10</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow0_col1" class="data row0 col1" >0.100000</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow0_col2" class="data row0 col2" >0.440000</td>
-            </tr>
-            <tr>
-                        <th id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdlevel0_row1" class="row_heading level0 row1" >1</th>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow1_col0" class="data row1 col0" >100</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow1_col1" class="data row1 col1" >0.010000</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow1_col2" class="data row1 col2" >0.419150</td>
-            </tr>
-            <tr>
-                        <th id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdlevel0_row2" class="row_heading level0 row2" >2</th>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow2_col0" class="data row2 col0" >1000</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow2_col1" class="data row2 col1" >0.001000</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow2_col2" class="data row2 col2" >0.416916</td>
-            </tr>
-            <tr>
-                        <th id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdlevel0_row3" class="row_heading level0 row3" >3</th>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow3_col0" class="data row3 col0" >10000</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow3_col1" class="data row3 col1" >0.000100</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow3_col2" class="data row3 col2" >0.416692</td>
-            </tr>
-            <tr>
-                        <th id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdlevel0_row4" class="row_heading level0 row4" >4</th>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow4_col0" class="data row4 col0" >100000</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow4_col1" class="data row4 col1" >0.000010</td>
-                        <td id="T_a9311c1c_7aa4_11ef_aa6a_6045bd80aabdrow4_col2" class="data row4 col2" >0.416669</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_66f2a">
+  <caption>Total distance as a function of number of steps</caption>
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_66f2a_level0_col0" class="col_heading level0 col0" ># intervals</th>
+      <th id="T_66f2a_level0_col1" class="col_heading level0 col1" >increment size dt</th>
+      <th id="T_66f2a_level0_col2" class="col_heading level0 col2" >total distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_66f2a_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_66f2a_row0_col0" class="data row0 col0" >10</td>
+      <td id="T_66f2a_row0_col1" class="data row0 col1" >0.100000</td>
+      <td id="T_66f2a_row0_col2" class="data row0 col2" >0.440000</td>
+    </tr>
+    <tr>
+      <th id="T_66f2a_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_66f2a_row1_col0" class="data row1 col0" >100</td>
+      <td id="T_66f2a_row1_col1" class="data row1 col1" >0.010000</td>
+      <td id="T_66f2a_row1_col2" class="data row1 col2" >0.419150</td>
+    </tr>
+    <tr>
+      <th id="T_66f2a_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_66f2a_row2_col0" class="data row2 col0" >1000</td>
+      <td id="T_66f2a_row2_col1" class="data row2 col1" >0.001000</td>
+      <td id="T_66f2a_row2_col2" class="data row2 col2" >0.416916</td>
+    </tr>
+    <tr>
+      <th id="T_66f2a_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_66f2a_row3_col0" class="data row3 col0" >10000</td>
+      <td id="T_66f2a_row3_col1" class="data row3 col1" >0.000100</td>
+      <td id="T_66f2a_row3_col2" class="data row3 col2" >0.416692</td>
+    </tr>
+    <tr>
+      <th id="T_66f2a_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_66f2a_row4_col0" class="data row4 col0" >100000</td>
+      <td id="T_66f2a_row4_col1" class="data row4 col1" >0.000010</td>
+      <td id="T_66f2a_row4_col2" class="data row4 col2" >0.416669</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>… we appear to be converging to an answer in the limit as <span class="math notranslate nohighlight">\(\mathrm{d}t \to 0\)</span>…</p>
 </section>
@@ -717,7 +737,7 @@ S(t) = \lim_{\mathrm{d}t \to 0} \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t}
 <h1>A graphical interpretation<a class="headerlink" href="#a-graphical-interpretation" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/54ad614cd0fdbdc287d96754611970f5bbb51c2deb04b494bc724f07cd014799.png" src="../_images/54ad614cd0fdbdc287d96754611970f5bbb51c2deb04b494bc724f07cd014799.png" />
+<img alt="../_images/bc21ca288e1a77dc36aa8a17bc76834276f84a5282f21db25b7219f37eba3974.png" src="../_images/bc21ca288e1a77dc36aa8a17bc76834276f84a5282f21db25b7219f37eba3974.png" />
 </div>
 </div>
 <p>We see the <strong>gradient</strong> (slope) of the orange curve is the <strong>value</strong> of the blue curve.</p>
@@ -726,7 +746,7 @@ S(t) = \lim_{\mathrm{d}t \to 0} \frac{D(t + \mathrm{d}t) - D(t)}{\mathrm{d}t}
 <p>What is the gradient of a line?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/f71654148d568a8949b0f526dcd0bfd2194b89ea1bb4cf175567f35f3deffb94.png" src="../_images/f71654148d568a8949b0f526dcd0bfd2194b89ea1bb4cf175567f35f3deffb94.png" />
+<img alt="../_images/f8b0b631af46e38c6519638373f703481654b9ff44ea83edaeaeac66b61f227b.png" src="../_images/f8b0b631af46e38c6519638373f703481654b9ff44ea83edaeaeac66b61f227b.png" />
 </div>
 </div>
 <p>The equation of a straight line with slope <span class="math notranslate nohighlight">\(m\)</span> is given by</p>
@@ -744,19 +764,19 @@ y(t) = m t + c.
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/f902aec3bc6747f6c79dfe5fd6eee473f70f6360273ab1836d4e707de6bda3bc.png" src="../_images/f902aec3bc6747f6c79dfe5fd6eee473f70f6360273ab1836d4e707de6bda3bc.png" />
+<img alt="../_images/9056911628033e996ae14db376214765569dc418ab44bafddc0f79fda8b6c729.png" src="../_images/9056911628033e996ae14db376214765569dc418ab44bafddc0f79fda8b6c729.png" />
 </div>
 </div>
 <p>What about reducing <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/189b653fb724af1721f5133437a18ead7984aac46227ab63d96ecf5026f72866.png" src="../_images/189b653fb724af1721f5133437a18ead7984aac46227ab63d96ecf5026f72866.png" />
+<img alt="../_images/eb441db721664401b3f2db36f2a29a6f5049bc7bad87bdde4a5acafb12218fe0.png" src="../_images/eb441db721664401b3f2db36f2a29a6f5049bc7bad87bdde4a5acafb12218fe0.png" />
 </div>
 </div>
 <p>Even more?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/2a3e647deaabebaa4ffd814ec4a9e03e598b3c4254d8ed41010bc09d3dec9041.png" src="../_images/2a3e647deaabebaa4ffd814ec4a9e03e598b3c4254d8ed41010bc09d3dec9041.png" />
+<img alt="../_images/7bab97684179cb095ca00e2ad3f215843441a4b202d9bc7f8c23f60b8539ad36.png" src="../_images/7bab97684179cb095ca00e2ad3f215843441a4b202d9bc7f8c23f60b8539ad36.png" />
 </div>
 </div>
 <p>By taking smaller and smaller values of <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>, it becomes clear that we can assign an instantaneous value to the slope at any point <span class="math notranslate nohighlight">\(t\)</span>:</p>
@@ -796,7 +816,7 @@ y(t) = m t + c.
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -807,6 +827,7 @@ y(t) = m t + c.
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -886,8 +907,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba-root/envs/comp2421-book/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba-root/envs/comp2421-book/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba-root/envs/comp2421-book/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba-root/envs/comp2421-book/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba-root/envs/comp2421-book/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba-root/envs/comp2421-book/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba-root/envs/comp2421-book/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def f(x):
+    return x * x - 2
+
+
+def df(x):
+    return 2 * x
+
+
+it = 0
+x = 1.0
+tol = 1.0e-4
+
+headers = ["iter", "x", "f(x)"]
+data = []
+
+it = 0
+data.append([it, x, f(x)])
+
+while abs(f(x)) > tol:
+    x -= f(x) / df(x)
+    it += 1
+    data.append([it, x, f(x)])
+
+import pandas as pd
+
+df = pd.DataFrame(data, columns=headers)
+df.style.hide_index().set_caption("Results of Newton's method on example 1")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[1], line 27[0m
+[1;32m     24[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m     26[0m df [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(data, columns[38;5;241m=[39mheaders)
+[0;32m---> 27[0m [43mdf[49m[38;5;241;43m.[39;49m[43mstyle[49m[38;5;241;43m.[39;49m[43mhide_index[49m()[38;5;241m.[39mset_caption([38;5;124m"[39m[38;5;124mResults of Newton[39m[38;5;124m'[39m[38;5;124ms method on example 1[39m[38;5;124m"[39m)
+
+[0;31mAttributeError[0m: 'Styler' object has no attribute 'hide_index'
+

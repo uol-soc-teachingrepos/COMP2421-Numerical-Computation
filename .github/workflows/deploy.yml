@@ -20,8 +20,8 @@ jobs:
     # set up anaconda environment
     - uses: mamba-org/setup-micromamba@v1
       with:
-      environment-file: environment.yml
-      cache-environment: true
+        environment-file: environment.yml
+        cache-environment: true
 
     - name: Notebook formatting
       shell: bash -l {0}

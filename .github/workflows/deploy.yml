@@ -17,8 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install conda environment from environment.yml
-      uses: mamba-org/provision-with-micromamba@main
+    # set up anaconda environment
+    - uses: mamba-org/setup-micromamba@v1
+      with:
+      environment-file: environment.yml
+      cache-environment: true
 
     - name: Notebook formatting
       shell: bash -l {0}

@@ -23,8 +23,5 @@ dependencies:
   - ffmpeg = 5.1
   # for help making the book
   - livereload = 2.6
-  - black = 24.8
   - ruff = 0.6
-  - nbqa = 1.6
-  - blacken-docs = 1.12
   - pre-commit = 3.4

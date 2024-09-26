@@ -26,9 +26,7 @@ jobs:
     - name: Notebook formatting
       shell: bash -l {0}
       run: |
-        black --check .
-        nbqa black --check .
-        nbqa blacken-docs . --nbqa-md
+        ruff format --check
 
     - name: Test links
       shell: bash -l {0}

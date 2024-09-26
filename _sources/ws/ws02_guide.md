@@ -11,6 +11,7 @@ KEY OBJECTIVES:
 
 Worksheet:
 <https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02.html>
+
 Partial solutions:
 <https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/ws/ws02_implemented.html>
 

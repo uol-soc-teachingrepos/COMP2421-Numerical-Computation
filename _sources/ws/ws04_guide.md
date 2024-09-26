@@ -37,5 +37,3 @@ Part c tutorial:
 3. Consider alternative approaches: https://en.wikipedia.org/wiki/Iterative_method#Linear_systems
 
     - What is the $p$ and $P$ formulation for these versions? When do they converge?
-
-Print outs (worksheet, solutions, this guide) should be by my office from around 10am

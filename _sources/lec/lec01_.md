@@ -2,7 +2,6 @@
 title: "Lecture 01: Module introduction"
 ---
 
-
 # Administration
 
 All administration details in the [module handbook](https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation/)
@@ -15,24 +14,6 @@ All administration details in the [module handbook](https://uol-soc-teachingrepo
 - Questions about content should go in the class team
 - Responses in 48h (or out of office)
 - No response out of working hours
-
-## How to succeed?
-
-- Read lecture notes **before lectures** -- [all available](https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation)
-- Turn up to lectures with **pen and paper**
-- Attempt **worksheet** before tutorial
-- Let tutorial leader know where you are having problems before the session
-- Attend tutorial every week - ask questions
-
-## Marking expectations
-
-| Mark   | Demonstrate                                    |
-|--------|------------------------------------------------|
-| 40-50% | Apply all algorithms                           |
-| 50-60% | Apply modifications of algorithms              |
-| 60-70% | Know how to explore algorithms computationally |
-| 70%+   | Understand why algorithms are good/bad         |
-| 95%+   | Read and write research papers in this area    |
 
 ## Lectures
 
@@ -70,12 +51,6 @@ This will include all:
 
 - links to lecture notes and announcements
 - all assessment information and feedback
-
-[24/25(1) COMP2421 Numerical Computation (32879)](https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb)
-
-(not email or personal teams message)
-
-Please use this forum for all questions about content
 
 # Assessment
 
@@ -127,21 +102,19 @@ The dates are tentative at this stage and are subject to change.
 - Submission will be through Feedback Fruits (via Minerva)
 - We will use a combination of peer feedback and tutor feedback on both assignments
 
+## Question about assessments
+
+vevox poll
+
 # Module content
 
 ## Objectives
 
-- Understand how to compute with vectors and matrices.
-- Appreciate the role numerical computation plays in CS.
-- Choose a computational model appropriately, accounting for issues of accuracy, reliability and efficiency.
-- Understand how to assess or measure the error in a numerical algorithm and be familiar with how such errors are controlled.
+- Implement simple numerical algorithms accurately and present results in a variety of forms
 
----
+- Understand how to assess/measure the error in a numerical algorithm and be familiar with how such errors are controlled
 
-- Understand the fundamental techniques for the design of efficiency numerical algorithms.
-- Demonstrate how these algorithms are analysed.
-- Understand several advanced data structures, their efficient implementation and applications.
-- Understand how these algorithms and data structures relate to the central practical problems of modern computer science.
+- Use, data-based arguments to justify choosing a computational algorithm appropriately, accounting for issues of accuracy, reliability and efficiency
 
 ## Syllabus
 
@@ -149,11 +122,15 @@ The dates are tentative at this stage and are subject to change.
 
 - **Approximation and errors**: modelling and mathematical modelling; discrete and continuous models; floating point and rounding errors; balancing accuracy and efficiency.
 
+both with Yongxing Wang
+
 ---
 
 - **Static systems**: iterative methods for solving nonlinear scalar equations; methods for solving linear systems of equations; systems without unique solutions.
 
 - **Evolving systems**: derivatives and rates of change; initial value problems; stability and convergence of computer models.
+
+both with me (Tom Ranner)
 
 ## Python
 
@@ -161,47 +138,11 @@ The programming for this module will be carried out using `python3`.
 
 The latest available version of python is available via [Anaconda](https://www.anaconda.com/products/distribution).
 
-Anaconda provides a full scientific Python distribution, including as standard tools for numerical analysis, data visualisation, image processing, and much more!
+Anaconda is available through the module system on School linux machines.
 
----
-
-This scientific Python distribution is available on all School of Computer Science machines, specifically all SoCS Linux computers.
-
-On a SoC Linux computer, you can run
-```sh
-> module add anaconda3
-```
-and you can test your python version with
-```sh
-> python --version
-Python 3.12.4
-```
-<revealjs>
----
-</revealjs>
-
-We have access to a university managed online notebook service called Notable. Access is via the minerva module page.
-
-<revealjs>
----
-</revealjs>
-
-Alternatively, you can install anaconda python on your own machine.
-
-> Try this yourself! Make sure you can access a working version of python (version >= 3.10) and can import `numpy` and `scipy`.
+We have access to a university managed online notebook service called **Notable**. Access is via the minerva module page.
 
 More help will be given with python programming throughout the course.
-
-## Relevance to Level 1 modules
-
-This module builds upon material that you have already met in your first year. Prerequisites include:
-
-- **COMP1421** Fundamental mathematical concepts
-- **COMP1721** Object oriented programming
-
-We also add to some of the material from:
-
-- **COMP1212** Computer processors
 
 ## Relevance to Level 2 and 3 modules
 
@@ -227,24 +168,9 @@ Other modules that will benefit from material covered here:
 
 ## Books
 
-Additional useful texts
+Additional reading list available through Minerva.
 
-- [Introduction to Linear Algebra](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991011421399705181) (Fifth Edition), Gilbert Strang, Wellesley-Cambridge Press, 2016. \
-  with [MIT course material](https://web.mit.edu/18.06/www)
-
-- [Scientific Computing: An Introductory Survey](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991009203099705181), T.M. Heath, McGraw-Hill, 2002. \
-  some [lecture notes based on the book](http://heath.cs.illinois.edu/scicomp/notes/index.html)
-
-<revealjs>
----
-</revealjs>
-
-- [Numerical Recipes in C++/C/FORTRAN](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991010465229705181): The Art of Scientific Computing, W.H. Press, S.A. Teukolsky, W.T. Vetterling and B.P. Flannery, Cambridge University Press, 2002/1993/1993.
-
-- [Engineering Mathematics](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991019677711205181), K.A. Stroud, Macmillan, 2001. *available online*
-
-Further more specific references will be given in each section of the notes.
-
+There are a lot of other online resources. Some are linked from the module book.
 
 # Numerical algorithms
 
@@ -285,19 +211,6 @@ Most modern day economic forecasting involves performing numerical simulations.
 
 <a title="Negative Space - Pexels account, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blur-chart-data-69760.jpg"><img width="100%" alt="Blur-chart-data-69760" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blur-chart-data-69760.jpg/512px-Blur-chart-data-69760.jpg"></a>
 
-## Weather forecasting
-
-One of the most popular applications of numerical simulation in the UK today is in predicting tomorrow's weather.
-
-<video width="100%" controls autoplay muted>
-	<source src="../_static/video/lec01/weather.mp4" type="video/mp4">
-	<a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg"> <img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
-</video>
-
-<small>
-	Video source: <https://youtu.be/5kpw5WeR5V4>
-</small>
-
 ## Health care
 
 Numerical simulation can be used both as an earlier step in clinical trials in order to reduce harm to animal or human participants or to predict how medical interventions will work in practice.
@@ -337,22 +250,6 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 - Much of AI boils down to *optimisation* which requires special numerical methods
 
 [Unlock the Secrets of Machine Learning with Linear Algebra](https://www.univ.ai/blog/studying-linear-algebra)
-
-## Robotics at Leeds
-
-Many tasks in robotics are tested first in simulated environments where simulation plays a key role.
-
-[![Robotics at Leeds](https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG)](https://robotics.leeds.ac.uk/)
-
-## Pipebots
-
-<video width="100%" controls autoplay muted>
-	<source src="../_static/video/lec01/pipebots.mp4" type="video/mp4">
-</video>
-
-<small>
-Video source: <https://youtu.be/pppxa9MpoeY>
-</small>
 
 # See you Friday!
 

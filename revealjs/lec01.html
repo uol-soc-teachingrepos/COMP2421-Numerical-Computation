@@ -90,52 +90,6 @@ response there rather than email!</li>
 <li>No response out of working hours</li>
 </ul>
 </section>
-<section id="how-to-succeed" class="slide level2">
-<h2>How to succeed?</h2>
-<ul>
-<li>Read lecture notes <strong>before lectures</strong> – <a
-href="https://uol-soc-teachingrepos.github.io/COMP2421-Numerical-Computation">all
-available</a></li>
-<li>Turn up to lectures with <strong>pen and paper</strong></li>
-<li>Attempt <strong>worksheet</strong> before tutorial</li>
-<li>Let tutorial leader know where you are having problems before the
-session</li>
-<li>Attend tutorial every week - ask questions</li>
-</ul>
-</section>
-<section id="marking-expectations" class="slide level2">
-<h2>Marking expectations</h2>
-<table>
-<thead>
-<tr>
-<th>Mark</th>
-<th>Demonstrate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>40-50%</td>
-<td>Apply all algorithms</td>
-</tr>
-<tr>
-<td>50-60%</td>
-<td>Apply modifications of algorithms</td>
-</tr>
-<tr>
-<td>60-70%</td>
-<td>Know how to explore algorithms computationally</td>
-</tr>
-<tr>
-<td>70%+</td>
-<td>Understand why algorithms are good/bad</td>
-</tr>
-<tr>
-<td>95%+</td>
-<td>Read and write research papers in this area</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="lectures" class="slide level2">
 <h2>Lectures</h2>
 <p>2 hours per week in this room.</p>
@@ -186,11 +140,6 @@ VLE: <a href="https://minerva.leeds.ac.uk">minerva.leeds.ac.uk</a></p>
 <li>links to lecture notes and announcements</li>
 <li>all assessment information and feedback</li>
 </ul>
-<p><a
-href="https://teams.microsoft.com/l/team/19%3AebIX8peFnpoOnsp7izNiFJpuIXCN_9tdr9SP6LcRlq01%40thread.tacv2/conversations?groupId=ee227b6d-4176-427d-a494-11d538f55a5a&amp;tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb">24/25(1)
-COMP2421 Numerical Computation (32879)</a></p>
-<p>(not email or personal teams message)</p>
-<p>Please use this forum for all questions about content</p>
 </section></section>
 <section>
 <section id="assessment" class="title-slide slide level1">
@@ -315,6 +264,10 @@ to build skills related to the summative coursework.</li>
 <li>We will use a combination of peer feedback and tutor feedback on
 both assignments</li>
 </ul>
+</section>
+<section id="question-about-assessments" class="slide level2">
+<h2>Question about assessments</h2>
+<p>vevox poll</p>
 </section></section>
 <section>
 <section id="module-content" class="title-slide slide level1">
@@ -324,24 +277,13 @@ both assignments</li>
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
 <ul>
-<li>Understand how to compute with vectors and matrices.</li>
-<li>Appreciate the role numerical computation plays in CS.</li>
-<li>Choose a computational model appropriately, accounting for issues of
-accuracy, reliability and efficiency.</li>
-<li>Understand how to assess or measure the error in a numerical
-algorithm and be familiar with how such errors are controlled.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<ul>
-<li>Understand the fundamental techniques for the design of efficiency
-numerical algorithms.</li>
-<li>Demonstrate how these algorithms are analysed.</li>
-<li>Understand several advanced data structures, their efficient
-implementation and applications.</li>
-<li>Understand how these algorithms and data structures relate to the
-central practical problems of modern computer science.</li>
+<li><p>Implement simple numerical algorithms accurately and present
+results in a variety of forms</p></li>
+<li><p>Understand how to assess/measure the error in a numerical
+algorithm and be familiar with how such errors are controlled</p></li>
+<li><p>Use, data-based arguments to justify choosing a computational
+algorithm appropriately, accounting for issues of accuracy, reliability
+and efficiency</p></li>
 </ul>
 </section>
 <section id="syllabus" class="slide level2">
@@ -354,6 +296,7 @@ a matrix.</p></li>
 mathematical modelling; discrete and continuous models; floating point
 and rounding errors; balancing accuracy and efficiency.</p></li>
 </ul>
+<p>both with Yongxing Wang</p>
 </section>
 <section class="slide level2">
 
@@ -365,6 +308,7 @@ equations; systems without unique solutions.</p></li>
 change; initial value problems; stability and convergence of computer
 models.</p></li>
 </ul>
+<p>both with me (Tom Ranner)</p>
 </section>
 <section id="python" class="slide level2">
 <h2>Python</h2>
@@ -372,51 +316,12 @@ models.</p></li>
 <code>python3</code>.</p>
 <p>The latest available version of python is available via <a
 href="https://www.anaconda.com/products/distribution">Anaconda</a>.</p>
-<p>Anaconda provides a full scientific Python distribution, including as
-standard tools for numerical analysis, data visualisation, image
-processing, and much more!</p>
-</section>
-<section class="slide level2">
-
-<p>This scientific Python distribution is available on all School of
-Computer Science machines, specifically all SoCS Linux computers.</p>
-<p>On a SoC Linux computer, you can run</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> module <span class="ex">add</span> anaconda3</span></code></pre></div>
-<p>and you can test your python version with</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> python <span class="ex">--version</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.12.4</span></code></pre></div>
-</section>
-<section id="section" class="slide level2">
-<h2><revealjs></h2>
-<p></revealjs></p>
+<p>Anaconda is available through the module system on School linux
+machines.</p>
 <p>We have access to a university managed online notebook service called
-Notable. Access is via the minerva module page.</p>
-</section>
-<section id="section-1" class="slide level2">
-<h2><revealjs></h2>
-<p></revealjs></p>
-<p>Alternatively, you can install anaconda python on your own
-machine.</p>
-<blockquote>
-<p>Try this yourself! Make sure you can access a working version of
-python (version &gt;= 3.10) and can import <code>numpy</code> and
-<code>scipy</code>.</p>
-</blockquote>
+<strong>Notable</strong>. Access is via the minerva module page.</p>
 <p>More help will be given with python programming throughout the
 course.</p>
-</section>
-<section id="relevance-to-level-1-modules" class="slide level2">
-<h2>Relevance to Level 1 modules</h2>
-<p>This module builds upon material that you have already met in your
-first year. Prerequisites include:</p>
-<ul>
-<li><strong>COMP1421</strong> Fundamental mathematical concepts</li>
-<li><strong>COMP1721</strong> Object oriented programming</li>
-</ul>
-<p>We also add to some of the material from:</p>
-<ul>
-<li><strong>COMP1212</strong> Computer processors</li>
-</ul>
 </section>
 <section id="relevance-to-level-2-and-3-modules" class="slide level2">
 <h2>Relevance to Level 2 and 3 modules</h2>
@@ -430,7 +335,7 @@ Learning/AI, Computer Graphics, Quantum Computing.</p>
 <li><strong>COMP3221</strong> Parallel computation</li>
 </ul>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section" class="slide level2">
 <h2><revealjs></h2>
 <p></revealjs></p>
 <p>Other modules that will benefit from material covered here:</p>
@@ -445,39 +350,9 @@ Learning/AI, Computer Graphics, Quantum Computing.</p>
 </section>
 <section id="books" class="slide level2">
 <h2>Books</h2>
-<p>Additional useful texts</p>
-<ul>
-<li><p><a
-href="https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991011421399705181">Introduction
-to Linear Algebra</a> (Fifth Edition), Gilbert Strang,
-Wellesley-Cambridge Press, 2016.<br />
-with <a href="https://web.mit.edu/18.06/www">MIT course
-material</a></p></li>
-<li><p><a
-href="https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991009203099705181">Scientific
-Computing: An Introductory Survey</a>, T.M. Heath, McGraw-Hill,
-2002.<br />
-some <a
-href="http://heath.cs.illinois.edu/scicomp/notes/index.html">lecture
-notes based on the book</a></p></li>
-</ul>
-</section>
-<section id="section-3" class="slide level2">
-<h2><revealjs></h2>
-<p></revealjs></p>
-<ul>
-<li><p><a
-href="https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991010465229705181">Numerical
-Recipes in C++/C/FORTRAN</a>: The Art of Scientific Computing, W.H.
-Press, S.A. Teukolsky, W.T. Vetterling and B.P. Flannery, Cambridge
-University Press, 2002/1993/1993.</p></li>
-<li><p><a
-href="https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991019677711205181">Engineering
-Mathematics</a>, K.A. Stroud, Macmillan, 2001. <em>available
-online</em></p></li>
-</ul>
-<p>Further more specific references will be given in each section of the
-notes.</p>
+<p>Additional reading list available through Minerva.</p>
+<p>There are a lot of other online resources. Some are linked from the
+module book.</p>
 </section></section>
 <section>
 <section id="numerical-algorithms" class="title-slide slide level1">
@@ -489,7 +364,7 @@ point numbers</em>.</p></li>
 solutions) of mathematical models of “real world” problems.</p></li>
 </ul>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2><revealjs></h2>
 <p></revealjs></p>
 <ul>
@@ -530,18 +405,6 @@ class="uri">https://youtu.be/-4gSS-UHWcc</a></em></p>
 simulations.</p>
 <p><a title="Negative Space - Pexels account, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blur-chart-data-69760.jpg"><img width="100%" alt="Blur-chart-data-69760" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blur-chart-data-69760.jpg/512px-Blur-chart-data-69760.jpg"></a></p>
 </section>
-<section id="weather-forecasting" class="slide level2">
-<h2>Weather forecasting</h2>
-<p>One of the most popular applications of numerical simulation in the
-UK today is in predicting tomorrow’s weather.</p>
-<video width="100%" controls autoplay muted>
-<source src="../_static/video/lec01/weather.mp4" type="video/mp4">
-<p><a title="Mathias Krumbholz, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg">
-<img width="100%" alt="Lightning Pritzerbe 01 (MK)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lightning_Pritzerbe_01_%28MK%29.jpg/512px-Lightning_Pritzerbe_01_%28MK%29.jpg"></a>
-</video></p>
-<p><small> Video source: <a href="https://youtu.be/5kpw5WeR5V4"
-class="uri">https://youtu.be/5kpw5WeR5V4</a> </small></p>
-</section>
 <section id="health-care" class="slide level2">
 <h2>Health care</h2>
 <p>Numerical simulation can be used both as an earlier step in clinical
@@ -565,7 +428,7 @@ etc).</p></li>
 then rendered in “real time”.</p></li>
 </ul>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2><revealjs></h2>
 <p></revealjs></p>
 <video width="100%" controls autoplay muted>
@@ -590,29 +453,13 @@ special numerical methods</p></li>
 </ul>
 <p><a href="https://www.univ.ai/blog/studying-linear-algebra">Unlock the
 Secrets of Machine Learning with Linear Algebra</a></p>
-</section>
-<section id="robotics-at-leeds" class="slide level2">
-<h2>Robotics at Leeds</h2>
-<p>Many tasks in robotics are tested first in simulated environments
-where simulation plays a key role.</p>
-<p><a href="https://robotics.leeds.ac.uk/"><img
-data-src="https://eps.leeds.ac.uk/images/Computing_postgraduate_researcher_Wisdom.JPG"
-alt="Robotics at Leeds" /></a></p>
-</section>
-<section id="pipebots" class="slide level2">
-<h2>Pipebots</h2>
-<video width="100%" controls autoplay muted>
-<source src="../_static/video/lec01/pipebots.mp4" type="video/mp4">
-</video>
-<p><small> Video source: <a href="https://youtu.be/pppxa9MpoeY"
-class="uri">https://youtu.be/pppxa9MpoeY</a> </small></p>
 </section></section>
 <section>
 <section id="see-you-friday" class="title-slide slide level1">
 <h1>See you Friday!</h1>
 
 </section>
-<section id="section-6" class="slide level2"
+<section id="section-3" class="slide level2"
 data-background-image="../_static/img/attendance.jpg"
 data-background-size="contain">
 <h2 data-background-image="../_static/img/attendance.jpg"

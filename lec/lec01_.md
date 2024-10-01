@@ -249,7 +249,7 @@ Student Showcase, High Performance Graphics and Game Engineering 2021, Universit
 
 - Much of AI boils down to *optimisation* which requires special numerical methods
 
-[Unlock the Secrets of Machine Learning with Linear Algebra](https://www.univ.ai/blog/studying-linear-algebra)
+[Unlock the Secrets of Machine Learning with Linear Algebra](https://web.archive.org/web/20240413062500/https://www.univ.ai/blog/studying-linear-algebra)
 
 # See you Friday!
 

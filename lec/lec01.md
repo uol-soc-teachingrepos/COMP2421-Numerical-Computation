@@ -296,7 +296,7 @@ Many different areas of medicine now use simulations. This can be used both as a
 
 - Much of AI boils down to *optimisation* which requires special numerical methods
 
-- [Unlock the Secrets of Machine Learning with Linear Algebra](https://www.univ.ai/blog/studying-linear-algebra)
+- [Unlock the Secrets of Machine Learning with Linear Algebra](https://web.archive.org/web/20240413062500/https://www.univ.ai/blog/studying-linear-algebra)
 
 **Robotics at Leeds**
 
@@ -317,4 +317,4 @@ The slides used in this lecture are available in [narrative form](lec01_.md)
 - Saul H. Hymans, [Forcasting and econometric models](https://www.econlib.org/library/Enc/ForecastingandEconometricModels.html)
 - Wikipedia: [Physics engine](https://en.wikipedia.org/wiki/Physics_engine)
 - David M Bourg, [How physics is used in video games](https://doi.org/10.1088/0031-9120/39/5/002), Physics Education, issue 39, 2004.
-- [Unlock the Secrets of Machine Learning with Linear Algebra](https://www.univ.ai/blog/studying-linear-algebra)
+- [Unlock the Secrets of Machine Learning with Linear Algebra](https://web.archive.org/web/20240413062500/https://www.univ.ai/blog/studying-linear-algebra)

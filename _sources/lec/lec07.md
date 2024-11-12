@@ -233,7 +233,7 @@ $$
 \begin{aligned}
 4 & = u_{13} && \rightarrow & u_{13} & = 4 \\
 2 & = l_{21} u_{13} + u_{23} && \rightarrow & u_{23} & = 0 \\
-6 & = l_{31} u_{13} + l_{32} u_{23} && \rightarrow & u_{33} & = 2.
+6 & = l_{31} u_{13} + l_{32} u_{23} + u_{33} && \rightarrow & u_{33} & = 2.
 \end{aligned}
 $$
 

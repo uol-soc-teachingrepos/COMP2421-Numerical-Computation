@@ -515,6 +515,7 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-euler-s-method">Errors in Euler’s method</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-errors-at-t-2">The errors at <span class="math notranslate nohighlight">\(t=2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The errors at <span class="math notranslate nohighlight">\(t=2\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-o-notation">Big O Notation</a></li>
 </ul>
 </li>
@@ -553,6 +554,7 @@ document.write(`
 \[
 y'(t) = f(t, y(t)) \quad \text{subject to the initial condition} \quad y(t_0) = y_0.
 \]</div>
+<p><span class="math notranslate nohighlight">\(f\)</span> is called the right-hand side.</p>
 </section>
 <section id="euler-s-method">
 <h2>Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this heading">#</a></h2>
@@ -574,7 +576,9 @@ y'(t) = f(t, y(t)) \quad \text{subject to the initial condition} \quad y(t_0) = 
 <h1>Exact derivatives and exact solutions<a class="headerlink" href="#exact-derivatives-and-exact-solutions" title="Permalink to this heading">#</a></h1>
 <p>In <em>some</em> cases, it is possible to evaluate derivatives of a function exactly.</p>
 <p>In <em>some</em> cases, we can solve a differential equation <em>exactly</em>.</p>
-<p>-&gt; This is not what this module is about, but some special cases will help us to test our methods!</p>
+<blockquote>
+<div><p>This is not what this module is about, but some special cases will help us to test our methods!</p>
+</div></blockquote>
 <section id="example-1">
 <h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h2>
 <p>Consider the function <span class="math notranslate nohighlight">\(y(t) = t^2\)</span>.</p>
@@ -618,6 +622,14 @@ y'(t) = \frac{3 y(t)}{t} \quad\text{subject to the initial condition}\quad y(1) 
 <h2>The errors at <span class="math notranslate nohighlight">\(t=2\)</span><a class="headerlink" href="#the-errors-at-t-2" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
+<img alt="../_images/9e6062990f03842c8c8c3215c31117f50f0461e6f107ac71f8e828da3d8625dc.png" src="../_images/9e6062990f03842c8c8c3215c31117f50f0461e6f107ac71f8e828da3d8625dc.png" />
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>The errors at <span class="math notranslate nohighlight">\(t=2\)</span><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
 <img alt="../_images/10f8f1ca6131fec14a9c76e49576fe8e9d5f51a24e714689224923dee1b5c938.png" src="../_images/10f8f1ca6131fec14a9c76e49576fe8e9d5f51a24e714689224923dee1b5c938.png" />
 </div>
 </div>
@@ -625,66 +637,66 @@ y'(t) = \frac{3 y(t)}{t} \quad\text{subject to the initial condition}\quad y(1) 
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_33255">
+<table id="T_6beb2">
   <caption>Results of using Euler's method varying dt</caption>
   <thead>
     <tr>
-      <th id="T_33255_level0_col0" class="col_heading level0 col0" >n</th>
-      <th id="T_33255_level0_col1" class="col_heading level0 col1" >dt</th>
-      <th id="T_33255_level0_col2" class="col_heading level0 col2" >solution</th>
-      <th id="T_33255_level0_col3" class="col_heading level0 col3" >abs. error</th>
-      <th id="T_33255_level0_col4" class="col_heading level0 col4" >ratio</th>
+      <th id="T_6beb2_level0_col0" class="col_heading level0 col0" >n</th>
+      <th id="T_6beb2_level0_col1" class="col_heading level0 col1" >dt</th>
+      <th id="T_6beb2_level0_col2" class="col_heading level0 col2" >solution</th>
+      <th id="T_6beb2_level0_col3" class="col_heading level0 col3" >abs. error</th>
+      <th id="T_6beb2_level0_col4" class="col_heading level0 col4" >ratio</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_33255_row0_col0" class="data row0 col0" >10</td>
-      <td id="T_33255_row0_col1" class="data row0 col1" >0.100000</td>
-      <td id="T_33255_row0_col2" class="data row0 col2" >7.000000</td>
-      <td id="T_33255_row0_col3" class="data row0 col3" >1.000000</td>
-      <td id="T_33255_row0_col4" class="data row0 col4" >---</td>
+      <td id="T_6beb2_row0_col0" class="data row0 col0" >10</td>
+      <td id="T_6beb2_row0_col1" class="data row0 col1" >0.100000</td>
+      <td id="T_6beb2_row0_col2" class="data row0 col2" >7.000000</td>
+      <td id="T_6beb2_row0_col3" class="data row0 col3" >1.000000</td>
+      <td id="T_6beb2_row0_col4" class="data row0 col4" >---</td>
     </tr>
     <tr>
-      <td id="T_33255_row1_col0" class="data row1 col0" >20</td>
-      <td id="T_33255_row1_col1" class="data row1 col1" >0.050000</td>
-      <td id="T_33255_row1_col2" class="data row1 col2" >7.454545</td>
-      <td id="T_33255_row1_col3" class="data row1 col3" >0.545455</td>
-      <td id="T_33255_row1_col4" class="data row1 col4" >0.545455</td>
+      <td id="T_6beb2_row1_col0" class="data row1 col0" >20</td>
+      <td id="T_6beb2_row1_col1" class="data row1 col1" >0.050000</td>
+      <td id="T_6beb2_row1_col2" class="data row1 col2" >7.454545</td>
+      <td id="T_6beb2_row1_col3" class="data row1 col3" >0.545455</td>
+      <td id="T_6beb2_row1_col4" class="data row1 col4" >0.545455</td>
     </tr>
     <tr>
-      <td id="T_33255_row2_col0" class="data row2 col0" >40</td>
-      <td id="T_33255_row2_col1" class="data row2 col1" >0.025000</td>
-      <td id="T_33255_row2_col2" class="data row2 col2" >7.714286</td>
-      <td id="T_33255_row2_col3" class="data row2 col3" >0.285714</td>
-      <td id="T_33255_row2_col4" class="data row2 col4" >0.523810</td>
+      <td id="T_6beb2_row2_col0" class="data row2 col0" >40</td>
+      <td id="T_6beb2_row2_col1" class="data row2 col1" >0.025000</td>
+      <td id="T_6beb2_row2_col2" class="data row2 col2" >7.714286</td>
+      <td id="T_6beb2_row2_col3" class="data row2 col3" >0.285714</td>
+      <td id="T_6beb2_row2_col4" class="data row2 col4" >0.523810</td>
     </tr>
     <tr>
-      <td id="T_33255_row3_col0" class="data row3 col0" >80</td>
-      <td id="T_33255_row3_col1" class="data row3 col1" >0.012500</td>
-      <td id="T_33255_row3_col2" class="data row3 col2" >7.853659</td>
-      <td id="T_33255_row3_col3" class="data row3 col3" >0.146341</td>
-      <td id="T_33255_row3_col4" class="data row3 col4" >0.512195</td>
+      <td id="T_6beb2_row3_col0" class="data row3 col0" >80</td>
+      <td id="T_6beb2_row3_col1" class="data row3 col1" >0.012500</td>
+      <td id="T_6beb2_row3_col2" class="data row3 col2" >7.853659</td>
+      <td id="T_6beb2_row3_col3" class="data row3 col3" >0.146341</td>
+      <td id="T_6beb2_row3_col4" class="data row3 col4" >0.512195</td>
     </tr>
     <tr>
-      <td id="T_33255_row4_col0" class="data row4 col0" >160</td>
-      <td id="T_33255_row4_col1" class="data row4 col1" >0.006250</td>
-      <td id="T_33255_row4_col2" class="data row4 col2" >7.925926</td>
-      <td id="T_33255_row4_col3" class="data row4 col3" >0.074074</td>
-      <td id="T_33255_row4_col4" class="data row4 col4" >0.506173</td>
+      <td id="T_6beb2_row4_col0" class="data row4 col0" >160</td>
+      <td id="T_6beb2_row4_col1" class="data row4 col1" >0.006250</td>
+      <td id="T_6beb2_row4_col2" class="data row4 col2" >7.925926</td>
+      <td id="T_6beb2_row4_col3" class="data row4 col3" >0.074074</td>
+      <td id="T_6beb2_row4_col4" class="data row4 col4" >0.506173</td>
     </tr>
     <tr>
-      <td id="T_33255_row5_col0" class="data row5 col0" >320</td>
-      <td id="T_33255_row5_col1" class="data row5 col1" >0.003125</td>
-      <td id="T_33255_row5_col2" class="data row5 col2" >7.962733</td>
-      <td id="T_33255_row5_col3" class="data row5 col3" >0.037267</td>
-      <td id="T_33255_row5_col4" class="data row5 col4" >0.503106</td>
+      <td id="T_6beb2_row5_col0" class="data row5 col0" >320</td>
+      <td id="T_6beb2_row5_col1" class="data row5 col1" >0.003125</td>
+      <td id="T_6beb2_row5_col2" class="data row5 col2" >7.962733</td>
+      <td id="T_6beb2_row5_col3" class="data row5 col3" >0.037267</td>
+      <td id="T_6beb2_row5_col4" class="data row5 col4" >0.503106</td>
     </tr>
     <tr>
-      <td id="T_33255_row6_col0" class="data row6 col0" >640</td>
-      <td id="T_33255_row6_col1" class="data row6 col1" >0.001563</td>
-      <td id="T_33255_row6_col2" class="data row6 col2" >7.981308</td>
-      <td id="T_33255_row6_col3" class="data row6 col3" >0.018692</td>
-      <td id="T_33255_row6_col4" class="data row6 col4" >0.501558</td>
+      <td id="T_6beb2_row6_col0" class="data row6 col0" >640</td>
+      <td id="T_6beb2_row6_col1" class="data row6 col1" >0.001563</td>
+      <td id="T_6beb2_row6_col2" class="data row6 col2" >7.981308</td>
+      <td id="T_6beb2_row6_col3" class="data row6 col3" >0.018692</td>
+      <td id="T_6beb2_row6_col4" class="data row6 col4" >0.501558</td>
     </tr>
   </tbody>
 </table>
@@ -796,73 +808,78 @@ which should be an improve approximation!</p>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/ee0c9493ac2c9882be482f6940c5fa4db854ac5115367e7de188a46da01ffc26.png" src="../_images/ee0c9493ac2c9882be482f6940c5fa4db854ac5115367e7de188a46da01ffc26.png" />
+<img alt="../_images/6043d1263205a9ee7c9d3d7f0dbda87c27408c2873cb0d271324538cb59517de.png" src="../_images/6043d1263205a9ee7c9d3d7f0dbda87c27408c2873cb0d271324538cb59517de.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/2464ea6d4e2e0ef7f6ab678f8b502617d6115d75d863fba35bd0ca3761a7cdf8.png" src="../_images/2464ea6d4e2e0ef7f6ab678f8b502617d6115d75d863fba35bd0ca3761a7cdf8.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_03591">
+<table id="T_b5391">
   <caption>Results of using the midpoint method varying dt</caption>
   <thead>
     <tr>
-      <th id="T_03591_level0_col0" class="col_heading level0 col0" >n</th>
-      <th id="T_03591_level0_col1" class="col_heading level0 col1" >dt</th>
-      <th id="T_03591_level0_col2" class="col_heading level0 col2" >solution</th>
-      <th id="T_03591_level0_col3" class="col_heading level0 col3" >abs. error</th>
-      <th id="T_03591_level0_col4" class="col_heading level0 col4" >ratio</th>
+      <th id="T_b5391_level0_col0" class="col_heading level0 col0" >n</th>
+      <th id="T_b5391_level0_col1" class="col_heading level0 col1" >dt</th>
+      <th id="T_b5391_level0_col2" class="col_heading level0 col2" >solution</th>
+      <th id="T_b5391_level0_col3" class="col_heading level0 col3" >abs. error</th>
+      <th id="T_b5391_level0_col4" class="col_heading level0 col4" >ratio</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_03591_row0_col0" class="data row0 col0" >10</td>
-      <td id="T_03591_row0_col1" class="data row0 col1" >0.100000</td>
-      <td id="T_03591_row0_col2" class="data row0 col2" >7.935060</td>
-      <td id="T_03591_row0_col3" class="data row0 col3" >0.064940</td>
-      <td id="T_03591_row0_col4" class="data row0 col4" >---</td>
+      <td id="T_b5391_row0_col0" class="data row0 col0" >10</td>
+      <td id="T_b5391_row0_col1" class="data row0 col1" >0.100000</td>
+      <td id="T_b5391_row0_col2" class="data row0 col2" >7.935060</td>
+      <td id="T_b5391_row0_col3" class="data row0 col3" >0.064940</td>
+      <td id="T_b5391_row0_col4" class="data row0 col4" >---</td>
     </tr>
     <tr>
-      <td id="T_03591_row1_col0" class="data row1 col0" >20</td>
-      <td id="T_03591_row1_col1" class="data row1 col1" >0.050000</td>
-      <td id="T_03591_row1_col2" class="data row1 col2" >7.982538</td>
-      <td id="T_03591_row1_col3" class="data row1 col3" >0.017462</td>
-      <td id="T_03591_row1_col4" class="data row1 col4" >0.268892</td>
+      <td id="T_b5391_row1_col0" class="data row1 col0" >20</td>
+      <td id="T_b5391_row1_col1" class="data row1 col1" >0.050000</td>
+      <td id="T_b5391_row1_col2" class="data row1 col2" >7.982538</td>
+      <td id="T_b5391_row1_col3" class="data row1 col3" >0.017462</td>
+      <td id="T_b5391_row1_col4" class="data row1 col4" >0.268892</td>
     </tr>
     <tr>
-      <td id="T_03591_row2_col0" class="data row2 col0" >40</td>
-      <td id="T_03591_row2_col1" class="data row2 col1" >0.025000</td>
-      <td id="T_03591_row2_col2" class="data row2 col2" >7.995475</td>
-      <td id="T_03591_row2_col3" class="data row2 col3" >0.004525</td>
-      <td id="T_03591_row2_col4" class="data row2 col4" >0.259127</td>
+      <td id="T_b5391_row2_col0" class="data row2 col0" >40</td>
+      <td id="T_b5391_row2_col1" class="data row2 col1" >0.025000</td>
+      <td id="T_b5391_row2_col2" class="data row2 col2" >7.995475</td>
+      <td id="T_b5391_row2_col3" class="data row2 col3" >0.004525</td>
+      <td id="T_b5391_row2_col4" class="data row2 col4" >0.259127</td>
     </tr>
     <tr>
-      <td id="T_03591_row3_col0" class="data row3 col0" >80</td>
-      <td id="T_03591_row3_col1" class="data row3 col1" >0.012500</td>
-      <td id="T_03591_row3_col2" class="data row3 col2" >7.998849</td>
-      <td id="T_03591_row3_col3" class="data row3 col3" >0.001151</td>
-      <td id="T_03591_row3_col4" class="data row3 col4" >0.254473</td>
+      <td id="T_b5391_row3_col0" class="data row3 col0" >80</td>
+      <td id="T_b5391_row3_col1" class="data row3 col1" >0.012500</td>
+      <td id="T_b5391_row3_col2" class="data row3 col2" >7.998849</td>
+      <td id="T_b5391_row3_col3" class="data row3 col3" >0.001151</td>
+      <td id="T_b5391_row3_col4" class="data row3 col4" >0.254473</td>
     </tr>
     <tr>
-      <td id="T_03591_row4_col0" class="data row4 col0" >160</td>
-      <td id="T_03591_row4_col1" class="data row4 col1" >0.006250</td>
-      <td id="T_03591_row4_col2" class="data row4 col2" >7.999710</td>
-      <td id="T_03591_row4_col3" class="data row4 col3" >0.000290</td>
-      <td id="T_03591_row4_col4" class="data row4 col4" >0.252212</td>
+      <td id="T_b5391_row4_col0" class="data row4 col0" >160</td>
+      <td id="T_b5391_row4_col1" class="data row4 col1" >0.006250</td>
+      <td id="T_b5391_row4_col2" class="data row4 col2" >7.999710</td>
+      <td id="T_b5391_row4_col3" class="data row4 col3" >0.000290</td>
+      <td id="T_b5391_row4_col4" class="data row4 col4" >0.252212</td>
     </tr>
     <tr>
-      <td id="T_03591_row5_col0" class="data row5 col0" >320</td>
-      <td id="T_03591_row5_col1" class="data row5 col1" >0.003125</td>
-      <td id="T_03591_row5_col2" class="data row5 col2" >7.999927</td>
-      <td id="T_03591_row5_col3" class="data row5 col3" >0.000073</td>
-      <td id="T_03591_row5_col4" class="data row5 col4" >0.251100</td>
+      <td id="T_b5391_row5_col0" class="data row5 col0" >320</td>
+      <td id="T_b5391_row5_col1" class="data row5 col1" >0.003125</td>
+      <td id="T_b5391_row5_col2" class="data row5 col2" >7.999927</td>
+      <td id="T_b5391_row5_col3" class="data row5 col3" >0.000073</td>
+      <td id="T_b5391_row5_col4" class="data row5 col4" >0.251100</td>
     </tr>
     <tr>
-      <td id="T_03591_row6_col0" class="data row6 col0" >640</td>
-      <td id="T_03591_row6_col1" class="data row6 col1" >0.001563</td>
-      <td id="T_03591_row6_col2" class="data row6 col2" >7.999982</td>
-      <td id="T_03591_row6_col3" class="data row6 col3" >0.000018</td>
-      <td id="T_03591_row6_col4" class="data row6 col4" >0.250548</td>
+      <td id="T_b5391_row6_col0" class="data row6 col0" >640</td>
+      <td id="T_b5391_row6_col1" class="data row6 col1" >0.001563</td>
+      <td id="T_b5391_row6_col2" class="data row6 col2" >7.999982</td>
+      <td id="T_b5391_row6_col3" class="data row6 col3" >0.000018</td>
+      <td id="T_b5391_row6_col4" class="data row6 col4" >0.250548</td>
     </tr>
   </tbody>
 </table>
@@ -963,6 +980,7 @@ which should be an improve approximation!</p>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-euler-s-method">Errors in Euler’s method</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-errors-at-t-2">The errors at <span class="math notranslate nohighlight">\(t=2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The errors at <span class="math notranslate nohighlight">\(t=2\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-o-notation">Big O Notation</a></li>
 </ul>
 </li>

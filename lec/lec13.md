@@ -168,7 +168,7 @@ for n in [10, 20, 40, 80, 160, 320, 640]:
     data.append([n, dt, y, error, ratio])
 
 df = pd.DataFrame(data, columns=headers)
-df.style.hide_index().set_caption("Results of using Euler's method varying dt")
+df.style.hide(axis="index").set_caption("Results of using Euler's method varying dt")
 ```
 
 -   What is happening to the error as $\mathrm{d}t \to 0$?
@@ -335,7 +335,7 @@ for n in [10, 20, 40, 80, 160, 320, 640]:
     data.append([n, dt, y, error, ratio])
 
 df = pd.DataFrame(data, columns=headers)
-df.style.hide_index().set_caption("Results of using the midpoint method varying dt")
+df.style.hide(axis="index").set_caption("Results of using the midpoint method varying dt")
 ```
 
 ### Notes

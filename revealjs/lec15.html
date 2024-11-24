@@ -7440,11 +7440,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Today-and-tomorrow">Today and tomorrow<a class="anchor-link" href="#Today-and-tomorrow">¶</a></h1><h2 id="An-introduction-to-nonlinear-solvers"><strong>An introduction to nonlinear solvers</strong><a class="anchor-link" href="#An-introduction-to-nonlinear-solvers">¶</a></h2>
+<h1 id="This-week">This week<a class="anchor-link" href="#This-week">¶</a></h1><h2 id="An-introduction-to-nonlinear-solvers"><strong>An introduction to nonlinear solvers</strong><a class="anchor-link" href="#An-introduction-to-nonlinear-solvers">¶</a></h2>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_remove-input" id="cell-id=863732b7">
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=640bac74">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7497,7 +7496,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># implementation of quadratic formula</span>
@@ -7517,7 +7516,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># test for m = 1e8</span>
@@ -7548,7 +7547,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># absolute and relative errors</span>
@@ -7608,7 +7607,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rhs1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
@@ -7692,7 +7691,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">implicit_euler</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
@@ -7759,7 +7758,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rhs2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
@@ -7774,16 +7773,6 @@ $$</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>&lt;&gt;:10: SyntaxWarning: invalid escape sequence '\e'
-&lt;&gt;:10: SyntaxWarning: invalid escape sequence '\e'
-/tmp/ipykernel_3264/3125103260.py:10: SyntaxWarning: invalid escape sequence '\e'
-  plt.title("Euler's method for $f(x, t) = - 2 x^3 \exp(-(1-x^2))$")
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
@@ -7854,7 +7843,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/wcahAqSFZ8k?rel=0" width="560"></iframe>
 </div>
@@ -7989,14 +7978,14 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Simple bisection implementation</span>
 <span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
     <span class="c1"># Starting values</span>
     <span class="n">fa</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-    <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">fb</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
     <span class="k">while</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
         <span class="c1"># Find new mid point</span>
@@ -8007,6 +7996,7 @@ $$</p>
         <span class="k">if</span> <span class="n">fa</span> <span class="o">*</span> <span class="n">fc</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
             <span class="c1"># move right end</span>
             <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+            <span class="n">fb</span> <span class="o">=</span> <span class="n">fc</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># otherwise,</span>
             <span class="c1"># move the left end</span>
@@ -8056,7 +8046,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">implicit_euler</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
@@ -8093,16 +8083,6 @@ $$</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>&lt;&gt;:11: SyntaxWarning: invalid escape sequence '\e'
-&lt;&gt;:11: SyntaxWarning: invalid escape sequence '\e'
-/tmp/ipykernel_3264/3036601724.py:11: SyntaxWarning: invalid escape sequence '\e'
-  "Implicit Euler's method for $f(x, t) = - 2 x^3 \exp(-(1-x^2))$ using Bisection"
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
 <img alt="No description has been provided for this image" class="" src="data:image/png;base64,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"/>
 </div>
@@ -8126,7 +8106,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -8147,148 +8127,148 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_3fc1d">
+<table id="T_9b54a">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_3fc1d_level0_col0">it</th>
-<th class="col_heading level0 col1" id="T_3fc1d_level0_col1">a</th>
-<th class="col_heading level0 col2" id="T_3fc1d_level0_col2">b</th>
-<th class="col_heading level0 col3" id="T_3fc1d_level0_col3">c</th>
-<th class="col_heading level0 col4" id="T_3fc1d_level0_col4">f(a) $\times$ f(c) </th>
-<th class="col_heading level0 col5" id="T_3fc1d_level0_col5">sign(f(a) $\times$ f(c))</th>
-<th class="col_heading level0 col6" id="T_3fc1d_level0_col6">update</th>
+<th class="col_heading level0 col0" id="T_9b54a_level0_col0">it</th>
+<th class="col_heading level0 col1" id="T_9b54a_level0_col1">a</th>
+<th class="col_heading level0 col2" id="T_9b54a_level0_col2">b</th>
+<th class="col_heading level0 col3" id="T_9b54a_level0_col3">c</th>
+<th class="col_heading level0 col4" id="T_9b54a_level0_col4">f(a) $\times$ f(c) </th>
+<th class="col_heading level0 col5" id="T_9b54a_level0_col5">sign(f(a) $\times$ f(c))</th>
+<th class="col_heading level0 col6" id="T_9b54a_level0_col6">update</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_3fc1d_row0_col0">0</td>
-<td class="data row0 col1" id="T_3fc1d_row0_col1">1.00</td>
-<td class="data row0 col2" id="T_3fc1d_row0_col2">1000.00</td>
-<td class="data row0 col3" id="T_3fc1d_row0_col3">500.50</td>
-<td class="data row0 col4" id="T_3fc1d_row0_col4">-4.28e+07</td>
-<td class="data row0 col5" id="T_3fc1d_row0_col5">-ve</td>
-<td class="data row0 col6" id="T_3fc1d_row0_col6">b &lt;- c</td>
+<td class="data row0 col0" id="T_9b54a_row0_col0">0</td>
+<td class="data row0 col1" id="T_9b54a_row0_col1">1.00</td>
+<td class="data row0 col2" id="T_9b54a_row0_col2">1000.00</td>
+<td class="data row0 col3" id="T_9b54a_row0_col3">500.50</td>
+<td class="data row0 col4" id="T_9b54a_row0_col4">-4.28e+07</td>
+<td class="data row0 col5" id="T_9b54a_row0_col5">negative</td>
+<td class="data row0 col6" id="T_9b54a_row0_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_3fc1d_row1_col0">1</td>
-<td class="data row1 col1" id="T_3fc1d_row1_col1">1.00</td>
-<td class="data row1 col2" id="T_3fc1d_row1_col2">500.50</td>
-<td class="data row1 col3" id="T_3fc1d_row1_col3">250.75</td>
-<td class="data row1 col4" id="T_3fc1d_row1_col4">-5.19e+06</td>
-<td class="data row1 col5" id="T_3fc1d_row1_col5">-ve</td>
-<td class="data row1 col6" id="T_3fc1d_row1_col6">b &lt;- c</td>
+<td class="data row1 col0" id="T_9b54a_row1_col0">1</td>
+<td class="data row1 col1" id="T_9b54a_row1_col1">1.00</td>
+<td class="data row1 col2" id="T_9b54a_row1_col2">500.50</td>
+<td class="data row1 col3" id="T_9b54a_row1_col3">250.75</td>
+<td class="data row1 col4" id="T_9b54a_row1_col4">-5.19e+06</td>
+<td class="data row1 col5" id="T_9b54a_row1_col5">negative</td>
+<td class="data row1 col6" id="T_9b54a_row1_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_3fc1d_row2_col0">2</td>
-<td class="data row2 col1" id="T_3fc1d_row2_col1">1.00</td>
-<td class="data row2 col2" id="T_3fc1d_row2_col2">250.75</td>
-<td class="data row2 col3" id="T_3fc1d_row2_col3">125.88</td>
-<td class="data row2 col4" id="T_3fc1d_row2_col4">7.99e+07</td>
-<td class="data row2 col5" id="T_3fc1d_row2_col5">+ve</td>
-<td class="data row2 col6" id="T_3fc1d_row2_col6">a &lt;- c</td>
+<td class="data row2 col0" id="T_9b54a_row2_col0">2</td>
+<td class="data row2 col1" id="T_9b54a_row2_col1">1.00</td>
+<td class="data row2 col2" id="T_9b54a_row2_col2">250.75</td>
+<td class="data row2 col3" id="T_9b54a_row2_col3">125.88</td>
+<td class="data row2 col4" id="T_9b54a_row2_col4">7.99e+07</td>
+<td class="data row2 col5" id="T_9b54a_row2_col5">positive</td>
+<td class="data row2 col6" id="T_9b54a_row2_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_3fc1d_row3_col0">3</td>
-<td class="data row3 col1" id="T_3fc1d_row3_col1">125.88</td>
-<td class="data row3 col2" id="T_3fc1d_row3_col2">250.75</td>
-<td class="data row3 col3" id="T_3fc1d_row3_col3">188.31</td>
-<td class="data row3 col4" id="T_3fc1d_row3_col4">8.06e+04</td>
-<td class="data row3 col5" id="T_3fc1d_row3_col5">+ve</td>
-<td class="data row3 col6" id="T_3fc1d_row3_col6">a &lt;- c</td>
+<td class="data row3 col0" id="T_9b54a_row3_col0">3</td>
+<td class="data row3 col1" id="T_9b54a_row3_col1">125.88</td>
+<td class="data row3 col2" id="T_9b54a_row3_col2">250.75</td>
+<td class="data row3 col3" id="T_9b54a_row3_col3">188.31</td>
+<td class="data row3 col4" id="T_9b54a_row3_col4">8.06e+04</td>
+<td class="data row3 col5" id="T_9b54a_row3_col5">positive</td>
+<td class="data row3 col6" id="T_9b54a_row3_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_3fc1d_row4_col0">4</td>
-<td class="data row4 col1" id="T_3fc1d_row4_col1">188.31</td>
-<td class="data row4 col2" id="T_3fc1d_row4_col2">250.75</td>
-<td class="data row4 col3" id="T_3fc1d_row4_col3">219.53</td>
-<td class="data row4 col4" id="T_3fc1d_row4_col4">6.66e+03</td>
-<td class="data row4 col5" id="T_3fc1d_row4_col5">+ve</td>
-<td class="data row4 col6" id="T_3fc1d_row4_col6">a &lt;- c</td>
+<td class="data row4 col0" id="T_9b54a_row4_col0">4</td>
+<td class="data row4 col1" id="T_9b54a_row4_col1">188.31</td>
+<td class="data row4 col2" id="T_9b54a_row4_col2">250.75</td>
+<td class="data row4 col3" id="T_9b54a_row4_col3">219.53</td>
+<td class="data row4 col4" id="T_9b54a_row4_col4">6.66e+03</td>
+<td class="data row4 col5" id="T_9b54a_row4_col5">positive</td>
+<td class="data row4 col6" id="T_9b54a_row4_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_3fc1d_row5_col0">5</td>
-<td class="data row5 col1" id="T_3fc1d_row5_col1">219.53</td>
-<td class="data row5 col2" id="T_3fc1d_row5_col2">250.75</td>
-<td class="data row5 col3" id="T_3fc1d_row5_col3">235.14</td>
-<td class="data row5 col4" id="T_3fc1d_row5_col4">8.26e+01</td>
-<td class="data row5 col5" id="T_3fc1d_row5_col5">+ve</td>
-<td class="data row5 col6" id="T_3fc1d_row5_col6">a &lt;- c</td>
+<td class="data row5 col0" id="T_9b54a_row5_col0">5</td>
+<td class="data row5 col1" id="T_9b54a_row5_col1">219.53</td>
+<td class="data row5 col2" id="T_9b54a_row5_col2">250.75</td>
+<td class="data row5 col3" id="T_9b54a_row5_col3">235.14</td>
+<td class="data row5 col4" id="T_9b54a_row5_col4">8.26e+01</td>
+<td class="data row5 col5" id="T_9b54a_row5_col5">positive</td>
+<td class="data row5 col6" id="T_9b54a_row5_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_3fc1d_row6_col0">6</td>
-<td class="data row6 col1" id="T_3fc1d_row6_col1">235.14</td>
-<td class="data row6 col2" id="T_3fc1d_row6_col2">250.75</td>
-<td class="data row6 col3" id="T_3fc1d_row6_col3">242.95</td>
-<td class="data row6 col4" id="T_3fc1d_row6_col4">-3.20e+01</td>
-<td class="data row6 col5" id="T_3fc1d_row6_col5">-ve</td>
-<td class="data row6 col6" id="T_3fc1d_row6_col6">b &lt;- c</td>
+<td class="data row6 col0" id="T_9b54a_row6_col0">6</td>
+<td class="data row6 col1" id="T_9b54a_row6_col1">235.14</td>
+<td class="data row6 col2" id="T_9b54a_row6_col2">250.75</td>
+<td class="data row6 col3" id="T_9b54a_row6_col3">242.95</td>
+<td class="data row6 col4" id="T_9b54a_row6_col4">-3.20e+01</td>
+<td class="data row6 col5" id="T_9b54a_row6_col5">negative</td>
+<td class="data row6 col6" id="T_9b54a_row6_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_3fc1d_row7_col0">7</td>
-<td class="data row7 col1" id="T_3fc1d_row7_col1">235.14</td>
-<td class="data row7 col2" id="T_3fc1d_row7_col2">242.95</td>
-<td class="data row7 col3" id="T_3fc1d_row7_col3">239.04</td>
-<td class="data row7 col4" id="T_3fc1d_row7_col4">-1.45e+01</td>
-<td class="data row7 col5" id="T_3fc1d_row7_col5">-ve</td>
-<td class="data row7 col6" id="T_3fc1d_row7_col6">b &lt;- c</td>
+<td class="data row7 col0" id="T_9b54a_row7_col0">7</td>
+<td class="data row7 col1" id="T_9b54a_row7_col1">235.14</td>
+<td class="data row7 col2" id="T_9b54a_row7_col2">242.95</td>
+<td class="data row7 col3" id="T_9b54a_row7_col3">239.04</td>
+<td class="data row7 col4" id="T_9b54a_row7_col4">-1.45e+01</td>
+<td class="data row7 col5" id="T_9b54a_row7_col5">negative</td>
+<td class="data row7 col6" id="T_9b54a_row7_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_3fc1d_row8_col0">8</td>
-<td class="data row8 col1" id="T_3fc1d_row8_col1">235.14</td>
-<td class="data row8 col2" id="T_3fc1d_row8_col2">239.04</td>
-<td class="data row8 col3" id="T_3fc1d_row8_col3">237.09</td>
-<td class="data row8 col4" id="T_3fc1d_row8_col4">-5.59e+00</td>
-<td class="data row8 col5" id="T_3fc1d_row8_col5">-ve</td>
-<td class="data row8 col6" id="T_3fc1d_row8_col6">b &lt;- c</td>
+<td class="data row8 col0" id="T_9b54a_row8_col0">8</td>
+<td class="data row8 col1" id="T_9b54a_row8_col1">235.14</td>
+<td class="data row8 col2" id="T_9b54a_row8_col2">239.04</td>
+<td class="data row8 col3" id="T_9b54a_row8_col3">237.09</td>
+<td class="data row8 col4" id="T_9b54a_row8_col4">-5.59e+00</td>
+<td class="data row8 col5" id="T_9b54a_row8_col5">negative</td>
+<td class="data row8 col6" id="T_9b54a_row8_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_3fc1d_row9_col0">9</td>
-<td class="data row9 col1" id="T_3fc1d_row9_col1">235.14</td>
-<td class="data row9 col2" id="T_3fc1d_row9_col2">237.09</td>
-<td class="data row9 col3" id="T_3fc1d_row9_col3">236.12</td>
-<td class="data row9 col4" id="T_3fc1d_row9_col4">-1.06e+00</td>
-<td class="data row9 col5" id="T_3fc1d_row9_col5">-ve</td>
-<td class="data row9 col6" id="T_3fc1d_row9_col6">b &lt;- c</td>
+<td class="data row9 col0" id="T_9b54a_row9_col0">9</td>
+<td class="data row9 col1" id="T_9b54a_row9_col1">235.14</td>
+<td class="data row9 col2" id="T_9b54a_row9_col2">237.09</td>
+<td class="data row9 col3" id="T_9b54a_row9_col3">236.12</td>
+<td class="data row9 col4" id="T_9b54a_row9_col4">-1.06e+00</td>
+<td class="data row9 col5" id="T_9b54a_row9_col5">negative</td>
+<td class="data row9 col6" id="T_9b54a_row9_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row10 col0" id="T_3fc1d_row10_col0">10</td>
-<td class="data row10 col1" id="T_3fc1d_row10_col1">235.14</td>
-<td class="data row10 col2" id="T_3fc1d_row10_col2">236.12</td>
-<td class="data row10 col3" id="T_3fc1d_row10_col3">235.63</td>
-<td class="data row10 col4" id="T_3fc1d_row10_col4">1.22e+00</td>
-<td class="data row10 col5" id="T_3fc1d_row10_col5">+ve</td>
-<td class="data row10 col6" id="T_3fc1d_row10_col6">a &lt;- c</td>
+<td class="data row10 col0" id="T_9b54a_row10_col0">10</td>
+<td class="data row10 col1" id="T_9b54a_row10_col1">235.14</td>
+<td class="data row10 col2" id="T_9b54a_row10_col2">236.12</td>
+<td class="data row10 col3" id="T_9b54a_row10_col3">235.63</td>
+<td class="data row10 col4" id="T_9b54a_row10_col4">1.22e+00</td>
+<td class="data row10 col5" id="T_9b54a_row10_col5">positive</td>
+<td class="data row10 col6" id="T_9b54a_row10_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row11 col0" id="T_3fc1d_row11_col0">11</td>
-<td class="data row11 col1" id="T_3fc1d_row11_col1">235.63</td>
-<td class="data row11 col2" id="T_3fc1d_row11_col2">236.12</td>
-<td class="data row11 col3" id="T_3fc1d_row11_col3">235.87</td>
-<td class="data row11 col4" id="T_3fc1d_row11_col4">2.73e-02</td>
-<td class="data row11 col5" id="T_3fc1d_row11_col5">+ve</td>
-<td class="data row11 col6" id="T_3fc1d_row11_col6">a &lt;- c</td>
+<td class="data row11 col0" id="T_9b54a_row11_col0">11</td>
+<td class="data row11 col1" id="T_9b54a_row11_col1">235.63</td>
+<td class="data row11 col2" id="T_9b54a_row11_col2">236.12</td>
+<td class="data row11 col3" id="T_9b54a_row11_col3">235.87</td>
+<td class="data row11 col4" id="T_9b54a_row11_col4">2.73e-02</td>
+<td class="data row11 col5" id="T_9b54a_row11_col5">positive</td>
+<td class="data row11 col6" id="T_9b54a_row11_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row12 col0" id="T_3fc1d_row12_col0">12</td>
-<td class="data row12 col1" id="T_3fc1d_row12_col1">235.87</td>
-<td class="data row12 col2" id="T_3fc1d_row12_col2">236.12</td>
-<td class="data row12 col3" id="T_3fc1d_row12_col3">235.99</td>
-<td class="data row12 col4" id="T_3fc1d_row12_col4">-1.10e-02</td>
-<td class="data row12 col5" id="T_3fc1d_row12_col5">-ve</td>
-<td class="data row12 col6" id="T_3fc1d_row12_col6">b &lt;- c</td>
+<td class="data row12 col0" id="T_9b54a_row12_col0">12</td>
+<td class="data row12 col1" id="T_9b54a_row12_col1">235.87</td>
+<td class="data row12 col2" id="T_9b54a_row12_col2">236.12</td>
+<td class="data row12 col3" id="T_9b54a_row12_col3">235.99</td>
+<td class="data row12 col4" id="T_9b54a_row12_col4">-1.10e-02</td>
+<td class="data row12 col5" id="T_9b54a_row12_col5">negative</td>
+<td class="data row12 col6" id="T_9b54a_row12_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row13 col0" id="T_3fc1d_row13_col0">13</td>
-<td class="data row13 col1" id="T_3fc1d_row13_col1">235.87</td>
-<td class="data row13 col2" id="T_3fc1d_row13_col2">235.99</td>
-<td class="data row13 col3" id="T_3fc1d_row13_col3">235.93</td>
-<td class="data row13 col4" id="T_3fc1d_row13_col4">-4.62e-03</td>
-<td class="data row13 col5" id="T_3fc1d_row13_col5">-ve</td>
-<td class="data row13 col6" id="T_3fc1d_row13_col6">b &lt;- c</td>
+<td class="data row13 col0" id="T_9b54a_row13_col0">13</td>
+<td class="data row13 col1" id="T_9b54a_row13_col1">235.87</td>
+<td class="data row13 col2" id="T_9b54a_row13_col2">235.99</td>
+<td class="data row13 col3" id="T_9b54a_row13_col3">235.93</td>
+<td class="data row13 col4" id="T_9b54a_row13_col4">-4.62e-03</td>
+<td class="data row13 col5" id="T_9b54a_row13_col5">negative</td>
+<td class="data row13 col6" id="T_9b54a_row13_col6">b &lt;- c</td>
 </tr>
 </tbody>
 </table>
@@ -8313,7 +8293,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -8337,139 +8317,139 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_73383">
+<table id="T_97c45">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_73383_level0_col0">it</th>
-<th class="col_heading level0 col1" id="T_73383_level0_col1">a</th>
-<th class="col_heading level0 col2" id="T_73383_level0_col2">b</th>
-<th class="col_heading level0 col3" id="T_73383_level0_col3">c</th>
-<th class="col_heading level0 col4" id="T_73383_level0_col4">f(a) $\times$ f(c) </th>
-<th class="col_heading level0 col5" id="T_73383_level0_col5">sign(f(a) $\times$ f(c))</th>
-<th class="col_heading level0 col6" id="T_73383_level0_col6">update</th>
+<th class="col_heading level0 col0" id="T_97c45_level0_col0">it</th>
+<th class="col_heading level0 col1" id="T_97c45_level0_col1">a</th>
+<th class="col_heading level0 col2" id="T_97c45_level0_col2">b</th>
+<th class="col_heading level0 col3" id="T_97c45_level0_col3">c</th>
+<th class="col_heading level0 col4" id="T_97c45_level0_col4">f(a) $\times$ f(c) </th>
+<th class="col_heading level0 col5" id="T_97c45_level0_col5">sign(f(a) $\times$ f(c))</th>
+<th class="col_heading level0 col6" id="T_97c45_level0_col6">update</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_73383_row0_col0">0</td>
-<td class="data row0 col1" id="T_73383_row0_col1">0.50000</td>
-<td class="data row0 col2" id="T_73383_row0_col2">1.00000</td>
-<td class="data row0 col3" id="T_73383_row0_col3">0.75000</td>
-<td class="data row0 col4" id="T_73383_row0_col4">1.02152e-04</td>
-<td class="data row0 col5" id="T_73383_row0_col5">+ve</td>
-<td class="data row0 col6" id="T_73383_row0_col6">a &lt;- c</td>
+<td class="data row0 col0" id="T_97c45_row0_col0">0</td>
+<td class="data row0 col1" id="T_97c45_row0_col1">0.50000</td>
+<td class="data row0 col2" id="T_97c45_row0_col2">1.00000</td>
+<td class="data row0 col3" id="T_97c45_row0_col3">0.75000</td>
+<td class="data row0 col4" id="T_97c45_row0_col4">1.02152e-04</td>
+<td class="data row0 col5" id="T_97c45_row0_col5">positive</td>
+<td class="data row0 col6" id="T_97c45_row0_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_73383_row1_col0">1</td>
-<td class="data row1 col1" id="T_73383_row1_col1">0.75000</td>
-<td class="data row1 col2" id="T_73383_row1_col2">1.00000</td>
-<td class="data row1 col3" id="T_73383_row1_col3">0.87500</td>
-<td class="data row1 col4" id="T_73383_row1_col4">-5.54603e-05</td>
-<td class="data row1 col5" id="T_73383_row1_col5">-ve</td>
-<td class="data row1 col6" id="T_73383_row1_col6">b &lt;- c</td>
+<td class="data row1 col0" id="T_97c45_row1_col0">1</td>
+<td class="data row1 col1" id="T_97c45_row1_col1">0.75000</td>
+<td class="data row1 col2" id="T_97c45_row1_col2">1.00000</td>
+<td class="data row1 col3" id="T_97c45_row1_col3">0.87500</td>
+<td class="data row1 col4" id="T_97c45_row1_col4">-5.54603e-05</td>
+<td class="data row1 col5" id="T_97c45_row1_col5">negative</td>
+<td class="data row1 col6" id="T_97c45_row1_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_73383_row2_col0">2</td>
-<td class="data row2 col1" id="T_73383_row2_col1">0.75000</td>
-<td class="data row2 col2" id="T_73383_row2_col2">0.87500</td>
-<td class="data row2 col3" id="T_73383_row2_col3">0.81250</td>
-<td class="data row2 col4" id="T_73383_row2_col4">-2.29940e-05</td>
-<td class="data row2 col5" id="T_73383_row2_col5">-ve</td>
-<td class="data row2 col6" id="T_73383_row2_col6">b &lt;- c</td>
+<td class="data row2 col0" id="T_97c45_row2_col0">2</td>
+<td class="data row2 col1" id="T_97c45_row2_col1">0.75000</td>
+<td class="data row2 col2" id="T_97c45_row2_col2">0.87500</td>
+<td class="data row2 col3" id="T_97c45_row2_col3">0.81250</td>
+<td class="data row2 col4" id="T_97c45_row2_col4">-2.29940e-05</td>
+<td class="data row2 col5" id="T_97c45_row2_col5">negative</td>
+<td class="data row2 col6" id="T_97c45_row2_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_73383_row3_col0">3</td>
-<td class="data row3 col1" id="T_73383_row3_col1">0.75000</td>
-<td class="data row3 col2" id="T_73383_row3_col2">0.81250</td>
-<td class="data row3 col3" id="T_73383_row3_col3">0.78125</td>
-<td class="data row3 col4" id="T_73383_row3_col4">-7.63859e-06</td>
-<td class="data row3 col5" id="T_73383_row3_col5">-ve</td>
-<td class="data row3 col6" id="T_73383_row3_col6">b &lt;- c</td>
+<td class="data row3 col0" id="T_97c45_row3_col0">3</td>
+<td class="data row3 col1" id="T_97c45_row3_col1">0.75000</td>
+<td class="data row3 col2" id="T_97c45_row3_col2">0.81250</td>
+<td class="data row3 col3" id="T_97c45_row3_col3">0.78125</td>
+<td class="data row3 col4" id="T_97c45_row3_col4">-7.63859e-06</td>
+<td class="data row3 col5" id="T_97c45_row3_col5">negative</td>
+<td class="data row3 col6" id="T_97c45_row3_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_73383_row4_col0">4</td>
-<td class="data row4 col1" id="T_73383_row4_col1">0.75000</td>
-<td class="data row4 col2" id="T_73383_row4_col2">0.78125</td>
-<td class="data row4 col3" id="T_73383_row4_col3">0.76562</td>
-<td class="data row4 col4" id="T_73383_row4_col4">-1.77701e-07</td>
-<td class="data row4 col5" id="T_73383_row4_col5">-ve</td>
-<td class="data row4 col6" id="T_73383_row4_col6">b &lt;- c</td>
+<td class="data row4 col0" id="T_97c45_row4_col0">4</td>
+<td class="data row4 col1" id="T_97c45_row4_col1">0.75000</td>
+<td class="data row4 col2" id="T_97c45_row4_col2">0.78125</td>
+<td class="data row4 col3" id="T_97c45_row4_col3">0.76562</td>
+<td class="data row4 col4" id="T_97c45_row4_col4">-1.77701e-07</td>
+<td class="data row4 col5" id="T_97c45_row4_col5">negative</td>
+<td class="data row4 col6" id="T_97c45_row4_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_73383_row5_col0">5</td>
-<td class="data row5 col1" id="T_73383_row5_col1">0.75000</td>
-<td class="data row5 col2" id="T_73383_row5_col2">0.76562</td>
-<td class="data row5 col3" id="T_73383_row5_col3">0.75781</td>
-<td class="data row5 col4" id="T_73383_row5_col4">3.49847e-06</td>
-<td class="data row5 col5" id="T_73383_row5_col5">+ve</td>
-<td class="data row5 col6" id="T_73383_row5_col6">a &lt;- c</td>
+<td class="data row5 col0" id="T_97c45_row5_col0">5</td>
+<td class="data row5 col1" id="T_97c45_row5_col1">0.75000</td>
+<td class="data row5 col2" id="T_97c45_row5_col2">0.76562</td>
+<td class="data row5 col3" id="T_97c45_row5_col3">0.75781</td>
+<td class="data row5 col4" id="T_97c45_row5_col4">3.49847e-06</td>
+<td class="data row5 col5" id="T_97c45_row5_col5">positive</td>
+<td class="data row5 col6" id="T_97c45_row5_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_73383_row6_col0">6</td>
-<td class="data row6 col1" id="T_73383_row6_col1">0.75781</td>
-<td class="data row6 col2" id="T_73383_row6_col2">0.76562</td>
-<td class="data row6 col3" id="T_73383_row6_col3">0.76172</td>
-<td class="data row6 col4" id="T_73383_row6_col4">8.15966e-07</td>
-<td class="data row6 col5" id="T_73383_row6_col5">+ve</td>
-<td class="data row6 col6" id="T_73383_row6_col6">a &lt;- c</td>
+<td class="data row6 col0" id="T_97c45_row6_col0">6</td>
+<td class="data row6 col1" id="T_97c45_row6_col1">0.75781</td>
+<td class="data row6 col2" id="T_97c45_row6_col2">0.76562</td>
+<td class="data row6 col3" id="T_97c45_row6_col3">0.76172</td>
+<td class="data row6 col4" id="T_97c45_row6_col4">8.15966e-07</td>
+<td class="data row6 col5" id="T_97c45_row6_col5">positive</td>
+<td class="data row6 col6" id="T_97c45_row6_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_73383_row7_col0">7</td>
-<td class="data row7 col1" id="T_73383_row7_col1">0.76172</td>
-<td class="data row7 col2" id="T_73383_row7_col2">0.76562</td>
-<td class="data row7 col3" id="T_73383_row7_col3">0.76367</td>
-<td class="data row7 col4" id="T_73383_row7_col4">1.73699e-07</td>
-<td class="data row7 col5" id="T_73383_row7_col5">+ve</td>
-<td class="data row7 col6" id="T_73383_row7_col6">a &lt;- c</td>
+<td class="data row7 col0" id="T_97c45_row7_col0">7</td>
+<td class="data row7 col1" id="T_97c45_row7_col1">0.76172</td>
+<td class="data row7 col2" id="T_97c45_row7_col2">0.76562</td>
+<td class="data row7 col3" id="T_97c45_row7_col3">0.76367</td>
+<td class="data row7 col4" id="T_97c45_row7_col4">1.73699e-07</td>
+<td class="data row7 col5" id="T_97c45_row7_col5">positive</td>
+<td class="data row7 col6" id="T_97c45_row7_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_73383_row8_col0">8</td>
-<td class="data row8 col1" id="T_73383_row8_col1">0.76367</td>
-<td class="data row8 col2" id="T_73383_row8_col2">0.76562</td>
-<td class="data row8 col3" id="T_73383_row8_col3">0.76465</td>
-<td class="data row8 col4" id="T_73383_row8_col4">2.96088e-08</td>
-<td class="data row8 col5" id="T_73383_row8_col5">+ve</td>
-<td class="data row8 col6" id="T_73383_row8_col6">a &lt;- c</td>
+<td class="data row8 col0" id="T_97c45_row8_col0">8</td>
+<td class="data row8 col1" id="T_97c45_row8_col1">0.76367</td>
+<td class="data row8 col2" id="T_97c45_row8_col2">0.76562</td>
+<td class="data row8 col3" id="T_97c45_row8_col3">0.76465</td>
+<td class="data row8 col4" id="T_97c45_row8_col4">2.96088e-08</td>
+<td class="data row8 col5" id="T_97c45_row8_col5">positive</td>
+<td class="data row8 col6" id="T_97c45_row8_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_73383_row9_col0">9</td>
-<td class="data row9 col1" id="T_73383_row9_col1">0.76465</td>
-<td class="data row9 col2" id="T_73383_row9_col2">0.76562</td>
-<td class="data row9 col3" id="T_73383_row9_col3">0.76514</td>
-<td class="data row9 col4" id="T_73383_row9_col4">2.11193e-09</td>
-<td class="data row9 col5" id="T_73383_row9_col5">+ve</td>
-<td class="data row9 col6" id="T_73383_row9_col6">a &lt;- c</td>
+<td class="data row9 col0" id="T_97c45_row9_col0">9</td>
+<td class="data row9 col1" id="T_97c45_row9_col1">0.76465</td>
+<td class="data row9 col2" id="T_97c45_row9_col2">0.76562</td>
+<td class="data row9 col3" id="T_97c45_row9_col3">0.76514</td>
+<td class="data row9 col4" id="T_97c45_row9_col4">2.11193e-09</td>
+<td class="data row9 col5" id="T_97c45_row9_col5">positive</td>
+<td class="data row9 col6" id="T_97c45_row9_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row10 col0" id="T_73383_row10_col0">10</td>
-<td class="data row10 col1" id="T_73383_row10_col1">0.76514</td>
-<td class="data row10 col2" id="T_73383_row10_col2">0.76562</td>
-<td class="data row10 col3" id="T_73383_row10_col3">0.76538</td>
-<td class="data row10 col4" id="T_73383_row10_col4">-4.63408e-10</td>
-<td class="data row10 col5" id="T_73383_row10_col5">-ve</td>
-<td class="data row10 col6" id="T_73383_row10_col6">b &lt;- c</td>
+<td class="data row10 col0" id="T_97c45_row10_col0">10</td>
+<td class="data row10 col1" id="T_97c45_row10_col1">0.76514</td>
+<td class="data row10 col2" id="T_97c45_row10_col2">0.76562</td>
+<td class="data row10 col3" id="T_97c45_row10_col3">0.76538</td>
+<td class="data row10 col4" id="T_97c45_row10_col4">-4.63408e-10</td>
+<td class="data row10 col5" id="T_97c45_row10_col5">negative</td>
+<td class="data row10 col6" id="T_97c45_row10_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row11 col0" id="T_73383_row11_col0">11</td>
-<td class="data row11 col1" id="T_73383_row11_col1">0.76514</td>
-<td class="data row11 col2" id="T_73383_row11_col2">0.76538</td>
-<td class="data row11 col3" id="T_73383_row11_col3">0.76526</td>
-<td class="data row11 col4" id="T_73383_row11_col4">-3.40195e-11</td>
-<td class="data row11 col5" id="T_73383_row11_col5">-ve</td>
-<td class="data row11 col6" id="T_73383_row11_col6">b &lt;- c</td>
+<td class="data row11 col0" id="T_97c45_row11_col0">11</td>
+<td class="data row11 col1" id="T_97c45_row11_col1">0.76514</td>
+<td class="data row11 col2" id="T_97c45_row11_col2">0.76538</td>
+<td class="data row11 col3" id="T_97c45_row11_col3">0.76526</td>
+<td class="data row11 col4" id="T_97c45_row11_col4">-3.40195e-11</td>
+<td class="data row11 col5" id="T_97c45_row11_col5">negative</td>
+<td class="data row11 col6" id="T_97c45_row11_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row12 col0" id="T_73383_row12_col0">12</td>
-<td class="data row12 col1" id="T_73383_row12_col1">0.76514</td>
-<td class="data row12 col2" id="T_73383_row12_col2">0.76526</td>
-<td class="data row12 col3" id="T_73383_row12_col3">0.76520</td>
-<td class="data row12 col4" id="T_73383_row12_col4">1.80650e-10</td>
-<td class="data row12 col5" id="T_73383_row12_col5">+ve</td>
-<td class="data row12 col6" id="T_73383_row12_col6">a &lt;- c</td>
+<td class="data row12 col0" id="T_97c45_row12_col0">12</td>
+<td class="data row12 col1" id="T_97c45_row12_col1">0.76514</td>
+<td class="data row12 col2" id="T_97c45_row12_col2">0.76526</td>
+<td class="data row12 col3" id="T_97c45_row12_col3">0.76520</td>
+<td class="data row12 col4" id="T_97c45_row12_col4">1.80650e-10</td>
+<td class="data row12 col5" id="T_97c45_row12_col5">positive</td>
+<td class="data row12 col6" id="T_97c45_row12_col6">a &lt;- c</td>
 </tr>
 </tbody>
 </table>
@@ -8709,7 +8689,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
@@ -8729,7 +8709,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">newton2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-10</span><span class="p">):</span>
@@ -8784,7 +8764,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -8835,33 +8815,33 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_34ea3">
+<table id="T_0a052">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_34ea3_level0_col0">iter</th>
-<th class="col_heading level0 col1" id="T_34ea3_level0_col1">x</th>
-<th class="col_heading level0 col2" id="T_34ea3_level0_col2">f(x)</th>
+<th class="col_heading level0 col0" id="T_0a052_level0_col0">iter</th>
+<th class="col_heading level0 col1" id="T_0a052_level0_col1">x</th>
+<th class="col_heading level0 col2" id="T_0a052_level0_col2">f(x)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_34ea3_row0_col0">0</td>
-<td class="data row0 col1" id="T_34ea3_row0_col1">1.000000</td>
-<td class="data row0 col2" id="T_34ea3_row0_col2">-0.047900</td>
+<td class="data row0 col0" id="T_0a052_row0_col0">0</td>
+<td class="data row0 col1" id="T_0a052_row0_col1">1.000000</td>
+<td class="data row0 col2" id="T_0a052_row0_col2">-0.047900</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_34ea3_row1_col0">1</td>
-<td class="data row1 col1" id="T_34ea3_row1_col1">0.795168</td>
-<td class="data row1 col2" id="T_34ea3_row1_col2">-0.005392</td>
+<td class="data row1 col0" id="T_0a052_row1_col0">1</td>
+<td class="data row1 col1" id="T_0a052_row1_col1">0.795168</td>
+<td class="data row1 col2" id="T_0a052_row1_col2">-0.005392</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_34ea3_row2_col0">2</td>
-<td class="data row2 col1" id="T_34ea3_row2_col1">0.765789</td>
-<td class="data row2 col2" id="T_34ea3_row2_col2">-0.000096</td>
+<td class="data row2 col0" id="T_0a052_row2_col0">2</td>
+<td class="data row2 col1" id="T_0a052_row2_col1">0.765789</td>
+<td class="data row2 col2" id="T_0a052_row2_col2">-0.000096</td>
 </tr>
 </tbody>
 </table>
@@ -8886,48 +8866,48 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_4d06f">
+<table id="T_70186">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_4d06f_level0_col0">iter</th>
-<th class="col_heading level0 col1" id="T_4d06f_level0_col1">x</th>
-<th class="col_heading level0 col2" id="T_4d06f_level0_col2">f(x)</th>
+<th class="col_heading level0 col0" id="T_70186_level0_col0">iter</th>
+<th class="col_heading level0 col1" id="T_70186_level0_col1">x</th>
+<th class="col_heading level0 col2" id="T_70186_level0_col2">f(x)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_4d06f_row0_col0">0</td>
-<td class="data row0 col1" id="T_4d06f_row0_col1">0.100000</td>
-<td class="data row0 col2" id="T_4d06f_row0_col2">0.028046</td>
+<td class="data row0 col0" id="T_70186_row0_col0">0</td>
+<td class="data row0 col1" id="T_70186_row0_col1">0.100000</td>
+<td class="data row0 col2" id="T_70186_row0_col2">0.028046</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_4d06f_row1_col0">1</td>
-<td class="data row1 col1" id="T_4d06f_row1_col1">0.000278</td>
-<td class="data row1 col2" id="T_4d06f_row1_col2">-0.045086</td>
+<td class="data row1 col0" id="T_70186_row1_col0">1</td>
+<td class="data row1 col1" id="T_70186_row1_col1">0.000278</td>
+<td class="data row1 col2" id="T_70186_row1_col2">-0.045086</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_4d06f_row2_col0">2</td>
-<td class="data row2 col1" id="T_4d06f_row2_col1">0.005413</td>
-<td class="data row2 col2" id="T_4d06f_row2_col2">-0.028849</td>
+<td class="data row2 col0" id="T_70186_row2_col0">2</td>
+<td class="data row2 col1" id="T_70186_row2_col1">0.005413</td>
+<td class="data row2 col2" id="T_70186_row2_col2">-0.028849</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_4d06f_row3_col0">3</td>
-<td class="data row3 col1" id="T_4d06f_row3_col1">0.020693</td>
-<td class="data row3 col2" id="T_4d06f_row3_col2">-0.010046</td>
+<td class="data row3 col0" id="T_70186_row3_col0">3</td>
+<td class="data row3 col1" id="T_70186_row3_col1">0.020693</td>
+<td class="data row3 col2" id="T_70186_row3_col2">-0.010046</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_4d06f_row4_col0">4</td>
-<td class="data row4 col1" id="T_4d06f_row4_col1">0.031958</td>
-<td class="data row4 col2" id="T_4d06f_row4_col2">-0.001300</td>
+<td class="data row4 col0" id="T_70186_row4_col0">4</td>
+<td class="data row4 col1" id="T_70186_row4_col1">0.031958</td>
+<td class="data row4 col2" id="T_70186_row4_col2">-0.001300</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_4d06f_row5_col0">5</td>
-<td class="data row5 col1" id="T_4d06f_row5_col1">0.033863</td>
-<td class="data row5 col2" id="T_4d06f_row5_col2">-0.000024</td>
+<td class="data row5 col0" id="T_70186_row5_col0">5</td>
+<td class="data row5 col1" id="T_70186_row5_col1">0.033863</td>
+<td class="data row5 col2" id="T_70186_row5_col2">-0.000024</td>
 </tr>
 </tbody>
 </table>
@@ -8952,139 +8932,139 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_9f13d">
+<table id="T_499f9">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_9f13d_level0_col0">it</th>
-<th class="col_heading level0 col1" id="T_9f13d_level0_col1">a</th>
-<th class="col_heading level0 col2" id="T_9f13d_level0_col2">b</th>
-<th class="col_heading level0 col3" id="T_9f13d_level0_col3">c</th>
-<th class="col_heading level0 col4" id="T_9f13d_level0_col4">f(a) $\times$ f(c) </th>
-<th class="col_heading level0 col5" id="T_9f13d_level0_col5">sign(f(a) $\times$ f(c))</th>
-<th class="col_heading level0 col6" id="T_9f13d_level0_col6">update</th>
+<th class="col_heading level0 col0" id="T_499f9_level0_col0">it</th>
+<th class="col_heading level0 col1" id="T_499f9_level0_col1">a</th>
+<th class="col_heading level0 col2" id="T_499f9_level0_col2">b</th>
+<th class="col_heading level0 col3" id="T_499f9_level0_col3">c</th>
+<th class="col_heading level0 col4" id="T_499f9_level0_col4">f(a) $\times$ f(c) </th>
+<th class="col_heading level0 col5" id="T_499f9_level0_col5">sign(f(a) $\times$ f(c))</th>
+<th class="col_heading level0 col6" id="T_499f9_level0_col6">update</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_9f13d_row0_col0">0</td>
-<td class="data row0 col1" id="T_9f13d_row0_col1">0.50000</td>
-<td class="data row0 col2" id="T_9f13d_row0_col2">1.00000</td>
-<td class="data row0 col3" id="T_9f13d_row0_col3">0.75000</td>
-<td class="data row0 col4" id="T_9f13d_row0_col4">1.02152e-04</td>
-<td class="data row0 col5" id="T_9f13d_row0_col5">+ve</td>
-<td class="data row0 col6" id="T_9f13d_row0_col6">a &lt;- c</td>
+<td class="data row0 col0" id="T_499f9_row0_col0">0</td>
+<td class="data row0 col1" id="T_499f9_row0_col1">0.50000</td>
+<td class="data row0 col2" id="T_499f9_row0_col2">1.00000</td>
+<td class="data row0 col3" id="T_499f9_row0_col3">0.75000</td>
+<td class="data row0 col4" id="T_499f9_row0_col4">1.02152e-04</td>
+<td class="data row0 col5" id="T_499f9_row0_col5">positive</td>
+<td class="data row0 col6" id="T_499f9_row0_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_9f13d_row1_col0">1</td>
-<td class="data row1 col1" id="T_9f13d_row1_col1">0.75000</td>
-<td class="data row1 col2" id="T_9f13d_row1_col2">1.00000</td>
-<td class="data row1 col3" id="T_9f13d_row1_col3">0.87500</td>
-<td class="data row1 col4" id="T_9f13d_row1_col4">-5.54603e-05</td>
-<td class="data row1 col5" id="T_9f13d_row1_col5">-ve</td>
-<td class="data row1 col6" id="T_9f13d_row1_col6">b &lt;- c</td>
+<td class="data row1 col0" id="T_499f9_row1_col0">1</td>
+<td class="data row1 col1" id="T_499f9_row1_col1">0.75000</td>
+<td class="data row1 col2" id="T_499f9_row1_col2">1.00000</td>
+<td class="data row1 col3" id="T_499f9_row1_col3">0.87500</td>
+<td class="data row1 col4" id="T_499f9_row1_col4">-5.54603e-05</td>
+<td class="data row1 col5" id="T_499f9_row1_col5">negative</td>
+<td class="data row1 col6" id="T_499f9_row1_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_9f13d_row2_col0">2</td>
-<td class="data row2 col1" id="T_9f13d_row2_col1">0.75000</td>
-<td class="data row2 col2" id="T_9f13d_row2_col2">0.87500</td>
-<td class="data row2 col3" id="T_9f13d_row2_col3">0.81250</td>
-<td class="data row2 col4" id="T_9f13d_row2_col4">-2.29940e-05</td>
-<td class="data row2 col5" id="T_9f13d_row2_col5">-ve</td>
-<td class="data row2 col6" id="T_9f13d_row2_col6">b &lt;- c</td>
+<td class="data row2 col0" id="T_499f9_row2_col0">2</td>
+<td class="data row2 col1" id="T_499f9_row2_col1">0.75000</td>
+<td class="data row2 col2" id="T_499f9_row2_col2">0.87500</td>
+<td class="data row2 col3" id="T_499f9_row2_col3">0.81250</td>
+<td class="data row2 col4" id="T_499f9_row2_col4">-2.29940e-05</td>
+<td class="data row2 col5" id="T_499f9_row2_col5">negative</td>
+<td class="data row2 col6" id="T_499f9_row2_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_9f13d_row3_col0">3</td>
-<td class="data row3 col1" id="T_9f13d_row3_col1">0.75000</td>
-<td class="data row3 col2" id="T_9f13d_row3_col2">0.81250</td>
-<td class="data row3 col3" id="T_9f13d_row3_col3">0.78125</td>
-<td class="data row3 col4" id="T_9f13d_row3_col4">-7.63859e-06</td>
-<td class="data row3 col5" id="T_9f13d_row3_col5">-ve</td>
-<td class="data row3 col6" id="T_9f13d_row3_col6">b &lt;- c</td>
+<td class="data row3 col0" id="T_499f9_row3_col0">3</td>
+<td class="data row3 col1" id="T_499f9_row3_col1">0.75000</td>
+<td class="data row3 col2" id="T_499f9_row3_col2">0.81250</td>
+<td class="data row3 col3" id="T_499f9_row3_col3">0.78125</td>
+<td class="data row3 col4" id="T_499f9_row3_col4">-7.63859e-06</td>
+<td class="data row3 col5" id="T_499f9_row3_col5">negative</td>
+<td class="data row3 col6" id="T_499f9_row3_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_9f13d_row4_col0">4</td>
-<td class="data row4 col1" id="T_9f13d_row4_col1">0.75000</td>
-<td class="data row4 col2" id="T_9f13d_row4_col2">0.78125</td>
-<td class="data row4 col3" id="T_9f13d_row4_col3">0.76562</td>
-<td class="data row4 col4" id="T_9f13d_row4_col4">-1.77701e-07</td>
-<td class="data row4 col5" id="T_9f13d_row4_col5">-ve</td>
-<td class="data row4 col6" id="T_9f13d_row4_col6">b &lt;- c</td>
+<td class="data row4 col0" id="T_499f9_row4_col0">4</td>
+<td class="data row4 col1" id="T_499f9_row4_col1">0.75000</td>
+<td class="data row4 col2" id="T_499f9_row4_col2">0.78125</td>
+<td class="data row4 col3" id="T_499f9_row4_col3">0.76562</td>
+<td class="data row4 col4" id="T_499f9_row4_col4">-1.77701e-07</td>
+<td class="data row4 col5" id="T_499f9_row4_col5">negative</td>
+<td class="data row4 col6" id="T_499f9_row4_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_9f13d_row5_col0">5</td>
-<td class="data row5 col1" id="T_9f13d_row5_col1">0.75000</td>
-<td class="data row5 col2" id="T_9f13d_row5_col2">0.76562</td>
-<td class="data row5 col3" id="T_9f13d_row5_col3">0.75781</td>
-<td class="data row5 col4" id="T_9f13d_row5_col4">3.49847e-06</td>
-<td class="data row5 col5" id="T_9f13d_row5_col5">+ve</td>
-<td class="data row5 col6" id="T_9f13d_row5_col6">a &lt;- c</td>
+<td class="data row5 col0" id="T_499f9_row5_col0">5</td>
+<td class="data row5 col1" id="T_499f9_row5_col1">0.75000</td>
+<td class="data row5 col2" id="T_499f9_row5_col2">0.76562</td>
+<td class="data row5 col3" id="T_499f9_row5_col3">0.75781</td>
+<td class="data row5 col4" id="T_499f9_row5_col4">3.49847e-06</td>
+<td class="data row5 col5" id="T_499f9_row5_col5">positive</td>
+<td class="data row5 col6" id="T_499f9_row5_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_9f13d_row6_col0">6</td>
-<td class="data row6 col1" id="T_9f13d_row6_col1">0.75781</td>
-<td class="data row6 col2" id="T_9f13d_row6_col2">0.76562</td>
-<td class="data row6 col3" id="T_9f13d_row6_col3">0.76172</td>
-<td class="data row6 col4" id="T_9f13d_row6_col4">8.15966e-07</td>
-<td class="data row6 col5" id="T_9f13d_row6_col5">+ve</td>
-<td class="data row6 col6" id="T_9f13d_row6_col6">a &lt;- c</td>
+<td class="data row6 col0" id="T_499f9_row6_col0">6</td>
+<td class="data row6 col1" id="T_499f9_row6_col1">0.75781</td>
+<td class="data row6 col2" id="T_499f9_row6_col2">0.76562</td>
+<td class="data row6 col3" id="T_499f9_row6_col3">0.76172</td>
+<td class="data row6 col4" id="T_499f9_row6_col4">8.15966e-07</td>
+<td class="data row6 col5" id="T_499f9_row6_col5">positive</td>
+<td class="data row6 col6" id="T_499f9_row6_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_9f13d_row7_col0">7</td>
-<td class="data row7 col1" id="T_9f13d_row7_col1">0.76172</td>
-<td class="data row7 col2" id="T_9f13d_row7_col2">0.76562</td>
-<td class="data row7 col3" id="T_9f13d_row7_col3">0.76367</td>
-<td class="data row7 col4" id="T_9f13d_row7_col4">1.73699e-07</td>
-<td class="data row7 col5" id="T_9f13d_row7_col5">+ve</td>
-<td class="data row7 col6" id="T_9f13d_row7_col6">a &lt;- c</td>
+<td class="data row7 col0" id="T_499f9_row7_col0">7</td>
+<td class="data row7 col1" id="T_499f9_row7_col1">0.76172</td>
+<td class="data row7 col2" id="T_499f9_row7_col2">0.76562</td>
+<td class="data row7 col3" id="T_499f9_row7_col3">0.76367</td>
+<td class="data row7 col4" id="T_499f9_row7_col4">1.73699e-07</td>
+<td class="data row7 col5" id="T_499f9_row7_col5">positive</td>
+<td class="data row7 col6" id="T_499f9_row7_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_9f13d_row8_col0">8</td>
-<td class="data row8 col1" id="T_9f13d_row8_col1">0.76367</td>
-<td class="data row8 col2" id="T_9f13d_row8_col2">0.76562</td>
-<td class="data row8 col3" id="T_9f13d_row8_col3">0.76465</td>
-<td class="data row8 col4" id="T_9f13d_row8_col4">2.96088e-08</td>
-<td class="data row8 col5" id="T_9f13d_row8_col5">+ve</td>
-<td class="data row8 col6" id="T_9f13d_row8_col6">a &lt;- c</td>
+<td class="data row8 col0" id="T_499f9_row8_col0">8</td>
+<td class="data row8 col1" id="T_499f9_row8_col1">0.76367</td>
+<td class="data row8 col2" id="T_499f9_row8_col2">0.76562</td>
+<td class="data row8 col3" id="T_499f9_row8_col3">0.76465</td>
+<td class="data row8 col4" id="T_499f9_row8_col4">2.96088e-08</td>
+<td class="data row8 col5" id="T_499f9_row8_col5">positive</td>
+<td class="data row8 col6" id="T_499f9_row8_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_9f13d_row9_col0">9</td>
-<td class="data row9 col1" id="T_9f13d_row9_col1">0.76465</td>
-<td class="data row9 col2" id="T_9f13d_row9_col2">0.76562</td>
-<td class="data row9 col3" id="T_9f13d_row9_col3">0.76514</td>
-<td class="data row9 col4" id="T_9f13d_row9_col4">2.11193e-09</td>
-<td class="data row9 col5" id="T_9f13d_row9_col5">+ve</td>
-<td class="data row9 col6" id="T_9f13d_row9_col6">a &lt;- c</td>
+<td class="data row9 col0" id="T_499f9_row9_col0">9</td>
+<td class="data row9 col1" id="T_499f9_row9_col1">0.76465</td>
+<td class="data row9 col2" id="T_499f9_row9_col2">0.76562</td>
+<td class="data row9 col3" id="T_499f9_row9_col3">0.76514</td>
+<td class="data row9 col4" id="T_499f9_row9_col4">2.11193e-09</td>
+<td class="data row9 col5" id="T_499f9_row9_col5">positive</td>
+<td class="data row9 col6" id="T_499f9_row9_col6">a &lt;- c</td>
 </tr>
 <tr>
-<td class="data row10 col0" id="T_9f13d_row10_col0">10</td>
-<td class="data row10 col1" id="T_9f13d_row10_col1">0.76514</td>
-<td class="data row10 col2" id="T_9f13d_row10_col2">0.76562</td>
-<td class="data row10 col3" id="T_9f13d_row10_col3">0.76538</td>
-<td class="data row10 col4" id="T_9f13d_row10_col4">-4.63408e-10</td>
-<td class="data row10 col5" id="T_9f13d_row10_col5">-ve</td>
-<td class="data row10 col6" id="T_9f13d_row10_col6">b &lt;- c</td>
+<td class="data row10 col0" id="T_499f9_row10_col0">10</td>
+<td class="data row10 col1" id="T_499f9_row10_col1">0.76514</td>
+<td class="data row10 col2" id="T_499f9_row10_col2">0.76562</td>
+<td class="data row10 col3" id="T_499f9_row10_col3">0.76538</td>
+<td class="data row10 col4" id="T_499f9_row10_col4">-4.63408e-10</td>
+<td class="data row10 col5" id="T_499f9_row10_col5">negative</td>
+<td class="data row10 col6" id="T_499f9_row10_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row11 col0" id="T_9f13d_row11_col0">11</td>
-<td class="data row11 col1" id="T_9f13d_row11_col1">0.76514</td>
-<td class="data row11 col2" id="T_9f13d_row11_col2">0.76538</td>
-<td class="data row11 col3" id="T_9f13d_row11_col3">0.76526</td>
-<td class="data row11 col4" id="T_9f13d_row11_col4">-3.40195e-11</td>
-<td class="data row11 col5" id="T_9f13d_row11_col5">-ve</td>
-<td class="data row11 col6" id="T_9f13d_row11_col6">b &lt;- c</td>
+<td class="data row11 col0" id="T_499f9_row11_col0">11</td>
+<td class="data row11 col1" id="T_499f9_row11_col1">0.76514</td>
+<td class="data row11 col2" id="T_499f9_row11_col2">0.76538</td>
+<td class="data row11 col3" id="T_499f9_row11_col3">0.76526</td>
+<td class="data row11 col4" id="T_499f9_row11_col4">-3.40195e-11</td>
+<td class="data row11 col5" id="T_499f9_row11_col5">negative</td>
+<td class="data row11 col6" id="T_499f9_row11_col6">b &lt;- c</td>
 </tr>
 <tr>
-<td class="data row12 col0" id="T_9f13d_row12_col0">12</td>
-<td class="data row12 col1" id="T_9f13d_row12_col1">0.76514</td>
-<td class="data row12 col2" id="T_9f13d_row12_col2">0.76526</td>
-<td class="data row12 col3" id="T_9f13d_row12_col3">0.76520</td>
-<td class="data row12 col4" id="T_9f13d_row12_col4">1.80650e-10</td>
-<td class="data row12 col5" id="T_9f13d_row12_col5">+ve</td>
-<td class="data row12 col6" id="T_9f13d_row12_col6">a &lt;- c</td>
+<td class="data row12 col0" id="T_499f9_row12_col0">12</td>
+<td class="data row12 col1" id="T_499f9_row12_col1">0.76514</td>
+<td class="data row12 col2" id="T_499f9_row12_col2">0.76526</td>
+<td class="data row12 col3" id="T_499f9_row12_col3">0.76520</td>
+<td class="data row12 col4" id="T_499f9_row12_col4">1.80650e-10</td>
+<td class="data row12 col5" id="T_499f9_row12_col5">positive</td>
+<td class="data row12 col6" id="T_499f9_row12_col6">a &lt;- c</td>
 </tr>
 </tbody>
 </table>
@@ -9133,7 +9113,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -9152,7 +9132,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">newton_with_table</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">)</span>
@@ -9166,68 +9146,68 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_46389">
+<table id="T_ab9db">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_46389_level0_col0">iter</th>
-<th class="col_heading level0 col1" id="T_46389_level0_col1">x</th>
-<th class="col_heading level0 col2" id="T_46389_level0_col2">f(x)</th>
+<th class="col_heading level0 col0" id="T_ab9db_level0_col0">iter</th>
+<th class="col_heading level0 col1" id="T_ab9db_level0_col1">x</th>
+<th class="col_heading level0 col2" id="T_ab9db_level0_col2">f(x)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_46389_row0_col0">0</td>
-<td class="data row0 col1" id="T_46389_row0_col1">4.000000</td>
-<td class="data row0 col2" id="T_46389_row0_col2">9.000000</td>
+<td class="data row0 col0" id="T_ab9db_row0_col0">0</td>
+<td class="data row0 col1" id="T_ab9db_row0_col1">4.000000</td>
+<td class="data row0 col2" id="T_ab9db_row0_col2">9.000000</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_46389_row1_col0">1</td>
-<td class="data row1 col1" id="T_46389_row1_col1">2.500000</td>
-<td class="data row1 col2" id="T_46389_row1_col2">2.250000</td>
+<td class="data row1 col0" id="T_ab9db_row1_col0">1</td>
+<td class="data row1 col1" id="T_ab9db_row1_col1">2.500000</td>
+<td class="data row1 col2" id="T_ab9db_row1_col2">2.250000</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_46389_row2_col0">2</td>
-<td class="data row2 col1" id="T_46389_row2_col1">1.750000</td>
-<td class="data row2 col2" id="T_46389_row2_col2">0.562500</td>
+<td class="data row2 col0" id="T_ab9db_row2_col0">2</td>
+<td class="data row2 col1" id="T_ab9db_row2_col1">1.750000</td>
+<td class="data row2 col2" id="T_ab9db_row2_col2">0.562500</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_46389_row3_col0">3</td>
-<td class="data row3 col1" id="T_46389_row3_col1">1.375000</td>
-<td class="data row3 col2" id="T_46389_row3_col2">0.140625</td>
+<td class="data row3 col0" id="T_ab9db_row3_col0">3</td>
+<td class="data row3 col1" id="T_ab9db_row3_col1">1.375000</td>
+<td class="data row3 col2" id="T_ab9db_row3_col2">0.140625</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_46389_row4_col0">4</td>
-<td class="data row4 col1" id="T_46389_row4_col1">1.187500</td>
-<td class="data row4 col2" id="T_46389_row4_col2">0.035156</td>
+<td class="data row4 col0" id="T_ab9db_row4_col0">4</td>
+<td class="data row4 col1" id="T_ab9db_row4_col1">1.187500</td>
+<td class="data row4 col2" id="T_ab9db_row4_col2">0.035156</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_46389_row5_col0">5</td>
-<td class="data row5 col1" id="T_46389_row5_col1">1.093750</td>
-<td class="data row5 col2" id="T_46389_row5_col2">0.008789</td>
+<td class="data row5 col0" id="T_ab9db_row5_col0">5</td>
+<td class="data row5 col1" id="T_ab9db_row5_col1">1.093750</td>
+<td class="data row5 col2" id="T_ab9db_row5_col2">0.008789</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_46389_row6_col0">6</td>
-<td class="data row6 col1" id="T_46389_row6_col1">1.046875</td>
-<td class="data row6 col2" id="T_46389_row6_col2">0.002197</td>
+<td class="data row6 col0" id="T_ab9db_row6_col0">6</td>
+<td class="data row6 col1" id="T_ab9db_row6_col1">1.046875</td>
+<td class="data row6 col2" id="T_ab9db_row6_col2">0.002197</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_46389_row7_col0">7</td>
-<td class="data row7 col1" id="T_46389_row7_col1">1.023438</td>
-<td class="data row7 col2" id="T_46389_row7_col2">0.000549</td>
+<td class="data row7 col0" id="T_ab9db_row7_col0">7</td>
+<td class="data row7 col1" id="T_ab9db_row7_col1">1.023438</td>
+<td class="data row7 col2" id="T_ab9db_row7_col2">0.000549</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_46389_row8_col0">8</td>
-<td class="data row8 col1" id="T_46389_row8_col1">1.011719</td>
-<td class="data row8 col2" id="T_46389_row8_col2">0.000137</td>
+<td class="data row8 col0" id="T_ab9db_row8_col0">8</td>
+<td class="data row8 col1" id="T_ab9db_row8_col1">1.011719</td>
+<td class="data row8 col2" id="T_ab9db_row8_col2">0.000137</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_46389_row9_col0">9</td>
-<td class="data row9 col1" id="T_46389_row9_col1">1.005859</td>
-<td class="data row9 col2" id="T_46389_row9_col2">0.000034</td>
+<td class="data row9 col0" id="T_ab9db_row9_col0">9</td>
+<td class="data row9 col1" id="T_ab9db_row9_col1">1.005859</td>
+<td class="data row9 col2" id="T_ab9db_row9_col2">0.000034</td>
 </tr>
 </tbody>
 </table>
@@ -9266,7 +9246,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -9288,41 +9268,41 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_3264/2403100073.py:11: RuntimeWarning: divide by zero encountered in scalar divide
+<pre>/tmp/ipykernel_3329/2403100073.py:11: RuntimeWarning: divide by zero encountered in scalar divide
   x = x - f(x) / df(x)
-/tmp/ipykernel_3264/475226614.py:2: RuntimeWarning: invalid value encountered in scalar add
+/tmp/ipykernel_3329/475226614.py:2: RuntimeWarning: invalid value encountered in scalar add
   return x**3 + 2 * x**2 + x + 1
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_d9ac8">
+<table id="T_116d7">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_d9ac8_level0_col0">iter</th>
-<th class="col_heading level0 col1" id="T_d9ac8_level0_col1">x</th>
-<th class="col_heading level0 col2" id="T_d9ac8_level0_col2">f(x)</th>
+<th class="col_heading level0 col0" id="T_116d7_level0_col0">iter</th>
+<th class="col_heading level0 col1" id="T_116d7_level0_col1">x</th>
+<th class="col_heading level0 col2" id="T_116d7_level0_col2">f(x)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_d9ac8_row0_col0">0</td>
-<td class="data row0 col1" id="T_d9ac8_row0_col1">0.000000</td>
-<td class="data row0 col2" id="T_d9ac8_row0_col2">1.000000</td>
+<td class="data row0 col0" id="T_116d7_row0_col0">0</td>
+<td class="data row0 col1" id="T_116d7_row0_col1">0.000000</td>
+<td class="data row0 col2" id="T_116d7_row0_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_d9ac8_row1_col0">1</td>
-<td class="data row1 col1" id="T_d9ac8_row1_col1">-1.000000</td>
-<td class="data row1 col2" id="T_d9ac8_row1_col2">1.000000</td>
+<td class="data row1 col0" id="T_116d7_row1_col0">1</td>
+<td class="data row1 col1" id="T_116d7_row1_col1">-1.000000</td>
+<td class="data row1 col2" id="T_116d7_row1_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_d9ac8_row2_col0">2</td>
-<td class="data row2 col1" id="T_d9ac8_row2_col1">-inf</td>
-<td class="data row2 col2" id="T_d9ac8_row2_col2">nan</td>
+<td class="data row2 col0" id="T_116d7_row2_col0">2</td>
+<td class="data row2 col1" id="T_116d7_row2_col1">-inf</td>
+<td class="data row2 col2" id="T_116d7_row2_col2">nan</td>
 </tr>
 </tbody>
 </table>
@@ -9374,7 +9354,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
@@ -9401,528 +9381,528 @@ $$</p>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_a34f8">
+<table id="T_68237">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_a34f8_level0_col0">iter</th>
-<th class="col_heading level0 col1" id="T_a34f8_level0_col1">x</th>
-<th class="col_heading level0 col2" id="T_a34f8_level0_col2">f(x)</th>
+<th class="col_heading level0 col0" id="T_68237_level0_col0">iter</th>
+<th class="col_heading level0 col1" id="T_68237_level0_col1">x</th>
+<th class="col_heading level0 col2" id="T_68237_level0_col2">f(x)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_a34f8_row0_col0">0</td>
-<td class="data row0 col1" id="T_a34f8_row0_col1">1.000000</td>
-<td class="data row0 col2" id="T_a34f8_row0_col2">1.000000</td>
+<td class="data row0 col0" id="T_68237_row0_col0">0</td>
+<td class="data row0 col1" id="T_68237_row0_col1">1.000000</td>
+<td class="data row0 col2" id="T_68237_row0_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_a34f8_row1_col0">1</td>
-<td class="data row1 col1" id="T_a34f8_row1_col1">0.000000</td>
-<td class="data row1 col2" id="T_a34f8_row1_col2">2.000000</td>
+<td class="data row1 col0" id="T_68237_row1_col0">1</td>
+<td class="data row1 col1" id="T_68237_row1_col1">0.000000</td>
+<td class="data row1 col2" id="T_68237_row1_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_a34f8_row2_col0">2</td>
-<td class="data row2 col1" id="T_a34f8_row2_col1">1.000000</td>
-<td class="data row2 col2" id="T_a34f8_row2_col2">1.000000</td>
+<td class="data row2 col0" id="T_68237_row2_col0">2</td>
+<td class="data row2 col1" id="T_68237_row2_col1">1.000000</td>
+<td class="data row2 col2" id="T_68237_row2_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_a34f8_row3_col0">3</td>
-<td class="data row3 col1" id="T_a34f8_row3_col1">0.000000</td>
-<td class="data row3 col2" id="T_a34f8_row3_col2">2.000000</td>
+<td class="data row3 col0" id="T_68237_row3_col0">3</td>
+<td class="data row3 col1" id="T_68237_row3_col1">0.000000</td>
+<td class="data row3 col2" id="T_68237_row3_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_a34f8_row4_col0">4</td>
-<td class="data row4 col1" id="T_a34f8_row4_col1">1.000000</td>
-<td class="data row4 col2" id="T_a34f8_row4_col2">1.000000</td>
+<td class="data row4 col0" id="T_68237_row4_col0">4</td>
+<td class="data row4 col1" id="T_68237_row4_col1">1.000000</td>
+<td class="data row4 col2" id="T_68237_row4_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_a34f8_row5_col0">5</td>
-<td class="data row5 col1" id="T_a34f8_row5_col1">0.000000</td>
-<td class="data row5 col2" id="T_a34f8_row5_col2">2.000000</td>
+<td class="data row5 col0" id="T_68237_row5_col0">5</td>
+<td class="data row5 col1" id="T_68237_row5_col1">0.000000</td>
+<td class="data row5 col2" id="T_68237_row5_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_a34f8_row6_col0">6</td>
-<td class="data row6 col1" id="T_a34f8_row6_col1">1.000000</td>
-<td class="data row6 col2" id="T_a34f8_row6_col2">1.000000</td>
+<td class="data row6 col0" id="T_68237_row6_col0">6</td>
+<td class="data row6 col1" id="T_68237_row6_col1">1.000000</td>
+<td class="data row6 col2" id="T_68237_row6_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_a34f8_row7_col0">7</td>
-<td class="data row7 col1" id="T_a34f8_row7_col1">0.000000</td>
-<td class="data row7 col2" id="T_a34f8_row7_col2">2.000000</td>
+<td class="data row7 col0" id="T_68237_row7_col0">7</td>
+<td class="data row7 col1" id="T_68237_row7_col1">0.000000</td>
+<td class="data row7 col2" id="T_68237_row7_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_a34f8_row8_col0">8</td>
-<td class="data row8 col1" id="T_a34f8_row8_col1">1.000000</td>
-<td class="data row8 col2" id="T_a34f8_row8_col2">1.000000</td>
+<td class="data row8 col0" id="T_68237_row8_col0">8</td>
+<td class="data row8 col1" id="T_68237_row8_col1">1.000000</td>
+<td class="data row8 col2" id="T_68237_row8_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_a34f8_row9_col0">9</td>
-<td class="data row9 col1" id="T_a34f8_row9_col1">0.000000</td>
-<td class="data row9 col2" id="T_a34f8_row9_col2">2.000000</td>
+<td class="data row9 col0" id="T_68237_row9_col0">9</td>
+<td class="data row9 col1" id="T_68237_row9_col1">0.000000</td>
+<td class="data row9 col2" id="T_68237_row9_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row10 col0" id="T_a34f8_row10_col0">10</td>
-<td class="data row10 col1" id="T_a34f8_row10_col1">1.000000</td>
-<td class="data row10 col2" id="T_a34f8_row10_col2">1.000000</td>
+<td class="data row10 col0" id="T_68237_row10_col0">10</td>
+<td class="data row10 col1" id="T_68237_row10_col1">1.000000</td>
+<td class="data row10 col2" id="T_68237_row10_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row11 col0" id="T_a34f8_row11_col0">11</td>
-<td class="data row11 col1" id="T_a34f8_row11_col1">0.000000</td>
-<td class="data row11 col2" id="T_a34f8_row11_col2">2.000000</td>
+<td class="data row11 col0" id="T_68237_row11_col0">11</td>
+<td class="data row11 col1" id="T_68237_row11_col1">0.000000</td>
+<td class="data row11 col2" id="T_68237_row11_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row12 col0" id="T_a34f8_row12_col0">12</td>
-<td class="data row12 col1" id="T_a34f8_row12_col1">1.000000</td>
-<td class="data row12 col2" id="T_a34f8_row12_col2">1.000000</td>
+<td class="data row12 col0" id="T_68237_row12_col0">12</td>
+<td class="data row12 col1" id="T_68237_row12_col1">1.000000</td>
+<td class="data row12 col2" id="T_68237_row12_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row13 col0" id="T_a34f8_row13_col0">13</td>
-<td class="data row13 col1" id="T_a34f8_row13_col1">0.000000</td>
-<td class="data row13 col2" id="T_a34f8_row13_col2">2.000000</td>
+<td class="data row13 col0" id="T_68237_row13_col0">13</td>
+<td class="data row13 col1" id="T_68237_row13_col1">0.000000</td>
+<td class="data row13 col2" id="T_68237_row13_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row14 col0" id="T_a34f8_row14_col0">14</td>
-<td class="data row14 col1" id="T_a34f8_row14_col1">1.000000</td>
-<td class="data row14 col2" id="T_a34f8_row14_col2">1.000000</td>
+<td class="data row14 col0" id="T_68237_row14_col0">14</td>
+<td class="data row14 col1" id="T_68237_row14_col1">1.000000</td>
+<td class="data row14 col2" id="T_68237_row14_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row15 col0" id="T_a34f8_row15_col0">15</td>
-<td class="data row15 col1" id="T_a34f8_row15_col1">0.000000</td>
-<td class="data row15 col2" id="T_a34f8_row15_col2">2.000000</td>
+<td class="data row15 col0" id="T_68237_row15_col0">15</td>
+<td class="data row15 col1" id="T_68237_row15_col1">0.000000</td>
+<td class="data row15 col2" id="T_68237_row15_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row16 col0" id="T_a34f8_row16_col0">16</td>
-<td class="data row16 col1" id="T_a34f8_row16_col1">1.000000</td>
-<td class="data row16 col2" id="T_a34f8_row16_col2">1.000000</td>
+<td class="data row16 col0" id="T_68237_row16_col0">16</td>
+<td class="data row16 col1" id="T_68237_row16_col1">1.000000</td>
+<td class="data row16 col2" id="T_68237_row16_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row17 col0" id="T_a34f8_row17_col0">17</td>
-<td class="data row17 col1" id="T_a34f8_row17_col1">0.000000</td>
-<td class="data row17 col2" id="T_a34f8_row17_col2">2.000000</td>
+<td class="data row17 col0" id="T_68237_row17_col0">17</td>
+<td class="data row17 col1" id="T_68237_row17_col1">0.000000</td>
+<td class="data row17 col2" id="T_68237_row17_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row18 col0" id="T_a34f8_row18_col0">18</td>
-<td class="data row18 col1" id="T_a34f8_row18_col1">1.000000</td>
-<td class="data row18 col2" id="T_a34f8_row18_col2">1.000000</td>
+<td class="data row18 col0" id="T_68237_row18_col0">18</td>
+<td class="data row18 col1" id="T_68237_row18_col1">1.000000</td>
+<td class="data row18 col2" id="T_68237_row18_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row19 col0" id="T_a34f8_row19_col0">19</td>
-<td class="data row19 col1" id="T_a34f8_row19_col1">0.000000</td>
-<td class="data row19 col2" id="T_a34f8_row19_col2">2.000000</td>
+<td class="data row19 col0" id="T_68237_row19_col0">19</td>
+<td class="data row19 col1" id="T_68237_row19_col1">0.000000</td>
+<td class="data row19 col2" id="T_68237_row19_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row20 col0" id="T_a34f8_row20_col0">20</td>
-<td class="data row20 col1" id="T_a34f8_row20_col1">1.000000</td>
-<td class="data row20 col2" id="T_a34f8_row20_col2">1.000000</td>
+<td class="data row20 col0" id="T_68237_row20_col0">20</td>
+<td class="data row20 col1" id="T_68237_row20_col1">1.000000</td>
+<td class="data row20 col2" id="T_68237_row20_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row21 col0" id="T_a34f8_row21_col0">21</td>
-<td class="data row21 col1" id="T_a34f8_row21_col1">0.000000</td>
-<td class="data row21 col2" id="T_a34f8_row21_col2">2.000000</td>
+<td class="data row21 col0" id="T_68237_row21_col0">21</td>
+<td class="data row21 col1" id="T_68237_row21_col1">0.000000</td>
+<td class="data row21 col2" id="T_68237_row21_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row22 col0" id="T_a34f8_row22_col0">22</td>
-<td class="data row22 col1" id="T_a34f8_row22_col1">1.000000</td>
-<td class="data row22 col2" id="T_a34f8_row22_col2">1.000000</td>
+<td class="data row22 col0" id="T_68237_row22_col0">22</td>
+<td class="data row22 col1" id="T_68237_row22_col1">1.000000</td>
+<td class="data row22 col2" id="T_68237_row22_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row23 col0" id="T_a34f8_row23_col0">23</td>
-<td class="data row23 col1" id="T_a34f8_row23_col1">0.000000</td>
-<td class="data row23 col2" id="T_a34f8_row23_col2">2.000000</td>
+<td class="data row23 col0" id="T_68237_row23_col0">23</td>
+<td class="data row23 col1" id="T_68237_row23_col1">0.000000</td>
+<td class="data row23 col2" id="T_68237_row23_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row24 col0" id="T_a34f8_row24_col0">24</td>
-<td class="data row24 col1" id="T_a34f8_row24_col1">1.000000</td>
-<td class="data row24 col2" id="T_a34f8_row24_col2">1.000000</td>
+<td class="data row24 col0" id="T_68237_row24_col0">24</td>
+<td class="data row24 col1" id="T_68237_row24_col1">1.000000</td>
+<td class="data row24 col2" id="T_68237_row24_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row25 col0" id="T_a34f8_row25_col0">25</td>
-<td class="data row25 col1" id="T_a34f8_row25_col1">0.000000</td>
-<td class="data row25 col2" id="T_a34f8_row25_col2">2.000000</td>
+<td class="data row25 col0" id="T_68237_row25_col0">25</td>
+<td class="data row25 col1" id="T_68237_row25_col1">0.000000</td>
+<td class="data row25 col2" id="T_68237_row25_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row26 col0" id="T_a34f8_row26_col0">26</td>
-<td class="data row26 col1" id="T_a34f8_row26_col1">1.000000</td>
-<td class="data row26 col2" id="T_a34f8_row26_col2">1.000000</td>
+<td class="data row26 col0" id="T_68237_row26_col0">26</td>
+<td class="data row26 col1" id="T_68237_row26_col1">1.000000</td>
+<td class="data row26 col2" id="T_68237_row26_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row27 col0" id="T_a34f8_row27_col0">27</td>
-<td class="data row27 col1" id="T_a34f8_row27_col1">0.000000</td>
-<td class="data row27 col2" id="T_a34f8_row27_col2">2.000000</td>
+<td class="data row27 col0" id="T_68237_row27_col0">27</td>
+<td class="data row27 col1" id="T_68237_row27_col1">0.000000</td>
+<td class="data row27 col2" id="T_68237_row27_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row28 col0" id="T_a34f8_row28_col0">28</td>
-<td class="data row28 col1" id="T_a34f8_row28_col1">1.000000</td>
-<td class="data row28 col2" id="T_a34f8_row28_col2">1.000000</td>
+<td class="data row28 col0" id="T_68237_row28_col0">28</td>
+<td class="data row28 col1" id="T_68237_row28_col1">1.000000</td>
+<td class="data row28 col2" id="T_68237_row28_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row29 col0" id="T_a34f8_row29_col0">29</td>
-<td class="data row29 col1" id="T_a34f8_row29_col1">0.000000</td>
-<td class="data row29 col2" id="T_a34f8_row29_col2">2.000000</td>
+<td class="data row29 col0" id="T_68237_row29_col0">29</td>
+<td class="data row29 col1" id="T_68237_row29_col1">0.000000</td>
+<td class="data row29 col2" id="T_68237_row29_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row30 col0" id="T_a34f8_row30_col0">30</td>
-<td class="data row30 col1" id="T_a34f8_row30_col1">1.000000</td>
-<td class="data row30 col2" id="T_a34f8_row30_col2">1.000000</td>
+<td class="data row30 col0" id="T_68237_row30_col0">30</td>
+<td class="data row30 col1" id="T_68237_row30_col1">1.000000</td>
+<td class="data row30 col2" id="T_68237_row30_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row31 col0" id="T_a34f8_row31_col0">31</td>
-<td class="data row31 col1" id="T_a34f8_row31_col1">0.000000</td>
-<td class="data row31 col2" id="T_a34f8_row31_col2">2.000000</td>
+<td class="data row31 col0" id="T_68237_row31_col0">31</td>
+<td class="data row31 col1" id="T_68237_row31_col1">0.000000</td>
+<td class="data row31 col2" id="T_68237_row31_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row32 col0" id="T_a34f8_row32_col0">32</td>
-<td class="data row32 col1" id="T_a34f8_row32_col1">1.000000</td>
-<td class="data row32 col2" id="T_a34f8_row32_col2">1.000000</td>
+<td class="data row32 col0" id="T_68237_row32_col0">32</td>
+<td class="data row32 col1" id="T_68237_row32_col1">1.000000</td>
+<td class="data row32 col2" id="T_68237_row32_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row33 col0" id="T_a34f8_row33_col0">33</td>
-<td class="data row33 col1" id="T_a34f8_row33_col1">0.000000</td>
-<td class="data row33 col2" id="T_a34f8_row33_col2">2.000000</td>
+<td class="data row33 col0" id="T_68237_row33_col0">33</td>
+<td class="data row33 col1" id="T_68237_row33_col1">0.000000</td>
+<td class="data row33 col2" id="T_68237_row33_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row34 col0" id="T_a34f8_row34_col0">34</td>
-<td class="data row34 col1" id="T_a34f8_row34_col1">1.000000</td>
-<td class="data row34 col2" id="T_a34f8_row34_col2">1.000000</td>
+<td class="data row34 col0" id="T_68237_row34_col0">34</td>
+<td class="data row34 col1" id="T_68237_row34_col1">1.000000</td>
+<td class="data row34 col2" id="T_68237_row34_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row35 col0" id="T_a34f8_row35_col0">35</td>
-<td class="data row35 col1" id="T_a34f8_row35_col1">0.000000</td>
-<td class="data row35 col2" id="T_a34f8_row35_col2">2.000000</td>
+<td class="data row35 col0" id="T_68237_row35_col0">35</td>
+<td class="data row35 col1" id="T_68237_row35_col1">0.000000</td>
+<td class="data row35 col2" id="T_68237_row35_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row36 col0" id="T_a34f8_row36_col0">36</td>
-<td class="data row36 col1" id="T_a34f8_row36_col1">1.000000</td>
-<td class="data row36 col2" id="T_a34f8_row36_col2">1.000000</td>
+<td class="data row36 col0" id="T_68237_row36_col0">36</td>
+<td class="data row36 col1" id="T_68237_row36_col1">1.000000</td>
+<td class="data row36 col2" id="T_68237_row36_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row37 col0" id="T_a34f8_row37_col0">37</td>
-<td class="data row37 col1" id="T_a34f8_row37_col1">0.000000</td>
-<td class="data row37 col2" id="T_a34f8_row37_col2">2.000000</td>
+<td class="data row37 col0" id="T_68237_row37_col0">37</td>
+<td class="data row37 col1" id="T_68237_row37_col1">0.000000</td>
+<td class="data row37 col2" id="T_68237_row37_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row38 col0" id="T_a34f8_row38_col0">38</td>
-<td class="data row38 col1" id="T_a34f8_row38_col1">1.000000</td>
-<td class="data row38 col2" id="T_a34f8_row38_col2">1.000000</td>
+<td class="data row38 col0" id="T_68237_row38_col0">38</td>
+<td class="data row38 col1" id="T_68237_row38_col1">1.000000</td>
+<td class="data row38 col2" id="T_68237_row38_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row39 col0" id="T_a34f8_row39_col0">39</td>
-<td class="data row39 col1" id="T_a34f8_row39_col1">0.000000</td>
-<td class="data row39 col2" id="T_a34f8_row39_col2">2.000000</td>
+<td class="data row39 col0" id="T_68237_row39_col0">39</td>
+<td class="data row39 col1" id="T_68237_row39_col1">0.000000</td>
+<td class="data row39 col2" id="T_68237_row39_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row40 col0" id="T_a34f8_row40_col0">40</td>
-<td class="data row40 col1" id="T_a34f8_row40_col1">1.000000</td>
-<td class="data row40 col2" id="T_a34f8_row40_col2">1.000000</td>
+<td class="data row40 col0" id="T_68237_row40_col0">40</td>
+<td class="data row40 col1" id="T_68237_row40_col1">1.000000</td>
+<td class="data row40 col2" id="T_68237_row40_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row41 col0" id="T_a34f8_row41_col0">41</td>
-<td class="data row41 col1" id="T_a34f8_row41_col1">0.000000</td>
-<td class="data row41 col2" id="T_a34f8_row41_col2">2.000000</td>
+<td class="data row41 col0" id="T_68237_row41_col0">41</td>
+<td class="data row41 col1" id="T_68237_row41_col1">0.000000</td>
+<td class="data row41 col2" id="T_68237_row41_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row42 col0" id="T_a34f8_row42_col0">42</td>
-<td class="data row42 col1" id="T_a34f8_row42_col1">1.000000</td>
-<td class="data row42 col2" id="T_a34f8_row42_col2">1.000000</td>
+<td class="data row42 col0" id="T_68237_row42_col0">42</td>
+<td class="data row42 col1" id="T_68237_row42_col1">1.000000</td>
+<td class="data row42 col2" id="T_68237_row42_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row43 col0" id="T_a34f8_row43_col0">43</td>
-<td class="data row43 col1" id="T_a34f8_row43_col1">0.000000</td>
-<td class="data row43 col2" id="T_a34f8_row43_col2">2.000000</td>
+<td class="data row43 col0" id="T_68237_row43_col0">43</td>
+<td class="data row43 col1" id="T_68237_row43_col1">0.000000</td>
+<td class="data row43 col2" id="T_68237_row43_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row44 col0" id="T_a34f8_row44_col0">44</td>
-<td class="data row44 col1" id="T_a34f8_row44_col1">1.000000</td>
-<td class="data row44 col2" id="T_a34f8_row44_col2">1.000000</td>
+<td class="data row44 col0" id="T_68237_row44_col0">44</td>
+<td class="data row44 col1" id="T_68237_row44_col1">1.000000</td>
+<td class="data row44 col2" id="T_68237_row44_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row45 col0" id="T_a34f8_row45_col0">45</td>
-<td class="data row45 col1" id="T_a34f8_row45_col1">0.000000</td>
-<td class="data row45 col2" id="T_a34f8_row45_col2">2.000000</td>
+<td class="data row45 col0" id="T_68237_row45_col0">45</td>
+<td class="data row45 col1" id="T_68237_row45_col1">0.000000</td>
+<td class="data row45 col2" id="T_68237_row45_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row46 col0" id="T_a34f8_row46_col0">46</td>
-<td class="data row46 col1" id="T_a34f8_row46_col1">1.000000</td>
-<td class="data row46 col2" id="T_a34f8_row46_col2">1.000000</td>
+<td class="data row46 col0" id="T_68237_row46_col0">46</td>
+<td class="data row46 col1" id="T_68237_row46_col1">1.000000</td>
+<td class="data row46 col2" id="T_68237_row46_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row47 col0" id="T_a34f8_row47_col0">47</td>
-<td class="data row47 col1" id="T_a34f8_row47_col1">0.000000</td>
-<td class="data row47 col2" id="T_a34f8_row47_col2">2.000000</td>
+<td class="data row47 col0" id="T_68237_row47_col0">47</td>
+<td class="data row47 col1" id="T_68237_row47_col1">0.000000</td>
+<td class="data row47 col2" id="T_68237_row47_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row48 col0" id="T_a34f8_row48_col0">48</td>
-<td class="data row48 col1" id="T_a34f8_row48_col1">1.000000</td>
-<td class="data row48 col2" id="T_a34f8_row48_col2">1.000000</td>
+<td class="data row48 col0" id="T_68237_row48_col0">48</td>
+<td class="data row48 col1" id="T_68237_row48_col1">1.000000</td>
+<td class="data row48 col2" id="T_68237_row48_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row49 col0" id="T_a34f8_row49_col0">49</td>
-<td class="data row49 col1" id="T_a34f8_row49_col1">0.000000</td>
-<td class="data row49 col2" id="T_a34f8_row49_col2">2.000000</td>
+<td class="data row49 col0" id="T_68237_row49_col0">49</td>
+<td class="data row49 col1" id="T_68237_row49_col1">0.000000</td>
+<td class="data row49 col2" id="T_68237_row49_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row50 col0" id="T_a34f8_row50_col0">50</td>
-<td class="data row50 col1" id="T_a34f8_row50_col1">1.000000</td>
-<td class="data row50 col2" id="T_a34f8_row50_col2">1.000000</td>
+<td class="data row50 col0" id="T_68237_row50_col0">50</td>
+<td class="data row50 col1" id="T_68237_row50_col1">1.000000</td>
+<td class="data row50 col2" id="T_68237_row50_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row51 col0" id="T_a34f8_row51_col0">51</td>
-<td class="data row51 col1" id="T_a34f8_row51_col1">0.000000</td>
-<td class="data row51 col2" id="T_a34f8_row51_col2">2.000000</td>
+<td class="data row51 col0" id="T_68237_row51_col0">51</td>
+<td class="data row51 col1" id="T_68237_row51_col1">0.000000</td>
+<td class="data row51 col2" id="T_68237_row51_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row52 col0" id="T_a34f8_row52_col0">52</td>
-<td class="data row52 col1" id="T_a34f8_row52_col1">1.000000</td>
-<td class="data row52 col2" id="T_a34f8_row52_col2">1.000000</td>
+<td class="data row52 col0" id="T_68237_row52_col0">52</td>
+<td class="data row52 col1" id="T_68237_row52_col1">1.000000</td>
+<td class="data row52 col2" id="T_68237_row52_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row53 col0" id="T_a34f8_row53_col0">53</td>
-<td class="data row53 col1" id="T_a34f8_row53_col1">0.000000</td>
-<td class="data row53 col2" id="T_a34f8_row53_col2">2.000000</td>
+<td class="data row53 col0" id="T_68237_row53_col0">53</td>
+<td class="data row53 col1" id="T_68237_row53_col1">0.000000</td>
+<td class="data row53 col2" id="T_68237_row53_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row54 col0" id="T_a34f8_row54_col0">54</td>
-<td class="data row54 col1" id="T_a34f8_row54_col1">1.000000</td>
-<td class="data row54 col2" id="T_a34f8_row54_col2">1.000000</td>
+<td class="data row54 col0" id="T_68237_row54_col0">54</td>
+<td class="data row54 col1" id="T_68237_row54_col1">1.000000</td>
+<td class="data row54 col2" id="T_68237_row54_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row55 col0" id="T_a34f8_row55_col0">55</td>
-<td class="data row55 col1" id="T_a34f8_row55_col1">0.000000</td>
-<td class="data row55 col2" id="T_a34f8_row55_col2">2.000000</td>
+<td class="data row55 col0" id="T_68237_row55_col0">55</td>
+<td class="data row55 col1" id="T_68237_row55_col1">0.000000</td>
+<td class="data row55 col2" id="T_68237_row55_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row56 col0" id="T_a34f8_row56_col0">56</td>
-<td class="data row56 col1" id="T_a34f8_row56_col1">1.000000</td>
-<td class="data row56 col2" id="T_a34f8_row56_col2">1.000000</td>
+<td class="data row56 col0" id="T_68237_row56_col0">56</td>
+<td class="data row56 col1" id="T_68237_row56_col1">1.000000</td>
+<td class="data row56 col2" id="T_68237_row56_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row57 col0" id="T_a34f8_row57_col0">57</td>
-<td class="data row57 col1" id="T_a34f8_row57_col1">0.000000</td>
-<td class="data row57 col2" id="T_a34f8_row57_col2">2.000000</td>
+<td class="data row57 col0" id="T_68237_row57_col0">57</td>
+<td class="data row57 col1" id="T_68237_row57_col1">0.000000</td>
+<td class="data row57 col2" id="T_68237_row57_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row58 col0" id="T_a34f8_row58_col0">58</td>
-<td class="data row58 col1" id="T_a34f8_row58_col1">1.000000</td>
-<td class="data row58 col2" id="T_a34f8_row58_col2">1.000000</td>
+<td class="data row58 col0" id="T_68237_row58_col0">58</td>
+<td class="data row58 col1" id="T_68237_row58_col1">1.000000</td>
+<td class="data row58 col2" id="T_68237_row58_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row59 col0" id="T_a34f8_row59_col0">59</td>
-<td class="data row59 col1" id="T_a34f8_row59_col1">0.000000</td>
-<td class="data row59 col2" id="T_a34f8_row59_col2">2.000000</td>
+<td class="data row59 col0" id="T_68237_row59_col0">59</td>
+<td class="data row59 col1" id="T_68237_row59_col1">0.000000</td>
+<td class="data row59 col2" id="T_68237_row59_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row60 col0" id="T_a34f8_row60_col0">60</td>
-<td class="data row60 col1" id="T_a34f8_row60_col1">1.000000</td>
-<td class="data row60 col2" id="T_a34f8_row60_col2">1.000000</td>
+<td class="data row60 col0" id="T_68237_row60_col0">60</td>
+<td class="data row60 col1" id="T_68237_row60_col1">1.000000</td>
+<td class="data row60 col2" id="T_68237_row60_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row61 col0" id="T_a34f8_row61_col0">61</td>
-<td class="data row61 col1" id="T_a34f8_row61_col1">0.000000</td>
-<td class="data row61 col2" id="T_a34f8_row61_col2">2.000000</td>
+<td class="data row61 col0" id="T_68237_row61_col0">61</td>
+<td class="data row61 col1" id="T_68237_row61_col1">0.000000</td>
+<td class="data row61 col2" id="T_68237_row61_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row62 col0" id="T_a34f8_row62_col0">62</td>
-<td class="data row62 col1" id="T_a34f8_row62_col1">1.000000</td>
-<td class="data row62 col2" id="T_a34f8_row62_col2">1.000000</td>
+<td class="data row62 col0" id="T_68237_row62_col0">62</td>
+<td class="data row62 col1" id="T_68237_row62_col1">1.000000</td>
+<td class="data row62 col2" id="T_68237_row62_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row63 col0" id="T_a34f8_row63_col0">63</td>
-<td class="data row63 col1" id="T_a34f8_row63_col1">0.000000</td>
-<td class="data row63 col2" id="T_a34f8_row63_col2">2.000000</td>
+<td class="data row63 col0" id="T_68237_row63_col0">63</td>
+<td class="data row63 col1" id="T_68237_row63_col1">0.000000</td>
+<td class="data row63 col2" id="T_68237_row63_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row64 col0" id="T_a34f8_row64_col0">64</td>
-<td class="data row64 col1" id="T_a34f8_row64_col1">1.000000</td>
-<td class="data row64 col2" id="T_a34f8_row64_col2">1.000000</td>
+<td class="data row64 col0" id="T_68237_row64_col0">64</td>
+<td class="data row64 col1" id="T_68237_row64_col1">1.000000</td>
+<td class="data row64 col2" id="T_68237_row64_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row65 col0" id="T_a34f8_row65_col0">65</td>
-<td class="data row65 col1" id="T_a34f8_row65_col1">0.000000</td>
-<td class="data row65 col2" id="T_a34f8_row65_col2">2.000000</td>
+<td class="data row65 col0" id="T_68237_row65_col0">65</td>
+<td class="data row65 col1" id="T_68237_row65_col1">0.000000</td>
+<td class="data row65 col2" id="T_68237_row65_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row66 col0" id="T_a34f8_row66_col0">66</td>
-<td class="data row66 col1" id="T_a34f8_row66_col1">1.000000</td>
-<td class="data row66 col2" id="T_a34f8_row66_col2">1.000000</td>
+<td class="data row66 col0" id="T_68237_row66_col0">66</td>
+<td class="data row66 col1" id="T_68237_row66_col1">1.000000</td>
+<td class="data row66 col2" id="T_68237_row66_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row67 col0" id="T_a34f8_row67_col0">67</td>
-<td class="data row67 col1" id="T_a34f8_row67_col1">0.000000</td>
-<td class="data row67 col2" id="T_a34f8_row67_col2">2.000000</td>
+<td class="data row67 col0" id="T_68237_row67_col0">67</td>
+<td class="data row67 col1" id="T_68237_row67_col1">0.000000</td>
+<td class="data row67 col2" id="T_68237_row67_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row68 col0" id="T_a34f8_row68_col0">68</td>
-<td class="data row68 col1" id="T_a34f8_row68_col1">1.000000</td>
-<td class="data row68 col2" id="T_a34f8_row68_col2">1.000000</td>
+<td class="data row68 col0" id="T_68237_row68_col0">68</td>
+<td class="data row68 col1" id="T_68237_row68_col1">1.000000</td>
+<td class="data row68 col2" id="T_68237_row68_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row69 col0" id="T_a34f8_row69_col0">69</td>
-<td class="data row69 col1" id="T_a34f8_row69_col1">0.000000</td>
-<td class="data row69 col2" id="T_a34f8_row69_col2">2.000000</td>
+<td class="data row69 col0" id="T_68237_row69_col0">69</td>
+<td class="data row69 col1" id="T_68237_row69_col1">0.000000</td>
+<td class="data row69 col2" id="T_68237_row69_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row70 col0" id="T_a34f8_row70_col0">70</td>
-<td class="data row70 col1" id="T_a34f8_row70_col1">1.000000</td>
-<td class="data row70 col2" id="T_a34f8_row70_col2">1.000000</td>
+<td class="data row70 col0" id="T_68237_row70_col0">70</td>
+<td class="data row70 col1" id="T_68237_row70_col1">1.000000</td>
+<td class="data row70 col2" id="T_68237_row70_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row71 col0" id="T_a34f8_row71_col0">71</td>
-<td class="data row71 col1" id="T_a34f8_row71_col1">0.000000</td>
-<td class="data row71 col2" id="T_a34f8_row71_col2">2.000000</td>
+<td class="data row71 col0" id="T_68237_row71_col0">71</td>
+<td class="data row71 col1" id="T_68237_row71_col1">0.000000</td>
+<td class="data row71 col2" id="T_68237_row71_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row72 col0" id="T_a34f8_row72_col0">72</td>
-<td class="data row72 col1" id="T_a34f8_row72_col1">1.000000</td>
-<td class="data row72 col2" id="T_a34f8_row72_col2">1.000000</td>
+<td class="data row72 col0" id="T_68237_row72_col0">72</td>
+<td class="data row72 col1" id="T_68237_row72_col1">1.000000</td>
+<td class="data row72 col2" id="T_68237_row72_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row73 col0" id="T_a34f8_row73_col0">73</td>
-<td class="data row73 col1" id="T_a34f8_row73_col1">0.000000</td>
-<td class="data row73 col2" id="T_a34f8_row73_col2">2.000000</td>
+<td class="data row73 col0" id="T_68237_row73_col0">73</td>
+<td class="data row73 col1" id="T_68237_row73_col1">0.000000</td>
+<td class="data row73 col2" id="T_68237_row73_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row74 col0" id="T_a34f8_row74_col0">74</td>
-<td class="data row74 col1" id="T_a34f8_row74_col1">1.000000</td>
-<td class="data row74 col2" id="T_a34f8_row74_col2">1.000000</td>
+<td class="data row74 col0" id="T_68237_row74_col0">74</td>
+<td class="data row74 col1" id="T_68237_row74_col1">1.000000</td>
+<td class="data row74 col2" id="T_68237_row74_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row75 col0" id="T_a34f8_row75_col0">75</td>
-<td class="data row75 col1" id="T_a34f8_row75_col1">0.000000</td>
-<td class="data row75 col2" id="T_a34f8_row75_col2">2.000000</td>
+<td class="data row75 col0" id="T_68237_row75_col0">75</td>
+<td class="data row75 col1" id="T_68237_row75_col1">0.000000</td>
+<td class="data row75 col2" id="T_68237_row75_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row76 col0" id="T_a34f8_row76_col0">76</td>
-<td class="data row76 col1" id="T_a34f8_row76_col1">1.000000</td>
-<td class="data row76 col2" id="T_a34f8_row76_col2">1.000000</td>
+<td class="data row76 col0" id="T_68237_row76_col0">76</td>
+<td class="data row76 col1" id="T_68237_row76_col1">1.000000</td>
+<td class="data row76 col2" id="T_68237_row76_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row77 col0" id="T_a34f8_row77_col0">77</td>
-<td class="data row77 col1" id="T_a34f8_row77_col1">0.000000</td>
-<td class="data row77 col2" id="T_a34f8_row77_col2">2.000000</td>
+<td class="data row77 col0" id="T_68237_row77_col0">77</td>
+<td class="data row77 col1" id="T_68237_row77_col1">0.000000</td>
+<td class="data row77 col2" id="T_68237_row77_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row78 col0" id="T_a34f8_row78_col0">78</td>
-<td class="data row78 col1" id="T_a34f8_row78_col1">1.000000</td>
-<td class="data row78 col2" id="T_a34f8_row78_col2">1.000000</td>
+<td class="data row78 col0" id="T_68237_row78_col0">78</td>
+<td class="data row78 col1" id="T_68237_row78_col1">1.000000</td>
+<td class="data row78 col2" id="T_68237_row78_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row79 col0" id="T_a34f8_row79_col0">79</td>
-<td class="data row79 col1" id="T_a34f8_row79_col1">0.000000</td>
-<td class="data row79 col2" id="T_a34f8_row79_col2">2.000000</td>
+<td class="data row79 col0" id="T_68237_row79_col0">79</td>
+<td class="data row79 col1" id="T_68237_row79_col1">0.000000</td>
+<td class="data row79 col2" id="T_68237_row79_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row80 col0" id="T_a34f8_row80_col0">80</td>
-<td class="data row80 col1" id="T_a34f8_row80_col1">1.000000</td>
-<td class="data row80 col2" id="T_a34f8_row80_col2">1.000000</td>
+<td class="data row80 col0" id="T_68237_row80_col0">80</td>
+<td class="data row80 col1" id="T_68237_row80_col1">1.000000</td>
+<td class="data row80 col2" id="T_68237_row80_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row81 col0" id="T_a34f8_row81_col0">81</td>
-<td class="data row81 col1" id="T_a34f8_row81_col1">0.000000</td>
-<td class="data row81 col2" id="T_a34f8_row81_col2">2.000000</td>
+<td class="data row81 col0" id="T_68237_row81_col0">81</td>
+<td class="data row81 col1" id="T_68237_row81_col1">0.000000</td>
+<td class="data row81 col2" id="T_68237_row81_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row82 col0" id="T_a34f8_row82_col0">82</td>
-<td class="data row82 col1" id="T_a34f8_row82_col1">1.000000</td>
-<td class="data row82 col2" id="T_a34f8_row82_col2">1.000000</td>
+<td class="data row82 col0" id="T_68237_row82_col0">82</td>
+<td class="data row82 col1" id="T_68237_row82_col1">1.000000</td>
+<td class="data row82 col2" id="T_68237_row82_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row83 col0" id="T_a34f8_row83_col0">83</td>
-<td class="data row83 col1" id="T_a34f8_row83_col1">0.000000</td>
-<td class="data row83 col2" id="T_a34f8_row83_col2">2.000000</td>
+<td class="data row83 col0" id="T_68237_row83_col0">83</td>
+<td class="data row83 col1" id="T_68237_row83_col1">0.000000</td>
+<td class="data row83 col2" id="T_68237_row83_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row84 col0" id="T_a34f8_row84_col0">84</td>
-<td class="data row84 col1" id="T_a34f8_row84_col1">1.000000</td>
-<td class="data row84 col2" id="T_a34f8_row84_col2">1.000000</td>
+<td class="data row84 col0" id="T_68237_row84_col0">84</td>
+<td class="data row84 col1" id="T_68237_row84_col1">1.000000</td>
+<td class="data row84 col2" id="T_68237_row84_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row85 col0" id="T_a34f8_row85_col0">85</td>
-<td class="data row85 col1" id="T_a34f8_row85_col1">0.000000</td>
-<td class="data row85 col2" id="T_a34f8_row85_col2">2.000000</td>
+<td class="data row85 col0" id="T_68237_row85_col0">85</td>
+<td class="data row85 col1" id="T_68237_row85_col1">0.000000</td>
+<td class="data row85 col2" id="T_68237_row85_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row86 col0" id="T_a34f8_row86_col0">86</td>
-<td class="data row86 col1" id="T_a34f8_row86_col1">1.000000</td>
-<td class="data row86 col2" id="T_a34f8_row86_col2">1.000000</td>
+<td class="data row86 col0" id="T_68237_row86_col0">86</td>
+<td class="data row86 col1" id="T_68237_row86_col1">1.000000</td>
+<td class="data row86 col2" id="T_68237_row86_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row87 col0" id="T_a34f8_row87_col0">87</td>
-<td class="data row87 col1" id="T_a34f8_row87_col1">0.000000</td>
-<td class="data row87 col2" id="T_a34f8_row87_col2">2.000000</td>
+<td class="data row87 col0" id="T_68237_row87_col0">87</td>
+<td class="data row87 col1" id="T_68237_row87_col1">0.000000</td>
+<td class="data row87 col2" id="T_68237_row87_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row88 col0" id="T_a34f8_row88_col0">88</td>
-<td class="data row88 col1" id="T_a34f8_row88_col1">1.000000</td>
-<td class="data row88 col2" id="T_a34f8_row88_col2">1.000000</td>
+<td class="data row88 col0" id="T_68237_row88_col0">88</td>
+<td class="data row88 col1" id="T_68237_row88_col1">1.000000</td>
+<td class="data row88 col2" id="T_68237_row88_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row89 col0" id="T_a34f8_row89_col0">89</td>
-<td class="data row89 col1" id="T_a34f8_row89_col1">0.000000</td>
-<td class="data row89 col2" id="T_a34f8_row89_col2">2.000000</td>
+<td class="data row89 col0" id="T_68237_row89_col0">89</td>
+<td class="data row89 col1" id="T_68237_row89_col1">0.000000</td>
+<td class="data row89 col2" id="T_68237_row89_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row90 col0" id="T_a34f8_row90_col0">90</td>
-<td class="data row90 col1" id="T_a34f8_row90_col1">1.000000</td>
-<td class="data row90 col2" id="T_a34f8_row90_col2">1.000000</td>
+<td class="data row90 col0" id="T_68237_row90_col0">90</td>
+<td class="data row90 col1" id="T_68237_row90_col1">1.000000</td>
+<td class="data row90 col2" id="T_68237_row90_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row91 col0" id="T_a34f8_row91_col0">91</td>
-<td class="data row91 col1" id="T_a34f8_row91_col1">0.000000</td>
-<td class="data row91 col2" id="T_a34f8_row91_col2">2.000000</td>
+<td class="data row91 col0" id="T_68237_row91_col0">91</td>
+<td class="data row91 col1" id="T_68237_row91_col1">0.000000</td>
+<td class="data row91 col2" id="T_68237_row91_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row92 col0" id="T_a34f8_row92_col0">92</td>
-<td class="data row92 col1" id="T_a34f8_row92_col1">1.000000</td>
-<td class="data row92 col2" id="T_a34f8_row92_col2">1.000000</td>
+<td class="data row92 col0" id="T_68237_row92_col0">92</td>
+<td class="data row92 col1" id="T_68237_row92_col1">1.000000</td>
+<td class="data row92 col2" id="T_68237_row92_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row93 col0" id="T_a34f8_row93_col0">93</td>
-<td class="data row93 col1" id="T_a34f8_row93_col1">0.000000</td>
-<td class="data row93 col2" id="T_a34f8_row93_col2">2.000000</td>
+<td class="data row93 col0" id="T_68237_row93_col0">93</td>
+<td class="data row93 col1" id="T_68237_row93_col1">0.000000</td>
+<td class="data row93 col2" id="T_68237_row93_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row94 col0" id="T_a34f8_row94_col0">94</td>
-<td class="data row94 col1" id="T_a34f8_row94_col1">1.000000</td>
-<td class="data row94 col2" id="T_a34f8_row94_col2">1.000000</td>
+<td class="data row94 col0" id="T_68237_row94_col0">94</td>
+<td class="data row94 col1" id="T_68237_row94_col1">1.000000</td>
+<td class="data row94 col2" id="T_68237_row94_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row95 col0" id="T_a34f8_row95_col0">95</td>
-<td class="data row95 col1" id="T_a34f8_row95_col1">0.000000</td>
-<td class="data row95 col2" id="T_a34f8_row95_col2">2.000000</td>
+<td class="data row95 col0" id="T_68237_row95_col0">95</td>
+<td class="data row95 col1" id="T_68237_row95_col1">0.000000</td>
+<td class="data row95 col2" id="T_68237_row95_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row96 col0" id="T_a34f8_row96_col0">96</td>
-<td class="data row96 col1" id="T_a34f8_row96_col1">1.000000</td>
-<td class="data row96 col2" id="T_a34f8_row96_col2">1.000000</td>
+<td class="data row96 col0" id="T_68237_row96_col0">96</td>
+<td class="data row96 col1" id="T_68237_row96_col1">1.000000</td>
+<td class="data row96 col2" id="T_68237_row96_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row97 col0" id="T_a34f8_row97_col0">97</td>
-<td class="data row97 col1" id="T_a34f8_row97_col1">0.000000</td>
-<td class="data row97 col2" id="T_a34f8_row97_col2">2.000000</td>
+<td class="data row97 col0" id="T_68237_row97_col0">97</td>
+<td class="data row97 col1" id="T_68237_row97_col1">0.000000</td>
+<td class="data row97 col2" id="T_68237_row97_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row98 col0" id="T_a34f8_row98_col0">98</td>
-<td class="data row98 col1" id="T_a34f8_row98_col1">1.000000</td>
-<td class="data row98 col2" id="T_a34f8_row98_col2">1.000000</td>
+<td class="data row98 col0" id="T_68237_row98_col0">98</td>
+<td class="data row98 col1" id="T_68237_row98_col1">1.000000</td>
+<td class="data row98 col2" id="T_68237_row98_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row99 col0" id="T_a34f8_row99_col0">99</td>
-<td class="data row99 col1" id="T_a34f8_row99_col1">0.000000</td>
-<td class="data row99 col2" id="T_a34f8_row99_col2">2.000000</td>
+<td class="data row99 col0" id="T_68237_row99_col0">99</td>
+<td class="data row99 col1" id="T_68237_row99_col1">0.000000</td>
+<td class="data row99 col2" id="T_68237_row99_col2">2.000000</td>
 </tr>
 <tr>
-<td class="data row100 col0" id="T_a34f8_row100_col0">100</td>
-<td class="data row100 col1" id="T_a34f8_row100_col1">1.000000</td>
-<td class="data row100 col2" id="T_a34f8_row100_col2">1.000000</td>
+<td class="data row100 col0" id="T_68237_row100_col0">100</td>
+<td class="data row100 col1" id="T_68237_row100_col1">1.000000</td>
+<td class="data row100 col2" id="T_68237_row100_col2">1.000000</td>
 </tr>
 <tr>
-<td class="data row101 col0" id="T_a34f8_row101_col0">101</td>
-<td class="data row101 col1" id="T_a34f8_row101_col1">0.000000</td>
-<td class="data row101 col2" id="T_a34f8_row101_col2">2.000000</td>
+<td class="data row101 col0" id="T_68237_row101_col0">101</td>
+<td class="data row101 col1" id="T_68237_row101_col1">0.000000</td>
+<td class="data row101 col2" id="T_68237_row101_col2">2.000000</td>
 </tr>
 </tbody>
 </table>

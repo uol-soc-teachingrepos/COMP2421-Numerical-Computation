@@ -237,7 +237,7 @@ We use this idea to derive a improve numerical scheme.
 
 	$$
 	\begin{aligned}
-	k & = y^{(i)} + (\mathrm{d}t / 2) f(t^{i}, y^{(i)}) \\
+	k & = y^{(i)} + (\mathrm{d}t / 2) f(t^{(i)}, y^{(i)}) \\
 	m & = t^{(i)} + \mathrm{d}t / 2 \\
 	\beta & = k + (\mathrm{d}t / 2) f(m, k).
 	\end{aligned}

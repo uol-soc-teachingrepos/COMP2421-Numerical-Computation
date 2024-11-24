@@ -210,8 +210,8 @@ df.style.hide(axis="index").set_caption("Results of using Euler's method varying
 
     $$
     \begin{aligned}
-    \alpha - y_{\text{exact}} = E
-    \beta - y_{\text{exact}} = E/2.
+    \alpha - y_{\text{exact}} &= E \\
+    \beta - y_{\text{exact}} &= E/2.
     \end{aligned}
     $$
 

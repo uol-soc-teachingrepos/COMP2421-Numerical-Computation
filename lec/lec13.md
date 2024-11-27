@@ -210,8 +210,8 @@ df.style.hide(axis="index").set_caption("Results of using Euler's method varying
 
     $$
     \begin{aligned}
-    \alpha - y_{\text{exact}} = E
-    \beta - y_{\text{exact}} = E/2.
+    \alpha - y_{\text{exact}} &= E \\
+    \beta - y_{\text{exact}} &= E/2.
     \end{aligned}
     $$
 
@@ -237,7 +237,7 @@ We use this idea to derive a improve numerical scheme.
 
 	$$
 	\begin{aligned}
-	k & = y^{(i)} + (\mathrm{d}t / 2) f(t^{i}, y^{(i)}) \\
+	k & = y^{(i)} + (\mathrm{d}t / 2) f(t^{(i)}, y^{(i)}) \\
 	m & = t^{(i)} + \mathrm{d}t / 2 \\
 	\beta & = k + (\mathrm{d}t / 2) f(m, k).
 	\end{aligned}

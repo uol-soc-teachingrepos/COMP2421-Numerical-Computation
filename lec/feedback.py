@@ -3,12 +3,7 @@ from matplotlib import pyplot as plt
 
 
 def feedback():
-    return
-
-
-def _feedback():
-    # TODO read once we have new feedback link
-    FEEDBACK_URL = "https://go.blueja.io/BeQtMbSiPUm6DWQUJ2WVgA"
+    FEEDBACK_URL = "https://leeds.bluera.com/leeds/"
     qr = qrcode.make(FEEDBACK_URL)
 
     plt.title("Module feedback now open!")

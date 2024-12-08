@@ -512,6 +512,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-equations">The normal equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The normal equations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-for-you">Example 2 (for you!)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-the-normal-equations">Problems with the normal equations</a></li>
@@ -536,7 +537,7 @@ document.write(`
 <p><em>Module feedback</em>: <a class="reference external" href="https://leeds.bluera.com/leeds">https://leeds.bluera.com/leeds</a></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/0deb01945a405f0a312d1bd175c2e175c6d202914192cc66ad163a4828a3fe03.png" src="../_images/0deb01945a405f0a312d1bd175c2e175c6d202914192cc66ad163a4828a3fe03.png" />
+<img alt="../_images/dd30d23172d7662f0d1e7f6697e8db9486372acd688be91f3304aca9ea9db020.png" src="../_images/dd30d23172d7662f0d1e7f6697e8db9486372acd688be91f3304aca9ea9db020.png" />
 </div>
 </div>
 <section id="motivation">
@@ -554,31 +555,23 @@ document.write(`
 <section id="weekly-earnings">
 <h3>Weekly earnings<a class="headerlink" href="#weekly-earnings" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2412/813076782.py:3: FutureWarning: Passing bytes to &#39;read_excel&#39; is deprecated and will be removed in a future version. To read from a byte string, wrap it in a `BytesIO` object.
-  df = pd.read_excel(r.content, sheet_name=&quot;1. AWE Total Pay&quot;)
-/tmp/ipykernel_2412/813076782.py:6: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
-  df[&quot;date&quot;] = pd.to_datetime(df[&quot;date&quot;], errors=&quot;coerce&quot;)
-</pre></div>
-</div>
-</div>
 </div>
 <p>Raw data for average UK weekly earnings since 2008 (from ONS)</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/62e0ef47334accbf30183d78ce85625a06fefb284cd7c831633073b5667dc357.png" src="../_images/62e0ef47334accbf30183d78ce85625a06fefb284cd7c831633073b5667dc357.png" />
+<img alt="../_images/de71c41c2b4f45e2a83a572fa5d674ba2c7019ca0961eec49490c2be542d6f0b.png" src="../_images/de71c41c2b4f45e2a83a572fa5d674ba2c7019ca0961eec49490c2be542d6f0b.png" />
 </div>
 </div>
 <p>Raw data for weekly earning with a straight line of best fit:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/1b175fc6a3ed3b62693fffa33a820b383d20bba6d2e37ae846ec672919ad9076.png" src="../_images/1b175fc6a3ed3b62693fffa33a820b383d20bba6d2e37ae846ec672919ad9076.png" />
+<img alt="../_images/eba2ac4f732a609c93a86e6abeba98efb8aa7e172c880517102453e8391b000b.png" src="../_images/eba2ac4f732a609c93a86e6abeba98efb8aa7e172c880517102453e8391b000b.png" />
 </div>
 </div>
 <p>Raw data for weekly earnings with a quadric curve of best fit:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/2d3656300c9b1b68a86ee926ce41cfda29eb1d916e3edce540f3b85370532c01.png" src="../_images/2d3656300c9b1b68a86ee926ce41cfda29eb1d916e3edce540f3b85370532c01.png" />
+<img alt="../_images/c51b3c8451b496a633ae423c9e1ca81199772ef86c9f27114a2dd2b6a2dc0c05.png" src="../_images/c51b3c8451b496a633ae423c9e1ca81199772ef86c9f27114a2dd2b6a2dc0c05.png" />
 </div>
 </div>
 <p>…. how do we do this….</p>
@@ -725,6 +718,44 @@ y &amp; 1.0 &amp; 0.5 &amp; 0.0 &amp; 0.5 &amp; 2.0
 </div>
 </div>
 </section>
+<section id="example-2-for-you">
+<h3>Example 2 (for you!)<a class="headerlink" href="#example-2-for-you" title="Permalink to this heading">#</a></h3>
+<p>Find the least square approximation to the system given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+    -2 &amp; 2 &amp; -1 \\
+    0 &amp; 1 &amp; 0 \\
+    3 &amp; 1 &amp; -2 \\
+    1 &amp; 1 &amp; 4
+    \end{pmatrix}
+    \begin{pmatrix}
+    x_1 \\ x_2 \\ x_3
+    \end{pmatrix}
+     =
+     \begin{pmatrix}
+     2 \\ 1 \\ 0 \\ -3
+     \end{pmatrix}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">3.0</span><span class="p">]])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.5       ],
+       [ 0.28571429],
+       [-0.66666667]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="problems-with-the-normal-equations">
 <h2>Problems with the normal equations<a class="headerlink" href="#problems-with-the-normal-equations" title="Permalink to this heading">#</a></h2>
@@ -816,6 +847,7 @@ A^T A = \begin{pmatrix}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-equations">The normal equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The normal equations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-for-you">Example 2 (for you!)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-the-normal-equations">Problems with the normal equations</a></li>

@@ -33,16 +33,16 @@ kernelspec:
 from datetime import datetime as dt
 import pandas as pd
 import requests
+from io import BytesIO
 
-data_url = "http://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01/current/earn01nov2022.xls"
+data_url = "http://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01/current/earn01nov2024.xls"
 r = requests.get(data_url)
-df = pd.read_excel(r.content, sheet_name="1. AWE Total Pay")
+df = pd.read_excel(BytesIO(r.content), sheet_name="1. AWE Total Pay")
 df = df.iloc[:, [0, 1]]
 df.columns = ["date", "earnings"]
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
 df = df.dropna()
 # since 2008
-df = df[df["date"] > "2008-01-01"]
+df = df[df["date"] > dt("2008-01-01")]
 
 
 def to_days(date):
@@ -126,7 +126,7 @@ plt.show()
 ```
 
 [Data source, ons](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01),
-[[xls](http://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01/current/earn01nov2022.xls)]
+[[xls](http://www.ons.gov.uk/file?uri=/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearningsearn01/current/earn01nov2024.xls)]
 
 ### An example of best linear fit
 

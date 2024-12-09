@@ -42,7 +42,7 @@ df = df.iloc[:, [0, 1]]
 df.columns = ["date", "earnings"]
 df = df.dropna()
 # since 2008
-df = df[df["date"] > dt(2008, 01, 01)]
+df = df[df["date"] > dt(2008, 1, 1)]
 
 
 def to_days(date):

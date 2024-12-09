@@ -30,7 +30,7 @@ df = df.iloc[:, [0, 1]]
 df.columns = ["date", "earnings"]
 df = df.dropna()
 # since 2008
-df = df[df["date"] > dt("2008-01-01")]
+df = df[df["date"] > dt(2008, 01, 01)]
 
 
 def to_days(date):
@@ -41,14 +41,9 @@ days = df.apply(lambda row: to_days(row.date), axis=1)
 ------------------
 
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[1], line 13[0m
-[1;32m     11[0m df [38;5;241m=[39m df[38;5;241m.[39mdropna()
-[1;32m     12[0m [38;5;66;03m# since 2008[39;00m
-[0;32m---> 13[0m df [38;5;241m=[39m df[df[[38;5;124m"[39m[38;5;124mdate[39m[38;5;124m"[39m] [38;5;241m>[39m [43mdt[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m2008-01-01[39;49m[38;5;124;43m"[39;49m[43m)[49m]
-[1;32m     16[0m [38;5;28;01mdef[39;00m [38;5;21mto_days[39m(date):
-[1;32m     17[0m     [38;5;28;01mreturn[39;00m [38;5;28mfloat[39m((date [38;5;241m-[39m dt([38;5;241m2008[39m, [38;5;241m1[39m, [38;5;241m1[39m))[38;5;241m.[39mdays)
+[0;36m  Cell [0;32mIn[1], line 13[0;36m[0m
+[0;31m    df = df[df["date"] > dt(2008, 01, 01)][0m
+[0m                                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
 
-[0;31mTypeError[0m: 'str' object cannot be interpreted as an integer
 

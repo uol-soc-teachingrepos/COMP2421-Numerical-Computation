@@ -143,7 +143,7 @@ In each case the performance is almost identical to the Newton method.
 -   Newton's method then becomes
 
     $$
-    x^{(i+1)} = x^{(i)} - f(x^{(i)}) \frac{x^{(i)} - x^{(i-1)}}{f(x^{i}) - f(x^{(i-1)})}
+    x^{(i+1)} = x^{(i)} - f(x^{(i)}) \frac{x^{(i)} - x^{(i-1)}}{f(x^{(i)}) - f(x^{(i-1)})}
     \left(\approx x^{(i)} - \frac{f(x^{(i)})}{f'(x^{(i)})} \right).
     $$
 
